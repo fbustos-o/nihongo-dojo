@@ -1,0 +1,11 @@
+services:
+  lightkanji:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        RUN_TESTS: "false"
+    image: lightkanji:local
+    ports:
+      - "${LIGHTKANJI_PORT:-8080}:80"
+    restart: unless-stopped

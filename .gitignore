@@ -1,0 +1,11 @@
+# Material con copyright y pesado (local, no se versiona)
+Docs/
+# Repo de referencia (clon externo)
+LightKanji/
+# Node / build
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env.local
