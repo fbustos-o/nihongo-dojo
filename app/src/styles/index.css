@@ -1,0 +1,144 @@
+:root {
+  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-ja: 'Noto Sans JP Variable', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --text: #1f1b16;
+  --text-muted: #6b625a;
+  --border: #e3dcd2;
+  --accent: #b3202a;
+  --accent-contrast: #ffffff;
+  --danger: #b00020;
+  --ok: #2e7d32;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #14110f;
+    --surface: #1e1a17;
+    --text: #f1ebe3;
+    --text-muted: #a69d93;
+    --border: #3a332d;
+    --accent: #e5535c;
+    --accent-contrast: #14110f;
+    --danger: #ff6b81;
+    --ok: #6fcf74;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #14110f;
+  --surface: #1e1a17;
+  --text: #f1ebe3;
+  --text-muted: #a69d93;
+  --border: #3a332d;
+  --accent: #e5535c;
+  --accent-contrast: #14110f;
+  --danger: #ff6b81;
+  --ok: #6fcf74;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+rt {
+  font-size: 0.55em;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+input[type='text'],
+select {
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

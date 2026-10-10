@@ -1,3 +1,7 @@
+.git
+Docs
+app/node_modules
+app/dist
 LightKanji/.git
 LightKanji/build
 LightKanji/.dart_tool

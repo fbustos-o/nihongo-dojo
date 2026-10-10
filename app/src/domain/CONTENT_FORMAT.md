@@ -1,0 +1,26 @@
+# Formato del contenido
+
+Los archivos viven en `app/src/content/` y se cargan con `import.meta.glob`
+(`contentLoader.ts`). Todos son opcionales: si falta uno se usa un arreglo vacío; si una entrada no
+valida contra su esquema zod (`schema.ts`) se descarta con un `console.warn`.
+
+| Archivo | Forma | Esquema |
+|---|---|---|
+| `kana.json` | `KanaEntry[]` — `{ char, romaji, script: 'hiragana'\|'katakana', row, group: 'gojuon'\|'dakuten'\|'handakuten'\|'yoon'\|'extended' }` | `KanaEntrySchema` |
+| `vocab.json` | `Word[]` | `WordSchema` |
+| `kanji.json` | `Kanji[]` | `KanjiSchema` |
+| `patterns.json` | `SentencePattern[]` | `SentencePatternSchema` |
+| `dialogues.json` | `Dialogue[]` | `DialogueSchema` |
+| `curriculum.json` | `Lesson[]` | `LessonSchema` |
+| `numbers.json` | objeto libre (`unknown` hasta E2) | — |
+
+Las formas completas están en `PLAN.md` ("Modelo de contenido"); los `GameId` válidos son:
+`kana-recognize`, `kana-write`, `read-words`, `listen`, `syntax`, `particles`, `conjugation`,
+`numbers`, `clock`, `calendar`, `dialogues`, `mini-reading`, `kanji`.
+
+## Reglas de datos
+
+- `Word.kana` es la lectura en el silabario natural (`たべる`, `コーヒー`); `Word.kanji` es la grafía
+  (`食べる`). `alignFurigana` (ver `furigana.ts`) alinea ambas quitando el okurigana común al inicio y
+  al final; no separa lecturas por kanji (学生 lleva una sola lectura sobre 学生).
+- Los ids referenciados en `Lesson` (`words`, `patterns`, `kanji`, `dialogues`) deben existir en sus archivos.

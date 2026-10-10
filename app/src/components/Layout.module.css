@@ -1,0 +1,76 @@
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.brand span {
+  font-family: var(--font-ja);
+  font-weight: 400;
+  margin-left: 0.4rem;
+  opacity: 0.85;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 5.5rem;
+}
+
+/* Mobile first: bottom tab bar. */
+.nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  z-index: 10;
+}
+
+.link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (min-width: 720px) {
+  .nav {
+    position: static;
+    justify-content: center;
+    gap: 0.5rem;
+    border-top: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .link {
+    flex: 0 0 auto;
+    flex-direction: row;
+    gap: 0.4rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .main {
+    padding-bottom: 2rem;
+  }
+}

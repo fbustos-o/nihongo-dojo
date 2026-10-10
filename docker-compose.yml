@@ -1,11 +1,22 @@
 services:
-  lightkanji:
+  dojo:
     build:
       context: .
       dockerfile: docker/Dockerfile
+    image: nihongo-dojo:local
+    ports:
+      - "${DOJO_PORT:-8081}:80"
+    restart: unless-stopped
+
+  # Cliente Flutter original, solo de referencia: docker compose --profile legacy up -d --build
+  lightkanji:
+    profiles: ["legacy"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.lightkanji
       args:
         RUN_TESTS: "false"
     image: lightkanji:local
     ports:
-      - "${LIGHTKANJI_PORT:-8080}:80"
+      - "${LIGHTKANJI_PORT:-8084}:80"
     restart: unless-stopped

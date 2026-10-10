@@ -1,0 +1,10 @@
+.ja {
+  font-family: var(--font-ja);
+}
+
+.romaji {
+  font-family: var(--font-ui);
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0 0.05em;
+}
