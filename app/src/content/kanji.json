@@ -12,11 +12,22 @@
    "uno"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "いち",
+   "ひと(つ)"
+  ],
   "words": [
    "ichi",
    "ichiji",
    "hitoride",
    "hitori"
+  ],
+  "strokes": 1,
+  "similar": [
+   "下",
+   "三",
+   "七",
+   "上"
   ]
  },
  {
@@ -31,11 +42,19 @@
    "dos"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "に",
+   "ふた(つ)"
+  ],
   "words": [
    "ni-numero",
    "futari",
    "futatsu",
    "futsuka"
+  ],
+  "strokes": 2,
+  "similar": [
+   "五"
   ]
  },
  {
@@ -50,11 +69,22 @@
    "tres"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "さん",
+   "み(つ)"
+  ],
   "words": [
    "san",
    "mikka",
    "mittsu",
    "sangatsu"
+  ],
+  "strokes": 3,
+  "similar": [
+   "一",
+   "下",
+   "七",
+   "上"
   ]
  },
  {
@@ -70,11 +100,20 @@
    "cuatro"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "し",
+   "よん",
+   "よ(つ)"
+  ],
   "words": [
    "shi-4",
    "yon",
    "shigatsu",
    "yokka"
+  ],
+  "strokes": 5,
+  "similar": [
+   "国"
   ]
  },
  {
@@ -89,11 +128,19 @@
    "cinco"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "ご",
+   "いつ(つ)"
+  ],
   "words": [
    "go",
    "gogatsu",
    "itsuka",
    "itsutsu"
+  ],
+  "strokes": 4,
+  "similar": [
+   "二"
   ]
  },
  {
@@ -108,11 +155,19 @@
    "seis"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "ろく",
+   "む(つ)"
+  ],
   "words": [
    "roku",
    "muika",
    "muttsu",
    "rokugatsu"
+  ],
+  "strokes": 4,
+  "similar": [
+   "八"
   ]
  },
  {
@@ -127,11 +182,22 @@
    "siete"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "しち",
+   "なな(つ)"
+  ],
   "words": [
    "nana",
    "shichi",
    "nanatsu",
    "nanoka"
+  ],
+  "strokes": 2,
+  "similar": [
+   "一",
+   "下",
+   "三",
+   "上"
   ]
  },
  {
@@ -146,11 +212,21 @@
    "ocho"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "はち",
+   "や(つ)"
+  ],
   "words": [
    "hachi",
    "hachigatsu",
    "yattsu",
    "youka"
+  ],
+  "strokes": 2,
+  "similar": [
+   "人",
+   "入",
+   "六"
   ]
  },
  {
@@ -166,12 +242,18 @@
    "nueve"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "きゅう",
+   "く",
+   "ここの(つ)"
+  ],
   "words": [
    "ku-9",
    "kyuu",
    "kokonoka",
    "kokonotsu"
-  ]
+  ],
+  "strokes": 2
  },
  {
   "char": "十",
@@ -185,11 +267,22 @@
    "diez"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "じゅう",
+   "とお"
+  ],
   "words": [
    "juu",
    "juugatsu",
    "too",
    "tooka"
+  ],
+  "strokes": 2,
+  "similar": [
+   "午",
+   "千",
+   "南",
+   "半"
   ]
  },
  {
@@ -202,10 +295,17 @@
    "cien"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "ひゃく"
+  ],
   "words": [
    "hyaku",
    "hyakuen",
    "sanbyaku"
+  ],
+  "strokes": 6,
+  "similar": [
+   "白"
   ]
  },
  {
@@ -220,9 +320,19 @@
    "mil"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "せん"
+  ],
   "words": [
    "sen",
    "sanzen"
+  ],
+  "strokes": 3,
+  "similar": [
+   "午",
+   "牛",
+   "十",
+   "南"
   ]
  },
  {
@@ -235,10 +345,20 @@
    "diez mil"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "まん"
+  ],
   "words": [
    "man",
    "ichiman",
    "ichimanen"
+  ],
+  "strokes": 3,
+  "similar": [
+   "一",
+   "下",
+   "三",
+   "七"
   ]
  },
  {
@@ -254,11 +374,16 @@
    "círculo"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "えん",
+   "まる(い)"
+  ],
   "words": [
    "en-yen",
    "hyakuen",
    "ichimanen"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "時",
@@ -273,16 +398,28 @@
    "tiempo"
   ],
   "genkiLesson": 3,
+  "teach": [
+   "じ",
+   "とき"
+  ],
   "words": [
    "ichiji",
    "ji-hora",
    "nanji",
    "tokidoki"
+  ],
+  "strokes": 10,
+  "similar": [
+   "映",
+   "昔",
+   "早",
+   "日"
   ]
  },
  {
   "char": "日",
   "on": [
+   "に",
    "にち",
    "じつ"
   ],
@@ -295,11 +432,24 @@
    "sol"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "に",
+   "にち",
+   "ひ",
+   "か"
+  ],
   "words": [
    "nihon",
    "ashita",
    "kyou",
    "mainichi"
+  ],
+  "strokes": 4,
+  "similar": [
+   "映",
+   "時",
+   "昔",
+   "早"
   ]
  },
  {
@@ -315,11 +465,22 @@
    "origen"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "ほん",
+   "もと"
+  ],
   "words": [
    "nihon",
    "hon",
    "nihongo",
    "nihonjin"
+  ],
+  "strokes": 5,
+  "similar": [
+   "休",
+   "校",
+   "東",
+   "木"
   ]
  },
  {
@@ -335,11 +496,23 @@
    "persona"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "じん",
+   "にん",
+   "ひと"
+  ],
   "words": [
    "jin",
    "hito",
    "hitoride",
    "amerikajin"
+  ],
+  "strokes": 2,
+  "similar": [
+   "入",
+   "八",
+   "何",
+   "会"
   ]
  },
  {
@@ -356,11 +529,20 @@
    "mes"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "げつ",
+   "がつ",
+   "つき"
+  ],
   "words": [
    "gatsu",
    "gogatsu",
    "hachigatsu",
    "ichigatsu"
+  ],
+  "strokes": 4,
+  "similar": [
+   "朝"
   ]
  },
  {
@@ -375,11 +557,16 @@
    "fuego"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "か",
+   "ひ"
+  ],
   "words": [
    "kayoubi",
    "hi",
    "kaji"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "水",
@@ -393,10 +580,15 @@
    "agua"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "すい",
+   "みず"
+  ],
   "words": [
    "mizu",
    "suiyoubi"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "木",
@@ -412,9 +604,20 @@
    "madera"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "もく",
+   "き"
+  ],
   "words": [
    "mokuyoubi",
    "ki"
+  ],
+  "strokes": 4,
+  "similar": [
+   "校",
+   "東",
+   "本",
+   "来"
   ]
  },
  {
@@ -431,15 +634,21 @@
    "metal"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "きん",
+   "かね"
+  ],
   "words": [
    "okane",
    "kinyoubi"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "土",
   "on": [
-   "ど"
+   "ど",
+   "と"
   ],
   "kun": [
    "つち"
@@ -449,10 +658,16 @@
    "suelo"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "ど",
+   "と",
+   "つち"
+  ],
   "words": [
    "doyoubi",
    "tsuchi"
-  ]
+  ],
+  "strokes": 3
  },
  {
   "char": "曜",
@@ -464,11 +679,21 @@
    "día de la semana"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "よう"
+  ],
   "words": [
    "youbi",
    "doyoubi",
    "nichiyoubi",
    "getsuyoubi"
+  ],
+  "strokes": 18,
+  "similar": [
+   "映",
+   "時",
+   "昔",
+   "早"
   ]
  },
  {
@@ -478,17 +703,29 @@
   ],
   "kun": [
    "うえ",
-   "あ(げる)",
-   "のぼ(る)"
+   "のぼ(る)",
+   "あ(げる)"
   ],
   "es": [
    "arriba",
    "encima"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "じょう",
+   "うえ",
+   "のぼ(る)"
+  ],
   "words": [
    "ue",
    "jouzu"
+  ],
+  "strokes": 3,
+  "similar": [
+   "一",
+   "下",
+   "三",
+   "七"
   ]
  },
  {
@@ -499,23 +736,36 @@
   ],
   "kun": [
    "した",
-   "さ(げる)",
-   "くだ(さる)"
+   "くだ(さる)",
+   "さ(げる)"
   ],
   "es": [
    "abajo",
    "debajo"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "か",
+   "した",
+   "くだ(さる)"
+  ],
   "words": [
    "heta",
    "shita"
+  ],
+  "strokes": 3,
+  "similar": [
+   "一",
+   "三",
+   "七",
+   "上"
   ]
  },
  {
   "char": "中",
   "on": [
-   "ちゅう"
+   "ちゅう",
+   "じゅう"
   ],
   "kun": [
    "なか"
@@ -526,12 +776,18 @@
    "en medio"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "ちゅう",
+   "じゅう",
+   "なか"
+  ],
   "words": [
    "chuugoku",
    "naka",
    "tanaka",
    "chuuko"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "半",
@@ -546,9 +802,19 @@
    "medio"
   ],
   "genkiLesson": 4,
+  "teach": [
+   "はん"
+  ],
   "words": [
    "han",
    "nijihan"
+  ],
+  "strokes": 5,
+  "similar": [
+   "午",
+   "十",
+   "千",
+   "南"
   ]
  },
  {
@@ -563,10 +829,15 @@
    "montaña"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "さん",
+   "やま"
+  ],
   "words": [
    "yama",
    "yamada"
-  ]
+  ],
+  "strokes": 3
  },
  {
   "char": "川",
@@ -574,17 +845,23 @@
    "せん"
   ],
   "kun": [
-   "かわ"
+   "かわ",
+   "がわ"
   ],
   "es": [
    "río"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "かわ",
+   "がわ"
+  ],
   "words": [
    "kawa",
    "kawaguchi",
    "ogawa"
-  ]
+  ],
+  "strokes": 3
  },
  {
   "char": "元",
@@ -600,9 +877,18 @@
    "ánimo"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "げん",
+   "がん",
+   "もと"
+  ],
   "words": [
    "genki",
    "moto"
+  ],
+  "strokes": 4,
+  "similar": [
+   "先"
   ]
  },
  {
@@ -618,12 +904,16 @@
    "aire"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "き"
+  ],
   "words": [
    "genki",
    "tenki",
    "denki",
    "byouki"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "天",
@@ -638,9 +928,16 @@
    "cielo"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "てん"
+  ],
   "words": [
    "tenki",
    "tenpura"
+  ],
+  "strokes": 4,
+  "similar": [
+   "大"
   ]
  },
  {
@@ -657,10 +954,15 @@
    "privado"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "し",
+   "わたし"
+  ],
   "words": [
    "watashi",
    "shiritsu"
-  ]
+  ],
+  "strokes": 7
  },
  {
   "char": "今",
@@ -675,11 +977,22 @@
    "ahora"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "こん",
+   "いま"
+  ],
   "words": [
    "ima",
    "kyou",
    "kesa",
    "konya"
+  ],
+  "strokes": 4,
+  "similar": [
+   "会",
+   "何",
+   "休",
+   "作"
   ]
  },
  {
@@ -688,16 +1001,27 @@
    "でん"
   ],
   "kun": [
-   "た"
+   "た",
+   "だ"
   ],
   "es": [
    "arrozal"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "た",
+   "だ"
+  ],
   "words": [
    "tanaka",
    "tanbo",
    "yamada"
+  ],
+  "strokes": 5,
+  "similar": [
+   "画",
+   "男",
+   "町"
   ]
  },
  {
@@ -712,10 +1036,18 @@
    "mujer"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "じょ",
+   "おんな"
+  ],
   "words": [
    "onnanohito",
    "onna",
    "onnanoko"
+  ],
+  "strokes": 3,
+  "similar": [
+   "好"
   ]
  },
  {
@@ -730,10 +1062,20 @@
    "hombre"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "だん",
+   "おとこ"
+  ],
   "words": [
    "otokonohito",
    "otoko",
    "otokonoko"
+  ],
+  "strokes": 7,
+  "similar": [
+   "画",
+   "町",
+   "田"
   ]
  },
  {
@@ -749,10 +1091,15 @@
    "mirar"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "けん",
+   "み(る)"
+  ],
   "words": [
    "miru",
    "miseru"
-  ]
+  ],
+  "strokes": 7
  },
  {
   "char": "行",
@@ -768,10 +1115,16 @@
    "ir"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "こう",
+   "ぎょう",
+   "い(く)"
+  ],
   "words": [
    "iku",
    "ryokou"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "食",
@@ -787,9 +1140,17 @@
    "comida"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "しょく",
+   "た(べる)"
+  ],
   "words": [
    "taberu",
    "shokuji"
+  ],
+  "strokes": 9,
+  "similar": [
+   "飲"
   ]
  },
  {
@@ -804,9 +1165,17 @@
    "beber"
   ],
   "genkiLesson": 5,
+  "teach": [
+   "いん",
+   "の(む)"
+  ],
   "words": [
    "nomu",
    "nomikai"
+  ],
+  "strokes": 12,
+  "similar": [
+   "食"
   ]
  },
  {
@@ -821,9 +1190,20 @@
    "este"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "とう",
+   "ひがし"
+  ],
   "words": [
    "higashi",
    "toukyou"
+  ],
+  "strokes": 8,
+  "similar": [
+   "校",
+   "本",
+   "木",
+   "来"
   ]
  },
  {
@@ -839,10 +1219,16 @@
    "oeste"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "せい",
+   "さい",
+   "にし"
+  ],
   "words": [
    "nishi",
    "nishiguchi"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "南",
@@ -856,9 +1242,20 @@
    "sur"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "なん",
+   "みなみ"
+  ],
   "words": [
    "minami",
    "minamiguchi"
+  ],
+  "strokes": 9,
+  "similar": [
+   "午",
+   "十",
+   "千",
+   "半"
   ]
  },
  {
@@ -873,10 +1270,15 @@
    "norte"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "ほく",
+   "きた"
+  ],
   "words": [
    "kita",
    "kitaguchi"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "口",
@@ -885,18 +1287,31 @@
    "く"
   ],
   "kun": [
-   "くち"
+   "くち",
+   "ぐち"
   ],
   "es": [
    "boca",
    "entrada"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "こう",
+   "くち",
+   "ぐち"
+  ],
   "words": [
    "kuchi",
    "deguchi",
    "kawaguchi",
    "kitaguchi"
+  ],
+  "strokes": 3,
+  "similar": [
+   "員",
+   "右",
+   "古",
+   "名"
   ]
  },
  {
@@ -913,12 +1328,18 @@
    "sacar"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "しゅつ",
+   "で(る)",
+   "だ(す)"
+  ],
   "words": [
    "dekakeru",
    "dasu",
    "deguchi",
    "deru"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "右",
@@ -933,9 +1354,21 @@
    "derecha"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "う",
+   "ゆう",
+   "みぎ"
+  ],
   "words": [
    "migi",
    "migite"
+  ],
+  "strokes": 5,
+  "similar": [
+   "員",
+   "古",
+   "口",
+   "名"
   ]
  },
  {
@@ -950,20 +1383,25 @@
    "izquierda"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "さ",
+   "ひだり"
+  ],
   "words": [
    "hidari",
    "hidarite"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "分",
   "on": [
-   "ぶん",
-   "ふん"
+   "ふん",
+   "ぶん"
   ],
   "kun": [
-   "わ(かる)",
-   "わ(ける)"
+   "わ(ける)",
+   "わ(かる)"
   ],
   "es": [
    "minuto",
@@ -971,11 +1409,22 @@
    "entender"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "ふん",
+   "ぶん",
+   "わ(ける)"
+  ],
   "words": [
    "wakaru",
    "fun",
    "jibun",
    "jibunde"
+  ],
+  "strokes": 4,
+  "similar": [
+   "帰",
+   "前",
+   "別"
   ]
  },
  {
@@ -992,9 +1441,17 @@
    "punta"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "せん",
+   "さき"
+  ],
   "words": [
    "sensei",
    "saki"
+  ],
+  "strokes": 6,
+  "similar": [
+   "元"
   ]
  },
  {
@@ -1004,8 +1461,8 @@
    "しょう"
   ],
   "kun": [
-   "い(きる)",
    "う(まれる)",
+   "い(きる)",
    "なま"
   ],
   "es": [
@@ -1014,12 +1471,18 @@
    "crudo"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "せい",
+   "しょう",
+   "う(まれる)"
+  ],
   "words": [
    "gakusei",
    "nensei",
    "sensei",
    "daigakusei"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "大",
@@ -1034,11 +1497,20 @@
    "grande"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "だい",
+   "たい",
+   "おお(きい)"
+  ],
   "words": [
    "daigaku",
    "daisuki",
    "ookii",
    "daigakusei"
+  ],
+  "strokes": 3,
+  "similar": [
+   "天"
   ]
  },
  {
@@ -1054,11 +1526,19 @@
    "aprender"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "がく",
+   "まな(ぶ)"
+  ],
   "words": [
    "daigaku",
    "gakusei",
    "gakkou",
    "daigakusei"
+  ],
+  "strokes": 8,
+  "similar": [
+   "子"
   ]
  },
  {
@@ -1076,11 +1556,19 @@
    "extranjero"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "がい",
+   "そと"
+  ],
   "words": [
    "gaikoku",
    "soto",
    "gaikokujin",
    "gaikokugo"
+  ],
+  "strokes": 5,
+  "similar": [
+   "夜"
   ]
  },
  {
@@ -1095,11 +1583,19 @@
    "país"
   ],
   "genkiLesson": 6,
+  "teach": [
+   "こく",
+   "くに"
+  ],
   "words": [
    "chuugoku",
    "kuni",
    "gaikoku",
    "kokuritsu"
+  ],
+  "strokes": 8,
+  "similar": [
+   "四"
   ]
  },
  {
@@ -1113,10 +1609,14 @@
    "capital"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "きょう"
+  ],
   "words": [
    "kyouko",
    "toukyou"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "子",
@@ -1132,11 +1632,19 @@
    "hijo"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "し",
+   "こ"
+  ],
   "words": [
    "kyouko",
    "onnanoko",
    "otokonoko",
    "koushi"
+  ],
+  "strokes": 3,
+  "similar": [
+   "学"
   ]
  },
  {
@@ -1153,10 +1661,18 @@
    "pequeño"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "しょう",
+   "ちい(さい)"
+  ],
   "words": [
    "chiisai",
    "ogawa",
    "shougakkou"
+  ],
+  "strokes": 3,
+  "similar": [
+   "少"
   ]
  },
  {
@@ -1173,17 +1689,29 @@
    "reunión"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "かい",
+   "あ(う)"
+  ],
   "words": [
    "au",
    "kaisha",
    "nomikai",
    "kaiin"
+  ],
+  "strokes": 6,
+  "similar": [
+   "今",
+   "何",
+   "休",
+   "作"
   ]
  },
  {
   "char": "社",
   "on": [
-   "しゃ"
+   "しゃ",
+   "じゃ"
   ],
   "kun": [
    "やしろ"
@@ -1193,11 +1721,19 @@
    "santuario"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "しゃ",
+   "じゃ"
+  ],
   "words": [
    "jinja",
    "kaisha",
    "shachou",
    "kaishain"
+  ],
+  "strokes": 7,
+  "similar": [
+   "神"
   ]
  },
  {
@@ -1206,16 +1742,23 @@
    "ふ"
   ],
   "kun": [
-   "ちち"
+   "ちち",
+   "とう"
   ],
   "es": [
    "padre"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "ふ",
+   "ちち",
+   "とう"
+  ],
   "words": [
    "otousan",
    "chichi"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "母",
@@ -1223,15 +1766,25 @@
    "ぼ"
   ],
   "kun": [
-   "はは"
+   "はは",
+   "かあ"
   ],
   "es": [
    "madre"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "ぼ",
+   "はは",
+   "かあ"
+  ],
   "words": [
    "okaasan",
    "haha"
+  ],
+  "strokes": 5,
+  "similar": [
+   "毎"
   ]
  },
  {
@@ -1247,10 +1800,15 @@
    "caro"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "こう",
+   "たか(い)"
+  ],
   "words": [
    "koukou",
    "takai"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "校",
@@ -1262,10 +1820,20 @@
    "escuela"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "こう"
+  ],
   "words": [
    "koukou",
    "gakkou",
    "shougakkou"
+  ],
+  "strokes": 10,
+  "similar": [
+   "東",
+   "本",
+   "木",
+   "来"
   ]
  },
  {
@@ -1279,10 +1847,17 @@
    "todos los"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "まい"
+  ],
   "words": [
    "mainichi",
    "maiasa",
    "maitoshi"
+  ],
+  "strokes": 6,
+  "similar": [
+   "母"
   ]
  },
  {
@@ -1298,11 +1873,20 @@
    "palabra"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "ご"
+  ],
   "words": [
    "go-idioma",
    "nihongo",
    "gengo",
    "chuugokugo"
+  ],
+  "strokes": 14,
+  "similar": [
+   "言",
+   "読",
+   "話"
   ]
  },
  {
@@ -1320,10 +1904,14 @@
    "texto"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "ぶん"
+  ],
   "words": [
    "bun",
    "sakubun"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "帰",
@@ -1337,9 +1925,19 @@
    "volver (a casa)"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "き",
+   "かえ(る)"
+  ],
   "words": [
    "kaeru",
    "kaeri"
+  ],
+  "strokes": 10,
+  "similar": [
+   "前",
+   "分",
+   "別"
   ]
  },
  {
@@ -1348,18 +1946,28 @@
    "にゅう"
   ],
   "kun": [
-   "い(れる)",
-   "はい(る)"
+   "はい(る)",
+   "い(れる)"
   ],
   "es": [
    "entrar",
    "meter"
   ],
   "genkiLesson": 7,
+  "teach": [
+   "にゅう",
+   "はい(る)",
+   "い(れる)"
+  ],
   "words": [
    "hairu",
    "ireru",
    "iriguchi"
+  ],
+  "strokes": 2,
+  "similar": [
+   "八",
+   "人"
   ]
  },
  {
@@ -1373,9 +1981,19 @@
    "empleado"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "いん"
+  ],
   "words": [
    "kaiin",
    "kaishain"
+  ],
+  "strokes": 10,
+  "similar": [
+   "右",
+   "古",
+   "口",
+   "名"
   ]
  },
  {
@@ -1391,10 +2009,15 @@
    "nuevo"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "しん",
+   "あたら(しい)"
+  ],
   "words": [
    "shinbun",
    "atarashii"
-  ]
+  ],
+  "strokes": 13
  },
  {
   "char": "聞",
@@ -1411,10 +2034,15 @@
    "preguntar"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "ぶん",
+   "き(く)"
+  ],
   "words": [
    "shinbun",
    "kiku"
-  ]
+  ],
+  "strokes": 14
  },
  {
   "char": "作",
@@ -1430,10 +2058,21 @@
    "fabricar"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "さく",
+   "つく(る)"
+  ],
   "words": [
    "tsukuru",
    "sakubun",
    "sakka"
+  ],
+  "strokes": 7,
+  "similar": [
+   "何",
+   "会",
+   "休",
+   "今"
   ]
  },
  {
@@ -1449,9 +2088,20 @@
    "trabajar"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "し",
+   "つか(える)"
+  ],
   "words": [
    "shigoto",
    "shigotochuu"
+  ],
+  "strokes": 5,
+  "similar": [
+   "何",
+   "会",
+   "休",
+   "今"
   ]
  },
  {
@@ -1460,7 +2110,8 @@
    "じ"
   ],
   "kun": [
-   "こと"
+   "こと",
+   "ごと"
   ],
   "es": [
    "asunto",
@@ -1468,12 +2119,18 @@
    "trabajo"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "じ",
+   "こと",
+   "ごと"
+  ],
   "words": [
    "shigoto",
    "kaji",
    "shokuji",
    "shigotochuu"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "電",
@@ -1485,11 +2142,19 @@
    "electricidad"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "でん"
+  ],
   "words": [
    "denwa",
    "denki",
    "densha",
    "denwasuru"
+  ],
+  "strokes": 13,
+  "similar": [
+   "雨",
+   "雪"
   ]
  },
  {
@@ -1505,10 +2170,15 @@
    "auto"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "しゃ",
+   "くるま"
+  ],
   "words": [
    "densha",
    "kuruma"
-  ]
+  ],
+  "strokes": 7
  },
  {
   "char": "休",
@@ -1522,10 +2192,21 @@
    "descansar"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "きゅう",
+   "やす(む)"
+  ],
   "words": [
    "yasumi",
    "yasumu",
    "renkyuu"
+  ],
+  "strokes": 6,
+  "similar": [
+   "本",
+   "何",
+   "会",
+   "今"
   ]
  },
  {
@@ -1543,9 +2224,20 @@
    "palabra"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "げん",
+   "い(う)",
+   "こと"
+  ],
   "words": [
    "iu",
    "gengo"
+  ],
+  "strokes": 7,
+  "similar": [
+   "語",
+   "読",
+   "話"
   ]
  },
  {
@@ -1560,9 +2252,19 @@
    "leer"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "どく",
+   "よ(む)"
+  ],
   "words": [
    "yomu",
    "dokusho"
+  ],
+  "strokes": 14,
+  "similar": [
+   "言",
+   "語",
+   "話"
   ]
  },
  {
@@ -1577,10 +2279,15 @@
    "pensar"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "し",
+   "おも(う)"
+  ],
   "words": [
    "omoide",
    "omou"
-  ]
+  ],
+  "strokes": 9
  },
  {
   "char": "次",
@@ -1597,9 +2304,17 @@
    "próximo"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "じ",
+   "つぎ"
+  ],
   "words": [
    "tsugi",
    "tsuginohi"
+  ],
+  "strokes": 6,
+  "similar": [
+   "歌"
   ]
  },
  {
@@ -1615,11 +2330,22 @@
    "qué"
   ],
   "genkiLesson": 8,
+  "teach": [
+   "なに",
+   "なん"
+  ],
   "words": [
    "nan",
    "nani",
    "nanji",
    "nanimo"
+  ],
+  "strokes": 7,
+  "similar": [
+   "会",
+   "休",
+   "今",
+   "作"
   ]
  },
  {
@@ -1632,9 +2358,19 @@
    "mediodía"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "ご"
+  ],
   "words": [
    "gogo",
    "gozen"
+  ],
+  "strokes": 4,
+  "similar": [
+   "千",
+   "牛",
+   "十",
+   "南"
   ]
  },
  {
@@ -1644,20 +2380,26 @@
    "こう"
   ],
   "kun": [
-   "のち",
+   "あと",
    "うし(ろ)",
-   "あと"
+   "のち"
   ],
   "es": [
    "después",
    "atrás"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "ご",
+   "あと",
+   "うし(ろ)"
+  ],
   "words": [
    "gogo",
    "atode",
    "ushiro"
-  ]
+  ],
+  "strokes": 9
  },
  {
   "char": "前",
@@ -1672,10 +2414,20 @@
    "delante"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "ぜん",
+   "まえ"
+  ],
   "words": [
    "gozen",
    "namae",
    "mae"
+  ],
+  "strokes": 9,
+  "similar": [
+   "帰",
+   "分",
+   "別"
   ]
  },
  {
@@ -1691,10 +2443,22 @@
    "nombre"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "めい",
+   "みょう",
+   "な"
+  ],
   "words": [
    "namae",
    "yuumei",
    "yuumeijin"
+  ],
+  "strokes": 6,
+  "similar": [
+   "員",
+   "右",
+   "古",
+   "口"
   ]
  },
  {
@@ -1710,9 +2474,17 @@
    "blanco"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "はく",
+   "しろ(い)"
+  ],
   "words": [
    "shiro",
    "shiroi"
+  ],
+  "strokes": 5,
+  "similar": [
+   "百"
   ]
  },
  {
@@ -1727,9 +2499,18 @@
    "lluvia"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "う",
+   "あめ"
+  ],
   "words": [
    "ame",
    "ooame"
+  ],
+  "strokes": 8,
+  "similar": [
+   "雪",
+   "電"
   ]
  },
  {
@@ -1744,11 +2525,16 @@
    "escribir"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "しょ",
+   "か(く)"
+  ],
   "words": [
    "kaku",
    "dokusho",
    "shodou"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "友",
@@ -1762,15 +2548,21 @@
    "amigo"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "ゆう",
+   "とも"
+  ],
   "words": [
    "tomodachi",
    "yuujin"
-  ]
+  ],
+  "strokes": 4
  },
  {
   "char": "間",
   "on": [
    "かん",
+   "げん",
    "けん"
   ],
   "kun": [
@@ -1782,11 +2574,17 @@
    "entre"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "かん",
+   "げん",
+   "あいだ"
+  ],
   "words": [
    "jikan",
    "ichijikan",
    "nanjikan"
-  ]
+  ],
+  "strokes": 12
  },
  {
   "char": "家",
@@ -1796,6 +2594,7 @@
   ],
   "kun": [
    "いえ",
+   "や",
    "うち"
   ],
   "es": [
@@ -1803,11 +2602,17 @@
    "familia"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "か",
+   "いえ",
+   "や"
+  ],
   "words": [
    "ie",
    "sakka",
    "gaka"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "話",
@@ -1823,11 +2628,22 @@
    "conversación"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "わ",
+   "はな(す)",
+   "はなし"
+  ],
   "words": [
    "denwa",
    "hanasu",
    "denwasuru",
    "hanashi"
+  ],
+  "strokes": 13,
+  "similar": [
+   "言",
+   "語",
+   "読"
   ]
  },
  {
@@ -1843,9 +2659,18 @@
    "poco"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "しょう",
+   "すこ(し)",
+   "すく(ない)"
+  ],
   "words": [
    "sukoshi",
    "sukunai"
+  ],
+  "strokes": 4,
+  "similar": [
+   "小"
   ]
  },
  {
@@ -1861,9 +2686,20 @@
    "antiguo"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "こ",
+   "ふる(い)"
+  ],
   "words": [
    "furui",
    "chuuko"
+  ],
+  "strokes": 5,
+  "similar": [
+   "早",
+   "員",
+   "右",
+   "口"
   ]
  },
  {
@@ -1879,10 +2715,15 @@
    "conocer"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "ち",
+   "し(る)"
+  ],
   "words": [
    "chijin",
    "shiru"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "来",
@@ -1891,15 +2732,29 @@
   ],
   "kun": [
    "く(る)",
-   "き"
+   "き",
+   "こ"
   ],
   "es": [
    "venir"
   ],
   "genkiLesson": 9,
+  "teach": [
+   "らい",
+   "く(る)",
+   "き",
+   "こ"
+  ],
   "words": [
    "kuru",
    "rainen"
+  ],
+  "strokes": 7,
+  "similar": [
+   "校",
+   "東",
+   "本",
+   "木"
   ]
  },
  {
@@ -1915,16 +2770,27 @@
    "residir"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "じゅう",
+   "す(む)"
+  ],
   "words": [
    "sumu",
    "juusho"
+  ],
+  "strokes": 7,
+  "similar": [
+   "何",
+   "会",
+   "休",
+   "今"
   ]
  },
  {
   "char": "正",
   "on": [
-   "せい",
-   "しょう"
+   "しょう",
+   "せい"
   ],
   "kun": [
    "ただ(しい)",
@@ -1934,10 +2800,16 @@
    "correcto"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "しょう",
+   "せい",
+   "ただ(しい)"
+  ],
   "words": [
    "shougatsu",
    "tadashii"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "年",
@@ -1951,12 +2823,17 @@
    "año"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ねん",
+   "とし"
+  ],
   "words": [
    "nensei",
    "rainen",
    "nannen",
    "nen"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "売",
@@ -1970,10 +2847,15 @@
    "vender"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ばい",
+   "う(る)"
+  ],
   "words": [
    "ureru",
    "uru"
-  ]
+  ],
+  "strokes": 7
  },
  {
   "char": "買",
@@ -1987,10 +2869,15 @@
    "comprar"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ばい",
+   "か(う)"
+  ],
   "words": [
    "kau",
    "kaite"
-  ]
+  ],
+  "strokes": 12
  },
  {
   "char": "町",
@@ -2006,9 +2893,19 @@
    "barrio"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ちょう",
+   "まち"
+  ],
   "words": [
    "machi",
    "machinaka"
+  ],
+  "strokes": 7,
+  "similar": [
+   "画",
+   "男",
+   "田"
   ]
  },
  {
@@ -2024,11 +2921,16 @@
    "jefe"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ちょう",
+   "なが(い)"
+  ],
   "words": [
    "nagai",
    "shachou",
    "shichou"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "道",
@@ -2043,10 +2945,19 @@
    "calle"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "どう",
+   "みち"
+  ],
   "words": [
    "michi",
    "shodou",
    "tsukaimichi"
+  ],
+  "strokes": 12,
+  "similar": [
+   "近",
+   "連"
   ]
  },
  {
@@ -2061,9 +2972,18 @@
    "nieve"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "せつ",
+   "ゆき"
+  ],
   "words": [
    "yuki",
    "ooyuki"
+  ],
+  "strokes": 11,
+  "similar": [
+   "雨",
+   "電"
   ]
  },
  {
@@ -2080,11 +3000,16 @@
    "levantarse"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "りつ",
+   "た(つ)"
+  ],
   "words": [
    "tatsu",
    "kokuritsu",
    "shiritsu"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "自",
@@ -2100,10 +3025,14 @@
    "por sí mismo"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "じ"
+  ],
   "words": [
    "jibun",
    "jibunde"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "夜",
@@ -2118,9 +3047,18 @@
    "noche"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "や",
+   "よる",
+   "よ"
+  ],
   "words": [
    "yoru",
    "konya"
+  ],
+  "strokes": 8,
+  "similar": [
+   "外"
   ]
  },
  {
@@ -2135,10 +3073,18 @@
    "mañana (parte del día)"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "ちょう",
+   "あさ"
+  ],
   "words": [
    "asa",
    "kesa",
    "maiasa"
+  ],
+  "strokes": 12,
+  "similar": [
+   "月"
   ]
  },
  {
@@ -2154,9 +3100,17 @@
    "llevar"
   ],
   "genkiLesson": 10,
+  "teach": [
+   "じ",
+   "も(つ)"
+  ],
   "words": [
    "motsu",
    "mottekuru"
+  ],
+  "strokes": 9,
+  "similar": [
+   "手"
   ]
  },
  {
@@ -2171,11 +3125,19 @@
    "mano"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "しゅ",
+   "て"
+  ],
   "words": [
    "heta",
    "hidarite",
    "jouzu",
    "kaite"
+  ],
+  "strokes": 4,
+  "similar": [
+   "持"
   ]
  },
  {
@@ -2184,16 +3146,23 @@
    "し"
   ],
   "kun": [
-   "かみ"
+   "かみ",
+   "がみ"
   ],
   "es": [
    "papel"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "し",
+   "かみ",
+   "がみ"
+  ],
   "words": [
    "kami",
    "tegami"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "好",
@@ -2208,9 +3177,18 @@
    "gustar"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "こう",
+   "す(き)",
+   "この(む)"
+  ],
   "words": [
    "daisuki",
    "suki"
+  ],
+  "strokes": 6,
+  "similar": [
+   "女"
   ]
  },
  {
@@ -2225,9 +3203,18 @@
    "cerca"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "きん",
+   "ちか(い)"
+  ],
   "words": [
    "chikai",
    "chikaku"
+  ],
+  "strokes": 7,
+  "similar": [
+   "道",
+   "連"
   ]
  },
  {
@@ -2237,7 +3224,7 @@
    "みょう"
   ],
   "kun": [
-   "あ(かるい)",
+   "あか(るい)",
    "あき(らか)"
   ],
   "es": [
@@ -2245,9 +3232,20 @@
    "brillante"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "めい",
+   "あか(るい)"
+  ],
   "words": [
    "ashita",
    "akarui"
+  ],
+  "strokes": 8,
+  "similar": [
+   "映",
+   "時",
+   "昔",
+   "早"
   ]
  },
  {
@@ -2263,10 +3261,14 @@
    "enfermedad"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "びょう"
+  ],
   "words": [
    "byouin",
    "byouki"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "院",
@@ -2279,10 +3281,14 @@
    "hospital"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "いん"
+  ],
   "words": [
    "byouin",
    "daigakuin"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "映",
@@ -2298,9 +3304,20 @@
    "proyectar"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "えい",
+   "うつ(る)"
+  ],
   "words": [
    "eiga",
    "utsuru"
+  ],
+  "strokes": 9,
+  "similar": [
+   "時",
+   "昔",
+   "早",
+   "日"
   ]
  },
  {
@@ -2315,9 +3332,19 @@
    "imagen"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "が",
+   "かく"
+  ],
   "words": [
    "eiga",
    "gaka"
+  ],
+  "strokes": 8,
+  "similar": [
+   "男",
+   "町",
+   "田"
   ]
  },
  {
@@ -2334,10 +3361,18 @@
    "cantar"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "か",
+   "うた"
+  ],
   "words": [
    "utau",
    "kashu",
    "uta"
+  ],
+  "strokes": 14,
+  "similar": [
+   "次"
   ]
  },
  {
@@ -2353,14 +3388,20 @@
    "mercado"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "し",
+   "いち"
+  ],
   "words": [
    "shi-ciudad",
    "shichou"
-  ]
+  ],
+  "strokes": 5
  },
  {
   "char": "所",
   "on": [
+   "じょ",
    "しょ"
   ],
   "kun": [
@@ -2370,25 +3411,38 @@
    "lugar"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "じょ",
+   "しょ",
+   "ところ"
+  ],
   "words": [
    "juusho",
    "tokoro"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "勉",
   "on": [
    "べん"
   ],
-  "kun": [],
+  "kun": [
+   "つと(める)"
+  ],
   "es": [
    "esforzarse"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "べん",
+   "つと(める)"
+  ],
   "words": [
    "benkyousuru",
    "benkyou"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "強",
@@ -2403,11 +3457,17 @@
    "fuerte"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "きょう",
+   "ごう",
+   "つよ(い)"
+  ],
   "words": [
    "benkyousuru",
    "benkyou",
    "tsuyoi"
-  ]
+  ],
+  "strokes": 11
  },
  {
   "char": "有",
@@ -2423,10 +3483,15 @@
    "existir"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "ゆう",
+   "あ(る)"
+  ],
   "words": [
    "yuumei",
    "yuumeijin"
-  ]
+  ],
+  "strokes": 6
  },
  {
   "char": "旅",
@@ -2440,10 +3505,15 @@
    "viaje"
   ],
   "genkiLesson": 11,
+  "teach": [
+   "りょ",
+   "たび"
+  ],
   "words": [
    "ryokou",
    "tabi"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "昔",
@@ -2459,16 +3529,27 @@
    "hace mucho"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "むかし"
+  ],
   "words": [
    "mukashi",
    "mukashibanashi"
+  ],
+  "strokes": 8,
+  "similar": [
+   "映",
+   "時",
+   "早",
+   "日"
   ]
  },
  {
   "char": "神",
   "on": [
+   "じん",
    "しん",
-   "じん"
+   "こう"
   ],
   "kun": [
    "かみ"
@@ -2478,9 +3559,19 @@
    "deidad"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "じん",
+   "しん",
+   "こう",
+   "かみ"
+  ],
   "words": [
    "jinja",
    "kami-dios"
+  ],
+  "strokes": 9,
+  "similar": [
+   "社"
   ]
  },
  {
@@ -2496,9 +3587,20 @@
    "temprano"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "そう",
+   "はや(い)"
+  ],
   "words": [
    "hayai",
    "hayaku"
+  ],
+  "strokes": 6,
+  "similar": [
+   "古",
+   "映",
+   "時",
+   "昔"
   ]
  },
  {
@@ -2515,10 +3617,15 @@
    "despertar"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "き",
+   "お(きる)"
+  ],
   "words": [
    "okiru",
    "okosu"
-  ]
+  ],
+  "strokes": 10
  },
  {
   "char": "牛",
@@ -2532,9 +3639,18 @@
    "vaca"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "ぎゅう",
+   "うし"
+  ],
   "words": [
    "koushi",
    "ushi"
+  ],
+  "strokes": 4,
+  "similar": [
+   "千",
+   "午"
   ]
  },
  {
@@ -2549,9 +3665,20 @@
    "usar"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "し",
+   "つか(う)"
+  ],
   "words": [
    "tsukau",
    "tsukaimichi"
+  ],
+  "strokes": 8,
+  "similar": [
+   "何",
+   "会",
+   "休",
+   "今"
   ]
  },
  {
@@ -2566,9 +3693,20 @@
    "trabajar"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "どう",
+   "はたら(く)"
+  ],
   "words": [
    "hatarakite",
    "hataraku"
+  ],
+  "strokes": 13,
+  "similar": [
+   "何",
+   "会",
+   "休",
+   "今"
   ]
  },
  {
@@ -2584,10 +3722,19 @@
    "conectar"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "れん",
+   "つ(れる)"
+  ],
   "words": [
    "tsuretekuru",
    "renkyuu",
    "tsureru"
+  ],
+  "strokes": 10,
+  "similar": [
+   "近",
+   "道"
   ]
  },
  {
@@ -2603,10 +3750,20 @@
    "diferente"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "べつ",
+   "わか(れる)"
+  ],
   "words": [
    "betsubetsu",
    "betsu",
    "wakareru"
+  ],
+  "strokes": 7,
+  "similar": [
+   "帰",
+   "前",
+   "分"
   ]
  },
  {
@@ -2622,10 +3779,14 @@
    "vez"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "ど"
+  ],
   "words": [
    "ichido",
    "kondo"
-  ]
+  ],
+  "strokes": 9
  },
  {
   "char": "赤",
@@ -2639,10 +3800,15 @@
    "rojo"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "せき",
+   "あか(い)"
+  ],
   "words": [
    "akai",
    "aka"
-  ]
+  ],
+  "strokes": 7
  },
  {
   "char": "青",
@@ -2656,16 +3822,21 @@
    "azul"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "せい",
+   "あお(い)"
+  ],
   "words": [
    "ao",
    "aoi"
-  ]
+  ],
+  "strokes": 8
  },
  {
   "char": "色",
   "on": [
-   "しょく",
-   "しき"
+   "しき",
+   "しょく"
   ],
   "kun": [
    "いろ"
@@ -2674,9 +3845,15 @@
    "color"
   ],
   "genkiLesson": 12,
+  "teach": [
+   "しき",
+   "しょく",
+   "いろ"
+  ],
   "words": [
    "iro",
    "iroiro"
-  ]
+  ],
+  "strokes": 6
  }
 ]

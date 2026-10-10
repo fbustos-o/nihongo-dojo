@@ -48,3 +48,11 @@ Una ronda cuenta una vez, según el primer intento.
 - `kana-write`: las palabras solo en katakana se escriben con el IME katakana (`-` o la vocal repetida dan ー). Si el romaji no produce el kana
   (ティ necesita `thi`, ウォ `who`), se muestra la ayuda de escritura (`typingHints`).
 - `read-words`: «¿Qué significa?» y, tras responder, «Pronunciación original» con `Word.origin` (opcional, p. ej. `inglés: television`).
+
+## Kanji (etapa 4)
+
+`kanji/KanjiGame.tsx` (lógica pura en `kanjiLogic.ts`) alterna cuatro rondas: kanji → significado; lecturas + significado → elegir el kanji
+entre parecidos (`Kanji.similar`); palabra en kanji → escribir la lectura con KanaInput (sin furigana); y «transformación»: una frase conocida
+de la etapa 2 con sus palabras ahora en kanji (JaText con furigana) → elegir su significado. Registra `kanji:<char>` y `word:<id>:kanji`.
+Props: `kanji` (a practicar), `words`; con `sequential` recorre los ítems vencidos (repaso). En las lecciones, `ExtraKanjiContext` trata
+los kanji nuevos como desbloqueados mientras se practica; al aprobar, `finishLesson` llama a `unlockKanji` (SRS 1).

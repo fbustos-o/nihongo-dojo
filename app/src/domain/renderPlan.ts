@@ -1,5 +1,5 @@
 import { isHiragana, isKanji, isKatakana, toHiragana, toRomaji } from 'wanakana';
-import { alignFurigana } from './furigana';
+import { alignFurigana, type FuriganaPart } from './furigana';
 
 /** What the learner has unlocked so far; drives how every word is displayed. */
 export interface UnlockState {
@@ -7,7 +7,11 @@ export interface UnlockState {
   knownKana: ReadonlySet<string>;
   /** Unlocked kanji mapped to their SRS stage (0..8). */
   kanji: ReadonlyMap<string, number>;
+  /** Furigana setting: `auto` fades them with the SRS stage (default), `siempre` keeps them, `nunca` hides them. */
+  furigana?: FuriganaMode;
 }
+
+export type FuriganaMode = 'auto' | 'siempre' | 'nunca';
 
 export type Segment =
   | { type: 'text'; text: string }
@@ -17,6 +21,16 @@ export type Segment =
 export interface RenderableWord {
   kana: string;
   kanji?: string;
+  /** Explicit `[text, reading]` segments (reading '' = plain kana); overrides the automatic alignment. */
+  furigana?: readonly (readonly [string, string])[];
+}
+
+/** Segments of a word: its explicit `furigana` data when present, otherwise `alignFurigana`. */
+export function furiganaParts(word: RenderableWord & { kanji: string }): FuriganaPart[] {
+  if (word.furigana && word.furigana.length > 0) {
+    return word.furigana.map(([text, reading]): FuriganaPart => (reading === '' ? { type: 'kana', text } : { type: 'kanji', base: text, reading }));
+  }
+  return alignFurigana(word.kanji, word.kana);
 }
 
 /** SRS stage from which furigana is no longer shown (Guru). */
@@ -88,23 +102,26 @@ export function renderKana(text: string, knownKana: ReadonlySet<string>): Segmen
  * Core pedagogical rule: decides how a word is shown given what is unlocked.
  *  - unknown kana -> romaji; unlocked-less katakana -> its hiragana;
  *  - unlocked kanji -> kanji with `<ruby>` furigana;
- *  - kanji block whose characters are all at SRS stage >= Guru -> no furigana;
+ *  - kanji block whose characters are all at SRS stage >= Guru -> no furigana (furigana mode `auto`;
+ *    `siempre` always shows them, `nunca` never);
  *  - kanji block with any locked character -> shown as its kana reading.
  */
 export function renderPlan(word: RenderableWord, state: UnlockState): Segment[] {
   if (!word.kanji) return renderKana(word.kana, state.knownKana);
 
   const segments: Segment[] = [];
-  for (const part of alignFurigana(word.kanji, word.kana)) {
+  const mode = state.furigana ?? 'auto';
+  for (const part of furiganaParts({ ...word, kanji: word.kanji })) {
     if (part.type === 'kana') {
       for (const s of renderKana(part.text, state.knownKana)) pushMerged(segments, s);
       continue;
     }
-    const stages = [...part.base].filter((char) => isKanji(char)).map((char) => state.kanji.get(char));
+    // 々 repeats the previous kanji, so it has no stage of its own
+    const stages = [...part.base].filter((char) => isKanji(char) && char !== '々').map((char) => state.kanji.get(char));
     const unlocked = stages.every((stage) => stage !== undefined);
     if (!unlocked) {
       for (const s of renderKana(part.reading, state.knownKana)) pushMerged(segments, s);
-    } else if (stages.every((stage) => stage! >= FURIGANA_HIDDEN_STAGE)) {
+    } else if (mode === 'nunca' || (mode === 'auto' && stages.every((stage) => stage! >= FURIGANA_HIDDEN_STAGE))) {
       pushMerged(segments, { type: 'text', text: part.base });
     } else {
       const reading = renderKana(part.reading, state.knownKana)

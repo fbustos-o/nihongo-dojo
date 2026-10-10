@@ -8,3 +8,6 @@ python3 tools/content/validate.py                                   # valida (re
 ```
 
 Los ids de juegos deben coincidir con `GameId` en `app/src/domain/schema.ts`.
+
+Kanji: `python3 tools/content/verify_kanji.py` contrasta lecturas, trazos y palabras de ejemplo de `kanji.json`/`vocab.json`
+con KANJIDIC/JMdict/Kanjium (`LightKanji/assets/dictionaries/`) y con las listas y lecturas de Genki (`gen/genki_kanji.py`).

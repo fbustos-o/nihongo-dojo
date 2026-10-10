@@ -1,4 +1,4 @@
-import type { Dialogue, KanaEntry, SentencePattern, Word } from '../domain/schema';
+import type { Dialogue, KanaEntry, Kanji, SentencePattern, Word } from '../domain/schema';
 
 /** Per-item tally of one game session. */
 export interface ItemTally {
@@ -21,6 +21,10 @@ export const emptyStats = (): GameStats => ({ total: 0, correct: 0, bestStreak: 
 export interface GameProps {
   /** Kana to practise (kana games). */
   kana: KanaEntry[];
+  /** Kanji to practise (kanji game: the lesson's new kanji, the due ones in a review, or the chosen lesson range). */
+  kanji?: Kanji[];
+  /** Kanji introduced by the current lesson (shown with furigana through ExtraKanjiContext). */
+  newKanji?: readonly string[];
   /** Words the learner can read with what is unlocked (word games). */
   words: Word[];
   /** Kana introduced by the current lesson; kana-recognize uses multiple choice while they are brand new. */

@@ -27,7 +27,11 @@ describe('alignFurigana', () => {
     expect(alignFurigana('学生', 'がくせい')).toEqual([{ type: 'kanji', base: '学生', reading: 'がくせい' }]);
   });
 
-  it('puts embedded kana inside the block (documented limit)', () => {
-    expect(alignFurigana('持ち物', 'もちもの')).toEqual([{ type: 'kanji', base: '持ち物', reading: 'もちもの' }]);
+  it('splits around kana embedded between kanji', () => {
+    expect(alignFurigana('持ち物', 'もちもの')).toEqual([
+      { type: 'kanji', base: '持', reading: 'も' },
+      { type: 'kana', text: 'ち' },
+      { type: 'kanji', base: '物', reading: 'もの' },
+    ]);
   });
 });

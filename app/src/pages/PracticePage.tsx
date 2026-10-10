@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { content } from '../domain/contentLoader';
-import type { GameId, KanaEntry } from '../domain/schema';
-import { dueItems, filterReadable } from '../engine';
+import type { GameId, KanaEntry, Kanji, Word } from '../domain/schema';
+import { dueItems, filterReadable, reviewQueue } from '../engine';
+import { kanjiWordsFor } from '../games/kanji/kanjiLogic';
 import { GAME_REGISTRY } from '../games/registry';
 import type { GameStats } from '../games/types';
 import { accuracyOf } from '../lesson/lessonLogic';
@@ -20,7 +21,26 @@ const GROUP_LABEL: Record<string, string> = {
 const groupOf = (k: KanaEntry): string => (k.group === 'handakuten' ? 'dakuten' : k.group);
 const rowKey = (k: KanaEntry): string => `${k.script}:${groupOf(k)}:${k.row}`;
 
-type Session = { kind: 'free' | 'review'; game: GameId; kana: KanaEntry[]; rounds?: number } | { kind: 'summary'; stats: GameStats };
+type Session =
+  | { kind: 'free' | 'review'; game: GameId; kana: KanaEntry[]; rounds?: number; kanji?: undefined; words?: undefined }
+  | { kind: 'free' | 'review'; game: 'kanji'; kana: []; kanji: Kanji[]; words: Word[]; rounds?: number }
+  | { kind: 'summary'; stats: GameStats };
+
+/** Progress item of a word asked in the kanji game: `word:<id>:kanji`. */
+const KANJI_WORD_SUFFIX = ':kanji';
+const REVIEW_LIMIT = 20;
+const KANJI_LESSONS = [...new Set(content.kanji.map((k) => k.genkiLesson))].sort((a, b) => a - b);
+
+/** Due kanji and kanji-words (SRS review queue), turned into the content the kanji game walks through. */
+export function kanjiReview(items: Parameters<typeof reviewQueue>[0], now: number, limit = REVIEW_LIMIT): { kanji: Kanji[]; words: Word[] } {
+  const own = Object.values(items).filter((i) => i.kind === 'kanji' || (i.kind === 'word' && i.itemId.endsWith(KANJI_WORD_SUFFIX)));
+  const queue = reviewQueue(own, now, { limit });
+  const kanji = queue.filter((i) => i.kind === 'kanji').flatMap((i) => content.kanji.find((k) => k.char === i.itemId) ?? []);
+  const words = queue
+    .filter((i) => i.kind === 'word')
+    .flatMap((i) => content.vocab.find((w) => w.id === i.itemId.slice(0, -KANJI_WORD_SUFFIX.length)) ?? []);
+  return { kanji, words };
+}
 
 export function PracticePage() {
   const items = useProgress((s) => s.items);
@@ -31,6 +51,9 @@ export function PracticePage() {
   const [game, setGame] = useState<GameId>('kana-recognize');
   const [session, setSession] = useState<Session | null>(null);
   const [now] = useState(() => Date.now());
+  const unlockedKanji = useProgress((s) => s.unlockedKanji);
+  const [fromLesson, setFromLesson] = useState(KANJI_LESSONS[0] ?? 3);
+  const [toLesson, setToLesson] = useState(KANJI_LESSONS.at(-1) ?? 12);
 
   const rows = useMemo(() => {
     const map = new Map<string, { script: KanaEntry['script']; group: string; kana: KanaEntry[] }>();
@@ -48,6 +71,12 @@ export function PracticePage() {
     return dueItems(kanaItems, now);
   }, [items, now]);
   const dueKana = due.map((i) => content.kana.find((k) => k.char === i.itemId)).filter((k): k is KanaEntry => k !== undefined);
+
+  const kanjiDue = useMemo(() => kanjiReview(items, now), [items, now]);
+  const kanjiDueCount = kanjiDue.kanji.length + kanjiDue.words.length;
+  const unlockedSet = useMemo(() => new Set(unlockedKanji), [unlockedKanji]);
+  const rangeKanji = content.kanji.filter((k) => unlockedSet.has(k.char) && k.genkiLesson >= fromLesson && k.genkiLesson <= toLesson);
+  const kanjiWords = (list: Kanji[]) => kanjiWordsFor(content.vocab, new Set([...unlockedSet, ...list.map((k) => k.char)]));
 
   const toggle = (keys: string[], on: boolean) =>
     setSelected((prev) => {
@@ -68,11 +97,12 @@ export function PracticePage() {
       <>
         <h1>{session.kind === 'review' ? 'Repasos pendientes' : 'Práctica libre'}</h1>
         <p className="muted">
-          {GAME_REGISTRY[session.game].name} · {session.kana.length} kana
+          {GAME_REGISTRY[session.game].name} · {session.kanji ? `${session.kanji.length} kanji` : `${session.kana.length} kana`}
         </p>
         <Game
           kana={session.kana}
-          words={wordsFor(session.kana)}
+          kanji={session.kanji}
+          words={session.words ?? wordsFor(session.kana)}
           rounds={session.rounds}
           sequential={session.kind === 'review'}
           onFinish={(stats) => setSession({ kind: 'summary', stats })}
@@ -116,6 +146,58 @@ export function PracticePage() {
         >
           Repasar ({due.length})
         </button>
+      </section>
+
+      <section className="card" aria-labelledby="kanji-review">
+        <h2 id="kanji-review">Repaso de kanji</h2>
+        <p>
+          {kanjiDueCount === 0 ? 'No tienes kanji por repasar ahora mismo.' : <>Tienes <strong>{kanjiDueCount}</strong> kanji y palabras con kanji por repasar.</>}
+        </p>
+        <button
+          type="button"
+          className="btn btn-primary"
+          disabled={kanjiDueCount === 0}
+          onClick={() => run({ kind: 'review', game: 'kanji', kana: [], kanji: kanjiDue.kanji, words: kanjiDue.words, rounds: kanjiDueCount })}
+        >
+          Repasar kanji ({kanjiDueCount})
+        </button>
+      </section>
+
+      <section className="card" aria-labelledby="kanji-free">
+        <h2 id="kanji-free">Práctica libre de kanji</h2>
+        <p className="muted">Elige un rango de lecciones de Genki; solo se practican los kanji ya desbloqueados.</p>
+        <div className="row">
+          <label className="row">
+            Desde la lección
+            <select aria-label="Desde la lección" value={fromLesson} onChange={(e) => setFromLesson(Number(e.target.value))}>
+              {KANJI_LESSONS.map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="row">
+            hasta la
+            <select aria-label="Hasta la lección" value={toLesson} onChange={(e) => setToLesson(Number(e.target.value))}>
+              {KANJI_LESSONS.map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </label>
+          <span className="muted">{rangeKanji.length} kanji desbloqueados en el rango</span>
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          disabled={rangeKanji.length === 0}
+          onClick={() => run({ kind: 'free', game: 'kanji', kana: [], kanji: rangeKanji, words: kanjiWords(rangeKanji) })}
+        >
+          Practicar kanji
+        </button>
+        {rangeKanji.length === 0 && <span className="muted"> Completa una lección de kanji para desbloquearlos.</span>}
       </section>
 
       <section className="card">

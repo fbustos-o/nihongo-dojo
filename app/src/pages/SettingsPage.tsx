@@ -1,8 +1,14 @@
 import { useRef, useState } from 'react';
 import { SpeakButton } from '../components/SpeakButton';
-import { ThemeSchema, type Theme } from '../state/progressSchema';
+import { FuriganaModeSchema, ThemeSchema, type Theme } from '../state/progressSchema';
 import { downloadProgress } from '../state/download';
 import { useProgress } from '../state/progressStore';
+
+const FURIGANA_LABELS: Record<(typeof FuriganaModeSchema.options)[number], string> = {
+  auto: 'Automático (se quita al llegar a Guru)',
+  siempre: 'Siempre',
+  nunca: 'Nunca',
+};
 
 const THEME_LABELS: Record<Theme, string> = {
   system: 'Sistema',
@@ -46,6 +52,20 @@ export function SettingsPage() {
             onChange={(e) => updateSettings({ sound: e.target.checked })}
           />
           Efectos de sonido en los juegos
+        </label>
+        <label className="row">
+          Furigana sobre los kanji:
+          <select
+            aria-label="Furigana"
+            value={settings.furigana}
+            onChange={(e) => updateSettings({ furigana: FuriganaModeSchema.parse(e.target.value) })}
+          >
+            {FuriganaModeSchema.options.map((mode) => (
+              <option key={mode} value={mode}>
+                {FURIGANA_LABELS[mode]}
+              </option>
+            ))}
+          </select>
         </label>
       </section>
 

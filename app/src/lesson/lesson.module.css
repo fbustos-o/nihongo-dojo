@@ -253,3 +253,59 @@ a.node:hover {
   background: color-mix(in srgb, var(--accent) 15%, var(--surface));
   font-weight: 700;
 }
+
+.kanjiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.kanjiCard {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  text-align: center;
+}
+
+.bigKanji {
+  font-family: var(--font-ja);
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+.readings {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.5rem;
+  margin: 0.4rem 0;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.readings dt {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.readings dd {
+  margin: 0;
+}
+
+.taught {
+  color: var(--accent);
+}
+
+.examples {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  text-align: left;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}

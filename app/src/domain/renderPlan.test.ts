@@ -2,9 +2,10 @@ import patternsRaw from '../content/patterns.json';
 import { renderKana, renderPlan, type UnlockState } from './renderPlan';
 
 const hira = (chars: string) => new Set([...chars]);
-const state = (known = '', kanji: [string, number][] = []): UnlockState => ({
+const state = (known = '', kanji: [string, number][] = [], furigana?: UnlockState['furigana']): UnlockState => ({
   knownKana: hira(known),
   kanji: new Map(kanji),
+  furigana,
 });
 
 describe('renderKana', () => {
@@ -123,5 +124,51 @@ describe('stage 2 sentences with katakana loanwords', () => {
   it('only the unlocked katakana change script', () => {
     // コ known, ヒ not: コ stays katakana, ヒ falls back to hiragana
     expect(text(renderKana('コーヒー', hira('こひコ')))).toBe('コーひー');
+  });
+});
+
+describe('renderPlan furigana setting', () => {
+  const taberu = { kana: 'たべる', kanji: '食べる' };
+  const ruby = [
+    { type: 'ruby', base: '食', reading: 'た' },
+    { type: 'text', text: 'べる' },
+  ];
+  const bare = [{ type: 'text', text: '食べる' }];
+
+  it('auto (default) follows the SRS rule', () => {
+    expect(renderPlan(taberu, state('たべる', [['食', 4]], 'auto'))).toEqual(ruby);
+    expect(renderPlan(taberu, state('たべる', [['食', 5]], 'auto'))).toEqual(bare);
+    expect(renderPlan(taberu, state('たべる', [['食', 5]]))).toEqual(bare);
+  });
+
+  it('siempre keeps the furigana even for mastered kanji', () => {
+    expect(renderPlan(taberu, state('たべる', [['食', 9]], 'siempre'))).toEqual(ruby);
+    expect(renderPlan(taberu, state('たべる', [['食', 1]], 'siempre'))).toEqual(ruby);
+  });
+
+  it('nunca shows unlocked kanji bare from the start', () => {
+    expect(renderPlan(taberu, state('たべる', [['食', 1]], 'nunca'))).toEqual(bare);
+    expect(renderPlan(taberu, state('たべる', [['食', 0]], 'nunca'))).toEqual(bare);
+  });
+
+  it('never unlocks kanji by itself: locked kanji stay as kana in every mode', () => {
+    for (const mode of ['auto', 'siempre', 'nunca'] as const) {
+      expect(renderPlan(taberu, state('たべる', [], mode))).toEqual([{ type: 'text', text: 'たべる' }]);
+    }
+  });
+
+  it('uses the explicit furigana of a word, with one ruby over irregular jukugo', () => {
+    const kyou = { kana: 'きょう', kanji: '今日', furigana: [['今日', 'きょう']] as const };
+    expect(renderPlan(kyou, state('きょう', [['今', 1], ['日', 1]]))).toEqual([{ type: 'ruby', base: '今日', reading: 'きょう' }]);
+    // one locked kanji hides the whole ruby block
+    expect(renderPlan(kyou, state('きょう', [['今', 1]]))).toEqual([{ type: 'text', text: 'きょう' }]);
+    const gakusei = { kana: 'がくせい', kanji: '学生', furigana: [['学', 'がく'], ['生', 'せい']] as const };
+    expect(renderPlan(gakusei, state('がくせい', [['学', 1]]))).toEqual([{ type: 'ruby', base: '学', reading: 'がく' }, { type: 'text', text: 'せい' }]);
+  });
+
+  it('treats 々 as part of the previous kanji', () => {
+    const tokidoki = { kana: 'ときどき', kanji: '時々' };
+    expect(renderPlan(tokidoki, state('ときどき', [['時', 1]]))).toEqual([{ type: 'ruby', base: '時々', reading: 'ときどき' }]);
+    expect(renderPlan(tokidoki, state('ときどき', [['時', 5]]))).toEqual([{ type: 'text', text: '時々' }]);
   });
 });

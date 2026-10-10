@@ -1,0 +1,1 @@
+export { KanjiGame } from './KanjiGame';

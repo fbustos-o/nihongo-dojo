@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import { ExtraKanaContext } from './extraKana';
+import { ExtraKanaContext, ExtraKanjiContext } from './extraKana';
 import { create } from 'zustand';
 import type { UnlockState } from '../domain/renderPlan';
 import { loadProgress, parseProgress, saveProgress } from './persistence';
@@ -10,7 +10,7 @@ import {
   type Progress,
   type Settings,
 } from './progressSchema';
-import { applyAnswer } from '../engine/srs';
+import { applyAnswer, dueTimeFor } from '../engine/srs';
 import { touchStreak } from './streak';
 
 const XP_PER_CORRECT = 10;
@@ -57,7 +57,23 @@ export const useProgress = create<ProgressStore>()((set) => ({
     }),
 
   unlockKana: (chars) => set((state) => ({ knownKana: union(state.knownKana, chars) })),
-  unlockKanji: (chars) => set((state) => ({ unlockedKanji: union(state.unlockedKanji, chars) })),
+  /** Unlocks kanji (JaText shows them with furigana) and starts them at SRS stage 1 (Aprendiz 1) unless already further. */
+  unlockKanji: (chars) =>
+    set((state) => {
+      const now = Date.now();
+      const list = [...new Set(chars)];
+      const items = { ...state.items };
+      for (const char of list) {
+        const key = itemKey('kanji', char);
+        const current = items[key];
+        if (!current) {
+          items[key] = { itemId: char, kind: 'kanji', srsStage: 1, correct: 0, wrong: 0, lastSeen: now, nextDue: dueTimeFor(1, now), weight: 1 };
+        } else if (current.srsStage < 1) {
+          items[key] = { ...current, srsStage: 1, lastSeen: current.lastSeen || now, nextDue: dueTimeFor(1, now) };
+        }
+      }
+      return { unlockedKanji: union(state.unlockedKanji, list), items };
+    }),
   unlockLesson: (lessonId) => set((state) => ({ unlockedLessons: union(state.unlockedLessons, [lessonId]) })),
   completeLesson: (lessonId) =>
     set((state) => ({
@@ -91,12 +107,15 @@ export function useUnlockState(): UnlockState {
   const knownKana = useProgress((s) => s.knownKana);
   const unlockedKanji = useProgress((s) => s.unlockedKanji);
   const items = useProgress((s) => s.items);
+  const furigana = useProgress((s) => s.settings.furigana);
   const extraKana = useContext(ExtraKanaContext);
+  const extraKanji = useContext(ExtraKanjiContext);
   return useMemo(
     () => ({
       knownKana: new Set([...knownKana, ...extraKana]),
-      kanji: new Map(unlockedKanji.map((char) => [char, items[itemKey('kanji', char)]?.srsStage ?? 0])),
+      kanji: new Map([...unlockedKanji, ...extraKanji].map((char) => [char, items[itemKey('kanji', char)]?.srsStage ?? 0])),
+      furigana,
     }),
-    [knownKana, extraKana, unlockedKanji, items],
+    [knownKana, extraKana, extraKanji, unlockedKanji, items, furigana],
   );
 }

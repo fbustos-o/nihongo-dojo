@@ -21,7 +21,7 @@ describe('registry', () => {
   it('implements the stage 1 games and describes every game in Spanish', () => {
     expect(implementedGameIds()).toEqual(expect.arrayContaining(['kana-recognize', 'kana-write', 'listen', 'read-words']));
     expect(isImplemented('syntax')).toBe(true);
-    expect(isImplemented('kanji')).toBe(false);
+    expect(isImplemented('kanji')).toBe(true);
     for (const meta of Object.values(GAME_REGISTRY)) {
       expect(meta.name).not.toBe('');
       expect(meta.description).not.toBe('');

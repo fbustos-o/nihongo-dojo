@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { content } from './domain/contentLoader';
 import { LessonRunner } from './lesson/LessonRunner';
-import { syncKnownKana } from './lesson/lessonLogic';
+import { syncKnownKana, syncKnownKanji } from './lesson/lessonLogic';
 import { Layout } from './components/Layout';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
@@ -21,7 +21,10 @@ export function App() {
   }, [theme]);
 
   const completedCount = useProgress((s) => s.completedLessons.length);
-  useEffect(() => syncKnownKana(content.curriculum), [completedCount]);
+  useEffect(() => {
+    syncKnownKana(content.curriculum);
+    syncKnownKanji(content.curriculum);
+  }, [completedCount]);
 
   return (
     <Routes>

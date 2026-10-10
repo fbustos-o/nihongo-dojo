@@ -103,3 +103,51 @@ describe('touchStreak', () => {
     });
   });
 });
+
+describe('unlockKanji', () => {
+  it('unlocks kanji at SRS stage 1 (Aprendiz 1), due in 4 hours', () => {
+    useProgress.getState().unlockKanji(['食', '飲']);
+    const s = useProgress.getState();
+    expect(s.unlockedKanji).toEqual(['食', '飲']);
+    const item = s.items['kanji:食']!;
+    expect(item).toMatchObject({ itemId: '食', kind: 'kanji', srsStage: 1, correct: 0, wrong: 0 });
+    expect(item.nextDue - item.lastSeen).toBe(4 * 3_600_000);
+  });
+
+  it('keeps progress the learner already made', () => {
+    const { recordAnswer, unlockKanji } = useProgress.getState();
+    recordAnswer('食', 'kanji', true);
+    recordAnswer('食', 'kanji', true);
+    recordAnswer('食', 'kanji', true);
+    unlockKanji(['食']);
+    expect(useProgress.getState().items['kanji:食']).toMatchObject({ srsStage: 3, correct: 3 });
+  });
+
+  it('lifts a kanji that is still at stage 0 and does not duplicate unlocked ones', () => {
+    const { recordAnswer, unlockKanji } = useProgress.getState();
+    recordAnswer('食', 'kanji', false);
+    expect(useProgress.getState().items['kanji:食']!.srsStage).toBe(0);
+    unlockKanji(['食', '食']);
+    unlockKanji(['食']);
+    expect(useProgress.getState().items['kanji:食']!.srsStage).toBe(1);
+    expect(useProgress.getState().unlockedKanji).toEqual(['食']);
+  });
+});
+
+describe('furigana setting', () => {
+  it('defaults to auto, also for progress saved before the setting existed', () => {
+    expect(useProgress.getState().settings.furigana).toBe('auto');
+    const old = JSON.parse(serializeProgress(createInitialProgress()));
+    delete old.settings.furigana;
+    const parsed = parseProgress(JSON.stringify(old));
+    expect(parsed.ok && parsed.progress.settings.furigana).toBe('auto');
+  });
+
+  it('rejects an unknown value and is persisted', () => {
+    useProgress.getState().updateSettings({ furigana: 'nunca' });
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY)!).settings.furigana).toBe('nunca');
+    const bad = JSON.parse(serializeProgress(createInitialProgress()));
+    bad.settings.furigana = 'a veces';
+    expect(parseProgress(JSON.stringify(bad)).ok).toBe(false);
+  });
+});

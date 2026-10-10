@@ -6,6 +6,7 @@ import { Conjugation } from './conjugation';
 import { Dialogues } from './dialogues';
 import { KanaRecognize } from './kana-recognize';
 import { KanaWrite } from './kana-write';
+import { KanjiGame } from './kanji';
 import { Listen } from './listen';
 import { MiniReading } from './mini-reading';
 import { Numbers } from './numbers';
@@ -37,7 +38,7 @@ export const GAME_REGISTRY: Record<GameId, GameMeta> = {
   calendar: { id: 'calendar', name: 'Calendario', description: 'Fechas y días de la semana.', component: Calendar },
   dialogues: { id: 'dialogues', name: 'Diálogos', description: 'Elige la respuesta correcta en una conversación.', component: Dialogues },
   'mini-reading': { id: 'mini-reading', name: 'Mini-lectura', description: 'Lee un texto corto y responde.', component: MiniReading },
-  kanji: { id: 'kanji', name: 'Kanji', description: 'Lee el kanji en palabras reales.' },
+  kanji: { id: 'kanji', name: 'Kanji', description: 'Kanji: significado, lectura en palabras reales y frases que se transforman.', component: KanjiGame },
 };
 
 export const getGame = (id: GameId): GameMeta => GAME_REGISTRY[id];

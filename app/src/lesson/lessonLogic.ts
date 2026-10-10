@@ -1,5 +1,5 @@
 import { content } from '../domain/contentLoader';
-import type { GameId, KanaEntry, Lesson, Word } from '../domain/schema';
+import type { GameId, KanaEntry, Kanji, Lesson, Word } from '../domain/schema';
 import { filterReadable, isReadableWith, unlockedKanaForLessons } from '../engine';
 import { isImplemented } from '../games/registry';
 import { emptyStats, type GameStats } from '../games/types';
@@ -70,6 +70,9 @@ export const nextLesson = (nodes: readonly LessonNode[]): Lesson | undefined =>
 /** Rounds per game: 10-15, growing with the number of items. */
 export const roundsFor = (itemCount: number): number => Math.max(10, Math.min(15, 8 + itemCount));
 
+/** Rounds of the kanji game: two per kanji, between 12 and 24. */
+export const kanjiRounds = (kanjiCount: number): number => Math.max(12, Math.min(24, kanjiCount * 2));
+
 export const accuracyOf = (stats: Pick<GameStats, 'total' | 'correct'>): number => (stats.total === 0 ? 0 : stats.correct / stats.total);
 export const isPassed = (stats: Pick<GameStats, 'total' | 'correct'>): boolean => stats.total > 0 && accuracyOf(stats) >= PASS_ACCURACY;
 
@@ -100,14 +103,17 @@ export function weakestItems(stats: GameStats, limit = 5): { key: string; label:
 export const xpEarned = (stats: Pick<GameStats, 'correct'>): number => stats.correct * XP_PER_CORRECT;
 
 /**
- * Applies the end of a lesson: when accuracy passes, the lesson is marked completed and its
- * kana are added to `progress.knownKana` (JaText and the kana filter read that set).
+ * Applies the end of a lesson: when accuracy passes, the lesson is marked completed, its kana are
+ * added to `progress.knownKana` (JaText and the kana filter read that set) and its kanji to
+ * `progress.unlockedKanji` at SRS stage 1.
  */
 export function finishLesson(lesson: Lesson, stats: GameStats): { passed: boolean; accuracy: number } {
   const passed = isPassed(stats);
   if (passed) {
     const store = useProgress.getState();
     store.unlockKana(lesson.kana ?? []);
+    // kanji enter the store's kanji map at SRS stage 1; JaText then shows them with furigana everywhere
+    store.unlockKanji(lesson.kanji ?? []);
     store.completeLesson(lesson.id);
   }
   return { passed, accuracy: accuracyOf(stats) };
@@ -120,10 +126,26 @@ export function syncKnownKana(curriculum: readonly Lesson[] = content.curriculum
   if ([...unlocked].some((k) => !knownKana.includes(k))) unlockKana(unlocked);
 }
 
+/** Every kanji of the completed lessons. */
+export function unlockedKanjiForLessons(curriculum: readonly Lesson[], completedIds: Iterable<string>): Set<string> {
+  const completed = new Set(completedIds);
+  return new Set(curriculum.filter((l) => completed.has(l.id)).flatMap((l) => l.kanji ?? []));
+}
+
+/** Makes sure every completed lesson's kanji are unlocked (e.g. after importing progress). Existing SRS progress is kept. */
+export function syncKnownKanji(curriculum: readonly Lesson[] = content.curriculum): void {
+  const { completedLessons, unlockedKanji, unlockKanji } = useProgress.getState();
+  const unlocked = unlockedKanjiForLessons(curriculum, completedLessons);
+  if ([...unlocked].some((k) => !unlockedKanji.includes(k))) unlockKanji(unlocked);
+}
+
 export interface LessonContent {
   kana: KanaEntry[];
   words: Word[];
   newKana: string[];
+  /** Kanji introduced by the lesson (kanji lessons). */
+  kanji: Kanji[];
+  newKanji: string[];
 }
 
 /** Direct and indirect `requires` of a lesson, in curriculum order. */
@@ -138,6 +160,14 @@ function ancestors(lesson: Lesson, curriculum: readonly Lesson[]): Lesson[] {
   });
   visit(lesson);
   return curriculum.filter((l) => seen.has(l.id));
+}
+
+const IS_KANJI = /[一-鿿]/u;
+
+/** Words written with kanji whose kanji are all among `allowed` (those of this kanji lesson and the previous ones). */
+export function kanjiLessonWords(words: readonly Word[], allowed: Iterable<string>): Word[] {
+  const ok = new Set(allowed);
+  return words.filter((w) => w.kanji !== undefined && [...w.kanji].every((ch) => !IS_KANJI.test(ch) || ok.has(ch)));
 }
 
 const HAS_KATAKANA = /[ァ-ヺ]/;
@@ -159,7 +189,7 @@ export function stage3Words(words: readonly Word[], known: ReadonlySet<string>):
 export function lessonContent(
   lesson: Lesson,
   knownKana: ReadonlySet<string>,
-  data: { kana: readonly KanaEntry[]; vocab: readonly Word[]; curriculum: readonly Lesson[] } = content,
+  data: { kana: readonly KanaEntry[]; vocab: readonly Word[]; curriculum: readonly Lesson[]; kanji?: readonly Kanji[] } = content,
 ): LessonContent {
   const newKana = lesson.kana ?? [];
   const kana = data.kana.filter((k) => newKana.includes(k.char));
@@ -170,6 +200,15 @@ export function lessonContent(
   // Own words first, then those of the lessons it builds on.
   const ordered = [...(lesson.words ?? []), ...ids.filter((id) => !own.has(id))];
   const unique = [...new Set(ordered)].map((id) => byId.get(id)).filter((w): w is Word => w !== undefined);
-  const words = lesson.stage === 1 ? filterReadable(unique, known) : lesson.stage === 3 ? stage3Words(unique, known) : unique;
-  return { kana, words, newKana: [...newKana] };
+  const newKanji = lesson.kanji ?? [];
+  const kanji = newKanji.flatMap((c) => data.kanji?.find((k) => k.char === c) ?? []);
+  const words =
+    lesson.stage === 1
+      ? filterReadable(unique, known)
+      : lesson.stage === 3
+        ? stage3Words(unique, known)
+        : lesson.stage === 4
+          ? kanjiLessonWords(unique, [...ancestors(lesson, data.curriculum), lesson].flatMap((l) => l.kanji ?? []))
+          : unique;
+  return { kana, words, newKana: [...newKana], kanji, newKanji: [...newKanji] };
 }

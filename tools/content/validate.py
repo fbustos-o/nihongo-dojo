@@ -72,6 +72,12 @@ for k in kanji:
         if wid not in V: E(f"kanji {k['char']}: unknown word {wid}")
         elif k['char'] not in V[wid].get('kanji',''): E(f"kanji {k['char']}: word {wid} does not contain it")
     if len(k['words'])<2: Wn(f"kanji {k['char']} has <2 example words")
+    if not isinstance(k.get('strokes'),int) or k['strokes']<1: E(f"kanji {k['char']}: missing strokes")
+    if not k.get('teach'): Wn(f"kanji {k['char']}: no teach (Genki readings)")
+    for r in k.get('teach',[]):
+        if r not in k['on']+k['kun']: E(f"kanji {k['char']}: teach {r} not in on/kun")
+    for x in k.get('similar',[]):
+        if x not in kset: E(f"kanji {k['char']}: similar {x} not in Genki set")
 # ---- patterns
 P=uniq(pats,lambda p:p['id'],'patterns')
 SL={'S','V','O','DIR','BE','ADJ','N'}

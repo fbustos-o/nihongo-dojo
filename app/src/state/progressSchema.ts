@@ -25,12 +25,16 @@ export type ItemState = z.infer<typeof ItemStateSchema>;
 export const ThemeSchema = z.enum(['system', 'light', 'dark']);
 export type Theme = z.infer<typeof ThemeSchema>;
 
+export const FuriganaModeSchema = z.enum(['auto', 'siempre', 'nunca']);
+
 export const SettingsSchema = z.object({
   showRomaji: z.boolean(),
   ttsRate: z.number().min(0.5).max(1.5),
   /** Sound effects in games. Off by default. */
   sound: z.boolean().default(false),
   theme: ThemeSchema,
+  /** Furigana over unlocked kanji: `auto` = fade out from SRS stage Guru, `siempre`, `nunca`. */
+  furigana: FuriganaModeSchema.default('auto'),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
 
@@ -63,6 +67,6 @@ export function createInitialProgress(): Progress {
     completedLessons: [],
     xp: 0,
     streak: { lastStudyDate: null, count: 0 },
-    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system' },
+    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto' },
   };
 }

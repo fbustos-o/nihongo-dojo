@@ -7,9 +7,10 @@ import type { Lesson } from '../domain/schema';
 import { CONFUSABLE_GROUPS } from '../games/confusables';
 import { kanaHint, romajiLabel } from '../games/kanaUtils';
 import { getGame } from '../games/registry';
-import { mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
+import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
 import type { GameStats } from '../games/types';
-import { ExtraKanaContext } from '../state/extraKana';
+import { ExtraKanaContext, ExtraKanjiContext } from '../state/extraKana';
+import { KanjiIntro } from './KanjiIntro';
 import { useProgress } from '../state/progressStore';
 import { KanaChart } from './KanaChart';
 import styles from './lesson.module.css';
@@ -72,6 +73,7 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
   const games = useMemo(
     () =>
       playableGames(lesson).filter((id) => {
+        if (id === 'kanji') return data.kanji.length > 0;
         const needsKana = id === 'kana-recognize' || id === 'kana-write';
         return needsKana ? data.kana.length > 0 : data.words.length > 0 || data.kana.length > 0;
       }),
@@ -104,51 +106,56 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
 
   return (
     <ExtraKanaContext.Provider value={data.newKana}>
-      <div className={styles.header}>
-        <h1>{lesson.title}</h1>
-        <Link to="/camino">Salir</Link>
-      </div>
-      <ol className={styles.steps} aria-label="Fases de la lección">
-        {PHASES.map((p) => (
-          <li key={p.id} className={`${styles.step} ${p.id === phase ? styles.stepActive : ''}`} aria-current={p.id === phase ? 'step' : undefined}>
-            {p.label}
-          </li>
-        ))}
-      </ol>
+      <ExtraKanjiContext.Provider value={data.newKanji}>
+        <div className={styles.header}>
+          <h1>{lesson.title}</h1>
+          <Link to="/camino">Salir</Link>
+        </div>
+        <ol className={styles.steps} aria-label="Fases de la lección">
+          {PHASES.map((p) => (
+            <li key={p.id} className={`${styles.step} ${p.id === phase ? styles.stepActive : ''}`} aria-current={p.id === phase ? 'step' : undefined}>
+              {p.label}
+            </li>
+          ))}
+        </ol>
 
-      {phase === 'intro' && (
-        <Intro lesson={lesson} data={data} known={new Set(knownKana)} onStart={() => setPhase('practice')} />
-      )}
+        {phase === 'intro' && (
+          <Intro lesson={lesson} data={data} known={new Set(knownKana)} onStart={() => setPhase('practice')} />
+        )}
 
-      {phase === 'practice' && Game && game && (
-        <>
-          <p className="muted">
-            Juego {gameIndex + 1} de {games.length}: <strong>{game.name}</strong> — {game.description}
-          </p>
-          <Game
-            key={`${run}-${gameId}`}
-            kana={data.kana}
-            words={data.words}
-            newKana={data.newKana}
-            dialogueIds={lesson.dialogues}
-            lessonId={lesson.id}
-            patterns={lessonPatterns}
-            dialogues={lessonDialogues}
-            rounds={roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
-            onFinish={onGameFinish}
-          />
-        </>
-      )}
+        {phase === 'practice' && Game && game && (
+          <>
+            <p className="muted">
+              Juego {gameIndex + 1} de {games.length}: <strong>{game.name}</strong> — {game.description}
+            </p>
+            <Game
+              key={`${run}-${gameId}`}
+              kana={data.kana}
+              kanji={data.kanji}
+              newKanji={data.newKanji}
+              words={data.words}
+              newKana={data.newKana}
+              dialogueIds={lesson.dialogues}
+              lessonId={lesson.id}
+              patterns={lessonPatterns}
+              dialogues={lessonDialogues}
+              rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
+              onFinish={onGameFinish}
+            />
+          </>
+        )}
 
-      {phase === 'result' && outcome && (
-        <Result lesson={lesson} stats={total} passed={outcome.passed} onRetry={restart} />
-      )}
+        {phase === 'result' && outcome && (
+          <Result lesson={lesson} stats={total} passed={outcome.passed} onRetry={restart} />
+        )}
+      </ExtraKanjiContext.Provider>
     </ExtraKanaContext.Provider>
   );
 }
 
 function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnType<typeof lessonContent>; known: ReadonlySet<string>; onStart: () => void }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
+  if (data.kanji.length > 0) return <KanjiIntro kanji={data.kanji} onStart={onStart} />;
   // Katakana look-alike groups that include a kana of this lesson (シ/ツ, ソ/ン...); same-script only.
   const isNewKana = (c: string) => data.newKana.includes(c);
   const lookAlikes = lesson.stage === 3 ? CONFUSABLE_GROUPS.filter((g) => /[ァ-ヺ]/.test(g[0]!) && /[ァ-ヺ]/.test(g[1]!) && g.some(isNewKana)) : [];
@@ -214,6 +221,12 @@ function Result({ lesson, stats, passed, onRetry }: { lesson: Lesson; stats: Gam
         Aciertos: {stats.correct} de {stats.total} · XP ganado: <strong>+{xpEarned(stats)}</strong> · Mejor racha: {stats.bestStreak}
       </p>
       {!passed && <p className="muted">Necesitas al menos {Math.round(PASS_ACCURACY * 100)}% de aciertos para completarla.</p>}
+      {passed && (lesson.kanji?.length ?? 0) > 0 && (
+        <p>
+          Kanji desbloqueados: <span lang="ja">{lesson.kanji!.join(' ')}</span>. Ahora aparecen con furigana en todo el contenido; el furigana
+          desaparece cuando dominas cada kanji (Guru).
+        </p>
+      )}
       {passed && (lesson.kana?.length ?? 0) > 0 && <p>Kana desbloqueados: <span lang="ja">{lesson.kana!.join(' ')}</span></p>}
       {weak.length > 0 && (
         <>

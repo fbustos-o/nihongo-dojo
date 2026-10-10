@@ -120,7 +120,7 @@ RAW = """
 11|紙|し|かみ|papel
 11|好|こう|す(き),この(む)|gustar
 11|近|きん|ちか(い)|cerca
-11|明|めい,みょう|あ(かるい),あき(らか)|claro; brillante
+11|明|めい,みょう|あか(るい),あき(らか)|claro; brillante
 11|病|びょう|や(む),やまい|enfermedad
 11|院|いん||institución; hospital
 11|映|えい|うつ(る),うつ(す)|reflejar; proyectar
@@ -146,9 +146,16 @@ RAW = """
 12|青|せい|あお(い)|azul
 12|色|しょく,しき|いろ|color
 """
+from genki_kanji import TEACH
 KANJI=[]
 for line in RAW.strip().splitlines():
     l,ch,on,kun,es=line.split('|')
-    KANJI.append(dict(char=ch,on=on.split(',') if on else [],kun=kun.split(',') if kun else [],es=[x.strip() for x in es.split(';')],genkiLesson=int(l)))
+    k=dict(char=ch,on=on.split(',') if on else [],kun=kun.split(',') if kun else [],es=[x.strip() for x in es.split(';')],genkiLesson=int(l))
+    # Readings Genki prints come first (in Genki's order) and form `teach`; the rest follow.
+    t_on,t_kun=TEACH[ch]
+    k['on']=t_on+[x for x in k['on'] if x not in t_on]
+    k['kun']=t_kun+[x for x in k['kun'] if x not in t_kun]
+    k['teach']=t_on+t_kun
+    KANJI.append(k)
 CHARS={k['char'] for k in KANJI}|{'々'}
 if __name__=='__main__': print(len(KANJI))

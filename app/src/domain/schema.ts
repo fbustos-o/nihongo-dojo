@@ -45,6 +45,8 @@ export const WordSchema = z.object({
   source: z.enum(['genki', 'profesor', 'propio']),
   /** Loanwords: language and source word, e.g. "inglés: television". Shown after answering. */
   origin: z.string().optional(),
+  /** Explicit ruby segments `[text, reading]` for words the automatic alignment cannot split (今日 -> きょう). Kana-only segments have reading ''. */
+  furigana: z.array(z.tuple([z.string(), z.string()])).optional(),
 });
 export type Word = z.infer<typeof WordSchema>;
 
@@ -55,6 +57,12 @@ export const KanjiSchema = z.object({
   es: z.array(z.string()),
   genkiLesson: z.number().int(),
   words: z.array(z.string()),
+  /** Readings Genki I teaches for this kanji (subset of `on` + `kun`, same notation). */
+  teach: z.array(z.string()).optional(),
+  /** Stroke count (KANJIDIC). */
+  strokes: z.number().int().positive().optional(),
+  /** Look-alike kanji of the Genki set (Kanjium + same radical), used as distractors. */
+  similar: z.array(z.string()).optional(),
 });
 export type Kanji = z.infer<typeof KanjiSchema>;
 
