@@ -1,0 +1,11597 @@
+[
+ {
+  "id": "ohayou",
+  "kana": "おはよう",
+  "romaji": "ohayou",
+  "es": [
+   "buenos días (informal)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ohayougozaimasu",
+  "kana": "おはようございます",
+  "romaji": "ohayougozaimasu",
+  "es": [
+   "buenos días (cortés)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konnichiwa",
+  "kana": "こんにちは",
+  "romaji": "konnichiwa",
+  "es": [
+   "buenas tardes",
+   "hola"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konbanwa",
+  "kana": "こんばんは",
+  "romaji": "konbanwa",
+  "es": [
+   "buenas tardes/noches (al encontrarse)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sayounara",
+  "kana": "さようなら",
+  "romaji": "sayounara",
+  "es": [
+   "adiós"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oyasuminasai",
+  "kana": "おやすみなさい",
+  "romaji": "oyasuminasai",
+  "es": [
+   "buenas noches (antes de dormir)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oyasumi",
+  "kana": "おやすみ",
+  "romaji": "oyasumi",
+  "es": [
+   "buenas noches (informal)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "arigatou",
+  "kana": "ありがとう",
+  "romaji": "arigatou",
+  "es": [
+   "gracias"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "arigatougozaimasu",
+  "kana": "ありがとうございます",
+  "romaji": "arigatougozaimasu",
+  "es": [
+   "muchas gracias (cortés)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sumimasen",
+  "kana": "すみません",
+  "romaji": "sumimasen",
+  "es": [
+   "disculpe",
+   "lo siento",
+   "gracias (por la molestia)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "iie",
+  "kana": "いいえ",
+  "romaji": "iie",
+  "es": [
+   "no",
+   "de nada"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ittekimasu",
+  "kana": "いってきます",
+  "romaji": "ittekimasu",
+  "es": [
+   "voy y vuelvo (al salir de casa)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "itterasshai",
+  "kana": "いってらっしゃい",
+  "romaji": "itterasshai",
+  "es": [
+   "que te vaya bien (lit. ve y vuelve)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tadaima",
+  "kana": "ただいま",
+  "romaji": "tadaima",
+  "es": [
+   "ya llegué (a casa)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "okaerinasai",
+  "kana": "おかえりなさい",
+  "romaji": "okaerinasai",
+  "es": [
+   "bienvenido a casa"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "okaeri",
+  "kana": "おかえり",
+  "romaji": "okaeri",
+  "es": [
+   "bienvenido a casa (informal)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "itadakimasu",
+  "kana": "いただきます",
+  "romaji": "itadakimasu",
+  "es": [
+   "gracias por la comida (antes de comer)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gochisousamadeshita",
+  "kana": "ごちそうさまでした",
+  "romaji": "gochisousamadeshita",
+  "es": [
+   "gracias por la comida (después de comer)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gochisousama",
+  "kana": "ごちそうさま",
+  "romaji": "gochisousama",
+  "es": [
+   "gracias por la comida (informal)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo",
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hajimemashite",
+  "kana": "はじめまして",
+  "romaji": "hajimemashite",
+  "es": [
+   "mucho gusto (al conocer a alguien)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yoroshikuonegaishimasu",
+  "kana": "よろしくおねがいします",
+  "romaji": "yoroshikuonegaishimasu",
+  "es": [
+   "encantado de conocerte",
+   "cuento contigo"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "zero",
+  "kana": "ゼロ",
+  "romaji": "zero",
+  "es": [
+   "cero"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "rei",
+  "kana": "れい",
+  "romaji": "rei",
+  "es": [
+   "cero (lectura alternativa)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ichi",
+  "kana": "いち",
+  "kanji": "一",
+  "romaji": "ichi",
+  "es": [
+   "uno"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ni-numero",
+  "kana": "に",
+  "kanji": "二",
+  "romaji": "ni",
+  "es": [
+   "dos"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "san",
+  "kana": "さん",
+  "kanji": "三",
+  "romaji": "san",
+  "es": [
+   "tres"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yon",
+  "kana": "よん",
+  "kanji": "四",
+  "romaji": "yon",
+  "es": [
+   "cuatro"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shi-4",
+  "kana": "し",
+  "kanji": "四",
+  "romaji": "shi",
+  "es": [
+   "cuatro (lectura alternativa)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "go",
+  "kana": "ご",
+  "kanji": "五",
+  "romaji": "go",
+  "es": [
+   "cinco"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "roku",
+  "kana": "ろく",
+  "kanji": "六",
+  "romaji": "roku",
+  "es": [
+   "seis"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nana",
+  "kana": "なな",
+  "kanji": "七",
+  "romaji": "nana",
+  "es": [
+   "siete"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shichi",
+  "kana": "しち",
+  "kanji": "七",
+  "romaji": "shichi",
+  "es": [
+   "siete (lectura alternativa)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hachi",
+  "kana": "はち",
+  "kanji": "八",
+  "romaji": "hachi",
+  "es": [
+   "ocho"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kyuu",
+  "kana": "きゅう",
+  "kanji": "九",
+  "romaji": "kyuu",
+  "es": [
+   "nueve"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ku-9",
+  "kana": "く",
+  "kanji": "九",
+  "romaji": "ku",
+  "es": [
+   "nueve (lectura alternativa)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "juu",
+  "kana": "じゅう",
+  "kanji": "十",
+  "romaji": "juu",
+  "es": [
+   "diez"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hyaku",
+  "kana": "ひゃく",
+  "kanji": "百",
+  "romaji": "hyaku",
+  "es": [
+   "cien"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "daigaku",
+  "kana": "だいがく",
+  "kanji": "大学",
+  "romaji": "daigaku",
+  "es": [
+   "universidad",
+   "instituto"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "koukou",
+  "kana": "こうこう",
+  "kanji": "高校",
+  "romaji": "koukou",
+  "es": [
+   "escuela secundaria superior"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gakusei",
+  "kana": "がくせい",
+  "kanji": "学生",
+  "romaji": "gakusei",
+  "es": [
+   "estudiante"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela",
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "daigakusei",
+  "kana": "だいがくせい",
+  "kanji": "大学生",
+  "romaji": "daigakusei",
+  "es": [
+   "estudiante universitario"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela",
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ryuugakusei",
+  "kana": "りゅうがくせい",
+  "romaji": "ryuugakusei",
+  "es": [
+   "estudiante extranjero/a"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela",
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sensei",
+  "kana": "せんせい",
+  "kanji": "先生",
+  "romaji": "sensei",
+  "es": [
+   "profesor/a"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela",
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nensei",
+  "kana": "ねんせい",
+  "kanji": "年生",
+  "romaji": "nensei",
+  "es": [
+   "estudiante de ... año"
+  ],
+  "pos": "counter",
+  "lesson": "G1",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ichinensei",
+  "kana": "いちねんせい",
+  "kanji": "一年生",
+  "romaji": "ichinensei",
+  "es": [
+   "estudiante de primer año"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela",
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "senkou",
+  "kana": "せんこう",
+  "romaji": "senkou",
+  "es": [
+   "especialidad (de estudios)"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "watashi",
+  "kana": "わたし",
+  "kanji": "私",
+  "romaji": "watashi",
+  "es": [
+   "yo"
+  ],
+  "pos": "pronoun",
+  "lesson": "G1",
+  "tags": [
+   "persona",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tomodachi",
+  "kana": "ともだち",
+  "kanji": "友だち",
+  "romaji": "tomodachi",
+  "es": [
+   "amigo/a"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "san-honorifico",
+  "kana": "さん",
+  "romaji": "san",
+  "es": [
+   "Sr./Sra. ... (sufijo de cortesía)"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "persona",
+   "sufijo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "jin",
+  "kana": "じん",
+  "kanji": "人",
+  "romaji": "jin",
+  "es": [
+   "persona de ... (nacionalidad)"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "persona",
+   "sufijo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nihonjin",
+  "kana": "にほんじん",
+  "kanji": "日本人",
+  "romaji": "nihonjin",
+  "es": [
+   "los japoneses",
+   "persona japonesa"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "persona",
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ima",
+  "kana": "いま",
+  "kanji": "今",
+  "romaji": "ima",
+  "es": [
+   "ahora"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gozen",
+  "kana": "ごぜん",
+  "kanji": "午前",
+  "romaji": "gozen",
+  "es": [
+   "a.m."
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gogo",
+  "kana": "ごご",
+  "kanji": "午後",
+  "romaji": "gogo",
+  "es": [
+   "p.m."
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ji-hora",
+  "kana": "じ",
+  "kanji": "時",
+  "romaji": "ji",
+  "es": [
+   "... en punto (hora)"
+  ],
+  "pos": "counter",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "hora",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ichiji",
+  "kana": "いちじ",
+  "kanji": "一時",
+  "romaji": "ichiji",
+  "es": [
+   "la una"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "hora"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "han",
+  "kana": "はん",
+  "kanji": "半",
+  "romaji": "han",
+  "es": [
+   "y media"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "hora",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nijihan",
+  "kana": "にじはん",
+  "kanji": "二時半",
+  "romaji": "nijihan",
+  "es": [
+   "las dos y media"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "hora"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nihon",
+  "kana": "にほん",
+  "kanji": "日本",
+  "romaji": "nihon",
+  "es": [
+   "Japón"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "amerika",
+  "kana": "アメリカ",
+  "romaji": "amerika",
+  "es": [
+   "EE. UU.",
+   "América"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "go-idioma",
+  "kana": "ご",
+  "kanji": "語",
+  "romaji": "go",
+  "es": [
+   "idioma ..."
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "idioma",
+   "sufijo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nihongo",
+  "kana": "にほんご",
+  "kanji": "日本語",
+  "romaji": "nihongo",
+  "es": [
+   "idioma japonés"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "idioma",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sai-edad",
+  "kana": "さい",
+  "romaji": "sai",
+  "es": [
+   "... años de edad"
+  ],
+  "pos": "counter",
+  "lesson": "G1",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "denwa",
+  "kana": "でんわ",
+  "kanji": "電話",
+  "romaji": "denwa",
+  "es": [
+   "teléfono"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ban-numero",
+  "kana": "ばん",
+  "romaji": "ban",
+  "es": [
+   "número ..."
+  ],
+  "pos": "counter",
+  "lesson": "G1",
+  "tags": [
+   "numero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hai",
+  "kana": "はい",
+  "romaji": "hai",
+  "es": [
+   "sí"
+  ],
+  "pos": "expression",
+  "lesson": "G1",
+  "tags": [
+   "saludo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "soudesuka",
+  "kana": "そうですか",
+  "romaji": "soudesuka",
+  "es": [
+   "ya veo",
+   "¿en serio?"
+  ],
+  "pos": "expression",
+  "lesson": "G1",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nan",
+  "kana": "なん",
+  "kanji": "何",
+  "romaji": "nan",
+  "es": [
+   "qué (forma corta de なに)"
+  ],
+  "pos": "pronoun",
+  "lesson": "G1",
+  "tags": [
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nani",
+  "kana": "なに",
+  "kanji": "何",
+  "romaji": "nani",
+  "es": [
+   "qué"
+  ],
+  "pos": "pronoun",
+  "lesson": "G1",
+  "tags": [
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nanji",
+  "kana": "なんじ",
+  "kanji": "何時",
+  "romaji": "nanji",
+  "es": [
+   "¿qué hora?"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "tiempo",
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nansai",
+  "kana": "なんさい",
+  "romaji": "nansai",
+  "es": [
+   "¿cuántos años?"
+  ],
+  "pos": "noun",
+  "lesson": "G1",
+  "tags": [
+   "persona",
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kore",
+  "kana": "これ",
+  "romaji": "kore",
+  "es": [
+   "esto"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sore",
+  "kana": "それ",
+  "romaji": "sore",
+  "es": [
+   "eso"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "are",
+  "kana": "あれ",
+  "romaji": "are",
+  "es": [
+   "aquello (de allí)"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "dore",
+  "kana": "どれ",
+  "romaji": "dore",
+  "es": [
+   "¿cuál?"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo",
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kono",
+  "kana": "この",
+  "romaji": "kono",
+  "es": [
+   "este ..."
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sono",
+  "kana": "その",
+  "romaji": "sono",
+  "es": [
+   "ese ..."
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ano",
+  "kana": "あの",
+  "romaji": "ano",
+  "es": [
+   "aquel ... (de allí)"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "dono",
+  "kana": "どの",
+  "romaji": "dono",
+  "es": [
+   "¿cuál ...?"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "demostrativo",
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "koko",
+  "kana": "ここ",
+  "romaji": "koko",
+  "es": [
+   "aquí"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "soko",
+  "kana": "そこ",
+  "romaji": "soko",
+  "es": [
+   "ahí"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "asoko",
+  "kana": "あそこ",
+  "romaji": "asoko",
+  "es": [
+   "allí"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "demostrativo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "doko",
+  "kana": "どこ",
+  "romaji": "doko",
+  "es": [
+   "¿dónde?"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "dare",
+  "kana": "だれ",
+  "romaji": "dare",
+  "es": [
+   "¿quién?"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "persona",
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oishii",
+  "kana": "おいしい",
+  "romaji": "oishii",
+  "es": [
+   "delicioso",
+   "rico"
+  ],
+  "pos": "i-adj",
+  "lesson": "G2",
+  "tags": [
+   "comida",
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sakana",
+  "kana": "さかな",
+  "romaji": "sakana",
+  "es": [
+   "pescado"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tonkatsu",
+  "kana": "とんかつ",
+  "romaji": "tonkatsu",
+  "es": [
+   "chuleta de cerdo empanada"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "niku",
+  "kana": "にく",
+  "romaji": "niku",
+  "es": [
+   "carne"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "menyuu",
+  "kana": "メニュー",
+  "romaji": "menyuu",
+  "es": [
+   "menú"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "comida",
+   "restaurante"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yasai",
+  "kana": "やさい",
+  "romaji": "yasai",
+  "es": [
+   "verdura"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kasa",
+  "kana": "かさ",
+  "romaji": "kasa",
+  "es": [
+   "paraguas"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kaban",
+  "kana": "かばん",
+  "romaji": "kaban",
+  "es": [
+   "bolso",
+   "mochila"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kutsu",
+  "kana": "くつ",
+  "romaji": "kutsu",
+  "es": [
+   "zapatos"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "saifu",
+  "kana": "さいふ",
+  "romaji": "saifu",
+  "es": [
+   "billetera"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "jiinzu",
+  "kana": "ジーンズ",
+  "romaji": "jiinzu",
+  "es": [
+   "vaqueros",
+   "jeans"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "ropa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "jitensha",
+  "kana": "じてんしゃ",
+  "romaji": "jitensha",
+  "es": [
+   "bicicleta"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "transporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shinbun",
+  "kana": "しんぶん",
+  "kanji": "新聞",
+  "romaji": "shinbun",
+  "es": [
+   "periódico"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sumaho",
+  "kana": "スマホ",
+  "romaji": "sumaho",
+  "es": [
+   "smartphone",
+   "móvil"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tiishatsu",
+  "kana": "ティーシャツ",
+  "romaji": "tiishatsu",
+  "es": [
+   "camiseta"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "ropa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tokei",
+  "kana": "とけい",
+  "romaji": "tokei",
+  "es": [
+   "reloj"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nooto",
+  "kana": "ノート",
+  "romaji": "nooto",
+  "es": [
+   "cuaderno"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "escuela",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "pen",
+  "kana": "ペン",
+  "romaji": "pen",
+  "es": [
+   "pluma",
+   "bolígrafo"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "boushi",
+  "kana": "ぼうし",
+  "romaji": "boushi",
+  "es": [
+   "sombrero",
+   "gorra"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "ropa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hon",
+  "kana": "ほん",
+  "kanji": "本",
+  "romaji": "hon",
+  "es": [
+   "libro"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "cosa",
+   "escuela",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ginkou",
+  "kana": "ぎんこう",
+  "romaji": "ginkou",
+  "es": [
+   "banco"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konbini",
+  "kana": "コンビニ",
+  "romaji": "konbini",
+  "es": [
+   "tienda de conveniencia"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "toire",
+  "kana": "トイレ",
+  "romaji": "toire",
+  "es": [
+   "baño",
+   "WC"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "lugar"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "toshokan",
+  "kana": "としょかん",
+  "romaji": "toshokan",
+  "es": [
+   "biblioteca"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "lugar"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yuubinkyoku",
+  "kana": "ゆうびんきょく",
+  "romaji": "yuubinkyoku",
+  "es": [
+   "oficina de correos"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "igirisu",
+  "kana": "イギリス",
+  "romaji": "igirisu",
+  "es": [
+   "Gran Bretaña",
+   "Reino Unido"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "pais",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kankoku",
+  "kana": "かんこく",
+  "romaji": "kankoku",
+  "es": [
+   "Corea (del Sur)"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "chuugoku",
+  "kana": "ちゅうごく",
+  "kanji": "中国",
+  "romaji": "chuugoku",
+  "es": [
+   "China"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "eigo",
+  "kana": "えいご",
+  "romaji": "eigo",
+  "es": [
+   "inglés (idioma)"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "idioma",
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "keizai",
+  "kana": "けいざい",
+  "romaji": "keizai",
+  "es": [
+   "economía"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konpyuutaa",
+  "kana": "コンピューター",
+  "romaji": "konpyuutaa",
+  "es": [
+   "informática",
+   "computadora"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "bijinesu",
+  "kana": "ビジネス",
+  "romaji": "bijinesu",
+  "es": [
+   "negocios"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "rekishi",
+  "kana": "れきし",
+  "romaji": "rekishi",
+  "es": [
+   "historia"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "okaasan",
+  "kana": "おかあさん",
+  "kanji": "お母さん",
+  "romaji": "okaasan",
+  "es": [
+   "madre (de otro",
+   "o la propia al hablarle)"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "familia",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "otousan",
+  "kana": "おとうさん",
+  "kanji": "お父さん",
+  "romaji": "otousan",
+  "es": [
+   "padre (de otro",
+   "o el propio al hablarle)"
+  ],
+  "pos": "noun",
+  "lesson": "G2",
+  "tags": [
+   "familia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ikura",
+  "kana": "いくら",
+  "romaji": "ikura",
+  "es": [
+   "¿cuánto? (precio)"
+  ],
+  "pos": "pronoun",
+  "lesson": "G2",
+  "tags": [
+   "dinero",
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "en-yen",
+  "kana": "えん",
+  "kanji": "円",
+  "romaji": "en",
+  "es": [
+   "... yenes"
+  ],
+  "pos": "counter",
+  "lesson": "G2",
+  "tags": [
+   "dinero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "takai",
+  "kana": "たかい",
+  "kanji": "高い",
+  "romaji": "takai",
+  "es": [
+   "caro",
+   "alto"
+  ],
+  "pos": "i-adj",
+  "lesson": "G2",
+  "tags": [
+   "adjetivo",
+   "dinero",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "irasshaimase",
+  "kana": "いらっしゃいませ",
+  "romaji": "irasshaimase",
+  "es": [
+   "bienvenido (a nuestra tienda)"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "tienda",
+   "restaurante",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "onegaishimasu",
+  "kana": "おねがいします",
+  "romaji": "onegaishimasu",
+  "es": [
+   "por favor (al pedir algo)"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "cortesia",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kudasai",
+  "kana": "ください",
+  "romaji": "kudasai",
+  "es": [
+   "deme ..., por favor"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "cortesia",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "jaa",
+  "kana": "じゃあ",
+  "romaji": "jaa",
+  "es": [
+   "entonces ...",
+   "en ese caso"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "douzo",
+  "kana": "どうぞ",
+  "romaji": "douzo",
+  "es": [
+   "por favor",
+   "aquí tiene"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "cortesia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "doumo",
+  "kana": "どうも",
+  "romaji": "doumo",
+  "es": [
+   "gracias"
+  ],
+  "pos": "expression",
+  "lesson": "G2",
+  "tags": [
+   "cortesia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "eiga",
+  "kana": "えいが",
+  "kanji": "映画",
+  "romaji": "eiga",
+  "es": [
+   "película"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ongaku",
+  "kana": "おんがく",
+  "romaji": "ongaku",
+  "es": [
+   "música"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "zasshi",
+  "kana": "ざっし",
+  "romaji": "zasshi",
+  "es": [
+   "revista"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "supootsu",
+  "kana": "スポーツ",
+  "romaji": "supootsu",
+  "es": [
+   "deportes"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "deeto",
+  "kana": "デート",
+  "romaji": "deeto",
+  "es": [
+   "cita (romántica)"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tenisu",
+  "kana": "テニス",
+  "romaji": "tenisu",
+  "es": [
+   "tenis"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio",
+   "deporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "terebi",
+  "kana": "テレビ",
+  "romaji": "terebi",
+  "es": [
+   "TV",
+   "televisión"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "ocio",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "aisukuriimu",
+  "kana": "アイスクリーム",
+  "romaji": "aisukuriimu",
+  "es": [
+   "helado"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hanbaagaa",
+  "kana": "ハンバーガー",
+  "romaji": "hanbaagaa",
+  "es": [
+   "hamburguesa"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "osake",
+  "kana": "おさけ",
+  "romaji": "osake",
+  "es": [
+   "sake",
+   "bebida alcohólica"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "bebida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ocha",
+  "kana": "おちゃ",
+  "romaji": "ocha",
+  "es": [
+   "té verde"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "bebida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "koohii",
+  "kana": "コーヒー",
+  "romaji": "koohii",
+  "es": [
+   "café"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "bebida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mizu",
+  "kana": "みず",
+  "kanji": "水",
+  "romaji": "mizu",
+  "es": [
+   "agua"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "bebida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "asagohan",
+  "kana": "あさごはん",
+  "romaji": "asagohan",
+  "es": [
+   "desayuno"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hirugohan",
+  "kana": "ひるごはん",
+  "romaji": "hirugohan",
+  "es": [
+   "almuerzo"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "bangohan",
+  "kana": "ばんごはん",
+  "romaji": "bangohan",
+  "es": [
+   "cena"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ie",
+  "kana": "いえ",
+  "kanji": "家",
+  "romaji": "ie",
+  "es": [
+   "hogar",
+   "casa"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "lugar",
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "uchi",
+  "kana": "うち",
+  "romaji": "uchi",
+  "es": [
+   "hogar",
+   "mi casa"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "lugar",
+   "casa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gakkou",
+  "kana": "がっこう",
+  "kanji": "学校",
+  "romaji": "gakkou",
+  "es": [
+   "escuela"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "lugar",
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kafe",
+  "kana": "カフェ",
+  "romaji": "kafe",
+  "es": [
+   "cafetería"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ashita",
+  "kana": "あした",
+  "kanji": "明日",
+  "romaji": "ashita",
+  "es": [
+   "mañana"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kyou",
+  "kana": "きょう",
+  "kanji": "今日",
+  "romaji": "kyou",
+  "es": [
+   "hoy"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "asa",
+  "kana": "あさ",
+  "kanji": "朝",
+  "romaji": "asa",
+  "es": [
+   "mañana (por la mañana)"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konban",
+  "kana": "こんばん",
+  "romaji": "konban",
+  "es": [
+   "esta noche"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mainichi",
+  "kana": "まいにち",
+  "kanji": "毎日",
+  "romaji": "mainichi",
+  "es": [
+   "todos los días"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "rutina"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "maiban",
+  "kana": "まいばん",
+  "romaji": "maiban",
+  "es": [
+   "todas las noches"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "rutina"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shuumatsu",
+  "kana": "しゅうまつ",
+  "romaji": "shuumatsu",
+  "es": [
+   "fin de semana"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "doyoubi",
+  "kana": "どようび",
+  "kanji": "土曜日",
+  "romaji": "doyoubi",
+  "es": [
+   "sábado"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nichiyoubi",
+  "kana": "にちようび",
+  "kanji": "日曜日",
+  "romaji": "nichiyoubi",
+  "es": [
+   "domingo"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "itsu",
+  "kana": "いつ",
+  "romaji": "itsu",
+  "es": [
+   "¿cuándo?"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "pregunta",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "goro",
+  "kana": "ごろ",
+  "romaji": "goro",
+  "es": [
+   "alrededor de (hora)"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "tiempo",
+   "sufijo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "iku",
+  "kana": "いく",
+  "kanji": "行く",
+  "romaji": "iku",
+  "es": [
+   "ir (destino に/へ)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "movimiento",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kaeru",
+  "kana": "かえる",
+  "kanji": "帰る",
+  "romaji": "kaeru",
+  "es": [
+   "volver",
+   "regresar (destino に/へ)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "movimiento",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kiku",
+  "kana": "きく",
+  "kanji": "聞く",
+  "romaji": "kiku",
+  "es": [
+   "escuchar",
+   "oír",
+   "preguntar (persona に)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nomu",
+  "kana": "のむ",
+  "kanji": "飲む",
+  "romaji": "nomu",
+  "es": [
+   "tomar",
+   "beber"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hanasu",
+  "kana": "はなす",
+  "kanji": "話す",
+  "romaji": "hanasu",
+  "es": [
+   "hablar",
+   "conversar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yomu",
+  "kana": "よむ",
+  "kanji": "読む",
+  "romaji": "yomu",
+  "es": [
+   "leer"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "okiru",
+  "kana": "おきる",
+  "kanji": "起きる",
+  "romaji": "okiru",
+  "es": [
+   "levantarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "rutina",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "taberu",
+  "kana": "たべる",
+  "kanji": "食べる",
+  "romaji": "taberu",
+  "es": [
+   "comer"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "comida",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "neru",
+  "kana": "ねる",
+  "romaji": "neru",
+  "es": [
+   "dormir",
+   "irse a dormir"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "rutina",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "miru",
+  "kana": "みる",
+  "kanji": "見る",
+  "romaji": "miru",
+  "es": [
+   "ver",
+   "mirar",
+   "observar"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kuru",
+  "kana": "くる",
+  "kanji": "来る",
+  "romaji": "kuru",
+  "es": [
+   "venir"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "movimiento",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "suru",
+  "kana": "する",
+  "romaji": "suru",
+  "es": [
+   "hacer"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "benkyousuru",
+  "kana": "べんきょうする",
+  "kanji": "勉強する",
+  "romaji": "benkyousuru",
+  "es": [
+   "estudiar"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G3",
+  "tags": [
+   "verbo",
+   "escuela",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ii",
+  "kana": "いい",
+  "romaji": "ii",
+  "es": [
+   "bueno"
+  ],
+  "pos": "i-adj",
+  "lesson": "G3",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hayai",
+  "kana": "はやい",
+  "kanji": "早い",
+  "romaji": "hayai",
+  "es": [
+   "temprano",
+   "(también 速い: rápido)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G3",
+  "tags": [
+   "adjetivo",
+   "tiempo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "amari",
+  "kana": "あまり",
+  "romaji": "amari",
+  "es": [
+   "no mucho (con negativo)"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "zenzen",
+  "kana": "ぜんぜん",
+  "romaji": "zenzen",
+  "es": [
+   "para nada (con negativo)"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "taitei",
+  "kana": "たいてい",
+  "romaji": "taitei",
+  "es": [
+   "normalmente"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "chotto",
+  "kana": "ちょっと",
+  "romaji": "chotto",
+  "es": [
+   "un poco"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tokidoki",
+  "kana": "ときどき",
+  "kanji": "時々",
+  "romaji": "tokidoki",
+  "es": [
+   "a veces"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yoku",
+  "kana": "よく",
+  "romaji": "yoku",
+  "es": [
+   "a menudo",
+   "mucho"
+  ],
+  "pos": "adverb",
+  "lesson": "G3",
+  "tags": [
+   "frecuencia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "soudesune",
+  "kana": "そうですね",
+  "romaji": "soudesune",
+  "es": [
+   "así es",
+   "a ver..."
+  ],
+  "pos": "expression",
+  "lesson": "G3",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "demo",
+  "kana": "でも",
+  "romaji": "demo",
+  "es": [
+   "pero"
+  ],
+  "pos": "expression",
+  "lesson": "G3",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "doudesuka",
+  "kana": "どうですか",
+  "romaji": "doudesuka",
+  "es": [
+   "¿qué tal...?",
+   "¿cómo es...?"
+  ],
+  "pos": "expression",
+  "lesson": "G3",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ee",
+  "kana": "ええ",
+  "romaji": "ee",
+  "es": [
+   "sí"
+  ],
+  "pos": "expression",
+  "lesson": "G3",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "geemu",
+  "kana": "ゲーム",
+  "romaji": "geemu",
+  "es": [
+   "juego"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "arubaito",
+  "kana": "アルバイト",
+  "romaji": "arubaito",
+  "es": [
+   "trabajo a tiempo parcial"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "trabajo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kaimono",
+  "kana": "かいもの",
+  "romaji": "kaimono",
+  "es": [
+   "compras"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tienda",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kurasu",
+  "kana": "クラス",
+  "romaji": "kurasu",
+  "es": [
+   "clase"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "inu",
+  "kana": "いぬ",
+  "romaji": "inu",
+  "es": [
+   "perro"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "animal"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "neko",
+  "kana": "ねこ",
+  "romaji": "neko",
+  "es": [
+   "gato"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "animal"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hito",
+  "kana": "ひと",
+  "kanji": "人",
+  "romaji": "hito",
+  "es": [
+   "persona"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kodomo",
+  "kana": "こども",
+  "romaji": "kodomo",
+  "es": [
+   "niño/a"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "anata",
+  "kana": "あなた",
+  "romaji": "anata",
+  "es": [
+   "usted",
+   "tú"
+  ],
+  "pos": "pronoun",
+  "lesson": "G4",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "isu",
+  "kana": "いす",
+  "romaji": "isu",
+  "es": [
+   "silla"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsukue",
+  "kana": "つくえ",
+  "romaji": "tsukue",
+  "es": [
+   "escritorio"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shashin",
+  "kana": "しゃしん",
+  "romaji": "shashin",
+  "es": [
+   "foto",
+   "fotografía"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hana",
+  "kana": "はな",
+  "romaji": "hana",
+  "es": [
+   "flor"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "cosa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "repooto",
+  "kana": "レポート",
+  "romaji": "repooto",
+  "es": [
+   "informe"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gohan",
+  "kana": "ごはん",
+  "romaji": "gohan",
+  "es": [
+   "arroz cocido",
+   "comida"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "pan",
+  "kana": "パン",
+  "romaji": "pan",
+  "es": [
+   "pan"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "otera",
+  "kana": "おてら",
+  "romaji": "otera",
+  "es": [
+   "templo (budista)"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kouen",
+  "kana": "こうえん",
+  "romaji": "kouen",
+  "es": [
+   "parque"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "suupaa",
+  "kana": "スーパー",
+  "romaji": "suupaa",
+  "es": [
+   "supermercado"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "tienda"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "basutei",
+  "kana": "バスてい",
+  "romaji": "basutei",
+  "es": [
+   "parada de autobús"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "transporte"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "byouin",
+  "kana": "びょういん",
+  "kanji": "病院",
+  "romaji": "byouin",
+  "es": [
+   "hospital"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hoteru",
+  "kana": "ホテル",
+  "romaji": "hoteru",
+  "es": [
+   "hotel"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "honya",
+  "kana": "ほんや",
+  "romaji": "hon'ya",
+  "es": [
+   "librería"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "tienda"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "machi",
+  "kana": "まち",
+  "kanji": "町",
+  "romaji": "machi",
+  "es": [
+   "pueblo",
+   "ciudad"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "resutoran",
+  "kana": "レストラン",
+  "romaji": "resutoran",
+  "es": [
+   "restaurante"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "lugar",
+   "restaurante",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kinou",
+  "kana": "きのう",
+  "romaji": "kinou",
+  "es": [
+   "ayer"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "jikan",
+  "kana": "じかん",
+  "kanji": "時間",
+  "romaji": "jikan",
+  "es": [
+   "... horas (duración)"
+  ],
+  "pos": "counter",
+  "lesson": "G4",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ichijikan",
+  "kana": "いちじかん",
+  "kanji": "一時間",
+  "romaji": "ichijikan",
+  "es": [
+   "una hora (duración)"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "senshuu",
+  "kana": "せんしゅう",
+  "romaji": "senshuu",
+  "es": [
+   "la semana pasada"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "toki",
+  "kana": "とき",
+  "kanji": "時",
+  "romaji": "toki",
+  "es": [
+   "cuando ...",
+   "durante ..."
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "getsuyoubi",
+  "kana": "げつようび",
+  "kanji": "月曜日",
+  "romaji": "getsuyoubi",
+  "es": [
+   "lunes"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kayoubi",
+  "kana": "かようび",
+  "kanji": "火曜日",
+  "romaji": "kayoubi",
+  "es": [
+   "martes"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "suiyoubi",
+  "kana": "すいようび",
+  "kanji": "水曜日",
+  "romaji": "suiyoubi",
+  "es": [
+   "miércoles"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mokuyoubi",
+  "kana": "もくようび",
+  "kanji": "木曜日",
+  "romaji": "mokuyoubi",
+  "es": [
+   "jueves"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kinyoubi",
+  "kana": "きんようび",
+  "kanji": "金曜日",
+  "romaji": "kin'youbi",
+  "es": [
+   "viernes"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "au",
+  "kana": "あう",
+  "kanji": "会う",
+  "romaji": "au",
+  "es": [
+   "encontrarse con",
+   "ver a (persona に)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "aru",
+  "kana": "ある",
+  "romaji": "aru",
+  "es": [
+   "haber",
+   "existir",
+   "estar (cosas",
+   "lugar に cosa が)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "existencia",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kau",
+  "kana": "かう",
+  "kanji": "買う",
+  "romaji": "kau",
+  "es": [
+   "comprar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "tienda",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kaku",
+  "kana": "かく",
+  "kanji": "書く",
+  "romaji": "kaku",
+  "es": [
+   "escribir",
+   "dibujar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "toru",
+  "kana": "とる",
+  "romaji": "toru",
+  "es": [
+   "tomar (una foto)",
+   "coger"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "matsu",
+  "kana": "まつ",
+  "romaji": "matsu",
+  "es": [
+   "esperar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "wakaru",
+  "kana": "わかる",
+  "kanji": "分かる",
+  "romaji": "wakaru",
+  "es": [
+   "entender",
+   "comprender"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "iru",
+  "kana": "いる",
+  "romaji": "iru",
+  "es": [
+   "estar",
+   "haber (personas/animales",
+   "lugar に persona が)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G4",
+  "tags": [
+   "verbo",
+   "existencia",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gurai",
+  "kana": "ぐらい",
+  "romaji": "gurai",
+  "es": [
+   "alrededor de (medida aproximada)"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "sufijo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "gomennasai",
+  "kana": "ごめんなさい",
+  "romaji": "gomennasai",
+  "es": [
+   "lo siento",
+   "perdón"
+  ],
+  "pos": "expression",
+  "lesson": "G4",
+  "tags": [
+   "cortesia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sorekara",
+  "kana": "それから",
+  "romaji": "sorekara",
+  "es": [
+   "y luego",
+   "además"
+  ],
+  "pos": "expression",
+  "lesson": "G4",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "dakara",
+  "kana": "だから",
+  "romaji": "dakara",
+  "es": [
+   "así que",
+   "por lo tanto"
+  ],
+  "pos": "expression",
+  "lesson": "G4",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "takusan",
+  "kana": "たくさん",
+  "romaji": "takusan",
+  "es": [
+   "muchos",
+   "mucho"
+  ],
+  "pos": "adverb",
+  "lesson": "G4",
+  "tags": [
+   "cantidad"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "doushite",
+  "kana": "どうして",
+  "romaji": "doushite",
+  "es": [
+   "¿por qué?"
+  ],
+  "pos": "adverb",
+  "lesson": "G4",
+  "tags": [
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hitoride",
+  "kana": "ひとりで",
+  "kanji": "一人で",
+  "romaji": "hitoride",
+  "es": [
+   "solo",
+   "sin compañía"
+  ],
+  "pos": "adverb",
+  "lesson": "G4",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "moshimoshi",
+  "kana": "もしもし",
+  "romaji": "moshimoshi",
+  "es": [
+   "¿aló?",
+   "¿bueno? (al teléfono)"
+  ],
+  "pos": "expression",
+  "lesson": "G4",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tabemono",
+  "kana": "たべもの",
+  "romaji": "tabemono",
+  "es": [
+   "comida (cosas que se comen)"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nomimono",
+  "kana": "のみもの",
+  "romaji": "nomimono",
+  "es": [
+   "bebida"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "comida",
+   "bebida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kudamono",
+  "kana": "くだもの",
+  "romaji": "kudamono",
+  "es": [
+   "fruta"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "comida"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yasumi",
+  "kana": "やすみ",
+  "kanji": "休み",
+  "romaji": "yasumi",
+  "es": [
+   "vacaciones",
+   "día libre",
+   "ausencia"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "tiempo",
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ryokou",
+  "kana": "りょこう",
+  "kanji": "旅行",
+  "romaji": "ryokou",
+  "es": [
+   "viaje"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "umi",
+  "kana": "うみ",
+  "romaji": "umi",
+  "es": [
+   "mar"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "lugar",
+   "naturaleza"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "saafin",
+  "kana": "サーフィン",
+  "romaji": "saafin",
+  "es": [
+   "surf"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "ocio",
+   "deporte"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "omiyage",
+  "kana": "おみやげ",
+  "romaji": "omiyage",
+  "es": [
+   "recuerdo",
+   "souvenir"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "ocio"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "basu",
+  "kana": "バス",
+  "romaji": "basu",
+  "es": [
+   "autobús"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "transporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tenki",
+  "kana": "てんき",
+  "kanji": "天気",
+  "romaji": "tenki",
+  "es": [
+   "tiempo (atmosférico)"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "naturaleza"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shukudai",
+  "kana": "しゅくだい",
+  "romaji": "shukudai",
+  "es": [
+   "deberes",
+   "tarea"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tesuto",
+  "kana": "テスト",
+  "romaji": "tesuto",
+  "es": [
+   "examen"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tanjoubi",
+  "kana": "たんじょうび",
+  "romaji": "tanjoubi",
+  "es": [
+   "cumpleaños"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "heya",
+  "kana": "へや",
+  "romaji": "heya",
+  "es": [
+   "habitación"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "boku",
+  "kana": "ぼく",
+  "romaji": "boku",
+  "es": [
+   "yo (usado por hombres)"
+  ],
+  "pos": "pronoun",
+  "lesson": "G5",
+  "tags": [
+   "persona"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "erusaizu",
+  "kana": "エルサイズ",
+  "romaji": "erusaizu",
+  "es": [
+   "talla L"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "ropa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "atarashii",
+  "kana": "あたらしい",
+  "kanji": "新しい",
+  "romaji": "atarashii",
+  "es": [
+   "nuevo"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "furui",
+  "kana": "ふるい",
+  "kanji": "古い",
+  "romaji": "furui",
+  "es": [
+   "viejo (cosas, no personas)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "atsui",
+  "kana": "あつい",
+  "romaji": "atsui",
+  "es": [
+   "caluroso (clima)",
+   "caliente (teacher: hot)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "clima",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "samui",
+  "kana": "さむい",
+  "romaji": "samui",
+  "es": [
+   "frío (clima)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "clima",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "atsui-cosa",
+  "kana": "あつい",
+  "romaji": "atsui",
+  "es": [
+   "caliente (cosas)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "isogashii",
+  "kana": "いそがしい",
+  "romaji": "isogashii",
+  "es": [
+   "ocupado (personas/días)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ookii",
+  "kana": "おおきい",
+  "kanji": "大きい",
+  "romaji": "ookii",
+  "es": [
+   "grande"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "chiisai",
+  "kana": "ちいさい",
+  "kanji": "小さい",
+  "romaji": "chiisai",
+  "es": [
+   "pequeño"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "omoshiroi",
+  "kana": "おもしろい",
+  "romaji": "omoshiroi",
+  "es": [
+   "interesante",
+   "divertido"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsumaranai",
+  "kana": "つまらない",
+  "romaji": "tsumaranai",
+  "es": [
+   "aburrido"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yasashii",
+  "kana": "やさしい",
+  "romaji": "yasashii",
+  "es": [
+   "fácil",
+   "amable"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "muzukashii",
+  "kana": "むずかしい",
+  "romaji": "muzukashii",
+  "es": [
+   "difícil"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kakkoii",
+  "kana": "かっこいい",
+  "romaji": "kakkoii",
+  "es": [
+   "guapo",
+   "elegante (se conjuga como いい)"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kowai",
+  "kana": "こわい",
+  "romaji": "kowai",
+  "es": [
+   "espeluznante",
+   "que da miedo"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tanoshii",
+  "kana": "たのしい",
+  "romaji": "tanoshii",
+  "es": [
+   "divertido",
+   "agradable"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yasui",
+  "kana": "やすい",
+  "romaji": "yasui",
+  "es": [
+   "barato"
+  ],
+  "pos": "i-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "dinero",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "suki",
+  "kana": "すき",
+  "kanji": "好き",
+  "romaji": "suki",
+  "es": [
+   "gustar",
+   "agradable (すきな)"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kirai",
+  "kana": "きらい",
+  "romaji": "kirai",
+  "es": [
+   "no gustar",
+   "desagradable"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "daisuki",
+  "kana": "だいすき",
+  "kanji": "大好き",
+  "romaji": "daisuki",
+  "es": [
+   "gustar mucho",
+   "encantar"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "daikirai",
+  "kana": "だいきらい",
+  "romaji": "daikirai",
+  "es": [
+   "odiar",
+   "detestar"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kirei",
+  "kana": "きれい",
+  "romaji": "kirei",
+  "es": [
+   "bonito",
+   "limpio"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "genki",
+  "kana": "げんき",
+  "kanji": "元気",
+  "romaji": "genki",
+  "es": [
+   "saludable",
+   "enérgico",
+   "bien"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shizuka",
+  "kana": "しずか",
+  "romaji": "shizuka",
+  "es": [
+   "tranquilo",
+   "silencioso"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nigiyaka",
+  "kana": "にぎやか",
+  "romaji": "nigiyaka",
+  "es": [
+   "animado",
+   "bullicioso"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hima",
+  "kana": "ひま",
+  "romaji": "hima",
+  "es": [
+   "desocupado",
+   "libre (tiempo)"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oyogu",
+  "kana": "およぐ",
+  "romaji": "oyogu",
+  "es": [
+   "nadar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G5",
+  "tags": [
+   "verbo",
+   "deporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "noru",
+  "kana": "のる",
+  "romaji": "noru",
+  "es": [
+   "montar",
+   "abordar (transporte に)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G5",
+  "tags": [
+   "verbo",
+   "transporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yaru",
+  "kana": "やる",
+  "romaji": "yaru",
+  "es": [
+   "hacer",
+   "realizar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G5",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "dekakeru",
+  "kana": "でかける",
+  "kanji": "出かける",
+  "romaji": "dekakeru",
+  "es": [
+   "salir (de casa",
+   "a comer, al cine)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G5",
+  "tags": [
+   "verbo",
+   "movimiento"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "isshoni",
+  "kana": "いっしょに",
+  "romaji": "isshoni",
+  "es": [
+   "juntos"
+  ],
+  "pos": "adverb",
+  "lesson": "G5",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sugoku",
+  "kana": "すごく",
+  "romaji": "sugoku",
+  "es": [
+   "extremadamente",
+   "muy"
+  ],
+  "pos": "adverb",
+  "lesson": "G5",
+  "tags": [
+   "cantidad"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "daijoubu",
+  "kana": "だいじょうぶ",
+  "romaji": "daijoubu",
+  "es": [
+   "está bien",
+   "no hay problema"
+  ],
+  "pos": "na-adj",
+  "lesson": "G5",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "totemo",
+  "kana": "とても",
+  "romaji": "totemo",
+  "es": [
+   "muy"
+  ],
+  "pos": "adverb",
+  "lesson": "G5",
+  "tags": [
+   "cantidad"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "donna",
+  "kana": "どんな",
+  "romaji": "donna",
+  "es": [
+   "¿qué tipo de ...?"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "pregunta"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mai",
+  "kana": "まい",
+  "romaji": "mai",
+  "es": [
+   "contador de objetos planos"
+  ],
+  "pos": "counter",
+  "lesson": "G5",
+  "tags": [
+   "contador"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kanji",
+  "kana": "かんじ",
+  "romaji": "kanji",
+  "es": [
+   "kanji",
+   "carácter chino"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kyoukasho",
+  "kana": "きょうかしょ",
+  "romaji": "kyoukasho",
+  "es": [
+   "libro de texto"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "peeji",
+  "kana": "ページ",
+  "romaji": "peeji",
+  "es": [
+   "página"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "escuela"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsugi",
+  "kana": "つぎ",
+  "kanji": "次",
+  "romaji": "tsugi",
+  "es": [
+   "siguiente",
+   "próximo"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "okane",
+  "kana": "おかね",
+  "kanji": "お金",
+  "romaji": "okane",
+  "es": [
+   "dinero"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "dinero"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "nimotsu",
+  "kana": "にもつ",
+  "romaji": "nimotsu",
+  "es": [
+   "equipaje"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "pasokon",
+  "kana": "パソコン",
+  "romaji": "pasokon",
+  "es": [
+   "computadora personal"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "cosa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shawaa",
+  "kana": "シャワー",
+  "romaji": "shawaa",
+  "es": [
+   "ducha"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "eakon",
+  "kana": "エアコン",
+  "romaji": "eakon",
+  "es": [
+   "aire acondicionado"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "casa"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "denki",
+  "kana": "でんき",
+  "kanji": "電気",
+  "romaji": "denki",
+  "es": [
+   "electricidad",
+   "luz"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "casa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mado",
+  "kana": "まど",
+  "romaji": "mado",
+  "es": [
+   "ventana"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "casa",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "densha",
+  "kana": "でんしゃ",
+  "kanji": "電車",
+  "romaji": "densha",
+  "es": [
+   "tren"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "transporte",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kuni",
+  "kana": "くに",
+  "kanji": "国",
+  "romaji": "kuni",
+  "es": [
+   "país",
+   "lugar de origen"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "pais"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "konshuu",
+  "kana": "こんしゅう",
+  "romaji": "konshuu",
+  "es": [
+   "esta semana"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo",
+   "fecha"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "raishuu",
+  "kana": "らいしゅう",
+  "romaji": "raishuu",
+  "es": [
+   "la próxima semana"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "rainen",
+  "kana": "らいねん",
+  "kanji": "来年",
+  "romaji": "rainen",
+  "es": [
+   "el próximo año"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo",
+   "fecha"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yoru",
+  "kana": "よる",
+  "kanji": "夜",
+  "romaji": "yoru",
+  "es": [
+   "noche"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "taihen",
+  "kana": "たいへん",
+  "romaji": "taihen",
+  "es": [
+   "difícil",
+   "duro (situación)",
+   "gran problema"
+  ],
+  "pos": "na-adj",
+  "lesson": "G6",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "asobu",
+  "kana": "あそぶ",
+  "romaji": "asobu",
+  "es": [
+   "jugar",
+   "pasar un rato agradable"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "ocio",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "isogu",
+  "kana": "いそぐ",
+  "romaji": "isogu",
+  "es": [
+   "apresurarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kaesu",
+  "kana": "かえす",
+  "romaji": "kaesu",
+  "es": [
+   "devolver (una cosa)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kesu",
+  "kana": "けす",
+  "romaji": "kesu",
+  "es": [
+   "apagar",
+   "borrar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shinu",
+  "kana": "しぬ",
+  "romaji": "shinu",
+  "es": [
+   "morir"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "suwaru",
+  "kana": "すわる",
+  "romaji": "suwaru",
+  "es": [
+   "sentarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tatsu",
+  "kana": "たつ",
+  "kanji": "立つ",
+  "romaji": "tatsu",
+  "es": [
+   "ponerse de pie"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tabako-wo-suu",
+  "kana": "たばこをすう",
+  "romaji": "tabakowosuu",
+  "es": [
+   "fumar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsukau",
+  "kana": "つかう",
+  "kanji": "使う",
+  "romaji": "tsukau",
+  "es": [
+   "utilizar",
+   "usar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tetsudau",
+  "kana": "てつだう",
+  "romaji": "tetsudau",
+  "es": [
+   "ayudar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hairu",
+  "kana": "はいる",
+  "kanji": "入る",
+  "romaji": "hairu",
+  "es": [
+   "entrar (lugar に)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "movimiento",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "motsu",
+  "kana": "もつ",
+  "kanji": "持つ",
+  "romaji": "motsu",
+  "es": [
+   "llevar",
+   "sostener"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yasumu",
+  "kana": "やすむ",
+  "kanji": "休む",
+  "romaji": "yasumu",
+  "es": [
+   "faltar",
+   "descansar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "akeru",
+  "kana": "あける",
+  "romaji": "akeru",
+  "es": [
+   "abrir (algo)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shimeru",
+  "kana": "しめる",
+  "romaji": "shimeru",
+  "es": [
+   "cerrar (algo)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oshieru",
+  "kana": "おしえる",
+  "romaji": "oshieru",
+  "es": [
+   "enseñar",
+   "instruir"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "wasureru",
+  "kana": "わすれる",
+  "romaji": "wasureru",
+  "es": [
+   "olvidar",
+   "dejar atrás"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "oriru",
+  "kana": "おりる",
+  "romaji": "oriru",
+  "es": [
+   "bajarse (de un transporte)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "transporte"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kariru",
+  "kana": "かりる",
+  "romaji": "kariru",
+  "es": [
+   "pedir prestado"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "shawaa-wo-abiru",
+  "kana": "シャワーをあびる",
+  "romaji": "shawaawoabiru",
+  "es": [
+   "ducharse"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "rutina"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsukeru",
+  "kana": "つける",
+  "romaji": "tsukeru",
+  "es": [
+   "encender",
+   "prender"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "denwasuru",
+  "kana": "でんわする",
+  "kanji": "電話する",
+  "romaji": "denwasuru",
+  "es": [
+   "llamar por teléfono"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "tsuretekuru",
+  "kana": "つれてくる",
+  "kanji": "連れてくる",
+  "romaji": "tsuretekuru",
+  "es": [
+   "traer (a una persona)"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mottekuru",
+  "kana": "もってくる",
+  "kanji": "持ってくる",
+  "romaji": "mottekuru",
+  "es": [
+   "traer (una cosa)"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G6",
+  "tags": [
+   "verbo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "atode",
+  "kana": "あとで",
+  "kanji": "後で",
+  "romaji": "atode",
+  "es": [
+   "después"
+  ],
+  "pos": "adverb",
+  "lesson": "G6",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "sugu",
+  "kana": "すぐ",
+  "romaji": "sugu",
+  "es": [
+   "de inmediato",
+   "enseguida"
+  ],
+  "pos": "adverb",
+  "lesson": "G6",
+  "tags": [
+   "tiempo"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yukkuri",
+  "kana": "ゆっくり",
+  "romaji": "yukkuri",
+  "es": [
+   "despacio",
+   "con calma"
+  ],
+  "pos": "adverb",
+  "lesson": "G6",
+  "tags": [
+   "cantidad"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kekkoudesu",
+  "kana": "けっこうです",
+  "romaji": "kekkoudesu",
+  "es": [
+   "está bien",
+   "no, gracias"
+  ],
+  "pos": "expression",
+  "lesson": "G6",
+  "tags": [
+   "cortesia"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "hontoudesuka",
+  "kana": "ほんとうですか",
+  "romaji": "hontoudesuka",
+  "es": [
+   "¿de verdad?"
+  ],
+  "pos": "expression",
+  "lesson": "G6",
+  "tags": [
+   "conversacion"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "wa-tema",
+  "kana": "は",
+  "romaji": "wa",
+  "es": [
+   "partícula de tema (se lee \"wa\")"
+  ],
+  "pos": "particle",
+  "lesson": "G1",
+  "tags": [
+   "particula"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ka",
+  "kana": "か",
+  "romaji": "ka",
+  "es": [
+   "partícula de pregunta"
+  ],
+  "pos": "particle",
+  "lesson": "G1",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "no",
+  "kana": "の",
+  "romaji": "no",
+  "es": [
+   "partícula de posesión/relación entre sustantivos"
+  ],
+  "pos": "particle",
+  "lesson": "G1",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "mo",
+  "kana": "も",
+  "romaji": "mo",
+  "es": [
+   "también (partícula)"
+  ],
+  "pos": "particle",
+  "lesson": "G2",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ne",
+  "kana": "ね",
+  "romaji": "ne",
+  "es": [
+   "¿verdad? (partícula final de confirmación)"
+  ],
+  "pos": "particle",
+  "lesson": "G2",
+  "tags": [
+   "particula"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "yo",
+  "kana": "よ",
+  "romaji": "yo",
+  "es": [
+   "(partícula final: informa algo que el otro no sabe)"
+  ],
+  "pos": "particle",
+  "lesson": "G2",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "o-objeto",
+  "kana": "を",
+  "romaji": "o",
+  "es": [
+   "partícula de objeto directo (se lee \"o\")"
+  ],
+  "pos": "particle",
+  "lesson": "G3",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ni",
+  "kana": "に",
+  "romaji": "ni",
+  "es": [
+   "partícula de destino / lugar de existencia / hora puntual"
+  ],
+  "pos": "particle",
+  "lesson": "G3",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "e-direccion",
+  "kana": "へ",
+  "romaji": "e",
+  "es": [
+   "partícula de dirección (se lee \"e\")"
+  ],
+  "pos": "particle",
+  "lesson": "G3",
+  "tags": [
+   "particula"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "de",
+  "kana": "で",
+  "romaji": "de",
+  "es": [
+   "partícula de lugar de acción / medio"
+  ],
+  "pos": "particle",
+  "lesson": "G3",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "to",
+  "kana": "と",
+  "romaji": "to",
+  "es": [
+   "y (entre sustantivos)",
+   "con (una persona)"
+  ],
+  "pos": "particle",
+  "lesson": "G4",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ga",
+  "kana": "が",
+  "romaji": "ga",
+  "es": [
+   "partícula de sujeto",
+   "existencia con あります/います"
+  ],
+  "pos": "particle",
+  "lesson": "G4",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "kara",
+  "kana": "から",
+  "romaji": "kara",
+  "es": [
+   "desde (origen/inicio)",
+   "porque"
+  ],
+  "pos": "particle",
+  "lesson": "G6",
+  "tags": [
+   "particula",
+   "profesor"
+  ],
+  "source": "genki"
+ },
+ {
+  "id": "ya",
+  "kana": "や",
+  "romaji": "ya",
+  "es": [
+   "y (lista no exhaustiva: ... y otras cosas)"
+  ],
+  "pos": "particle",
+  "lesson": "P5",
+  "tags": [
+   "particula"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "made",
+  "kana": "まで",
+  "romaji": "made",
+  "es": [
+   "hasta"
+  ],
+  "pos": "particle",
+  "lesson": "P6",
+  "tags": [
+   "particula"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kippu",
+  "kana": "きっぷ",
+  "romaji": "kippu",
+  "es": [
+   "boleto",
+   "billete (de tren)"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "benkyou",
+  "kana": "べんきょう",
+  "kanji": "勉強",
+  "romaji": "benkyou",
+  "es": [
+   "estudio"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "escuela"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shigoto",
+  "kana": "しごと",
+  "kanji": "仕事",
+  "romaji": "shigoto",
+  "es": [
+   "trabajo",
+   "empleo"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "trabajo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yoyaku",
+  "kana": "よやく",
+  "romaji": "yoyaku",
+  "es": [
+   "reserva"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "eki",
+  "kana": "えき",
+  "romaji": "eki",
+  "es": [
+   "estación (de tren)"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "lugar",
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kyouto",
+  "kana": "きょうと",
+  "romaji": "kyouto",
+  "es": [
+   "Kioto"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "jimu",
+  "kana": "ジム",
+  "romaji": "jimu",
+  "es": [
+   "gimnasio"
+  ],
+  "pos": "noun",
+  "lesson": "P1",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chiri",
+  "kana": "チリ",
+  "romaji": "chiri",
+  "es": [
+   "Chile"
+  ],
+  "pos": "noun",
+  "lesson": "P2",
+  "tags": [
+   "pais"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chirijin",
+  "kana": "ちりじん",
+  "kanji": "チリ人",
+  "romaji": "chirijin",
+  "es": [
+   "chileno/a"
+  ],
+  "pos": "noun",
+  "lesson": "P2",
+  "tags": [
+   "persona",
+   "pais"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "amerikajin",
+  "kana": "アメリカじん",
+  "kanji": "アメリカ人",
+  "romaji": "amerikajin",
+  "es": [
+   "estadounidense"
+  ],
+  "pos": "noun",
+  "lesson": "P2",
+  "tags": [
+   "persona",
+   "pais"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kawaii",
+  "kana": "かわいい",
+  "romaji": "kawaii",
+  "es": [
+   "lindo",
+   "bonito (de aspecto tierno)"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chikai",
+  "kana": "ちかい",
+  "kanji": "近い",
+  "romaji": "chikai",
+  "es": [
+   "cerca",
+   "cercano"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tooi",
+  "kana": "とおい",
+  "romaji": "tooi",
+  "es": [
+   "lejos",
+   "lejano"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tsuyoi",
+  "kana": "つよい",
+  "kanji": "強い",
+  "romaji": "tsuyoi",
+  "es": [
+   "fuerte"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sugoi",
+  "kana": "すごい",
+  "romaji": "sugoi",
+  "es": [
+   "increíble",
+   "genial",
+   "tremendo"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "amai",
+  "kana": "あまい",
+  "romaji": "amai",
+  "es": [
+   "dulce"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "karai",
+  "kana": "からい",
+  "romaji": "karai",
+  "es": [
+   "picante"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "subarashii",
+  "kana": "すばらしい",
+  "romaji": "subarashii",
+  "es": [
+   "maravilloso",
+   "espléndido"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tsumetai",
+  "kana": "つめたい",
+  "romaji": "tsumetai",
+  "es": [
+   "frío (al tacto",
+   "bebidas, cosas)"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "suzushii",
+  "kana": "すずしい",
+  "romaji": "suzushii",
+  "es": [
+   "fresco (clima)"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "clima"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "atatakai",
+  "kana": "あたたかい",
+  "romaji": "atatakai",
+  "es": [
+   "cálido",
+   "templado"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "clima"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "osoi",
+  "kana": "おそい",
+  "romaji": "osoi",
+  "es": [
+   "lento",
+   "tarde"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "tiempo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "umai",
+  "kana": "うまい",
+  "romaji": "umai",
+  "es": [
+   "rico",
+   "delicioso (informal)",
+   "hábil"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yoroshii",
+  "kana": "よろしい",
+  "romaji": "yoroshii",
+  "es": [
+   "bueno (forma formal de いい)"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "warui",
+  "kana": "わるい",
+  "romaji": "warui",
+  "es": [
+   "malo"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nai",
+  "kana": "ない",
+  "romaji": "nai",
+  "es": [
+   "no haber",
+   "no tener",
+   "no existir"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo",
+   "existencia"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hoshii",
+  "kana": "ほしい",
+  "romaji": "hoshii",
+  "es": [
+   "querer",
+   "desear (una cosa)"
+  ],
+  "pos": "i-adj",
+  "lesson": "P3",
+  "tags": [
+   "adjetivo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "enpitsu",
+  "kana": "えんぴつ",
+  "romaji": "enpitsu",
+  "es": [
+   "lápiz"
+  ],
+  "pos": "noun",
+  "lesson": "P4",
+  "tags": [
+   "cosa",
+   "escuela"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "jisho",
+  "kana": "じしょ",
+  "romaji": "jisho",
+  "es": [
+   "diccionario"
+  ],
+  "pos": "noun",
+  "lesson": "P4",
+  "tags": [
+   "cosa",
+   "escuela"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sen",
+  "kana": "せん",
+  "kanji": "千",
+  "romaji": "sen",
+  "es": [
+   "mil"
+  ],
+  "pos": "noun",
+  "lesson": "P4",
+  "tags": [
+   "numero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "man",
+  "kana": "まん",
+  "kanji": "万",
+  "romaji": "man",
+  "es": [
+   "diez mil"
+  ],
+  "pos": "noun",
+  "lesson": "P4",
+  "tags": [
+   "numero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "jinja",
+  "kana": "じんじゃ",
+  "kanji": "神社",
+  "romaji": "jinja",
+  "es": [
+   "santuario sintoísta"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "mizuumi",
+  "kana": "みずうみ",
+  "romaji": "mizuumi",
+  "es": [
+   "lago"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar",
+   "naturaleza"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "uketsuke",
+  "kana": "うけつけ",
+  "romaji": "uketsuke",
+  "es": [
+   "recepción"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "otokonohito",
+  "kana": "おとこのひと",
+  "kanji": "男の人",
+  "romaji": "otokonohito",
+  "es": [
+   "hombre"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "persona"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "onnanohito",
+  "kana": "おんなのひと",
+  "kanji": "女の人",
+  "romaji": "onnanohito",
+  "es": [
+   "mujer"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "persona"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "teeburu",
+  "kana": "テーブル",
+  "romaji": "teeburu",
+  "es": [
+   "mesa"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "cosa"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ue",
+  "kana": "うえ",
+  "kanji": "上",
+  "romaji": "ue",
+  "es": [
+   "arriba",
+   "encima"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "posicion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shita",
+  "kana": "した",
+  "kanji": "下",
+  "romaji": "shita",
+  "es": [
+   "abajo",
+   "debajo"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "posicion"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "naka",
+  "kana": "なか",
+  "kanji": "中",
+  "romaji": "naka",
+  "es": [
+   "dentro",
+   "en el interior"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "posicion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "mae",
+  "kana": "まえ",
+  "kanji": "前",
+  "romaji": "mae",
+  "es": [
+   "delante",
+   "antes"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "posicion"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kagi",
+  "kana": "かぎ",
+  "romaji": "kagi",
+  "es": [
+   "llave"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "cosa"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nanimo",
+  "kana": "なにも",
+  "kanji": "何も",
+  "romaji": "nanimo",
+  "es": [
+   "nada (con negativo)"
+  ],
+  "pos": "adverb",
+  "lesson": "P5",
+  "tags": [
+   "existencia"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "daremo",
+  "kana": "だれも",
+  "romaji": "daremo",
+  "es": [
+   "nadie (con negativo)"
+  ],
+  "pos": "adverb",
+  "lesson": "P5",
+  "tags": [
+   "existencia"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "otearai",
+  "kana": "おてあらい",
+  "romaji": "otearai",
+  "es": [
+   "baño",
+   "servicio"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chuushajou",
+  "kana": "ちゅうしゃじょう",
+  "romaji": "chuushajou",
+  "es": [
+   "estacionamiento"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chika",
+  "kana": "ちか",
+  "romaji": "chika",
+  "es": [
+   "subsuelo",
+   "sótano"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "taishikan",
+  "kana": "たいしかん",
+  "romaji": "taishikan",
+  "es": [
+   "embajada"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kai-piso",
+  "kana": "かい",
+  "romaji": "kai",
+  "es": [
+   "... piso",
+   "planta (contador)"
+  ],
+  "pos": "counter",
+  "lesson": "P5",
+  "tags": [
+   "lugar",
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ikkai",
+  "kana": "いっかい",
+  "romaji": "ikkai",
+  "es": [
+   "planta baja",
+   "primer piso"
+  ],
+  "pos": "noun",
+  "lesson": "P5",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kaigi",
+  "kana": "かいぎ",
+  "romaji": "kaigi",
+  "es": [
+   "reunión"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "trabajo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chikatetsu",
+  "kana": "ちかてつ",
+  "romaji": "chikatetsu",
+  "es": [
+   "metro",
+   "subterráneo"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kuruma",
+  "kana": "くるま",
+  "kanji": "車",
+  "romaji": "kuruma",
+  "es": [
+   "auto",
+   "coche"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "takushii",
+  "kana": "タクシー",
+  "romaji": "takushii",
+  "es": [
+   "taxi"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shinkansen",
+  "kana": "しんかんせん",
+  "romaji": "shinkansen",
+  "es": [
+   "tren bala (Shinkansen)"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hikouki",
+  "kana": "ひこうき",
+  "romaji": "hikouki",
+  "es": [
+   "avión"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "oosaka",
+  "kana": "おおさか",
+  "romaji": "oosaka",
+  "es": [
+   "Osaka"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "genkin",
+  "kana": "げんきん",
+  "romaji": "genkin",
+  "es": [
+   "dinero en efectivo"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "dinero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "omatsuri",
+  "kana": "おまつり",
+  "romaji": "omatsuri",
+  "es": [
+   "festival"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "natsuyasumi",
+  "kana": "なつやすみ",
+  "romaji": "natsuyasumi",
+  "es": [
+   "vacaciones de verano"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "natsu",
+  "kana": "なつ",
+  "romaji": "natsu",
+  "es": [
+   "verano"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "paatii",
+  "kana": "パーティー",
+  "romaji": "paatii",
+  "es": [
+   "fiesta"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "ocio"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shutchou",
+  "kana": "しゅっちょう",
+  "romaji": "shutchou",
+  "es": [
+   "viaje de negocios"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "trabajo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nen",
+  "kana": "ねん",
+  "kanji": "年",
+  "romaji": "nen",
+  "es": [
+   "... año (contador)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "gatsu",
+  "kana": "がつ",
+  "kanji": "月",
+  "romaji": "gatsu",
+  "es": [
+   "... mes (contador)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nichi",
+  "kana": "にち",
+  "kanji": "日",
+  "romaji": "nichi",
+  "es": [
+   "... día del mes (contador)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "youbi",
+  "kana": "ようび",
+  "kanji": "曜日",
+  "romaji": "youbi",
+  "es": [
+   "día de la semana"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nannen",
+  "kana": "なんねん",
+  "kanji": "何年",
+  "romaji": "nannen",
+  "es": [
+   "¿qué año?"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nangatsu",
+  "kana": "なんがつ",
+  "kanji": "何月",
+  "romaji": "nangatsu",
+  "es": [
+   "¿qué mes?"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nannichi",
+  "kana": "なんにち",
+  "kanji": "何日",
+  "romaji": "nannichi",
+  "es": [
+   "¿qué día del mes?"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nanyoubi",
+  "kana": "なんようび",
+  "kanji": "何曜日",
+  "romaji": "nan'youbi",
+  "es": [
+   "¿qué día de la semana?"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hitotsu",
+  "kana": "ひとつ",
+  "kanji": "一つ",
+  "romaji": "hitotsu",
+  "es": [
+   "uno (objetos en general)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "futatsu",
+  "kana": "ふたつ",
+  "kanji": "二つ",
+  "romaji": "futatsu",
+  "es": [
+   "dos (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "mittsu",
+  "kana": "みっつ",
+  "kanji": "三つ",
+  "romaji": "mittsu",
+  "es": [
+   "tres (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yottsu",
+  "kana": "よっつ",
+  "kanji": "四つ",
+  "romaji": "yottsu",
+  "es": [
+   "cuatro (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "itsutsu",
+  "kana": "いつつ",
+  "kanji": "五つ",
+  "romaji": "itsutsu",
+  "es": [
+   "cinco (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "muttsu",
+  "kana": "むっつ",
+  "kanji": "六つ",
+  "romaji": "muttsu",
+  "es": [
+   "seis (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nanatsu",
+  "kana": "ななつ",
+  "kanji": "七つ",
+  "romaji": "nanatsu",
+  "es": [
+   "siete (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yattsu",
+  "kana": "やっつ",
+  "kanji": "八つ",
+  "romaji": "yattsu",
+  "es": [
+   "ocho (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kokonotsu",
+  "kana": "ここのつ",
+  "kanji": "九つ",
+  "romaji": "kokonotsu",
+  "es": [
+   "nueve (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "too",
+  "kana": "とお",
+  "kanji": "十",
+  "romaji": "too",
+  "es": [
+   "diez (objetos)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ikutsu",
+  "kana": "いくつ",
+  "romaji": "ikutsu",
+  "es": [
+   "¿cuántos? (objetos)",
+   "¿cuántos años?"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hitori",
+  "kana": "ひとり",
+  "kanji": "一人",
+  "romaji": "hitori",
+  "es": [
+   "una persona"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador",
+   "persona"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "futari",
+  "kana": "ふたり",
+  "kanji": "二人",
+  "romaji": "futari",
+  "es": [
+   "dos personas"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador",
+   "persona"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nin",
+  "kana": "にん",
+  "kanji": "人",
+  "romaji": "nin",
+  "es": [
+   "... personas (contador)"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador",
+   "persona"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nannin",
+  "kana": "なんにん",
+  "kanji": "何人",
+  "romaji": "nannin",
+  "es": [
+   "¿cuántas personas?"
+  ],
+  "pos": "counter",
+  "lesson": "P6",
+  "tags": [
+   "contador",
+   "persona",
+   "pregunta"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "michi",
+  "kana": "みち",
+  "kanji": "道",
+  "romaji": "michi",
+  "es": [
+   "camino",
+   "calle"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "direccion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hidari",
+  "kana": "ひだり",
+  "kanji": "左",
+  "romaji": "hidari",
+  "es": [
+   "izquierda"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "direccion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "migi",
+  "kana": "みぎ",
+  "kanji": "右",
+  "romaji": "migi",
+  "es": [
+   "derecha"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "direccion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "massugu",
+  "kana": "まっすぐ",
+  "romaji": "massugu",
+  "es": [
+   "recto",
+   "derecho"
+  ],
+  "pos": "adverb",
+  "lesson": "P7",
+  "tags": [
+   "direccion"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "magaru",
+  "kana": "まがる",
+  "romaji": "magaru",
+  "es": [
+   "doblar",
+   "girar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P7",
+  "tags": [
+   "verbo",
+   "direccion"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kakaru",
+  "kana": "かかる",
+  "romaji": "kakaru",
+  "es": [
+   "tardar",
+   "costar (tiempo o dinero)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P7",
+  "tags": [
+   "verbo",
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sen-linea",
+  "kana": "せん",
+  "romaji": "sen",
+  "es": [
+   "línea (de tren o metro)"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shibuya",
+  "kana": "しぶや",
+  "romaji": "shibuya",
+  "es": [
+   "Shibuya"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ginza",
+  "kana": "ぎんざ",
+  "romaji": "ginza",
+  "es": [
+   "Ginza"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "lugar"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "donogurai",
+  "kana": "どのぐらい",
+  "romaji": "donogurai",
+  "es": [
+   "¿cuánto? (tiempo, cantidad aproximada)"
+  ],
+  "pos": "adverb",
+  "lesson": "P7",
+  "tags": [
+   "pregunta",
+   "transporte"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "douitashimashite",
+  "kana": "どういたしまして",
+  "romaji": "douitashimashite",
+  "es": [
+   "de nada"
+  ],
+  "pos": "expression",
+  "lesson": "P7",
+  "tags": [
+   "cortesia"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "arigatougozaimashita",
+  "kana": "ありがとうございました",
+  "romaji": "arigatougozaimashita",
+  "es": [
+   "muchas gracias (por lo que ya pasó)"
+  ],
+  "pos": "expression",
+  "lesson": "P7",
+  "tags": [
+   "cortesia",
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "chuumon",
+  "kana": "ちゅうもん",
+  "romaji": "chuumon",
+  "es": [
+   "pedido",
+   "orden"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kareeraisu",
+  "kana": "カレーライス",
+  "romaji": "kareeraisu",
+  "es": [
+   "arroz con curry"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "comida",
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "okaikei",
+  "kana": "おかいけい",
+  "romaji": "okaikei",
+  "es": [
+   "la cuenta (en un restaurante)"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante",
+   "dinero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "issho",
+  "kana": "いっしょ",
+  "romaji": "issho",
+  "es": [
+   "juntos",
+   "todo junto"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "betsubetsu",
+  "kana": "べつべつ",
+  "kanji": "別々",
+  "romaji": "betsubetsu",
+  "es": [
+   "por separado"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "oazukari",
+  "kana": "おあずかり",
+  "romaji": "oazukari",
+  "es": [
+   "recibido (lit. \"me quedo con\"",
+   "al recibir dinero)"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante",
+   "dinero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "okaeshi",
+  "kana": "おかえし",
+  "romaji": "okaeshi",
+  "es": [
+   "cambio",
+   "vuelto"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "restaurante",
+   "dinero"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "otsuri",
+  "kana": "おつり",
+  "romaji": "otsuri",
+  "es": [
+   "vuelto",
+   "cambio"
+  ],
+  "pos": "noun",
+  "lesson": "P7",
+  "tags": [
+   "dinero"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "fun",
+  "kana": "ふん",
+  "kanji": "分",
+  "romaji": "fun",
+  "es": [
+   "... minutos"
+  ],
+  "pos": "counter",
+  "lesson": "P7",
+  "tags": [
+   "tiempo",
+   "hora"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "aruku",
+  "kana": "あるく",
+  "romaji": "aruku",
+  "es": [
+   "caminar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo",
+   "movimiento"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tsukuru",
+  "kana": "つくる",
+  "kanji": "作る",
+  "romaji": "tsukuru",
+  "es": [
+   "hacer",
+   "fabricar",
+   "preparar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "iru-necesitar",
+  "kana": "いる",
+  "romaji": "iru",
+  "es": [
+   "necesitar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sumu",
+  "kana": "すむ",
+  "kanji": "住む",
+  "romaji": "sumu",
+  "es": [
+   "vivir",
+   "residir"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hajimeru",
+  "kana": "はじめる",
+  "romaji": "hajimeru",
+  "es": [
+   "empezar",
+   "comenzar (algo)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tomeru",
+  "kana": "とめる",
+  "romaji": "tomeru",
+  "es": [
+   "detener",
+   "parar (un auto)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "atatameru",
+  "kana": "あたためる",
+  "romaji": "atatameru",
+  "es": [
+   "calentar"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo",
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "miseru",
+  "kana": "みせる",
+  "kanji": "見せる",
+  "romaji": "miseru",
+  "es": [
+   "mostrar"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "owaru",
+  "kana": "おわる",
+  "romaji": "owaru",
+  "es": [
+   "terminar",
+   "acabar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "erabu",
+  "kana": "えらぶ",
+  "romaji": "erabu",
+  "es": [
+   "elegir"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kasu",
+  "kana": "かす",
+  "romaji": "kasu",
+  "es": [
+   "prestar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "arau",
+  "kana": "あらう",
+  "romaji": "arau",
+  "es": [
+   "lavar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "fuku-limpiar",
+  "kana": "ふく",
+  "romaji": "fuku",
+  "es": [
+   "limpiar",
+   "secar (con un paño)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "fuku-soplar",
+  "kana": "ふく",
+  "romaji": "fuku",
+  "es": [
+   "soplar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nugu",
+  "kana": "ぬぐ",
+  "romaji": "nugu",
+  "es": [
+   "quitarse (la ropa)"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo",
+   "ropa"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "utau",
+  "kana": "うたう",
+  "kanji": "歌う",
+  "romaji": "utau",
+  "es": [
+   "cantar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo",
+   "ocio"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "okuru",
+  "kana": "おくる",
+  "romaji": "okuru",
+  "es": [
+   "enviar",
+   "mandar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yameru",
+  "kana": "やめる",
+  "romaji": "yameru",
+  "es": [
+   "dejar",
+   "parar de (hacer algo)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ageru",
+  "kana": "あげる",
+  "romaji": "ageru",
+  "es": [
+   "dar (a otra persona)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "dasu",
+  "kana": "だす",
+  "kanji": "出す",
+  "romaji": "dasu",
+  "es": [
+   "sacar",
+   "entregar",
+   "presentar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "naru",
+  "kana": "なる",
+  "romaji": "naru",
+  "es": [
+   "llegar a ser",
+   "volverse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ireru",
+  "kana": "いれる",
+  "kanji": "入れる",
+  "romaji": "ireru",
+  "es": [
+   "meter",
+   "poner dentro"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kawaku",
+  "kana": "かわく",
+  "romaji": "kawaku",
+  "es": [
+   "secarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "okoru",
+  "kana": "おこる",
+  "romaji": "okoru",
+  "es": [
+   "enojarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "narabu",
+  "kana": "ならぶ",
+  "romaji": "narabu",
+  "es": [
+   "hacer fila",
+   "alinearse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "oboeru",
+  "kana": "おぼえる",
+  "romaji": "oboeru",
+  "es": [
+   "memorizar",
+   "recordar"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yureru",
+  "kana": "ゆれる",
+  "romaji": "yureru",
+  "es": [
+   "temblar",
+   "moverse"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yaseru",
+  "kana": "やせる",
+  "romaji": "yaseru",
+  "es": [
+   "adelgazar"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nureru",
+  "kana": "ぬれる",
+  "romaji": "nureru",
+  "es": [
+   "mojarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "niru",
+  "kana": "にる",
+  "romaji": "niru",
+  "es": [
+   "hervir",
+   "cocer a fuego lento"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "P8",
+  "tags": [
+   "verbo",
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "depaato",
+  "kana": "デパート",
+  "romaji": "depaato",
+  "es": [
+   "tienda departamental"
+  ],
+  "pos": "noun",
+  "lesson": "P9",
+  "tags": [
+   "lugar",
+   "tienda"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "takoyaki",
+  "kana": "たこやき",
+  "romaji": "takoyaki",
+  "es": [
+   "takoyaki (bolitas de pulpo)"
+  ],
+  "pos": "noun",
+  "lesson": "P9",
+  "tags": [
+   "comida"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "e",
+  "kana": "え",
+  "romaji": "e",
+  "es": [
+   "dibujo",
+   "pintura"
+  ],
+  "pos": "noun",
+  "lesson": "P9",
+  "tags": [
+   "cosa"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "ao",
+  "kana": "あお",
+  "kanji": "青",
+  "romaji": "ao",
+  "es": [
+   "azul"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "color",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ai",
+  "kana": "あい",
+  "romaji": "ai",
+  "es": [
+   "amor"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "iu",
+  "kana": "いう",
+  "kanji": "言う",
+  "romaji": "iu",
+  "es": [
+   "decir"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G0",
+  "tags": [
+   "verbo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "akai",
+  "kana": "あかい",
+  "kanji": "赤い",
+  "romaji": "akai",
+  "es": [
+   "rojo"
+  ],
+  "pos": "i-adj",
+  "lesson": "G0",
+  "tags": [
+   "color",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kao",
+  "kana": "かお",
+  "romaji": "kao",
+  "es": [
+   "cara"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "koe",
+  "kana": "こえ",
+  "romaji": "koe",
+  "es": [
+   "voz"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sushi",
+  "kana": "すし",
+  "romaji": "sushi",
+  "es": [
+   "sushi"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shio",
+  "kana": "しお",
+  "romaji": "shio",
+  "es": [
+   "sal"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "uso",
+  "kana": "うそ",
+  "romaji": "uso",
+  "es": [
+   "mentira"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tako",
+  "kana": "たこ",
+  "romaji": "tako",
+  "es": [
+   "pulpo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "animal",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "onaka",
+  "kana": "おなか",
+  "romaji": "onaka",
+  "es": [
+   "estómago",
+   "barriga"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hashi",
+  "kana": "はし",
+  "romaji": "hashi",
+  "es": [
+   "palillos"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "haha",
+  "kana": "はは",
+  "kanji": "母",
+  "romaji": "haha",
+  "es": [
+   "mi madre"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "familia",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "fune",
+  "kana": "ふね",
+  "romaji": "fune",
+  "es": [
+   "barco"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "transporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ame",
+  "kana": "あめ",
+  "kanji": "雨",
+  "romaji": "ame",
+  "es": [
+   "lluvia"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "clima",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "mimi",
+  "kana": "みみ",
+  "romaji": "mimi",
+  "es": [
+   "oreja"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "uma",
+  "kana": "うま",
+  "romaji": "uma",
+  "es": [
+   "caballo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "animal",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yuki",
+  "kana": "ゆき",
+  "kanji": "雪",
+  "romaji": "yuki",
+  "es": [
+   "nieve"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "clima",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ringo",
+  "kana": "りんご",
+  "romaji": "ringo",
+  "es": [
+   "manzana"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sakura",
+  "kana": "さくら",
+  "romaji": "sakura",
+  "es": [
+   "cerezo",
+   "flor de cerezo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "naturaleza",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "karada",
+  "kana": "からだ",
+  "romaji": "karada",
+  "es": [
+   "cuerpo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "buta",
+  "kana": "ぶた",
+  "romaji": "buta",
+  "es": [
+   "cerdo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "animal",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sanpo",
+  "kana": "さんぽ",
+  "romaji": "sanpo",
+  "es": [
+   "paseo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tenpura",
+  "kana": "てんぷら",
+  "kanji": "天ぷら",
+  "romaji": "tenpura",
+  "es": [
+   "tempura"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "okyakusan",
+  "kana": "おきゃくさん",
+  "romaji": "okyakusan",
+  "es": [
+   "cliente",
+   "visita"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "persona",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gyuuniku",
+  "kana": "ぎゅうにく",
+  "romaji": "gyuuniku",
+  "es": [
+   "carne de res"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kuchi",
+  "kana": "くち",
+  "kanji": "口",
+  "romaji": "kuchi",
+  "es": [
+   "boca"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ashi",
+  "kana": "あし",
+  "romaji": "ashi",
+  "es": [
+   "pie",
+   "pierna"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cuerpo",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kusuri",
+  "kana": "くすり",
+  "romaji": "kusuri",
+  "es": [
+   "medicina"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hirune",
+  "kana": "ひるね",
+  "romaji": "hirune",
+  "es": [
+   "siesta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "rutina",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "furo",
+  "kana": "ふろ",
+  "romaji": "furo",
+  "es": [
+   "baño (bañera)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ichigatsu",
+  "kana": "いちがつ",
+  "kanji": "一月",
+  "romaji": "ichigatsu",
+  "es": [
+   "enero"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nigatsu",
+  "kana": "にがつ",
+  "kanji": "二月",
+  "romaji": "nigatsu",
+  "es": [
+   "febrero"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sangatsu",
+  "kana": "さんがつ",
+  "kanji": "三月",
+  "romaji": "sangatsu",
+  "es": [
+   "marzo"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shigatsu",
+  "kana": "しがつ",
+  "kanji": "四月",
+  "romaji": "shigatsu",
+  "es": [
+   "abril"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "gogatsu",
+  "kana": "ごがつ",
+  "kanji": "五月",
+  "romaji": "gogatsu",
+  "es": [
+   "mayo"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "rokugatsu",
+  "kana": "ろくがつ",
+  "kanji": "六月",
+  "romaji": "rokugatsu",
+  "es": [
+   "junio"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "shichigatsu",
+  "kana": "しちがつ",
+  "kanji": "七月",
+  "romaji": "shichigatsu",
+  "es": [
+   "julio"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hachigatsu",
+  "kana": "はちがつ",
+  "kanji": "八月",
+  "romaji": "hachigatsu",
+  "es": [
+   "agosto"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kugatsu",
+  "kana": "くがつ",
+  "kanji": "九月",
+  "romaji": "kugatsu",
+  "es": [
+   "septiembre"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "juugatsu",
+  "kana": "じゅうがつ",
+  "kanji": "十月",
+  "romaji": "juugatsu",
+  "es": [
+   "octubre"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "juuichigatsu",
+  "kana": "じゅういちがつ",
+  "kanji": "十一月",
+  "romaji": "juuichigatsu",
+  "es": [
+   "noviembre"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "juunigatsu",
+  "kana": "じゅうにがつ",
+  "kanji": "十二月",
+  "romaji": "juunigatsu",
+  "es": [
+   "diciembre"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tsuitachi",
+  "kana": "ついたち",
+  "kanji": "一日",
+  "romaji": "tsuitachi",
+  "es": [
+   "día 1 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "futsuka",
+  "kana": "ふつか",
+  "kanji": "二日",
+  "romaji": "futsuka",
+  "es": [
+   "día 2 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "mikka",
+  "kana": "みっか",
+  "kanji": "三日",
+  "romaji": "mikka",
+  "es": [
+   "día 3 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "yokka",
+  "kana": "よっか",
+  "kanji": "四日",
+  "romaji": "yokka",
+  "es": [
+   "día 4 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "itsuka",
+  "kana": "いつか",
+  "kanji": "五日",
+  "romaji": "itsuka",
+  "es": [
+   "día 5 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "muika",
+  "kana": "むいか",
+  "kanji": "六日",
+  "romaji": "muika",
+  "es": [
+   "día 6 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nanoka",
+  "kana": "なのか",
+  "kanji": "七日",
+  "romaji": "nanoka",
+  "es": [
+   "día 7 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "youka",
+  "kana": "ようか",
+  "kanji": "八日",
+  "romaji": "youka",
+  "es": [
+   "día 8 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "kokonoka",
+  "kana": "ここのか",
+  "kanji": "九日",
+  "romaji": "kokonoka",
+  "es": [
+   "día 9 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "tooka",
+  "kana": "とおか",
+  "kanji": "十日",
+  "romaji": "tooka",
+  "es": [
+   "día 10 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "juuyokka",
+  "kana": "じゅうよっか",
+  "kanji": "十四日",
+  "romaji": "juuyokka",
+  "es": [
+   "día 14 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "hatsuka",
+  "kana": "はつか",
+  "kanji": "二十日",
+  "romaji": "hatsuka",
+  "es": [
+   "día 20 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "nijuuyokka",
+  "kana": "にじゅうよっか",
+  "kanji": "二十四日",
+  "romaji": "nijuuyokka",
+  "es": [
+   "día 24 del mes"
+  ],
+  "pos": "noun",
+  "lesson": "P6",
+  "tags": [
+   "fecha"
+  ],
+  "source": "profesor"
+ },
+ {
+  "id": "sanbyaku",
+  "kana": "さんびゃく",
+  "kanji": "三百",
+  "romaji": "sanbyaku",
+  "es": [
+   "trescientos"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "numero",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hyakuen",
+  "kana": "ひゃくえん",
+  "kanji": "百円",
+  "romaji": "hyakuen",
+  "es": [
+   "cien yenes"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "dinero",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sanzen",
+  "kana": "さんぜん",
+  "kanji": "三千",
+  "romaji": "sanzen",
+  "es": [
+   "tres mil"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "numero",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ichiman",
+  "kana": "いちまん",
+  "kanji": "一万",
+  "romaji": "ichiman",
+  "es": [
+   "diez mil"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "numero",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ichimanen",
+  "kana": "いちまんえん",
+  "kanji": "一万円",
+  "romaji": "ichiman'en",
+  "es": [
+   "diez mil yenes"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "dinero",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hatachi",
+  "kana": "はたち",
+  "romaji": "hatachi",
+  "es": [
+   "veinte años de edad"
+  ],
+  "pos": "noun",
+  "lesson": "G3",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hi",
+  "kana": "ひ",
+  "kanji": "火",
+  "romaji": "hi",
+  "es": [
+   "fuego"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaji",
+  "kana": "かじ",
+  "kanji": "火事",
+  "romaji": "kaji",
+  "es": [
+   "incendio"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ki",
+  "kana": "き",
+  "kanji": "木",
+  "romaji": "ki",
+  "es": [
+   "árbol",
+   "madera"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tsuchi",
+  "kana": "つち",
+  "kanji": "土",
+  "romaji": "tsuchi",
+  "es": [
+   "tierra",
+   "suelo"
+  ],
+  "pos": "noun",
+  "lesson": "G4",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "jouzu",
+  "kana": "じょうず",
+  "kanji": "上手",
+  "romaji": "jouzu",
+  "es": [
+   "hábil",
+   "bueno en (algo)"
+  ],
+  "pos": "na-adj",
+  "lesson": "G11",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "heta",
+  "kana": "へた",
+  "kanji": "下手",
+  "romaji": "heta",
+  "es": [
+   "torpe",
+   "malo en (algo)"
+  ],
+  "pos": "na-adj",
+  "lesson": "G11",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yama",
+  "kana": "やま",
+  "kanji": "山",
+  "romaji": "yama",
+  "es": [
+   "montaña"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yamada",
+  "kana": "やまだ",
+  "kanji": "山田",
+  "romaji": "yamada",
+  "es": [
+   "Yamada (apellido)"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kawa",
+  "kana": "かわ",
+  "kanji": "川",
+  "romaji": "kawa",
+  "es": [
+   "río"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "moto",
+  "kana": "もと",
+  "kanji": "元",
+  "romaji": "moto",
+  "es": [
+   "origen",
+   "antes"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shiritsu",
+  "kana": "しりつ",
+  "kanji": "私立",
+  "romaji": "shiritsu",
+  "es": [
+   "privado (institución)"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "escuela",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tanbo",
+  "kana": "たんぼ",
+  "kanji": "田んぼ",
+  "romaji": "tanbo",
+  "es": [
+   "arrozal"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tanaka",
+  "kana": "たなか",
+  "kanji": "田中",
+  "romaji": "tanaka",
+  "es": [
+   "Tanaka (apellido)"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "onna",
+  "kana": "おんな",
+  "kanji": "女",
+  "romaji": "onna",
+  "es": [
+   "mujer"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "otoko",
+  "kana": "おとこ",
+  "kanji": "男",
+  "romaji": "otoko",
+  "es": [
+   "hombre"
+  ],
+  "pos": "noun",
+  "lesson": "G5",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "onnanoko",
+  "kana": "おんなのこ",
+  "kanji": "女の子",
+  "romaji": "onnanoko",
+  "es": [
+   "niña",
+   "chica"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "otokonoko",
+  "kana": "おとこのこ",
+  "kanji": "男の子",
+  "romaji": "otokonoko",
+  "es": [
+   "niño",
+   "chico"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shokuji",
+  "kana": "しょくじ",
+  "kanji": "食事",
+  "romaji": "shokuji",
+  "es": [
+   "comida",
+   "hacer una comida"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "comida",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nomikai",
+  "kana": "のみかい",
+  "kanji": "飲み会",
+  "romaji": "nomikai",
+  "es": [
+   "reunión para beber"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "higashi",
+  "kana": "ひがし",
+  "kanji": "東",
+  "romaji": "higashi",
+  "es": [
+   "este"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "direccion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "toukyou",
+  "kana": "とうきょう",
+  "kanji": "東京",
+  "romaji": "toukyou",
+  "es": [
+   "Tokio"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nishi",
+  "kana": "にし",
+  "kanji": "西",
+  "romaji": "nishi",
+  "es": [
+   "oeste"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "direccion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nishiguchi",
+  "kana": "にしぐち",
+  "kanji": "西口",
+  "romaji": "nishiguchi",
+  "es": [
+   "salida oeste"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "minami",
+  "kana": "みなみ",
+  "kanji": "南",
+  "romaji": "minami",
+  "es": [
+   "sur"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "direccion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "minamiguchi",
+  "kana": "みなみぐち",
+  "kanji": "南口",
+  "romaji": "minamiguchi",
+  "es": [
+   "salida sur"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kita",
+  "kana": "きた",
+  "kanji": "北",
+  "romaji": "kita",
+  "es": [
+   "norte"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "direccion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kitaguchi",
+  "kana": "きたぐち",
+  "kanji": "北口",
+  "romaji": "kitaguchi",
+  "es": [
+   "salida norte"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "deguchi",
+  "kana": "でぐち",
+  "kanji": "出口",
+  "romaji": "deguchi",
+  "es": [
+   "salida"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "iriguchi",
+  "kana": "いりぐち",
+  "kanji": "入口",
+  "romaji": "iriguchi",
+  "es": [
+   "entrada"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "deru",
+  "kana": "でる",
+  "kanji": "出る",
+  "romaji": "deru",
+  "es": [
+   "salir"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G6",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "migite",
+  "kana": "みぎて",
+  "kanji": "右手",
+  "romaji": "migite",
+  "es": [
+   "mano derecha"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "cuerpo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hidarite",
+  "kana": "ひだりて",
+  "kanji": "左手",
+  "romaji": "hidarite",
+  "es": [
+   "mano izquierda"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "cuerpo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "saki",
+  "kana": "さき",
+  "kanji": "先",
+  "romaji": "saki",
+  "es": [
+   "antes",
+   "lo que viene",
+   "punta"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "soto",
+  "kana": "そと",
+  "kanji": "外",
+  "romaji": "soto",
+  "es": [
+   "fuera",
+   "afuera"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "posicion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gaikoku",
+  "kana": "がいこく",
+  "kanji": "外国",
+  "romaji": "gaikoku",
+  "es": [
+   "país extranjero"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "pais",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gaikokujin",
+  "kana": "がいこくじん",
+  "kanji": "外国人",
+  "romaji": "gaikokujin",
+  "es": [
+   "extranjero/a"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gaikokugo",
+  "kana": "がいこくご",
+  "kanji": "外国語",
+  "romaji": "gaikokugo",
+  "es": [
+   "idioma extranjero"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "idioma",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chuugokugo",
+  "kana": "ちゅうごくご",
+  "kanji": "中国語",
+  "romaji": "chuugokugo",
+  "es": [
+   "idioma chino"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "idioma",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shougakkou",
+  "kana": "しょうがっこう",
+  "kanji": "小学校",
+  "romaji": "shougakkou",
+  "es": [
+   "escuela primaria"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "escuela",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaisha",
+  "kana": "かいしゃ",
+  "kanji": "会社",
+  "romaji": "kaisha",
+  "es": [
+   "empresa",
+   "compañía"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "trabajo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaishain",
+  "kana": "かいしゃいん",
+  "kanji": "会社員",
+  "romaji": "kaishain",
+  "es": [
+   "empleado/a de empresa"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "trabajo",
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaiin",
+  "kana": "かいいん",
+  "kanji": "会員",
+  "romaji": "kaiin",
+  "es": [
+   "miembro",
+   "socio"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chichi",
+  "kana": "ちち",
+  "kanji": "父",
+  "romaji": "chichi",
+  "es": [
+   "mi padre"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "familia",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "maiasa",
+  "kana": "まいあさ",
+  "kanji": "毎朝",
+  "romaji": "maiasa",
+  "es": [
+   "todas las mañanas"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "tiempo",
+   "rutina",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "maitoshi",
+  "kana": "まいとし",
+  "kanji": "毎年",
+  "romaji": "maitoshi",
+  "es": [
+   "todos los años"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sakubun",
+  "kana": "さくぶん",
+  "kanji": "作文",
+  "romaji": "sakubun",
+  "es": [
+   "redacción",
+   "composición"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "escuela",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaeri",
+  "kana": "かえり",
+  "kanji": "帰り",
+  "romaji": "kaeri",
+  "es": [
+   "regreso",
+   "vuelta"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "movimiento",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sakka",
+  "kana": "さっか",
+  "kanji": "作家",
+  "romaji": "sakka",
+  "es": [
+   "escritor/a"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shigotochuu",
+  "kana": "しごとちゅう",
+  "kanji": "仕事中",
+  "romaji": "shigotochuu",
+  "es": [
+   "en pleno trabajo"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "trabajo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gengo",
+  "kana": "げんご",
+  "kanji": "言語",
+  "romaji": "gengo",
+  "es": [
+   "lenguaje",
+   "idioma (en general)"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "idioma",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "dokusho",
+  "kana": "どくしょ",
+  "kanji": "読書",
+  "romaji": "dokusho",
+  "es": [
+   "lectura (de libros)"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "omou",
+  "kana": "おもう",
+  "kanji": "思う",
+  "romaji": "omou",
+  "es": [
+   "pensar",
+   "creer"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G8",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "omoide",
+  "kana": "おもいで",
+  "kanji": "思い出",
+  "romaji": "omoide",
+  "es": [
+   "recuerdo"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tsuginohi",
+  "kana": "つぎのひ",
+  "kanji": "次の日",
+  "romaji": "tsuginohi",
+  "es": [
+   "el día siguiente"
+  ],
+  "pos": "noun",
+  "lesson": "G8",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ushiro",
+  "kana": "うしろ",
+  "kanji": "後ろ",
+  "romaji": "ushiro",
+  "es": [
+   "atrás",
+   "detrás"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "posicion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "namae",
+  "kana": "なまえ",
+  "kanji": "名前",
+  "romaji": "namae",
+  "es": [
+   "nombre"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shiro",
+  "kana": "しろ",
+  "kanji": "白",
+  "romaji": "shiro",
+  "es": [
+   "blanco (color)"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "color",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shiroi",
+  "kana": "しろい",
+  "kanji": "白い",
+  "romaji": "shiroi",
+  "es": [
+   "blanco"
+  ],
+  "pos": "i-adj",
+  "lesson": "G9",
+  "tags": [
+   "adjetivo",
+   "color",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ooame",
+  "kana": "おおあめ",
+  "kanji": "大雨",
+  "romaji": "ooame",
+  "es": [
+   "lluvia fuerte"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "clima",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yuujin",
+  "kana": "ゆうじん",
+  "kanji": "友人",
+  "romaji": "yuujin",
+  "es": [
+   "amigo (más formal)"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nanjikan",
+  "kana": "なんじかん",
+  "kanji": "何時間",
+  "romaji": "nanjikan",
+  "es": [
+   "¿cuántas horas?"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "tiempo",
+   "pregunta",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hanashi",
+  "kana": "はなし",
+  "kanji": "話",
+  "romaji": "hanashi",
+  "es": [
+   "conversación",
+   "historia"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "conversacion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaiwa",
+  "kana": "かいわ",
+  "kanji": "会話",
+  "romaji": "kaiwa",
+  "es": [
+   "conversación",
+   "diálogo"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "conversacion",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sukoshi",
+  "kana": "すこし",
+  "kanji": "少し",
+  "romaji": "sukoshi",
+  "es": [
+   "un poco"
+  ],
+  "pos": "adverb",
+  "lesson": "G9",
+  "tags": [
+   "cantidad",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sukunai",
+  "kana": "すくない",
+  "kanji": "少ない",
+  "romaji": "sukunai",
+  "es": [
+   "pocos",
+   "escaso"
+  ],
+  "pos": "i-adj",
+  "lesson": "G9",
+  "tags": [
+   "adjetivo",
+   "cantidad",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chuuko",
+  "kana": "ちゅうこ",
+  "kanji": "中古",
+  "romaji": "chuuko",
+  "es": [
+   "de segunda mano"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "tienda",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shiru",
+  "kana": "しる",
+  "kanji": "知る",
+  "romaji": "shiru",
+  "es": [
+   "saber",
+   "conocer"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G9",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "juusho",
+  "kana": "じゅうしょ",
+  "kanji": "住所",
+  "romaji": "juusho",
+  "es": [
+   "dirección (domicilio)"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tadashii",
+  "kana": "ただしい",
+  "kanji": "正しい",
+  "romaji": "tadashii",
+  "es": [
+   "correcto"
+  ],
+  "pos": "i-adj",
+  "lesson": "G10",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shougatsu",
+  "kana": "しょうがつ",
+  "kanji": "正月",
+  "romaji": "shougatsu",
+  "es": [
+   "Año Nuevo"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "fecha",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kotoshi",
+  "kana": "ことし",
+  "kanji": "今年",
+  "romaji": "kotoshi",
+  "es": [
+   "este año"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "tiempo",
+   "fecha",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "uru",
+  "kana": "うる",
+  "kanji": "売る",
+  "romaji": "uru",
+  "es": [
+   "vender"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G10",
+  "tags": [
+   "verbo",
+   "tienda",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "machinaka",
+  "kana": "まちなか",
+  "kanji": "町中",
+  "romaji": "machinaka",
+  "es": [
+   "en el centro del pueblo"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nagai",
+  "kana": "ながい",
+  "kanji": "長い",
+  "romaji": "nagai",
+  "es": [
+   "largo"
+  ],
+  "pos": "i-adj",
+  "lesson": "G10",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shachou",
+  "kana": "しゃちょう",
+  "kanji": "社長",
+  "romaji": "shachou",
+  "es": [
+   "presidente de empresa",
+   "jefe"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "trabajo",
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shodou",
+  "kana": "しょどう",
+  "kanji": "書道",
+  "romaji": "shodou",
+  "es": [
+   "caligrafía"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ooyuki",
+  "kana": "おおゆき",
+  "kanji": "大雪",
+  "romaji": "ooyuki",
+  "es": [
+   "nevada fuerte"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "clima",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kokuritsu",
+  "kana": "こくりつ",
+  "kanji": "国立",
+  "romaji": "kokuritsu",
+  "es": [
+   "nacional",
+   "estatal (institución)"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "escuela",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "jibun",
+  "kana": "じぶん",
+  "kanji": "自分",
+  "romaji": "jibun",
+  "es": [
+   "uno mismo",
+   "sí mismo"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "konya",
+  "kana": "こんや",
+  "kanji": "今夜",
+  "romaji": "kon'ya",
+  "es": [
+   "esta noche"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kesa",
+  "kana": "けさ",
+  "kanji": "今朝",
+  "romaji": "kesa",
+  "es": [
+   "esta mañana"
+  ],
+  "pos": "noun",
+  "lesson": "G10",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "te",
+  "kana": "て",
+  "kanji": "手",
+  "romaji": "te",
+  "es": [
+   "mano"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "cuerpo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tegami",
+  "kana": "てがみ",
+  "kanji": "手紙",
+  "romaji": "tegami",
+  "es": [
+   "carta"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "cosa",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kami",
+  "kana": "かみ",
+  "kanji": "紙",
+  "romaji": "kami",
+  "es": [
+   "papel"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "cosa",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chikaku",
+  "kana": "ちかく",
+  "kanji": "近く",
+  "romaji": "chikaku",
+  "es": [
+   "cerca",
+   "las cercanías"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "akarui",
+  "kana": "あかるい",
+  "kanji": "明るい",
+  "romaji": "akarui",
+  "es": [
+   "brillante",
+   "luminoso",
+   "alegre"
+  ],
+  "pos": "i-adj",
+  "lesson": "G11",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "byouki",
+  "kana": "びょうき",
+  "kanji": "病気",
+  "romaji": "byouki",
+  "es": [
+   "enfermedad",
+   "estar enfermo"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "salud",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "daigakuin",
+  "kana": "だいがくいん",
+  "kanji": "大学院",
+  "romaji": "daigakuin",
+  "es": [
+   "posgrado",
+   "escuela de posgrado"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "escuela",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "utsuru",
+  "kana": "うつる",
+  "kanji": "映る",
+  "romaji": "utsuru",
+  "es": [
+   "reflejarse",
+   "proyectarse"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G11",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gaka",
+  "kana": "がか",
+  "kanji": "画家",
+  "romaji": "gaka",
+  "es": [
+   "pintor/a"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "uta",
+  "kana": "うた",
+  "kanji": "歌",
+  "romaji": "uta",
+  "es": [
+   "canción"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kashu",
+  "kana": "かしゅ",
+  "kanji": "歌手",
+  "romaji": "kashu",
+  "es": [
+   "cantante"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "persona",
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shi-ciudad",
+  "kana": "し",
+  "kanji": "市",
+  "romaji": "shi",
+  "es": [
+   "ciudad (municipio)"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shichou",
+  "kana": "しちょう",
+  "kanji": "市長",
+  "romaji": "shichou",
+  "es": [
+   "alcalde"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tokoro",
+  "kana": "ところ",
+  "kanji": "所",
+  "romaji": "tokoro",
+  "es": [
+   "lugar"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yuumei",
+  "kana": "ゆうめい",
+  "kanji": "有名",
+  "romaji": "yuumei",
+  "es": [
+   "famoso"
+  ],
+  "pos": "na-adj",
+  "lesson": "G11",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tabi",
+  "kana": "たび",
+  "kanji": "旅",
+  "romaji": "tabi",
+  "es": [
+   "viaje"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "mukashi",
+  "kana": "むかし",
+  "kanji": "昔",
+  "romaji": "mukashi",
+  "es": [
+   "antiguamente",
+   "hace mucho"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "mukashibanashi",
+  "kana": "むかしばなし",
+  "kanji": "昔話",
+  "romaji": "mukashibanashi",
+  "es": [
+   "cuento popular",
+   "leyenda"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "ocio",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kami-dios",
+  "kana": "かみ",
+  "kanji": "神",
+  "romaji": "kami",
+  "es": [
+   "dios",
+   "deidad"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hayaku",
+  "kana": "はやく",
+  "kanji": "早く",
+  "romaji": "hayaku",
+  "es": [
+   "pronto",
+   "rápido"
+  ],
+  "pos": "adverb",
+  "lesson": "G12",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "okosu",
+  "kana": "おこす",
+  "kanji": "起こす",
+  "romaji": "okosu",
+  "es": [
+   "despertar (a alguien)",
+   "levantar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G12",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ushi",
+  "kana": "うし",
+  "kanji": "牛",
+  "romaji": "ushi",
+  "es": [
+   "vaca",
+   "buey"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "animal",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hataraku",
+  "kana": "はたらく",
+  "kanji": "働く",
+  "romaji": "hataraku",
+  "es": [
+   "trabajar"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G12",
+  "tags": [
+   "verbo",
+   "trabajo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tsureru",
+  "kana": "つれる",
+  "kanji": "連れる",
+  "romaji": "tsureru",
+  "es": [
+   "llevar consigo (a alguien)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G12",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "renkyuu",
+  "kana": "れんきゅう",
+  "kanji": "連休",
+  "romaji": "renkyuu",
+  "es": [
+   "feriados seguidos"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "fecha",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "wakareru",
+  "kana": "わかれる",
+  "kanji": "別れる",
+  "romaji": "wakareru",
+  "es": [
+   "separarse",
+   "despedirse"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G12",
+  "tags": [
+   "verbo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "betsu",
+  "kana": "べつ",
+  "kanji": "別",
+  "romaji": "betsu",
+  "es": [
+   "otro",
+   "aparte",
+   "distinto"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ichido",
+  "kana": "いちど",
+  "kanji": "一度",
+  "romaji": "ichido",
+  "es": [
+   "una vez"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kondo",
+  "kana": "こんど",
+  "kanji": "今度",
+  "romaji": "kondo",
+  "es": [
+   "esta vez",
+   "la próxima vez"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "tiempo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "aka",
+  "kana": "あか",
+  "kanji": "赤",
+  "romaji": "aka",
+  "es": [
+   "rojo (color)"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "color",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "aoi",
+  "kana": "あおい",
+  "kanji": "青い",
+  "romaji": "aoi",
+  "es": [
+   "azul"
+  ],
+  "pos": "i-adj",
+  "lesson": "G12",
+  "tags": [
+   "adjetivo",
+   "color",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "iro",
+  "kana": "いろ",
+  "kanji": "色",
+  "romaji": "iro",
+  "es": [
+   "color"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "color",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "iroiro",
+  "kana": "いろいろ",
+  "kanji": "色々",
+  "romaji": "iroiro",
+  "es": [
+   "variado",
+   "diversos"
+  ],
+  "pos": "na-adj",
+  "lesson": "G12",
+  "tags": [
+   "adjetivo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kawaguchi",
+  "kana": "かわぐち",
+  "kanji": "川口",
+  "romaji": "kawaguchi",
+  "es": [
+   "Kawaguchi (ciudad/apellido)"
+  ],
+  "pos": "noun",
+  "lesson": "G6",
+  "tags": [
+   "lugar",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ogawa",
+  "kana": "おがわ",
+  "kanji": "小川",
+  "romaji": "ogawa",
+  "es": [
+   "arroyo",
+   "Ogawa (apellido)"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "naturaleza",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kyouko",
+  "kana": "きょうこ",
+  "kanji": "京子",
+  "romaji": "kyouko",
+  "es": [
+   "Kyoko (nombre de mujer)"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "bun",
+  "kana": "ぶん",
+  "kanji": "文",
+  "romaji": "bun",
+  "es": [
+   "oración",
+   "frase"
+  ],
+  "pos": "noun",
+  "lesson": "G7",
+  "tags": [
+   "idioma",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chijin",
+  "kana": "ちじん",
+  "kanji": "知人",
+  "romaji": "chijin",
+  "es": [
+   "conocido/a"
+  ],
+  "pos": "noun",
+  "lesson": "G9",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ureru",
+  "kana": "うれる",
+  "kanji": "売れる",
+  "romaji": "ureru",
+  "es": [
+   "venderse (bien)"
+  ],
+  "pos": "verb",
+  "verbGroup": "ru",
+  "lesson": "G10",
+  "tags": [
+   "verbo",
+   "tienda",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kaite",
+  "kana": "かいて",
+  "kanji": "買い手",
+  "romaji": "kaite",
+  "es": [
+   "comprador/a"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "tienda",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "jibunde",
+  "kana": "じぶんで",
+  "kanji": "自分で",
+  "romaji": "jibunde",
+  "es": [
+   "por uno mismo",
+   "solo"
+  ],
+  "pos": "adverb",
+  "lesson": "G10",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "yuumeijin",
+  "kana": "ゆうめいじん",
+  "kanji": "有名人",
+  "romaji": "yuumeijin",
+  "es": [
+   "persona famosa",
+   "celebridad"
+  ],
+  "pos": "noun",
+  "lesson": "G11",
+  "tags": [
+   "persona",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "koushi",
+  "kana": "こうし",
+  "kanji": "子牛",
+  "romaji": "koushi",
+  "es": [
+   "ternero"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "animal",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tsukaimichi",
+  "kana": "つかいみち",
+  "kanji": "使い道",
+  "romaji": "tsukaimichi",
+  "es": [
+   "uso",
+   "utilidad"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hatarakite",
+  "kana": "はたらきて",
+  "kanji": "働き手",
+  "romaji": "hatarakite",
+  "es": [
+   "trabajador",
+   "sostén de la familia"
+  ],
+  "pos": "noun",
+  "lesson": "G12",
+  "tags": [
+   "trabajo",
+   "kanji-ejemplo"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kokoa",
+  "kana": "ココア",
+  "romaji": "kokoa",
+  "es": [
+   "cacao",
+   "chocolate caliente"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kiui",
+  "kana": "キウイ",
+  "romaji": "kiui",
+  "es": [
+   "kiwi"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "keeki",
+  "kana": "ケーキ",
+  "romaji": "keeki",
+  "es": [
+   "pastel",
+   "torta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kisu",
+  "kana": "キス",
+  "romaji": "kisu",
+  "es": [
+   "beso"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "keesu",
+  "kana": "ケース",
+  "romaji": "keesu",
+  "es": [
+   "estuche",
+   "caja"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "soosu",
+  "kana": "ソース",
+  "romaji": "soosu",
+  "es": [
+   "salsa"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "suteeki",
+  "kana": "ステーキ",
+  "romaji": "suteeki",
+  "es": [
+   "bistec"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nekutai",
+  "kana": "ネクタイ",
+  "romaji": "nekutai",
+  "es": [
+   "corbata"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "haato",
+  "kana": "ハート",
+  "romaji": "haato",
+  "es": [
+   "corazón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hiitaa",
+  "kana": "ヒーター",
+  "romaji": "hiitaa",
+  "es": [
+   "calefactor"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "masuku",
+  "kana": "マスク",
+  "romaji": "masuku",
+  "es": [
+   "mascarilla"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "memo",
+  "kana": "メモ",
+  "romaji": "memo",
+  "es": [
+   "apunte",
+   "nota"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "escuela",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "meeru",
+  "kana": "メール",
+  "romaji": "meeru",
+  "es": [
+   "correo electrónico",
+   "mensaje"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "miruku",
+  "kana": "ミルク",
+  "romaji": "miruku",
+  "es": [
+   "leche"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "rajio",
+  "kana": "ラジオ",
+  "romaji": "rajio",
+  "es": [
+   "radio"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "remon",
+  "kana": "レモン",
+  "romaji": "remon",
+  "es": [
+   "limón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "robotto",
+  "kana": "ロボット",
+  "romaji": "robotto",
+  "es": [
+   "robot"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "wain",
+  "kana": "ワイン",
+  "romaji": "wain",
+  "es": [
+   "vino"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "naifu",
+  "kana": "ナイフ",
+  "romaji": "naifu",
+  "es": [
+   "cuchillo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kamera",
+  "kana": "カメラ",
+  "romaji": "kamera",
+  "es": [
+   "cámara fotográfica"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sarada",
+  "kana": "サラダ",
+  "romaji": "sarada",
+  "es": [
+   "ensalada"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "raamen",
+  "kana": "ラーメン",
+  "romaji": "raamen",
+  "es": [
+   "ramen (fideos en caldo)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "rimokon",
+  "kana": "リモコン",
+  "romaji": "rimokon",
+  "es": [
+   "control remoto"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "casa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ruuru",
+  "kana": "ルール",
+  "romaji": "ruuru",
+  "es": [
+   "regla",
+   "norma"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "hamu",
+  "kana": "ハム",
+  "romaji": "hamu",
+  "es": [
+   "jamón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "banana",
+  "kana": "バナナ",
+  "romaji": "banana",
+  "es": [
+   "banana",
+   "plátano"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "biiru",
+  "kana": "ビール",
+  "romaji": "biiru",
+  "es": [
+   "cerveza"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "doa",
+  "kana": "ドア",
+  "romaji": "doa",
+  "es": [
+   "puerta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gorufu",
+  "kana": "ゴルフ",
+  "romaji": "gorufu",
+  "es": [
+   "golf"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "deporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gasu",
+  "kana": "ガス",
+  "romaji": "gasu",
+  "es": [
+   "gas"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "dansu",
+  "kana": "ダンス",
+  "romaji": "dansu",
+  "es": [
+   "baile"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "doresu",
+  "kana": "ドレス",
+  "romaji": "doresu",
+  "es": [
+   "vestido"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "dezaato",
+  "kana": "デザート",
+  "romaji": "dezaato",
+  "es": [
+   "postre"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "booru",
+  "kana": "ボール",
+  "romaji": "booru",
+  "es": [
+   "pelota",
+   "balón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "deporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "beruto",
+  "kana": "ベルト",
+  "romaji": "beruto",
+  "es": [
+   "cinturón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "gaido",
+  "kana": "ガイド",
+  "romaji": "gaido",
+  "es": [
+   "guía"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "zubon",
+  "kana": "ズボン",
+  "romaji": "zubon",
+  "es": [
+   "pantalones"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sakkaa",
+  "kana": "サッカー",
+  "romaji": "sakkaa",
+  "es": [
+   "fútbol"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "deporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "beddo",
+  "kana": "ベッド",
+  "romaji": "beddo",
+  "es": [
+   "cama"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kappu",
+  "kana": "カップ",
+  "romaji": "kappu",
+  "es": [
+   "taza",
+   "copa"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "rokkaa",
+  "kana": "ロッカー",
+  "romaji": "rokkaa",
+  "es": [
+   "casillero"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "baggu",
+  "kana": "バッグ",
+  "romaji": "baggu",
+  "es": [
+   "bolsa",
+   "bolso"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "puuru",
+  "kana": "プール",
+  "romaji": "puuru",
+  "es": [
+   "piscina"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "lugar",
+   "deporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "piano",
+  "kana": "ピアノ",
+  "romaji": "piano",
+  "es": [
+   "piano"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "pasuta",
+  "kana": "パスタ",
+  "romaji": "pasuta",
+  "es": [
+   "pasta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "posuto",
+  "kana": "ポスト",
+  "romaji": "posuto",
+  "es": [
+   "buzón"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "poketto",
+  "kana": "ポケット",
+  "romaji": "poketto",
+  "es": [
+   "bolsillo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "purin",
+  "kana": "プリン",
+  "romaji": "purin",
+  "es": [
+   "flan",
+   "pudín"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "piza",
+  "kana": "ピザ",
+  "romaji": "piza",
+  "es": [
+   "pizza"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "supuun",
+  "kana": "スプーン",
+  "romaji": "supuun",
+  "es": [
+   "cuchara"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "teepu",
+  "kana": "テープ",
+  "romaji": "teepu",
+  "es": [
+   "cinta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "petto",
+  "kana": "ペット",
+  "romaji": "petto",
+  "es": [
+   "mascota"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "animal",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shatsu",
+  "kana": "シャツ",
+  "romaji": "shatsu",
+  "es": [
+   "camisa"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "ropa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "juusu",
+  "kana": "ジュース",
+  "romaji": "juusu",
+  "es": [
+   "jugo"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "nyuusu",
+  "kana": "ニュース",
+  "romaji": "nyuusu",
+  "es": [
+   "noticias"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chansu",
+  "kana": "チャンス",
+  "romaji": "chansu",
+  "es": [
+   "oportunidad"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "kyanpu",
+  "kana": "キャンプ",
+  "romaji": "kyanpu",
+  "es": [
+   "camping",
+   "acampar"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shanpuu",
+  "kana": "シャンプー",
+  "romaji": "shanpuu",
+  "es": [
+   "champú"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "casa",
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chokoreeto",
+  "kana": "チョコレート",
+  "romaji": "chokoreeto",
+  "es": [
+   "chocolate"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "jamu",
+  "kana": "ジャム",
+  "romaji": "jamu",
+  "es": [
+   "mermelada"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "fairu",
+  "kana": "ファイル",
+  "romaji": "fairu",
+  "es": [
+   "archivo",
+   "carpeta"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "escuela",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "fooku",
+  "kana": "フォーク",
+  "romaji": "fooku",
+  "es": [
+   "tenedor"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tisshu",
+  "kana": "ティッシュ",
+  "romaji": "tisshu",
+  "es": [
+   "pañuelo de papel"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "wisukii",
+  "kana": "ウィスキー",
+  "romaji": "wisukii",
+  "es": [
+   "whisky"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "vaiorin",
+  "kana": "ヴァイオリン",
+  "romaji": "vaiorin",
+  "es": [
+   "violín"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "jetto",
+  "kana": "ジェット",
+  "romaji": "jetto",
+  "es": [
+   "jet",
+   "avión a reacción"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "transporte",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "chekku",
+  "kana": "チェック",
+  "romaji": "chekku",
+  "es": [
+   "revisión",
+   "cuadros"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "firumu",
+  "kana": "フィルム",
+  "romaji": "firumu",
+  "es": [
+   "película (rollo de foto)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "disuku",
+  "kana": "ディスク",
+  "romaji": "disuku",
+  "es": [
+   "disco"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio"
+ }
+]

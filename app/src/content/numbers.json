@@ -1,0 +1,1248 @@
+{
+ "meta": {
+  "description": "Tablas de datos para el motor de números, hora, fechas y contadores. Todas las lecturas están en hiragana (formas preferidas por el profesor). `alt` lista lecturas alternativas válidas; `avoid` lista lecturas que el profesor tachó en su hoja (no usarlas al componer).",
+  "notes": {
+   "numbers": "value+reading. Compose with the powers tables; see rules.",
+   "teacherStrikeouts": "En su hoja de numerales el profesor tachó: れい (usar ぜろ), し/しち para 4 y 7, く para 9 en las composiciones (じゅうし, じゅうしち, しちじゅう, じゅうく). Usar よん, なな, きゅう. Excepción: en los días del mes se usan じゅうしちにち (17), じゅうくにち (19), にじゅうしちにち (27), にじゅうくにち (29) y en しがつ/しちがつ/くがつ.",
+   "romaji": "No se incluye romaji: se genera con to-romaji del kana."
+  }
+ },
+ "digits": [
+  {
+   "value": 0,
+   "kanji": "〇",
+   "reading": "ぜろ",
+   "alt": [
+    "れい",
+    "ゼロ"
+   ]
+  },
+  {
+   "value": 1,
+   "kanji": "一",
+   "reading": "いち"
+  },
+  {
+   "value": 2,
+   "kanji": "二",
+   "reading": "に"
+  },
+  {
+   "value": 3,
+   "kanji": "三",
+   "reading": "さん"
+  },
+  {
+   "value": 4,
+   "kanji": "四",
+   "reading": "よん",
+   "avoid": [
+    "し"
+   ]
+  },
+  {
+   "value": 5,
+   "kanji": "五",
+   "reading": "ご"
+  },
+  {
+   "value": 6,
+   "kanji": "六",
+   "reading": "ろく"
+  },
+  {
+   "value": 7,
+   "kanji": "七",
+   "reading": "なな",
+   "avoid": [
+    "しち"
+   ]
+  },
+  {
+   "value": 8,
+   "kanji": "八",
+   "reading": "はち"
+  },
+  {
+   "value": 9,
+   "kanji": "九",
+   "reading": "きゅう",
+   "avoid": [
+    "く"
+   ]
+  }
+ ],
+ "powers": {
+  "ten": [
+   {
+    "multiplier": 1,
+    "reading": "じゅう",
+    "kanjiValue": 10
+   },
+   {
+    "multiplier": 2,
+    "reading": "にじゅう",
+    "kanjiValue": 20
+   },
+   {
+    "multiplier": 3,
+    "reading": "さんじゅう",
+    "kanjiValue": 30
+   },
+   {
+    "multiplier": 4,
+    "reading": "よんじゅう",
+    "kanjiValue": 40
+   },
+   {
+    "multiplier": 5,
+    "reading": "ごじゅう",
+    "kanjiValue": 50
+   },
+   {
+    "multiplier": 6,
+    "reading": "ろくじゅう",
+    "kanjiValue": 60
+   },
+   {
+    "multiplier": 7,
+    "reading": "ななじゅう",
+    "kanjiValue": 70
+   },
+   {
+    "multiplier": 8,
+    "reading": "はちじゅう",
+    "kanjiValue": 80
+   },
+   {
+    "multiplier": 9,
+    "reading": "きゅうじゅう",
+    "kanjiValue": 90
+   }
+  ],
+  "hundred": [
+   {
+    "multiplier": 1,
+    "reading": "ひゃく",
+    "irregular": false
+   },
+   {
+    "multiplier": 2,
+    "reading": "にひゃく",
+    "irregular": false
+   },
+   {
+    "multiplier": 3,
+    "reading": "さんびゃく",
+    "irregular": true
+   },
+   {
+    "multiplier": 4,
+    "reading": "よんひゃく",
+    "irregular": false
+   },
+   {
+    "multiplier": 5,
+    "reading": "ごひゃく",
+    "irregular": false
+   },
+   {
+    "multiplier": 6,
+    "reading": "ろっぴゃく",
+    "irregular": true
+   },
+   {
+    "multiplier": 7,
+    "reading": "ななひゃく",
+    "irregular": false
+   },
+   {
+    "multiplier": 8,
+    "reading": "はっぴゃく",
+    "irregular": true
+   },
+   {
+    "multiplier": 9,
+    "reading": "きゅうひゃく",
+    "irregular": false
+   }
+  ],
+  "thousand": [
+   {
+    "multiplier": 1,
+    "reading": "せん",
+    "irregular": false
+   },
+   {
+    "multiplier": 2,
+    "reading": "にせん",
+    "irregular": false
+   },
+   {
+    "multiplier": 3,
+    "reading": "さんぜん",
+    "irregular": true
+   },
+   {
+    "multiplier": 4,
+    "reading": "よんせん",
+    "irregular": false
+   },
+   {
+    "multiplier": 5,
+    "reading": "ごせん",
+    "irregular": false
+   },
+   {
+    "multiplier": 6,
+    "reading": "ろくせん",
+    "irregular": false
+   },
+   {
+    "multiplier": 7,
+    "reading": "ななせん",
+    "irregular": false
+   },
+   {
+    "multiplier": 8,
+    "reading": "はっせん",
+    "irregular": true
+   },
+   {
+    "multiplier": 9,
+    "reading": "きゅうせん",
+    "irregular": false
+   }
+  ],
+  "tenThousand": {
+   "unit": "まん",
+   "kanji": "万",
+   "note": "1万 se lee いちまん (el いち NO se omite, a diferencia de 100 = ひゃく y 1000 = せん). 10 000 = いちまん, 100 000 = じゅうまん, 1 000 000 = ひゃくまん."
+  }
+ },
+ "rules": [
+  "Del 11 al 19: じゅう + dígito (じゅういち … じゅうきゅう). Decenas: 20 にじゅう … 90 きゅうじゅう; 10 = じゅう (sin いち).",
+  "Centenas: 100 ひゃく (sin いち), 300 さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, resto: dígito + ひゃく (4 = よん, 7 = なな, 9 = きゅう).",
+  "Millares: 1000 せん (sin いち), 3000 さんぜん, 8000 はっせん, resto: dígito + せん.",
+  "Decenas de millar: grupo de hasta 4 cifras + まん (いちまん obligatorio). 72 341 = ななまん にせん さんびゃく よんじゅういち.",
+  "Precios: número + えん. 4 円 = よえん; 14 円 = じゅうよえん; 40 円 = よんじゅうえん.",
+  "Años: número + ねん (にせんにじゅうろくねん = 2026). 4 años = よねん; 7 = ななねん/しちねん; 9 = きゅうねん/くねん."
+ ],
+ "hours": {
+  "items": [
+   {
+    "value": 1,
+    "reading": "いちじ",
+    "irregular": false
+   },
+   {
+    "value": 2,
+    "reading": "にじ",
+    "irregular": false
+   },
+   {
+    "value": 3,
+    "reading": "さんじ",
+    "irregular": false
+   },
+   {
+    "value": 4,
+    "reading": "よじ",
+    "irregular": true
+   },
+   {
+    "value": 5,
+    "reading": "ごじ",
+    "irregular": false
+   },
+   {
+    "value": 6,
+    "reading": "ろくじ",
+    "irregular": false
+   },
+   {
+    "value": 7,
+    "reading": "しちじ",
+    "irregular": true
+   },
+   {
+    "value": 8,
+    "reading": "はちじ",
+    "irregular": false
+   },
+   {
+    "value": 9,
+    "reading": "くじ",
+    "irregular": true
+   },
+   {
+    "value": 10,
+    "reading": "じゅうじ",
+    "irregular": false
+   },
+   {
+    "value": 11,
+    "reading": "じゅういちじ",
+    "irregular": false
+   },
+   {
+    "value": 12,
+    "reading": "じゅうにじ",
+    "irregular": false
+   }
+  ],
+  "half": {
+   "reading": "はん",
+   "kanji": "半",
+   "example": "にじはん"
+  },
+  "ampm": [
+   {
+    "reading": "ごぜん",
+    "kanji": "午前",
+    "es": "a.m."
+   },
+   {
+    "reading": "ごご",
+    "kanji": "午後",
+    "es": "p.m."
+   }
+  ],
+  "ask": {
+   "reading": "なんじ",
+   "kanji": "何時",
+   "es": "¿qué hora?"
+  },
+  "note": "Irregulares: よじ (4), しちじ (7), くじ (9). 4:30 = よじはん. Pregunta: いま なんじ ですか."
+ },
+ "minutes": {
+  "items": [
+   {
+    "value": 1,
+    "reading": "いっぷん"
+   },
+   {
+    "value": 2,
+    "reading": "にふん"
+   },
+   {
+    "value": 3,
+    "reading": "さんぷん"
+   },
+   {
+    "value": 4,
+    "reading": "よんぷん"
+   },
+   {
+    "value": 5,
+    "reading": "ごふん"
+   },
+   {
+    "value": 6,
+    "reading": "ろっぷん"
+   },
+   {
+    "value": 7,
+    "reading": "ななふん"
+   },
+   {
+    "value": 8,
+    "reading": "はっぷん",
+    "alt": [
+     "はちふん"
+    ]
+   },
+   {
+    "value": 9,
+    "reading": "きゅうふん"
+   },
+   {
+    "value": 10,
+    "reading": "じゅっぷん",
+    "alt": [
+     "じっぷん"
+    ]
+   },
+   {
+    "value": 11,
+    "reading": "じゅういっぷん"
+   },
+   {
+    "value": 12,
+    "reading": "じゅうにふん"
+   },
+   {
+    "value": 13,
+    "reading": "じゅうさんぷん"
+   },
+   {
+    "value": 14,
+    "reading": "じゅうよんぷん"
+   },
+   {
+    "value": 15,
+    "reading": "じゅうごふん"
+   },
+   {
+    "value": 16,
+    "reading": "じゅうろっぷん"
+   },
+   {
+    "value": 17,
+    "reading": "じゅうななふん"
+   },
+   {
+    "value": 18,
+    "reading": "じゅうはっぷん",
+    "alt": [
+     "じゅうはちふん"
+    ]
+   },
+   {
+    "value": 19,
+    "reading": "じゅうきゅうふん"
+   },
+   {
+    "value": 20,
+    "reading": "にじゅっぷん",
+    "alt": [
+     "にじっぷん"
+    ]
+   },
+   {
+    "value": 21,
+    "reading": "にじゅういっぷん"
+   },
+   {
+    "value": 22,
+    "reading": "にじゅうにふん"
+   },
+   {
+    "value": 23,
+    "reading": "にじゅうさんぷん"
+   },
+   {
+    "value": 24,
+    "reading": "にじゅうよんぷん"
+   },
+   {
+    "value": 25,
+    "reading": "にじゅうごふん"
+   },
+   {
+    "value": 26,
+    "reading": "にじゅうろっぷん"
+   },
+   {
+    "value": 27,
+    "reading": "にじゅうななふん"
+   },
+   {
+    "value": 28,
+    "reading": "にじゅうはっぷん",
+    "alt": [
+     "にじゅうはちふん"
+    ]
+   },
+   {
+    "value": 29,
+    "reading": "にじゅうきゅうふん"
+   },
+   {
+    "value": 30,
+    "reading": "さんじゅっぷん",
+    "alt": [
+     "さんじっぷん"
+    ]
+   },
+   {
+    "value": 31,
+    "reading": "さんじゅういっぷん"
+   },
+   {
+    "value": 32,
+    "reading": "さんじゅうにふん"
+   },
+   {
+    "value": 33,
+    "reading": "さんじゅうさんぷん"
+   },
+   {
+    "value": 34,
+    "reading": "さんじゅうよんぷん"
+   },
+   {
+    "value": 35,
+    "reading": "さんじゅうごふん"
+   },
+   {
+    "value": 36,
+    "reading": "さんじゅうろっぷん"
+   },
+   {
+    "value": 37,
+    "reading": "さんじゅうななふん"
+   },
+   {
+    "value": 38,
+    "reading": "さんじゅうはっぷん",
+    "alt": [
+     "さんじゅうはちふん"
+    ]
+   },
+   {
+    "value": 39,
+    "reading": "さんじゅうきゅうふん"
+   },
+   {
+    "value": 40,
+    "reading": "よんじゅっぷん",
+    "alt": [
+     "よんじっぷん"
+    ]
+   },
+   {
+    "value": 41,
+    "reading": "よんじゅういっぷん"
+   },
+   {
+    "value": 42,
+    "reading": "よんじゅうにふん"
+   },
+   {
+    "value": 43,
+    "reading": "よんじゅうさんぷん"
+   },
+   {
+    "value": 44,
+    "reading": "よんじゅうよんぷん"
+   },
+   {
+    "value": 45,
+    "reading": "よんじゅうごふん"
+   },
+   {
+    "value": 46,
+    "reading": "よんじゅうろっぷん"
+   },
+   {
+    "value": 47,
+    "reading": "よんじゅうななふん"
+   },
+   {
+    "value": 48,
+    "reading": "よんじゅうはっぷん",
+    "alt": [
+     "よんじゅうはちふん"
+    ]
+   },
+   {
+    "value": 49,
+    "reading": "よんじゅうきゅうふん"
+   },
+   {
+    "value": 50,
+    "reading": "ごじゅっぷん",
+    "alt": [
+     "ごじっぷん"
+    ]
+   },
+   {
+    "value": 51,
+    "reading": "ごじゅういっぷん"
+   },
+   {
+    "value": 52,
+    "reading": "ごじゅうにふん"
+   },
+   {
+    "value": 53,
+    "reading": "ごじゅうさんぷん"
+   },
+   {
+    "value": 54,
+    "reading": "ごじゅうよんぷん"
+   },
+   {
+    "value": 55,
+    "reading": "ごじゅうごふん"
+   },
+   {
+    "value": 56,
+    "reading": "ごじゅうろっぷん"
+   },
+   {
+    "value": 57,
+    "reading": "ごじゅうななふん"
+   },
+   {
+    "value": 58,
+    "reading": "ごじゅうはっぷん",
+    "alt": [
+     "ごじゅうはちふん"
+    ]
+   },
+   {
+    "value": 59,
+    "reading": "ごじゅうきゅうふん"
+   }
+  ],
+  "rules": "ふん/ぷん: 1 いっぷん, 2 にふん, 3 さんぷん, 4 よんぷん, 5 ごふん, 6 ろっぷん, 7 ななふん, 8 はっぷん, 9 きゅうふん, 10 じゅっぷん (じっぷん también). 15 = じゅうごふん, 30 = さんじゅっぷん / はん.",
+  "ask": "なんぷん"
+ },
+ "days": {
+  "items": [
+   {
+    "value": 1,
+    "reading": "ついたち",
+    "irregular": true
+   },
+   {
+    "value": 2,
+    "reading": "ふつか",
+    "irregular": true
+   },
+   {
+    "value": 3,
+    "reading": "みっか",
+    "irregular": true
+   },
+   {
+    "value": 4,
+    "reading": "よっか",
+    "irregular": true
+   },
+   {
+    "value": 5,
+    "reading": "いつか",
+    "irregular": true
+   },
+   {
+    "value": 6,
+    "reading": "むいか",
+    "irregular": true
+   },
+   {
+    "value": 7,
+    "reading": "なのか",
+    "irregular": true
+   },
+   {
+    "value": 8,
+    "reading": "ようか",
+    "irregular": true
+   },
+   {
+    "value": 9,
+    "reading": "ここのか",
+    "irregular": true
+   },
+   {
+    "value": 10,
+    "reading": "とおか",
+    "irregular": true
+   },
+   {
+    "value": 11,
+    "reading": "じゅういちにち",
+    "irregular": false
+   },
+   {
+    "value": 12,
+    "reading": "じゅうににち",
+    "irregular": false
+   },
+   {
+    "value": 13,
+    "reading": "じゅうさんにち",
+    "irregular": false
+   },
+   {
+    "value": 14,
+    "reading": "じゅうよっか",
+    "irregular": true
+   },
+   {
+    "value": 15,
+    "reading": "じゅうごにち",
+    "irregular": false
+   },
+   {
+    "value": 16,
+    "reading": "じゅうろくにち",
+    "irregular": false
+   },
+   {
+    "value": 17,
+    "reading": "じゅうしちにち",
+    "irregular": false
+   },
+   {
+    "value": 18,
+    "reading": "じゅうはちにち",
+    "irregular": false
+   },
+   {
+    "value": 19,
+    "reading": "じゅうくにち",
+    "irregular": false
+   },
+   {
+    "value": 20,
+    "reading": "はつか",
+    "irregular": true
+   },
+   {
+    "value": 21,
+    "reading": "にじゅういちにち",
+    "irregular": false
+   },
+   {
+    "value": 22,
+    "reading": "にじゅうににち",
+    "irregular": false
+   },
+   {
+    "value": 23,
+    "reading": "にじゅうさんにち",
+    "irregular": false
+   },
+   {
+    "value": 24,
+    "reading": "にじゅうよっか",
+    "irregular": true
+   },
+   {
+    "value": 25,
+    "reading": "にじゅうごにち",
+    "irregular": false
+   },
+   {
+    "value": 26,
+    "reading": "にじゅうろくにち",
+    "irregular": false
+   },
+   {
+    "value": 27,
+    "reading": "にじゅうしちにち",
+    "irregular": false
+   },
+   {
+    "value": 28,
+    "reading": "にじゅうはちにち",
+    "irregular": false
+   },
+   {
+    "value": 29,
+    "reading": "にじゅうくにち",
+    "irregular": false
+   },
+   {
+    "value": 30,
+    "reading": "さんじゅうにち",
+    "irregular": false
+   },
+   {
+    "value": 31,
+    "reading": "さんじゅういちにち",
+    "irregular": false
+   }
+  ],
+  "ask": {
+   "reading": "なんにち",
+   "es": "¿qué día del mes?"
+  },
+  "note": "1–10 y 14, 20, 24 son irregulares (ついたち … とおか, じゅうよっか, はつか, にじゅうよっか). Del resto: número + にち; 17 y 27 = しちにち, 19 y 29 = くにち."
+ },
+ "months": {
+  "items": [
+   {
+    "value": 1,
+    "reading": "いちがつ",
+    "irregular": false
+   },
+   {
+    "value": 2,
+    "reading": "にがつ",
+    "irregular": false
+   },
+   {
+    "value": 3,
+    "reading": "さんがつ",
+    "irregular": false
+   },
+   {
+    "value": 4,
+    "reading": "しがつ",
+    "irregular": true
+   },
+   {
+    "value": 5,
+    "reading": "ごがつ",
+    "irregular": false
+   },
+   {
+    "value": 6,
+    "reading": "ろくがつ",
+    "irregular": false
+   },
+   {
+    "value": 7,
+    "reading": "しちがつ",
+    "irregular": true
+   },
+   {
+    "value": 8,
+    "reading": "はちがつ",
+    "irregular": false
+   },
+   {
+    "value": 9,
+    "reading": "くがつ",
+    "irregular": true
+   },
+   {
+    "value": 10,
+    "reading": "じゅうがつ",
+    "irregular": false
+   },
+   {
+    "value": 11,
+    "reading": "じゅういちがつ",
+    "irregular": false
+   },
+   {
+    "value": 12,
+    "reading": "じゅうにがつ",
+    "irregular": false
+   }
+  ],
+  "ask": {
+   "reading": "なんがつ",
+   "es": "¿qué mes?"
+  },
+  "note": "Irregulares: しがつ (4), しちがつ (7), くがつ (9)."
+ },
+ "weekdays": {
+  "items": [
+   {
+    "index": 0,
+    "reading": "にちようび",
+    "kanji": "日曜日",
+    "es": "domingo",
+    "element": "sol"
+   },
+   {
+    "index": 1,
+    "reading": "げつようび",
+    "kanji": "月曜日",
+    "es": "lunes",
+    "element": "luna"
+   },
+   {
+    "index": 2,
+    "reading": "かようび",
+    "kanji": "火曜日",
+    "es": "martes",
+    "element": "fuego"
+   },
+   {
+    "index": 3,
+    "reading": "すいようび",
+    "kanji": "水曜日",
+    "es": "miércoles",
+    "element": "agua"
+   },
+   {
+    "index": 4,
+    "reading": "もくようび",
+    "kanji": "木曜日",
+    "es": "jueves",
+    "element": "madera"
+   },
+   {
+    "index": 5,
+    "reading": "きんようび",
+    "kanji": "金曜日",
+    "es": "viernes",
+    "element": "oro/metal"
+   },
+   {
+    "index": 6,
+    "reading": "どようび",
+    "kanji": "土曜日",
+    "es": "sábado",
+    "element": "tierra"
+   }
+  ],
+  "ask": {
+   "reading": "なんようび",
+   "es": "¿qué día de la semana?"
+  },
+  "note": "index 0 = domingo (como en la hoja del profesor). La palabra ようび se puede omitir en la escritura abreviada: 日, 月, 火…"
+ },
+ "years": {
+  "suffix": {
+   "reading": "ねん",
+   "kanji": "年"
+  },
+  "ask": {
+   "reading": "なんねん"
+  },
+  "irregular": [
+   {
+    "value": 4,
+    "reading": "よねん"
+   },
+   {
+    "value": 7,
+    "reading": "しちねん",
+    "alt": [
+     "ななねん"
+    ]
+   },
+   {
+    "value": 9,
+    "reading": "くねん",
+    "alt": [
+     "きゅうねん"
+    ]
+   }
+  ],
+  "examples": [
+   {
+    "value": 1998,
+    "reading": "せんきゅうひゃくきゅうじゅうはちねん"
+   },
+   {
+    "value": 2006,
+    "reading": "にせんろくねん"
+   },
+   {
+    "value": 2026,
+    "reading": "にせんにじゅうろくねん"
+   }
+  ],
+  "note": "Año = número completo + ねん. La hoja del profesor lee 1998 como せん きゅうひゃく きゅうじゅう はち ねん."
+ },
+ "counters": {
+  "tsu": {
+   "kanji": "つ",
+   "use": "objetos en general (hasta 10; desde 11 se usan los números normales)",
+   "items": [
+    {
+     "value": 1,
+     "reading": "ひとつ"
+    },
+    {
+     "value": 2,
+     "reading": "ふたつ"
+    },
+    {
+     "value": 3,
+     "reading": "みっつ"
+    },
+    {
+     "value": 4,
+     "reading": "よっつ"
+    },
+    {
+     "value": 5,
+     "reading": "いつつ"
+    },
+    {
+     "value": 6,
+     "reading": "むっつ"
+    },
+    {
+     "value": 7,
+     "reading": "ななつ"
+    },
+    {
+     "value": 8,
+     "reading": "やっつ"
+    },
+    {
+     "value": 9,
+     "reading": "ここのつ"
+    },
+    {
+     "value": 10,
+     "reading": "とお"
+    }
+   ],
+   "ask": "いくつ",
+   "note": "No existe forma en つ para 11 o más: じゅういち, じゅうに… (sin contador)."
+  },
+  "nin": {
+   "kanji": "人",
+   "use": "personas",
+   "items": [
+    {
+     "value": 1,
+     "reading": "ひとり"
+    },
+    {
+     "value": 2,
+     "reading": "ふたり"
+    },
+    {
+     "value": 3,
+     "reading": "さんにん"
+    },
+    {
+     "value": 4,
+     "reading": "よにん"
+    },
+    {
+     "value": 5,
+     "reading": "ごにん"
+    },
+    {
+     "value": 6,
+     "reading": "ろくにん"
+    },
+    {
+     "value": 7,
+     "reading": "ななにん",
+     "alt": [
+      "しちにん"
+     ]
+    },
+    {
+     "value": 8,
+     "reading": "はちにん"
+    },
+    {
+     "value": 9,
+     "reading": "きゅうにん"
+    },
+    {
+     "value": 10,
+     "reading": "じゅうにん"
+    }
+   ],
+   "ask": "なんにん",
+   "note": "1 = ひとり y 2 = ふたり son irregulares; 4 = よにん (NO よんにん). Desde 3 se usa el número + にん."
+  },
+  "kai": {
+   "kanji": "階",
+   "use": "pisos de un edificio",
+   "items": [
+    {
+     "value": 1,
+     "reading": "いっかい"
+    },
+    {
+     "value": 2,
+     "reading": "にかい"
+    },
+    {
+     "value": 3,
+     "reading": "さんがい"
+    },
+    {
+     "value": 4,
+     "reading": "よんかい"
+    },
+    {
+     "value": 5,
+     "reading": "ごかい"
+    },
+    {
+     "value": 6,
+     "reading": "ろっかい"
+    },
+    {
+     "value": 7,
+     "reading": "ななかい",
+     "alt": [
+      "しちかい"
+     ]
+    },
+    {
+     "value": 8,
+     "reading": "はっかい",
+     "alt": [
+      "はちかい"
+     ]
+    },
+    {
+     "value": 9,
+     "reading": "きゅうかい"
+    },
+    {
+     "value": 10,
+     "reading": "じゅっかい",
+     "alt": [
+      "じっかい"
+     ]
+    }
+   ],
+   "ask": "なんがい",
+   "note": "3 = さんがい (kai→gai), 6 = ろっかい, 8 = はっかい (también はちかい), 10 = じゅっかい (también じっかい). Sótano: ちか いっかい (B1)."
+  },
+  "sai": {
+   "kanji": "歳",
+   "use": "edad",
+   "items": [
+    {
+     "value": 1,
+     "reading": "いっさい"
+    },
+    {
+     "value": 2,
+     "reading": "にさい"
+    },
+    {
+     "value": 3,
+     "reading": "さんさい"
+    },
+    {
+     "value": 4,
+     "reading": "よんさい"
+    },
+    {
+     "value": 5,
+     "reading": "ごさい"
+    },
+    {
+     "value": 6,
+     "reading": "ろくさい"
+    },
+    {
+     "value": 7,
+     "reading": "ななさい",
+     "alt": [
+      "しちさい"
+     ]
+    },
+    {
+     "value": 8,
+     "reading": "はっさい",
+     "alt": [
+      "はちさい"
+     ]
+    },
+    {
+     "value": 9,
+     "reading": "きゅうさい"
+    },
+    {
+     "value": 10,
+     "reading": "じゅっさい",
+     "alt": [
+      "じっさい"
+     ]
+    }
+   ],
+   "ask": "なんさい",
+   "special": [
+    {
+     "value": 20,
+     "reading": "はたち",
+     "note": "20 años se dice はたち (también にじゅっさい)"
+    }
+   ],
+   "note": "1 = いっさい, 8 = はっさい, 10 = じゅっさい (también じっさい). Más de 10: decenas + unidad + さい (じゅういっさい, じゅうにさい, にじゅういっさい…). 20 = はたち."
+  }
+ },
+ "samples": [
+  {
+   "value": 9,
+   "reading": "きゅう"
+  },
+  {
+   "value": 23,
+   "reading": "にじゅうさん"
+  },
+  {
+   "value": 100,
+   "reading": "ひゃく"
+  },
+  {
+   "value": 260,
+   "reading": "にひゃくろくじゅう"
+  },
+  {
+   "value": 280,
+   "reading": "にひゃくはちじゅう"
+  },
+  {
+   "value": 300,
+   "reading": "さんびゃく"
+  },
+  {
+   "value": 416,
+   "reading": "よんひゃくじゅうろく"
+  },
+  {
+   "value": 450,
+   "reading": "よんひゃくごじゅう"
+  },
+  {
+   "value": 600,
+   "reading": "ろっぴゃく"
+  },
+  {
+   "value": 800,
+   "reading": "はっぴゃく"
+  },
+  {
+   "value": 1000,
+   "reading": "せん"
+  },
+  {
+   "value": 1400,
+   "reading": "せんよんひゃく"
+  },
+  {
+   "value": 1500,
+   "reading": "せんごひゃく"
+  },
+  {
+   "value": 2500,
+   "reading": "にせんごひゃく"
+  },
+  {
+   "value": 2800,
+   "reading": "にせんはっぴゃく"
+  },
+  {
+   "value": 3000,
+   "reading": "さんぜん"
+  },
+  {
+   "value": 7890,
+   "reading": "ななせんはっぴゃくきゅうじゅう"
+  },
+  {
+   "value": 8000,
+   "reading": "はっせん"
+  },
+  {
+   "value": 10000,
+   "reading": "いちまん"
+  },
+  {
+   "value": 15000,
+   "reading": "いちまんごせん"
+  },
+  {
+   "value": 25000,
+   "reading": "にまんごせん"
+  },
+  {
+   "value": 72341,
+   "reading": "ななまんにせんさんびゃくよんじゅういち"
+  },
+  {
+   "value": 100000,
+   "reading": "じゅうまん"
+  },
+  {
+   "value": 618905,
+   "reading": "ろくじゅういちまんはっせんきゅうひゃくご"
+  }
+ ]
+}

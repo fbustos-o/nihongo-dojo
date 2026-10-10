@@ -1,0 +1,181 @@
+## P1 profesor
+きっぷ | 切符 | boleto; billete (de tren) | n | transporte
+べんきょう | 勉強 | estudio | n | escuela
+しごと | 仕事 | trabajo; empleo | n | trabajo
+よやく | 予約 | reserva | n | restaurante
+えき | 駅 | estación (de tren) | n | lugar,transporte
+きょうと | 京都 | Kioto | n | lugar
+ジム | | gimnasio | n | lugar
+## P2 profesor
+チリ | | Chile | n | pais
+ちりじん | チリ人 | chileno/a | n | persona,pais
+アメリカじん | アメリカ人 | estadounidense | n | persona,pais
+## P3 profesor
+かわいい | | lindo; bonito (de aspecto tierno) | i | adjetivo
+ちかい | 近い | cerca; cercano | i | adjetivo,lugar
+とおい | 遠い | lejos; lejano | i | adjetivo,lugar
+つよい | 強い | fuerte | i | adjetivo
+すごい | | increíble; genial; tremendo | i | adjetivo
+あまい | 甘い | dulce | i | adjetivo,comida
+からい | 辛い | picante | i | adjetivo,comida
+すばらしい | | maravilloso; espléndido | i | adjetivo
+つめたい | 冷たい | frío (al tacto; bebidas, cosas) | i | adjetivo
+すずしい | 涼しい | fresco (clima) | i | adjetivo,clima
+あたたかい | 暖かい | cálido; templado | i | adjetivo,clima
+おそい | 遅い | lento; tarde | i | adjetivo,tiempo
+うまい | | rico; delicioso (informal); hábil | i | adjetivo,comida
+よろしい | | bueno (forma formal de いい) | i | adjetivo
+わるい | 悪い | malo | i | adjetivo
+ない | | no haber; no tener; no existir | i | adjetivo,existencia
+ほしい | 欲しい | querer; desear (una cosa) | i | adjetivo
+## P4 profesor
+えんぴつ | 鉛筆 | lápiz | n | cosa,escuela
+じしょ | 辞書 | diccionario | n | cosa,escuela
+せん | 千 | mil | n | numero
+まん | 万 | diez mil | n | numero
+## P5 profesor
+じんじゃ | 神社 | santuario sintoísta | n | lugar
+みずうみ | 湖 | lago | n | lugar,naturaleza
+うけつけ | 受付 | recepción | n | lugar
+おとこのひと | 男の人 | hombre | n | persona
+おんなのひと | 女の人 | mujer | n | persona
+テーブル | | mesa | n | cosa
+うえ | 上 | arriba; encima | n | posicion
+した | 下 | abajo; debajo | n | posicion | | | propio
+なか | 中 | dentro; en el interior | n | posicion
+まえ | 前 | delante; antes | n | posicion | | | propio
+かぎ | 鍵 | llave | n | cosa
+なにも | 何も | nada (con negativo) | adv | existencia
+だれも | 誰も | nadie (con negativo) | adv | existencia
+おてあらい | お手洗い | baño; servicio | n | lugar
+ちゅうしゃじょう | 駐車場 | estacionamiento | n | lugar
+ちか | 地下 | subsuelo; sótano | n | lugar
+たいしかん | 大使館 | embajada | n | lugar
+かい | 階 | ... piso; planta (contador) | c | lugar,contador | kai-piso
+いっかい | 一階 | planta baja; primer piso | n | lugar
+## P6 profesor
+かいぎ | 会議 | reunión | n | trabajo
+ちかてつ | 地下鉄 | metro; subterráneo | n | transporte
+くるま | 車 | auto; coche | n | transporte
+タクシー | | taxi | n | transporte
+しんかんせん | 新幹線 | tren bala (Shinkansen) | n | transporte
+ひこうき | 飛行機 | avión | n | transporte
+おおさか | 大阪 | Osaka | n | lugar
+げんきん | 現金 | dinero en efectivo | n | dinero
+おまつり | お祭り | festival | n | fecha
+なつやすみ | 夏休み | vacaciones de verano | n | fecha
+なつ | 夏 | verano | n | fecha
+パーティー | | fiesta | n | ocio
+しゅっちょう | 出張 | viaje de negocios | n | trabajo
+ねん | 年 | ... año (contador) | c | fecha
+がつ | 月 | ... mes (contador) | c | fecha
+にち | 日 | ... día del mes (contador) | c | fecha
+ようび | 曜日 | día de la semana | c | fecha
+なんねん | 何年 | ¿qué año? | n | fecha,pregunta
+なんがつ | 何月 | ¿qué mes? | n | fecha,pregunta
+なんにち | 何日 | ¿qué día del mes? | n | fecha,pregunta
+なんようび | 何曜日 | ¿qué día de la semana? | n | fecha,pregunta
+ひとつ | 一つ | uno (objetos en general) | c | contador
+ふたつ | 二つ | dos (objetos) | c | contador
+みっつ | 三つ | tres (objetos) | c | contador
+よっつ | 四つ | cuatro (objetos) | c | contador
+いつつ | 五つ | cinco (objetos) | c | contador
+むっつ | 六つ | seis (objetos) | c | contador
+ななつ | 七つ | siete (objetos) | c | contador
+やっつ | 八つ | ocho (objetos) | c | contador
+ここのつ | 九つ | nueve (objetos) | c | contador
+とお | 十 | diez (objetos) | c | contador
+いくつ | | ¿cuántos? (objetos); ¿cuántos años? | c | contador,pregunta
+ひとり | 一人 | una persona | c | contador,persona
+ふたり | 二人 | dos personas | c | contador,persona
+にん | 人 | ... personas (contador) | c | contador,persona | nin
+なんにん | 何人 | ¿cuántas personas? | c | contador,persona,pregunta
+## P7 profesor
+みち | 道 | camino; calle | n | direccion
+ひだり | 左 | izquierda | n | direccion
+みぎ | 右 | derecha | n | direccion
+まっすぐ | | recto; derecho | adv | direccion | | | propio
+まがる | 曲がる | doblar; girar | vu | verbo,direccion
+かかる | | tardar; costar (tiempo o dinero) | vu | verbo,transporte
+せん | 線 | línea (de tren o metro) | n | transporte | sen-linea
+しぶや | 渋谷 | Shibuya | n | lugar
+ぎんざ | 銀座 | Ginza | n | lugar
+どのぐらい | | ¿cuánto? (tiempo, cantidad aproximada) | adv | pregunta,transporte
+どういたしまして | | de nada | e | cortesia
+ありがとうございました | | muchas gracias (por lo que ya pasó) | e | cortesia,restaurante
+ちゅうもん | 注文 | pedido; orden | n | restaurante
+カレーライス | | arroz con curry | n | comida,restaurante
+おかいけい | お会計 | la cuenta (en un restaurante) | n | restaurante,dinero
+いっしょ | 一緒 | juntos; todo junto | n | restaurante
+べつべつ | 別々 | por separado | n | restaurante
+おあずかり | お預かり | recibido (lit. "me quedo con"; al recibir dinero) | n | restaurante,dinero
+おかえし | お返し | cambio; vuelto | n | restaurante,dinero
+おつり | | vuelto; cambio | n | dinero | | | propio
+ふん | 分 | ... minutos | c | tiempo,hora | fun
+## P8 profesor
+あるく | 歩く | caminar | vu | verbo,movimiento
+つくる | 作る | hacer; fabricar; preparar | vu | verbo
+いる | 要る | necesitar | vu | verbo | iru-necesitar
+すむ | 住む | vivir; residir | vu | verbo
+はじめる | 始める | empezar; comenzar (algo) | vru | verbo
+とめる | 止める | detener; parar (un auto) | vru | verbo
+あたためる | 温める | calentar | vru | verbo,comida
+みせる | 見せる | mostrar | vru | verbo
+おわる | 終わる | terminar; acabar | vu | verbo
+えらぶ | 選ぶ | elegir | vu | verbo
+かす | 貸す | prestar | vu | verbo
+あらう | 洗う | lavar | vu | verbo
+ふく | 拭く | limpiar; secar (con un paño) | vu | verbo | fuku-limpiar
+ふく | 吹く | soplar | vu | verbo | fuku-soplar
+ぬぐ | 脱ぐ | quitarse (la ropa) | vu | verbo,ropa
+うたう | 歌う | cantar | vu | verbo,ocio
+おくる | 送る | enviar; mandar | vu | verbo
+やめる | | dejar; parar de (hacer algo) | vru | verbo
+あげる | | dar (a otra persona) | vru | verbo
+だす | 出す | sacar; entregar; presentar | vu | verbo
+なる | | llegar a ser; volverse | vu | verbo
+いれる | 入れる | meter; poner dentro | vru | verbo
+かわく | 乾く | secarse | vu | verbo
+おこる | 怒る | enojarse | vu | verbo
+ならぶ | 並ぶ | hacer fila; alinearse | vu | verbo
+おぼえる | 覚える | memorizar; recordar | vru | verbo
+ゆれる | 揺れる | temblar; moverse | vru | verbo
+やせる | 痩せる | adelgazar | vru | verbo
+ぬれる | 濡れる | mojarse | vru | verbo
+にる | 煮る | hervir; cocer a fuego lento | vru | verbo,comida
+## P9 profesor
+デパート | | tienda departamental | n | lugar,tienda
+たこやき | たこ焼き | takoyaki (bolitas de pulpo) | n | comida
+え | 絵 | dibujo; pintura | n | cosa
+## G0 propio
+あお | 青 | azul | n | color,kana-practice | | | propio
+あい | 愛 | amor | n | kana-practice | | | propio
+いう | 言う | decir | vu | verbo,kana-practice | | | propio
+あかい | 赤い | rojo | i | color,kana-practice | | | propio
+かお | 顔 | cara | n | cuerpo,kana-practice | | | propio
+こえ | 声 | voz | n | kana-practice | | | propio
+すし | 寿司 | sushi | n | comida,kana-practice | | | propio
+しお | 塩 | sal | n | comida,kana-practice | | | propio
+うそ | 嘘 | mentira | n | kana-practice | | | propio
+たこ | | pulpo | n | animal,kana-practice | | | propio
+おなか | お腹 | estómago; barriga | n | cuerpo,kana-practice | | | propio
+はし | 箸 | palillos | n | comida,kana-practice | | | propio
+はは | 母 | mi madre | n | familia,kana-practice | | | propio
+ふね | 船 | barco | n | transporte,kana-practice | | | propio
+あめ | 雨 | lluvia | n | clima,kana-practice | | | propio
+みみ | 耳 | oreja | n | cuerpo,kana-practice | | | propio
+うま | 馬 | caballo | n | animal,kana-practice | | | propio
+ゆき | 雪 | nieve | n | clima,kana-practice | | | propio
+りんご | | manzana | n | comida,kana-practice | | | propio
+さくら | 桜 | cerezo; flor de cerezo | n | naturaleza,kana-practice | | | propio
+からだ | 体 | cuerpo | n | cuerpo,kana-practice | | | propio
+ぶた | 豚 | cerdo | n | animal,kana-practice | | | propio
+さんぽ | 散歩 | paseo | n | ocio,kana-practice | | | propio
+てんぷら | 天ぷら | tempura | n | comida,kana-practice | | | propio
+おきゃくさん | お客さん | cliente; visita | n | persona,kana-practice | | | propio
+ぎゅうにく | 牛肉 | carne de res | n | comida,kana-practice | | | propio
+くち | 口 | boca | n | cuerpo,kana-practice | | | propio
+あし | 足 | pie; pierna | n | cuerpo,kana-practice | | | propio
+くすり | 薬 | medicina | n | kana-practice | | | propio
+ひるね | 昼寝 | siesta | n | rutina,kana-practice | | | propio
+ふろ | 風呂 | baño (bañera) | n | casa,kana-practice | | | propio

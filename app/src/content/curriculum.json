@@ -1,0 +1,2775 @@
+[
+ {
+  "id": "h-a",
+  "stage": 1,
+  "title": "Hiragana: あ いう え お",
+  "requires": [],
+  "kana": [
+   "あ",
+   "い",
+   "う",
+   "え",
+   "お"
+  ],
+  "words": [
+   "ie",
+   "ii",
+   "au",
+   "ue",
+   "iie",
+   "ai",
+   "ao",
+   "iu"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-ka",
+  "stage": 1,
+  "title": "Hiragana: fila か (ka ki ku ke ko)",
+  "requires": [
+   "h-a"
+  ],
+  "kana": [
+   "か",
+   "き",
+   "く",
+   "け",
+   "こ"
+  ],
+  "words": [
+   "koko",
+   "iku",
+   "kiku",
+   "kaku",
+   "kau",
+   "kao",
+   "koe",
+   "akai"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-sa",
+  "stage": 1,
+  "title": "Hiragana: fila さ (sa shi su se so)",
+  "requires": [
+   "h-ka"
+  ],
+  "kana": [
+   "さ",
+   "し",
+   "す",
+   "せ",
+   "そ"
+  ],
+  "words": [
+   "sai-edad",
+   "kasa",
+   "soko",
+   "asa",
+   "isu",
+   "ashi",
+   "shio",
+   "sushi"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-ta",
+  "stage": 1,
+  "title": "Hiragana: fila た (ta chi tsu te to)",
+  "requires": [
+   "h-sa"
+  ],
+  "kana": [
+   "た",
+   "ち",
+   "つ",
+   "て",
+   "と"
+  ],
+  "words": [
+   "ichi",
+   "shichi",
+   "kutsu",
+   "itsu",
+   "uchi",
+   "kuchi",
+   "tako",
+   "toki"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-na",
+  "stage": 1,
+  "title": "Hiragana: fila な (na ni nu ne no)",
+  "requires": [
+   "h-ta"
+  ],
+  "kana": [
+   "な",
+   "に",
+   "ぬ",
+   "ね",
+   "の"
+  ],
+  "words": [
+   "nana",
+   "nani",
+   "ano",
+   "kono",
+   "niku",
+   "onaka",
+   "sono",
+   "inu"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-ha",
+  "stage": 1,
+  "title": "Hiragana: fila は (ha hi fu he ho)",
+  "requires": [
+   "h-na"
+  ],
+  "kana": [
+   "は",
+   "ひ",
+   "ふ",
+   "へ",
+   "ほ"
+  ],
+  "words": [
+   "hachi",
+   "hai",
+   "hana",
+   "hito",
+   "heta",
+   "fune",
+   "haha",
+   "hashi"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-ma",
+  "stage": 1,
+  "title": "Hiragana: fila ま (ma mi mu me mo)",
+  "requires": [
+   "h-ha"
+  ],
+  "kana": [
+   "ま",
+   "み",
+   "む",
+   "め",
+   "も"
+  ],
+  "words": [
+   "ima",
+   "nomu",
+   "machi",
+   "matsu",
+   "hima",
+   "ame",
+   "mimi",
+   "uma"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-ya-ra",
+  "stage": 1,
+  "title": "Hiragana: filas や y ら (ya yu yo, ra ri ru re ro)",
+  "requires": [
+   "h-ma"
+  ],
+  "kana": [
+   "や",
+   "ゆ",
+   "よ",
+   "ら",
+   "り",
+   "る",
+   "れ",
+   "ろ"
+  ],
+  "words": [
+   "rei",
+   "roku",
+   "are",
+   "kore",
+   "sore",
+   "furo",
+   "yuki",
+   "hirune"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-wa-n",
+  "stage": 1,
+  "title": "Hiragana: わ, を y ん",
+  "requires": [
+   "h-ya-ra"
+  ],
+  "kana": [
+   "わ",
+   "を",
+   "ん"
+  ],
+  "words": [
+   "san",
+   "yon",
+   "han",
+   "nan",
+   "en-yen",
+   "hon",
+   "kawa",
+   "man"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-dakuten-1",
+  "stage": 1,
+  "title": "Hiragana con dakuten: が行 y ざ行",
+  "requires": [
+   "h-wa-n"
+  ],
+  "kana": [
+   "が",
+   "ぎ",
+   "ぐ",
+   "げ",
+   "ご",
+   "ざ",
+   "じ",
+   "ず",
+   "ぜ",
+   "ぞ"
+  ],
+  "words": [
+   "gogo",
+   "jin",
+   "goro",
+   "mizu",
+   "sugu",
+   "tsugi",
+   "ringo",
+   "kaji",
+   "gaka",
+   "kagi"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-dakuten-2",
+  "stage": 1,
+  "title": "Hiragana con dakuten: だ行 y ば行",
+  "requires": [
+   "h-dakuten-1"
+  ],
+  "kana": [
+   "だ",
+   "ぢ",
+   "づ",
+   "で",
+   "ど",
+   "ば",
+   "び",
+   "ぶ",
+   "べ",
+   "ぼ"
+  ],
+  "words": [
+   "ban-numero",
+   "dare",
+   "doko",
+   "dono",
+   "dore",
+   "demo",
+   "buta",
+   "karada",
+   "boku",
+   "deru"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-handakuten",
+  "stage": 1,
+  "title": "Hiragana con handakuten: ぱ行",
+  "requires": [
+   "h-dakuten-2"
+  ],
+  "kana": [
+   "ぱ",
+   "ぴ",
+   "ぷ",
+   "ぺ",
+   "ぽ"
+  ],
+  "words": [
+   "enpitsu",
+   "sanpo",
+   "tenpura"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-yoon-1",
+  "stage": 1,
+  "title": "Yōon: きゃ ぎゃ しゃ じゃ ちゃ",
+  "requires": [
+   "h-handakuten"
+  ],
+  "kana": [
+   "きゃ",
+   "きゅ",
+   "きょ",
+   "ぎゃ",
+   "ぎゅ",
+   "ぎょ",
+   "しゃ",
+   "しゅ",
+   "しょ",
+   "じゃ",
+   "じゅ",
+   "じょ",
+   "ちゃ",
+   "ちゅ",
+   "ちょ"
+  ],
+  "words": [
+   "jaa",
+   "ocha",
+   "kashu",
+   "jisho",
+   "shashin",
+   "densha",
+   "okyakusan",
+   "kaisha",
+   "shokuji",
+   "dokusho"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-yoon-2",
+  "stage": 1,
+  "title": "Yōon: にゃ ひゃ びゃ ぴゃ みゃ りゃ",
+  "requires": [
+   "h-yoon-1"
+  ],
+  "kana": [
+   "にゃ",
+   "にゅ",
+   "にょ",
+   "ひゃ",
+   "ひゅ",
+   "ひょ",
+   "びゃ",
+   "びゅ",
+   "びょ",
+   "ぴゃ",
+   "ぴゅ",
+   "ぴょ",
+   "みゃ",
+   "みゅ",
+   "みょ",
+   "りゃ",
+   "りゅ",
+   "りょ"
+  ],
+  "words": [
+   "hyaku",
+   "ryokou",
+   "hyakuen",
+   "sanbyaku"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "h-tsu-long",
+  "stage": 1,
+  "title": "っ pequeña y vocales largas",
+  "requires": [
+   "h-yoon-2"
+  ],
+  "kana": [
+   "っ"
+  ],
+  "words": [
+   "zasshi",
+   "sakka",
+   "kippu",
+   "mikka",
+   "mittsu",
+   "muttsu",
+   "yattsu",
+   "yokka",
+   "yottsu",
+   "chotto"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "l-saludos",
+  "stage": 2,
+  "title": "Saludos y expresiones básicas",
+  "requires": [
+   "h-tsu-long"
+  ],
+  "words": [
+   "ohayou",
+   "ohayougozaimasu",
+   "konnichiwa",
+   "konbanwa",
+   "sayounara",
+   "oyasuminasai",
+   "oyasumi",
+   "arigatou",
+   "arigatougozaimasu",
+   "sumimasen",
+   "iie",
+   "ittekimasu",
+   "itterasshai",
+   "tadaima",
+   "okaerinasai",
+   "okaeri",
+   "itadakimasu",
+   "gochisousamadeshita",
+   "gochisousama",
+   "hajimemashite",
+   "yoroshikuonegaishimasu",
+   "hai"
+  ],
+  "dialogues": [
+   "saludos-manana",
+   "llegar-a-casa"
+  ],
+  "games": [
+   "read-words",
+   "listen",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-numeros",
+  "stage": 2,
+  "title": "Números del 0 al 10 000",
+  "requires": [
+   "l-saludos"
+  ],
+  "words": [
+   "zero",
+   "rei",
+   "ichi",
+   "ni-numero",
+   "san",
+   "yon",
+   "shi-4",
+   "go",
+   "roku",
+   "nana",
+   "shichi",
+   "hachi",
+   "kyuu",
+   "ku-9",
+   "juu",
+   "hyaku",
+   "sen",
+   "man"
+  ],
+  "games": [
+   "numbers",
+   "listen",
+   "read-words"
+  ]
+ },
+ {
+  "id": "l-desu",
+  "stage": 2,
+  "title": "XはYです: presentarse (Genki 1)",
+  "requires": [
+   "l-saludos"
+  ],
+  "words": [
+   "daigaku",
+   "koukou",
+   "gakusei",
+   "daigakusei",
+   "ryuugakusei",
+   "sensei",
+   "nensei",
+   "ichinensei",
+   "senkou",
+   "watashi",
+   "tomodachi",
+   "san-honorifico",
+   "jin",
+   "nihonjin",
+   "nihon",
+   "amerika",
+   "go-idioma",
+   "nihongo",
+   "sai-edad",
+   "denwa",
+   "ban-numero",
+   "soudesuka",
+   "nan",
+   "nani",
+   "nansai",
+   "wa-tema",
+   "ka",
+   "no"
+  ],
+  "patterns": [
+   "noun-desu",
+   "ka-question",
+   "no-possession"
+  ],
+  "dialogues": [
+   "presentacion"
+  ],
+  "games": [
+   "read-words",
+   "syntax",
+   "particles",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-hora",
+  "stage": 2,
+  "title": "La hora: じ, はん, ふん",
+  "requires": [
+   "l-desu",
+   "l-numeros"
+  ],
+  "words": [
+   "ima",
+   "gozen",
+   "gogo",
+   "ji-hora",
+   "ichiji",
+   "han",
+   "nijihan",
+   "nanji",
+   "fun"
+  ],
+  "patterns": [
+   "nanji-desu-ka"
+  ],
+  "dialogues": [
+   "preguntar-la-hora"
+  ],
+  "games": [
+   "clock",
+   "numbers",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-kore",
+  "stage": 2,
+  "title": "これ/それ/あれ, compras y precios (Genki 2)",
+  "requires": [
+   "l-desu",
+   "l-numeros"
+  ],
+  "words": [
+   "kore",
+   "sore",
+   "are",
+   "dore",
+   "kono",
+   "sono",
+   "ano",
+   "dono",
+   "koko",
+   "soko",
+   "asoko",
+   "doko",
+   "dare",
+   "oishii",
+   "sakana",
+   "tonkatsu",
+   "niku",
+   "menyuu",
+   "yasai",
+   "kasa",
+   "kaban",
+   "kutsu",
+   "saifu",
+   "jiinzu",
+   "shinbun",
+   "sumaho",
+   "tiishatsu",
+   "tokei",
+   "nooto",
+   "pen",
+   "boushi",
+   "hon",
+   "ginkou",
+   "konbini",
+   "toire",
+   "toshokan",
+   "yuubinkyoku",
+   "igirisu",
+   "kankoku",
+   "chuugoku",
+   "eigo",
+   "keizai",
+   "konpyuutaa",
+   "bijinesu",
+   "rekishi",
+   "okaasan",
+   "otousan",
+   "ikura",
+   "en-yen",
+   "takai",
+   "irasshaimase",
+   "onegaishimasu",
+   "kudasai",
+   "jaa",
+   "douzo",
+   "doumo",
+   "mo",
+   "ne",
+   "yo",
+   "enpitsu",
+   "jisho"
+  ],
+  "patterns": [
+   "kore-sore-are",
+   "kono-sono-ano",
+   "koko-soko-asoko",
+   "dare-no",
+   "mo-too",
+   "ikura-desu-ka",
+   "kudasai"
+  ],
+  "dialogues": [
+   "comprar-bolso",
+   "papeleria"
+  ],
+  "games": [
+   "read-words",
+   "numbers",
+   "particles",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-verbos-1",
+  "stage": 2,
+  "title": "Verbos ます: わたしは X を V (profesor + Genki 3)",
+  "requires": [
+   "l-kore"
+  ],
+  "words": [
+   "eiga",
+   "ongaku",
+   "zasshi",
+   "supootsu",
+   "deeto",
+   "tenisu",
+   "terebi",
+   "aisukuriimu",
+   "hanbaagaa",
+   "osake",
+   "ocha",
+   "koohii",
+   "mizu",
+   "asagohan",
+   "hirugohan",
+   "bangohan",
+   "iku",
+   "kaeru",
+   "kiku",
+   "nomu",
+   "hanasu",
+   "yomu",
+   "okiru",
+   "taberu",
+   "neru",
+   "miru",
+   "kuru",
+   "suru",
+   "benkyousuru",
+   "o-objeto",
+   "ni",
+   "e-direccion",
+   "benkyou",
+   "shigoto",
+   "yoyaku",
+   "jimu"
+  ],
+  "patterns": [
+   "svo-masu",
+   "svo-shimasu",
+   "go-ni-ikimasu",
+   "masu-masen",
+   "ni-he-direction"
+  ],
+  "games": [
+   "syntax",
+   "conjugation",
+   "read-words",
+   "particles"
+  ]
+ },
+ {
+  "id": "l-particulas",
+  "stage": 2,
+  "title": "Partículas で, に, と y la rutina diaria",
+  "requires": [
+   "l-verbos-1",
+   "l-hora"
+  ],
+  "words": [
+   "ie",
+   "uchi",
+   "gakkou",
+   "kafe",
+   "ashita",
+   "kyou",
+   "asa",
+   "konban",
+   "mainichi",
+   "maiban",
+   "shuumatsu",
+   "itsu",
+   "goro",
+   "de",
+   "to"
+  ],
+  "patterns": [
+   "de-place-action",
+   "ni-time",
+   "question-words",
+   "to-with"
+  ],
+  "dialogues": [
+   "rutina-diaria"
+  ],
+  "games": [
+   "particles",
+   "syntax",
+   "dialogues",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-invitar",
+  "stage": 2,
+  "title": "Invitar: ませんか y ましょう, frecuencia",
+  "requires": [
+   "l-particulas"
+  ],
+  "words": [
+   "amari",
+   "zenzen",
+   "taitei",
+   "chotto",
+   "tokidoki",
+   "yoku",
+   "soudesune",
+   "demo",
+   "doudesuka",
+   "ee"
+  ],
+  "patterns": [
+   "masen-ka",
+   "mashou",
+   "frequency"
+  ],
+  "dialogues": [
+   "planes-cine"
+  ],
+  "games": [
+   "dialogues",
+   "syntax",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-aru-iru",
+  "stage": 2,
+  "title": "あります / います y la ubicación (Genki 4)",
+  "requires": [
+   "l-particulas"
+  ],
+  "words": [
+   "geemu",
+   "arubaito",
+   "kaimono",
+   "kurasu",
+   "inu",
+   "neko",
+   "hito",
+   "kodomo",
+   "anata",
+   "isu",
+   "tsukue",
+   "shashin",
+   "hana",
+   "repooto",
+   "gohan",
+   "pan",
+   "otera",
+   "kouen",
+   "suupaa",
+   "byouin",
+   "hoteru",
+   "honya",
+   "machi",
+   "resutoran",
+   "aru",
+   "iru",
+   "ga",
+   "ya",
+   "jinja",
+   "mizuumi",
+   "uketsuke",
+   "otokonohito",
+   "onnanohito",
+   "teeburu",
+   "ue",
+   "shita",
+   "naka",
+   "mae",
+   "kagi",
+   "nanimo",
+   "daremo",
+   "otearai",
+   "chuushajou",
+   "taishikan"
+  ],
+  "patterns": [
+   "aru-iru-ni",
+   "position-words",
+   "nanimo-daremo",
+   "ya-etc"
+  ],
+  "dialogues": [
+   "hay-un-banco"
+  ],
+  "games": [
+   "syntax",
+   "particles",
+   "dialogues",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-conj-masu",
+  "stage": 2,
+  "title": "Tabla de verbos: ます, ました, ません, ませんでした",
+  "requires": [
+   "l-invitar",
+   "l-aru-iru"
+  ],
+  "words": [
+   "au",
+   "kau",
+   "kaku",
+   "toru",
+   "matsu",
+   "wakaru",
+   "aruku",
+   "tsukuru",
+   "iru-necesitar",
+   "sumu",
+   "hajimeru",
+   "tomeru",
+   "atatameru",
+   "miseru",
+   "owaru",
+   "erabu",
+   "kasu",
+   "arau",
+   "fuku-limpiar",
+   "fuku-soplar",
+   "nugu",
+   "utau",
+   "okuru",
+   "yameru",
+   "ageru",
+   "dasu",
+   "naru",
+   "ireru",
+   "kawaku",
+   "okoru",
+   "narabu",
+   "oboeru",
+   "yureru",
+   "yaseru",
+   "nureru",
+   "niru"
+  ],
+  "patterns": [
+   "masu-4-tenses",
+   "mashita-masendeshita"
+  ],
+  "games": [
+   "conjugation",
+   "read-words",
+   "syntax"
+  ]
+ },
+ {
+  "id": "l-pasado",
+  "stage": 2,
+  "title": "El pasado de です y la conversación de ayer",
+  "requires": [
+   "l-conj-masu"
+  ],
+  "words": [
+   "kinou",
+   "jikan",
+   "ichijikan",
+   "senshuu",
+   "toki",
+   "gurai",
+   "gomennasai",
+   "sorekara",
+   "dakara",
+   "takusan",
+   "doushite",
+   "hitoride",
+   "moshimoshi"
+  ],
+  "patterns": [
+   "deshita"
+  ],
+  "games": [
+   "conjugation",
+   "syntax",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-adjetivos-i",
+  "stage": 2,
+  "title": "Adjetivos い: tabla de conjugación (Genki 5 + profesor)",
+  "requires": [
+   "l-pasado"
+  ],
+  "words": [
+   "ii",
+   "hayai",
+   "atarashii",
+   "furui",
+   "atsui",
+   "samui",
+   "atsui-cosa",
+   "isogashii",
+   "ookii",
+   "chiisai",
+   "omoshiroi",
+   "tsumaranai",
+   "yasashii",
+   "muzukashii",
+   "kakkoii",
+   "kowai",
+   "tanoshii",
+   "yasui",
+   "kawaii",
+   "chikai",
+   "tooi",
+   "tsuyoi",
+   "sugoi",
+   "amai",
+   "karai",
+   "subarashii",
+   "tsumetai",
+   "suzushii",
+   "atatakai",
+   "osoi",
+   "umai",
+   "yoroshii",
+   "warui",
+   "nai",
+   "hoshii"
+  ],
+  "patterns": [
+   "adj-desu",
+   "adj-kunai",
+   "adj-past",
+   "adj-modifying"
+  ],
+  "games": [
+   "conjugation",
+   "read-words",
+   "syntax"
+  ]
+ },
+ {
+  "id": "l-adjetivos-na",
+  "stage": 2,
+  "title": "Adjetivos な, すき/きらい y じゃないです",
+  "requires": [
+   "l-adjetivos-i"
+  ],
+  "words": [
+   "suki",
+   "kirai",
+   "daisuki",
+   "daikirai",
+   "kirei",
+   "genki",
+   "shizuka",
+   "nigiyaka",
+   "hima",
+   "daijoubu",
+   "chiri",
+   "chirijin",
+   "amerikajin"
+  ],
+  "patterns": [
+   "noun-janai",
+   "suki-kirai"
+  ],
+  "dialogues": [
+   "planes-almuerzo"
+  ],
+  "games": [
+   "conjugation",
+   "particles",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-vacaciones",
+  "stage": 2,
+  "title": "Vacaciones y viajes (Genki 5)",
+  "requires": [
+   "l-adjetivos-na"
+  ],
+  "words": [
+   "tabemono",
+   "nomimono",
+   "kudamono",
+   "yasumi",
+   "ryokou",
+   "umi",
+   "saafin",
+   "omiyage",
+   "tenki",
+   "shukudai",
+   "tesuto",
+   "tanjoubi",
+   "heya",
+   "boku",
+   "erusaizu",
+   "oyogu",
+   "yaru",
+   "dekakeru",
+   "isshoni",
+   "sugoku",
+   "totemo",
+   "donna"
+  ],
+  "dialogues": [
+   "viaje-pasado"
+  ],
+  "games": [
+   "read-words",
+   "dialogues",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-fechas",
+  "stage": 2,
+  "title": "Calendario: meses, días y semana",
+  "requires": [
+   "l-pasado",
+   "l-hora"
+  ],
+  "words": [
+   "doyoubi",
+   "nichiyoubi",
+   "getsuyoubi",
+   "kayoubi",
+   "suiyoubi",
+   "mokuyoubi",
+   "kinyoubi",
+   "made",
+   "kaigi",
+   "omatsuri",
+   "natsuyasumi",
+   "natsu",
+   "paatii",
+   "shutchou",
+   "nen",
+   "gatsu",
+   "nichi",
+   "youbi",
+   "nannen",
+   "nangatsu",
+   "nannichi",
+   "nanyoubi",
+   "ichigatsu",
+   "nigatsu",
+   "sangatsu",
+   "shigatsu",
+   "gogatsu",
+   "rokugatsu",
+   "shichigatsu",
+   "hachigatsu",
+   "kugatsu",
+   "juugatsu",
+   "juuichigatsu",
+   "juunigatsu",
+   "tsuitachi",
+   "futsuka",
+   "mikka",
+   "yokka",
+   "itsuka",
+   "muika",
+   "nanoka",
+   "youka",
+   "kokonoka",
+   "tooka",
+   "juuyokka",
+   "hatsuka",
+   "nijuuyokka"
+  ],
+  "patterns": [
+   "date-desu",
+   "kara-made"
+  ],
+  "dialogues": [
+   "fecha-cumpleanos"
+  ],
+  "games": [
+   "calendar",
+   "numbers",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-contadores",
+  "stage": 2,
+  "title": "Contadores: つ, にん, かい, さい",
+  "requires": [
+   "l-fechas"
+  ],
+  "words": [
+   "hatachi",
+   "mai",
+   "chika",
+   "kai-piso",
+   "ikkai",
+   "hitotsu",
+   "futatsu",
+   "mittsu",
+   "yottsu",
+   "itsutsu",
+   "muttsu",
+   "nanatsu",
+   "yattsu",
+   "kokonotsu",
+   "too",
+   "ikutsu",
+   "hitori",
+   "futari",
+   "nin",
+   "nannin"
+  ],
+  "patterns": [
+   "counters"
+  ],
+  "games": [
+   "numbers",
+   "syntax",
+   "read-words"
+  ]
+ },
+ {
+  "id": "l-transporte",
+  "stage": 2,
+  "title": "Transporte y direcciones",
+  "requires": [
+   "l-contadores"
+  ],
+  "words": [
+   "jitensha",
+   "basutei",
+   "basu",
+   "noru",
+   "densha",
+   "oriru",
+   "kippu",
+   "eki",
+   "kyouto",
+   "chikatetsu",
+   "kuruma",
+   "takushii",
+   "shinkansen",
+   "hikouki",
+   "oosaka",
+   "michi",
+   "hidari",
+   "migi",
+   "massugu",
+   "magaru",
+   "kakaru",
+   "sen-linea",
+   "shibuya",
+   "ginza",
+   "donogurai"
+  ],
+  "patterns": [
+   "de-means",
+   "doko-desu-ka",
+   "dono-gurai"
+  ],
+  "dialogues": [
+   "como-llegar",
+   "comprar-boleto",
+   "en-el-autobus"
+  ],
+  "games": [
+   "syntax",
+   "dialogues",
+   "listen",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "l-restaurante",
+  "stage": 2,
+  "title": "En el restaurante",
+  "requires": [
+   "l-contadores",
+   "l-conj-masu"
+  ],
+  "words": [
+   "genkin",
+   "douitashimashite",
+   "arigatougozaimashita",
+   "chuumon",
+   "kareeraisu",
+   "okaikei",
+   "issho",
+   "betsubetsu",
+   "oazukari",
+   "okaeshi",
+   "otsuri"
+  ],
+  "dialogues": [
+   "restaurante-pedir",
+   "restaurante-cuenta"
+  ],
+  "games": [
+   "dialogues",
+   "numbers",
+   "listen"
+  ]
+ },
+ {
+  "id": "l-te-kudasai",
+  "stage": 2,
+  "title": "La forma て: ください, secuencias y ofrecimientos (Genki 6)",
+  "requires": [
+   "l-conj-masu",
+   "l-transporte"
+  ],
+  "words": [
+   "kanji",
+   "kyoukasho",
+   "peeji",
+   "tsugi",
+   "okane",
+   "nimotsu",
+   "pasokon",
+   "shawaa",
+   "eakon",
+   "denki",
+   "mado",
+   "kuni",
+   "konshuu",
+   "raishuu",
+   "rainen",
+   "yoru",
+   "taihen",
+   "isogu",
+   "kaesu",
+   "kesu",
+   "suwaru",
+   "tatsu",
+   "tetsudau",
+   "akeru",
+   "shimeru",
+   "oshieru",
+   "wasureru",
+   "kariru",
+   "shawaa-wo-abiru",
+   "tsukeru",
+   "denwasuru",
+   "tsuretekuru",
+   "mottekuru",
+   "atode",
+   "sugu",
+   "yukkuri",
+   "kekkoudesu",
+   "hontoudesuka",
+   "kara"
+  ],
+  "patterns": [
+   "te-kudasai",
+   "te-form-connect",
+   "mashou-ka-offer",
+   "kara-because"
+  ],
+  "games": [
+   "conjugation",
+   "syntax",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-permisos",
+  "stage": 2,
+  "title": "Permisos y prohibiciones: てもいい, てはいけません",
+  "requires": [
+   "l-te-kudasai"
+  ],
+  "words": [
+   "asobu",
+   "shinu",
+   "tabako-wo-suu",
+   "tsukau",
+   "hairu",
+   "motsu",
+   "yasumu"
+  ],
+  "patterns": [
+   "te-mo-ii",
+   "te-wa-ikemasen"
+  ],
+  "dialogues": [
+   "en-clase"
+  ],
+  "games": [
+   "conjugation",
+   "syntax",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "l-te-imasu-tai",
+  "stage": 2,
+  "title": "ています y たいです",
+  "requires": [
+   "l-permisos"
+  ],
+  "words": [
+   "depaato",
+   "takoyaki",
+   "e"
+  ],
+  "patterns": [
+   "te-imasu",
+   "tai-desu"
+  ],
+  "dialogues": [
+   "quiero-ir"
+  ],
+  "games": [
+   "conjugation",
+   "syntax",
+   "dialogues",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "k-a",
+  "stage": 3,
+  "title": "Katakana: ア イ ウ エ オ y la vocal larga ー",
+  "requires": [
+   "l-te-imasu-tai"
+  ],
+  "kana": [
+   "ア",
+   "イ",
+   "ウ",
+   "エ",
+   "オ",
+   "ー"
+  ],
+  "words": [],
+  "games": [
+   "kana-recognize",
+   "kana-write"
+  ]
+ },
+ {
+  "id": "k-ka",
+  "stage": 3,
+  "title": "Katakana: fila カ",
+  "requires": [
+   "k-a"
+  ],
+  "kana": [
+   "カ",
+   "キ",
+   "ク",
+   "ケ",
+   "コ"
+  ],
+  "words": [
+   "keeki",
+   "kiui",
+   "kokoa"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-sa",
+  "stage": 3,
+  "title": "Katakana: fila サ",
+  "requires": [
+   "k-ka"
+  ],
+  "kana": [
+   "サ",
+   "シ",
+   "ス",
+   "セ",
+   "ソ"
+  ],
+  "words": [
+   "kisu",
+   "keesu",
+   "soosu"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-ta",
+  "stage": 3,
+  "title": "Katakana: fila タ",
+  "requires": [
+   "k-sa"
+  ],
+  "kana": [
+   "タ",
+   "チ",
+   "ツ",
+   "テ",
+   "ト"
+  ],
+  "words": [
+   "tesuto",
+   "suteeki",
+   "takushii"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-na",
+  "stage": 3,
+  "title": "Katakana: fila ナ",
+  "requires": [
+   "k-ta"
+  ],
+  "kana": [
+   "ナ",
+   "ニ",
+   "ヌ",
+   "ネ",
+   "ノ"
+  ],
+  "words": [
+   "nooto",
+   "tenisu",
+   "nekutai"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-ha",
+  "stage": 3,
+  "title": "Katakana: fila ハ",
+  "requires": [
+   "k-na"
+  ],
+  "kana": [
+   "ハ",
+   "ヒ",
+   "フ",
+   "ヘ",
+   "ホ"
+  ],
+  "words": [
+   "haato",
+   "naifu",
+   "hiitaa",
+   "koohii"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-ma",
+  "stage": 3,
+  "title": "Katakana: fila マ",
+  "requires": [
+   "k-ha"
+  ],
+  "kana": [
+   "マ",
+   "ミ",
+   "ム",
+   "メ",
+   "モ"
+  ],
+  "words": [
+   "hamu",
+   "memo",
+   "masuku",
+   "sumaho"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-ya-ra",
+  "stage": 3,
+  "title": "Katakana: filas ヤ y ラ",
+  "requires": [
+   "k-ma"
+  ],
+  "kana": [
+   "ヤ",
+   "ユ",
+   "ヨ",
+   "ラ",
+   "リ",
+   "ル",
+   "レ",
+   "ロ"
+  ],
+  "words": [
+   "chiri",
+   "hoteru",
+   "kamera",
+   "kurasu",
+   "meeru",
+   "miruku",
+   "ruuru",
+   "toire"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-wa-n",
+  "stage": 3,
+  "title": "Katakana: ワ, ヲ y ン",
+  "requires": [
+   "k-ya-ra"
+  ],
+  "kana": [
+   "ワ",
+   "ヲ",
+   "ン"
+  ],
+  "words": [
+   "remon",
+   "wain",
+   "eakon",
+   "raamen",
+   "rimokon",
+   "resutoran"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-dakuten-1",
+  "stage": 3,
+  "title": "Katakana con dakuten: ガ行 y ザ行",
+  "requires": [
+   "k-wa-n"
+  ],
+  "kana": [
+   "ガ",
+   "ギ",
+   "グ",
+   "ゲ",
+   "ゴ",
+   "ザ",
+   "ジ",
+   "ズ",
+   "ゼ",
+   "ゾ"
+  ],
+  "words": [
+   "gasu",
+   "jimu",
+   "zero",
+   "geemu",
+   "gorufu",
+   "rajio",
+   "igirisu",
+   "jiinzu"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-dakuten-2",
+  "stage": 3,
+  "title": "Katakana con dakuten: ダ行 y バ行",
+  "requires": [
+   "k-dakuten-1"
+  ],
+  "kana": [
+   "ダ",
+   "ヂ",
+   "ヅ",
+   "デ",
+   "ド",
+   "バ",
+   "ビ",
+   "ブ",
+   "ベ",
+   "ボ"
+  ],
+  "words": [
+   "basu",
+   "doa",
+   "banana",
+   "beruto",
+   "biiru",
+   "booru",
+   "dansu",
+   "deeto"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-handakuten",
+  "stage": 3,
+  "title": "Katakana con handakuten: パ行",
+  "requires": [
+   "k-dakuten-2"
+  ],
+  "kana": [
+   "パ",
+   "ピ",
+   "プ",
+   "ペ",
+   "ポ"
+  ],
+  "words": [
+   "pan",
+   "pen",
+   "piza",
+   "pasuta",
+   "peeji",
+   "piano",
+   "posuto",
+   "purin"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-small-tsu",
+  "stage": 3,
+  "title": "Katakana: la ッ pequeña (doble consonante)",
+  "requires": [
+   "k-handakuten"
+  ],
+  "kana": [
+   "ッ"
+  ],
+  "words": [
+   "baggu",
+   "beddo",
+   "kappu",
+   "petto",
+   "poketto",
+   "robotto",
+   "rokkaa",
+   "sakkaa"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-yoon",
+  "stage": 3,
+  "title": "Katakana: yōon (キャ シャ チャ ジャ ...)",
+  "requires": [
+   "k-small-tsu"
+  ],
+  "kana": [
+   "キャ",
+   "キュ",
+   "キョ",
+   "ギャ",
+   "ギュ",
+   "ギョ",
+   "シャ",
+   "シュ",
+   "ショ",
+   "ジャ",
+   "ジュ",
+   "ジョ",
+   "チャ",
+   "チュ",
+   "チョ",
+   "ニャ",
+   "ニュ",
+   "ニョ",
+   "ヒャ",
+   "ヒュ",
+   "ヒョ",
+   "ビャ",
+   "ビュ",
+   "ビョ",
+   "ピャ",
+   "ピュ",
+   "ピョ",
+   "ミャ",
+   "ミュ",
+   "ミョ",
+   "リャ",
+   "リュ",
+   "リョ"
+  ],
+  "words": [
+   "jamu",
+   "shatsu",
+   "chansu",
+   "juusu",
+   "kyanpu",
+   "menyuu",
+   "nyuusu",
+   "shawaa"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-extended",
+  "stage": 3,
+  "title": "Katakana extendido: ファ ティ ウィ ヴ ジェ ...",
+  "requires": [
+   "k-yoon"
+  ],
+  "kana": [
+   "ウィ",
+   "ウェ",
+   "ウォ",
+   "ヴァ",
+   "ヴィ",
+   "ヴ",
+   "ヴェ",
+   "ヴォ",
+   "ジェ",
+   "シェ",
+   "チェ",
+   "ツァ",
+   "ツィ",
+   "ツェ",
+   "ツォ",
+   "ティ",
+   "トゥ",
+   "ディ",
+   "ドゥ",
+   "デュ",
+   "ファ",
+   "フィ",
+   "フェ",
+   "フォ",
+   "フュ",
+   "イェ"
+  ],
+  "words": [
+   "kafe",
+   "chekku",
+   "disuku",
+   "fairu",
+   "firumu",
+   "fooku",
+   "jetto",
+   "paatii"
+  ],
+  "games": [
+   "kana-recognize",
+   "kana-write",
+   "read-words",
+   "listen"
+  ]
+ },
+ {
+  "id": "k-prestamos-comida",
+  "stage": 3,
+  "title": "Préstamos: comida y bebida",
+  "requires": [
+   "k-extended"
+  ],
+  "words": [
+   "menyuu",
+   "aisukuriimu",
+   "hanbaagaa",
+   "koohii",
+   "pan",
+   "kareeraisu",
+   "kokoa",
+   "kiui",
+   "keeki",
+   "soosu",
+   "suteeki",
+   "miruku",
+   "remon",
+   "wain",
+   "naifu",
+   "sarada",
+   "raamen",
+   "hamu",
+   "banana",
+   "biiru",
+   "dezaato",
+   "kappu",
+   "pasuta",
+   "purin",
+   "piza",
+   "supuun",
+   "juusu",
+   "chokoreeto",
+   "jamu",
+   "fooku",
+   "wisukii"
+  ],
+  "games": [
+   "read-words",
+   "listen",
+   "syntax"
+  ]
+ },
+ {
+  "id": "k-prestamos-lugares",
+  "stage": 3,
+  "title": "Préstamos: lugares y transporte",
+  "requires": [
+   "k-prestamos-comida"
+  ],
+  "words": [
+   "amerika",
+   "konbini",
+   "toire",
+   "igirisu",
+   "kafe",
+   "suupaa",
+   "hoteru",
+   "resutoran",
+   "basu",
+   "jimu",
+   "chiri",
+   "takushii",
+   "depaato",
+   "puuru",
+   "jetto"
+  ],
+  "games": [
+   "read-words",
+   "listen",
+   "dialogues"
+  ]
+ },
+ {
+  "id": "k-prestamos-cosas",
+  "stage": 3,
+  "title": "Préstamos: cosas, ropa y casa",
+  "requires": [
+   "k-prestamos-lugares"
+  ],
+  "words": [
+   "jiinzu",
+   "sumaho",
+   "tiishatsu",
+   "nooto",
+   "pen",
+   "erusaizu",
+   "pasokon",
+   "shawaa",
+   "eakon",
+   "teeburu",
+   "keesu",
+   "nekutai",
+   "hiitaa",
+   "masuku",
+   "memo",
+   "meeru",
+   "rajio",
+   "robotto",
+   "kamera",
+   "rimokon",
+   "doa",
+   "gasu",
+   "doresu",
+   "beruto",
+   "zubon",
+   "beddo",
+   "rokkaa",
+   "baggu",
+   "posuto",
+   "poketto",
+   "teepu",
+   "shatsu",
+   "shanpuu",
+   "fairu",
+   "tisshu",
+   "firumu",
+   "disuku"
+  ],
+  "games": [
+   "read-words",
+   "listen",
+   "particles"
+  ]
+ },
+ {
+  "id": "k-prestamos-ocio",
+  "stage": 3,
+  "title": "Préstamos: ocio, deportes y escuela",
+  "requires": [
+   "k-prestamos-cosas"
+  ],
+  "words": [
+   "konpyuutaa",
+   "bijinesu",
+   "supootsu",
+   "deeto",
+   "tenisu",
+   "terebi",
+   "geemu",
+   "arubaito",
+   "kurasu",
+   "repooto",
+   "saafin",
+   "tesuto",
+   "peeji",
+   "paatii",
+   "gorufu",
+   "dansu",
+   "booru",
+   "gaido",
+   "sakkaa",
+   "piano",
+   "nyuusu",
+   "kyanpu",
+   "vaiorin"
+  ],
+  "games": [
+   "read-words",
+   "listen",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "k-repaso",
+  "stage": 3,
+  "title": "Repaso: diálogos y lecturas con katakana",
+  "requires": [
+   "k-prestamos-ocio"
+  ],
+  "dialogues": [
+   "comprar-bolso",
+   "papeleria",
+   "restaurante-pedir",
+   "restaurante-cuenta",
+   "planes-almuerzo"
+  ],
+  "games": [
+   "dialogues",
+   "mini-reading",
+   "syntax"
+  ]
+ },
+ {
+  "id": "kanji-3",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 3",
+  "requires": [
+   "k-repaso"
+  ],
+  "kanji": [
+   "一",
+   "二",
+   "三",
+   "四",
+   "五",
+   "六",
+   "七",
+   "八",
+   "九",
+   "十",
+   "百",
+   "千",
+   "万",
+   "円",
+   "時"
+  ],
+  "words": [
+   "go",
+   "hachi",
+   "hyaku",
+   "ichi",
+   "juu",
+   "ku-9",
+   "kyuu",
+   "nana",
+   "ni-numero",
+   "roku",
+   "san",
+   "shi-4",
+   "shichi",
+   "yon",
+   "ichiji",
+   "ji-hora",
+   "en-yen",
+   "hyakuen",
+   "ichiman",
+   "ichimanen",
+   "sanbyaku",
+   "sanzen",
+   "tokidoki",
+   "toki",
+   "man",
+   "sen",
+   "futatsu",
+   "hitotsu",
+   "itsutsu",
+   "kokonotsu",
+   "mittsu",
+   "muttsu",
+   "nanatsu",
+   "too",
+   "yattsu",
+   "yottsu"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-4",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 4",
+  "requires": [
+   "kanji-3"
+  ],
+  "kanji": [
+   "日",
+   "本",
+   "人",
+   "月",
+   "火",
+   "水",
+   "木",
+   "金",
+   "土",
+   "曜",
+   "上",
+   "下",
+   "中",
+   "半"
+  ],
+  "words": [
+   "han",
+   "jin",
+   "nihon",
+   "nihonjin",
+   "nijihan",
+   "hon",
+   "doyoubi",
+   "mizu",
+   "nichiyoubi",
+   "getsuyoubi",
+   "hi",
+   "hito",
+   "hitoride",
+   "kayoubi",
+   "ki",
+   "kinyoubi",
+   "mokuyoubi",
+   "suiyoubi",
+   "tsuchi",
+   "okane",
+   "amerikajin",
+   "chirijin",
+   "naka",
+   "shita",
+   "ue",
+   "futari",
+   "futsuka",
+   "gatsu",
+   "gogatsu",
+   "hachigatsu",
+   "hatsuka",
+   "hitori",
+   "ichigatsu",
+   "itsuka",
+   "juugatsu",
+   "juuichigatsu",
+   "juunigatsu",
+   "juuyokka",
+   "kokonoka",
+   "kugatsu",
+   "mikka",
+   "muika",
+   "nanoka",
+   "nichi",
+   "nigatsu",
+   "nijuuyokka",
+   "nin",
+   "rokugatsu",
+   "sangatsu",
+   "shichigatsu",
+   "shigatsu",
+   "tooka",
+   "tsuitachi",
+   "yokka",
+   "youbi",
+   "youka"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-5",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 5",
+  "requires": [
+   "kanji-4"
+  ],
+  "kanji": [
+   "山",
+   "川",
+   "元",
+   "気",
+   "天",
+   "私",
+   "今",
+   "田",
+   "女",
+   "男",
+   "見",
+   "行",
+   "食",
+   "飲"
+  ],
+  "words": [
+   "tenpura",
+   "ima",
+   "watashi",
+   "iku",
+   "kyou",
+   "miru",
+   "nomu",
+   "taberu",
+   "genki",
+   "kawa",
+   "moto",
+   "onna",
+   "otoko",
+   "tanaka",
+   "tanbo",
+   "tenki",
+   "yama",
+   "yamada",
+   "onnanohito",
+   "otokonohito",
+   "miseru"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-6",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 6",
+  "requires": [
+   "kanji-5"
+  ],
+  "kanji": [
+   "東",
+   "西",
+   "南",
+   "北",
+   "口",
+   "出",
+   "右",
+   "左",
+   "分",
+   "先",
+   "生",
+   "大",
+   "学",
+   "外",
+   "国"
+  ],
+  "words": [
+   "kuchi",
+   "daigaku",
+   "daigakusei",
+   "gakusei",
+   "sensei",
+   "chuugoku",
+   "wakaru",
+   "dekakeru",
+   "ookii",
+   "deguchi",
+   "deru",
+   "gaikoku",
+   "gaikokujin",
+   "higashi",
+   "kawaguchi",
+   "kita",
+   "kitaguchi",
+   "kuni",
+   "minami",
+   "minamiguchi",
+   "nishi",
+   "nishiguchi",
+   "saki",
+   "soto",
+   "fun",
+   "hidari",
+   "migi",
+   "dasu"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-7",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 7",
+  "requires": [
+   "kanji-6"
+  ],
+  "kanji": [
+   "京",
+   "子",
+   "小",
+   "会",
+   "社",
+   "父",
+   "母",
+   "高",
+   "校",
+   "毎",
+   "語",
+   "文",
+   "帰",
+   "入"
+  ],
+  "words": [
+   "haha",
+   "go-idioma",
+   "koukou",
+   "nihongo",
+   "okaasan",
+   "otousan",
+   "takai",
+   "gakkou",
+   "kaeru",
+   "mainichi",
+   "au",
+   "chiisai",
+   "hairu",
+   "bun",
+   "chichi",
+   "chuugokugo",
+   "gaikokugo",
+   "iriguchi",
+   "kaeri",
+   "kaisha",
+   "kyouko",
+   "nomikai",
+   "ogawa",
+   "onnanoko",
+   "otokonoko",
+   "shougakkou",
+   "toukyou",
+   "ireru"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-8",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 8",
+  "requires": [
+   "kanji-7"
+  ],
+  "kanji": [
+   "員",
+   "新",
+   "聞",
+   "作",
+   "仕",
+   "事",
+   "電",
+   "車",
+   "休",
+   "言",
+   "読",
+   "思",
+   "次",
+   "何"
+  ],
+  "words": [
+   "iu",
+   "nan",
+   "nani",
+   "nanji",
+   "shinbun",
+   "kiku",
+   "yomu",
+   "atarashii",
+   "yasumi",
+   "denki",
+   "densha",
+   "tsugi",
+   "yasumu",
+   "gengo",
+   "kaiin",
+   "kaishain",
+   "kaji",
+   "omoide",
+   "omou",
+   "sakubun",
+   "shigotochuu",
+   "shokuji",
+   "tsuginohi",
+   "shigoto",
+   "nanimo",
+   "kuruma",
+   "nangatsu",
+   "nannichi",
+   "nannin",
+   "nanyoubi",
+   "tsukuru"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-9",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 9",
+  "requires": [
+   "kanji-8"
+  ],
+  "kanji": [
+   "午",
+   "後",
+   "前",
+   "名",
+   "白",
+   "雨",
+   "書",
+   "友",
+   "間",
+   "家",
+   "話",
+   "少",
+   "古",
+   "知",
+   "来"
+  ],
+  "words": [
+   "ame",
+   "denwa",
+   "gogo",
+   "gozen",
+   "tomodachi",
+   "hanasu",
+   "ie",
+   "kuru",
+   "ichijikan",
+   "jikan",
+   "kaku",
+   "furui",
+   "atode",
+   "denwasuru",
+   "chijin",
+   "chuuko",
+   "dokusho",
+   "hanashi",
+   "kaiwa",
+   "namae",
+   "nanjikan",
+   "ooame",
+   "sakka",
+   "shiro",
+   "shiroi",
+   "shiru",
+   "sukoshi",
+   "sukunai",
+   "ushiro",
+   "yuujin",
+   "mae"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-10",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 10",
+  "requires": [
+   "kanji-9"
+  ],
+  "kanji": [
+   "住",
+   "正",
+   "年",
+   "売",
+   "買",
+   "町",
+   "長",
+   "道",
+   "雪",
+   "立",
+   "自",
+   "夜",
+   "朝",
+   "持"
+  ],
+  "words": [
+   "yuki",
+   "ichinensei",
+   "nensei",
+   "asa",
+   "kau",
+   "machi",
+   "motsu",
+   "mottekuru",
+   "rainen",
+   "tatsu",
+   "yoru",
+   "jibun",
+   "jibunde",
+   "kesa",
+   "kokuritsu",
+   "konya",
+   "kotoshi",
+   "machinaka",
+   "maiasa",
+   "maitoshi",
+   "nagai",
+   "ooyuki",
+   "shachou",
+   "shiritsu",
+   "shodou",
+   "shougatsu",
+   "tadashii",
+   "ureru",
+   "uru",
+   "nannen",
+   "nen",
+   "michi",
+   "sumu"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-11",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 11",
+  "requires": [
+   "kanji-10"
+  ],
+  "kanji": [
+   "手",
+   "紙",
+   "好",
+   "近",
+   "明",
+   "病",
+   "院",
+   "映",
+   "画",
+   "歌",
+   "市",
+   "所",
+   "勉",
+   "強",
+   "有",
+   "旅"
+  ],
+  "words": [
+   "ashita",
+   "benkyousuru",
+   "eiga",
+   "byouin",
+   "daisuki",
+   "ryokou",
+   "suki",
+   "akarui",
+   "byouki",
+   "chikaku",
+   "daigakuin",
+   "gaka",
+   "heta",
+   "hidarite",
+   "jouzu",
+   "juusho",
+   "kaite",
+   "kami",
+   "kashu",
+   "migite",
+   "shi-ciudad",
+   "shichou",
+   "tabi",
+   "te",
+   "tegami",
+   "tokoro",
+   "uta",
+   "utsuru",
+   "yuumei",
+   "yuumeijin",
+   "benkyou",
+   "chikai",
+   "tsuyoi",
+   "utau"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ },
+ {
+  "id": "kanji-12",
+  "stage": 4,
+  "title": "Kanji de Genki, lección 12",
+  "requires": [
+   "kanji-11"
+  ],
+  "kanji": [
+   "昔",
+   "神",
+   "早",
+   "起",
+   "牛",
+   "使",
+   "働",
+   "連",
+   "別",
+   "度",
+   "赤",
+   "青",
+   "色"
+  ],
+  "words": [
+   "akai",
+   "ao",
+   "hayai",
+   "okiru",
+   "tsukau",
+   "tsuretekuru",
+   "aka",
+   "aoi",
+   "betsu",
+   "hatarakite",
+   "hataraku",
+   "hayaku",
+   "ichido",
+   "iro",
+   "iroiro",
+   "kami-dios",
+   "kondo",
+   "koushi",
+   "mukashi",
+   "mukashibanashi",
+   "okosu",
+   "renkyuu",
+   "tsukaimichi",
+   "tsureru",
+   "ushi",
+   "wakareru",
+   "jinja",
+   "betsubetsu"
+  ],
+  "games": [
+   "kanji",
+   "read-words",
+   "mini-reading"
+  ]
+ }
+]

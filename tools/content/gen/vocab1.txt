@@ -1,0 +1,357 @@
+# format: kana | kanji | es (;) | pos | tags (,; +P => also in teacher sheets) | id override | romaji override
+## G0 genki
+おはよう | | buenos días (informal) | e | saludo
+おはようございます | | buenos días (cortés) | e | saludo
+こんにちは | | buenas tardes; hola | e | saludo | | konnichiwa
+こんばんは | | buenas tardes/noches (al encontrarse) | e | saludo | | konbanwa
+さようなら | | adiós | e | saludo
+おやすみなさい | | buenas noches (antes de dormir) | e | saludo
+おやすみ | | buenas noches (informal) | e | saludo
+ありがとう | | gracias | e | saludo
+ありがとうございます | | muchas gracias (cortés) | e | saludo+P
+すみません | | disculpe; lo siento; gracias (por la molestia) | e | saludo
+いいえ | | no; de nada | e | saludo
+いってきます | | voy y vuelvo (al salir de casa) | e | saludo,casa
+いってらっしゃい | | que te vaya bien (lit. ve y vuelve) | e | saludo,casa
+ただいま | | ya llegué (a casa) | e | saludo,casa
+おかえりなさい | | bienvenido a casa | e | saludo,casa
+おかえり | | bienvenido a casa (informal) | e | saludo,casa
+いただきます | | gracias por la comida (antes de comer) | e | saludo,comida
+ごちそうさまでした | | gracias por la comida (después de comer) | e | saludo,comida
+ごちそうさま | | gracias por la comida (informal) | e | saludo,comida
+はじめまして | | mucho gusto (al conocer a alguien) | e | saludo
+よろしくおねがいします | | encantado de conocerte; cuento contigo | e | saludo
+ゼロ | | cero | n | numero
+れい | | cero (lectura alternativa) | n | numero
+いち | 一 | uno | n | numero
+に | 二 | dos | n | numero | ni-numero
+さん | 三 | tres | n | numero | san
+よん | 四 | cuatro | n | numero
+し | 四 | cuatro (lectura alternativa) | n | numero | shi-4
+ご | 五 | cinco | n | numero | go
+ろく | 六 | seis | n | numero
+なな | 七 | siete | n | numero
+しち | 七 | siete (lectura alternativa) | n | numero
+はち | 八 | ocho | n | numero
+きゅう | 九 | nueve | n | numero
+く | 九 | nueve (lectura alternativa) | n | numero | ku-9
+じゅう | 十 | diez | n | numero
+ひゃく | 百 | cien | n | numero
+## G1 genki
+だいがく | 大学 | universidad; instituto | n | escuela
+こうこう | 高校 | escuela secundaria superior | n | escuela
+がくせい | 学生 | estudiante | n | escuela,persona
+だいがくせい | 大学生 | estudiante universitario | n | escuela,persona
+りゅうがくせい | 留学生 | estudiante extranjero/a | n | escuela,persona
+せんせい | 先生 | profesor/a | n | escuela,persona
+ねんせい | 年生 | estudiante de ... año | c | escuela
+いちねんせい | 一年生 | estudiante de primer año | n | escuela,persona
+せんこう | 専攻 | especialidad (de estudios) | n | escuela
+わたし | 私 | yo | pr | persona+P
+ともだち | 友だち | amigo/a | n | persona
+さん | | Sr./Sra. ... (sufijo de cortesía) | n | persona,sufijo | san-honorifico
+じん | 人 | persona de ... (nacionalidad) | n | persona,sufijo | jin
+にほんじん | 日本人 | los japoneses; persona japonesa | n | persona,pais
+いま | 今 | ahora | n | tiempo+P
+ごぜん | 午前 | a.m. | n | tiempo
+ごご | 午後 | p.m. | n | tiempo
+じ | 時 | ... en punto (hora) | c | tiempo,hora+P | ji-hora
+いちじ | 一時 | la una | n | tiempo,hora
+はん | 半 | y media | n | tiempo,hora+P
+にじはん | 二時半 | las dos y media | n | tiempo,hora
+にほん | 日本 | Japón | n | pais
+アメリカ | | EE. UU.; América | n | pais
+ご | 語 | idioma ... | n | idioma,sufijo | go-idioma
+にほんご | 日本語 | idioma japonés | n | idioma+P
+さい | 歳 | ... años de edad | c | persona | sai-edad
+でんわ | 電話 | teléfono | n | cosa
+ばん | 番 | número ... | c | numero | ban-numero
+はい | | sí | e | saludo | | | 
+そうですか | | ya veo; ¿en serio? | e | conversacion
+なん | 何 | qué (forma corta de なに) | pr | pregunta
+なに | 何 | qué | pr | pregunta+P
+なんじ | 何時 | ¿qué hora? | n | tiempo,pregunta+P
+なんさい | 何歳 | ¿cuántos años? | n | persona,pregunta
+## G2 genki
+これ | | esto | pr | demostrativo
+それ | | eso | pr | demostrativo
+あれ | | aquello (de allí) | pr | demostrativo
+どれ | | ¿cuál? | pr | demostrativo,pregunta
+この | | este ... | n | demostrativo
+その | | ese ... | n | demostrativo
+あの | | aquel ... (de allí) | n | demostrativo
+どの | | ¿cuál ...? | n | demostrativo,pregunta+P
+ここ | | aquí | pr | lugar,demostrativo
+そこ | | ahí | pr | lugar,demostrativo
+あそこ | | allí | pr | lugar,demostrativo
+どこ | | ¿dónde? | pr | lugar,pregunta+P
+だれ | | ¿quién? | pr | persona,pregunta
+おいしい | | delicioso; rico | i | comida,adjetivo+P
+さかな | 魚 | pescado | n | comida
+とんかつ | | chuleta de cerdo empanada | n | comida
+にく | 肉 | carne | n | comida
+メニュー | | menú | n | comida,restaurante
+やさい | 野菜 | verdura | n | comida
+かさ | 傘 | paraguas | n | cosa+P
+かばん | | bolso; mochila | n | cosa+P
+くつ | 靴 | zapatos | n | cosa+P
+さいふ | 財布 | billetera | n | cosa
+ジーンズ | | vaqueros; jeans | n | cosa,ropa+P
+じてんしゃ | 自転車 | bicicleta | n | cosa,transporte+P
+しんぶん | 新聞 | periódico | n | cosa+P
+スマホ | | smartphone; móvil | n | cosa
+ティーシャツ | | camiseta | n | cosa,ropa
+とけい | 時計 | reloj | n | cosa+P
+ノート | | cuaderno | n | cosa,escuela+P
+ペン | | pluma; bolígrafo | n | cosa,escuela
+ぼうし | 帽子 | sombrero; gorra | n | cosa,ropa+P
+ほん | 本 | libro | n | cosa,escuela+P
+ぎんこう | 銀行 | banco | n | lugar+P
+コンビニ | | tienda de conveniencia | n | lugar+P
+トイレ | | baño; WC | n | lugar
+としょかん | 図書館 | biblioteca | n | lugar
+ゆうびんきょく | 郵便局 | oficina de correos | n | lugar+P
+イギリス | | Gran Bretaña; Reino Unido | n | pais+P
+かんこく | 韓国 | Corea (del Sur) | n | pais
+ちゅうごく | 中国 | China | n | pais
+えいご | 英語 | inglés (idioma) | n | idioma,escuela
+けいざい | 経済 | economía | n | escuela
+コンピューター | | informática; computadora | n | escuela
+ビジネス | | negocios | n | escuela
+れきし | 歴史 | historia | n | escuela
+おかあさん | お母さん | madre (de otro; o la propia al hablarle) | n | familia+P
+おとうさん | お父さん | padre (de otro; o el propio al hablarle) | n | familia
+いくら | | ¿cuánto? (precio) | pr | dinero,pregunta+P
+えん | 円 | ... yenes | c | dinero | en-yen
+たかい | 高い | caro; alto | i | adjetivo,dinero+P
+いらっしゃいませ | | bienvenido (a nuestra tienda) | e | tienda,restaurante+P
+おねがいします | | por favor (al pedir algo) | e | cortesia+P
+ください | | deme ..., por favor | e | cortesia+P
+じゃあ | | entonces ...; en ese caso | e | conversacion
+どうぞ | | por favor; aquí tiene | e | cortesia
+どうも | | gracias | e | cortesia
+## G3 genki
+えいが | 映画 | película | n | ocio
+おんがく | 音楽 | música | n | ocio+P
+ざっし | 雑誌 | revista | n | ocio
+スポーツ | | deportes | n | ocio
+デート | | cita (romántica) | n | ocio
+テニス | | tenis | n | ocio,deporte+P
+テレビ | | TV; televisión | n | ocio+P
+アイスクリーム | | helado | n | comida
+ハンバーガー | | hamburguesa | n | comida+P
+おさけ | お酒 | sake; bebida alcohólica | n | comida,bebida
+おちゃ | お茶 | té verde | n | comida,bebida
+コーヒー | | café | n | comida,bebida+P
+みず | 水 | agua | n | comida,bebida+P
+あさごはん | 朝ご飯 | desayuno | n | comida+P
+ひるごはん | 昼ご飯 | almuerzo | n | comida+P
+ばんごはん | 晩ご飯 | cena | n | comida+P
+いえ | 家 | hogar; casa | n | lugar,casa
+うち | | hogar; mi casa | n | lugar,casa+P
+がっこう | 学校 | escuela | n | lugar,escuela
+カフェ | | cafetería | n | lugar+P
+あした | 明日 | mañana | n | tiempo,fecha+P
+きょう | 今日 | hoy | n | tiempo,fecha+P
+あさ | 朝 | mañana (por la mañana) | n | tiempo
+こんばん | 今晩 | esta noche | n | tiempo
+まいにち | 毎日 | todos los días | n | tiempo,rutina
+まいばん | 毎晩 | todas las noches | n | tiempo,rutina
+しゅうまつ | 週末 | fin de semana | n | tiempo
+どようび | 土曜日 | sábado | n | tiempo,fecha+P
+にちようび | 日曜日 | domingo | n | tiempo,fecha+P
+いつ | | ¿cuándo? | n | tiempo,pregunta+P
+ごろ | | alrededor de (hora) | n | tiempo,sufijo
+いく | 行く | ir (destino に/へ) | vu | verbo,movimiento+P
+かえる | 帰る | volver; regresar (destino に/へ) | vu | verbo,movimiento+P
+きく | 聞く | escuchar; oír; preguntar (persona に) | vu | verbo+P
+のむ | 飲む | tomar; beber | vu | verbo,comida+P
+はなす | 話す | hablar; conversar | vu | verbo+P
+よむ | 読む | leer | vu | verbo+P
+おきる | 起きる | levantarse | vru | verbo,rutina+P
+たべる | 食べる | comer | vru | verbo,comida+P
+ねる | 寝る | dormir; irse a dormir | vru | verbo,rutina+P
+みる | 見る | ver; mirar; observar | vru | verbo+P
+くる | 来る | venir | virr | verbo,movimiento+P
+する | | hacer | virr | verbo+P
+べんきょうする | 勉強する | estudiar | virr | verbo,escuela+P
+いい | | bueno | i | adjetivo+P | ii
+はやい | 早い | temprano; (también 速い: rápido) | i | adjetivo,tiempo+P
+あまり | | no mucho (con negativo) | adv | frecuencia
+ぜんぜん | 全然 | para nada (con negativo) | adv | frecuencia
+たいてい | | normalmente | adv | frecuencia
+ちょっと | | un poco | adv | frecuencia
+ときどき | 時々 | a veces | adv | frecuencia
+よく | | a menudo; mucho | adv | frecuencia
+そうですね | | así es; a ver... | e | conversacion
+でも | | pero | e | conversacion
+どうですか | | ¿qué tal...?; ¿cómo es...? | e | conversacion
+ええ | | sí | e | conversacion
+## G4 genki
+ゲーム | | juego | n | ocio
+アルバイト | | trabajo a tiempo parcial | n | trabajo
+かいもの | 買い物 | compras | n | tienda+P
+クラス | | clase | n | escuela
+いぬ | 犬 | perro | n | animal
+ねこ | 猫 | gato | n | animal
+ひと | 人 | persona | n | persona
+こども | 子供 | niño/a | n | persona
+あなた | | usted; tú | pr | persona
+いす | | silla | n | cosa
+つくえ | 机 | escritorio | n | cosa
+しゃしん | 写真 | foto; fotografía | n | cosa+P
+はな | 花 | flor | n | cosa+P
+レポート | | informe | n | escuela
+ごはん | ご飯 | arroz cocido; comida | n | comida
+パン | | pan | n | comida
+おてら | お寺 | templo (budista) | n | lugar+P
+こうえん | 公園 | parque | n | lugar+P
+スーパー | | supermercado | n | lugar,tienda
+バスてい | バス停 | parada de autobús | n | lugar,transporte
+びょういん | 病院 | hospital | n | lugar
+ホテル | | hotel | n | lugar
+ほんや | 本屋 | librería | n | lugar,tienda
+まち | 町 | pueblo; ciudad | n | lugar
+レストラン | | restaurante | n | lugar,restaurante+P
+きのう | 昨日 | ayer | n | tiempo,fecha+P
+じかん | 時間 | ... horas (duración) | c | tiempo
+いちじかん | 一時間 | una hora (duración) | n | tiempo
+せんしゅう | 先週 | la semana pasada | n | tiempo,fecha+P
+とき | 時 | cuando ...; durante ... | n | tiempo
+げつようび | 月曜日 | lunes | n | tiempo,fecha+P
+かようび | 火曜日 | martes | n | tiempo,fecha+P
+すいようび | 水曜日 | miércoles | n | tiempo,fecha+P
+もくようび | 木曜日 | jueves | n | tiempo,fecha+P
+きんようび | 金曜日 | viernes | n | tiempo,fecha+P
+あう | 会う | encontrarse con; ver a (persona に) | vu | verbo+P
+ある | | haber; existir; estar (cosas; lugar に cosa が) | vu | verbo,existencia+P
+かう | 買う | comprar | vu | verbo,tienda+P
+かく | 書く | escribir; dibujar | vu | verbo+P
+とる | 撮る | tomar (una foto); coger | vu | verbo+P
+まつ | 待つ | esperar | vu | verbo+P
+わかる | 分かる | entender; comprender | vu | verbo+P
+いる | | estar; haber (personas/animales; lugar に persona が) | vru | verbo,existencia+P
+ぐらい | | alrededor de (medida aproximada) | n | sufijo
+ごめんなさい | | lo siento; perdón | e | cortesia
+それから | | y luego; además | e | conversacion
+だから | | así que; por lo tanto | e | conversacion
+たくさん | | muchos; mucho | adv | cantidad
+どうして | | ¿por qué? | adv | pregunta
+ひとりで | 一人で | solo; sin compañía | adv | persona
+もしもし | | ¿aló?; ¿bueno? (al teléfono) | e | conversacion
+## G5 genki
+たべもの | 食べ物 | comida (cosas que se comen) | n | comida
+のみもの | 飲み物 | bebida | n | comida,bebida
+くだもの | 果物 | fruta | n | comida
+やすみ | 休み | vacaciones; día libre; ausencia | n | tiempo,ocio
+りょこう | 旅行 | viaje | n | ocio
+うみ | 海 | mar | n | lugar,naturaleza
+サーフィン | | surf | n | ocio,deporte
+おみやげ | お土産 | recuerdo; souvenir | n | ocio
+バス | | autobús | n | transporte+P
+てんき | 天気 | tiempo (atmosférico) | n | naturaleza
+しゅくだい | 宿題 | deberes; tarea | n | escuela
+テスト | | examen | n | escuela
+たんじょうび | 誕生日 | cumpleaños | n | fecha+P
+へや | 部屋 | habitación | n | casa
+ぼく | 僕 | yo (usado por hombres) | pr | persona
+エルサイズ | | talla L | n | ropa
+あたらしい | 新しい | nuevo | i | adjetivo+P
+ふるい | 古い | viejo (cosas, no personas) | i | adjetivo+P
+あつい | 暑い | caluroso (clima); caliente (teacher: hot) | i | adjetivo,clima+P
+さむい | 寒い | frío (clima) | i | adjetivo,clima+P
+あつい | 熱い | caliente (cosas) | i | adjetivo | atsui-cosa
+いそがしい | 忙しい | ocupado (personas/días) | i | adjetivo+P
+おおきい | 大きい | grande | i | adjetivo+P
+ちいさい | 小さい | pequeño | i | adjetivo+P
+おもしろい | 面白い | interesante; divertido | i | adjetivo+P
+つまらない | | aburrido | i | adjetivo
+やさしい | | fácil; amable | i | adjetivo
+むずかしい | 難しい | difícil | i | adjetivo
+かっこいい | | guapo; elegante (se conjuga como いい) | i | adjetivo
+こわい | 怖い | espeluznante; que da miedo | i | adjetivo
+たのしい | 楽しい | divertido; agradable | i | adjetivo
+やすい | 安い | barato | i | adjetivo,dinero+P
+すき | 好き | gustar; agradable (すきな) | na | adjetivo
+きらい | 嫌い | no gustar; desagradable | na | adjetivo
+だいすき | 大好き | gustar mucho; encantar | na | adjetivo
+だいきらい | 大嫌い | odiar; detestar | na | adjetivo
+きれい | | bonito; limpio | na | adjetivo
+げんき | 元気 | saludable; enérgico; bien | na | adjetivo+P
+しずか | 静か | tranquilo; silencioso | na | adjetivo
+にぎやか | | animado; bullicioso | na | adjetivo
+ひま | 暇 | desocupado; libre (tiempo) | na | adjetivo
+およぐ | 泳ぐ | nadar | vu | verbo,deporte+P
+のる | 乗る | montar; abordar (transporte に) | vu | verbo,transporte+P
+やる | | hacer; realizar | vu | verbo
+でかける | 出かける | salir (de casa; a comer, al cine) | vru | verbo,movimiento
+いっしょに | 一緒に | juntos | adv | conversacion
+すごく | | extremadamente; muy | adv | cantidad
+だいじょうぶ | 大丈夫 | está bien; no hay problema | na | conversacion
+とても | | muy | adv | cantidad
+どんな | | ¿qué tipo de ...? | n | pregunta
+まい | 枚 | contador de objetos planos | c | contador
+## G6 genki
+かんじ | 漢字 | kanji; carácter chino | n | escuela
+きょうかしょ | 教科書 | libro de texto | n | escuela
+ページ | | página | n | escuela
+つぎ | 次 | siguiente; próximo | n | tiempo
+おかね | お金 | dinero | n | dinero
+にもつ | 荷物 | equipaje | n | cosa
+パソコン | | computadora personal | n | cosa
+シャワー | | ducha | n | casa
+エアコン | | aire acondicionado | n | casa
+でんき | 電気 | electricidad; luz | n | casa+P
+まど | 窓 | ventana | n | casa+P
+でんしゃ | 電車 | tren | n | transporte+P
+くに | 国 | país; lugar de origen | n | pais
+こんしゅう | 今週 | esta semana | n | tiempo,fecha
+らいしゅう | 来週 | la próxima semana | n | tiempo,fecha+P
+らいねん | 来年 | el próximo año | n | tiempo,fecha
+よる | 夜 | noche | n | tiempo
+たいへん | 大変 | difícil; duro (situación); gran problema | na | adjetivo
+あそぶ | 遊ぶ | jugar; pasar un rato agradable | vu | verbo,ocio+P
+いそぐ | 急ぐ | apresurarse | vu | verbo+P
+かえす | 返す | devolver (una cosa) | vu | verbo
+けす | 消す | apagar; borrar | vu | verbo+P
+しぬ | 死ぬ | morir | vu | verbo
+すわる | 座る | sentarse | vu | verbo+P
+たつ | 立つ | ponerse de pie | vu | verbo+P
+たばこをすう | たばこを吸う | fumar | vu | verbo | tabako-wo-suu
+つかう | 使う | utilizar; usar | vu | verbo+P
+てつだう | 手伝う | ayudar | vu | verbo+P
+はいる | 入る | entrar (lugar に) | vu | verbo,movimiento+P
+もつ | 持つ | llevar; sostener | vu | verbo+P
+やすむ | 休む | faltar; descansar | vu | verbo+P
+あける | 開ける | abrir (algo) | vru | verbo+P
+しめる | 閉める | cerrar (algo) | vru | verbo+P
+おしえる | 教える | enseñar; instruir | vru | verbo+P
+わすれる | 忘れる | olvidar; dejar atrás | vru | verbo+P
+おりる | 降りる | bajarse (de un transporte) | vru | verbo,transporte
+かりる | 借りる | pedir prestado | vru | verbo+P
+シャワーをあびる | シャワーを浴びる | ducharse | vru | verbo,rutina | shawaa-wo-abiru
+つける | | encender; prender | vru | verbo+P
+でんわする | 電話する | llamar por teléfono | virr | verbo
+つれてくる | 連れてくる | traer (a una persona) | virr | verbo
+もってくる | 持ってくる | traer (una cosa) | virr | verbo
+あとで | 後で | después | adv | tiempo
+すぐ | | de inmediato; enseguida | adv | tiempo
+ゆっくり | | despacio; con calma | adv | cantidad
+けっこうです | 結構です | está bien; no, gracias | e | cortesia
+ほんとうですか | 本当ですか | ¿de verdad? | e | conversacion
+## PART genki
+は | | partícula de tema (se lee "wa") | p | particula,G1 | wa-tema | wa
+か | | partícula de pregunta | p | particula,G1+P | ka
+の | | partícula de posesión/relación entre sustantivos | p | particula,G1+P | no
+も | | también (partícula) | p | particula,G2+P | mo
+ね | | ¿verdad? (partícula final de confirmación) | p | particula,G2 | ne
+よ | | (partícula final: informa algo que el otro no sabe) | p | particula,G2+P | yo
+を | | partícula de objeto directo (se lee "o") | p | particula,G3+P | o-objeto | o
+に | | partícula de destino / lugar de existencia / hora puntual | p | particula,G3+P | ni
+へ | | partícula de dirección (se lee "e") | p | particula,G3 | e-direccion | e
+で | | partícula de lugar de acción / medio | p | particula,G3+P | de
+と | | y (entre sustantivos); con (una persona) | p | particula,G4+P | to
+が | | partícula de sujeto; existencia con あります/います | p | particula,G4+P | ga
+から | | desde (origen/inicio); porque | p | particula,G6+P | kara
+や | | y (lista no exhaustiva: ... y otras cosas) | p | particula,P5 | ya
+まで | | hasta | p | particula,P6 | made

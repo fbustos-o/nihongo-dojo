@@ -100,6 +100,8 @@ kanji dominado (SRS ≥ Guru) ⇒ kanji sin furigana.
 
 ## Juegos
 
+Ids (`GameId` en `app/src/domain/schema.ts`): kana-recognize, kana-write, read-words, listen, syntax, particles, conjugation, numbers, clock, calendar, dialogues, mini-reading, kanji.
+
 | Juego | Etapa | Descripción |
 |---|---|---|
 | Reconocer kana | 1,3 | kana → escribir romaji (estilo vedxyz, ponderado por errores) |

@@ -1,0 +1,2682 @@
+[
+ {
+  "char": "一",
+  "on": [
+   "いち",
+   "いつ"
+  ],
+  "kun": [
+   "ひと(つ)"
+  ],
+  "es": [
+   "uno"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "ichi",
+   "ichiji",
+   "hitoride",
+   "hitori"
+  ]
+ },
+ {
+  "char": "二",
+  "on": [
+   "に"
+  ],
+  "kun": [
+   "ふた(つ)"
+  ],
+  "es": [
+   "dos"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "ni-numero",
+   "futari",
+   "futatsu",
+   "futsuka"
+  ]
+ },
+ {
+  "char": "三",
+  "on": [
+   "さん"
+  ],
+  "kun": [
+   "み(つ)"
+  ],
+  "es": [
+   "tres"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "san",
+   "mikka",
+   "mittsu",
+   "sangatsu"
+  ]
+ },
+ {
+  "char": "四",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "よん",
+   "よ(つ)"
+  ],
+  "es": [
+   "cuatro"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "shi-4",
+   "yon",
+   "shigatsu",
+   "yokka"
+  ]
+ },
+ {
+  "char": "五",
+  "on": [
+   "ご"
+  ],
+  "kun": [
+   "いつ(つ)"
+  ],
+  "es": [
+   "cinco"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "go",
+   "gogatsu",
+   "itsuka",
+   "itsutsu"
+  ]
+ },
+ {
+  "char": "六",
+  "on": [
+   "ろく"
+  ],
+  "kun": [
+   "む(つ)"
+  ],
+  "es": [
+   "seis"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "roku",
+   "muika",
+   "muttsu",
+   "rokugatsu"
+  ]
+ },
+ {
+  "char": "七",
+  "on": [
+   "しち"
+  ],
+  "kun": [
+   "なな(つ)"
+  ],
+  "es": [
+   "siete"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "nana",
+   "shichi",
+   "nanatsu",
+   "nanoka"
+  ]
+ },
+ {
+  "char": "八",
+  "on": [
+   "はち"
+  ],
+  "kun": [
+   "や(つ)"
+  ],
+  "es": [
+   "ocho"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "hachi",
+   "hachigatsu",
+   "yattsu",
+   "youka"
+  ]
+ },
+ {
+  "char": "九",
+  "on": [
+   "きゅう",
+   "く"
+  ],
+  "kun": [
+   "ここの(つ)"
+  ],
+  "es": [
+   "nueve"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "ku-9",
+   "kyuu",
+   "kokonoka",
+   "kokonotsu"
+  ]
+ },
+ {
+  "char": "十",
+  "on": [
+   "じゅう"
+  ],
+  "kun": [
+   "とお"
+  ],
+  "es": [
+   "diez"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "juu",
+   "juugatsu",
+   "too",
+   "tooka"
+  ]
+ },
+ {
+  "char": "百",
+  "on": [
+   "ひゃく"
+  ],
+  "kun": [],
+  "es": [
+   "cien"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "hyaku",
+   "hyakuen",
+   "sanbyaku"
+  ]
+ },
+ {
+  "char": "千",
+  "on": [
+   "せん"
+  ],
+  "kun": [
+   "ち"
+  ],
+  "es": [
+   "mil"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "sen",
+   "sanzen"
+  ]
+ },
+ {
+  "char": "万",
+  "on": [
+   "まん"
+  ],
+  "kun": [],
+  "es": [
+   "diez mil"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "man",
+   "ichiman",
+   "ichimanen"
+  ]
+ },
+ {
+  "char": "円",
+  "on": [
+   "えん"
+  ],
+  "kun": [
+   "まる(い)"
+  ],
+  "es": [
+   "yen",
+   "círculo"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "en-yen",
+   "hyakuen",
+   "ichimanen"
+  ]
+ },
+ {
+  "char": "時",
+  "on": [
+   "じ"
+  ],
+  "kun": [
+   "とき"
+  ],
+  "es": [
+   "hora",
+   "tiempo"
+  ],
+  "genkiLesson": 3,
+  "words": [
+   "ichiji",
+   "ji-hora",
+   "nanji",
+   "tokidoki"
+  ]
+ },
+ {
+  "char": "日",
+  "on": [
+   "にち",
+   "じつ"
+  ],
+  "kun": [
+   "ひ",
+   "か"
+  ],
+  "es": [
+   "día",
+   "sol"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "nihon",
+   "ashita",
+   "kyou",
+   "mainichi"
+  ]
+ },
+ {
+  "char": "本",
+  "on": [
+   "ほん"
+  ],
+  "kun": [
+   "もと"
+  ],
+  "es": [
+   "libro",
+   "origen"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "nihon",
+   "hon",
+   "nihongo",
+   "nihonjin"
+  ]
+ },
+ {
+  "char": "人",
+  "on": [
+   "じん",
+   "にん"
+  ],
+  "kun": [
+   "ひと"
+  ],
+  "es": [
+   "persona"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "jin",
+   "hito",
+   "hitoride",
+   "amerikajin"
+  ]
+ },
+ {
+  "char": "月",
+  "on": [
+   "げつ",
+   "がつ"
+  ],
+  "kun": [
+   "つき"
+  ],
+  "es": [
+   "luna",
+   "mes"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "gatsu",
+   "gogatsu",
+   "hachigatsu",
+   "ichigatsu"
+  ]
+ },
+ {
+  "char": "火",
+  "on": [
+   "か"
+  ],
+  "kun": [
+   "ひ"
+  ],
+  "es": [
+   "fuego"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "kayoubi",
+   "hi",
+   "kaji"
+  ]
+ },
+ {
+  "char": "水",
+  "on": [
+   "すい"
+  ],
+  "kun": [
+   "みず"
+  ],
+  "es": [
+   "agua"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "mizu",
+   "suiyoubi"
+  ]
+ },
+ {
+  "char": "木",
+  "on": [
+   "もく",
+   "ぼく"
+  ],
+  "kun": [
+   "き"
+  ],
+  "es": [
+   "árbol",
+   "madera"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "mokuyoubi",
+   "ki"
+  ]
+ },
+ {
+  "char": "金",
+  "on": [
+   "きん"
+  ],
+  "kun": [
+   "かね"
+  ],
+  "es": [
+   "oro",
+   "dinero",
+   "metal"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "okane",
+   "kinyoubi"
+  ]
+ },
+ {
+  "char": "土",
+  "on": [
+   "ど"
+  ],
+  "kun": [
+   "つち"
+  ],
+  "es": [
+   "tierra",
+   "suelo"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "doyoubi",
+   "tsuchi"
+  ]
+ },
+ {
+  "char": "曜",
+  "on": [
+   "よう"
+  ],
+  "kun": [],
+  "es": [
+   "día de la semana"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "youbi",
+   "doyoubi",
+   "nichiyoubi",
+   "getsuyoubi"
+  ]
+ },
+ {
+  "char": "上",
+  "on": [
+   "じょう"
+  ],
+  "kun": [
+   "うえ",
+   "あ(げる)",
+   "のぼ(る)"
+  ],
+  "es": [
+   "arriba",
+   "encima"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "ue",
+   "jouzu"
+  ]
+ },
+ {
+  "char": "下",
+  "on": [
+   "か",
+   "げ"
+  ],
+  "kun": [
+   "した",
+   "さ(げる)",
+   "くだ(さる)"
+  ],
+  "es": [
+   "abajo",
+   "debajo"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "heta",
+   "shita"
+  ]
+ },
+ {
+  "char": "中",
+  "on": [
+   "ちゅう"
+  ],
+  "kun": [
+   "なか"
+  ],
+  "es": [
+   "centro",
+   "dentro",
+   "en medio"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "chuugoku",
+   "naka",
+   "tanaka",
+   "chuuko"
+  ]
+ },
+ {
+  "char": "半",
+  "on": [
+   "はん"
+  ],
+  "kun": [
+   "なか(ば)"
+  ],
+  "es": [
+   "mitad",
+   "medio"
+  ],
+  "genkiLesson": 4,
+  "words": [
+   "han",
+   "nijihan"
+  ]
+ },
+ {
+  "char": "山",
+  "on": [
+   "さん"
+  ],
+  "kun": [
+   "やま"
+  ],
+  "es": [
+   "montaña"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "yama",
+   "yamada"
+  ]
+ },
+ {
+  "char": "川",
+  "on": [
+   "せん"
+  ],
+  "kun": [
+   "かわ"
+  ],
+  "es": [
+   "río"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "kawa",
+   "kawaguchi",
+   "ogawa"
+  ]
+ },
+ {
+  "char": "元",
+  "on": [
+   "げん",
+   "がん"
+  ],
+  "kun": [
+   "もと"
+  ],
+  "es": [
+   "origen",
+   "ánimo"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "genki",
+   "moto"
+  ]
+ },
+ {
+  "char": "気",
+  "on": [
+   "き",
+   "け"
+  ],
+  "kun": [],
+  "es": [
+   "espíritu",
+   "ánimo",
+   "aire"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "genki",
+   "tenki",
+   "denki",
+   "byouki"
+  ]
+ },
+ {
+  "char": "天",
+  "on": [
+   "てん"
+  ],
+  "kun": [
+   "あめ",
+   "あま"
+  ],
+  "es": [
+   "cielo"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "tenki",
+   "tenpura"
+  ]
+ },
+ {
+  "char": "私",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "わたし",
+   "わたくし"
+  ],
+  "es": [
+   "yo",
+   "privado"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "watashi",
+   "shiritsu"
+  ]
+ },
+ {
+  "char": "今",
+  "on": [
+   "こん",
+   "きん"
+  ],
+  "kun": [
+   "いま"
+  ],
+  "es": [
+   "ahora"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "ima",
+   "kyou",
+   "kesa",
+   "konya"
+  ]
+ },
+ {
+  "char": "田",
+  "on": [
+   "でん"
+  ],
+  "kun": [
+   "た"
+  ],
+  "es": [
+   "arrozal"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "tanaka",
+   "tanbo",
+   "yamada"
+  ]
+ },
+ {
+  "char": "女",
+  "on": [
+   "じょ"
+  ],
+  "kun": [
+   "おんな"
+  ],
+  "es": [
+   "mujer"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "onnanohito",
+   "onna",
+   "onnanoko"
+  ]
+ },
+ {
+  "char": "男",
+  "on": [
+   "だん"
+  ],
+  "kun": [
+   "おとこ"
+  ],
+  "es": [
+   "hombre"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "otokonohito",
+   "otoko",
+   "otokonoko"
+  ]
+ },
+ {
+  "char": "見",
+  "on": [
+   "けん"
+  ],
+  "kun": [
+   "み(る)"
+  ],
+  "es": [
+   "ver",
+   "mirar"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "miru",
+   "miseru"
+  ]
+ },
+ {
+  "char": "行",
+  "on": [
+   "こう",
+   "ぎょう"
+  ],
+  "kun": [
+   "い(く)",
+   "おこな(う)"
+  ],
+  "es": [
+   "ir"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "iku",
+   "ryokou"
+  ]
+ },
+ {
+  "char": "食",
+  "on": [
+   "しょく"
+  ],
+  "kun": [
+   "た(べる)",
+   "く(う)"
+  ],
+  "es": [
+   "comer",
+   "comida"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "taberu",
+   "shokuji"
+  ]
+ },
+ {
+  "char": "飲",
+  "on": [
+   "いん"
+  ],
+  "kun": [
+   "の(む)"
+  ],
+  "es": [
+   "beber"
+  ],
+  "genkiLesson": 5,
+  "words": [
+   "nomu",
+   "nomikai"
+  ]
+ },
+ {
+  "char": "東",
+  "on": [
+   "とう"
+  ],
+  "kun": [
+   "ひがし"
+  ],
+  "es": [
+   "este"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "higashi",
+   "toukyou"
+  ]
+ },
+ {
+  "char": "西",
+  "on": [
+   "せい",
+   "さい"
+  ],
+  "kun": [
+   "にし"
+  ],
+  "es": [
+   "oeste"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "nishi",
+   "nishiguchi"
+  ]
+ },
+ {
+  "char": "南",
+  "on": [
+   "なん"
+  ],
+  "kun": [
+   "みなみ"
+  ],
+  "es": [
+   "sur"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "minami",
+   "minamiguchi"
+  ]
+ },
+ {
+  "char": "北",
+  "on": [
+   "ほく"
+  ],
+  "kun": [
+   "きた"
+  ],
+  "es": [
+   "norte"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "kita",
+   "kitaguchi"
+  ]
+ },
+ {
+  "char": "口",
+  "on": [
+   "こう",
+   "く"
+  ],
+  "kun": [
+   "くち"
+  ],
+  "es": [
+   "boca",
+   "entrada"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "kuchi",
+   "deguchi",
+   "kawaguchi",
+   "kitaguchi"
+  ]
+ },
+ {
+  "char": "出",
+  "on": [
+   "しゅつ"
+  ],
+  "kun": [
+   "で(る)",
+   "だ(す)"
+  ],
+  "es": [
+   "salir",
+   "sacar"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "dekakeru",
+   "dasu",
+   "deguchi",
+   "deru"
+  ]
+ },
+ {
+  "char": "右",
+  "on": [
+   "う",
+   "ゆう"
+  ],
+  "kun": [
+   "みぎ"
+  ],
+  "es": [
+   "derecha"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "migi",
+   "migite"
+  ]
+ },
+ {
+  "char": "左",
+  "on": [
+   "さ"
+  ],
+  "kun": [
+   "ひだり"
+  ],
+  "es": [
+   "izquierda"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "hidari",
+   "hidarite"
+  ]
+ },
+ {
+  "char": "分",
+  "on": [
+   "ぶん",
+   "ふん"
+  ],
+  "kun": [
+   "わ(かる)",
+   "わ(ける)"
+  ],
+  "es": [
+   "minuto",
+   "parte",
+   "entender"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "wakaru",
+   "fun",
+   "jibun",
+   "jibunde"
+  ]
+ },
+ {
+  "char": "先",
+  "on": [
+   "せん"
+  ],
+  "kun": [
+   "さき"
+  ],
+  "es": [
+   "anterior",
+   "antes",
+   "punta"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "sensei",
+   "saki"
+  ]
+ },
+ {
+  "char": "生",
+  "on": [
+   "せい",
+   "しょう"
+  ],
+  "kun": [
+   "い(きる)",
+   "う(まれる)",
+   "なま"
+  ],
+  "es": [
+   "vida",
+   "nacer",
+   "crudo"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "gakusei",
+   "nensei",
+   "sensei",
+   "daigakusei"
+  ]
+ },
+ {
+  "char": "大",
+  "on": [
+   "だい",
+   "たい"
+  ],
+  "kun": [
+   "おお(きい)"
+  ],
+  "es": [
+   "grande"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "daigaku",
+   "daisuki",
+   "ookii",
+   "daigakusei"
+  ]
+ },
+ {
+  "char": "学",
+  "on": [
+   "がく"
+  ],
+  "kun": [
+   "まな(ぶ)"
+  ],
+  "es": [
+   "estudiar",
+   "aprender"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "daigaku",
+   "gakusei",
+   "gakkou",
+   "daigakusei"
+  ]
+ },
+ {
+  "char": "外",
+  "on": [
+   "がい",
+   "げ"
+  ],
+  "kun": [
+   "そと",
+   "ほか"
+  ],
+  "es": [
+   "fuera",
+   "extranjero"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "gaikoku",
+   "soto",
+   "gaikokujin",
+   "gaikokugo"
+  ]
+ },
+ {
+  "char": "国",
+  "on": [
+   "こく"
+  ],
+  "kun": [
+   "くに"
+  ],
+  "es": [
+   "país"
+  ],
+  "genkiLesson": 6,
+  "words": [
+   "chuugoku",
+   "kuni",
+   "gaikoku",
+   "kokuritsu"
+  ]
+ },
+ {
+  "char": "京",
+  "on": [
+   "きょう",
+   "けい"
+  ],
+  "kun": [],
+  "es": [
+   "capital"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "kyouko",
+   "toukyou"
+  ]
+ },
+ {
+  "char": "子",
+  "on": [
+   "し",
+   "す"
+  ],
+  "kun": [
+   "こ"
+  ],
+  "es": [
+   "niño",
+   "hijo"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "kyouko",
+   "onnanoko",
+   "otokonoko",
+   "koushi"
+  ]
+ },
+ {
+  "char": "小",
+  "on": [
+   "しょう"
+  ],
+  "kun": [
+   "ちい(さい)",
+   "こ",
+   "お"
+  ],
+  "es": [
+   "pequeño"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "chiisai",
+   "ogawa",
+   "shougakkou"
+  ]
+ },
+ {
+  "char": "会",
+  "on": [
+   "かい",
+   "え"
+  ],
+  "kun": [
+   "あ(う)"
+  ],
+  "es": [
+   "encontrarse",
+   "reunión"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "au",
+   "kaisha",
+   "nomikai",
+   "kaiin"
+  ]
+ },
+ {
+  "char": "社",
+  "on": [
+   "しゃ"
+  ],
+  "kun": [
+   "やしろ"
+  ],
+  "es": [
+   "compañía",
+   "santuario"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "jinja",
+   "kaisha",
+   "shachou",
+   "kaishain"
+  ]
+ },
+ {
+  "char": "父",
+  "on": [
+   "ふ"
+  ],
+  "kun": [
+   "ちち"
+  ],
+  "es": [
+   "padre"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "otousan",
+   "chichi"
+  ]
+ },
+ {
+  "char": "母",
+  "on": [
+   "ぼ"
+  ],
+  "kun": [
+   "はは"
+  ],
+  "es": [
+   "madre"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "okaasan",
+   "haha"
+  ]
+ },
+ {
+  "char": "高",
+  "on": [
+   "こう"
+  ],
+  "kun": [
+   "たか(い)"
+  ],
+  "es": [
+   "alto",
+   "caro"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "koukou",
+   "takai"
+  ]
+ },
+ {
+  "char": "校",
+  "on": [
+   "こう"
+  ],
+  "kun": [],
+  "es": [
+   "escuela"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "koukou",
+   "gakkou",
+   "shougakkou"
+  ]
+ },
+ {
+  "char": "毎",
+  "on": [
+   "まい"
+  ],
+  "kun": [],
+  "es": [
+   "cada",
+   "todos los"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "mainichi",
+   "maiasa",
+   "maitoshi"
+  ]
+ },
+ {
+  "char": "語",
+  "on": [
+   "ご"
+  ],
+  "kun": [
+   "かた(る)"
+  ],
+  "es": [
+   "idioma",
+   "palabra"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "go-idioma",
+   "nihongo",
+   "gengo",
+   "chuugokugo"
+  ]
+ },
+ {
+  "char": "文",
+  "on": [
+   "ぶん",
+   "もん"
+  ],
+  "kun": [
+   "ふみ"
+  ],
+  "es": [
+   "oración",
+   "escritura",
+   "texto"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "bun",
+   "sakubun"
+  ]
+ },
+ {
+  "char": "帰",
+  "on": [
+   "き"
+  ],
+  "kun": [
+   "かえ(る)"
+  ],
+  "es": [
+   "volver (a casa)"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "kaeru",
+   "kaeri"
+  ]
+ },
+ {
+  "char": "入",
+  "on": [
+   "にゅう"
+  ],
+  "kun": [
+   "い(れる)",
+   "はい(る)"
+  ],
+  "es": [
+   "entrar",
+   "meter"
+  ],
+  "genkiLesson": 7,
+  "words": [
+   "hairu",
+   "ireru",
+   "iriguchi"
+  ]
+ },
+ {
+  "char": "員",
+  "on": [
+   "いん"
+  ],
+  "kun": [],
+  "es": [
+   "miembro",
+   "empleado"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "kaiin",
+   "kaishain"
+  ]
+ },
+ {
+  "char": "新",
+  "on": [
+   "しん"
+  ],
+  "kun": [
+   "あたら(しい)",
+   "あら(た)"
+  ],
+  "es": [
+   "nuevo"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "shinbun",
+   "atarashii"
+  ]
+ },
+ {
+  "char": "聞",
+  "on": [
+   "ぶん",
+   "もん"
+  ],
+  "kun": [
+   "き(く)"
+  ],
+  "es": [
+   "oír",
+   "escuchar",
+   "preguntar"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "shinbun",
+   "kiku"
+  ]
+ },
+ {
+  "char": "作",
+  "on": [
+   "さく",
+   "さ"
+  ],
+  "kun": [
+   "つく(る)"
+  ],
+  "es": [
+   "hacer",
+   "fabricar"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "tsukuru",
+   "sakubun",
+   "sakka"
+  ]
+ },
+ {
+  "char": "仕",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "つか(える)"
+  ],
+  "es": [
+   "servir",
+   "trabajar"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "shigoto",
+   "shigotochuu"
+  ]
+ },
+ {
+  "char": "事",
+  "on": [
+   "じ"
+  ],
+  "kun": [
+   "こと"
+  ],
+  "es": [
+   "asunto",
+   "cosa",
+   "trabajo"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "shigoto",
+   "kaji",
+   "shokuji",
+   "shigotochuu"
+  ]
+ },
+ {
+  "char": "電",
+  "on": [
+   "でん"
+  ],
+  "kun": [],
+  "es": [
+   "electricidad"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "denwa",
+   "denki",
+   "densha",
+   "denwasuru"
+  ]
+ },
+ {
+  "char": "車",
+  "on": [
+   "しゃ"
+  ],
+  "kun": [
+   "くるま"
+  ],
+  "es": [
+   "vehículo",
+   "auto"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "densha",
+   "kuruma"
+  ]
+ },
+ {
+  "char": "休",
+  "on": [
+   "きゅう"
+  ],
+  "kun": [
+   "やす(む)"
+  ],
+  "es": [
+   "descansar"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "yasumi",
+   "yasumu",
+   "renkyuu"
+  ]
+ },
+ {
+  "char": "言",
+  "on": [
+   "げん",
+   "ごん"
+  ],
+  "kun": [
+   "い(う)",
+   "こと"
+  ],
+  "es": [
+   "decir",
+   "palabra"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "iu",
+   "gengo"
+  ]
+ },
+ {
+  "char": "読",
+  "on": [
+   "どく"
+  ],
+  "kun": [
+   "よ(む)"
+  ],
+  "es": [
+   "leer"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "yomu",
+   "dokusho"
+  ]
+ },
+ {
+  "char": "思",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "おも(う)"
+  ],
+  "es": [
+   "pensar"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "omoide",
+   "omou"
+  ]
+ },
+ {
+  "char": "次",
+  "on": [
+   "じ",
+   "し"
+  ],
+  "kun": [
+   "つぎ",
+   "つ(ぐ)"
+  ],
+  "es": [
+   "siguiente",
+   "próximo"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "tsugi",
+   "tsuginohi"
+  ]
+ },
+ {
+  "char": "何",
+  "on": [
+   "か"
+  ],
+  "kun": [
+   "なに",
+   "なん"
+  ],
+  "es": [
+   "qué"
+  ],
+  "genkiLesson": 8,
+  "words": [
+   "nan",
+   "nani",
+   "nanji",
+   "nanimo"
+  ]
+ },
+ {
+  "char": "午",
+  "on": [
+   "ご"
+  ],
+  "kun": [],
+  "es": [
+   "mediodía"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "gogo",
+   "gozen"
+  ]
+ },
+ {
+  "char": "後",
+  "on": [
+   "ご",
+   "こう"
+  ],
+  "kun": [
+   "のち",
+   "うし(ろ)",
+   "あと"
+  ],
+  "es": [
+   "después",
+   "atrás"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "gogo",
+   "atode",
+   "ushiro"
+  ]
+ },
+ {
+  "char": "前",
+  "on": [
+   "ぜん"
+  ],
+  "kun": [
+   "まえ"
+  ],
+  "es": [
+   "antes",
+   "delante"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "gozen",
+   "namae",
+   "mae"
+  ]
+ },
+ {
+  "char": "名",
+  "on": [
+   "めい",
+   "みょう"
+  ],
+  "kun": [
+   "な"
+  ],
+  "es": [
+   "nombre"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "namae",
+   "yuumei",
+   "yuumeijin"
+  ]
+ },
+ {
+  "char": "白",
+  "on": [
+   "はく",
+   "びゃく"
+  ],
+  "kun": [
+   "しろ(い)"
+  ],
+  "es": [
+   "blanco"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "shiro",
+   "shiroi"
+  ]
+ },
+ {
+  "char": "雨",
+  "on": [
+   "う"
+  ],
+  "kun": [
+   "あめ"
+  ],
+  "es": [
+   "lluvia"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "ame",
+   "ooame"
+  ]
+ },
+ {
+  "char": "書",
+  "on": [
+   "しょ"
+  ],
+  "kun": [
+   "か(く)"
+  ],
+  "es": [
+   "escribir"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "kaku",
+   "dokusho",
+   "shodou"
+  ]
+ },
+ {
+  "char": "友",
+  "on": [
+   "ゆう"
+  ],
+  "kun": [
+   "とも"
+  ],
+  "es": [
+   "amigo"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "tomodachi",
+   "yuujin"
+  ]
+ },
+ {
+  "char": "間",
+  "on": [
+   "かん",
+   "けん"
+  ],
+  "kun": [
+   "あいだ",
+   "ま"
+  ],
+  "es": [
+   "intervalo",
+   "entre"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "jikan",
+   "ichijikan",
+   "nanjikan"
+  ]
+ },
+ {
+  "char": "家",
+  "on": [
+   "か",
+   "け"
+  ],
+  "kun": [
+   "いえ",
+   "うち"
+  ],
+  "es": [
+   "casa",
+   "familia"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "ie",
+   "sakka",
+   "gaka"
+  ]
+ },
+ {
+  "char": "話",
+  "on": [
+   "わ"
+  ],
+  "kun": [
+   "はな(す)",
+   "はなし"
+  ],
+  "es": [
+   "hablar",
+   "conversación"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "denwa",
+   "hanasu",
+   "denwasuru",
+   "hanashi"
+  ]
+ },
+ {
+  "char": "少",
+  "on": [
+   "しょう"
+  ],
+  "kun": [
+   "すこ(し)",
+   "すく(ない)"
+  ],
+  "es": [
+   "poco"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "sukoshi",
+   "sukunai"
+  ]
+ },
+ {
+  "char": "古",
+  "on": [
+   "こ"
+  ],
+  "kun": [
+   "ふる(い)"
+  ],
+  "es": [
+   "viejo",
+   "antiguo"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "furui",
+   "chuuko"
+  ]
+ },
+ {
+  "char": "知",
+  "on": [
+   "ち"
+  ],
+  "kun": [
+   "し(る)"
+  ],
+  "es": [
+   "saber",
+   "conocer"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "chijin",
+   "shiru"
+  ]
+ },
+ {
+  "char": "来",
+  "on": [
+   "らい"
+  ],
+  "kun": [
+   "く(る)",
+   "き"
+  ],
+  "es": [
+   "venir"
+  ],
+  "genkiLesson": 9,
+  "words": [
+   "kuru",
+   "rainen"
+  ]
+ },
+ {
+  "char": "住",
+  "on": [
+   "じゅう"
+  ],
+  "kun": [
+   "す(む)"
+  ],
+  "es": [
+   "vivir",
+   "residir"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "sumu",
+   "juusho"
+  ]
+ },
+ {
+  "char": "正",
+  "on": [
+   "せい",
+   "しょう"
+  ],
+  "kun": [
+   "ただ(しい)",
+   "まさ"
+  ],
+  "es": [
+   "correcto"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "shougatsu",
+   "tadashii"
+  ]
+ },
+ {
+  "char": "年",
+  "on": [
+   "ねん"
+  ],
+  "kun": [
+   "とし"
+  ],
+  "es": [
+   "año"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "nensei",
+   "rainen",
+   "nannen",
+   "nen"
+  ]
+ },
+ {
+  "char": "売",
+  "on": [
+   "ばい"
+  ],
+  "kun": [
+   "う(る)"
+  ],
+  "es": [
+   "vender"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "ureru",
+   "uru"
+  ]
+ },
+ {
+  "char": "買",
+  "on": [
+   "ばい"
+  ],
+  "kun": [
+   "か(う)"
+  ],
+  "es": [
+   "comprar"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "kau",
+   "kaite"
+  ]
+ },
+ {
+  "char": "町",
+  "on": [
+   "ちょう"
+  ],
+  "kun": [
+   "まち"
+  ],
+  "es": [
+   "pueblo",
+   "ciudad",
+   "barrio"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "machi",
+   "machinaka"
+  ]
+ },
+ {
+  "char": "長",
+  "on": [
+   "ちょう"
+  ],
+  "kun": [
+   "なが(い)"
+  ],
+  "es": [
+   "largo",
+   "jefe"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "nagai",
+   "shachou",
+   "shichou"
+  ]
+ },
+ {
+  "char": "道",
+  "on": [
+   "どう"
+  ],
+  "kun": [
+   "みち"
+  ],
+  "es": [
+   "camino",
+   "calle"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "michi",
+   "shodou",
+   "tsukaimichi"
+  ]
+ },
+ {
+  "char": "雪",
+  "on": [
+   "せつ"
+  ],
+  "kun": [
+   "ゆき"
+  ],
+  "es": [
+   "nieve"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "yuki",
+   "ooyuki"
+  ]
+ },
+ {
+  "char": "立",
+  "on": [
+   "りつ",
+   "りゅう"
+  ],
+  "kun": [
+   "た(つ)"
+  ],
+  "es": [
+   "ponerse de pie",
+   "levantarse"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "tatsu",
+   "kokuritsu",
+   "shiritsu"
+  ]
+ },
+ {
+  "char": "自",
+  "on": [
+   "じ",
+   "し"
+  ],
+  "kun": [
+   "みずか(ら)"
+  ],
+  "es": [
+   "uno mismo",
+   "por sí mismo"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "jibun",
+   "jibunde"
+  ]
+ },
+ {
+  "char": "夜",
+  "on": [
+   "や"
+  ],
+  "kun": [
+   "よる",
+   "よ"
+  ],
+  "es": [
+   "noche"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "yoru",
+   "konya"
+  ]
+ },
+ {
+  "char": "朝",
+  "on": [
+   "ちょう"
+  ],
+  "kun": [
+   "あさ"
+  ],
+  "es": [
+   "mañana (parte del día)"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "asa",
+   "kesa",
+   "maiasa"
+  ]
+ },
+ {
+  "char": "持",
+  "on": [
+   "じ"
+  ],
+  "kun": [
+   "も(つ)"
+  ],
+  "es": [
+   "tener",
+   "llevar"
+  ],
+  "genkiLesson": 10,
+  "words": [
+   "motsu",
+   "mottekuru"
+  ]
+ },
+ {
+  "char": "手",
+  "on": [
+   "しゅ"
+  ],
+  "kun": [
+   "て"
+  ],
+  "es": [
+   "mano"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "heta",
+   "hidarite",
+   "jouzu",
+   "kaite"
+  ]
+ },
+ {
+  "char": "紙",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "かみ"
+  ],
+  "es": [
+   "papel"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "kami",
+   "tegami"
+  ]
+ },
+ {
+  "char": "好",
+  "on": [
+   "こう"
+  ],
+  "kun": [
+   "す(き)",
+   "この(む)"
+  ],
+  "es": [
+   "gustar"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "daisuki",
+   "suki"
+  ]
+ },
+ {
+  "char": "近",
+  "on": [
+   "きん"
+  ],
+  "kun": [
+   "ちか(い)"
+  ],
+  "es": [
+   "cerca"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "chikai",
+   "chikaku"
+  ]
+ },
+ {
+  "char": "明",
+  "on": [
+   "めい",
+   "みょう"
+  ],
+  "kun": [
+   "あ(かるい)",
+   "あき(らか)"
+  ],
+  "es": [
+   "claro",
+   "brillante"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "ashita",
+   "akarui"
+  ]
+ },
+ {
+  "char": "病",
+  "on": [
+   "びょう"
+  ],
+  "kun": [
+   "や(む)",
+   "やまい"
+  ],
+  "es": [
+   "enfermedad"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "byouin",
+   "byouki"
+  ]
+ },
+ {
+  "char": "院",
+  "on": [
+   "いん"
+  ],
+  "kun": [],
+  "es": [
+   "institución",
+   "hospital"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "byouin",
+   "daigakuin"
+  ]
+ },
+ {
+  "char": "映",
+  "on": [
+   "えい"
+  ],
+  "kun": [
+   "うつ(る)",
+   "うつ(す)"
+  ],
+  "es": [
+   "reflejar",
+   "proyectar"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "eiga",
+   "utsuru"
+  ]
+ },
+ {
+  "char": "画",
+  "on": [
+   "が",
+   "かく"
+  ],
+  "kun": [],
+  "es": [
+   "dibujo",
+   "imagen"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "eiga",
+   "gaka"
+  ]
+ },
+ {
+  "char": "歌",
+  "on": [
+   "か"
+  ],
+  "kun": [
+   "うた",
+   "うた(う)"
+  ],
+  "es": [
+   "canción",
+   "cantar"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "utau",
+   "kashu",
+   "uta"
+  ]
+ },
+ {
+  "char": "市",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "いち"
+  ],
+  "es": [
+   "ciudad",
+   "mercado"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "shi-ciudad",
+   "shichou"
+  ]
+ },
+ {
+  "char": "所",
+  "on": [
+   "しょ"
+  ],
+  "kun": [
+   "ところ"
+  ],
+  "es": [
+   "lugar"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "juusho",
+   "tokoro"
+  ]
+ },
+ {
+  "char": "勉",
+  "on": [
+   "べん"
+  ],
+  "kun": [],
+  "es": [
+   "esforzarse"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "benkyousuru",
+   "benkyou"
+  ]
+ },
+ {
+  "char": "強",
+  "on": [
+   "きょう",
+   "ごう"
+  ],
+  "kun": [
+   "つよ(い)"
+  ],
+  "es": [
+   "fuerte"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "benkyousuru",
+   "benkyou",
+   "tsuyoi"
+  ]
+ },
+ {
+  "char": "有",
+  "on": [
+   "ゆう",
+   "う"
+  ],
+  "kun": [
+   "あ(る)"
+  ],
+  "es": [
+   "tener",
+   "existir"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "yuumei",
+   "yuumeijin"
+  ]
+ },
+ {
+  "char": "旅",
+  "on": [
+   "りょ"
+  ],
+  "kun": [
+   "たび"
+  ],
+  "es": [
+   "viaje"
+  ],
+  "genkiLesson": 11,
+  "words": [
+   "ryokou",
+   "tabi"
+  ]
+ },
+ {
+  "char": "昔",
+  "on": [
+   "せき",
+   "しゃく"
+  ],
+  "kun": [
+   "むかし"
+  ],
+  "es": [
+   "antiguamente",
+   "hace mucho"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "mukashi",
+   "mukashibanashi"
+  ]
+ },
+ {
+  "char": "神",
+  "on": [
+   "しん",
+   "じん"
+  ],
+  "kun": [
+   "かみ"
+  ],
+  "es": [
+   "dios",
+   "deidad"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "jinja",
+   "kami-dios"
+  ]
+ },
+ {
+  "char": "早",
+  "on": [
+   "そう",
+   "さっ"
+  ],
+  "kun": [
+   "はや(い)"
+  ],
+  "es": [
+   "temprano"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "hayai",
+   "hayaku"
+  ]
+ },
+ {
+  "char": "起",
+  "on": [
+   "き"
+  ],
+  "kun": [
+   "お(きる)",
+   "お(こす)"
+  ],
+  "es": [
+   "levantarse",
+   "despertar"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "okiru",
+   "okosu"
+  ]
+ },
+ {
+  "char": "牛",
+  "on": [
+   "ぎゅう"
+  ],
+  "kun": [
+   "うし"
+  ],
+  "es": [
+   "vaca"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "koushi",
+   "ushi"
+  ]
+ },
+ {
+  "char": "使",
+  "on": [
+   "し"
+  ],
+  "kun": [
+   "つか(う)"
+  ],
+  "es": [
+   "usar"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "tsukau",
+   "tsukaimichi"
+  ]
+ },
+ {
+  "char": "働",
+  "on": [
+   "どう"
+  ],
+  "kun": [
+   "はたら(く)"
+  ],
+  "es": [
+   "trabajar"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "hatarakite",
+   "hataraku"
+  ]
+ },
+ {
+  "char": "連",
+  "on": [
+   "れん"
+  ],
+  "kun": [
+   "つ(れる)"
+  ],
+  "es": [
+   "llevar consigo",
+   "conectar"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "tsuretekuru",
+   "renkyuu",
+   "tsureru"
+  ]
+ },
+ {
+  "char": "別",
+  "on": [
+   "べつ"
+  ],
+  "kun": [
+   "わか(れる)"
+  ],
+  "es": [
+   "separar",
+   "diferente"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "betsubetsu",
+   "betsu",
+   "wakareru"
+  ]
+ },
+ {
+  "char": "度",
+  "on": [
+   "ど"
+  ],
+  "kun": [
+   "たび"
+  ],
+  "es": [
+   "grado",
+   "vez"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "ichido",
+   "kondo"
+  ]
+ },
+ {
+  "char": "赤",
+  "on": [
+   "せき"
+  ],
+  "kun": [
+   "あか(い)"
+  ],
+  "es": [
+   "rojo"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "akai",
+   "aka"
+  ]
+ },
+ {
+  "char": "青",
+  "on": [
+   "せい"
+  ],
+  "kun": [
+   "あお(い)"
+  ],
+  "es": [
+   "azul"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "ao",
+   "aoi"
+  ]
+ },
+ {
+  "char": "色",
+  "on": [
+   "しょく",
+   "しき"
+  ],
+  "kun": [
+   "いろ"
+  ],
+  "es": [
+   "color"
+  ],
+  "genkiLesson": 12,
+  "words": [
+   "iro",
+   "iroiro"
+  ]
+ }
+]

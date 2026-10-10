@@ -1,0 +1,159 @@
+## P6 profesor
+いちがつ | 一月 | enero | n | fecha
+にがつ | 二月 | febrero | n | fecha
+さんがつ | 三月 | marzo | n | fecha
+しがつ | 四月 | abril | n | fecha
+ごがつ | 五月 | mayo | n | fecha
+ろくがつ | 六月 | junio | n | fecha
+しちがつ | 七月 | julio | n | fecha
+はちがつ | 八月 | agosto | n | fecha
+くがつ | 九月 | septiembre | n | fecha
+じゅうがつ | 十月 | octubre | n | fecha
+じゅういちがつ | 十一月 | noviembre | n | fecha
+じゅうにがつ | 十二月 | diciembre | n | fecha
+ついたち | 一日 | día 1 del mes | n | fecha
+ふつか | 二日 | día 2 del mes | n | fecha
+みっか | 三日 | día 3 del mes | n | fecha
+よっか | 四日 | día 4 del mes | n | fecha
+いつか | 五日 | día 5 del mes | n | fecha
+むいか | 六日 | día 6 del mes | n | fecha
+なのか | 七日 | día 7 del mes | n | fecha
+ようか | 八日 | día 8 del mes | n | fecha
+ここのか | 九日 | día 9 del mes | n | fecha
+とおか | 十日 | día 10 del mes | n | fecha
+じゅうよっか | 十四日 | día 14 del mes | n | fecha
+はつか | 二十日 | día 20 del mes | n | fecha
+にじゅうよっか | 二十四日 | día 24 del mes | n | fecha
+## KA propio
+さんびゃく | 三百 | trescientos | n | numero,kanji-ejemplo
+ひゃくえん | 百円 | cien yenes | n | dinero,kanji-ejemplo
+さんぜん | 三千 | tres mil | n | numero,kanji-ejemplo
+いちまん | 一万 | diez mil | n | numero,kanji-ejemplo
+いちまんえん | 一万円 | diez mil yenes | n | dinero,kanji-ejemplo
+はたち | 二十歳 | veinte años de edad | n | persona,kanji-ejemplo
+ひ | 火 | fuego | n | naturaleza,kanji-ejemplo
+かじ | 火事 | incendio | n | kanji-ejemplo
+き | 木 | árbol; madera | n | naturaleza,kanji-ejemplo
+つち | 土 | tierra; suelo | n | naturaleza,kanji-ejemplo
+じょうず | 上手 | hábil; bueno en (algo) | na | adjetivo,kanji-ejemplo
+へた | 下手 | torpe; malo en (algo) | na | adjetivo,kanji-ejemplo
+やま | 山 | montaña | n | naturaleza,kanji-ejemplo
+やまだ | 山田 | Yamada (apellido) | n | persona,kanji-ejemplo
+かわ | 川 | río | n | naturaleza,kanji-ejemplo
+もと | 元 | origen; antes | n | kanji-ejemplo
+しりつ | 私立 | privado (institución) | n | escuela,kanji-ejemplo
+たんぼ | 田んぼ | arrozal | n | naturaleza,kanji-ejemplo
+たなか | 田中 | Tanaka (apellido) | n | persona,kanji-ejemplo
+おんな | 女 | mujer | n | persona,kanji-ejemplo
+おとこ | 男 | hombre | n | persona,kanji-ejemplo
+おんなのこ | 女の子 | niña; chica | n | persona,kanji-ejemplo
+おとこのこ | 男の子 | niño; chico | n | persona,kanji-ejemplo
+しょくじ | 食事 | comida; hacer una comida | n | comida,kanji-ejemplo
+のみかい | 飲み会 | reunión para beber | n | ocio,kanji-ejemplo
+ひがし | 東 | este | n | direccion,kanji-ejemplo
+とうきょう | 東京 | Tokio | n | lugar,kanji-ejemplo
+にし | 西 | oeste | n | direccion,kanji-ejemplo
+にしぐち | 西口 | salida oeste | n | lugar,kanji-ejemplo
+みなみ | 南 | sur | n | direccion,kanji-ejemplo
+みなみぐち | 南口 | salida sur | n | lugar,kanji-ejemplo
+きた | 北 | norte | n | direccion,kanji-ejemplo
+きたぐち | 北口 | salida norte | n | lugar,kanji-ejemplo
+でぐち | 出口 | salida | n | lugar,kanji-ejemplo
+いりぐち | 入口 | entrada | n | lugar,kanji-ejemplo
+でる | 出る | salir | vru | verbo,kanji-ejemplo
+みぎて | 右手 | mano derecha | n | cuerpo,kanji-ejemplo
+ひだりて | 左手 | mano izquierda | n | cuerpo,kanji-ejemplo
+さき | 先 | antes; lo que viene; punta | n | tiempo,kanji-ejemplo
+そと | 外 | fuera; afuera | n | posicion,kanji-ejemplo
+がいこく | 外国 | país extranjero | n | pais,kanji-ejemplo
+がいこくじん | 外国人 | extranjero/a | n | persona,kanji-ejemplo
+がいこくご | 外国語 | idioma extranjero | n | idioma,kanji-ejemplo
+ちゅうごくご | 中国語 | idioma chino | n | idioma,kanji-ejemplo
+しょうがっこう | 小学校 | escuela primaria | n | escuela,kanji-ejemplo
+かいしゃ | 会社 | empresa; compañía | n | trabajo,kanji-ejemplo
+かいしゃいん | 会社員 | empleado/a de empresa | n | trabajo,persona,kanji-ejemplo
+かいいん | 会員 | miembro; socio | n | persona,kanji-ejemplo
+ちち | 父 | mi padre | n | familia,kanji-ejemplo
+まいあさ | 毎朝 | todas las mañanas | n | tiempo,rutina,kanji-ejemplo
+まいとし | 毎年 | todos los años | n | tiempo,kanji-ejemplo
+さくぶん | 作文 | redacción; composición | n | escuela,kanji-ejemplo
+かえり | 帰り | regreso; vuelta | n | movimiento,kanji-ejemplo
+さっか | 作家 | escritor/a | n | persona,kanji-ejemplo
+しごとちゅう | 仕事中 | en pleno trabajo | n | trabajo,kanji-ejemplo
+げんご | 言語 | lenguaje; idioma (en general) | n | idioma,kanji-ejemplo
+どくしょ | 読書 | lectura (de libros) | n | ocio,kanji-ejemplo
+おもう | 思う | pensar; creer | vu | verbo,kanji-ejemplo
+おもいで | 思い出 | recuerdo | n | kanji-ejemplo
+つぎのひ | 次の日 | el día siguiente | n | tiempo,kanji-ejemplo
+うしろ | 後ろ | atrás; detrás | n | posicion,kanji-ejemplo
+なまえ | 名前 | nombre | n | persona,kanji-ejemplo
+しろ | 白 | blanco (color) | n | color,kanji-ejemplo
+しろい | 白い | blanco | i | adjetivo,color,kanji-ejemplo
+おおあめ | 大雨 | lluvia fuerte | n | clima,kanji-ejemplo
+ゆうじん | 友人 | amigo (más formal) | n | persona,kanji-ejemplo
+なんじかん | 何時間 | ¿cuántas horas? | n | tiempo,pregunta,kanji-ejemplo
+はなし | 話 | conversación; historia | n | conversacion,kanji-ejemplo
+かいわ | 会話 | conversación; diálogo | n | conversacion,kanji-ejemplo
+すこし | 少し | un poco | adv | cantidad,kanji-ejemplo
+すくない | 少ない | pocos; escaso | i | adjetivo,cantidad,kanji-ejemplo
+ちゅうこ | 中古 | de segunda mano | n | tienda,kanji-ejemplo
+しる | 知る | saber; conocer | vu | verbo,kanji-ejemplo
+じゅうしょ | 住所 | dirección (domicilio) | n | lugar,kanji-ejemplo
+ただしい | 正しい | correcto | i | adjetivo,kanji-ejemplo
+しょうがつ | 正月 | Año Nuevo | n | fecha,kanji-ejemplo
+ことし | 今年 | este año | n | tiempo,fecha,kanji-ejemplo
+うる | 売る | vender | vu | verbo,tienda,kanji-ejemplo
+まちなか | 町中 | en el centro del pueblo | n | lugar,kanji-ejemplo
+ながい | 長い | largo | i | adjetivo,kanji-ejemplo
+しゃちょう | 社長 | presidente de empresa; jefe | n | trabajo,persona,kanji-ejemplo
+しょどう | 書道 | caligrafía | n | ocio,kanji-ejemplo
+おおゆき | 大雪 | nevada fuerte | n | clima,kanji-ejemplo
+こくりつ | 国立 | nacional; estatal (institución) | n | escuela,kanji-ejemplo
+じぶん | 自分 | uno mismo; sí mismo | n | persona,kanji-ejemplo
+こんや | 今夜 | esta noche | n | tiempo,kanji-ejemplo
+けさ | 今朝 | esta mañana | n | tiempo,kanji-ejemplo
+て | 手 | mano | n | cuerpo,kanji-ejemplo
+てがみ | 手紙 | carta | n | cosa,kanji-ejemplo
+かみ | 紙 | papel | n | cosa,kanji-ejemplo
+ちかく | 近く | cerca; las cercanías | n | lugar,kanji-ejemplo
+あかるい | 明るい | brillante; luminoso; alegre | i | adjetivo,kanji-ejemplo
+びょうき | 病気 | enfermedad; estar enfermo | n | salud,kanji-ejemplo
+だいがくいん | 大学院 | posgrado; escuela de posgrado | n | escuela,kanji-ejemplo
+うつる | 映る | reflejarse; proyectarse | vu | verbo,kanji-ejemplo
+がか | 画家 | pintor/a | n | persona,kanji-ejemplo
+うた | 歌 | canción | n | ocio,kanji-ejemplo
+かしゅ | 歌手 | cantante | n | persona,ocio,kanji-ejemplo
+し | 市 | ciudad (municipio) | n | lugar,kanji-ejemplo | shi-ciudad
+しちょう | 市長 | alcalde | n | persona,kanji-ejemplo
+ところ | 所 | lugar | n | lugar,kanji-ejemplo
+ゆうめい | 有名 | famoso | na | adjetivo,kanji-ejemplo
+たび | 旅 | viaje | n | ocio,kanji-ejemplo
+むかし | 昔 | antiguamente; hace mucho | n | tiempo,kanji-ejemplo
+むかしばなし | 昔話 | cuento popular; leyenda | n | ocio,kanji-ejemplo
+かみ | 神 | dios; deidad | n | kanji-ejemplo | kami-dios
+はやく | 早く | pronto; rápido | adv | tiempo,kanji-ejemplo
+おこす | 起こす | despertar (a alguien); levantar | vu | verbo,kanji-ejemplo
+うし | 牛 | vaca; buey | n | animal,kanji-ejemplo
+はたらく | 働く | trabajar | vu | verbo,trabajo,kanji-ejemplo
+つれる | 連れる | llevar consigo (a alguien) | vru | verbo,kanji-ejemplo
+れんきゅう | 連休 | feriados seguidos | n | fecha,kanji-ejemplo
+わかれる | 別れる | separarse; despedirse | vru | verbo,kanji-ejemplo
+べつ | 別 | otro; aparte; distinto | n | kanji-ejemplo
+いちど | 一度 | una vez | n | tiempo,kanji-ejemplo
+こんど | 今度 | esta vez; la próxima vez | n | tiempo,kanji-ejemplo
+あか | 赤 | rojo (color) | n | color,kanji-ejemplo
+あおい | 青い | azul | i | adjetivo,color,kanji-ejemplo
+いろ | 色 | color | n | color,kanji-ejemplo
+いろいろ | 色々 | variado; diversos | na | adjetivo,kanji-ejemplo
+かわぐち | 川口 | Kawaguchi (ciudad/apellido) | n | lugar,kanji-ejemplo
+おがわ | 小川 | arroyo; Ogawa (apellido) | n | naturaleza,kanji-ejemplo
+きょうこ | 京子 | Kyoko (nombre de mujer) | n | persona,kanji-ejemplo
+ぶん | 文 | oración; frase | n | idioma,kanji-ejemplo
+ちじん | 知人 | conocido/a | n | persona,kanji-ejemplo
+うれる | 売れる | venderse (bien) | vru | verbo,tienda,kanji-ejemplo
+かいて | 買い手 | comprador/a | n | tienda,kanji-ejemplo
+じぶんで | 自分で | por uno mismo; solo | adv | persona,kanji-ejemplo
+ゆうめいじん | 有名人 | persona famosa; celebridad | n | persona,kanji-ejemplo
+こうし | 子牛 | ternero | n | animal,kanji-ejemplo
+つかいみち | 使い道 | uso; utilidad | n | kanji-ejemplo
+はたらきて | 働き手 | trabajador; sostén de la familia | n | trabajo,kanji-ejemplo

@@ -1,0 +1,70 @@
+## G0 propio
+ココア | | cacao; chocolate caliente | n | comida,bebida,kana-practice
+キウイ | | kiwi | n | comida,kana-practice
+ケーキ | | pastel; torta | n | comida,kana-practice
+キス | | beso | n | kana-practice
+ケース | | estuche; caja | n | cosa,kana-practice
+ソース | | salsa | n | comida,kana-practice
+ステーキ | | bistec | n | comida,kana-practice
+ネクタイ | | corbata | n | cosa,ropa,kana-practice
+ハート | | corazón | n | kana-practice
+ヒーター | | calefactor | n | casa,kana-practice
+マスク | | mascarilla | n | cosa,kana-practice
+メモ | | apunte; nota | n | cosa,escuela,kana-practice
+メール | | correo electrónico; mensaje | n | cosa,kana-practice
+ミルク | | leche | n | comida,bebida,kana-practice
+ラジオ | | radio | n | cosa,ocio,kana-practice
+レモン | | limón | n | comida,kana-practice
+ロボット | | robot | n | cosa,kana-practice
+ワイン | | vino | n | comida,bebida,kana-practice
+ナイフ | | cuchillo | n | comida,cosa,kana-practice
+カメラ | | cámara fotográfica | n | cosa,kana-practice
+サラダ | | ensalada | n | comida,kana-practice
+ラーメン | | ramen (fideos en caldo) | n | comida,kana-practice
+リモコン | | control remoto | n | cosa,casa,kana-practice
+ルール | | regla; norma | n | kana-practice
+ハム | | jamón | n | comida,kana-practice
+バナナ | | banana; plátano | n | comida,kana-practice
+ビール | | cerveza | n | comida,bebida,kana-practice
+ドア | | puerta | n | casa,kana-practice
+ゴルフ | | golf | n | ocio,deporte,kana-practice
+ガス | | gas | n | casa,kana-practice
+ダンス | | baile | n | ocio,kana-practice
+ドレス | | vestido | n | cosa,ropa,kana-practice
+デザート | | postre | n | comida,kana-practice
+ボール | | pelota; balón | n | ocio,deporte,kana-practice
+ベルト | | cinturón | n | cosa,ropa,kana-practice
+ガイド | | guía | n | ocio,kana-practice
+ズボン | | pantalones | n | cosa,ropa,kana-practice
+サッカー | | fútbol | n | ocio,deporte,kana-practice
+ベッド | | cama | n | casa,cosa,kana-practice
+カップ | | taza; copa | n | cosa,comida,kana-practice
+ロッカー | | casillero | n | cosa,kana-practice
+バッグ | | bolsa; bolso | n | cosa,kana-practice
+プール | | piscina | n | lugar,deporte,kana-practice
+ピアノ | | piano | n | ocio,kana-practice
+パスタ | | pasta | n | comida,kana-practice
+ポスト | | buzón | n | cosa,kana-practice
+ポケット | | bolsillo | n | cosa,ropa,kana-practice
+プリン | | flan; pudín | n | comida,kana-practice
+ピザ | | pizza | n | comida,kana-practice
+スプーン | | cuchara | n | comida,cosa,kana-practice
+テープ | | cinta | n | cosa,kana-practice
+ペット | | mascota | n | animal,kana-practice
+シャツ | | camisa | n | cosa,ropa,kana-practice
+ジュース | | jugo | n | comida,bebida,kana-practice
+ニュース | | noticias | n | ocio,kana-practice
+チャンス | | oportunidad | n | kana-practice
+キャンプ | | camping; acampar | n | ocio,kana-practice
+シャンプー | | champú | n | casa,cosa,kana-practice
+チョコレート | | chocolate | n | comida,kana-practice
+ジャム | | mermelada | n | comida,kana-practice
+ファイル | | archivo; carpeta | n | cosa,escuela,kana-practice
+フォーク | | tenedor | n | comida,cosa,kana-practice
+ティッシュ | | pañuelo de papel | n | cosa,kana-practice
+ウィスキー | | whisky | n | comida,bebida,kana-practice
+ヴァイオリン | | violín | n | ocio,kana-practice
+ジェット | | jet; avión a reacción | n | transporte,kana-practice
+チェック | | revisión; cuadros | n | kana-practice
+フィルム | | película (rollo de foto) | n | cosa,kana-practice
+ディスク | | disco | n | cosa,kana-practice
