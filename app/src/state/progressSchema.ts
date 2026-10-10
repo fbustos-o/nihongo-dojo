@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const STORAGE_KEY = 'nihongo-dojo:v1';
 export const PROGRESS_VERSION = 1;
-export const MAX_SRS_STAGE = 8;
+export const MAX_SRS_STAGE = 9;
 
 export const ItemKindSchema = z.enum(['kana', 'word', 'kanji', 'pattern', 'dialogue']);
 export type ItemKind = z.infer<typeof ItemKindSchema>;
@@ -10,7 +10,7 @@ export type ItemKind = z.infer<typeof ItemKindSchema>;
 export const ItemStateSchema = z.object({
   itemId: z.string(),
   kind: ItemKindSchema,
-  /** 0 = new, 1-4 Aprendiz, 5 Guru, 6 Maestro, 7 Iluminado, 8 Quemado. */
+  /** 0 = new, 1-4 Aprendiz, 5-6 Guru, 7 Maestro, 8 Iluminado, 9 Quemado (see engine/srs.ts). */
   srsStage: z.number().int().min(0).max(MAX_SRS_STAGE),
   correct: z.number().int().min(0),
   wrong: z.number().int().min(0),

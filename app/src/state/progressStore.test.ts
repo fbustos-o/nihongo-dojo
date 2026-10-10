@@ -24,7 +24,7 @@ describe('recordAnswer', () => {
     recordAnswer('あ', 'kana', true);
     recordAnswer('あ', 'kana', true);
     recordAnswer('あ', 'kana', false);
-    expect(useProgress.getState().items['kana:あ']).toMatchObject({ srsStage: 0, correct: 2, wrong: 1 });
+    expect(useProgress.getState().items['kana:あ']).toMatchObject({ srsStage: 1, correct: 2, wrong: 1 });
     expect(useProgress.getState().items['kana:あ']!.weight).toBeGreaterThan(1);
   });
 });

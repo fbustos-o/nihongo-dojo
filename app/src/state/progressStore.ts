@@ -9,7 +9,7 @@ import {
   type Progress,
   type Settings,
 } from './progressSchema';
-import { applyAnswer } from './srs';
+import { applyAnswer } from '../engine/srs';
 import { touchStreak } from './streak';
 
 const XP_PER_CORRECT = 10;
