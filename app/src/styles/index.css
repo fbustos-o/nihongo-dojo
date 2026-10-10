@@ -1,5 +1,5 @@
 :root {
-  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans JP Variable', 'Noto Sans JP', sans-serif;
   --font-ja: 'Noto Sans JP Variable', 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --bg: #faf7f2;
   --surface: #ffffff;
@@ -61,6 +61,45 @@ body {
   line-height: 1.5;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg,
+table {
+  max-width: 100%;
+}
+
+/* Touch targets: at least 44px */
+button,
+select,
+input[type='text'],
+input[type='range'] {
+  min-height: 2.75rem;
+}
+
+label.row,
+fieldset label {
+  min-height: 2.75rem;
+}
+
+input[type='checkbox'] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 h1 {
   font-size: 1.5rem;
   margin: 0 0 1rem;
@@ -89,6 +128,11 @@ rt {
 
 .btn {
   font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  text-decoration: none;
   padding: 0.5rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
@@ -99,6 +143,10 @@ rt {
 
 .btn:hover:not(:disabled) {
   border-color: var(--accent);
+}
+
+.btn[aria-disabled='true'] {
+  opacity: 0.5;
 }
 
 .btn:disabled {

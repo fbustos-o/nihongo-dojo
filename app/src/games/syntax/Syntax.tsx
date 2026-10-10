@@ -23,11 +23,15 @@ const Word = ({ text }: { text: string }) => <JaText word={{ kana: text }} />;
  * with tiles (words + particles, plus distractor particles). Tap a tile to place it, tap it again
  * (in the answer) to take it back. Everything is a button, so Tab / Enter work too.
  */
-export function Syntax({ patterns, rounds, sequential, onFinish }: GameProps) {
+export function Syntax({ patterns, rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const { speak } = useSpeech();
-  const pool = useMemo(() => syntaxEntries(patterns?.length ? patterns : content.patterns), [patterns]);
+  const pool = useMemo(() => {
+    const all = syntaxEntries(patterns?.length ? patterns : content.patterns);
+    const only = onlyItems ? all.filter((e) => onlyItems.includes(e.id)) : all;
+    return only.length > 0 ? only : all;
+  }, [patterns, onlyItems]);
   const pick = useQuestionPicker('pattern', sequential);
   const counter = useRef(0);
 

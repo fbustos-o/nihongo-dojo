@@ -209,3 +209,19 @@ export function conjEntries(words: readonly Word[], category: Category, forms: r
 
 /** Row id used when reporting table cells: same as the quiz item. */
 export const entryId = (category: Category, word: Word, form: AnyForm): string => `${PREFIX[category]}:${word.id}:${form}`;
+
+/**
+ * Entries for explicit item ids (review sessions): `verb:taberu:te`, `iadj:...`, `naadj:...`, `noun:...`.
+ * Ids whose word or form no longer exists are skipped.
+ */
+export function entriesFromIds(ids: readonly string[], vocab: readonly Word[]): ConjEntry[] {
+  const byPrefix = new Map(Object.entries(PREFIX).map(([category, prefix]) => [prefix, category as Category]));
+  const byId = new Map(vocab.map((w) => [w.id, w]));
+  return ids.flatMap((id) => {
+    const [prefix, wordId, form] = id.split(':');
+    const category = prefix ? byPrefix.get(prefix) : undefined;
+    const word = wordId ? byId.get(wordId) : undefined;
+    if (!category || !word || !form || !(ALL_FORMS[category] as readonly string[]).includes(form)) return [];
+    return [{ id, category, word, form: form as AnyForm }];
+  });
+}

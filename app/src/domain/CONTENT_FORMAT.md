@@ -36,3 +36,5 @@ Las formas completas están en `PLAN.md` ("Modelo de contenido"); los `GameId` v
   irregulares (今日, 一人, 大人) salen como un único ruby sobre toda la palabra, sin datos extra.
 - Ajuste `settings.furigana`: `auto` (se quita al llegar a Guru, SRS ≥ 5) | `siempre` | `nunca`.
 - Ítems de progreso: `kanji:<char>`; palabras preguntadas en el juego de kanji: `word:<id>:kanji`.
+
+`patterns.json`: cada patrón puede llevar `examples: [{ es, ja, romaji }]` (opcional, validado por `SentencePatternSchema`); `ja` va en kana con espacios entre partículas/bunsetsu.

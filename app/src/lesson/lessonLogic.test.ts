@@ -126,7 +126,7 @@ describe('lesson content from the real data', () => {
   it('every stage 1 lesson has its kana and readable words using only known + new kana', () => {
     const known = new Set<string>();
     for (const l of curriculum.filter((c) => c.stage === 1)) {
-      const data = lessonContent(l, known);
+      const data = lessonContent(l, known, content);
       expect(data.kana.map((k) => k.char).sort(), l.id).toEqual([...(l.kana ?? [])].sort());
       expect(data.words.length, `${l.id} needs words`).toBeGreaterThan(0);
       for (const k of l.kana ?? []) known.add(k);

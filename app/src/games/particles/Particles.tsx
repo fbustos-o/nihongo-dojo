@@ -19,10 +19,14 @@ interface Question {
  * A sentence with one particle missing; choose it among は / を / に / で / へ / も / の / と / が / か.
  * Answers are compared strictly (は is not わ, を is not お). After answering, a one-line explanation.
  */
-export function Particles({ patterns, rounds, sequential, onFinish }: GameProps) {
+export function Particles({ patterns, rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
-  const pool = useMemo(() => particleEntries(patterns?.length ? patterns : content.patterns), [patterns]);
+  const pool = useMemo(() => {
+    const all = particleEntries(patterns?.length ? patterns : content.patterns);
+    const only = onlyItems ? all.filter((e) => onlyItems.includes(e.id)) : all;
+    return only.length > 0 ? only : all;
+  }, [patterns, onlyItems]);
   const pick = useQuestionPicker('pattern', sequential);
 
   const make = (): Question => {

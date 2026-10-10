@@ -1,21 +1,26 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { App } from '../App';
 import { content } from '../domain/contentLoader';
 import { itemKey } from '../state/progressSchema';
 import { useProgress } from '../state/progressStore';
-import { kanjiReview } from '../pages/PracticePage';
+import { batchProps } from '../review/reviewLogic';
 import { finishLesson, kanjiLessonWords, kanjiRounds, lessonContent, syncKnownKanji, unlockedKanjiForLessons } from './lessonLogic';
 import { exampleWords } from './KanjiIntro';
 
 const user = () => userEvent.setup({ delay: null });
-const renderAt = (path: string) =>
-  render(
+const renderAt = async (path: string) => {
+  const result = render(
     <MemoryRouter initialEntries={[path]}>
       <App />
     </MemoryRouter>,
   );
+  // pages are lazy chunks: wait for the Suspense fallback to go away
+  await waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument());
+  return result;
+};
+const settle = () => waitFor(() => expect(screen.queryByTestId('loading')).not.toBeInTheDocument());
 const lesson = (id: string) => content.curriculum.find((l) => l.id === id)!;
 const kanjiLessons = content.curriculum.filter((l) => l.stage === 4);
 const pass = { total: 10, correct: 9, bestStreak: 5, items: {} };
@@ -43,7 +48,7 @@ describe('kanji lessons: content', () => {
     expect(new Set(chars).size).toBe(144);
     for (const l of kanjiLessons) {
       const n = Number(l.id.replace('kanji-', ''));
-      const data = lessonContent(l, new Set());
+      const data = lessonContent(l, new Set(), content);
       expect(data.kanji.map((k) => k.char)).toEqual(l.kanji);
       expect(data.newKanji).toEqual(l.kanji);
       expect(data.kanji.every((k) => k.genkiLesson === n && k.strokes)).toBe(true);
@@ -58,7 +63,7 @@ describe('kanji lessons: content', () => {
         (cursor.kanji ?? []).forEach((c) => allowed.add(c));
         cursor = content.curriculum.find((x) => x.id === cursor!.requires.find((r) => r.startsWith('kanji-')));
       }
-      const { words } = lessonContent(l, new Set());
+      const { words } = lessonContent(l, new Set(), content);
       expect(words.length, l.id).toBeGreaterThan(0);
       for (const w of words) {
         expect(w.kanji, w.id).toBeDefined();
@@ -114,14 +119,14 @@ describe('kanji lessons: unlocking', () => {
 });
 
 describe('kanji lesson page', () => {
-  it('is locked until stage 2 and the katakana review are done', () => {
-    renderAt('/leccion/kanji-3');
+  it('is locked until stage 2 and the katakana review are done', async () => {
+    await renderAt('/leccion/kanji-3');
     expect(screen.getByText(/bloqueada/)).toBeInTheDocument();
   });
 
-  it('intro shows each kanji big with meaning, readings (Genki highlighted), strokes and example words with audio', () => {
+  it('intro shows each kanji big with meaning, readings (Genki highlighted), strokes and example words with audio', async () => {
     completeBefore('kanji-3');
-    renderAt('/leccion/kanji-3');
+    await renderAt('/leccion/kanji-3');
     expect(screen.getByRole('heading', { name: 'Kanji nuevos' })).toBeInTheDocument();
     const card = screen.getByTestId('kanji-card-時');
     expect(within(card).getByText('時', { selector: 'div' })).toBeInTheDocument();
@@ -139,41 +144,39 @@ describe('kanji lesson page', () => {
 
   it('starts with the kanji game', async () => {
     completeBefore('kanji-3');
-    renderAt('/leccion/kanji-3');
+    await renderAt('/leccion/kanji-3');
     await user().click(screen.getByRole('button', { name: 'Empezar práctica' }));
+    await settle();
     expect(screen.getByText(/^Juego 1 de \d+:/)).toHaveTextContent('Kanji');
     expect(screen.getByText('¿Qué significa?')).toBeInTheDocument();
   });
 });
 
 describe('Práctica: kanji review and free practice', () => {
-  it('kanjiReview turns due kanji and kanji-words into game content', () => {
-    const { recordAnswer } = useProgress.getState();
-    recordAnswer('食', 'kanji', false); // stage 0: due at once
-    recordAnswer('taberu:kanji', 'word', false);
-    recordAnswer('あ', 'kana', false);
-    const { kanji, words } = kanjiReview(useProgress.getState().items, Date.now() + 1000);
-    expect(kanji.map((k) => k.char)).toEqual(['食']);
-    expect(words.map((w) => w.id)).toEqual(['taberu']);
+  it('batchProps turns due kanji and kanji-words into game content', () => {
+    const batch = { game: 'kanji' as const, itemIds: ['食', 'taberu:kanji', 'nope:kanji'] };
+    const props = batchProps(batch, content)!;
+    expect(props.kanji!.map((k) => k.char)).toEqual(['食']);
+    expect(props.words.map((w) => w.id)).toEqual(['taberu']);
+    expect(props.rounds).toBe(2);
   });
 
-  it('offers the due kanji review and runs it with the kanji game', async () => {
+  it('the unified /repaso session runs the kanji review with the kanji game', async () => {
     useProgress.getState().unlockKana(content.kana.flatMap((k) => [...k.char]));
     useProgress.getState().unlockKanji(['食', '飲', '見']);
     // 食 and 飲 were unlocked a while ago: their first review (4 hours) is due
     const items = useProgress.getState().items;
     useProgress.setState({ items: { ...items, 'kanji:食': { ...items['kanji:食']!, nextDue: 1 }, 'kanji:飲': { ...items['kanji:飲']!, nextDue: 2 } } });
-    renderAt('/practica');
-    const card = screen.getByRole('heading', { name: 'Repaso de kanji' }).closest('section')!;
-    expect(card).toHaveTextContent('Tienes 2 kanji');
-    await user().click(within(card).getByRole('button', { name: /Repasar kanji \(2\)/ }));
-    expect(screen.getByRole('heading', { name: 'Repasos pendientes' })).toBeInTheDocument();
-    expect(screen.getByText(/Kanji · 2 kanji/)).toBeInTheDocument();
+    await renderAt('/repaso?grupo=kanji');
+    expect(screen.getByRole('heading', { name: /2 ítems por repasar de kanji/ })).toBeInTheDocument();
+    await user().click(screen.getByRole('button', { name: 'Empezar repaso' }));
+    await settle();
+    expect(screen.getByTestId('review-step')).toHaveTextContent('Kanji');
     expect(screen.getByTestId('prompt')).toHaveTextContent('食');
   });
 
   it('free practice picks a lesson range and only unlocked kanji', async () => {
-    renderAt('/practica');
+    await renderAt('/practica');
     const free = screen.getByRole('heading', { name: 'Práctica libre de kanji' }).closest('section')!;
     expect(within(free).getByRole('button', { name: 'Practicar kanji' })).toBeDisabled();
     useProgress.getState().unlockKanji(content.kanji.filter((k) => k.genkiLesson <= 5).map((k) => k.char));
@@ -192,7 +195,7 @@ describe('Ajustes: furigana', () => {
     useProgress.getState().unlockKana(content.kana.flatMap((k) => [...k.char]));
     useProgress.getState().unlockKanji(['食']);
     const u = user();
-    renderAt('/ajustes');
+    await renderAt('/ajustes');
     const select = screen.getByLabelText('Furigana');
     expect(select).toHaveValue('auto');
     await u.selectOptions(select, 'nunca');

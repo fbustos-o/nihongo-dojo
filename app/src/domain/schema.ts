@@ -66,6 +66,14 @@ export const KanjiSchema = z.object({
 });
 export type Kanji = z.infer<typeof KanjiSchema>;
 
+/** One example sentence of a pattern. `ja` is kana with spaces between particles / bunsetsu. */
+export const PatternExampleSchema = z.object({
+  es: z.string(),
+  ja: z.string(),
+  romaji: z.string(),
+});
+export type PatternExample = z.infer<typeof PatternExampleSchema>;
+
 export const SentencePatternSchema = z.object({
   id: z.string().min(1),
   title: z.string(),
@@ -84,6 +92,7 @@ export const SentencePatternSchema = z.object({
     }),
   ),
   explanationEs: z.string(),
+  examples: z.array(PatternExampleSchema).optional(),
 });
 export type SentencePattern = z.infer<typeof SentencePatternSchema>;
 

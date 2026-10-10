@@ -257,7 +257,7 @@ describe('counters: sai (age)', () => {
     [11, 'じゅういっさい'],
     [18, 'じゅうはっさい'],
     [19, 'じゅうきゅうさい'],
-    [20, 'にじゅっさい'],
+    [20, 'はたち'],
     [21, 'にじゅういっさい'],
     [24, 'にじゅうよんさい'],
     [28, 'にじゅうはっさい'],
@@ -266,8 +266,13 @@ describe('counters: sai (age)', () => {
   ])('%i -> %s', (n, expected) => {
     expect(readCounter(n, 'sai').kana).toBe(expected);
   });
-  it('はたち is an alternative for 20; じっさい for 10', () => {
-    expect(readCounter(20, 'sai').alternatives).toContain('はたち');
+  it('20 years old is primarily はたち, with the regular readings as alternatives', () => {
+    const r = readCounter(20, 'sai');
+    expect(r.kana).toBe('はたち');
+    expect(r.alternatives).toEqual(expect.arrayContaining(['にじゅっさい', 'にじっさい']));
+    expect(r.alternatives).not.toContain('はたち');
+  });
+  it('じっさい is an alternative for 10', () => {
     expect(readCounter(10, 'sai').alternatives).toContain('じっさい');
     expect(readCounter(8, 'sai').alternatives).toContain('はちさい');
     expect(readCounter(19, 'sai').alternatives).not.toContain('はたち');

@@ -1,7 +1,11 @@
-import { useMemo, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Loading } from '../components/Loading';
+import { groupParam } from '../review/ReviewPage';
+import { REVIEW_GROUP_IDS, REVIEW_GROUP_LABELS, dueCountsByGroup } from '../review/reviewLogic';
 import { content } from '../domain/contentLoader';
 import type { GameId, KanaEntry, Kanji, Word } from '../domain/schema';
-import { dueItems, filterReadable, reviewQueue } from '../engine';
+import { filterReadable } from '../engine';
 import { kanjiWordsFor } from '../games/kanji/kanjiLogic';
 import { GAME_REGISTRY } from '../games/registry';
 import type { GameStats } from '../games/types';
@@ -22,25 +26,11 @@ const groupOf = (k: KanaEntry): string => (k.group === 'handakuten' ? 'dakuten' 
 const rowKey = (k: KanaEntry): string => `${k.script}:${groupOf(k)}:${k.row}`;
 
 type Session =
-  | { kind: 'free' | 'review'; game: GameId; kana: KanaEntry[]; rounds?: number; kanji?: undefined; words?: undefined }
-  | { kind: 'free' | 'review'; game: 'kanji'; kana: []; kanji: Kanji[]; words: Word[]; rounds?: number }
+  | { kind: 'free'; game: GameId; kana: KanaEntry[]; rounds?: number; kanji?: undefined; words?: undefined }
+  | { kind: 'free'; game: 'kanji'; kana: []; kanji: Kanji[]; words: Word[]; rounds?: number }
   | { kind: 'summary'; stats: GameStats };
 
-/** Progress item of a word asked in the kanji game: `word:<id>:kanji`. */
-const KANJI_WORD_SUFFIX = ':kanji';
-const REVIEW_LIMIT = 20;
 const KANJI_LESSONS = [...new Set(content.kanji.map((k) => k.genkiLesson))].sort((a, b) => a - b);
-
-/** Due kanji and kanji-words (SRS review queue), turned into the content the kanji game walks through. */
-export function kanjiReview(items: Parameters<typeof reviewQueue>[0], now: number, limit = REVIEW_LIMIT): { kanji: Kanji[]; words: Word[] } {
-  const own = Object.values(items).filter((i) => i.kind === 'kanji' || (i.kind === 'word' && i.itemId.endsWith(KANJI_WORD_SUFFIX)));
-  const queue = reviewQueue(own, now, { limit });
-  const kanji = queue.filter((i) => i.kind === 'kanji').flatMap((i) => content.kanji.find((k) => k.char === i.itemId) ?? []);
-  const words = queue
-    .filter((i) => i.kind === 'word')
-    .flatMap((i) => content.vocab.find((w) => w.id === i.itemId.slice(0, -KANJI_WORD_SUFFIX.length)) ?? []);
-  return { kanji, words };
-}
 
 export function PracticePage() {
   const items = useProgress((s) => s.items);
@@ -66,14 +56,7 @@ export function PracticePage() {
     return map;
   }, []);
 
-  const due = useMemo(() => {
-    const kanaItems = Object.values(items).filter((i) => i.kind === 'kana');
-    return dueItems(kanaItems, now);
-  }, [items, now]);
-  const dueKana = due.map((i) => content.kana.find((k) => k.char === i.itemId)).filter((k): k is KanaEntry => k !== undefined);
-
-  const kanjiDue = useMemo(() => kanjiReview(items, now), [items, now]);
-  const kanjiDueCount = kanjiDue.kanji.length + kanjiDue.words.length;
+  const counts = useMemo(() => dueCountsByGroup(items, now), [items, now]);
   const unlockedSet = useMemo(() => new Set(unlockedKanji), [unlockedKanji]);
   const rangeKanji = content.kanji.filter((k) => unlockedSet.has(k.char) && k.genkiLesson >= fromLesson && k.genkiLesson <= toLesson);
   const kanjiWords = (list: Kanji[]) => kanjiWordsFor(content.vocab, new Set([...unlockedSet, ...list.map((k) => k.char)]));
@@ -95,18 +78,19 @@ export function PracticePage() {
     const Game = GAME_REGISTRY[session.game].component!;
     return (
       <>
-        <h1>{session.kind === 'review' ? 'Repasos pendientes' : 'Práctica libre'}</h1>
+        <h1>Práctica libre</h1>
         <p className="muted">
           {GAME_REGISTRY[session.game].name} · {session.kanji ? `${session.kanji.length} kanji` : `${session.kana.length} kana`}
         </p>
+        <Suspense fallback={<Loading label="Cargando juego…" />}>
         <Game
           kana={session.kana}
           kanji={session.kanji}
           words={session.words ?? wordsFor(session.kana)}
           rounds={session.rounds}
-          sequential={session.kind === 'review'}
           onFinish={(stats) => setSession({ kind: 'summary', stats })}
         />
+        </Suspense>
       </>
     );
   }
@@ -133,34 +117,21 @@ export function PracticePage() {
     <>
       <h1>Práctica</h1>
 
-      <section className="card">
-        <h2>Repasos pendientes</h2>
-        <p>
-          {due.length === 0 ? 'No tienes repasos pendientes ahora mismo.' : <>Tienes <strong>{due.length}</strong> kana por repasar.</>}
+      <section className="card" aria-labelledby="review-card">
+        <h2 id="review-card">Repasos pendientes</h2>
+        <p data-testid="due-summary">
+          {counts.total === 0 ? 'No tienes repasos pendientes ahora mismo.' : <>Tienes <strong>{counts.total}</strong> ítems por repasar.</>}
         </p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          disabled={dueKana.length === 0}
-          onClick={() => run({ kind: 'review', game: 'kana-recognize', kana: dueKana.slice(0, 20), rounds: Math.min(dueKana.length, 20) })}
-        >
-          Repasar ({due.length})
-        </button>
-      </section>
-
-      <section className="card" aria-labelledby="kanji-review">
-        <h2 id="kanji-review">Repaso de kanji</h2>
-        <p>
-          {kanjiDueCount === 0 ? 'No tienes kanji por repasar ahora mismo.' : <>Tienes <strong>{kanjiDueCount}</strong> kanji y palabras con kanji por repasar.</>}
-        </p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          disabled={kanjiDueCount === 0}
-          onClick={() => run({ kind: 'review', game: 'kanji', kana: [], kanji: kanjiDue.kanji, words: kanjiDue.words, rounds: kanjiDueCount })}
-        >
-          Repasar kanji ({kanjiDueCount})
-        </button>
+        <div className="row">
+          <Link className="btn btn-primary" to="/repaso">
+            Repasar todo ({counts.total})
+          </Link>
+          {REVIEW_GROUP_IDS.map((g) => (
+            <Link key={g} className="btn" to={`/repaso?grupo=${groupParam(g)}`} aria-disabled={counts[g] === 0}>
+              {REVIEW_GROUP_LABELS[g]} ({counts[g]})
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="card" aria-labelledby="kanji-free">

@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
+import { ExtraKanjiContext } from '../../state/extraKana';
 import { useProgress } from '../../state/progressStore';
+import { kanaIndex, tokensWithKanji } from '../kanji/kanjiLogic';
 import { ChoiceRound, GameFrame, useGameSession } from '../shared';
 import shared from '../shared/games.module.css';
 import type { GameProps } from '../types';
@@ -21,6 +23,11 @@ export function MiniReading({ patterns, rounds, onFinish }: GameProps) {
   const source = useMemo(() => (patterns && patterns.length > 0 ? patterns : content.patterns), [patterns]);
   const pool = useMemo(() => sentencesOf(content.patterns), []);
   const make = (): ReadingText | null => makeReadingText(source, pool) ?? makeReadingText(content.patterns, pool);
+
+  // Words with unlocked kanji (or the lesson's new ones) are shown in kanji; JaText adds the furigana.
+  const unlocked = useProgress((s) => s.unlockedKanji);
+  const extra = useContext(ExtraKanjiContext);
+  const byKana = useMemo(() => kanaIndex(content.vocab, new Set([...unlocked, ...extra])), [unlocked, extra]);
 
   const [text, setText] = useState<ReadingText | null>(make);
   const [qi, setQi] = useState(0);
@@ -45,10 +52,10 @@ export function MiniReading({ patterns, rounds, onFinish }: GameProps) {
               {i + 1}.
             </span>
             <span className={styles.ja}>
-              {s.tokens.map((t, j) => (
+              {tokensWithKanji(s.tokens, byKana).map((t, j) => (
                 <span key={j}>
                   {j > 0 && ' '}
-                  <JaText word={{ kana: t }} />
+                  <JaText word={t.word ?? { kana: t.kana }} />
                 </span>
               ))}
               。

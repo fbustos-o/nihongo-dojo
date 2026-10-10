@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { SpeakButton } from '../../components/SpeakButton';
 import { checkAnswer } from '../../engine';
 import type { KanaEntry, Word } from '../../domain/schema';
-import { typingHints } from '../kanaUtils';
-import { Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type Verdict } from '../shared';
+import { Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type Verdict } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
 
@@ -43,7 +42,6 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
   const expected = isWord ? question.word.kana : question.entry.char;
   // Katakana-only words (loanwords) are typed with the katakana IME, where `-` and a repeated vowel give ー.
   const katakana = isWord ? /^[ァ-ヺー]+$/.test(question.word.kana) : question.entry.script === 'katakana';
-  const hints = katakana ? typingHints(expected) : [];
   const romaji = isWord ? question.word.romaji : question.entry.romaji;
 
   const onReport = (ok: boolean) => {
@@ -65,11 +63,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
           <>
             <span className={styles.promptText} data-testid="romaji">{romaji}</span>
             {isWord && <div className={styles.hint}>{question.word.es.join(', ')}</div>}
-            {katakana && hints.length > 0 && (
-              <div className={styles.hint} data-testid="typing-hint">
-                {hints.map((h) => `${h.char} → «${h.typing}»`).join(' · ')}
-              </div>
-            )}
+            <TypingHint text={expected} />
             {katakana && expected.includes('ー') && <div className={styles.hint}>ー se escribe con «-» (o repitiendo la vocal).</div>}
             <div>
               <SpeakButton text={expected} />

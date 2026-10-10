@@ -7,6 +7,15 @@ const IS_KANJI = /[一-鿿]/u;
 /** The kanji (not the repetition mark 々) of a written word. */
 export const kanjiOf = (text: string): string[] => [...text].filter((ch) => IS_KANJI.test(ch));
 
+/**
+ * Kanji that get partial SRS credit when a word written with them is answered right on the first try:
+ * the word's kanji that are unlocked and have not been credited yet in this session (`credited`).
+ */
+export function kanjiToCredit(word: Pick<Word, 'kanji'>, unlocked: Iterable<string>, credited: ReadonlySet<string>): string[] {
+  const ok = new Set(unlocked);
+  return [...new Set(kanjiOf(word.kanji ?? ''))].filter((c) => ok.has(c) && !credited.has(c));
+}
+
 /** Spanish meaning shown for a kanji: its first two glosses. */
 export const meaningText = (k: Kanji): string => k.es.slice(0, 2).join('; ');
 
@@ -75,6 +84,23 @@ export interface TransformToken {
   word?: Word;
 }
 
+/** Words written with kanji (all of them in `allowed`), indexed by their reading. */
+export function kanaIndex(vocab: readonly Word[], allowed: ReadonlySet<string>): Map<string, Word[]> {
+  const byKana = new Map<string, Word[]>();
+  for (const w of kanjiWordsFor(vocab, allowed)) byKana.set(w.kana, [...(byKana.get(w.kana) ?? []), w]);
+  return byKana;
+}
+
+/** Tokens of a kana sentence; those that are the reading of an indexed kanji word carry that word (JaText shows it with furigana). */
+export function tokensWithKanji(tokens: readonly string[], byKana: ReadonlyMap<string, Word[]>, prefer: (w: Word) => boolean = () => true): TransformToken[] {
+  return tokens.map((kana) => {
+    if (isParticle(kana) || [...kana].length < 2) return { kana };
+    const candidates = byKana.get(kana) ?? [];
+    const word = candidates.find(prefer) ?? candidates[0];
+    return word ? { kana, word } : { kana };
+  });
+}
+
 /** A stage-2 sentence (kana only in patterns.json) whose words now appear in kanji. */
 export interface TransformSentence {
   /** `<patternId>:<exampleIndex>`. */
@@ -97,19 +123,13 @@ export function transformSentences(
   allowed: ReadonlySet<string>,
   practice: ReadonlySet<string> = new Set(),
 ): TransformSentence[] {
-  const byKana = new Map<string, Word[]>();
-  for (const w of kanjiWordsFor(vocab, allowed)) byKana.set(w.kana, [...(byKana.get(w.kana) ?? []), w]);
+  const byKana = kanaIndex(vocab, allowed);
   const practised = (w: Word) => practice.size === 0 || kanjiOf(w.kanji ?? '').some((c) => practice.has(c));
   const out: TransformSentence[] = [];
   for (const pattern of patterns) {
     examplesOf(pattern).forEach((example, index) => {
       if (!example.ja || !example.es) return;
-      const tokens: TransformToken[] = tokenize(example.ja).map((kana) => {
-        if (isParticle(kana) || [...kana].length < 2) return { kana };
-        const candidates = byKana.get(kana) ?? [];
-        const word = candidates.find(practised) ?? candidates[0];
-        return word ? { kana, word } : { kana };
-      });
+      const tokens = tokensWithKanji(tokenize(example.ja), byKana, practised);
       const target = tokens.find((t) => t.word && practised(t.word))?.word;
       if (target) out.push({ id: `${pattern.id}:${index}`, es: example.es, romaji: example.romaji, tokens, target });
     });

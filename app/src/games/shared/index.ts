@@ -4,3 +4,4 @@ export { GameFrame } from './GameFrame';
 export { TypingRound, type Verdict } from './TypingRound';
 export { useGameSession, type GameSession } from './useGameSession';
 export { useQuestionPicker } from './useQuestionPicker';
+export { TypingHint } from './TypingHint';

@@ -1,6 +1,8 @@
-import { content } from '../domain/contentLoader';
+import { curriculum as lightCurriculum } from '../domain/curriculumContent';
 import type { GameId, KanaEntry, Kanji, Lesson, Word } from '../domain/schema';
-import { filterReadable, isReadableWith, unlockedKanaForLessons } from '../engine';
+import { filterReadable, isReadableWith, unlockedKanaForLessons } from '../engine/kanaFilter';
+import { candidateFromItem, candidateWeight } from '../engine/picker';
+import { itemKey, type Progress } from '../state/progressSchema';
 import { isImplemented } from '../games/registry';
 import { emptyStats, type GameStats } from '../games/types';
 import { useProgress } from '../state/progressStore';
@@ -120,7 +122,7 @@ export function finishLesson(lesson: Lesson, stats: GameStats): { passed: boolea
 }
 
 /** Makes sure every completed lesson's kana are in knownKana (e.g. after importing progress). */
-export function syncKnownKana(curriculum: readonly Lesson[] = content.curriculum): void {
+export function syncKnownKana(curriculum: readonly Lesson[] = lightCurriculum): void {
   const { completedLessons, knownKana, unlockKana } = useProgress.getState();
   const unlocked = unlockedKanaForLessons(curriculum, completedLessons);
   if ([...unlocked].some((k) => !knownKana.includes(k))) unlockKana(unlocked);
@@ -133,7 +135,7 @@ export function unlockedKanjiForLessons(curriculum: readonly Lesson[], completed
 }
 
 /** Makes sure every completed lesson's kanji are unlocked (e.g. after importing progress). Existing SRS progress is kept. */
-export function syncKnownKanji(curriculum: readonly Lesson[] = content.curriculum): void {
+export function syncKnownKanji(curriculum: readonly Lesson[] = lightCurriculum): void {
   const { completedLessons, unlockedKanji, unlockKanji } = useProgress.getState();
   const unlocked = unlockedKanjiForLessons(curriculum, completedLessons);
   if ([...unlocked].some((k) => !unlockedKanji.includes(k))) unlockKanji(unlocked);
@@ -189,7 +191,7 @@ export function stage3Words(words: readonly Word[], known: ReadonlySet<string>):
 export function lessonContent(
   lesson: Lesson,
   knownKana: ReadonlySet<string>,
-  data: { kana: readonly KanaEntry[]; vocab: readonly Word[]; curriculum: readonly Lesson[]; kanji?: readonly Kanji[] } = content,
+  data: { kana: readonly KanaEntry[]; vocab: readonly Word[]; curriculum: readonly Lesson[]; kanji?: readonly Kanji[] },
 ): LessonContent {
   const newKana = lesson.kana ?? [];
   const kana = data.kana.filter((k) => newKana.includes(k.char));
@@ -211,4 +213,31 @@ export function lessonContent(
           ? kanjiLessonWords(unique, [...ancestors(lesson, data.curriculum), lesson].flatMap((l) => l.kanji ?? []))
           : unique;
   return { kana, words, newKana: [...newKana], kanji, newKanji: [...newKanji] };
+}
+
+/** Words used per run of a loanword lesson (the lessons gather 22-40). */
+export const MAX_LESSON_WORDS = 14;
+
+/**
+ * At most `max` words for one lesson run, drawn without replacement with the picker's weights (new, low-SRS and
+ * often-missed words are likelier), keeping the lesson's own order. Lists that already fit are returned unchanged.
+ * The content is untouched: another run of the lesson draws another sample.
+ */
+export function sampleWords(
+  words: readonly Word[],
+  max: number = MAX_LESSON_WORDS,
+  items: Progress['items'] = useProgress.getState().items,
+  rng: () => number = Math.random,
+): Word[] {
+  if (words.length <= max) return [...words];
+  const left = words.map((word) => ({ ...candidateFromItem(word.id, items[itemKey('word', word.id)]), word }));
+  const chosen = new Set<string>();
+  while (chosen.size < max) {
+    const weights = left.map((c) => (chosen.has(c.id) ? 0 : candidateWeight(c, left.length)));
+    let ticket = rng() * weights.reduce((a, b) => a + b, 0);
+    let index = weights.findIndex((w) => (ticket -= w) < 0);
+    if (index < 0) index = weights.findLastIndex((w) => w > 0);
+    chosen.add(left[index]!.id);
+  }
+  return words.filter((w) => chosen.has(w.id));
 }

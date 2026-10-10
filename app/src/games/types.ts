@@ -1,4 +1,4 @@
-import type { Dialogue, KanaEntry, Kanji, SentencePattern, Word } from '../domain/schema';
+import type { KanaEntry, Kanji, SentencePattern, Word } from '../domain/schema';
 
 /** Per-item tally of one game session. */
 export interface ItemTally {
@@ -37,10 +37,14 @@ export interface GameProps {
   lessonId?: string;
   /** Sentence patterns of the lesson (syntax, particles, mini-reading). */
   patterns?: SentencePattern[];
-  /** Dialogues of the lesson. */
-  dialogues?: Dialogue[];
-  /** Dialogues of the lesson (ids from dialogues.json); the dialogues game plays these. Optional: without it the game infers them from `words`. */
+  /** Dialogues to play (ids from dialogues.json): the lesson's, or the due ones in a review. Without it the dialogues game infers them from `words`. */
   dialogueIds?: readonly string[];
+  /**
+   * Review sessions: restrict the question pool to these progress item ids (the ids the game records,
+   * e.g. `svo-masu:2` in syntax, `particle:wa:0` in particles, `verb:taberu:te` in conjugation).
+   * Ignored by games whose questions are generated at random (numbers, clock, calendar).
+   */
+  onlyItems?: readonly string[];
   /** Called once with the session stats when the rounds are over (or the learner ends the session). */
   onFinish?: (stats: GameStats) => void;
 }

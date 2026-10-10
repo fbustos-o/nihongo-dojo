@@ -1,4 +1,4 @@
-import type { ZodType } from 'zod';
+import { parseList } from './parseList';
 import {
   DialogueSchema,
   KanaEntrySchema,
@@ -23,34 +23,6 @@ export interface Content {
   curriculum: Lesson[];
   /** Free-form until E2 defines its shape. */
   numbers: unknown;
-}
-
-/**
- * Validates a JSON list item by item: valid entries are kept, invalid ones are
- * dropped with a console warning. A missing file or a non-array yields [].
- */
-function parseList<T>(file: string, schema: ZodType<T>, raw: unknown): T[] {
-  if (raw === undefined) return [];
-  if (!Array.isArray(raw)) {
-    console.warn(`[content] ${file}: se esperaba un arreglo; se ignora el archivo.`);
-    return [];
-  }
-  const valid: T[] = [];
-  let firstError: string | undefined;
-  let invalid = 0;
-  for (const [index, item] of raw.entries()) {
-    const result = schema.safeParse(item);
-    if (result.success) {
-      valid.push(result.data);
-    } else {
-      invalid += 1;
-      firstError ??= `#${index}: ${result.error.issues[0]?.path.join('.')} ${result.error.issues[0]?.message}`;
-    }
-  }
-  if (invalid > 0) {
-    console.warn(`[content] ${file}: ${invalid} entradas inválidas descartadas (primera ${firstError}).`);
-  }
-  return valid;
 }
 
 /** Builds the typed content object from a map of `<name>.json` file contents. */

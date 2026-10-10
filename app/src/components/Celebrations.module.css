@@ -1,0 +1,70 @@
+.region {
+  position: fixed;
+  top: 0.75rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 24rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+}
+
+.icon {
+  font-size: 1.4rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-size: 0.95rem;
+}
+
+.text .muted {
+  font-size: 0.8rem;
+}
+
+.close {
+  font: inherit;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toast {
+    animation: pop 0.35s ease-out;
+  }
+
+  @keyframes pop {
+    from {
+      transform: translateY(-1rem) scale(0.95);
+      opacity: 0;
+    }
+
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}

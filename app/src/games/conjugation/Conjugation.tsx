@@ -4,7 +4,7 @@ import { KanaInput } from '../../components/KanaInput';
 import { content } from '../../domain/contentLoader';
 import type { Word } from '../../domain/schema';
 import { checkAnswer } from '../../engine';
-import { Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type GameSession } from '../shared';
+import { Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type GameSession } from '../shared';
 import shared from '../shared/games.module.css';
 import { shuffle } from '../kanaUtils';
 import type { GameProps } from '../types';
@@ -15,6 +15,7 @@ import {
   CATEGORY_LABELS,
   acceptedFor,
   conjEntries,
+  entriesFromIds,
   conjugableWords,
   entryId,
   formLabel,
@@ -37,8 +38,10 @@ const TABLE_ROWS = 4;
  * teacher's grid (verbs x forms). The forms that appear depend on the lesson (see `formsForLesson`);
  * in free practice the learner picks them.
  */
-export function Conjugation({ words, rounds, sequential, lessonId, patterns, onFinish }: GameProps) {
+export function Conjugation({ words, rounds, sequential, lessonId, patterns, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
+  // Review of due items: a fixed pool, no toolbar.
+  const reviewPool = useMemo(() => (onlyItems ? entriesFromIds(onlyItems, content.vocab) : []), [onlyItems]);
   const free = lessonId === undefined;
   const config = useMemo(() => formsForLesson(lessonId, patterns?.map((p) => p.id)), [lessonId, patterns]);
   const pools = useMemo(() => {
@@ -55,6 +58,13 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onF
   const [chosen, setChosen] = useState<Category | null>(null);
   const [selected, setSelected] = useState<FormConfig>(() => ({ ...ALL_FORMS, verb: ALL_FORMS.verb.slice(0, 4) }));
 
+  if (reviewPool.length > 0) {
+    return (
+      <GameFrame session={session}>
+        <QuizPane key="review" category={reviewPool[0]!.category} words={[]} forms={[]} session={session} sequential={sequential} fixedPool={reviewPool} />
+      </GameFrame>
+    );
+  }
   if (categories.length === 0) return <p className="muted">No hay palabras para conjugar todavía.</p>;
   const category = chosen && categories.includes(chosen) ? chosen : categories[0]!;
   const forms: AnyForm[] = free ? selected[category] : config[category];
@@ -114,13 +124,14 @@ interface PaneProps {
   session: GameSession;
 }
 
-function QuizPane({ category, words, forms, session, sequential }: PaneProps & { sequential?: boolean }) {
-  const pool = useMemo(() => conjEntries(words, category, forms), [words, category, forms]);
+function QuizPane({ words, forms, session, sequential, fixedPool, ...rest }: PaneProps & { sequential?: boolean; fixedPool?: ConjEntry[] }) {
+  const pool = useMemo(() => fixedPool ?? conjEntries(words, rest.category, forms), [fixedPool, words, rest.category, forms]);
   const pick = useQuestionPicker('word', sequential);
   const [entry, setEntry] = useState<ConjEntry>(() => pick(pool));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
 
   const { word, form } = entry;
+  const category = entry.category;
   const accepted = acceptedFor(word, category, form);
   const hint = ruleHint(word, category, form);
   const primary = readingFor(word, category, form).kana;
@@ -139,6 +150,7 @@ function QuizPane({ category, words, forms, session, sequential }: PaneProps & {
             <p className={styles.formName} data-testid="form-label">
               {formLabel(category, form)}
             </p>
+            <TypingHint text={primary} />
           </>
         }
         answer={

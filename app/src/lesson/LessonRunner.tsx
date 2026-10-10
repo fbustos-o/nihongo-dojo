@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { JaText } from '../components/JaText';
 import { SpeakButton } from '../components/SpeakButton';
@@ -6,8 +6,9 @@ import { content } from '../domain/contentLoader';
 import type { Lesson } from '../domain/schema';
 import { CONFUSABLE_GROUPS } from '../games/confusables';
 import { kanaHint, romajiLabel } from '../games/kanaUtils';
-import { getGame } from '../games/registry';
-import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
+import { getGame, preloadGame } from '../games/registry';
+import { Loading } from '../components/Loading';
+import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, sampleWords, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
 import type { GameStats } from '../games/types';
 import { ExtraKanaContext, ExtraKanjiContext } from '../state/extraKana';
 import { KanjiIntro } from './KanjiIntro';
@@ -67,9 +68,12 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
   const knownKana = useProgress((s) => s.knownKana);
 
   // Snapshot of the lesson's material, fixed for the whole run so unlocking at the end does not reshuffle it.
-  const [data] = useState(() => lessonContent(lesson, new Set(useProgress.getState().knownKana)));
+  const [data] = useState(() => {
+    const full = lessonContent(lesson, new Set(useProgress.getState().knownKana), content);
+    // loanword lessons gather 22-40 words: a weighted sample is practised per run
+    return lesson.stage === 3 ? { ...full, words: sampleWords(full.words) } : full;
+  });
   const lessonPatterns = useMemo(() => content.patterns.filter((p) => lesson.patterns?.includes(p.id)), [lesson]);
-  const lessonDialogues = useMemo(() => content.dialogues.filter((d) => lesson.dialogues?.includes(d.id)), [lesson]);
   const games = useMemo(
     () =>
       playableGames(lesson).filter((id) => {
@@ -98,6 +102,11 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
       setPhase('result');
     }
   };
+
+  // warm up the game chunks while the learner reads the intro
+  useEffect(() => {
+    games.forEach(preloadGame);
+  }, [games]);
 
   const gameId = games[gameIndex];
   const game = gameId ? getGame(gameId) : undefined;
@@ -128,6 +137,7 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
             <p className="muted">
               Juego {gameIndex + 1} de {games.length}: <strong>{game.name}</strong> — {game.description}
             </p>
+            <Suspense fallback={<Loading label="Cargando juego…" />}>
             <Game
               key={`${run}-${gameId}`}
               kana={data.kana}
@@ -138,10 +148,10 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
               dialogueIds={lesson.dialogues}
               lessonId={lesson.id}
               patterns={lessonPatterns}
-              dialogues={lessonDialogues}
               rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
               onFinish={onGameFinish}
             />
+            </Suspense>
           </>
         )}
 

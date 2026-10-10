@@ -231,7 +231,7 @@ function counterVariants(n: number, spec: CounterSpec): string[] {
  * - 'nin' people: ひとり, ふたり, さんにん, よにん, …
  * - 'kai' floors (階): いっかい, にかい, さんがい, よんかい, ろっかい, はっかい (alt はちかい), じゅっかい
  * - 'times' occurrences (回): like 'kai' but さんかい
- * - 'sai' age: いっさい, はっさい, じゅっさい, 20 -> にじゅっさい (alt はたち)
+ * - 'sai' age: いっさい, はっさい, じゅっさい, 20 -> はたち (alts にじゅっさい, にじっさい)
  * - 'hon' long objects, 'mai' flat objects, 'fun' minutes, 'ji' o'clock.
  */
 export function readCounter(n: number, counter: Counter): Reading {
@@ -242,7 +242,8 @@ export function readCounter(n: number, counter: Counter): Reading {
   }
   const spec = SPECS[counter];
   const [primary, ...alts] = counterVariants(n, spec) as [string, ...string[]];
-  if (counter === 'sai' && n === 20) alts.push('はたち');
+  // 20 years old is normally はたち; the regular readings stay accepted.
+  if (counter === 'sai' && n === 20) return makeReading('はたち', [...new Set([primary, ...alts])]);
   return makeReading(primary, alts);
 }
 

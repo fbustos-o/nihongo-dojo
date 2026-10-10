@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { DailySchema } from './daily';
 
 export const STORAGE_KEY = 'nihongo-dojo:v1';
 export const PROGRESS_VERSION = 1;
@@ -51,6 +52,8 @@ export const ProgressSchema = z.object({
     lastStudyDate: z.string().nullable(),
     count: z.number().int().min(0),
   }),
+  /** Per-date activity counters (reviews, lessons, correct, wrong). Absent in old saves. */
+  daily: DailySchema.default({}),
   settings: SettingsSchema,
 });
 export type Progress = z.infer<typeof ProgressSchema>;
@@ -67,6 +70,7 @@ export function createInitialProgress(): Progress {
     completedLessons: [],
     xp: 0,
     streak: { lastStudyDate: null, count: 0 },
+    daily: {},
     settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto' },
   };
 }

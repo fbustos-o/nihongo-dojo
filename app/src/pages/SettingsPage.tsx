@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { SpeakButton } from '../components/SpeakButton';
+import { useSpeech } from '../hooks/useSpeech';
 import { FuriganaModeSchema, ThemeSchema, type Theme } from '../state/progressSchema';
 import { downloadProgress } from '../state/download';
 import { useProgress } from '../state/progressStore';
@@ -21,6 +22,7 @@ export function SettingsPage() {
   const updateSettings = useProgress((s) => s.updateSettings);
   const importProgress = useProgress((s) => s.importProgress);
   const resetProgress = useProgress((s) => s.resetProgress);
+  const { available: hasVoice } = useSpeech();
   const fileInput = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<{ text: string; error: boolean } | null>(null);
   const [confirmingReset, setConfirmingReset] = useState(false);
@@ -85,6 +87,12 @@ export function SettingsPage() {
           </label>
           <SpeakButton text="こんにちは。日本語を勉強しましょう。" label="Probar voz" />
         </div>
+        {!hasVoice && (
+          <p className="muted" role="note" data-testid="no-voice">
+            Tu navegador no tiene una voz en japonés, así que el audio no está disponible. Instala una (por ejemplo en los ajustes de
+            idioma del sistema, «Japonés») y recarga la página. Mientras tanto, los juegos de escucha muestran el romaji.
+          </p>
+        )}
       </section>
 
       <section className="card">

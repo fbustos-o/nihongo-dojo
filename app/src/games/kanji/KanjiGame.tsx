@@ -4,12 +4,13 @@ import { content } from '../../domain/contentLoader';
 import type { Kanji, Word } from '../../domain/schema';
 import { checkAnswer } from '../../engine';
 import { useProgress } from '../../state/progressStore';
-import { ChoiceRound, Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
+import { ChoiceRound, Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
 import local from './kanji.module.css';
 import {
   kanjiOptions,
+  kanjiToCredit,
   kanjiWordsFor,
   meaningOptions,
   meaningText,
@@ -41,6 +42,7 @@ const wordItemId = (word: Word): string => `${word.id}:kanji`;
 export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const unlocked = useProgress((s) => s.unlockedKanji);
+  const [credited] = useState(() => new Set<string>());
   const pickKanji = useQuestionPicker('kanji', sequential);
   const pickWord = useQuestionPicker('word', sequential);
 
@@ -114,9 +116,18 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
     session.next();
     setRound(make(session.round + 1));
   };
-  const report = (id: string, kind: 'kanji' | 'word', label: string) => (ok: boolean) => {
+  const report = (id: string, kind: 'kanji' | 'word', label: string, word?: Word) => (ok: boolean) => {
     setLast(null);
     session.report(id, kind, label, ok);
+    // Partial credit: a word answered right first time counts once per session as a correct review of each
+    // unlocked kanji in it. A wrong answer never penalises the kanji.
+    if (ok && word) {
+      const { unlockedKanji, recordAnswer } = useProgress.getState();
+      for (const char of kanjiToCredit(word, unlockedKanji, credited)) {
+        credited.add(char);
+        recordAnswer(char, 'kanji', true, { partial: true });
+      }
+    }
   };
 
   let body: ReactNode;
@@ -173,6 +184,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
               </span>
               <div className={styles.hint}>{w.es[0]}</div>
               <div className={styles.hint}>Escribe cómo se lee (en kana)</div>
+              <TypingHint text={w.kana} />
             </>
           }
           answer={
@@ -187,7 +199,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
           inputMode="hiragana"
           ariaLabel="Lectura en kana"
           placeholder="かな"
-          onReport={report(wordItemId(w), 'word', w.kanji ?? w.kana)}
+          onReport={report(wordItemId(w), 'word', w.kanji ?? w.kana, w)}
           onDone={(firstTry) => advance(firstTry, `¡Correcto! ${w.kanji} = ${w.kana} (${w.es[0]})`)}
         />
       );
@@ -213,7 +225,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
           }
           small
           options={round.options.map((o) => ({ key: o.text, content: o.text, correct: o.correct }))}
-          onReport={report(wordItemId(sentence.target), 'word', sentence.target.kanji ?? sentence.target.kana)}
+          onReport={report(wordItemId(sentence.target), 'word', sentence.target.kanji ?? sentence.target.kana, sentence.target)}
           onDone={(firstTry) =>
             advance(firstTry, `¡Correcto! ${sentence.target.kana} ahora se escribe ${sentence.target.kanji}. ${sentence.es}`)
           }

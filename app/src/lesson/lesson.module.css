@@ -10,6 +10,13 @@
   margin: 0;
 }
 
+.header a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+}
+
 .steps {
   display: flex;
   gap: 0.5rem;
@@ -174,9 +181,34 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+/* The path: a vertical rail connects the nodes of a stage; completed stretches are green. */
+.pathStep {
+  position: relative;
+  padding: 0 0 0.6rem 2.4rem;
+}
+
+.pathStep::before {
+  content: '';
+  position: absolute;
+  left: 0.95rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--border);
+}
+
+.pathStep:first-child::before {
+  top: 1.6rem;
+}
+
+.pathStep:last-child::before {
+  bottom: calc(100% - 1.6rem);
+}
+
+.pathStepDone::before {
+  background: var(--ok);
 }
 
 .node {
@@ -190,6 +222,37 @@
   color: var(--text);
   text-decoration: none;
   min-height: 3.2rem;
+  position: relative;
+}
+
+/* round marker sitting on the rail */
+.node::before {
+  content: '';
+  position: absolute;
+  left: -1.95rem;
+  top: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: -0.55rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 3px solid var(--border);
+}
+
+.nodeDone::before {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+
+.nodeCurrent {
+  border: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+}
+
+.nodeCurrent::before {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 a.node:hover {
@@ -238,6 +301,8 @@ a.node:hover {
 }
 
 .chip {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   font: inherit;
   font-family: var(--font-ja);
   padding: 0.15rem 0.6rem;

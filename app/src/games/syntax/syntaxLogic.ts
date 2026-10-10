@@ -1,23 +1,10 @@
-import patternsRaw from '../../content/patterns.json';
-import type { SentencePattern } from '../../domain/schema';
+import type { PatternExample, SentencePattern } from '../../domain/schema';
 import { shuffle } from '../kanaUtils';
 
-/** One example sentence of a pattern (patterns.json `examples`; the zod schema does not carry them). */
-export interface PatternExample {
-  es: string;
-  /** Kana with spaces between particles / bunsetsu, ending in 。 or ？. */
-  ja: string;
-  romaji: string;
-}
+export type { PatternExample };
 
-type PatternWithExamples = SentencePattern & { examples?: PatternExample[] };
-
-const RAW_EXAMPLES: Map<string, PatternExample[]> = new Map(
-  (patternsRaw as { id: string; examples?: PatternExample[] }[]).map((p) => [p.id, p.examples ?? []]),
-);
-
-/** Examples of a pattern: its own `examples` if present, else those of patterns.json. */
-export const examplesOf = (pattern: SentencePattern): PatternExample[] => (pattern as PatternWithExamples).examples ?? RAW_EXAMPLES.get(pattern.id) ?? [];
+/** Examples of a pattern (validated content: `SentencePatternSchema.examples`). */
+export const examplesOf = (pattern: SentencePattern): PatternExample[] => pattern.examples ?? [];
 
 /** Particles offered as tiles / blanks in the games. */
 export const BASE_PARTICLES = ['は', 'を', 'に', 'で', 'へ', 'も', 'の', 'と', 'が', 'か'] as const;

@@ -1,0 +1,191 @@
+.levelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.levelHead h2 {
+  margin: 0;
+}
+
+.bar {
+  height: 0.65rem;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barFill {
+    transition: none;
+  }
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.dayOn .dot {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: var(--surface);
+}
+
+.dayToday {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.dayToday .dot:not(:empty) {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ok);
+}
+
+.big {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.chips li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.lessonTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.stats dt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.srs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.srs li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  border-top-width: 4px;
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.srs strong {
+  font-size: 1.3rem;
+}
+
+.srsAprendiz {
+  border-top-color: #d9822b;
+}
+
+.srsGuru {
+  border-top-color: #2e9d6a;
+}
+
+.srsMaestro {
+  border-top-color: #3b7dd8;
+}
+
+.srsIluminado {
+  border-top-color: #8a4fd0;
+}
+
+.srsQuemado {
+  border-top-color: var(--text-muted);
+}
+
+.stages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .srs li {
+    font-size: 0.85rem;
+  }
+}

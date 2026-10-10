@@ -138,7 +138,7 @@ describe('lessonContent in stage 3', () => {
   it('offers only katakana words readable with known + lesson katakana, never plain hiragana words', () => {
     for (const l of stage(3)) {
       const k = known(l);
-      const data = lessonContent(l, k);
+      const data = lessonContent(l, k, content);
       const all = new Set([...k, ...(l.kana ?? [])]);
       for (const w of data.words) {
         expect(w.kana).toMatch(/[ァ-ヺ]/);
@@ -149,7 +149,7 @@ describe('lessonContent in stage 3', () => {
 
   it('k-ta gets its own katakana words and those of earlier lessons, not katakana it has not met', () => {
     const l = lesson('k-ta');
-    const data = lessonContent(l, known(l));
+    const data = lessonContent(l, known(l), content);
     const kana = data.words.map((w) => w.kana);
     expect(kana).toEqual(expect.arrayContaining(l.words!.map((id) => byId.get(id)!.kana)));
     expect(kana.every((k) => !/[ナニヌネノハヒフヘホ]/.test(k))).toBe(true);
@@ -158,7 +158,7 @@ describe('lessonContent in stage 3', () => {
   it('keeps mixed-script words in loanword lessons', () => {
     const l = lesson('k-prestamos-ocio');
     const k = new Set([...hiraganaAll, ...kataLessons.flatMap((x) => x.kana!)]);
-    const words = lessonContent(l, k).words.map((w) => w.kana);
+    const words = lessonContent(l, k, content).words.map((w) => w.kana);
     expect(words).toContain('テニスをする');
   });
 });

@@ -59,22 +59,22 @@ describe('App shell', () => {
         <App />
       </MemoryRouter>,
     );
-    await userEvent.click(screen.getByRole('button', { name: 'Reiniciar progreso' }));
+    await userEvent.click(await screen.findByRole('button', { name: 'Reiniciar progreso' }));
     expect(useProgress.getState().knownKana).toEqual(['あ']);
     await userEvent.click(screen.getByRole('button', { name: 'Sí, borrar todo' }));
     expect(useProgress.getState().knownKana).toEqual([]);
   });
 
-  it('lists the main sections', () => {
+  it('lists the main sections', async () => {
     render(
       <MemoryRouter initialEntries={['/camino']}>
         <App />
       </MemoryRouter>,
     );
-    for (const name of ['Inicio', 'Camino', 'Práctica', 'Ajustes', 'Acerca de']) {
+    for (const name of ['Inicio', 'Camino', 'Repaso', 'Práctica', 'Ajustes', 'Acerca de']) {
       expect(screen.getByRole('link', { name: new RegExp(name) })).toBeInTheDocument();
     }
-    expect(screen.getByRole('heading', { name: 'Camino' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Camino' })).toBeInTheDocument();
   });
 });
 

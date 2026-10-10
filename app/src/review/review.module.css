@@ -1,0 +1,62 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.head h1 {
+  margin: 0;
+}
+
+.head a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+}
+
+.plan {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.summary {
+  text-align: center;
+}
+
+.summary .actions {
+  justify-content: center;
+}
+
+.score {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ok);
+}
+
+.weak {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.weak li {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-family: var(--font-ja);
+}

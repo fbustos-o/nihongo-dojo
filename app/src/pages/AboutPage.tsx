@@ -12,7 +12,7 @@ export function AboutPage() {
         <ul>
           <li>
             Datos de vocabulario y kanji derivados de <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a>{' '}
-            (EDRDG), bajo licencia CC BY-SA 4.0.
+            y KANJIDIC (EDRDG), bajo licencia CC BY-SA 4.0; parecidos de kanji de Kanjium.
           </li>
           <li>
             Ideas y datos de kana de <a href="https://github.com/vedxyz/kana">vedxyz/kana</a> (licencia MIT).

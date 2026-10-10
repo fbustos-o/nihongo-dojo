@@ -3,7 +3,7 @@ import { JaText } from '../../components/JaText';
 import { checkAnswer } from '../../engine';
 import type { Word } from '../../domain/schema';
 import { useProgress } from '../../state/progressStore';
-import { ChoiceRound, Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
+import { ChoiceRound, Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
 import { meaningChoices, meaningOf } from '../wordUtils';
@@ -84,6 +84,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
             <>
               {shown}
               <div className={styles.hint}>Escribe cómo se lee (romaji)</div>
+              <TypingHint text={word.kana} />
             </>
           }
           answer={
