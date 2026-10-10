@@ -65,6 +65,8 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
 
   // Snapshot of the lesson's material, fixed for the whole run so unlocking at the end does not reshuffle it.
   const [data] = useState(() => lessonContent(lesson, new Set(useProgress.getState().knownKana)));
+  const lessonPatterns = useMemo(() => content.patterns.filter((p) => lesson.patterns?.includes(p.id)), [lesson]);
+  const lessonDialogues = useMemo(() => content.dialogues.filter((d) => lesson.dialogues?.includes(d.id)), [lesson]);
   const games = useMemo(
     () =>
       playableGames(lesson).filter((id) => {
@@ -126,6 +128,10 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
             kana={data.kana}
             words={data.words}
             newKana={data.newKana}
+            dialogueIds={lesson.dialogues}
+            lessonId={lesson.id}
+            patterns={lessonPatterns}
+            dialogues={lessonDialogues}
             rounds={roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
             onFinish={onGameFinish}
           />

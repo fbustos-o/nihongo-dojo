@@ -1,0 +1,116 @@
+.structure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.slot {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.sentence {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  margin: 0;
+}
+
+.area,
+.bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 36rem;
+  padding: 0.6rem;
+  border-radius: 0.6rem;
+}
+
+.area {
+  min-height: 4.2rem;
+  border: 2px dashed var(--border);
+  align-items: center;
+}
+
+.areaEmpty {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.tile {
+  font: inherit;
+  font-family: var(--font-ja);
+  font-size: 1.35rem;
+  min-height: 2.9rem;
+  min-width: 2.9rem;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tile:hover:not(:disabled),
+.tile:focus-visible {
+  border-color: var(--accent);
+}
+
+.tile:disabled {
+  cursor: default;
+}
+
+.particleTile {
+  border-style: dashed;
+}
+
+.used {
+  visibility: hidden;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.7rem;
+  text-align: center;
+}
+
+.table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.ja {
+  font-family: var(--font-ja);
+  font-size: 1.3rem;
+}
+
+.verb {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  font-weight: 700;
+}

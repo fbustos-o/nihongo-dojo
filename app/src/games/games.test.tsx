@@ -18,9 +18,10 @@ const user = () => userEvent.setup({ delay: null });
 beforeEach(() => useProgress.getState().resetProgress());
 
 describe('registry', () => {
-  it('implements the four stage 1 games and describes every game in Spanish', () => {
-    expect(implementedGameIds().sort()).toEqual(['kana-recognize', 'kana-write', 'listen', 'read-words']);
-    expect(isImplemented('syntax')).toBe(false);
+  it('implements the stage 1 games and describes every game in Spanish', () => {
+    expect(implementedGameIds()).toEqual(expect.arrayContaining(['kana-recognize', 'kana-write', 'listen', 'read-words']));
+    expect(isImplemented('syntax')).toBe(true);
+    expect(isImplemented('kanji')).toBe(false);
     for (const meta of Object.values(GAME_REGISTRY)) {
       expect(meta.name).not.toBe('');
       expect(meta.description).not.toBe('');

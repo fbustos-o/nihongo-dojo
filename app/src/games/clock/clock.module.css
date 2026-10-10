@@ -1,0 +1,12 @@
+.clock { width: min(100%, 16rem); height: auto; display: block; margin: 0 auto; }
+.face { fill: var(--surface); stroke: var(--text); stroke-width: 3; }
+.tick { stroke: var(--text-muted); stroke-width: 1; }
+.tickMajor { stroke: var(--text); stroke-width: 2.5; }
+.numeral { fill: var(--text); font-size: 15px; font-weight: 600; font-family: var(--font-ja, sans-serif); }
+.hourHand { stroke: var(--text); stroke-width: 6; stroke-linecap: round; }
+.minuteHand { stroke: var(--accent); stroke-width: 4; stroke-linecap: round; }
+.hub { fill: var(--text); }
+.controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; width: 100%; max-width: 28rem; }
+.controls button { min-height: 2.75rem; }
+.caption { margin: 0.25rem 0; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.kana { font-size: 1.6rem; margin: 0.25rem 0; }

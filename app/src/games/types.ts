@@ -1,4 +1,4 @@
-import type { KanaEntry, Word } from '../domain/schema';
+import type { Dialogue, KanaEntry, SentencePattern, Word } from '../domain/schema';
 
 /** Per-item tally of one game session. */
 export interface ItemTally {
@@ -29,6 +29,14 @@ export interface GameProps {
   rounds?: number;
   /** Go through `kana`/`words` in order instead of using the weighted picker (review queue). */
   sequential?: boolean;
+  /** Id of the lesson being played (conjugation maps it to the allowed forms). Undefined = free practice. */
+  lessonId?: string;
+  /** Sentence patterns of the lesson (syntax, particles, mini-reading). */
+  patterns?: SentencePattern[];
+  /** Dialogues of the lesson. */
+  dialogues?: Dialogue[];
+  /** Dialogues of the lesson (ids from dialogues.json); the dialogues game plays these. Optional: without it the game infers them from `words`. */
+  dialogueIds?: readonly string[];
   /** Called once with the session stats when the rounds are over (or the learner ends the session). */
   onFinish?: (stats: GameStats) => void;
 }

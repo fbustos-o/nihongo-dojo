@@ -1,0 +1,1 @@
+export { MiniReading } from './MiniReading';
