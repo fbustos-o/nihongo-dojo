@@ -1,0 +1,255 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.steps {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.stepActive {
+  border-color: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.introCard {
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+
+.bigKana {
+  font-family: var(--font-ja);
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.romaji {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.chartRow {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.chartLabel {
+  width: 2.8rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: right;
+  flex: none;
+}
+
+.cell {
+  min-width: 2.6rem;
+  padding: 0.25rem 0.3rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  font-family: var(--font-ja);
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.cellNew {
+  border: 2px solid var(--accent);
+  color: var(--text);
+  font-weight: 700;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+
+.cellKnown {
+  color: var(--text);
+}
+
+.chartScroll {
+  overflow-x: auto;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.score {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.pass {
+  color: var(--ok);
+}
+
+.fail {
+  color: var(--danger);
+}
+
+.weak {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.weak li {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-family: var(--font-ja);
+}
+
+/* Path */
+.stage {
+  margin-bottom: 1.5rem;
+}
+
+.stageHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stageHead h2 {
+  margin: 0;
+}
+
+.stageBar {
+  flex: 1 1 8rem;
+  max-width: 16rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.stageBarFill {
+  height: 100%;
+  background: var(--ok);
+}
+
+.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.node {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  min-height: 3.2rem;
+}
+
+a.node:hover {
+  border-color: var(--accent);
+}
+
+.nodeLocked {
+  opacity: 0.55;
+}
+
+.nodeDone {
+  border-color: var(--ok);
+}
+
+.nodeIcon {
+  font-size: 1.3rem;
+  flex: none;
+  width: 1.6rem;
+  text-align: center;
+}
+
+.nodeBody {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nodeState {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Practice page */
+.fieldset {
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.chip {
+  font: inherit;
+  font-family: var(--font-ja);
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chipOn {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+  font-weight: 700;
+}

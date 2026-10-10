@@ -112,5 +112,7 @@ export const KanaEntrySchema = z.object({
   script: z.enum(['hiragana', 'katakana']),
   row: z.string(),
   group: z.enum(['gojuon', 'dakuten', 'handakuten', 'yoon', 'extended']),
+  /** Extra accepted IME romaji (e.g. を: wo). */
+  alt: z.array(z.string()).optional(),
 });
 export type KanaEntry = z.infer<typeof KanaEntrySchema>;

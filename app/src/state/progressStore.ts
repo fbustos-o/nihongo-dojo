@@ -1,4 +1,5 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
+import { ExtraKanaContext } from './extraKana';
 import { create } from 'zustand';
 import type { UnlockState } from '../domain/renderPlan';
 import { loadProgress, parseProgress, saveProgress } from './persistence';
@@ -90,11 +91,12 @@ export function useUnlockState(): UnlockState {
   const knownKana = useProgress((s) => s.knownKana);
   const unlockedKanji = useProgress((s) => s.unlockedKanji);
   const items = useProgress((s) => s.items);
+  const extraKana = useContext(ExtraKanaContext);
   return useMemo(
     () => ({
-      knownKana: new Set(knownKana),
+      knownKana: new Set([...knownKana, ...extraKana]),
       kanji: new Map(unlockedKanji.map((char) => [char, items[itemKey('kanji', char)]?.srsStage ?? 0])),
     }),
-    [knownKana, unlockedKanji, items],
+    [knownKana, extraKana, unlockedKanji, items],
   );
 }

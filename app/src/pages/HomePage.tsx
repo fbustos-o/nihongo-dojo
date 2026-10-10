@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom';
 import { content } from '../domain/contentLoader';
+import { computePathNodes, nextLesson } from '../lesson/lessonLogic';
 import { useProgress } from '../state/progressStore';
 
 export function HomePage() {
   const xp = useProgress((s) => s.xp);
   const streak = useProgress((s) => s.streak.count);
-  const completed = useProgress((s) => s.completedLessons.length);
+  const completedIds = useProgress((s) => s.completedLessons);
+  const completed = completedIds.length;
+  const next = nextLesson(computePathNodes(content.curriculum, completedIds));
 
   return (
     <>
@@ -20,7 +24,16 @@ export function HomePage() {
       </section>
       <section className="card">
         <h2>Hoy</h2>
-        <p className="muted">Aquí aparecerá la cola de repasos y la siguiente lección (próximamente).</p>
+        {next ? (
+          <p>
+            Siguiente lección: <Link to={`/leccion/${next.id}`}>{next.title}</Link>
+          </p>
+        ) : (
+          <p className="muted">No hay lecciones disponibles por ahora.</p>
+        )}
+        <p>
+          <Link to="/practica">Ir a la práctica y los repasos</Link>
+        </p>
       </section>
     </>
   );

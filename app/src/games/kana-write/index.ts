@@ -1,0 +1,1 @@
+export { KanaWrite } from './KanaWrite';

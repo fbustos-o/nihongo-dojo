@@ -39,6 +39,14 @@ export function SettingsPage() {
           />
           Mostrar romaji como ayuda
         </label>
+        <label className="row">
+          <input
+            type="checkbox"
+            checked={settings.sound}
+            onChange={(e) => updateSettings({ sound: e.target.checked })}
+          />
+          Efectos de sonido en los juegos
+        </label>
       </section>
 
       <section className="card">

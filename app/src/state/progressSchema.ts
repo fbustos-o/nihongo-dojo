@@ -28,6 +28,8 @@ export type Theme = z.infer<typeof ThemeSchema>;
 export const SettingsSchema = z.object({
   showRomaji: z.boolean(),
   ttsRate: z.number().min(0.5).max(1.5),
+  /** Sound effects in games. Off by default. */
+  sound: z.boolean().default(false),
   theme: ThemeSchema,
 });
 export type Settings = z.infer<typeof SettingsSchema>;
@@ -61,6 +63,6 @@ export function createInitialProgress(): Progress {
     completedLessons: [],
     xp: 0,
     streak: { lastStudyDate: null, count: 0 },
-    settings: { showRomaji: true, ttsRate: 0.9, theme: 'system' },
+    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system' },
   };
 }

@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { content } from './domain/contentLoader';
+import { LessonRunner } from './lesson/LessonRunner';
+import { syncKnownKana } from './lesson/lessonLogic';
 import { Layout } from './components/Layout';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
@@ -17,11 +20,15 @@ export function App() {
     else root.dataset.theme = theme;
   }, [theme]);
 
+  const completedCount = useProgress((s) => s.completedLessons.length);
+  useEffect(() => syncKnownKana(content.curriculum), [completedCount]);
+
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="camino" element={<PathPage />} />
+        <Route path="leccion/:id" element={<LessonRunner />} />
         <Route path="practica" element={<PracticePage />} />
         <Route path="ajustes" element={<SettingsPage />} />
         <Route path="acerca-de" element={<AboutPage />} />

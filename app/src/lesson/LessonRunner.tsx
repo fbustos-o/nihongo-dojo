@@ -1,0 +1,228 @@
+import { useMemo, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { JaText } from '../components/JaText';
+import { SpeakButton } from '../components/SpeakButton';
+import { content } from '../domain/contentLoader';
+import type { Lesson } from '../domain/schema';
+import { getGame } from '../games/registry';
+import { mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
+import type { GameStats } from '../games/types';
+import { ExtraKanaContext } from '../state/extraKana';
+import { useProgress } from '../state/progressStore';
+import { KanaChart } from './KanaChart';
+import styles from './lesson.module.css';
+
+type Phase = 'intro' | 'practice' | 'result';
+const PHASES: { id: Phase; label: string }[] = [
+  { id: 'intro', label: '1 · Introducción' },
+  { id: 'practice', label: '2 · Práctica' },
+  { id: 'result', label: '3 · Resultado' },
+];
+
+/** Page at /leccion/:id. */
+export function LessonRunner() {
+  const { id } = useParams();
+  const lesson = content.curriculum.find((l) => l.id === id);
+  const completed = useProgress((s) => s.completedLessons);
+  if (!lesson) {
+    return (
+      <>
+        <h1>Lección no encontrada</h1>
+        <Link to="/camino">Volver al camino</Link>
+      </>
+    );
+  }
+  const node = computePathNodes(content.curriculum, completed).find((n) => n.lesson.id === lesson.id)!;
+  if (node.status === 'locked') {
+    return (
+      <>
+        <h1>{lesson.title}</h1>
+        <p className="card">Esta lección está bloqueada: completa antes las lecciones anteriores.</p>
+        <Link to="/camino">Volver al camino</Link>
+      </>
+    );
+  }
+  if (!node.playable) {
+    return (
+      <>
+        <h1>{lesson.title}</h1>
+        <p className="card">Próximamente: los juegos de esta lección todavía no están disponibles.</p>
+        <Link to="/camino">Volver al camino</Link>
+      </>
+    );
+  }
+  // key: restarting a lesson remounts the run
+  return <LessonRun key={lesson.id} lesson={lesson} />;
+}
+
+function LessonRun({ lesson }: { lesson: Lesson }) {
+  const [phase, setPhase] = useState<Phase>('intro');
+  const [gameIndex, setGameIndex] = useState(0);
+  const [results, setResults] = useState<GameStats[]>([]);
+  const [outcome, setOutcome] = useState<{ passed: boolean; accuracy: number } | null>(null);
+  const [run, setRun] = useState(0);
+  const knownKana = useProgress((s) => s.knownKana);
+
+  // Snapshot of the lesson's material, fixed for the whole run so unlocking at the end does not reshuffle it.
+  const [data] = useState(() => lessonContent(lesson, new Set(useProgress.getState().knownKana)));
+  const games = useMemo(
+    () =>
+      playableGames(lesson).filter((id) => {
+        const needsKana = id === 'kana-recognize' || id === 'kana-write';
+        return needsKana ? data.kana.length > 0 : data.words.length > 0 || data.kana.length > 0;
+      }),
+    [lesson, data],
+  );
+
+  const restart = () => {
+    setPhase('intro');
+    setGameIndex(0);
+    setResults([]);
+    setOutcome(null);
+    setRun((r) => r + 1);
+  };
+
+  const onGameFinish = (stats: GameStats) => {
+    const all = [...results, stats];
+    setResults(all);
+    if (gameIndex + 1 < games.length) {
+      setGameIndex(gameIndex + 1);
+    } else {
+      setOutcome(finishLesson(lesson, mergeStats(all)));
+      setPhase('result');
+    }
+  };
+
+  const gameId = games[gameIndex];
+  const game = gameId ? getGame(gameId) : undefined;
+  const Game = game?.component;
+  const total = mergeStats(results);
+
+  return (
+    <ExtraKanaContext.Provider value={data.newKana}>
+      <div className={styles.header}>
+        <h1>{lesson.title}</h1>
+        <Link to="/camino">Salir</Link>
+      </div>
+      <ol className={styles.steps} aria-label="Fases de la lección">
+        {PHASES.map((p) => (
+          <li key={p.id} className={`${styles.step} ${p.id === phase ? styles.stepActive : ''}`} aria-current={p.id === phase ? 'step' : undefined}>
+            {p.label}
+          </li>
+        ))}
+      </ol>
+
+      {phase === 'intro' && (
+        <Intro lesson={lesson} data={data} known={new Set(knownKana)} onStart={() => setPhase('practice')} />
+      )}
+
+      {phase === 'practice' && Game && game && (
+        <>
+          <p className="muted">
+            Juego {gameIndex + 1} de {games.length}: <strong>{game.name}</strong> — {game.description}
+          </p>
+          <Game
+            key={`${run}-${gameId}`}
+            kana={data.kana}
+            words={data.words}
+            newKana={data.newKana}
+            rounds={roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
+            onFinish={onGameFinish}
+          />
+        </>
+      )}
+
+      {phase === 'result' && outcome && (
+        <Result lesson={lesson} stats={total} passed={outcome.passed} onRetry={restart} />
+      )}
+    </ExtraKanaContext.Provider>
+  );
+}
+
+function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnType<typeof lessonContent>; known: ReadonlySet<string>; onStart: () => void }) {
+  const showRomaji = useProgress((s) => s.settings.showRomaji);
+  return (
+    <section className="card">
+      {data.kana.length > 0 ? (
+        <>
+          <h2>Kana nuevos</h2>
+          <ul className={styles.introGrid}>
+            {data.kana.map((k) => (
+              <li key={k.char} className={styles.introCard}>
+                <div className={styles.bigKana} lang="ja">
+                  {k.char}
+                </div>
+                <div className={styles.romaji}>{k.romaji}</div>
+                <SpeakButton text={k.char} label="Oír" />
+              </li>
+            ))}
+          </ul>
+          <h2>Dónde están en la tabla</h2>
+          <KanaChart highlight={lesson.kana ?? []} known={known} />
+        </>
+      ) : (
+        <>
+          <h2>Palabras de la lección</h2>
+          <ul className={styles.weak}>
+            {data.words.slice(0, 24).map((w) => (
+              <li key={w.id}>
+                <JaText word={w} /> <span className="muted">{w.es[0]}</span>
+                {showRomaji && <span className="muted"> · {w.romaji}</span>}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <div className={styles.actions}>
+        <button type="button" className="btn btn-primary" autoFocus onClick={onStart}>
+          Empezar práctica
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function Result({ lesson, stats, passed, onRetry }: { lesson: Lesson; stats: GameStats; passed: boolean; onRetry: () => void }) {
+  const completed = useProgress((s) => s.completedLessons);
+  const next = nextLesson(computePathNodes(content.curriculum, completed));
+  const weak = weakestItems(stats);
+  const accuracy = Math.round(accuracyOf(stats) * 100);
+  return (
+    <section className="card" aria-labelledby="result-title">
+      <h2 id="result-title">{passed ? '¡Lección completada!' : 'Casi lo logras'}</h2>
+      <p className={`${styles.score} ${passed ? styles.pass : styles.fail}`}>
+        <span aria-hidden="true">{passed ? '✓' : '✗'}</span> {accuracy}%
+      </p>
+      <p>
+        Aciertos: {stats.correct} de {stats.total} · XP ganado: <strong>+{xpEarned(stats)}</strong> · Mejor racha: {stats.bestStreak}
+      </p>
+      {!passed && <p className="muted">Necesitas al menos {Math.round(PASS_ACCURACY * 100)}% de aciertos para completarla.</p>}
+      {passed && (lesson.kana?.length ?? 0) > 0 && <p>Kana desbloqueados: <span lang="ja">{lesson.kana!.join(' ')}</span></p>}
+      {weak.length > 0 && (
+        <>
+          <h3>Para repasar</h3>
+          <ul className={styles.weak}>
+            {weak.map((w) => (
+              <li key={w.key}>
+                {w.label} <span className="muted">× {w.wrong}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <div className={styles.actions}>
+        <button type="button" className="btn" onClick={onRetry}>
+          Repetir lección
+        </button>
+        {passed && next && (
+          <Link className="btn btn-primary" to={`/leccion/${next.id}`} style={{ textDecoration: 'none' }}>
+            Continuar: {next.title}
+          </Link>
+        )}
+        <Link className="btn" to="/camino" style={{ textDecoration: 'none' }}>
+          Volver al camino
+        </Link>
+      </div>
+    </section>
+  );
+}

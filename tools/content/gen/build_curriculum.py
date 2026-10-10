@@ -12,7 +12,7 @@ def L(id,stage,title,requires,**kw):
     d=dict(id=id,stage=stage,title=title,requires=requires); d.update(kw); lessons.append(d); return d
 LORD=lambda l:(int(l[1:]) if l[0]=='G' else 100+int(l[1:]))
 # ---------------- Stage 1: hiragana
-H=[('h-a','Hiragana: あ いう え お','あいうえお'),
+H=[('h-a','Hiragana: あ い う え お','あいうえお'),
  ('h-ka','Hiragana: fila か (ka ki ku ke ko)','かきくけこ'),
  ('h-sa','Hiragana: fila さ (sa shi su se so)','さしすせそ'),
  ('h-ta','Hiragana: fila た (ta chi tsu te to)','たちつてと'),
