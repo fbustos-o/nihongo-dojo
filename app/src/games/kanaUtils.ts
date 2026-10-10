@@ -1,6 +1,7 @@
 import { content } from '../domain/contentLoader';
 import type { KanaEntry } from '../domain/schema';
-import { levenshtein } from '../engine';
+import { toKatakana } from 'wanakana';
+import { levenshtein, splitKanaUnits } from '../engine';
 
 /** Romaji accepted for a kana: `romaji` + `alt`, plus the usual IME spellings of the small っ. */
 export function acceptedRomaji(entry: KanaEntry): string[] {
@@ -74,3 +75,46 @@ export const kanaByChar = (chars: Iterable<string>, all: readonly KanaEntry[] = 
   const wanted = new Set(chars);
   return all.filter((k) => wanted.has(k.char));
 };
+
+/** Text shown for the romaji of a kana in multiple choice (ー and ッ have no plain romaji). */
+export function romajiLabel(entry: KanaEntry): string {
+  if (entry.char === 'ー') return '- (vocal larga)';
+  if (entry.char === 'ッ' || entry.char === 'っ') return 'xtsu (pausa)';
+  return entry.romaji;
+}
+
+/** Spanish hint for the kana that are not read as a plain syllable. */
+export function kanaHint(entry: KanaEntry): string | null {
+  switch (entry.char) {
+    case 'ー':
+      return 'Marca de vocal larga: escribe «-» (guion).';
+    case 'ッ':
+    case 'っ':
+      return 'Pausa que duplica la consonante siguiente: escribe «xtsu» (o «ltsu»).';
+    case 'ヴ':
+      return 'Suena «vu» (v inglesa).';
+    default:
+      return null;
+  }
+}
+
+export interface TypingHint {
+  char: string;
+  typing: string;
+}
+
+/**
+ * Katakana in `text` whose usual romaji does not produce it in the katakana IME (ティ needs `thi`,
+ * not `ti`, which gives チ; ウォ needs `who`). Deduplicated, in order of appearance.
+ */
+export function typingHints(text: string, all: readonly KanaEntry[] = content.kana): TypingHint[] {
+  const out = new Map<string, string>();
+  for (const unit of splitKanaUnits(text).units) {
+    if (out.has(unit)) continue;
+    const entry = all.find((k) => k.char === unit && k.script === 'katakana');
+    if (!entry || toKatakana(entry.romaji) === unit) continue;
+    const typing = (entry.alt ?? []).find((r) => toKatakana(r) === unit);
+    if (typing) out.set(unit, typing);
+  }
+  return [...out].map(([char, typing]) => ({ char, typing }));
+}

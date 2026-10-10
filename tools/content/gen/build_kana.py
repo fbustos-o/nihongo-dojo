@@ -14,7 +14,7 @@ def split(s):
     return out
 DISP={'を':'o','ぢ':'ji','づ':'zu','ヂ':'ji','ヅ':'zu','ヲ':'o'}
 ALT={'を':['wo'],'ぢ':['di'],'づ':['du'],'ヂ':['di'],'ヅ':['du'],'ヲ':['wo'],
- 'ウォ':['who'],'ティ':['thi'],'トゥ':['twu'],'ディ':['dhi'],'ドゥ':['dwu'],'デュ':['dhu']}
+ 'ウォ':['who'],'ウィ':['whi'],'ウェ':['whe'],'ジェ':['jye','zye'],'シェ':['sye'],'チェ':['tye','cye'],'ティ':['thi'],'トゥ':['twu'],'ディ':['dhi'],'ドゥ':['dwu'],'デュ':['dhu']}
 kana=[]
 def add(ch,script,row,group,romaji=None,alt=None):
     r=romaji or to_romaji(ch)

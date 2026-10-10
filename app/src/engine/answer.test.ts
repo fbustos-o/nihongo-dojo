@@ -1,3 +1,4 @@
+import { toKatakana } from 'wanakana';
 import { describe, expect, it } from 'vitest';
 import { checkAnswer, levenshtein, normalizeAnswer } from './answer';
 
@@ -197,5 +198,31 @@ describe('checkAnswer: near misses', () => {
   });
   it('returns the normalized input for display', () => {
     expect(checkAnswer(' NOMIMASU ', 'たべます').normalizedInput).toBe('のみます');
+  });
+});
+
+describe('checkAnswer: katakana long vowel (script-sensitive, as typed in the katakana IME)', () => {
+  const strict = { strict: true, scriptSensitive: true } as const;
+  it('accepts the hyphen and the repeated vowel for ー', () => {
+    // wanakana turns `koohii` into コオヒイ in katakana mode: it must still match コーヒー
+    expect(toKatakana('koohii')).toBe('コオヒイ');
+    expect(checkAnswer('コオヒイ', 'コーヒー', strict).correct).toBe(true);
+    expect(checkAnswer('koohii', 'コーヒー', strict).correct).toBe(true);
+    expect(checkAnswer('コーヒー', 'コーヒー', strict).correct).toBe(true);
+    expect(checkAnswer('ko-hi-', 'コーヒー', strict).correct).toBe(true);
+    expect(checkAnswer('コウヒイ', 'コーヒー', strict).correct).toBe(true);
+  });
+  it('handles ー after every vowel row and ッ', () => {
+    expect(checkAnswer('paatii', 'パーティー', strict).correct).toBe(false); // `ti` is チ, the IME needs `thi`
+    expect(checkAnswer('paathii', 'パーティー', strict).correct).toBe(true);
+    expect(checkAnswer('sakkaa', 'サッカー', strict).correct).toBe(true);
+    expect(checkAnswer('suupaa', 'スーパー', strict).correct).toBe(true);
+    expect(checkAnswer('suupa', 'スーパー', strict).correct).toBe(false);
+  });
+  it('does not accept hiragana for a katakana target in script-sensitive mode', () => {
+    expect(checkAnswer('こーひー', 'コーヒー', strict).correct).toBe(false);
+  });
+  it('a lone typed hyphen is the long-vowel mark', () => {
+    expect(checkAnswer('-', 'ー', strict).correct).toBe(true);
   });
 });

@@ -137,6 +137,41 @@ for stage,pred in((1,lambda c:'ぁ'<=c[0]<='ゖ'),(3,lambda c:'ァ'<=c[0]<='ヺ'
             if bad: E(f"stage {stage} lesson {l['id']}: word {wid} {w['kana']} uses unknown kana {bad}")
             if stage==1 and re.search(r'[゠-ヿ]',w['kana']): E(f"stage1 word with katakana {wid}")
             if stage==3 and re.search(r'[ぁ-ゖ]',w['kana']): E(f"stage3 kana lesson word with hiragana {wid}")
+# stage 3 audit: loanword lessons (hiragana known from stage 1, all katakana of the stage), ー in the first lesson,
+# enough words in the extended-kana lesson, each extended kana covered, mixed-script words allowed.
+s1=set()
+for l in cur:
+    if l['stage']==1: s1|=set(l.get('kana',[]))
+s3_all=set()
+for l in cur:
+    if l['stage']==3: s3_all|=set(l.get('kana',[]))
+for l in cur:
+    if l['stage']==3 and 'kana' not in l:
+        for wid in l.get('words',[]):
+            bad=[t for t in split(V[wid]['kana']) if t not in s1|s3_all]
+            if bad: E(f"stage 3 lesson {l['id']}: word {wid} {V[wid]['kana']} uses unknown kana {bad}")
+            if not re.search(r'[゠-ヿ]',V[wid]['kana']): E(f"stage 3 lesson {l['id']}: word {wid} has no katakana")
+k_lessons=[l for l in cur if l['stage']==3 and 'kana' in l]
+if not k_lessons or 'ー' not in k_lessons[0]['kana']: E('the long-vowel mark ー must be taught in the first katakana lesson')
+elif not k_lessons[0].get('words'): E('first katakana lesson has no word that uses ー')
+else:
+    if not any('ー' in V[w]['kana'] for w in k_lessons[0]['words']): E('first katakana lesson: no word uses ー')
+ext=[l for l in k_lessons if 'ファ' in l['kana']]
+if len(ext)!=1: E('extended-kana lesson not found')
+else:
+    ws=ext[0].get('words',[])
+    if len(ws)<12: E(f"extended-kana lesson has only {len(ws)} words (need >= 12)")
+    text=''.join(V[w]['kana'] for w in ws)
+    for unit in ['ウィ','ウェ','ウォ','ジェ','シェ','チェ','ティ','ディ','デュ','ファ','フィ','フェ','フォ']:
+        if unit not in text: Wn(f"extended-kana lesson: no word with {unit}")
+    for must in ['パーティー','フォーク','チェック','シェフ','ウィーン']:
+        if must not in [V[w]['kana'] for w in ws]: E(f"extended-kana lesson lacks {must}")
+# gating: k-a depends on the stage-2 lesson that introduces verbs ます (not on the whole stage 2)
+ka=Lm.get('k-a')
+if not ka or [Lm[r]['stage'] for r in ka['requires']]!=[2]: E('k-a must require exactly one stage-2 lesson')
+# loanword origin: optional but must be a non-empty string
+for w in vocab:
+    if 'origin' in w and (not isinstance(w['origin'],str) or not w['origin'].strip()): E(f"empty origin {w['id']}")
 # stage-1 words must be hiragana-only; stage 3 prerequisites chain contiguous
 # coverage: every non-practice word in some lesson
 inl=set()

@@ -68,3 +68,26 @@
 チェック | | revisión; cuadros | n | kana-practice
 フィルム | | película (rollo de foto) | n | cosa,kana-practice
 ディスク | | disco | n | cosa,kana-practice
+アー | | ah (interjección) | e | expresion,kana-practice | aa-katakana
+イー | | la letra E (en inglés) | n | expresion,kana-practice | ii-katakana
+エー | | eh... (duda); la letra A | e | expresion,kana-practice | ee-katakana
+オー | | ¡oh! | e | expresion,kana-practice | oo-katakana
+オーイ | | ¡eh, oye! (para llamar a alguien) | e | expresion,kana-practice | ooi-katakana
+シェフ | | chef; cocinero jefe | n | trabajo,comida,kana-practice
+ウィーン | | Viena | n | lugar,pais,kana-practice
+ウェイター | | camarero | n | trabajo,restaurante,kana-practice
+ウェブ | | web | n | cosa,kana-practice
+ウォーター | | agua (en inglés) | n | comida,bebida,kana-practice
+フェリー | | ferri; transbordador | n | transporte,kana-practice
+ファックス | | fax | n | cosa,kana-practice
+ファン | | aficionado; fan | n | ocio,kana-practice
+チェーン | | cadena; cadena de tiendas | n | lugar,tienda,kana-practice
+ディナー | | cena (formal) | n | comida,kana-practice
+ジェットコースター | | montaña rusa | n | ocio,kana-practice
+フィンランド | | Finlandia | n | lugar,pais,kana-practice
+デュエット | | dueto | n | ocio,kana-practice | dyuetto | dhuetto
+ファミリーレストラン | | restaurante familiar | n | lugar,comida,kana-practice
+コーヒーをのむ | | tomar café | vu | verbo,comida,katakana-mixto | koohii-wo-nomu
+テニスをする | | jugar al tenis | virr | verbo,deporte,katakana-mixto | tenisu-wo-suru
+サッカーをする | | jugar al fútbol | virr | verbo,deporte,katakana-mixto | sakkaa-wo-suru
+ゲームをする | | jugar videojuegos | virr | verbo,ocio,katakana-mixto | geemu-wo-suru

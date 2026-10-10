@@ -1470,7 +1470,7 @@
   "stage": 3,
   "title": "Katakana: ア イ ウ エ オ y la vocal larga ー",
   "requires": [
-   "l-te-imasu-tai"
+   "l-verbos-1"
   ],
   "kana": [
    "ア",
@@ -1480,10 +1480,18 @@
    "オ",
    "ー"
   ],
-  "words": [],
+  "words": [
+   "aa-katakana",
+   "ee-katakana",
+   "ii-katakana",
+   "oo-katakana",
+   "ooi-katakana"
+  ],
   "games": [
    "kana-recognize",
-   "kana-write"
+   "kana-write",
+   "read-words",
+   "listen"
   ]
  },
  {
@@ -1927,17 +1935,28 @@
    "フェ",
    "フォ",
    "フュ",
-   "イェ"
+   "イェ",
+   "ヴ"
   ],
   "words": [
+   "wiin",
+   "webu",
+   "wootaa",
+   "vaiorin",
+   "jetto",
+   "shefu",
+   "cheen",
+   "paatii",
+   "dinaa",
+   "dyuetto",
+   "fan",
+   "firumu",
    "kafe",
+   "fooku",
    "chekku",
    "disuku",
    "fairu",
-   "firumu",
-   "fooku",
-   "jetto",
-   "paatii"
+   "ferii"
   ],
   "games": [
    "kana-recognize",
@@ -1951,7 +1970,8 @@
   "stage": 3,
   "title": "Préstamos: comida y bebida",
   "requires": [
-   "k-extended"
+   "k-extended",
+   "l-particulas"
   ],
   "words": [
    "menyuu",
@@ -1984,7 +2004,16 @@
    "chokoreeto",
    "jamu",
    "fooku",
-   "wisukii"
+   "wisukii",
+   "shefu",
+   "wootaa",
+   "dinaa",
+   "famiriiresutoran",
+   "koohii-wo-nomu"
+  ],
+  "patterns": [
+   "de-place-action",
+   "to-with"
   ],
   "games": [
    "read-words",
@@ -1997,7 +2026,8 @@
   "stage": 3,
   "title": "Préstamos: lugares y transporte",
   "requires": [
-   "k-prestamos-comida"
+   "k-prestamos-comida",
+   "l-aru-iru"
   ],
   "words": [
    "amerika",
@@ -2014,7 +2044,14 @@
    "takushii",
    "depaato",
    "puuru",
-   "jetto"
+   "jetto",
+   "wiin",
+   "ferii",
+   "cheen",
+   "finrando",
+   "famiriiresutoran",
+   "amerikajin",
+   "basutei"
   ],
   "games": [
    "read-words",
@@ -2027,7 +2064,8 @@
   "stage": 3,
   "title": "Préstamos: cosas, ropa y casa",
   "requires": [
-   "k-prestamos-lugares"
+   "k-prestamos-lugares",
+   "l-kore"
   ],
   "words": [
    "jiinzu",
@@ -2066,7 +2104,15 @@
    "fairu",
    "tisshu",
    "firumu",
-   "disuku"
+   "disuku",
+   "webu",
+   "fakkusu",
+   "shawaa-wo-abiru"
+  ],
+  "patterns": [
+   "no-possession",
+   "dare-no",
+   "kore-sore-are"
   ],
   "games": [
    "read-words",
@@ -2079,7 +2125,8 @@
   "stage": 3,
   "title": "Préstamos: ocio, deportes y escuela",
   "requires": [
-   "k-prestamos-cosas"
+   "k-prestamos-cosas",
+   "l-invitar"
   ],
   "words": [
    "konpyuutaa",
@@ -2104,7 +2151,19 @@
    "piano",
    "nyuusu",
    "kyanpu",
-   "vaiorin"
+   "vaiorin",
+   "weitaa",
+   "fan",
+   "jettokoosutaa",
+   "dyuetto",
+   "tenisu-wo-suru",
+   "sakkaa-wo-suru",
+   "geemu-wo-suru"
+  ],
+  "patterns": [
+   "frequency",
+   "masu-masen",
+   "de-place-action"
   ],
   "games": [
    "read-words",
@@ -2117,7 +2176,9 @@
   "stage": 3,
   "title": "Repaso: diálogos y lecturas con katakana",
   "requires": [
-   "k-prestamos-ocio"
+   "k-prestamos-ocio",
+   "l-restaurante",
+   "l-adjetivos-na"
   ],
   "dialogues": [
    "comprar-bolso",
@@ -2125,6 +2186,12 @@
    "restaurante-pedir",
    "restaurante-cuenta",
    "planes-almuerzo"
+  ],
+  "patterns": [
+   "masu-masen",
+   "de-place-action",
+   "kudasai",
+   "counters"
   ],
   "games": [
    "dialogues",
@@ -2137,7 +2204,8 @@
   "stage": 4,
   "title": "Kanji de Genki, lección 3",
   "requires": [
-   "k-repaso"
+   "k-repaso",
+   "l-te-imasu-tai"
   ],
   "kanji": [
    "一",

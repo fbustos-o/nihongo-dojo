@@ -43,6 +43,8 @@ export const WordSchema = z.object({
   lesson: z.string(),
   tags: z.array(z.string()),
   source: z.enum(['genki', 'profesor', 'propio']),
+  /** Loanwords: language and source word, e.g. "inglés: television". Shown after answering. */
+  origin: z.string().optional(),
 });
 export type Word = z.infer<typeof WordSchema>;
 

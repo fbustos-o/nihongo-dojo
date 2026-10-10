@@ -77,3 +77,17 @@ describe('App shell', () => {
     expect(screen.getByRole('heading', { name: 'Camino' })).toBeInTheDocument();
   });
 });
+
+describe('JaText with a stage 2 sentence containing katakana', () => {
+  it('renders コーヒー in hiragana, then in katakana after unlocking it', () => {
+    useProgress.getState().unlockKana([...'わたしはをのみません', ...'こひ']);
+    const word = { kana: 'わたし は コーヒー を のみません。' };
+    const { container, rerender } = render(<JaText word={word} />);
+    expect(container).toHaveTextContent('こーひー');
+    expect(container).not.toHaveTextContent('コーヒー');
+    useProgress.getState().unlockKana([...'コヒ']);
+    rerender(<JaText word={word} />);
+    expect(container).toHaveTextContent('コーヒー');
+    expect(container).not.toHaveTextContent('こーひー');
+  });
+});

@@ -48,6 +48,11 @@ if __name__=='__main__':
     for w in words:
         if w['id'] in ids: print('DUP',w['id'],w['kana'],ids[w['id']]['kana'])
         ids[w['id']]=w
-    print(len(words),'words; kanji dropped:',len(dropped))
+    from origins_data import ORIGINS
+    unknown=[k for k in ORIGINS if k not in ids]
+    if unknown: raise SystemExit('origins for unknown word ids: %s'%unknown)
+    for w in words:
+        if w['id'] in ORIGINS: w['origin']=ORIGINS[w['id']]
+    print(len(words),'words; kanji dropped:',len(dropped),'; origins:',sum(1 for w in words if 'origin' in w))
     dump('vocab.json',words)
     json.dump(dropped,open('dropped_kanji.json','w'),ensure_ascii=False)

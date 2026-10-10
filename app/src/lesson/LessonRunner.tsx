@@ -4,6 +4,8 @@ import { JaText } from '../components/JaText';
 import { SpeakButton } from '../components/SpeakButton';
 import { content } from '../domain/contentLoader';
 import type { Lesson } from '../domain/schema';
+import { CONFUSABLE_GROUPS } from '../games/confusables';
+import { kanaHint, romajiLabel } from '../games/kanaUtils';
 import { getGame } from '../games/registry';
 import { mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
 import type { GameStats } from '../games/types';
@@ -147,6 +149,9 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
 
 function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnType<typeof lessonContent>; known: ReadonlySet<string>; onStart: () => void }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
+  // Katakana look-alike groups that include a kana of this lesson (シ/ツ, ソ/ン...); same-script only.
+  const isNewKana = (c: string) => data.newKana.includes(c);
+  const lookAlikes = lesson.stage === 3 ? CONFUSABLE_GROUPS.filter((g) => /[ァ-ヺ]/.test(g[0]!) && /[ァ-ヺ]/.test(g[1]!) && g.some(isNewKana)) : [];
   return (
     <section className="card">
       {data.kana.length > 0 ? (
@@ -158,11 +163,17 @@ function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnT
                 <div className={styles.bigKana} lang="ja">
                   {k.char}
                 </div>
-                <div className={styles.romaji}>{k.romaji}</div>
+                <div className={styles.romaji}>{romajiLabel(k)}</div>
+                {kanaHint(k) && <div className="muted">{kanaHint(k)}</div>}
                 <SpeakButton text={k.char} label="Oír" />
               </li>
             ))}
           </ul>
+          {lookAlikes.length > 0 && (
+            <p className="muted" data-testid="look-alikes">
+              Cuidado con las parecidas: <span lang="ja">{lookAlikes.map((g) => g.join(' / ')).join(' · ')}</span>
+            </p>
+          )}
           <h2>Dónde están en la tabla</h2>
           <KanaChart highlight={lesson.kana ?? []} known={known} />
         </>

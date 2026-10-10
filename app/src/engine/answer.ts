@@ -60,6 +60,8 @@ type Target = 'hiragana' | 'katakana';
 export function normalizeAnswer(text: string, options: AnswerOptions = {}, target: Target = 'hiragana'): string {
   const { scriptSensitive = false, ignoreSpaces = true, romajiToKana = true } = options;
   let s = text.normalize('NFKC').trim().toLowerCase();
+  // A typed hyphen is the long-vowel mark (the katakana IME writes ー for `-`).
+  s = s.replace(/-/g, 'ー');
   s = ignoreSpaces ? s.replace(/\s+/gu, '') : s.replace(/\s+/gu, ' ');
   if (romajiToKana && HAS_LATIN.test(s)) {
     s = scriptSensitive && target === 'katakana' ? toKatakana(s) : toKana(s);
@@ -80,7 +82,13 @@ for (const [row, same] of [
   for (const ch of row) LONG_VOWEL_ROW[ch] = [same, same === 'お' ? 'う' : same];
 }
 
-/** Expands ー after a kana into a vowel: コーヒー -> こおひい and こうひい. */
+const HIRAGANA_VOWELS = ['あ', 'い', 'う', 'え', 'お'];
+const KATAKANA_VOWELS = ['ア', 'イ', 'ウ', 'エ', 'オ'];
+
+/**
+ * Expands ー after a kana into a vowel: コーヒー -> こおひい and こうひい (hiragana), or コオヒイ and
+ * コウヒイ (katakana, script-sensitive matching: wanakana turns `koohii` into コオヒイ, not コーヒー).
+ */
 function expandLongMarks(s: string): string[] {
   if (!s.includes('ー')) return [];
   const build = (variant: 0 | 1): string => {
@@ -88,8 +96,10 @@ function expandLongMarks(s: string): string[] {
     for (const ch of s) {
       if (ch === 'ー') {
         const prev = out.slice(-1);
-        const entry = LONG_VOWEL_ROW[prev];
-        out += entry ? entry[variant] : ch;
+        const isKatakana = HAS_KATAKANA.test(prev);
+        const entry = LONG_VOWEL_ROW[isKatakana ? katakanaToHiragana(prev) : prev];
+        const vowel = entry?.[variant];
+        out += vowel ? (isKatakana ? KATAKANA_VOWELS[HIRAGANA_VOWELS.indexOf(vowel)]! : vowel) : ch;
       } else out += ch;
     }
     return out;

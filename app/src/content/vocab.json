@@ -319,7 +319,8 @@
   "tags": [
    "numero"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: zero"
  },
  {
   "id": "rei",
@@ -903,7 +904,8 @@
   "tags": [
    "pais"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: America"
  },
  {
   "id": "go-idioma",
@@ -1335,7 +1337,8 @@
    "comida",
    "restaurante"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: menu"
  },
  {
   "id": "yasai",
@@ -1426,7 +1429,8 @@
    "ropa",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: jeans"
  },
  {
   "id": "jitensha",
@@ -1473,7 +1477,8 @@
   "tags": [
    "cosa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: smartphone (abreviado)"
  },
  {
   "id": "tiishatsu",
@@ -1488,7 +1493,8 @@
    "cosa",
    "ropa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: T-shirt"
  },
  {
   "id": "tokei",
@@ -1519,7 +1525,8 @@
    "escuela",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: note(book)"
  },
  {
   "id": "pen",
@@ -1535,7 +1542,8 @@
    "cosa",
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: pen"
  },
  {
   "id": "boushi",
@@ -1599,7 +1607,8 @@
    "lugar",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: convenience store (abreviado)"
  },
  {
   "id": "toire",
@@ -1614,7 +1623,8 @@
   "tags": [
    "lugar"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: toilet"
  },
  {
   "id": "toshokan",
@@ -1659,7 +1669,8 @@
    "pais",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "portugués: inglês"
  },
  {
   "id": "kankoku",
@@ -1732,7 +1743,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: computer"
  },
  {
   "id": "bijinesu",
@@ -1746,7 +1758,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: business"
  },
  {
   "id": "rekishi",
@@ -1990,7 +2003,8 @@
   "tags": [
    "ocio"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: sports"
  },
  {
   "id": "deeto",
@@ -2004,7 +2018,8 @@
   "tags": [
    "ocio"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: date"
  },
  {
   "id": "tenisu",
@@ -2020,7 +2035,8 @@
    "deporte",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: tennis"
  },
  {
   "id": "terebi",
@@ -2036,7 +2052,8 @@
    "ocio",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: television (abreviado)"
  },
  {
   "id": "aisukuriimu",
@@ -2050,7 +2067,8 @@
   "tags": [
    "comida"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: ice cream"
  },
  {
   "id": "hanbaagaa",
@@ -2065,7 +2083,8 @@
    "comida",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: hamburger"
  },
  {
   "id": "osake",
@@ -2112,7 +2131,8 @@
    "bebida",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "neerlandés: koffie"
  },
  {
   "id": "mizu",
@@ -2239,7 +2259,8 @@
    "lugar",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "francés: café"
  },
  {
   "id": "ashita",
@@ -2838,7 +2859,8 @@
   "tags": [
    "ocio"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: game"
  },
  {
   "id": "arubaito",
@@ -2852,7 +2874,8 @@
   "tags": [
    "trabajo"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "alemán: Arbeit (trabajo)"
  },
  {
   "id": "kaimono",
@@ -2881,7 +2904,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: class"
  },
  {
   "id": "inu",
@@ -3026,7 +3050,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: report"
  },
  {
   "id": "gohan",
@@ -3055,7 +3080,8 @@
   "tags": [
    "comida"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "portugués: pão"
  },
  {
   "id": "otera",
@@ -3100,7 +3126,8 @@
    "lugar",
    "tienda"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: supermarket (abreviado)"
  },
  {
   "id": "basutei",
@@ -3144,7 +3171,8 @@
   "tags": [
    "lugar"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: hotel"
  },
  {
   "id": "honya",
@@ -3191,7 +3219,8 @@
    "restaurante",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "francés: restaurant"
  },
  {
   "id": "kinou",
@@ -3723,7 +3752,8 @@
    "ocio",
    "deporte"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: surfing"
  },
  {
   "id": "omiyage",
@@ -3753,7 +3783,8 @@
    "transporte",
    "profesor"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: bus"
  },
  {
   "id": "tenki",
@@ -3797,7 +3828,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: test"
  },
  {
   "id": "tanjoubi",
@@ -3854,7 +3886,8 @@
   "tags": [
    "ropa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: L size"
  },
  {
   "id": "atarashii",
@@ -4438,7 +4471,8 @@
   "tags": [
    "escuela"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: page"
  },
  {
   "id": "tsugi",
@@ -4497,7 +4531,8 @@
   "tags": [
    "cosa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: personal computer (abreviado)"
  },
  {
   "id": "shawaa",
@@ -4511,7 +4546,8 @@
   "tags": [
    "casa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: shower"
  },
  {
   "id": "eakon",
@@ -4525,7 +4561,8 @@
   "tags": [
    "casa"
   ],
-  "source": "genki"
+  "source": "genki",
+  "origin": "inglés: air conditioner (abreviado)"
  },
  {
   "id": "denki",
@@ -5463,7 +5500,8 @@
   "tags": [
    "lugar"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: gym"
  },
  {
   "id": "chiri",
@@ -5477,7 +5515,8 @@
   "tags": [
    "pais"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "español: Chile"
  },
  {
   "id": "chirijin",
@@ -5920,7 +5959,8 @@
   "tags": [
    "cosa"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: table"
  },
  {
   "id": "ue",
@@ -6175,7 +6215,8 @@
   "tags": [
    "transporte"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: taxi"
  },
  {
   "id": "shinkansen",
@@ -6287,7 +6328,8 @@
   "tags": [
    "ocio"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: party"
  },
  {
   "id": "shutchou",
@@ -6867,7 +6909,8 @@
    "comida",
    "restaurante"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: curry rice"
  },
  {
   "id": "okaikei",
@@ -7468,7 +7511,8 @@
    "lugar",
    "tienda"
   ],
-  "source": "profesor"
+  "source": "profesor",
+  "origin": "inglés: department store (abreviado)"
  },
  {
   "id": "takoyaki",
@@ -10538,7 +10582,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: cocoa"
  },
  {
   "id": "kiui",
@@ -10553,7 +10598,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: kiwi"
  },
  {
   "id": "keeki",
@@ -10569,7 +10615,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: cake"
  },
  {
   "id": "kisu",
@@ -10583,7 +10630,8 @@
   "tags": [
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: kiss"
  },
  {
   "id": "keesu",
@@ -10599,7 +10647,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: case"
  },
  {
   "id": "soosu",
@@ -10614,7 +10663,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: sauce"
  },
  {
   "id": "suteeki",
@@ -10629,7 +10679,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: steak"
  },
  {
   "id": "nekutai",
@@ -10645,7 +10696,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: necktie"
  },
  {
   "id": "haato",
@@ -10659,7 +10711,8 @@
   "tags": [
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: heart"
  },
  {
   "id": "hiitaa",
@@ -10674,7 +10727,8 @@
    "casa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: heater"
  },
  {
   "id": "masuku",
@@ -10689,7 +10743,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: mask"
  },
  {
   "id": "memo",
@@ -10706,7 +10761,8 @@
    "escuela",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: memorandum"
  },
  {
   "id": "meeru",
@@ -10722,7 +10778,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: mail"
  },
  {
   "id": "miruku",
@@ -10738,7 +10795,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: milk"
  },
  {
   "id": "rajio",
@@ -10754,7 +10812,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: radio"
  },
  {
   "id": "remon",
@@ -10769,7 +10828,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: lemon"
  },
  {
   "id": "robotto",
@@ -10784,7 +10844,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: robot"
  },
  {
   "id": "wain",
@@ -10800,7 +10861,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: wine"
  },
  {
   "id": "naifu",
@@ -10816,7 +10878,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: knife"
  },
  {
   "id": "kamera",
@@ -10831,7 +10894,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: camera"
  },
  {
   "id": "sarada",
@@ -10846,7 +10910,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: salad"
  },
  {
   "id": "raamen",
@@ -10861,7 +10926,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "chino: lamian (fideos)"
  },
  {
   "id": "rimokon",
@@ -10877,7 +10943,8 @@
    "casa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: remote control (abreviado)"
  },
  {
   "id": "ruuru",
@@ -10892,7 +10959,8 @@
   "tags": [
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: rule"
  },
  {
   "id": "hamu",
@@ -10907,7 +10975,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: ham"
  },
  {
   "id": "banana",
@@ -10923,7 +10992,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: banana"
  },
  {
   "id": "biiru",
@@ -10939,7 +11009,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "neerlandés: bier"
  },
  {
   "id": "doa",
@@ -10954,7 +11025,8 @@
    "casa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: door"
  },
  {
   "id": "gorufu",
@@ -10970,7 +11042,8 @@
    "deporte",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: golf"
  },
  {
   "id": "gasu",
@@ -10985,7 +11058,8 @@
    "casa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "neerlandés: gas"
  },
  {
   "id": "dansu",
@@ -11000,7 +11074,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: dance"
  },
  {
   "id": "doresu",
@@ -11016,7 +11091,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: dress"
  },
  {
   "id": "dezaato",
@@ -11031,7 +11107,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: dessert"
  },
  {
   "id": "booru",
@@ -11048,7 +11125,8 @@
    "deporte",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: ball"
  },
  {
   "id": "beruto",
@@ -11064,7 +11142,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: belt"
  },
  {
   "id": "gaido",
@@ -11079,7 +11158,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: guide"
  },
  {
   "id": "zubon",
@@ -11095,7 +11175,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "francés: jupon (enagua)"
  },
  {
   "id": "sakkaa",
@@ -11111,7 +11192,8 @@
    "deporte",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: soccer"
  },
  {
   "id": "beddo",
@@ -11127,7 +11209,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: bed"
  },
  {
   "id": "kappu",
@@ -11144,7 +11227,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: cup"
  },
  {
   "id": "rokkaa",
@@ -11159,7 +11243,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: locker"
  },
  {
   "id": "baggu",
@@ -11175,7 +11260,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: bag"
  },
  {
   "id": "puuru",
@@ -11191,7 +11277,8 @@
    "deporte",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: pool"
  },
  {
   "id": "piano",
@@ -11206,7 +11293,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "italiano: piano"
  },
  {
   "id": "pasuta",
@@ -11221,7 +11309,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "italiano: pasta"
  },
  {
   "id": "posuto",
@@ -11236,7 +11325,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: post"
  },
  {
   "id": "poketto",
@@ -11252,7 +11342,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: pocket"
  },
  {
   "id": "purin",
@@ -11268,7 +11359,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: pudding"
  },
  {
   "id": "piza",
@@ -11283,7 +11375,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "italiano: pizza"
  },
  {
   "id": "supuun",
@@ -11299,7 +11392,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: spoon"
  },
  {
   "id": "teepu",
@@ -11314,7 +11408,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: tape"
  },
  {
   "id": "petto",
@@ -11329,7 +11424,8 @@
    "animal",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: pet"
  },
  {
   "id": "shatsu",
@@ -11345,7 +11441,8 @@
    "ropa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: shirt"
  },
  {
   "id": "juusu",
@@ -11361,7 +11458,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: juice"
  },
  {
   "id": "nyuusu",
@@ -11376,7 +11474,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: news"
  },
  {
   "id": "chansu",
@@ -11390,7 +11489,8 @@
   "tags": [
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: chance"
  },
  {
   "id": "kyanpu",
@@ -11406,7 +11506,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: camp"
  },
  {
   "id": "shanpuu",
@@ -11422,7 +11523,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: shampoo"
  },
  {
   "id": "chokoreeto",
@@ -11437,7 +11539,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: chocolate"
  },
  {
   "id": "jamu",
@@ -11452,7 +11555,8 @@
    "comida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: jam"
  },
  {
   "id": "fairu",
@@ -11469,7 +11573,8 @@
    "escuela",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: file"
  },
  {
   "id": "fooku",
@@ -11485,7 +11590,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: fork"
  },
  {
   "id": "tisshu",
@@ -11500,7 +11606,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: tissue"
  },
  {
   "id": "wisukii",
@@ -11516,7 +11623,8 @@
    "bebida",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: whisky"
  },
  {
   "id": "vaiorin",
@@ -11531,7 +11639,8 @@
    "ocio",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: violin"
  },
  {
   "id": "jetto",
@@ -11547,7 +11656,8 @@
    "transporte",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: jet"
  },
  {
   "id": "chekku",
@@ -11562,7 +11672,8 @@
   "tags": [
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: check"
  },
  {
   "id": "firumu",
@@ -11577,7 +11688,8 @@
    "cosa",
    "kana-practice"
   ],
-  "source": "propio"
+  "source": "propio",
+  "origin": "inglés: film"
  },
  {
   "id": "disuku",
@@ -11591,6 +11703,389 @@
   "tags": [
    "cosa",
    "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: disk"
+ },
+ {
+  "id": "aa-katakana",
+  "kana": "アー",
+  "romaji": "aa",
+  "es": [
+   "ah (interjección)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "expresion",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "ii-katakana",
+  "kana": "イー",
+  "romaji": "ii",
+  "es": [
+   "la letra E (en inglés)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "expresion",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: E (letra)"
+ },
+ {
+  "id": "ee-katakana",
+  "kana": "エー",
+  "romaji": "ee",
+  "es": [
+   "eh... (duda)",
+   "la letra A"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "expresion",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: A (letra)"
+ },
+ {
+  "id": "oo-katakana",
+  "kana": "オー",
+  "romaji": "oo",
+  "es": [
+   "¡oh!"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "expresion",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: oh"
+ },
+ {
+  "id": "ooi-katakana",
+  "kana": "オーイ",
+  "romaji": "ooi",
+  "es": [
+   "¡eh, oye! (para llamar a alguien)"
+  ],
+  "pos": "expression",
+  "lesson": "G0",
+  "tags": [
+   "expresion",
+   "kana-practice"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "shefu",
+  "kana": "シェフ",
+  "romaji": "shefu",
+  "es": [
+   "chef",
+   "cocinero jefe"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "trabajo",
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "francés: chef"
+ },
+ {
+  "id": "wiin",
+  "kana": "ウィーン",
+  "romaji": "wiin",
+  "es": [
+   "Viena"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "lugar",
+   "pais",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "alemán: Wien"
+ },
+ {
+  "id": "weitaa",
+  "kana": "ウェイター",
+  "romaji": "weitaa",
+  "es": [
+   "camarero"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "trabajo",
+   "restaurante",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: waiter"
+ },
+ {
+  "id": "webu",
+  "kana": "ウェブ",
+  "romaji": "webu",
+  "es": [
+   "web"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: web"
+ },
+ {
+  "id": "wootaa",
+  "kana": "ウォーター",
+  "romaji": "wootaa",
+  "es": [
+   "agua (en inglés)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "bebida",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: water"
+ },
+ {
+  "id": "ferii",
+  "kana": "フェリー",
+  "romaji": "ferii",
+  "es": [
+   "ferri",
+   "transbordador"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "transporte",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: ferry"
+ },
+ {
+  "id": "fakkusu",
+  "kana": "ファックス",
+  "romaji": "fakkusu",
+  "es": [
+   "fax"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "cosa",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: fax"
+ },
+ {
+  "id": "fan",
+  "kana": "ファン",
+  "romaji": "fan",
+  "es": [
+   "aficionado",
+   "fan"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: fan"
+ },
+ {
+  "id": "cheen",
+  "kana": "チェーン",
+  "romaji": "cheen",
+  "es": [
+   "cadena",
+   "cadena de tiendas"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "lugar",
+   "tienda",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: chain"
+ },
+ {
+  "id": "dinaa",
+  "kana": "ディナー",
+  "romaji": "dinaa",
+  "es": [
+   "cena (formal)"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: dinner"
+ },
+ {
+  "id": "jettokoosutaa",
+  "kana": "ジェットコースター",
+  "romaji": "jettokoosutaa",
+  "es": [
+   "montaña rusa"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: jet + roller coaster (inventado en Japón)"
+ },
+ {
+  "id": "finrando",
+  "kana": "フィンランド",
+  "romaji": "finrando",
+  "es": [
+   "Finlandia"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "lugar",
+   "pais",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: Finland"
+ },
+ {
+  "id": "dyuetto",
+  "kana": "デュエット",
+  "romaji": "dhuetto",
+  "es": [
+   "dueto"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "ocio",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "italiano: duetto"
+ },
+ {
+  "id": "famiriiresutoran",
+  "kana": "ファミリーレストラン",
+  "romaji": "famiriiresutoran",
+  "es": [
+   "restaurante familiar"
+  ],
+  "pos": "noun",
+  "lesson": "G0",
+  "tags": [
+   "lugar",
+   "comida",
+   "kana-practice"
+  ],
+  "source": "propio",
+  "origin": "inglés: family restaurant"
+ },
+ {
+  "id": "koohii-wo-nomu",
+  "kana": "コーヒーをのむ",
+  "romaji": "koohiiwonomu",
+  "es": [
+   "tomar café"
+  ],
+  "pos": "verb",
+  "verbGroup": "u",
+  "lesson": "G0",
+  "tags": [
+   "verbo",
+   "comida",
+   "katakana-mixto"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "tenisu-wo-suru",
+  "kana": "テニスをする",
+  "romaji": "tenisuwosuru",
+  "es": [
+   "jugar al tenis"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G0",
+  "tags": [
+   "verbo",
+   "deporte",
+   "katakana-mixto"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "sakkaa-wo-suru",
+  "kana": "サッカーをする",
+  "romaji": "sakkaawosuru",
+  "es": [
+   "jugar al fútbol"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G0",
+  "tags": [
+   "verbo",
+   "deporte",
+   "katakana-mixto"
+  ],
+  "source": "propio"
+ },
+ {
+  "id": "geemu-wo-suru",
+  "kana": "ゲームをする",
+  "romaji": "geemuwosuru",
+  "es": [
+   "jugar videojuegos"
+  ],
+  "pos": "verb",
+  "verbGroup": "irregular",
+  "lesson": "G0",
+  "tags": [
+   "verbo",
+   "ocio",
+   "katakana-mixto"
   ],
   "source": "propio"
  }

@@ -122,6 +122,43 @@ describe('LessonRunner', () => {
   }, 60_000);
 });
 
+describe('Lecciones de katakana', () => {
+  /** Completes every lesson `id` requires (directly or not) and unlocks their kana. */
+  function completeAncestors(id: string) {
+    const byId = new Map(content.curriculum.map((l) => [l.id, l]));
+    const seen = new Set<string>();
+    const visit = (lid: string) => byId.get(lid)!.requires.forEach((r) => !seen.has(r) && (seen.add(r), visit(r)));
+    visit(id);
+    seen.forEach((lid) => {
+      useProgress.getState().completeLesson(lid);
+      useProgress.getState().unlockKana(byId.get(lid)!.kana ?? []);
+    });
+  }
+
+  it('k-a is available after the verbs ます lesson, without finishing stage 2', () => {
+    completeAncestors('k-a');
+    expect(useProgress.getState().completedLessons).not.toContain('l-conj-masu');
+    renderAt('/leccion/k-a');
+    expect(screen.getByRole('heading', { name: 'Kana nuevos' })).toBeInTheDocument();
+    expect(screen.getAllByText(/vocal larga/).length).toBeGreaterThan(0);
+    expect(screen.getByRole('button', { name: 'Empezar práctica' })).toBeInTheDocument();
+  });
+
+  it('the intro of a lesson with look-alikes warns about them', () => {
+    completeAncestors('k-ta');
+    renderAt('/leccion/k-ta');
+    expect(screen.getByTestId('look-alikes')).toHaveTextContent('シ / ツ');
+  });
+
+  it('the first game of a katakana lesson is kana recognition with the katakana of the lesson', async () => {
+    completeAncestors('k-ka');
+    renderAt('/leccion/k-ka');
+    await user().click(screen.getByRole('button', { name: 'Empezar práctica' }));
+    expect(screen.getByText(/^Juego 1 de 4:/)).toHaveTextContent('Reconocer kana');
+    expect('カキクケコ').toContain(screen.getByTestId('prompt').textContent!.charAt(0));
+  });
+});
+
 describe('Práctica', () => {
   it('starts free practice with the selected rows and ends with a summary', async () => {
     const u = user();

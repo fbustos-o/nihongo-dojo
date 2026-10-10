@@ -39,3 +39,12 @@ Una ronda cuenta una vez, según el primer intento.
   (color + icono + texto, `role="status"`), `playSfx` (solo si `settings.sound`).
 - Respetar `settings.showRomaji` para ayudas de romaji; animaciones con `prefers-reduced-motion` (ya en `games.module.css`).
 - Tests junto al código (`*.test.tsx`).
+
+## Katakana (etapa 3)
+
+- `kana-recognize` en lecciones de katakana: las confusiones clásicas (`confusables.ts`: シ/ツ, ソ/ン, ク/ケ/タ, ワ/ウ/フ, ヌ/ス, チ/テ…)
+  salen con más frecuencia, sirven de distractores (solo kana ya conocidos) y los kana conocidos que se parecen a uno nuevo vuelven como repaso.
+  Además hay rondas «hiragana ↔ katakana» (`kana-recognize/recognizeLogic.ts`: ver あ y elegir ア, o al revés). Toda la lógica es pura y está testeada.
+- `kana-write`: las palabras solo en katakana se escriben con el IME katakana (`-` o la vocal repetida dan ー). Si el romaji no produce el kana
+  (ティ necesita `thi`, ウォ `who`), se muestra la ayuda de escritura (`typingHints`).
+- `read-words`: «¿Qué significa?» y, tras responder, «Pronunciación original» con `Word.origin` (opcional, p. ej. `inglés: television`).

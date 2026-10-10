@@ -1,6 +1,6 @@
 import { content } from '../domain/contentLoader';
 import type { GameId, KanaEntry, Lesson, Word } from '../domain/schema';
-import { filterReadable, unlockedKanaForLessons } from '../engine';
+import { filterReadable, isReadableWith, unlockedKanaForLessons } from '../engine';
 import { isImplemented } from '../games/registry';
 import { emptyStats, type GameStats } from '../games/types';
 import { useProgress } from '../state/progressStore';
@@ -140,10 +140,21 @@ function ancestors(lesson: Lesson, curriculum: readonly Lesson[]): Lesson[] {
   return curriculum.filter((l) => seen.has(l.id));
 }
 
+const HAS_KATAKANA = /[ァ-ヺ]/;
+
+/**
+ * Stage 3 words: loanwords readable with the known katakana plus the lesson's, and hiragana known from
+ * stage 1. Mixed-script words (テニスをする) are fine; purely hiragana words from stage 2 are left out,
+ * since the lesson practises katakana.
+ */
+export function stage3Words(words: readonly Word[], known: ReadonlySet<string>): Word[] {
+  return words.filter((w) => HAS_KATAKANA.test(w.kana) && isReadableWith(w.kana, known));
+}
+
 /**
  * What the games of a lesson practise: the lesson's kana, and its words plus those of the lessons
  * it builds on. Stage 1 words are limited to what is readable with the known kana plus the
- * lesson's new kana (the rest of the stages rely on JaText to hide what is still locked).
+ * lesson's new kana; stage 3 likewise (see `stage3Words`). The other stages rely on JaText to hide what is still locked.
  */
 export function lessonContent(
   lesson: Lesson,
@@ -159,6 +170,6 @@ export function lessonContent(
   // Own words first, then those of the lessons it builds on.
   const ordered = [...(lesson.words ?? []), ...ids.filter((id) => !own.has(id))];
   const unique = [...new Set(ordered)].map((id) => byId.get(id)).filter((w): w is Word => w !== undefined);
-  const words = lesson.stage === 1 ? filterReadable(unique, known) : unique;
+  const words = lesson.stage === 1 ? filterReadable(unique, known) : lesson.stage === 3 ? stage3Words(unique, known) : unique;
   return { kana, words, newKana: [...newKana] };
 }

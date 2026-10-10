@@ -33,6 +33,8 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
 
   const [question, setQuestion] = useState<Question | null>(() => (pool.length ? make(0) : null));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
+  /** Loanword just answered: its original word is shown only now, not before answering. */
+  const [answered, setAnswered] = useState<Word | null>(null);
   if (!question) return <p className="muted">No hay palabras legibles todavía.</p>;
 
   const { word } = question;
@@ -42,6 +44,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
   };
   const onDone = (firstTry: boolean) => {
     setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${word.kana} = ${meaningOf(word)}`, id: session.round } : null);
+    setAnswered(word.origin ? word : null);
     session.next();
     setQuestion(make(session.round + 1));
   };
@@ -54,12 +57,18 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
   return (
     <GameFrame session={session}>
       {last && <Feedback message={last} />}
+      {answered?.origin && (
+        <p className={`muted ${styles.hint}`} data-testid="origin" role="note">
+          Pronunciación original: <JaText word={answered} /> ← {answered.origin}
+        </p>
+      )}
       {question.mode === 'meaning' ? (
         <ChoiceRound
           key={session.round}
           prompt={
             <>
               {shown}
+              <div className="muted">¿Qué significa?</div>
               {showRomaji && <div className={styles.hint}>{word.romaji}</div>}
             </>
           }

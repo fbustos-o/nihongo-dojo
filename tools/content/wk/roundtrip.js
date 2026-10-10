@@ -1,6 +1,6 @@
 const w=require('wanakana');
 const fs=require('fs');
-const C=require('path').join(__dirname,'..','..','app','src','content')+'/';
+const C=require('path').join(__dirname,'..','..','..','app','src','content')+'/';
 const vocab=JSON.parse(fs.readFileSync(C+'vocab.json','utf8'));
 const kana=JSON.parse(fs.readFileSync(C+'kana.json','utf8'));
 let bad=[];let skipped=0;

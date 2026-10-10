@@ -1485,14 +1485,20 @@
   "romaji": "wi",
   "script": "katakana",
   "row": "ext",
-  "group": "extended"
+  "group": "extended",
+  "alt": [
+   "whi"
+  ]
  },
  {
   "char": "ウェ",
   "romaji": "we",
   "script": "katakana",
   "row": "ext",
-  "group": "extended"
+  "group": "extended",
+  "alt": [
+   "whe"
+  ]
  },
  {
   "char": "ウォ",
@@ -1537,21 +1543,32 @@
   "romaji": "je",
   "script": "katakana",
   "row": "ext",
-  "group": "extended"
+  "group": "extended",
+  "alt": [
+   "jye",
+   "zye"
+  ]
  },
  {
   "char": "シェ",
   "romaji": "she",
   "script": "katakana",
   "row": "ext",
-  "group": "extended"
+  "group": "extended",
+  "alt": [
+   "sye"
+  ]
  },
  {
   "char": "チェ",
   "romaji": "che",
   "script": "katakana",
   "row": "ext",
-  "group": "extended"
+  "group": "extended",
+  "alt": [
+   "tye",
+   "cye"
+  ]
  },
  {
   "char": "ツァ",

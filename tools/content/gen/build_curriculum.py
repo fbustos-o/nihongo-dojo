@@ -183,8 +183,11 @@ KH=[('k-a','Katakana: ア イ ウ エ オ y la vocal larga ー','アイウエオ
 ('k-handakuten','Katakana con handakuten: パ行','パピプペポ'),
 ('k-small-tsu','Katakana: la ッ pequeña (doble consonante)','ッ'),
 ('k-yoon','Katakana: yōon (キャ シャ チャ ジャ ...)','キャキュキョギャギュギョシャシュショジャジュジョチャチュチョニャニュニョヒャヒュヒョビャビュビョピャピュピョミャミュミョリャリュリョ'),
-('k-extended','Katakana extendido: ファ ティ ウィ ヴ ジェ ...','ウィウェウォヴァヴィヴヴェヴォジェシェチェツァツィツェツォティトゥディドゥデュファフィフェフォフュイェ')]
-kknown=set(); prevk=s2_last
+('k-extended','Katakana extendido: ファ ティ ウィ ヴ ジェ ...','ウィウェウォヴァヴィヴヴェヴォジェシェチェツァツィツェツォティトゥディドゥデュファフィフェフォフュイェヴ')]
+# k-a needs only the lesson that introduces verbs ます, so katakana and the rest of stage 2 can progress in parallel.
+K_GATE='l-verbos-1'
+CAP={'k-extended':18}
+kknown=set(); prevk=K_GATE
 kcand=[w for w in V if re.fullmatch(r'[ァ-ヺー]+',w['kana']) ]
 kused=set()
 for id,title,chars in KH:
@@ -196,7 +199,15 @@ for id,title,chars in KH:
         toks=split(w['kana'])
         if all(t in kknown for t in toks) and any(t in newset for t in toks): picks.append(w)
     picks.sort(key=lambda w:(len(w['kana']),w['id']))
-    picks=picks[:8]
+    if id=='k-extended':
+        # cover every extended kana at least once (shortest word first), then fill by length
+        cov=[]
+        for u in new:
+            if len(u)==2 or u=='ヴ':
+                c=[w for w in picks if u in split(w['kana']) and w not in cov]
+                if c: cov.append(c[0])
+        picks=cov+[w for w in picks if w not in cov]
+    picks=picks[:CAP.get(id,8)]
     for w in picks: kused.add(w['id'])
     L(id,3,title,[prevk],kana=new,words=[w['id'] for w in picks],games=['kana-recognize','kana-write','read-words','listen'])
     prevk=id
@@ -204,11 +215,16 @@ kleft=[w['id'] for w in kcand if w['id'] not in kused]
 print('katakana words not used in kana lessons (will go to loan lessons):',len(kleft))
 def kw(f): return [w['id'] for w in kcand if f(w)]
 def has(*tags): return lambda w:bool(set(w['tags'])&set(tags))
-L('k-prestamos-comida','3' and 3,'Préstamos: comida y bebida',[prevk],words=kw(has('comida','bebida')),games=['read-words','listen','syntax'])
-L('k-prestamos-lugares',3,'Préstamos: lugares y transporte',['k-prestamos-comida'],words=kw(lambda w:bool(set(w['tags'])&{'lugar','transporte','pais'})),games=['read-words','listen','dialogues'])
-L('k-prestamos-cosas',3,'Préstamos: cosas, ropa y casa',['k-prestamos-lugares'],words=kw(lambda w:bool(set(w['tags'])&{'cosa','ropa','casa'}) and not set(w['tags'])&{'comida','lugar','transporte','pais'}),games=['read-words','listen','particles'])
-L('k-prestamos-ocio',3,'Préstamos: ocio, deportes y escuela',['k-prestamos-cosas'],words=kw(lambda w:bool(set(w['tags'])&{'ocio','deporte','escuela','trabajo'}) and not set(w['tags'])&{'comida','lugar','transporte','pais','cosa','ropa','casa'}),games=['read-words','listen','mini-reading'])
-L('k-repaso',3,'Repaso: diálogos y lecturas con katakana',['k-prestamos-ocio'],dialogues=['comprar-bolso','papeleria','restaurante-pedir','restaurante-cuenta','planes-almuerzo'],games=['dialogues','mini-reading','syntax','read-words'])
+MIXED={'comida':['koohii-wo-nomu'],'lugares':['amerikajin','basutei'],'cosas':['shawaa-wo-abiru'],'ocio':['tenisu-wo-suru','sakkaa-wo-suru','geemu-wo-suru']}
+def loan(tagset,excl=()):
+    return kw(lambda w:bool(set(w['tags'])&tagset) and not set(w['tags'])&set(excl))
+def mixed(k): return [i for i in MIXED[k] if i in W]
+L('k-prestamos-comida',3,'Préstamos: comida y bebida',[prevk,'l-particulas'],words=loan({'comida','bebida'})+mixed('comida'),patterns=['de-place-action','to-with'],games=['read-words','listen','syntax'])
+L('k-prestamos-lugares',3,'Préstamos: lugares y transporte',['k-prestamos-comida','l-aru-iru'],words=loan({'lugar','transporte','pais'})+mixed('lugares'),games=['read-words','listen','dialogues'])
+L('k-prestamos-cosas',3,'Préstamos: cosas, ropa y casa',['k-prestamos-lugares','l-kore'],words=loan({'cosa','ropa','casa'},{'comida','lugar','transporte','pais'})+mixed('cosas'),patterns=['no-possession','dare-no','kore-sore-are'],games=['read-words','listen','particles'])
+L('k-prestamos-ocio',3,'Préstamos: ocio, deportes y escuela',['k-prestamos-cosas','l-invitar'],words=loan({'ocio','deporte','escuela','trabajo'},{'comida','lugar','transporte','pais','cosa','ropa','casa'})+mixed('ocio'),patterns=['frequency','masu-masen','de-place-action'],games=['read-words','listen','mini-reading'])
+# review: the stage-2 topics whose dialogues it replays (shopping, restaurant, lunch plans)
+L('k-repaso',3,'Repaso: diálogos y lecturas con katakana',['k-prestamos-ocio','l-restaurante','l-adjetivos-na'],dialogues=['comprar-bolso','papeleria','restaurante-pedir','restaurante-cuenta','planes-almuerzo'],patterns=['masu-masen','de-place-action','kudasai','counters'],games=['dialogues','mini-reading','syntax','read-words'])
 # ---------------- Stage 4: kanji
 KL={}
 for k in K: KL.setdefault(k['genkiLesson'],[]).append(k['char'])
@@ -217,7 +233,7 @@ prev4='k-repaso'
 for n in range(3,13):
     ws=[w['id'] for w in V if w.get('kanji') and any('一'<=c<='鿿' for c in w['kanji']) and max(klev[c] for c in w['kanji'] if c in klev)==n and all((c in klev) or not('一'<=c<='鿿') for c in w['kanji'])]
     ws.sort(key=lambda i:(LORD(W[i]['lesson']),i))
-    L(f'kanji-{n}',4,f'Kanji de Genki, lección {n}',[prev4],kanji=KL[n],words=ws,games=['kanji','read-words','mini-reading'])
+    L(f'kanji-{n}',4,f'Kanji de Genki, lección {n}',[prev4]+([s2_last] if n==3 else []),kanji=KL[n],words=ws,games=['kanji','read-words','mini-reading'])
     prev4=f'kanji-{n}'
 # KANJI-ejemplo words in vocab are included in kanji-N by the rule above
 for l in lessons:
