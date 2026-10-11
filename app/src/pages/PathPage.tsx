@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { content } from '../domain/contentLoader';
-import { computePathNodes, nextLesson, STAGE_TITLES, stageProgress, type LessonNode } from '../lesson/lessonLogic';
+import { computePathNodes, nextLesson, shortTitle, STAGE_TITLES, stageProgress, unmetRequirements, type LessonNode } from '../lesson/lessonLogic';
 import styles from '../lesson/lesson.module.css';
 import { useProgress } from '../state/progressStore';
 
-function Node({ node, current }: { node: LessonNode; current: boolean }) {
+function Node({ node, current, unmet }: { node: LessonNode; current: boolean; unmet: string[] }) {
   const { lesson, status, playable, comingSoon } = node;
   const icon = status === 'completed' ? '✓' : status === 'locked' ? '🔒' : comingSoon ? '⏳' : '▶';
   const label = status === 'completed' ? 'Completada' : status === 'locked' ? 'Bloqueada' : comingSoon ? 'Próximamente' : 'Disponible';
@@ -16,6 +16,7 @@ function Node({ node, current }: { node: LessonNode; current: boolean }) {
       <span className={styles.nodeBody}>
         <strong>{lesson.title}</strong>
         <span className={styles.nodeState}>{current ? 'Siguiente lección' : label}</span>
+        {status === 'locked' && unmet.length > 0 && <span className={styles.nodeState}>requiere: {unmet.join(', ')}</span>}
       </span>
     </>
   );
@@ -37,6 +38,7 @@ function Node({ node, current }: { node: LessonNode; current: boolean }) {
 export function PathPage() {
   const completed = useProgress((s) => s.completedLessons);
   const { curriculum } = content;
+  const completedSet = new Set(completed);
   const nodes = computePathNodes(curriculum, completed);
   const currentId = nextLesson(nodes)?.id;
 
@@ -77,7 +79,11 @@ export function PathPage() {
               .filter((n) => n.lesson.stage === stage)
               .map((n) => (
                 <li key={n.lesson.id} className={`${styles.pathStep} ${n.status === 'completed' ? styles.pathStepDone : ''}`}>
-                  <Node node={n} current={n.lesson.id === currentId} />
+                  <Node
+                    node={n}
+                    current={n.lesson.id === currentId}
+                    unmet={n.status === 'locked' ? unmetRequirements(n.lesson, completedSet, curriculum).map(shortTitle) : []}
+                  />
                 </li>
               ))}
           </ul>

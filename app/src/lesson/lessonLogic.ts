@@ -102,7 +102,17 @@ export function weakestItems(stats: GameStats, limit = 5): { key: string; label:
     .slice(0, limit);
 }
 
-export const xpEarned = (stats: Pick<GameStats, 'correct'>): number => stats.correct * XP_PER_CORRECT;
+/** Titles of the lessons `lesson` still needs, shown as "requiere: ..." on locked nodes. */
+export function unmetRequirements(lesson: Lesson, completed: ReadonlySet<string>, curriculum: readonly Lesson[]): Lesson[] {
+  return lesson.requires.filter((id) => !completed.has(id)).flatMap((id) => curriculum.find((l) => l.id === id) ?? []);
+}
+
+/** Short name for a requirement hint: "Hiragana fila な" instead of the full lesson title. */
+export function shortTitle(lesson: Lesson): string {
+  return lesson.title.replace(/^Hiragana: /, 'Hiragana ').replace(/ \(.*\)$/, '');
+}
+
+export const xpEarned =(stats: Pick<GameStats, 'correct'>): number => stats.correct * XP_PER_CORRECT;
 
 /**
  * Applies the end of a lesson: when accuracy passes, the lesson is marked completed, its kana are

@@ -12,7 +12,7 @@ const loanLessons = stage(3).filter((l) => !l.kana && l.id.startsWith('k-prestam
 
 describe('stage 3 gating', () => {
   it('k-a needs only the lesson that introduces ます verbs, not the whole of stage 2', () => {
-    expect(lesson('k-a').requires).toEqual(['l-verbos-1']);
+    expect(lesson('k-a').requires).toEqual(['l-verbos-1', 'h-tsu-long']);
     expect(lesson('l-verbos-1').title).toMatch(/Verbos ます/);
     expect(lesson('k-a').requires).not.toContain(stage(2).at(-1)!.id);
   });

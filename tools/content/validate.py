@@ -174,7 +174,47 @@ else:
         if must not in [V[w]['kana'] for w in ws]: E(f"extended-kana lesson lacks {must}")
 # gating: k-a depends on the stage-2 lesson that introduces verbs ます (not on the whole stage 2)
 ka=Lm.get('k-a')
-if not ka or [Lm[r]['stage'] for r in ka['requires']]!=[2]: E('k-a must require exactly one stage-2 lesson')
+if not ka or [Lm[r]['stage'] for r in ka['requires'] if Lm[r]['stage']==2]!=[2]: E('k-a must require exactly one stage-2 lesson')
+if not ka or ka['requires']!=['l-verbos-1','h-tsu-long']: E('k-a must require exactly l-verbos-1 and the last hiragana lesson (h-tsu-long)')
+# ---- stage-2 hiragana gating (interleaved with hiragana; keep in sync with gen/build_curriculum.py)
+H1=[l['id'] for l in cur if l['stage']==1]
+H1known=[]; acc=set()
+for l in cur:
+    if l['stage']==1: acc=acc|set(l['kana']); H1known.append(set(acc))
+PD={p['id']:p for p in pats}; DD={d['id']:d for d in dial}
+FLOOR_D,FLOOR_O,TARGET_G=0.50,0.55,0.70
+def hira_gate(lid,memo={}):
+    """index (into H1) of the last hiragana lesson required, directly or through other lessons; -1 if none."""
+    if lid in memo: return memo[lid]
+    i=H1.index(lid) if lid in H1 else -1
+    memo[lid]=max([i]+[hira_gate(r) for r in Lm[lid]['requires']]) if lid in Lm else -1
+    return memo[lid]
+def kana_tokens(l):
+    txt=[V[w]['kana'] for w in l.get('words',[])]
+    for p in l.get('patterns',[]): txt+=[e['ja'] for e in PD[p]['examples']]
+    for d in l.get('dialogues',[]): txt+=[ln['ja'] for ln in DD[d]['lines']]
+    return [t for x in txt for t in split(re.sub(r'[^ぁ-ゖ]','',x))]
+IDX_NA=H1.index('h-na') if 'h-na' in H1 else 4
+gates=[]
+for l in cur:
+    if l['stage']!=2: continue
+    g=hira_gate(l['id'])
+    if g<IDX_NA: E(f"grammar lesson {l['id']} is available before h-na (hiragana gate {g})"); continue
+    toks=kana_tokens(l); kn=H1known[g]; dist=set(toks)
+    d=len([t for t in dist if t in kn])/max(1,len(dist)); o=len([t for t in toks if t in kn])/max(1,len(toks))
+    if l['id']=='l-saludos':
+        if H1[g]!='h-na': E(f"l-saludos must unlock at h-na, not {H1[g]}")
+    elif d<FLOOR_D or o<FLOOR_O: E(f"{l['id']}: only {d:.0%} distinct / {o:.0%} occurrence kana readable at {H1[g]} (min {FLOOR_D:.0%}/{FLOOR_O:.0%})")
+    if (d<TARGET_G or o<TARGET_G) and l['id']!='l-saludos': Wn(f"{l['id']}: {d:.0%}/{o:.0%} readable at {H1[g]} (below the {TARGET_G:.0%} target; relaxed by pacing)")
+    gates.append(g)
+# pacing: after h-na, never more than 2 hiragana lessons in a row without a newly available grammar lesson, until grammar runs out
+ev=sorted(set(gates))
+if ev:
+    if ev[0]!=IDX_NA: E('the first grammar lesson must unlock exactly at h-na')
+    for a,b in zip(ev,ev[1:]):
+        if b-a>3: E(f"pacing: {b-a-1} hiragana lessons between {H1[a]} and {H1[b]} unlock no grammar (max 2)")
+    if len(ev)<4: E('grammar unlocks come in fewer than 4 steps; expected them interleaved with hiragana')
+    if ev[-1]>=len(H1)-1: E('some grammar only unlocks at the last hiragana lesson; it should be spread out')
 # loanword origin: optional but must be a non-empty string
 for w in vocab:
     if 'origin' in w and (not isinstance(w['origin'],str) or not w['origin'].strip()): E(f"empty origin {w['id']}")

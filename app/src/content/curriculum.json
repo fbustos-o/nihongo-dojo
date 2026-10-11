@@ -496,7 +496,7 @@
   "stage": 2,
   "title": "Saludos y expresiones básicas",
   "requires": [
-   "h-tsu-long"
+   "h-na"
   ],
   "words": [
    "ohayou",
@@ -537,7 +537,8 @@
   "stage": 2,
   "title": "Números del 0 al 10 000",
   "requires": [
-   "l-saludos"
+   "l-saludos",
+   "h-ma"
   ],
   "words": [
    "zero",
@@ -570,7 +571,8 @@
   "stage": 2,
   "title": "XはYです: presentarse (Genki 1)",
   "requires": [
-   "l-saludos"
+   "l-saludos",
+   "h-ma"
   ],
   "words": [
    "daigaku",
@@ -623,7 +625,8 @@
   "title": "La hora: じ, はん, ふん",
   "requires": [
    "l-desu",
-   "l-numeros"
+   "l-numeros",
+   "h-wa-n"
   ],
   "words": [
    "ima",
@@ -654,7 +657,8 @@
   "title": "これ/それ/あれ, compras y precios (Genki 2)",
   "requires": [
    "l-desu",
-   "l-numeros"
+   "l-numeros",
+   "h-ya-ra"
   ],
   "words": [
    "kore",
@@ -1089,7 +1093,8 @@
   "stage": 2,
   "title": "Adjetivos な, すき/きらい y じゃないです",
   "requires": [
-   "l-adjetivos-i"
+   "l-adjetivos-i",
+   "h-dakuten-1"
   ],
   "words": [
    "suki",
@@ -1165,7 +1170,8 @@
   "title": "Calendario: meses, días y semana",
   "requires": [
    "l-pasado",
-   "l-hora"
+   "l-hora",
+   "h-dakuten-1"
   ],
   "words": [
    "doyoubi",
@@ -1470,7 +1476,8 @@
   "stage": 3,
   "title": "Katakana: ア イ ウ エ オ y la vocal larga ー",
   "requires": [
-   "l-verbos-1"
+   "l-verbos-1",
+   "h-tsu-long"
   ],
   "kana": [
    "ア",

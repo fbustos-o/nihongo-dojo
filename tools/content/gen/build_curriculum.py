@@ -138,7 +138,7 @@ for w in V:
 print('leftover',leftover)
 # weekday words by id check
 spec=[
-('l-saludos','Saludos y expresiones básicas',[h_last],[],['saludos-manana','llegar-a-casa'],['read-words','listen','dialogues']),
+('l-saludos','Saludos y expresiones básicas',[],[],['saludos-manana','llegar-a-casa'],['read-words','listen','dialogues']),
 ('l-numeros','Números del 0 al 10 000',['l-saludos'],[],[],['numbers','listen','read-words']),
 ('l-desu','XはYです: presentarse (Genki 1)',['l-saludos'],['noun-desu','ka-question','no-possession'],['presentacion'],['read-words','syntax','particles','dialogues']),
 ('l-hora','La hora: じ, はん, ふん',['l-desu','l-numeros'],['nanji-desu-ka'],['preguntar-la-hora'],['clock','numbers','dialogues']),
@@ -168,6 +168,45 @@ for id,title,req,pats,dias,games in spec:
     if dias: d['dialogues']=dias
     L(id,2,title,req,**d,games=games)
 s2_last='l-te-imasu-tai'
+# ---- hiragana gating of stage 2 (data-driven, interleaved). See PLAN_V2 M3 / feedback 3.1.
+# Unknown kana render as romaji, so a lesson may open before all its kana are known. For each grammar lesson we
+# measure, after each hiragana lesson, which share of the kana of its content (words + pattern examples + dialogue
+# lines) is known: distinct kana ("dist") and kana per token occurrence ("occ"). Then:
+#   target = first hiragana lesson with dist>=TARGET and occ>=TARGET     (data milestone)
+#   floor  = first hiragana lesson with dist>=FLOOR  and occ>=OCC_FLOOR (never go below this readability)
+#   cap    = pacing: a new tier of grammar lessons opens every TIER_ROWS hiragana rows after h-na
+#   gate   = max(floor, h-na, prerequisites' gates, min(target, cap))
+TARGET=0.70; FLOOR=0.50; OCC_FLOOR=0.55; FIRST=4; TIER_SIZE=5; TIER_ROWS=2
+PTd={p['id']:p for p in PT}; DGd={d['id']:d for d in DG}
+def content_kana(l):
+    txt=[W[i]['kana'] for i in l.get('words',[])]
+    for p in l.get('patterns',[]): txt+=[e['ja'] for e in PTd[p]['examples']]
+    for d in l.get('dialogues',[]): txt+=[ln['ja'] for ln in DGd[d]['lines']]
+    return [t for x in txt for t in split(re.sub(r'[^ぁ-ゖ]','',x))]
+def readable_at(toks,idx):
+    kn=set()
+    for h in H[:idx+1]: kn|=set(split(h[2]))
+    dist=set(toks)
+    return (len([t for t in dist if t in kn])/max(1,len(dist)), len([t for t in toks if t in kn])/max(1,len(toks)))
+def first_idx(toks,d_min,o_min):
+    for i in range(FIRST,len(H)):
+        d,o=readable_at(toks,i)
+        if d>=d_min and o>=o_min: return i
+    return len(H)-1
+GATE={}; GATE_TABLE=[]
+s2=[l for l in lessons if l['stage']==2]
+for j,l in enumerate(s2):
+    toks=content_kana(l)
+    target=first_idx(toks,TARGET,TARGET); floor=first_idx(toks,FLOOR,OCC_FLOOR)
+    cap=min(len(H)-1,FIRST+TIER_ROWS*((j+TIER_SIZE-1)//TIER_SIZE))
+    pre=[GATE[r] for r in l['requires'] if r in GATE]
+    g=max(floor,FIRST,max(pre,default=0),min(target,cap))
+    GATE[l['id']]=g
+    if g>max(pre,default=-1): l['requires']=l['requires']+[H[g][0]]
+    d,o=readable_at(toks,g)
+    GATE_TABLE.append((l['id'],H[g][0],round(d*100),round(o*100),H[target][0]))
+print('hiragana gating of stage 2: lesson -> hiragana lesson, distinct%, occurrence%, (data milestone)')
+for r in GATE_TABLE: print('  %-16s %-12s %3d%% %3d%%   target %s'%r)
 # ---------------- Stage 3: katakana
 KH=[('k-a','Katakana: ア イ ウ エ オ y la vocal larga ー','アイウエオー'),
 ('k-ka','Katakana: fila カ','カキクケコ'),
@@ -209,7 +248,8 @@ for id,title,chars in KH:
         picks=cov+[w for w in picks if w not in cov]
     picks=picks[:CAP.get(id,8)]
     for w in picks: kused.add(w['id'])
-    L(id,3,title,[prevk],kana=new,words=[w['id'] for w in picks],games=['kana-recognize','kana-write','read-words','listen'])
+    # katakana starts after verbs ます (stage 2) AND once hiragana is complete (grammar is now interleaved with hiragana)
+    L(id,3,title,[prevk]+([h_last] if id=='k-a' else []),kana=new,words=[w['id'] for w in picks],games=['kana-recognize','kana-write','read-words','listen'])
     prevk=id
 kleft=[w['id'] for w in kcand if w['id'] not in kused]
 print('katakana words not used in kana lessons (will go to loan lessons):',len(kleft))
