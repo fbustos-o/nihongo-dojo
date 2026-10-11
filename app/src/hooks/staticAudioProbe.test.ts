@@ -1,32 +1,35 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { isAudioResponse, playStaticClip, probeStaticClip, resetStaticAudioCache } from './staticAudio';
+import { playStaticClip, probeStaticClip, resetStaticAudioCache } from './staticAudio';
 
-const res = (ok: boolean, type: string) => ({ ok, headers: new Headers({ 'content-type': type }) }) as Response;
+const json = (body: unknown, ok = true) =>
+  ({ ok, headers: new Headers({ 'content-type': 'application/json' }), json: async () => body }) as Response;
 
 afterEach(() => {
   vi.unstubAllGlobals();
   resetStaticAudioCache();
 });
 
-describe('clip probe (QA-046)', () => {
-  it('treats a 200 text/html answer (SPA fallback) as a miss and audio/mpeg as a hit', async () => {
-    expect(isAudioResponse(res(true, 'text/html'))).toBe(false);
-    expect(isAudioResponse(res(false, 'audio/mpeg'))).toBe(false);
-    expect(isAudioResponse(res(true, 'audio/mpeg'))).toBe(true);
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(res(true, 'text/html')));
+describe('clip probe via manifest (QA-046)', () => {
+  it('answers from the manifest and fetches it only once', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(json({ clips: ['い', 'ありがとう。'] }));
+    vi.stubGlobal('fetch', fetchMock);
+    expect(await probeStaticClip('い')).toBe('yes');
+    expect(await probeStaticClip('ありがとう')).toBe('yes');
+    expect(await probeStaticClip('あ')).toBe('no');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0]?.[0]).toMatch(/audio\/manifest\.json$/);
+  });
+
+  it('a missing manifest (404 or SPA html fallback) means no clips, and play makes no request', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'content-type': 'text/html' }) } as Response));
+    const audio = vi.fn();
+    vi.stubGlobal('Audio', audio);
     expect(await probeStaticClip('あ')).toBe('no');
     expect(await playStaticClip('あ')).toBe(false);
+    expect(audio).not.toHaveBeenCalled();
   });
 
-  it('caches the HEAD request per clip', async () => {
-    const hit = vi.fn().mockResolvedValue(res(true, 'audio/mpeg'));
-    vi.stubGlobal('fetch', hit);
-    expect(await probeStaticClip('い')).toBe('yes');
-    await probeStaticClip('い');
-    expect(hit).toHaveBeenCalledTimes(1);
-  });
-
-  it('a failed request is unknown, not a miss', async () => {
+  it('an unreachable manifest is unknown, not a miss', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
     expect(await probeStaticClip('う')).toBe('unknown');
   });

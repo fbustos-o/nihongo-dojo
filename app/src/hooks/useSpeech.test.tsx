@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { resetStaticAudioCache } from './staticAudio';
+import { preloadStaticClips, resetStaticAudioCache } from './staticAudio';
 import { useSpeech } from './useSpeech';
 
 const played: string[] = [];
@@ -33,10 +33,19 @@ function setupSynth(voices: { lang: string }[], speak: (u: FakeUtterance) => voi
   vi.stubGlobal('SpeechSynthesisUtterance', FakeUtterance);
 }
 
-beforeEach(() => {
+async function withManifest(clips: string[]) {
+  vi.stubGlobal(
+    'fetch',
+    vi.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'content-type': 'application/json' }), json: async () => ({ clips }) }),
+  );
+  await preloadStaticClips();
+}
+
+beforeEach(async () => {
   played.length = 0;
   resetStaticAudioCache();
   vi.stubGlobal('Audio', FakeAudio);
+  await withManifest(['あ', 'い', 'う', 'え', 'お']);
 });
 
 describe('useSpeech', () => {

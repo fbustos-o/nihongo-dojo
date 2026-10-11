@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useProgress } from '../state/progressStore';
-import { playStaticClip, probeStaticClip } from './staticAudio';
+import { playStaticClip, preloadStaticClips, probeStaticClip } from './staticAudio';
 
 const isJapanese = (voice: SpeechSynthesisVoice) => voice.lang.toLowerCase().replace('_', '-').startsWith('ja');
 
@@ -15,6 +15,10 @@ export function useSpeech() {
   const rate = useProgress((s) => s.settings.ttsRate);
   const synth = typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null;
   const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
+
+  useEffect(() => {
+    void preloadStaticClips();
+  }, []);
 
   useEffect(() => {
     if (!synth) return;

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { clipKey, clipUrl, playStaticClip, resetStaticAudioCache } from './staticAudio';
+import { clipKey, clipUrl, playStaticClip, preloadStaticClips, resetStaticAudioCache } from './staticAudio';
 
 const created: string[] = [];
 let playImpl: () => Promise<void>;
@@ -15,11 +15,20 @@ class FakeAudio {
   }
 }
 
-beforeEach(() => {
+async function withManifest(clips: string[]) {
+  vi.stubGlobal(
+    'fetch',
+    vi.fn().mockResolvedValue({ ok: true, headers: new Headers({ 'content-type': 'application/json' }), json: async () => ({ clips }) }),
+  );
+  await preloadStaticClips();
+}
+
+beforeEach(async () => {
   created.length = 0;
   resetStaticAudioCache();
   playImpl = () => Promise.resolve();
   vi.stubGlobal('Audio', FakeAudio);
+  await withManifest(['あ', 'い', 'う', 'え', 'お']);
 });
 
 describe('static audio fallback', () => {
@@ -43,5 +52,10 @@ describe('static audio fallback', () => {
     expect(await playStaticClip('い')).toBe(false);
     expect(await playStaticClip('い')).toBe(false);
     expect(created).toHaveLength(1);
+  });
+
+  it('never requests a clip that is not in the manifest (no 404 noise)', async () => {
+    expect(await playStaticClip('か')).toBe(false);
+    expect(created).toHaveLength(0);
   });
 });
