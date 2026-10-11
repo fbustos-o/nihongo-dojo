@@ -9,6 +9,8 @@ interface KanaKeyboardProps {
   onSubmit?: () => void;
   script?: KanaScript;
   onScriptChange?: (script: KanaScript) => void;
+  /** Explicit «hide keyboard» button (the keyboard stays open while the round is active). */
+  onHide?: () => void;
 }
 
 /** Keeps the focus on the text input: pressing a key must not blur it (which would hide the keyboard). */
@@ -44,7 +46,7 @@ function Key({ label, aria, onClick, className = '', pressed, disabled }: KeyPro
  * ゛ ゜ 小 act on the last character; ー, script switch, backspace, clear, space and Enter are one tap.
  * Fixed to the bottom of the viewport (above the safe area) and publishes its height as `--kana-kb-h` on <html>.
  */
-export function KanaKeyboard({ value, onChange, onSubmit, script: scriptProp, onScriptChange }: KanaKeyboardProps) {
+export function KanaKeyboard({ value, onChange, onSubmit, script: scriptProp, onScriptChange, onHide }: KanaKeyboardProps) {
   const [script, setScript] = useState<KanaScript>(scriptProp ?? 'hiragana');
   const [gyo, setGyo] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -98,6 +100,11 @@ export function KanaKeyboard({ value, onChange, onSubmit, script: scriptProp, on
       <Key label="⌫" aria="Borrar último carácter" onClick={() => onChange(backspace(value))} className={styles.tool} />
       <Key label="✕" aria="Borrar todo" onClick={() => onChange('')} className={styles.tool} disabled={value === ''} />
       <Key label="␣" aria="Espacio" onClick={() => onChange(value + ' ')} className={styles.tool} />
+      {onHide && (
+        <button type="button" className={styles.hide} aria-label="Ocultar teclado" onMouseDown={keepFocus} onClick={onHide}>
+          <span aria-hidden="true">⌄</span>
+        </button>
+      )}
       <Key label="Comprobar ⏎" aria="Enter: comprobar" onClick={() => onSubmit?.()} className={`${styles.wide} ${styles.enter} ${styles.tool}`} />
     </div>
   );

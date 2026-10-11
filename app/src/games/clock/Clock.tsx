@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { playSfx } from '../shared/sfx';
@@ -32,7 +33,7 @@ export function ClockReadView({ question, rng, onReport, onDone }: ViewProps) {
         m={time.m}
         label={missed ? `Reloj analógico que marca ${spanishTime(time)}` : 'Reloj analógico con una hora dibujada con las manecillas; la respuesta se revela después de contestar'}
       />
-      <p lang="ja" className={styles.kana}>いま なんじですか？</p>
+      <p className={styles.kana}><JaText word={{ kana: 'いま なんじですか？' }} /></p>
       <p className={numberStyles.question}>¿Qué hora marca el reloj?</p>
     </>
   );
@@ -90,22 +91,28 @@ export function ClockSetView({ question, onReport, onDone }: ViewProps) {
     <div className={numberStyles.question}>
       <div data-testid="prompt">
         <p className={numberStyles.question}>Pon el reloj a esta hora:</p>
-        <p className={styles.kana}><KanaWithRomaji reading={question.reading} /></p>
-        <SpeakButton text={question.reading.kana} label="Escuchar otra vez" />
+        <div className={styles.kanaRow}>
+          <p className={styles.kana}><KanaWithRomaji reading={question.reading} /></p>
+          <SpeakButton text={question.reading.kana} label="Escuchar otra vez" />
+        </div>
       </div>
-      <AnalogClock h={h} m={m} label={`Reloj ajustado: ${spanishTime({ h, m })}`} />
-      <p className={styles.caption} role="status" aria-live="polite">
-        Marcas: <strong data-testid="set-time">{h}:{pad2(m)}</strong>
-      </p>
-      <Feedback message={message} />
-      <div className={styles.controls} role="group" aria-label="Ajustar el reloj">
-        {buttons.map((b) => (
-          <button key={b.label} type="button" className="btn" onClick={b.apply}>
-            {b.label}
-          </button>
-        ))}
+      {message && <Feedback message={message} />}
+      <div className={styles.setPad}>
+        <AnalogClock h={h} m={m} label={`Reloj ajustado: ${spanishTime({ h, m })}`} />
+        <div className={styles.setSide}>
+          <p className={styles.caption} role="status" aria-live="polite">
+            Marcas: <strong data-testid="set-time">{h}:{pad2(m)}</strong>
+          </p>
+          <div className={styles.controls} role="group" aria-label="Ajustar el reloj">
+            {buttons.map((b) => (
+              <button key={b.label} type="button" className="btn" onClick={b.apply}>
+                {b.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <p>
+      <p className={styles.checkRow}>
         <button type="button" className="btn btn-primary" onClick={check}>
           Comprobar
         </button>

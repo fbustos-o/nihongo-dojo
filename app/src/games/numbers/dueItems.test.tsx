@@ -18,6 +18,7 @@ const user = () => userEvent.setup({ delay: null });
 beforeEach(() => {
   voice = true;
   useProgress.getState().resetProgress();
+  useProgress.getState().unlockKana([...'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽゃゅょっー']);
 });
 
 describe('QA-005: review generates the exact due questions', () => {

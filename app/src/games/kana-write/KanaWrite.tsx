@@ -103,7 +103,16 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
             ),
             id: session.round,
           }
-        : null,
+        : {
+            tone: 'near',
+            text: `Era: ${expected} (${prompt.romaji})`,
+            node: (
+              <>
+                Era: <span lang="ja">{expected}</span> ({prompt.romaji})
+              </>
+            ),
+            id: session.round,
+          },
     );
     session.next();
     setQuestion(make(session.round + 1));

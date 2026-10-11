@@ -2,7 +2,7 @@
 .emoji { font-size: 3rem; line-height: 1; }
 .romaji { font-size: 0.85em; color: var(--text-muted); }
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
-.chip { font: inherit; padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); cursor: pointer; min-height: 2.5rem; }
+.chip { font: inherit; padding: 0.35rem 0.75rem; border: 1px solid var(--field-border); border-radius: 999px; background: var(--surface); color: var(--text); cursor: pointer; min-height: 2.75rem; }
 .chip[aria-pressed='true'] { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
 .kanaLine { font-size: 1.6rem; margin: 0.25rem 0; }
 .question { margin: 0; font-size: 1rem; }

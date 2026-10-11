@@ -31,7 +31,7 @@
 
 .segBtn[aria-pressed='true'] {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-contrast);
   border-color: var(--accent);
 }
 

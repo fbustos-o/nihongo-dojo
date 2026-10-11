@@ -68,7 +68,7 @@ test('solo teclado: Sintaxis — las fichas y «Comprobar» se alcanzan con Tab 
   expect(t).toBeGreaterThan(0);
 });
 
-test('teclado kana en pantalla (ajuste «teclado») con teclado físico: Tab sale del campo y el teclado kana desaparece', async ({ page, consoleLog }, info) => {
+test('teclado kana en pantalla (ajuste «teclado») con teclado físico: escribe (romaji → kana) y Tab no cierra el teclado kana (QA-040)', async ({ page, consoleLog }, info) => {
   void consoleLog;
   await seed(page, buildProgress({ completed: ['h-a'], settings: { kanaInput: 'teclado' } as never }), '/practica');
   await page.getByRole('combobox', { name: 'Juego:' }).selectOption('kana-write');
@@ -82,7 +82,8 @@ test('teclado kana en pantalla (ajuste «teclado») con teclado físico: Tab sal
   await page.keyboard.press('Tab');
   const afterTab = { focused: await active(page), keyboardVisible: await kb.isVisible().catch(() => false) };
   measure(info, 'kana keyboard + physical keyboard', { typedWithPhysicalKey: typed, afterTab });
-  expect(typed).toBe('');
+  expect(typed).toBe('あ');
+  expect(afterTab.keyboardVisible).toBe(true);
 });
 
 test('reloj y calendario: alternativas accesibles (role=img + aria-label sin revelar la respuesta; tabla con caption y aria-current)', async ({ page, consoleLog }, info) => {

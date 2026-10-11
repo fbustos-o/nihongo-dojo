@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { JaText } from '../../components/JaText';
 import { readDate, readDayOfWeek } from '../../engine';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { ModeChips, ReadingRound } from '../numbers/ReadingRound';
@@ -49,8 +50,8 @@ export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewPr
     ariaLabel = 'Día de la semana en hiragana';
     prompt = (
       <>
-        <p lang="ja" className={styles.kana}>
-          きょうは {readDayOfWeek(weekdayOf(today)).kana}です。{dayWord}は？
+        <p className={styles.kana}>
+          <JaText word={{ kana: `きょうは ${readDayOfWeek(weekdayOf(today)).kana}です。${dayWord}は？` }} />
         </p>
         <p className={numberStyles.question}>Hoy es {readDayOfWeekEs(today)}. ¿Qué día es {dayEs}?</p>
       </>
@@ -59,8 +60,8 @@ export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewPr
     prompt = (
       <>
         <MonthGrid month={today.month} day={today.day} />
-        <p lang="ja" className={styles.kana}>
-          きょうは {readDate(today.month, today.day).kana}です。{dayWord}は？
+        <p className={styles.kana}>
+          <JaText word={{ kana: `きょうは ${readDate(today.month, today.day).kana}です。${dayWord}は？` }} />
         </p>
         <p className={numberStyles.question}>
           Hoy es el {today.day} de {SPANISH_MONTHS[today.month - 1]}. ¿Qué fecha es {dayEs}?

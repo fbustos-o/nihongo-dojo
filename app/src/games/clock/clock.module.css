@@ -1,4 +1,4 @@
-.clock { width: min(100%, 16rem); height: auto; display: block; margin: 0 auto; }
+.clock { width: min(100%, 16rem, 38dvh); height: auto; display: block; margin: 0 auto; }
 .face { fill: var(--surface); stroke: var(--text); stroke-width: 3; }
 .tick { stroke: var(--text-muted); stroke-width: 1; }
 .tickMajor { stroke: var(--text); stroke-width: 2.5; }
@@ -10,3 +10,31 @@
 .controls button { min-height: 2.75rem; }
 .caption { margin: 0.25rem 0; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
 .kana { font-size: 1.6rem; margin: 0.25rem 0; }
+
+.kanaRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; }
+.setPad { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.setSide { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.checkRow { margin: 0.5rem 0 0; }
+
+/* Phones: clock and controls side by side, «Comprobar» pinned above the bottom bar. */
+@media (max-width: 480px) {
+  .setPad { flex-direction: row; align-items: center; gap: 0.5rem; }
+  .setPad .clock { flex: 0 0 44%; width: 44%; }
+  .setSide { flex: 1 1 0; min-width: 0; }
+  .setSide .controls { gap: 0.3rem; }
+  .setSide .controls button { padding: 0.25rem 0.2rem; font-size: 0.9rem; min-height: 2.75rem; }
+  .caption { font-size: 1rem; }
+}
+
+@media (max-width: 719px) {
+  .checkRow {
+    position: sticky;
+    bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+    margin: 0.5rem 0 0;
+    padding: 0.35rem 0;
+    text-align: center;
+    background: var(--surface);
+    box-shadow: 0 -8px 8px -8px rgb(0 0 0 / 0.25);
+  }
+}

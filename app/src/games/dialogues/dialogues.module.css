@@ -1,4 +1,4 @@
-.chat { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.chat { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; max-height: 40dvh; overflow-y: auto; overscroll-behavior: contain; }
 .bubble { max-width: 90%; padding: 0.5rem 0.75rem; border-radius: 0.9rem; border: 1px solid var(--border); background: var(--surface); }
 .left { align-self: flex-start; }
 .right { align-self: flex-end; border-color: var(--accent); }
@@ -11,3 +11,26 @@
 .option:hover:not(:disabled) { border-color: var(--accent); }
 .option:disabled { opacity: 0.55; text-decoration: line-through; cursor: not-allowed; }
 .title { margin: 0 0 0.5rem; font-size: 1.05rem; }
+
+@media (max-width: 480px), (max-height: 700px) {
+  .chat { max-height: 22dvh; margin-bottom: 0.5rem; gap: 0.35rem; }
+  .bubble { padding: 0.3rem 0.6rem; }
+  .ja { font-size: 1.1rem; }
+  .toolbar { gap: 0.25rem 0.75rem; margin-bottom: 0.25rem; }
+  .options { gap: 0.35rem; }
+  .option { font-size: 1.05rem; padding: 0.4rem 0.6rem; min-height: 2.75rem; }
+  .title { margin-bottom: 0.25rem; }
+}
+
+/* Phones: the reply options stay pinned just above the bottom bar while the page scrolls under them. */
+.reply { display: contents; }
+@media (max-width: 719px) {
+  .options {
+    position: sticky;
+    bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+    padding: 0.35rem 0;
+    background: var(--surface);
+    box-shadow: 0 -8px 8px -8px rgb(0 0 0 / 0.25);
+  }
+}

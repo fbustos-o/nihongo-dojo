@@ -2,11 +2,13 @@ import { useState, type ReactNode } from 'react';
 import { useEffect } from 'react';
 import { checkAnswer, allReadings, type Reading } from '../../engine';
 import { useSpeech } from '../../hooks/useSpeech';
+import { JaText } from '../../components/JaText';
 import { useProgress } from '../../state/progressStore';
 import { ChoiceRound, TypingRound, type Verdict } from '../shared';
 import { buildChoices } from './confusions';
 import type { Rng } from './random';
 import styles from './numbers.module.css';
+import shared from '../shared/games.module.css';
 
 /** Verdict for a typed reading: any accepted kana (primary or alternative). */
 export function readingVerdict(input: string, reading: Reading): Verdict {
@@ -19,7 +21,7 @@ export function KanaWithRomaji({ reading }: { reading: Reading }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   return (
     <>
-      <span lang="ja">{reading.kana}</span>
+      <JaText word={{ kana: reading.kana }} />
       {showRomaji && (
         <span lang="en" className={styles.romaji}>
           {' '}
@@ -49,13 +51,18 @@ export function ReadingRound({ prompt, reading, format, related, rng = Math.rand
   if (format === 'choice' && options.length >= 2) {
     return (
       <ChoiceRound
-        prompt={prompt}
+        prompt={
+          <>
+            <span className={shared.stickyChoices} />
+            {prompt}
+          </>
+        }
         small
         options={options.map((kana) => ({
           key: kana,
           label: kana,
           correct: kana === reading.kana,
-          content: <span lang="ja">{kana}</span>,
+          content: <JaText word={{ kana }} />,
         }))}
         onReport={onReport}
         onDone={onDone}

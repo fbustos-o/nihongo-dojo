@@ -35,8 +35,8 @@ export interface GameMeta {
 }
 
 export const GAME_REGISTRY: Record<GameId, GameMeta> = {
-  'kana-recognize': { id: 'kana-recognize', name: 'Reconocer kana', description: 'Mira el kana y escribe su romaji.', component: lazyGame(LOADERS['kana-recognize']!) },
-  'kana-write': { id: 'kana-write', name: 'Escribir kana', description: 'Lee el romaji y escríbelo en kana.', component: lazyGame(LOADERS['kana-write']!) },
+  'kana-recognize': { id: 'kana-recognize', name: 'Reconocer kana', description: 'Reconoce cada kana y su sonido.', component: lazyGame(LOADERS['kana-recognize']!) },
+  'kana-write': { id: 'kana-write', name: 'Escribir kana', description: 'Escribe en kana lo que lees (romaji) o lo que oyes.', component: lazyGame(LOADERS['kana-write']!) },
   'read-words': { id: 'read-words', name: 'Leer palabras', description: 'Lee la palabra y elige o escribe su significado / lectura.', component: lazyGame(LOADERS['read-words']!) },
   listen: { id: 'listen', name: 'Escuchar', description: 'Escucha el audio y elige lo que oíste.', component: lazyGame(LOADERS['listen']!) },
   syntax: { id: 'syntax', name: 'Sintaxis', description: 'Ordena la frase japonesa (sujeto, objeto, verbo).', component: lazyGame(LOADERS['syntax']!) },

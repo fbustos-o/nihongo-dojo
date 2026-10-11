@@ -252,7 +252,8 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       const digits = main.getByRole('textbox', { name: 'Número con cifras' });
       if (await digits.count()) {
         const line = main.locator('[class*="_kanaLine_"] span[lang="ja"]');
-        const k = (await line.count()) ? (await line.first().textContent())!.trim() : ((await lastSpoken(page)) ?? '');
+        // locked kana render as ruby with romaji in <rt>: read the base text only
+        const k = (await line.count()) ? (await line.first().evaluate((e) => { const c = e.cloneNode(true) as HTMLElement; c.querySelectorAll('rt').forEach((r) => r.remove()); return c.textContent ?? ''; })).trim() : ((await lastSpoken(page)) ?? '');
         const n = numberFromKana(k);
         if (n === undefined) throw new Error(`solver: number for ${k}`);
         await type(digits, String(n), wrong);
@@ -386,7 +387,7 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
 async function readingAnswer(page: Page, reading: string, wrong: boolean): Promise<void> {
   const main = page.locator('main');
   const buttons = choiceButtons(main);
-  if (await buttons.count()) await choose(page, buttons, (t) => t === reading, wrong);
+  if (await buttons.count()) await choose(page, buttons, (t) => t === reading || exactSame(t, reading), wrong);
   else await type(main.locator('form input'), reading, wrong);
 }
 
