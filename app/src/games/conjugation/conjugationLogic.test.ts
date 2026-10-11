@@ -6,6 +6,7 @@ import {
   LESSON_FORMS,
   acceptedFor,
   conjEntries,
+  isUnnaturalForm,
   conjugableWords,
   formLabel,
   formsForLesson,
@@ -78,6 +79,24 @@ describe('conjugation of the content', () => {
   it('builds one entry per word and form, with ids like verb:<word>:<form>', () => {
     const entries = conjEntries([word('taberu')], 'verb', ['masu', 'masen']);
     expect(entries.map((e) => e.id)).toEqual(['verb:taberu:masu', 'verb:taberu:masen']);
+  });
+
+  it('QA-033: non-volitional verbs are not asked in ましょう / てください / たい forms', () => {
+    const forms = ['masu', 'mashou', 'mashouka', 'tekudasai', 'taidesu', 'takunaidesu', 'te'] as const;
+    const ids = (verb: string) => conjEntries([word(verb)], 'verb', forms).map((e) => e.id.split(':')[2]);
+    for (const verb of ['aru', 'wakaru', 'iru', 'iru-necesitar']) expect(ids(verb)).toEqual(['masu', 'te']);
+    expect(ids('taberu')).toEqual([...forms]);
+    expect(isUnnaturalForm(word('aru'), 'verb', 'tekudasai')).toBe(true);
+    expect(isUnnaturalForm(word('aru'), 'verb', 'mashouka')).toBe(true);
+    expect(isUnnaturalForm(word('wakaru'), 'verb', 'taidesu')).toBe(true);
+    expect(isUnnaturalForm(word('aru'), 'verb', 'masen')).toBe(false);
+    expect(isUnnaturalForm(word('taberu'), 'verb', 'taidesu')).toBe(false);
+  });
+
+  it('the hint for いい-adjectives only talks about よ- for real いい compounds', () => {
+    expect(ruleHint(word('ii'), 'i-adj', 'past')).toMatch(/よ-/);
+    const kawaii = content.vocab.find((w) => w.kana === 'かわいい');
+    if (kawaii) expect(ruleHint(kawaii, 'i-adj', 'past')).not.toMatch(/よ-/);
   });
 
   it('readingFor matches the engine', () => {

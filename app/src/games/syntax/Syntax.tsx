@@ -6,10 +6,11 @@ import { useSpeech } from '../../hooks/useSpeech';
 import { useProgress } from '../../state/progressStore';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { playSfx } from '../shared/sfx';
+import { scopedPatterns } from '../lessonScope';
 import shared from '../shared/games.module.css';
 import type { GameProps } from '../types';
 import styles from './syntax.module.css';
-import { buildSolutionTable, buildTiles, isValidOrder, slotLabelEs, syntaxEntries, type Entry, type Tile } from './syntaxLogic';
+import { buildSolutionTable, buildTiles, isValidOrder, syntaxEntries, type Entry, type Tile } from './syntaxLogic';
 
 interface Question {
   entry: Entry;
@@ -23,15 +24,15 @@ const Word = ({ text }: { text: string }) => <JaText word={{ kana: text }} />;
  * with tiles (words + particles, plus distractor particles). Tap a tile to place it, tap it again
  * (in the answer) to take it back. Everything is a button, so Tab / Enter work too.
  */
-export function Syntax({ patterns, rounds, sequential, onlyItems, onFinish }: GameProps) {
+export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const { speak } = useSpeech();
   const pool = useMemo(() => {
-    const all = syntaxEntries(patterns?.length ? patterns : content.patterns);
+    const all = syntaxEntries(scopedPatterns(patterns, lessonId, content.curriculum, content.patterns));
     const only = onlyItems ? all.filter((e) => onlyItems.includes(e.id)) : all;
     return only.length > 0 ? only : all;
-  }, [patterns, onlyItems]);
+  }, [patterns, onlyItems, lessonId]);
   const pick = useQuestionPicker('pattern', sequential);
   const counter = useRef(0);
 
@@ -68,7 +69,7 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, onFinish }: Ga
     setMessage(null);
   };
 
-  const table = buildSolutionTable(entry.pattern, entry.tokens);
+  const table = buildSolutionTable(entry.pattern, entry.fullTokens);
 
   return (
     <GameFrame session={session}>
@@ -76,14 +77,16 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, onFinish }: Ga
         <p className={styles.sentence} data-testid="prompt">
           {entry.example.es}
         </p>
-        <div className={styles.structure} aria-label="Estructura española">
-          {entry.pattern.english.map((slot, i) => (
-            <span key={i} className={styles.slot}>
-              {slotLabelEs(slot.slot)}
-            </span>
-          ))}
-          <span aria-hidden="true">→ en japonés el verbo va al final</span>
-        </div>
+        {table.spanish.length > 0 && (
+          <div className={styles.structure} aria-label="Estructura española">
+            {table.spanish.map((slot, i) => (
+              <span key={i} className={styles.slot}>
+                {slot.label}
+              </span>
+            ))}
+            <span aria-hidden="true">→ en japonés el verbo va al final</span>
+          </div>
+        )}
         <Feedback message={message} />
 
         <div className={styles.area} aria-label="Tu frase">
@@ -122,14 +125,16 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, onFinish }: Ga
               <table className={styles.table} data-testid="solution-table">
                 <caption className="muted">Sintaxis: español → japonés</caption>
                 <tbody>
-                  <tr>
-                    <th scope="row">Estructura española</th>
-                    {table.spanish.map((cell, i) => (
-                      <td key={i} className={cell.predicate ? styles.verb : undefined}>
-                        {cell.label}
-                      </td>
-                    ))}
-                  </tr>
+                  {table.spanish.length > 0 && (
+                    <tr>
+                      <th scope="row">Estructura española</th>
+                      {table.spanish.map((cell, i) => (
+                        <td key={i} className={cell.predicate ? styles.verb : undefined}>
+                          {cell.label}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
                   <tr>
                     <th scope="row">Estructura japonesa</th>
                     {table.japanese.map((cell, i) => (

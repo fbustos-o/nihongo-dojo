@@ -113,6 +113,32 @@ describe('nextStage', () => {
   });
 });
 
+describe('applyAnswer: spacing (QA-002)', () => {
+  const notDue = item('x', { srsStage: 3, nextDue: NOW + 5 * H, lastSeen: NOW - H, weight: 4 });
+  it('a correct answer to a not-due item keeps stage and nextDue but updates counters, weight and lastSeen', () => {
+    expect(applyAnswer(notDue, true, NOW)).toEqual({ ...notDue, correct: 1, lastSeen: NOW, weight: 3 });
+  });
+  it('a wrong answer to a not-due item records the error and boosts the weight, without lowering the stage', () => {
+    expect(applyAnswer(notDue, false, NOW)).toEqual({ ...notDue, wrong: 1, lastSeen: NOW, weight: 6 });
+  });
+  it('9 early correct answers cannot burn an item', () => {
+    let current = item('n', { srsStage: 0, lastSeen: 0, nextDue: 0 });
+    for (let i = 0; i < 9; i++) current = applyAnswer(current, true, NOW + i * 1000);
+    expect(current.srsStage).toBe(1);
+  });
+  it('an item advances again once it is due', () => {
+    const after = applyAnswer(notDue, true, NOW + 5 * H);
+    expect(after).toMatchObject({ srsStage: 4, nextDue: NOW + 5 * H + 2 * D });
+  });
+  it('a due item that is answered wrong still goes down', () => {
+    expect(applyAnswer(item('d', { srsStage: 3 }), false, NOW).srsStage).toBe(2);
+  });
+  it('burned items never move', () => {
+    const burned = item('b', { srsStage: 9, nextDue: NEVER_DUE });
+    expect(applyAnswer(burned, false, NOW).srsStage).toBe(9);
+  });
+});
+
 describe('applyAnswer', () => {
   it('is pure and updates counters, lastSeen and nextDue', () => {
     const before = item('a', { srsStage: 2 });

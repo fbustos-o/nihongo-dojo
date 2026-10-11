@@ -1,6 +1,7 @@
 import type { Dialogue, Lesson, Word } from '../../domain/schema';
 import type { ItemKind } from '../../state/progressSchema';
 import { shuffle } from '../kanaUtils';
+import { scopedDialogues } from '../lessonScope';
 import type { Rng } from '../numbers/random';
 
 export const DIALOGUE_ITEM_KIND: ItemKind = 'dialogue';
@@ -15,19 +16,23 @@ export interface ReplyOption {
 
 /**
  * Dialogues to play. With `dialogueIds`, exactly those. Otherwise those of the lessons whose words are
- * all available in `words` (free practice / lessons without explicit ids); if none, every dialogue.
+ * all available in `words` (free practice); if none, every dialogue. For a lesson (`lessonId`) without dialogues
+ * of its own: those of its ancestor lessons, otherwise nothing.
  */
 export function eligibleDialogues(
   all: readonly Dialogue[],
   curriculum: readonly Pick<Lesson, 'words' | 'dialogues'>[],
   words: readonly Pick<Word, 'id'>[],
   dialogueIds?: readonly string[],
+  lessonId?: string,
 ): Dialogue[] {
   if (dialogueIds && dialogueIds.length > 0) {
     const set = new Set(dialogueIds);
     const chosen = all.filter((d) => set.has(d.id));
     if (chosen.length > 0) return chosen;
   }
+  // a lesson without dialogues of its own: only those of the lessons it builds on, otherwise none (QA-015)
+  if (lessonId !== undefined) return scopedDialogues(all, lessonId, undefined, curriculum as readonly Lesson[]);
   const known = new Set(words.map((w) => w.id));
   const ok = new Set<string>();
   for (const lesson of curriculum) {

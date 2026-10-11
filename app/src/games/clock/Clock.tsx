@@ -8,7 +8,7 @@ import numberStyles from '../numbers/numbers.module.css';
 import type { GameProps } from '../types';
 import { AnalogClock } from './AnalogClock';
 import styles from './clock.module.css';
-import { CLOCK_ITEM_KIND, clockTierForRound, makeClockQuestion, pad2, sameTime, stepHour, stepMinute, timeText, type ClockQuestion } from './clockLogic';
+import { CLOCK_ITEM_KIND, clockTierForRound, makeClockQuestion, pad2, parseTimeItemId, sameTime, stepHour, stepMinute, timeText, type ClockQuestion } from './clockLogic';
 
 type ModeChoice = 'mix' | 'read' | 'set';
 
@@ -114,7 +114,7 @@ export function ClockSetView({ question, onReport, onDone }: ViewProps) {
   );
 }
 
-export function Clock({ rounds, sequential, onFinish }: GameProps) {
+export function Clock({ rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const pick = useQuestionPicker(CLOCK_ITEM_KIND, sequential);
   const [mode, setMode] = useState<ModeChoice>('mix');
@@ -123,6 +123,9 @@ export function Clock({ rounds, sequential, onFinish }: GameProps) {
   const make = (round: number, choice: ModeChoice): ClockQuestion => {
     const tier = clockTierForRound(round, rounds);
     const kind = choice === 'mix' ? pickOne(Math.random, kinds) : choice;
+    // review: round i asks exactly the i-th due time
+    const fixed = onlyItems?.[round] ? parseTimeItemId(onlyItems[round]!) : null;
+    if (fixed) return makeClockQuestion(kind, tier, Math.random, fixed);
     const candidates = uniqueById(Array.from({ length: 6 }, () => makeClockQuestion(kind, tier, Math.random)));
     return pick(candidates);
   };

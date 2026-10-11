@@ -30,6 +30,36 @@ describe('renderKana', () => {
     expect(renderKana('あ、1', hira('あ'))).toEqual([{ type: 'text', text: 'あ、1' }]);
   });
 
+
+  describe('yoon digraphs', () => {
+    const words: [string, string][] = [['きょう', 'kyou'], ['しゃしん', 'shashin'], ['としょかん', 'toshokan'], ['じゅうじ', 'juuji'], ['りょうり', 'ryouri'], ['ひゃく', 'hyaku'], ['ちゃ', 'cha'], ['みょうじ', 'myouji']];
+    it.each(words)('%s renders whole when the digraphs are unlocked as units', (w) => {
+      const known = new Set([...w].filter((c) => !'ゃゅょ'.includes(c)));
+      const units = (w.match(/[^ゃゅょ][ゃゅょ]?/g) ?? []).filter((u) => u.length === 2);
+      for (const u of units) known.add(u);
+      expect(renderKana(w, known)).toEqual([{ type: 'text', text: w }]);
+    });
+    it.each(words)('%s renders whole when base + small kana are unlocked separately', (w) => {
+      expect(renderKana(w, new Set([...w]))).toEqual([{ type: 'text', text: w }]);
+    });
+    it.each(words)('%s is fully romaji when nothing is known', (w, romaji) => {
+      expect(renderKana(w, hira(''))).toEqual([{ type: 'romaji', text: romaji }]);
+    });
+    it('never mixes a base kana with the romaji of its small kana', () => {
+      expect(renderKana('きょう', hira('きう'))).toEqual([{ type: 'romaji', text: 'kyo' }, { type: 'text', text: 'う' }]);
+      expect(renderKana('きょう', new Set(['きょ', 'う']))).toEqual([{ type: 'text', text: 'きょう' }]);
+    });
+    it('katakana digraphs fall back to hiragana digraphs', () => {
+      expect(renderKana('シャツ', new Set(['しゃ', 'つ']))).toEqual([{ type: 'text', text: 'しゃつ' }]);
+      expect(renderKana('シャツ', new Set(['シャ', 'ツ']))).toEqual([{ type: 'text', text: 'シャツ' }]);
+      expect(renderKana('チョコ', hira(''))).toEqual([{ type: 'romaji', text: 'choko' }]);
+    });
+    it('keeps っ and ー consistent next to digraphs', () => {
+      expect(renderKana('ちょっと', new Set(['ちょ', 'っ', 'と']))).toEqual([{ type: 'text', text: 'ちょっと' }]);
+      expect(renderKana('ジュース', new Set(['ジュ', 'ス']))).toEqual([{ type: 'text', text: 'ジュース' }]);
+    });
+  });
+
   describe('katakana', () => {
     it('falls back to hiragana when katakana is locked but hiragana is known', () => {
       expect(renderKana('テニス', hira('てにす'))).toEqual([{ type: 'text', text: 'てにす' }]);

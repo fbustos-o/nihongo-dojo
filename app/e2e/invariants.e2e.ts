@@ -41,7 +41,6 @@ test('h-a: los distractores de «Escuchar» no muestran kana sin desbloquear (QA
 });
 
 test('h-yoon-1: las palabras con yōon se ven en kana, no mezcladas con romaji (QA-001)', async ({ page, consoleLog }) => {
-  test.fail(true, 'QA-001: renderKana no reconoce los dígrafos desbloqueados (きゃ) y muestra «きyaく»');
   void consoleLog;
   const done = lessonsUpTo('h-tsu-long', true);
   await seed(page, buildProgress({ completed: done }), '/practica');

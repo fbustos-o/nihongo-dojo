@@ -79,18 +79,29 @@ export function dueTimeFor(stage: number, now: number): number {
   return interval === null || interval === undefined ? NEVER_DUE : now + interval;
 }
 
-/** Applies one answer to an item. Pure: `now` is injected. */
+/** True when an answer may move the SRS stage: the item is new (stage 0) or already due (`now >= nextDue`). */
+export function canAdvance(item: ItemState, now: number): boolean {
+  return item.srsStage <= 0 || item.lastSeen <= 0 || now >= item.nextDue;
+}
+
+/**
+ * Applies one answer to an item. Pure: `now` is injected.
+ *
+ * Spacing rule (QA-002): the stage and `nextDue` only change when the item is new (stage 0) or due. An answer
+ * given early (extra practice, repeated lesson games) still updates the counters, the weight and `lastSeen`,
+ * and a wrong early answer still records the error and boosts the weight, but it does NOT drop the stage:
+ * as in WaniKani, practising outside a scheduled review neither promotes nor penalises the item.
+ */
 export function applyAnswer(item: ItemState, correct: boolean, now: number, errors = 1): ItemState {
-  const srsStage = nextStage(item.srsStage, correct, errors);
-  return {
-    ...item,
-    srsStage,
+  const counters = {
     correct: item.correct + (correct ? 1 : 0),
     wrong: item.wrong + (correct ? 0 : 1),
     lastSeen: now,
-    nextDue: dueTimeFor(srsStage, now),
     weight: correct ? Math.max(1, item.weight - 1) : item.weight + 2,
   };
+  if (!canAdvance(item, now)) return { ...item, ...counters };
+  const srsStage = nextStage(item.srsStage, correct, errors);
+  return { ...item, ...counters, srsStage, nextDue: dueTimeFor(srsStage, now) };
 }
 
 export type ItemCollection = Readonly<Record<string, ItemState>> | readonly ItemState[];

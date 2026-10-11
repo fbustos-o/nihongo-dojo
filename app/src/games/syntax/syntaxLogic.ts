@@ -10,16 +10,36 @@ export const examplesOf = (pattern: SentencePattern): PatternExample[] => patter
 export const BASE_PARTICLES = ['は', 'を', 'に', 'で', 'へ', 'も', 'の', 'と', 'が', 'か'] as const;
 /** Every token that attaches to the noun before it (also from / until / and-etc.). */
 const ATTACHING = new Set<string>([...BASE_PARTICLES, 'や', 'から', 'まで']);
+/** Particles that join two nouns into one noun phrase (N の N, N や N): the phrase moves as a unit. */
+const JOINING = new Set(['の', 'や']);
 /** Sentence-final か (question marker) is a particle too but is kept out of the movable part. */
 export const isParticle = (token: string): boolean => ATTACHING.has(token);
 
-/** Drops the final 。？！ and splits the sentence on spaces. */
-export function tokenize(ja: string): string[] {
+/** Clause punctuation inside a sentence (「、」「。」): shown in the solution but never a tile. */
+const PUNCTUATION = /^[、，。]$/u;
+export const isPunctuation = (token: string): boolean => PUNCTUATION.test(token);
+
+/**
+ * Drops the final 。？！ and splits the sentence into tokens on spaces and on 「、」「。」, which come out as
+ * tokens of their own (also when the content glues them to the word: 「はい、がくせい」 and 「はい 、 がくせい」
+ * give the same tokens). Use `tokenize` for the tiles and this for the solution table.
+ */
+export function tokenizeWithPunctuation(ja: string): string[] {
   return ja
     .replace(/[。？！?!]+$/u, '')
+    .replace(/([、，。])/gu, ' $1 ')
     .split(/\s+/u)
     .filter((t) => t !== '');
 }
+
+/** Words of the sentence, without clause punctuation: these are the tiles. */
+export function tokenize(ja: string): string[] {
+  return tokenizeWithPunctuation(ja).filter((t) => !isPunctuation(t));
+}
+
+/** Joins tokens with spaces, but punctuation hugs the word before it (「はい、 がくせい」). */
+export const joinTokens = (tokens: readonly string[]): string =>
+  tokens.reduce((out, t) => (out === '' ? t : isPunctuation(t) ? out + t : `${out} ${t}`), '');
 
 interface Parts {
   /** Movable part, before the predicate. */
@@ -41,7 +61,8 @@ function parts(tokens: readonly string[]): Parts {
   const core = tokens.slice(0, end);
   let lastParticle = -1;
   core.forEach((t, i) => {
-    if (isParticle(t)) lastParticle = i;
+    // の / や join two nouns into one phrase (つくえ の うえ), so they never end the movable part
+    if (isParticle(t) && !JOINING.has(t)) lastParticle = i;
   });
   return { head: core.slice(0, lastParticle + 1), tail: core.slice(lastParticle + 1), suffix };
 }
@@ -49,12 +70,13 @@ function parts(tokens: readonly string[]): Parts {
 /** Groups the head into [noun + its particles] chunks, as strings. Null when it does not start with a content word. */
 function chunkKeys(head: readonly string[]): string[] | null {
   const chunks: string[][] = [];
-  for (const token of head) {
-    if (isParticle(token)) {
-      if (chunks.length === 0) return null;
-      chunks[chunks.length - 1]!.push(token);
-    } else chunks.push([token]);
-  }
+  head.forEach((token, i) => {
+    if (isParticle(token)) chunks.at(-1)?.push(token);
+    // the noun after の / や belongs to the phrase it modifies (つくえ の うえ に)
+    else if (i > 0 && JOINING.has(head[i - 1]!) && chunks.length > 0) chunks.at(-1)!.push(token);
+    else chunks.push([token]);
+  });
+  if (head.length > 0 && isParticle(head[0]!)) return null;
   return chunks.map((c) => c.join(' '));
 }
 
@@ -157,18 +179,23 @@ export function buildSolutionTable(pattern: SentencePattern | undefined, tokens:
   const p = parts(tokens);
   const cells: TableCell[] = [];
   const chunks: string[][] = [];
-  for (const token of p.head) {
-    if (isParticle(token) && chunks.length > 0) chunks[chunks.length - 1]!.push(token);
-    else chunks.push([token]);
-  }
+  p.head.forEach((token, i) => {
+    const previous = p.head[i - 1];
+    if (isPunctuation(token) || (isParticle(token) && chunks.length > 0) || (previous !== undefined && JOINING.has(previous) && chunks.length > 0)) {
+      chunks.at(-1)!.push(token);
+    } else chunks.push([token]);
+  });
   for (const chunk of chunks) {
-    const particle = chunk.find(isParticle);
-    cells.push({ label: particle ? (PARTICLE_ROLE[particle] ?? 'Complemento') : 'Complemento', text: chunk.join(' '), predicate: false });
+    const particle = [...chunk].reverse().find(isParticle);
+    cells.push({ label: particle ? (PARTICLE_ROLE[particle] ?? 'Complemento') : 'Complemento', text: joinTokens(chunk), predicate: false });
   }
   if (p.tail.length > 0 || p.suffix.length > 0) {
-    cells.push({ label: predicateLabel(pattern), text: [...p.tail, ...p.suffix].join(' '), predicate: true });
+    cells.push({ label: predicateLabel(pattern), text: joinTokens([...p.tail, ...p.suffix]), predicate: true });
   }
-  const spanish = (pattern?.english ?? []).map((s) => ({ label: slotLabelEs(s.slot), predicate: s.slot === 'V' || s.slot === 'BE' || s.slot === 'ADJ' }));
+  // QA-034: the pattern's Spanish slots only describe a sentence with as many parts; a short answer
+  // (「はい、がくせい です」) or one with extra adverbs has other parts, so the row is left out.
+  const slots = (pattern?.english ?? []).map((s) => ({ label: slotLabelEs(s.slot), predicate: s.slot === 'V' || s.slot === 'BE' || s.slot === 'ADJ' }));
+  const spanish = slots.length === cells.length ? slots : [];
   return { spanish, japanese: cells };
 }
 
@@ -176,7 +203,10 @@ export interface Entry {
   id: string;
   pattern: SentencePattern;
   example: PatternExample;
+  /** Words of the sentence (tiles). */
   tokens: string[];
+  /** The same plus clause punctuation (「、」), for the solution table. */
+  fullTokens: string[];
 }
 
 /** Sentences of the given patterns that can be built with tiles (at least two pieces). */
@@ -184,7 +214,7 @@ export function syntaxEntries(patterns: readonly SentencePattern[]): Entry[] {
   return patterns.flatMap((pattern) =>
     examplesOf(pattern).flatMap((example, index) => {
       const tokens = tokenize(example.ja);
-      return tokens.length >= 2 && example.es ? [{ id: `${pattern.id}:${index}`, pattern, example, tokens }] : [];
+      return tokens.length >= 2 && example.es ? [{ id: `${pattern.id}:${index}`, pattern, example, tokens, fullTokens: tokenizeWithPunctuation(example.ja) }] : [];
     }),
   );
 }

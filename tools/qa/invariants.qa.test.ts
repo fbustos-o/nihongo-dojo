@@ -29,11 +29,11 @@ const knownBefore = (l: Lesson) => unlockedKanaForLessons(curriculum, ancestors(
 
 describe('renderPlan: only unlocked kana are shown', () => {
   const allHiragana = new Set(curriculum.filter((l) => l.stage === 1).flatMap((l) => l.kana ?? []));
-  it.fails('QA-001: yōon unlocked as digraphs (きゃ) render as kana, not «きyaく»', () => {
+  it('QA-001: yōon unlocked as digraphs (きゃ) render as kana, not «きyaく»', () => {
     const segs = renderKana('きゃく', allHiragana);
     expect(segs).toEqual([{ type: 'text', text: 'きゃく' }]);
   });
-  it.fails('QA-001b: every stage-1 word renders without romaji once stage 1 is complete', () => {
+  it('QA-001b: every stage-1 word renders without romaji once stage 1 is complete', () => {
     const mixed = vocab.filter((w) => !/[ァ-ヺ]/.test(w.kana)).filter((w) => renderPlan({ kana: w.kana }, { knownKana: allHiragana, kanji: new Map() }).some((s) => s.type === 'romaji'));
     expect(mixed.map((w) => w.kana)).toEqual([]);
   });
@@ -152,17 +152,17 @@ describe('grammar is not used before the lesson that teaches it', () => {
 });
 
 describe('syntax / particles game logic', () => {
-  it.fails('QA-010: isValidOrder rejects moving an の-modifier away from its noun', () => {
+  it('QA-010: isValidOrder rejects moving an の-modifier away from its noun', () => {
     const sol = tokenize('つくえ の うえ に ほん が あります。');
     expect(isValidOrder(sol, tokenize('うえ に つくえ の ほん が あります'))).toBe(false);
   });
-  it.fails('QA-010b: isValidOrder rejects 「だれ の これ は かばん ですか」', () => {
+  it('QA-010b: isValidOrder rejects 「だれ の これ は かばん ですか」', () => {
     expect(isValidOrder(tokenize('これ は だれ の かばん ですか。'), tokenize('だれ の これ は かばん ですか'))).toBe(false);
   });
   it('accepts the free order of time/topic phrases (きのう わたし は … / わたし は きのう …)', () => {
     expect(isValidOrder(tokenize('わたし は としょかん で ほん を よみます'), tokenize('としょかん で わたし は ほん を よみます'))).toBe(true);
   });
-  it.fails('QA-024b: tiles never contain punctuation glued to a word (はい、がくせい)', () => {
+  it('QA-024b: tiles never contain punctuation glued to a word (はい、がくせい)', () => {
     const glued = syntaxEntries(patterns).flatMap((e) => e.tokens.filter((t) => /[、，]/.test(t)).map((t) => `${e.id}: ${t}`));
     expect(glued).toEqual([]);
   });
@@ -186,8 +186,9 @@ describe('answer checking fairness', () => {
     expect(ok('konnichiwa', 'こんにちは')).toBe(true);
     expect(ok('wa', 'は', { strict: true })).toBe(false);
   });
-  it.fails('QA-012: a whole sentence typed with わ for the topic particle is accepted outside the particle game', () => {
-    expect(ok('わたしわがくせいです', 'わたしはがくせいです')).toBe(true);
+  it('QA-012: a whole sentence typed with わ / え for the particles is accepted outside the particle game (spaced sentences, as in the content)', () => {
+    expect(ok('わたしわがくせいです', 'わたし は がくせい です')).toBe(true);
+    expect(ok('がっこうえいきます', 'がっこう へ いきます')).toBe(true);
   });
   it('QA-013: kana-recognize accepts "nn" for ん and Kunrei romaji (si, ti, tu, hu, zi)', () => {
     const k = (c: string) => kana.find((x) => x.char === c)!;

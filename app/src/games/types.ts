@@ -42,7 +42,8 @@ export interface GameProps {
   /**
    * Review sessions: restrict the question pool to these progress item ids (the ids the game records,
    * e.g. `svo-masu:2` in syntax, `particle:wa:0` in particles, `verb:taberu:te` in conjugation).
-   * Ignored by games whose questions are generated at random (numbers, clock, calendar).
+   * Numbers, clock and calendar generate round i from the i-th id (`number:416`, `counter:nin:3`, `time:4:30`,
+   * `date:4:1`); ids they cannot parse fall back to a random question.
    */
   onlyItems?: readonly string[];
   /** Called once with the session stats when the rounds are over (or the learner ends the session). */

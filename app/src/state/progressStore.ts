@@ -121,7 +121,8 @@ export const useProgress = create<ProgressStore>()((set) => ({
       completedLessons: union(before.completedLessons, [lessonId]),
       streak,
       xp,
-      daily: bumpDaily(before.daily, now, { lessons: 1 }),
+      // QA-019: only the first completion counts as a lesson of the day; replays add nothing to the counter
+      daily: first ? bumpDaily(before.daily, now, { lessons: 1 }) : before.daily,
     });
     if (first) useCelebrations.getState().push({ kind: 'lesson', title: '¡Lección completada!', detail: `+${LESSON_BONUS_XP} XP de bonificación` });
     celebrate(before.xp, xp, before.streak, streak);

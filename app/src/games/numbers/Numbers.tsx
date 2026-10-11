@@ -5,7 +5,7 @@ import { Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, ty
 import styles from './numbers.module.css';
 import type { GameProps } from '../types';
 import { KanaWithRomaji, ModeChips, ReadingRound, useAutoSpeak } from './ReadingRound';
-import { MODE_LABELS, NUMBER_ITEM_KIND, formatYen, makeNumberQuestion, modePool, availableModes, parseTypedNumber, tierForRound, type NumberMode, type NumberQuestion } from './numbersLogic';
+import { MODE_LABELS, NUMBER_ITEM_KIND, formatYen, makeNumberQuestion, makeNumberQuestionForItem, modePool, availableModes, parseTypedNumber, tierForRound, type NumberMode, type NumberQuestion } from './numbersLogic';
 import { pickOne, uniqueById, type Rng } from './random';
 
 type ModeChoice = 'mix' | NumberMode;
@@ -52,14 +52,22 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
         {question.mode === 'priceHear' && <p lang="ja" className={styles.question}>いくらですか？</p>}
         <p className={styles.question}>Escucha y escribe el {question.mode === 'priceHear' ? 'precio' : 'número'} con cifras.</p>
         <SpeakButton text={spoken} label="Escuchar otra vez" />
-        <p className={styles.kanaLine}><KanaWithRomaji reading={question.reading} /></p>
-        {!audio && <small className="muted">Sin voz en japonés: lee el kana.</small>}
+        {!audio && (
+          <>
+            <p className={styles.kanaLine}><KanaWithRomaji reading={question.reading} /></p>
+            <small className="muted">Sin voz en japonés: lee el kana.</small>
+          </>
+        )}
       </>
     );
     return (
       <TypingRound
         prompt={prompt}
-        answer={<span>{question.mode === 'priceHear' ? formatYen(question.value) : question.value}</span>}
+        answer={
+          <span>
+            {question.mode === 'priceHear' ? formatYen(question.value) : question.value} · <KanaWithRomaji reading={question.reading} />
+          </span>
+        }
         inputMode="plain"
         ariaLabel="Número con cifras"
         placeholder="Escribe las cifras"
@@ -110,14 +118,16 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
 }
 
 /** "Números y precios": numbers, prices, counters (see games/README.md). */
-export function Numbers({ words, rounds, sequential, onFinish }: GameProps) {
+export function Numbers({ words, rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const pick = useQuestionPicker(NUMBER_ITEM_KIND, sequential);
   const [mode, setMode] = useState<ModeChoice>('mix');
   const modes = useMemo(() => availableModes(words), [words]);
   const mixPool = useMemo(() => modePool(words), [words]);
 
+  // review: round i asks exactly the i-th due item; outside reviews (or for unknown ids) questions are random
   const make = (round: number, choice: ModeChoice) =>
+    (onlyItems?.[round] ? makeNumberQuestionForItem(onlyItems[round]!, Math.random) : null) ??
     buildNumberQuestion(choice === 'mix' ? mixPool : [choice], tierForRound(round, rounds), Math.random, (c) => pick(c));
 
   const [question, setQuestion] = useState<NumberQuestion>(() => make(0, 'mix'));

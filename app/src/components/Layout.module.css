@@ -118,6 +118,10 @@
   background: color-mix(in srgb, var(--danger) 10%, var(--surface));
 }
 
+.banner p {
+  margin: 0;
+}
+
 .banner ul {
   margin: 0;
   padding-left: 1.1rem;

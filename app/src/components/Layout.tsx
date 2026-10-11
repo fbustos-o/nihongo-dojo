@@ -1,6 +1,6 @@
 import { Suspense, useState } from 'react';
 import { contentIssues } from '../domain/parseList';
-import { loadIssue } from '../state/persistence';
+import { loadIssue, useSaveStatus } from '../state/persistence';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Celebrations } from './Celebrations';
 import { ErrorBoundary } from './ErrorBoundary';
@@ -20,6 +20,7 @@ export function Layout() {
   const { pathname } = useLocation();
   const [dismissed, setDismissed] = useState(false);
   const keyboardOpen = useKeyboardOpen();
+  const saveFailed = useSaveStatus((s) => s.failed);
   const issues = [loadIssue.message, ...new Set(contentIssues.map((i) => `Contenido: ${i}`))].filter((m): m is string => !!m);
   return (
     <div className={styles.shell}>
@@ -45,6 +46,14 @@ export function Layout() {
         ))}
       </nav>
       <main className={styles.main}>
+        {saveFailed && (
+          <div className={styles.banner} role="alert" data-testid="save-banner">
+            <p>
+              Tu progreso no se está guardando (el almacenamiento del navegador está lleno o bloqueado, por ejemplo en una ventana privada). Exporta tu
+              progreso desde <NavLink to="/ajustes">Ajustes</NavLink> para no perderlo.
+            </p>
+          </div>
+        )}
         {issues.length > 0 && !dismissed && (
           <div className={styles.banner} role="alert" data-testid="issue-banner">
             <ul>

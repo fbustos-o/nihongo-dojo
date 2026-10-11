@@ -21,11 +21,11 @@ describe('daily counters in the store', () => {
     recordAnswer('い', 'kana', true); // a review
     expect(today()).toEqual({ reviews: 1, lessons: 0, correct: 2, wrong: 1 });
   });
-  it('counts lessons and gives the XP bonus only the first time', () => {
+  it('counts only the first completion as a lesson (QA-019) and gives the XP bonus only the first time', () => {
     const { completeLesson } = useProgress.getState();
     completeLesson('h-a');
     completeLesson('h-a');
-    expect(today()!.lessons).toBe(2);
+    expect(today()!.lessons).toBe(1);
     expect(useProgress.getState().xp).toBe(LESSON_BONUS_XP);
   });
   it('is saved, exported and restored', () => {
@@ -35,6 +35,7 @@ describe('daily counters in the store', () => {
   });
   it('partial credit moves the SRS stage but not XP, daily counters or streak', () => {
     useProgress.getState().unlockKanji(['食']);
+    useProgress.setState((s) => ({ items: { ...s.items, 'kanji:食': { ...s.items['kanji:食']!, nextDue: 1 } } }));
     const before = useProgress.getState();
     before.recordAnswer('食', 'kanji', true, { partial: true });
     const after = useProgress.getState();

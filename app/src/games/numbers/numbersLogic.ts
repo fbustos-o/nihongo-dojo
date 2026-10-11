@@ -103,10 +103,38 @@ export type NumberQuestion = {
 
 const formatFor = (rng: Rng): 'type' | 'choice' => (rng() < 0.35 ? 'choice' : 'type');
 
-export function makeNumberQuestion(mode: NumberMode, tier: number, rng: Rng): NumberQuestion {
+/** What a due progress id (`number:416`, `counter:nin:3`) asks for. */
+export type FixedNumberItem = { value: number } | { counter: Counter; n: number };
+
+/** Parses a number / counter progress id; null when it is not one (or the counter is unknown / out of range). */
+export function parseNumberItemId(itemId: string): FixedNumberItem | null {
+  const number = /^number:(\d+)$/.exec(itemId);
+  if (number) return { value: Number(number[1]) };
+  const counter = /^counter:(\w+):(\d+)$/.exec(itemId);
+  if (counter) {
+    const spec = COUNTER_SPECS.find((s) => s.counter === counter[1]);
+    const n = Number(counter[2]);
+    if (spec && n >= 1 && n <= spec.max) return { counter: spec.counter, n };
+  }
+  return null;
+}
+
+/**
+ * The exact question for a due item id (review sessions); null when the id is not a number / counter id.
+ * Plain numbers are asked in a random reading / listening mode; counters in counter mode.
+ */
+export function makeNumberQuestionForItem(itemId: string, rng: Rng): NumberQuestion | null {
+  const fixed = parseNumberItemId(itemId);
+  if (!fixed) return null;
+  if ('counter' in fixed) return makeNumberQuestion('counter', 0, rng, fixed);
+  return makeNumberQuestion(rng() < 0.5 ? 'digits' : 'hear', 0, rng, fixed);
+}
+
+export function makeNumberQuestion(mode: NumberMode, tier: number, rng: Rng, fixed?: FixedNumberItem): NumberQuestion {
   if (mode === 'counter') {
-    const spec = pickOne(rng, COUNTER_SPECS);
-    const n = pickWeighted(rng, Array.from({ length: spec.max }, (_, i) => i + 1), (v) => (spec.hot.includes(v) ? 3 : 1));
+    const spec = fixed && 'counter' in fixed ? COUNTER_SPECS.find((s) => s.counter === fixed.counter)! : pickOne(rng, COUNTER_SPECS);
+    const n =
+      fixed && 'counter' in fixed ? fixed.n : pickWeighted(rng, Array.from({ length: spec.max }, (_, i) => i + 1), (v) => (spec.hot.includes(v) ? 3 : 1));
     const reading = readCounter(n, spec.counter);
     return {
       mode,
@@ -127,7 +155,7 @@ export function makeNumberQuestion(mode: NumberMode, tier: number, rng: Rng): Nu
     object = pickOne(rng, PRICE_OBJECTS);
     value = pickOne(rng, object.prices);
   } else {
-    value = randomNumber(tier, rng);
+    value = fixed && 'value' in fixed ? fixed.value : randomNumber(tier, rng);
   }
   const reading = isPrice ? readPrice(value) : readNumber(value);
   const related = relatedNumbers(value).map((v) => (isPrice ? readPrice(v) : readNumber(v)).kana);

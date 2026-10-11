@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useNow } from '../hooks/useNow';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { JaText } from '../components/JaText';
 import { content } from '../domain/contentLoader';
@@ -59,7 +60,7 @@ export function MemoryPage() {
   const { etapa } = useParams();
   const group = groupFromSlug(etapa);
   const items = useProgress((s) => s.items);
-  const [now] = useState(() => Date.now());
+  const now = useNow();
   const [sort, setSort] = useState<MemorySort>('next');
   const [filter, setFilter] = useState<MemoryFilter>('all');
 

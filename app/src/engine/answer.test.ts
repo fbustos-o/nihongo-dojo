@@ -118,6 +118,32 @@ describe('checkAnswer: alternatives', () => {
   });
 });
 
+describe('QA-012: particle tolerance at every particle position', () => {
+  it('accepts わ for the は token in the middle of a sentence', () => {
+    expect(checkAnswer('わたしわがくせいです', 'わたし は がくせい です').correct).toBe(true);
+    expect(checkAnswer('watashi wa gakusei desu', 'わたし は がくせい です').correct).toBe(true);
+  });
+  it('accepts え for へ and handles several particles (every combination)', () => {
+    expect(checkAnswer('わたしわがっこうえいきます', 'わたし は がっこう へ いきます').correct).toBe(true);
+    expect(checkAnswer('わたしはがっこうえいきます', 'わたし は がっこう へ いきます').correct).toBe(true);
+    expect(checkAnswer('わたしわがっこうへいきます', 'わたし は がっこう へ いきます').correct).toBe(true);
+  });
+  it('and を as お anywhere', () => {
+    expect(checkAnswer('みずおのみます', 'みず を のみます').correct).toBe(true);
+  });
+  it('does not touch words that contain は / へ', () => {
+    expect(checkAnswer('わな', 'はな').correct).toBe(false);
+    expect(checkAnswer('あれはえや です', 'あれ は へや です').correct).toBe(false);
+    expect(checkAnswer('あれわへや です', 'あれ は へや です').correct).toBe(true);
+    expect(checkAnswer('おわよう', 'おはよう').correct).toBe(false);
+    expect(checkAnswer('わたしわはなです', 'わたし は はな です').correct).toBe(true);
+    expect(checkAnswer('わたしはわなです', 'わたし は はな です').correct).toBe(false);
+  });
+  it('strict mode (particles game) still keeps them apart', () => {
+    expect(checkAnswer('わたしわがくせいです', 'わたし は がくせい です', { strict: true }).correct).toBe(false);
+  });
+});
+
 describe('checkAnswer: particles', () => {
   it('lenient mode accepts pronunciation spellings', () => {
     expect(checkAnswer('わ', 'は').correct).toBe(true);
