@@ -482,10 +482,17 @@
    "yattsu",
    "yokka",
    "yottsu",
-   "chotto"
+   "chotto",
+   "ee",
+   "juu",
+   "kyuu",
+   "eigo",
+   "eiga",
+   "kyou",
+   "ookii",
+   "kyouto"
   ],
   "games": [
-   "kana-recognize",
    "kana-write",
    "read-words",
    "listen"
@@ -610,7 +617,9 @@
    "no-possession"
   ],
   "dialogues": [
-   "presentacion"
+   "presentacion",
+   "conocer-profesor",
+   "presentar-amigos"
   ],
   "games": [
    "read-words",
@@ -868,7 +877,9 @@
    "frequency"
   ],
   "dialogues": [
-   "planes-cine"
+   "planes-cine",
+   "invitar-sabado",
+   "invitar-cafe"
   ],
   "games": [
    "dialogues",
@@ -936,7 +947,9 @@
    "ya-etc"
   ],
   "dialogues": [
-   "hay-un-banco"
+   "hay-un-banco",
+   "mi-cuarto",
+   "en-el-parque"
   ],
   "games": [
    "syntax",
@@ -1156,7 +1169,9 @@
    "donna"
   ],
   "dialogues": [
-   "viaje-pasado"
+   "viaje-pasado",
+   "vacaciones-kioto",
+   "sabado-pasado"
   ],
   "games": [
    "read-words",
@@ -1227,7 +1242,9 @@
    "kara-made"
   ],
   "dialogues": [
-   "fecha-cumpleanos"
+   "fecha-cumpleanos",
+   "fiesta-fecha",
+   "vacaciones-fechas"
   ],
   "games": [
    "calendar",
@@ -1437,7 +1454,8 @@
    "te-wa-ikemasen"
   ],
   "dialogues": [
-   "en-clase"
+   "en-clase",
+   "en-la-biblioteca"
   ],
   "games": [
    "conjugation",
@@ -1462,7 +1480,9 @@
    "tai-desu"
   ],
   "dialogues": [
-   "quiero-ir"
+   "quiero-ir",
+   "que-estas-haciendo",
+   "trabajo-y-estudio"
   ],
   "games": [
    "conjugation",
@@ -1841,10 +1861,15 @@
    "poketto",
    "robotto",
    "rokkaa",
-   "sakkaa"
+   "sakkaa",
+   "puuru",
+   "teepu",
+   "depaato",
+   "dezaato",
+   "repooto",
+   "supootsu"
   ],
   "games": [
-   "kana-recognize",
    "kana-write",
    "read-words",
    "listen"

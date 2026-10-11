@@ -8,7 +8,7 @@
 ジム | | gimnasio | n | lugar
 ## P2 profesor
 チリ | | Chile | n | pais
-ちりじん | チリ人 | chileno/a | n | persona,pais
+チリじん | チリ人 | chileno/a | n | persona,pais
 アメリカじん | アメリカ人 | estadounidense | n | persona,pais
 ## P3 profesor
 かわいい | | lindo; bonito (de aspecto tierno) | i | adjetivo
@@ -24,7 +24,7 @@
 あたたかい | 暖かい | cálido; templado | i | adjetivo,clima
 おそい | 遅い | lento; tarde | i | adjetivo,tiempo
 うまい | | rico; delicioso (informal); hábil | i | adjetivo,comida
-よろしい | | bueno (forma formal de いい) | i | adjetivo
+よろしい | | bueno (forma formal) @@ forma formal de いい | i | adjetivo
 わるい | 悪い | malo | i | adjetivo
 ない | | no haber; no tener; no existir | i | adjetivo,existencia
 ほしい | 欲しい | querer; desear (una cosa) | i | adjetivo

@@ -59,8 +59,18 @@ for i,(id,title,chars) in enumerate(H):
     pick=(useful[:n//2+1]+pract)[:n] if len(useful)+len(pract)>=n else useful+pract
     # fill up with useful if pract short
     if len(pick)<n: pick=(pick+[w for w in useful if w not in pick])[:n]
+    if last:
+        # QA-026: the small tsu lesson also practises long vowels (otherwise the lesson drills one kana for 10 rounds)
+        tsu=[w for w in pick if 'っ' in w['kana']][:10]
+        lng=[w for w in cand_all if w['id'] not in used and 'っ' not in w['kana'] and re.search(r'(ああ|いい|うう|ええ|おお|おう|えい|ゆう|[ゃゅょ]う)',w['kana'])
+             and all(t in known for t in split(w['kana'])) and w['id'] not in ('shi-4','ku-9','shi-ciudad')]
+        seen2=set(); lng2=[]
+        for w in sorted(lng,key=lambda w:(w['source']=='propio','kana-practice' in w['tags'],len(w['kana']),LORD(w['lesson']),w['id'])):
+            if w['kana'] in seen2: continue
+            seen2.add(w['kana']); lng2.append(w)
+        pick=tsu+lng2[:8]
     for w in pick: used.add(w['id'])
-    L(id,1,title,[prev] if prev else [],kana=new,words=[w['id'] for w in pick],games=['kana-recognize','kana-write','read-words','listen'])
+    L(id,1,title,[prev] if prev else [],kana=new,words=[w['id'] for w in pick],games=(['kana-write','read-words','listen'] if len(new)==1 else ['kana-recognize','kana-write','read-words','listen']))
     prev=id
 h_last=prev
 # ---------------- Stage 2
@@ -140,25 +150,25 @@ print('leftover',leftover)
 spec=[
 ('l-saludos','Saludos y expresiones básicas',[],[],['saludos-manana','llegar-a-casa'],['read-words','listen','dialogues']),
 ('l-numeros','Números del 0 al 10 000',['l-saludos'],[],[],['numbers','listen','read-words']),
-('l-desu','XはYです: presentarse (Genki 1)',['l-saludos'],['noun-desu','ka-question','no-possession'],['presentacion'],['read-words','syntax','particles','dialogues']),
+('l-desu','XはYです: presentarse (Genki 1)',['l-saludos'],['noun-desu','ka-question','no-possession'],['presentacion','conocer-profesor','presentar-amigos'],['read-words','syntax','particles','dialogues']),
 ('l-hora','La hora: じ, はん, ふん',['l-desu','l-numeros'],['nanji-desu-ka'],['preguntar-la-hora'],['clock','numbers','dialogues']),
 ('l-kore','これ/それ/あれ, compras y precios (Genki 2)',['l-desu','l-numeros'],['kore-sore-are','kono-sono-ano','koko-soko-asoko','dare-no','mo-too','ikura-desu-ka','kudasai'],['comprar-bolso','papeleria'],['read-words','numbers','particles','dialogues']),
 ('l-verbos-1','Verbos ます: わたしは X を V (profesor + Genki 3)',['l-kore'],['svo-masu','svo-shimasu','go-ni-ikimasu','masu-masen','ni-he-direction'],[],['syntax','conjugation','read-words','particles']),
 ('l-particulas','Partículas で, に, と y la rutina diaria',['l-verbos-1','l-hora'],['de-place-action','ni-time','question-words','to-with'],['rutina-diaria'],['particles','syntax','dialogues','mini-reading']),
-('l-invitar','Invitar: ませんか y ましょう, frecuencia',['l-particulas'],['masen-ka','mashou','frequency'],['planes-cine'],['dialogues','syntax','mini-reading']),
-('l-aru-iru','あります / います y la ubicación (Genki 4)',['l-particulas'],['aru-iru-ni','position-words','nanimo-daremo','ya-etc'],['hay-un-banco'],['syntax','particles','dialogues','mini-reading']),
+('l-invitar','Invitar: ませんか y ましょう, frecuencia',['l-particulas'],['masen-ka','mashou','frequency'],['planes-cine','invitar-sabado','invitar-cafe'],['dialogues','syntax','mini-reading']),
+('l-aru-iru','あります / います y la ubicación (Genki 4)',['l-particulas'],['aru-iru-ni','position-words','nanimo-daremo','ya-etc'],['hay-un-banco','mi-cuarto','en-el-parque'],['syntax','particles','dialogues','mini-reading']),
 ('l-conj-masu','Tabla de verbos: ます, ました, ません, ませんでした',['l-invitar','l-aru-iru'],['masu-4-tenses','mashita-masendeshita'],[],['conjugation','read-words','syntax']),
 ('l-pasado','El pasado de です y la conversación de ayer',['l-conj-masu'],['deshita'],[],['conjugation','syntax','mini-reading']),
 ('l-adjetivos-i','Adjetivos い: tabla de conjugación (Genki 5 + profesor)',['l-pasado'],['adj-desu','adj-kunai','adj-past','adj-modifying'],[],['conjugation','read-words','syntax']),
 ('l-adjetivos-na','Adjetivos な, すき/きらい y じゃないです',['l-adjetivos-i'],['noun-janai','suki-kirai'],['planes-almuerzo'],['conjugation','particles','dialogues']),
-('l-vacaciones','Vacaciones y viajes (Genki 5)',['l-adjetivos-na'],[],['viaje-pasado'],['read-words','dialogues','mini-reading']),
-('l-fechas','Calendario: meses, días y semana',['l-pasado','l-hora'],['date-desu','kara-made'],['fecha-cumpleanos'],['calendar','numbers','dialogues']),
+('l-vacaciones','Vacaciones y viajes (Genki 5)',['l-adjetivos-na'],[],['viaje-pasado','vacaciones-kioto','sabado-pasado'],['read-words','dialogues','mini-reading']),
+('l-fechas','Calendario: meses, días y semana',['l-pasado','l-hora'],['date-desu','kara-made'],['fecha-cumpleanos','fiesta-fecha','vacaciones-fechas'],['calendar','numbers','dialogues']),
 ('l-contadores','Contadores: つ, にん, かい, さい',['l-fechas'],['counters'],[],['numbers','syntax','read-words']),
 ('l-transporte','Transporte y direcciones',['l-contadores'],['de-means','doko-desu-ka','dono-gurai'],['como-llegar','comprar-boleto','en-el-autobus'],['syntax','dialogues','listen','mini-reading']),
 ('l-restaurante','En el restaurante',['l-contadores','l-conj-masu'],[],['restaurante-pedir','restaurante-cuenta'],['dialogues','numbers','listen']),
 ('l-te-kudasai','La forma て: ください, secuencias y ofrecimientos (Genki 6)',['l-conj-masu','l-transporte'],['te-kudasai','te-form-connect','mashou-ka-offer','kara-because'],[],['conjugation','syntax','dialogues']),
-('l-permisos','Permisos y prohibiciones: てもいい, てはいけません',['l-te-kudasai'],['te-mo-ii','te-wa-ikemasen'],['en-clase'],['conjugation','syntax','dialogues']),
-('l-te-imasu-tai','ています y たいです',['l-permisos'],['te-imasu','tai-desu'],['quiero-ir'],['conjugation','syntax','dialogues','mini-reading']),
+('l-permisos','Permisos y prohibiciones: てもいい, てはいけません',['l-te-kudasai'],['te-mo-ii','te-wa-ikemasen'],['en-clase','en-la-biblioteca'],['conjugation','syntax','dialogues']),
+('l-te-imasu-tai','ています y たいです',['l-permisos'],['te-imasu','tai-desu'],['quiero-ir','que-estas-haciendo','trabajo-y-estudio'],['conjugation','syntax','dialogues','mini-reading']),
 ]
 for id,title,req,pats,dias,games in spec:
     ws=by.get(id,[])
@@ -247,9 +257,13 @@ for id,title,chars in KH:
                 if c: cov.append(c[0])
         picks=cov+[w for w in picks if w not in cov]
     picks=picks[:CAP.get(id,8)]
+    if id=='k-small-tsu':
+        # QA-026: also practise the long vowel ー (already taught in k-a), not only ッ
+        lv=[w for w in kcand if w['id'] not in kused and w not in picks and 'ー' in w['kana'] and 'ッ' not in w['kana'] and all(t in kknown or t=='ー' for t in split(w['kana']))]
+        picks=picks+sorted(lv,key=lambda w:(len(w['kana']),w['id']))[:6]
     for w in picks: kused.add(w['id'])
     # katakana starts after verbs ます (stage 2) AND once hiragana is complete (grammar is now interleaved with hiragana)
-    L(id,3,title,[prevk]+([h_last] if id=='k-a' else []),kana=new,words=[w['id'] for w in picks],games=['kana-recognize','kana-write','read-words','listen'])
+    L(id,3,title,[prevk]+([h_last] if id=='k-a' else []),kana=new,words=[w['id'] for w in picks],games=(['kana-write','read-words','listen'] if len(new)==1 else ['kana-recognize','kana-write','read-words','listen']))
     prevk=id
 kleft=[w['id'] for w in kcand if w['id'] not in kused]
 print('katakana words not used in kana lessons (will go to loan lessons):',len(kleft))

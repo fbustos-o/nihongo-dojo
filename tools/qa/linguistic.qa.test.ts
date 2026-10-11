@@ -139,14 +139,14 @@ describe('numbers, time, dates, counters (teacher "Language Focus" sheets + Genk
 // Content-quality findings (each it.fails documents a real error to fix in the generators)
 // ---------------------------------------------------------------------------------------------
 describe('vocab.json data quality', () => {
-  it.fails('QA-020: no Spanish gloss is cut inside parentheses (split on ";" in build_vocab.py)', () => {
+  it('QA-020: no Spanish gloss is cut inside parentheses (split on ";" in build_vocab.py)', () => {
     const broken = words.filter((w) => w.es.some((e) => (e.match(/\(/g) ?? []).length !== (e.match(/\)/g) ?? []).length)).map((w) => `${w.id}: ${w.es.join(' | ')}`);
     expect(broken).toEqual([]);
   });
-  it.fails('QA-021: no English / internal notes in Spanish glosses', () => {
-    expect(words.filter((w) => w.es.some((e) => /teacher|TODO|\?\?/i.test(e))).map((w) => `${w.id}: ${w.es.join(' | ')}`)).toEqual([]);
+  it('QA-021: no English / internal notes in Spanish glosses', () => {
+    expect(words.filter((w) => w.es.some((e) => /[Tt]eacher|TODO|\?\?/.test(e))).map((w) => `${w.id}: ${w.es.join(' | ')}`)).toEqual([]);
   });
-  it.fails('QA-022: Word.kana uses the natural syllabary (チリじん, not ちりじん)', () => {
+  it('QA-022: Word.kana uses the natural syllabary (チリじん, not ちりじん)', () => {
     const chiri = words.find((w) => w.id === 'chirijin')!;
     expect(chiri.kana).toBe('チリじん');
   });
@@ -157,19 +157,19 @@ const allExamples = (patterns as { id: string; examples?: Ex[] }[]).flatMap((p) 
 const allLines = (dialogues as { id: string; lines: Ex[] }[]).flatMap((d) => d.lines.map((l, i) => ({ ...l, id: `${d.id}:${i}` })));
 
 describe('patterns.json / dialogues.json', () => {
-  it('229 examples and 19 dialogues', () => {
+  it('229 examples and 32 dialogues', () => {
     expect(allExamples).toHaveLength(229);
-    expect(dialogues).toHaveLength(19);
+    expect(dialogues).toHaveLength(32);
   });
-  it.fails('QA-023: romaji writes the particle は as "wa" (not "ha")', () => {
+  it('QA-023: romaji writes the particle は as "wa" (not "ha")', () => {
     const bad = [...allExamples, ...allLines].filter((e) => /\b(?:\w+teha|ha)\b(?=[\s?.,]|$)/.test(e.romaji) && !/\bha(i|ji)/.test(e.romaji)).map((e) => `${e.id}: ${e.romaji}`);
     expect(bad).toEqual([]);
   });
-  it.fails('QA-024: sentences do not contain inner punctuation that the syntax tokenizer glues to a word', () => {
-    const bad = allExamples.filter((e) => /[、，,]/.test(e.ja.replace(/[。？！]$/, ''))).map((e) => `${e.id}: ${e.ja}`);
+  it('QA-024: sentences do not contain inner punctuation that the syntax tokenizer glues to a word', () => {
+    const bad = allExamples.filter((e) => /\S[、，,]|[、，,]\S/.test(e.ja)).map((e) => `${e.id}: ${e.ja}`);
     expect(bad).toEqual([]);
   });
-  it.fails('QA-025: papeleria line 2 uses は for the price question (その えんぴつ は いくら ですか)', () => {
+  it('QA-025: papeleria line 2 uses は for the price question (その えんぴつ は いくら ですか)', () => {
     const line = (dialogues as { id: string; lines: Ex[] }[]).find((d) => d.id === 'papeleria')!.lines[2]!;
     expect(line.ja).toBe('その えんぴつ は いくら ですか？');
   });

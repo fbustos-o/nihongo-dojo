@@ -5,6 +5,16 @@ from kanji_data import CHARS,KANJI
 KL={k['char']:k['genkiLesson'] for k in KANJI}
 POS={'n':'noun','vu':'verb','vru':'verb','virr':'verb','i':'i-adj','na':'na-adj','adv':'adverb','e':'expression','c':'counter','p':'particle','pr':'pronoun'}
 GRP={'vu':'u','vru':'ru','virr':'irregular'}
+def split_gloss(es):
+    # split on ';' only outside parentheses so glosses like "madre (de otro; o ...)" stay whole
+    out=[];d=0;cur=''
+    for ch in es:
+        if ch=='(': d+=1
+        elif ch==')': d=max(0,d-1)
+        if ch==';' and d==0: out.append(cur.strip()); cur=''
+        else: cur+=ch
+    out.append(cur.strip())
+    return [x for x in out if x]
 def load(files):
     words=[];sec=None;dropped=[]
     for fn in files:
@@ -33,10 +43,13 @@ def load(files):
                 dropped.append((kana,kanji)); kanji=''
             if kanji and not all((ch in CHARS) or not ('\u4e00'<=ch<='\u9fff') for ch in kanji):
                 dropped.append((kana,kanji)); kanji=''
+            note=''
+            if ' @@ ' in es: es,note=[x.strip() for x in es.split(' @@ ',1)]
             r=rom or to_romaji(kana)
             w=dict(id=wid or slug(r),kana=kana)
             if kanji: w['kanji']=kanji
-            w.update(romaji=r,es=[x.strip() for x in es.split(';')],pos=POS[pos])
+            w.update(romaji=r,es=split_gloss(es),pos=POS[pos])
+            if note: w['note']=note
             if pos in GRP: w['verbGroup']=GRP[pos]
             w.update(lesson=lesson,tags=tg,source=source)
             words.append(w)
