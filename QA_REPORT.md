@@ -263,3 +263,193 @@ Los archivos e2e se llaman `*.e2e.ts` para que Vitest (y por tanto `npm test` de
 Configuración: `app/playwright.config.ts` (locale es-CL, zona America/Santiago) y `app/vitest.qa.config.ts` (raíz en el repositorio,
 alias de dependencias hacia `app/node_modules`). Al corregir un hallazgo, su `it.fails` o `test.fail` empezará a «fallar»: hay que
 quitarle la marca.
+
+---
+---
+
+# QA_REPORT — Parte 2 (Q2: aceptación móvil, re‑verificación de la Parte 1, recorridos, UX/a11y/rendimiento)
+
+Fecha: 2026-10-11 · Autor: QA (Opus) · Base: `main` en `3b2acdf` (M1‑M5, F1 y F3 fusionados), Docker en http://localhost:8081.
+Criterio principal: `Docs/feedback_y_requerimientos_de_mejora_mobile_nihongo_dojo.md` (pruebas del usuario en Android).
+No se modificó código de la app, contenido ni generadores. Solo se añadieron o ajustaron pruebas en `app/e2e/` y `tools/qa/`, más
+`app/playwright.config.ts` y los scripts de `app/package.json`.
+
+## 1. Resumen ejecutivo
+
+**Veredicto: lista para estudiar a diario en el teléfono la etapa 1 (hiragana). Para la etapa 2 todavía no: hay que corregir antes
+QA-036, QA-037, QA-038 y QA-035.**
+
+- **Lo que pidió el usuario está, en lo esencial, resuelto.** Las 4 partidas de kana caben en el primer pliegue a 360×640 y a 390×844.
+  El botón de audio mide 44×44 sin texto. Con el teclado del sistema (viewport reducido un 45 %) el campo y la pregunta siguen
+  visibles y la barra inferior se oculta. El teclado kana en pantalla nunca tapa el campo ni la pregunta, ni siquiera al fallar.
+  Dictado no muestra transcripción y Lectura solo suena después de responder. El feedback sale como «Kana: ku» y «あかい (akai) = rojo».
+  La gramática se abre tras あ‑な y el inicio la sugiere. Las tarjetas SRS se pueden pulsar y tienen ayuda. La build estática
+  funciona con enlaces profundos, chunks bajo `/nihongo-dojo/` y exportar e importar desde el móvil.
+- **Problemas nuevos más serios:**
+  1. **QA-038**: si el alumno aún no ha desbloqueado っ, JaText **lo pierde** y muestra palabras falsas: みっつ → «みつ», がっこう →
+     «がこう», まって → «まて», たのしかった → «たのしかた», もってくる → «もてくる» (en la propia lección de la forma て).
+  2. **QA-036**: con el desbloqueo intercalado (M3), las primeras lecciones de gramática se abren con un 68‑85 % del material
+     legible. Aparecen mezclas como «おhayoう gozaいmaす», «waたし», «deす» y partículas en romaji («wo», «de», «ga») en Partículas.
+     Si el alumno elige gramática antes de tiempo desde el Camino, la etapa 2 entera se ve así.
+  3. **QA-037**: el Calendario hereda la fuente gigante del prompt (88 px en el caption y en cada día). En el móvil el mes ocupa
+     varias pantallas.
+  4. **QA-035**: con el teclado kana abierto, **el primer toque** en «Escuchar otra vez» (Dictado), en los chips de modo o en
+     «Terminar» se pierde. El teclado se cierra, el scroll salta y hace falta un segundo toque.
+- **Parte 1:** de 34 hallazgos, **26 corregidos, 2 parciales (QA-015, QA-027) y 6 abiertos** (QA-007, 011, 014, 016, 028, 030).
+- **Rendimiento y caché:** primera vista en 1,5 s con red «Fast 3G» y CPU ×4 (171 KB transferidos), recarga en caché 0,6 s.
+  nginx sirve `/assets/` con `immutable` y el resto con `no-cache`. Sin errores de consola ni avisos de React en ninguna prueba
+  (el fixture los convierte en fallos).
+
+**Hallazgos abiertos (antiguos + nuevos): Crítica 0 · Alta 4 · Media 6 · Baja 15.** Nuevos: Alta 4 (QA-035‑038), Media 2 (QA-039,
+QA-041) y Baja 11 (QA-040, QA-042‑050). Antiguos abiertos o parciales: Media 4 (QA-007, 014, 015, 016) y Baja 4 (QA-011, 027, 028, 030).
+
+## 2. Aceptación del documento del usuario, punto por punto
+
+Perfiles: `pixel7` (412×839, DPR 2,6, táctil, `pointer: coarse`) e `iphone14` (390×664, DPR 3, táctil; **Chromium** con el descriptor
+de iPhone, porque el WebKit de Playwright no arranca en este host). Además se fuerzan 360×640 y 390×844 dentro de las pruebas. Las
+coordenadas son en px CSS desde el borde superior del viewport. El **pliegue** es el borde superior de la barra inferior fija (587 a
+360×640 y 791 a 390×844) o el borde superior del teclado kana cuando está abierto.
+Pruebas: `app/e2e/feedback.mobile.e2e.ts`, `a11y.mobile.e2e.ts`, `static.pages.e2e.ts`. Capturas: ver sección 7.
+
+| Punto | Veredicto | Evidencia | Lo que falta |
+|---|---|---|---|
+| 1.1 Teclado del sistema (scroll al campo, `dvh`, compactar) | **Cumple** | Escribir kana con IME romaji y Reconocer kana, viewport 839→461 (Pixel) y 664→365 (iPhone): `data-keyboard="open"`, barra inferior oculta, campo en y=334‑378 / 386‑430 y pregunta en y=286‑330 (Pixel); en iPhone, campo 203‑247 y pregunta 157‑199 tras scroll automático de 129 px. Al cerrar, el atributo desaparece. `.shell` usa `100dvh`. | La simulación reduce el viewport de layout y el visual a la vez (como Android con `resizes-content`). En iOS Safari solo encoge el `visualViewport`: no se pudo probar con WebKit real. |
+| 1.1 Teclado kana en pantalla | **Cumple** (con QA-035) | 360×640: teclado desde y=391, campo 202‑246, pregunta 127‑195. 390×844: teclado desde y=595, campo 303‑347. Tras fallar, la respuesta correcta queda en 151‑195 y el campo en 202‑246, ambos encima del teclado. Estable en 4 rondas seguidas. | QA-035: el primer toque fuera del campo se pierde. |
+| 1.2 Botón de altavoz compacto | **Cumple** | 44×44 px, etiqueta oculta por debajo de 640 px (Escuchar y Dictado). `h1` a 1,3 rem por debajo de 480 px. | — |
+| 1.2 Opciones / confirmar en el primer pliegue | **Parcial** | 360×640: Reconocer kana, última opción 511 ≤ 587; Escribir kana, campo 246 ≤ 391 (teclado); Leer palabras 543 ≤ 587; Escuchar 491 ≤ 587. 390×844: 517 / 347 / 529 / 491. Etapa 2 a 360×640: Partículas 548 ✓, Números 546 ✓, Conjugación y Kanji ✓. **Diálogos 986‑1597 ✗, Reloj 931 ✗, Calendario 1115‑1206 ✗, Mini‑lectura ~1640 ✗, Sintaxis 618 ✗ (bajo la barra).** | QA-037 y QA-041. |
+| 2.1 Instrucción del juego 1 visible y refuerzo condensado | **Cumple** | La cabecera es estática (no fija, termina en y=68); la instrucción está en 197‑233. Tras acertar, el hueco fijo muestra «く = ku · fila か»; la cuadrícula sigue en y=398 antes y después (Δ = 0). | La descripción dice «escribe su romaji» aunque la ronda sea de opción múltiple (QA-042). |
+| 2.2 Lectura / Dictado | **Cumple** | Dictado (con voz falsa ja‑JP): el prompt no contiene kana ni romaji; suena «こ»; tras escribirlo con el teclado kana, «¡Correcto! こ». Lectura: ninguna locución antes de responder, ningún botón de audio en el prompt; tras responder suena exactamente el kana. Sin voz: el Dictado pasa a Lectura con el aviso `dictado-fallback`. | QA-035 (repetir el audio en Dictado necesita dos toques) y QA-043 (en una lección, Escribir kana es casi siempre Dictado). |
+| 2.2 Teclado kana (alternativa A) e IME romaji (alternativa B) | **Cumple** | `auto` usa el teclado en táctil. Se escribió コーヒー y ジュース con ー, ゛, 小 y el cambio a katakana. La lección k-a se completó con los dos métodos (`journeys.e2e.ts`). Atributos `autocapitalize=off`, `autocorrect=off`, `spellcheck=false`, `enterkeyhint=done` ✓. | QA-040 (teclado físico). |
+| 2.3 Feedback de la palabra anterior sin solaparse | **Cumple** | En 5 rondas el feedback queda en y=289‑316 y el prompt nuevo empieza en 327 (sin solaparse). Tras un fallo se ve «≈ Era いえ = hogar». Las opciones miden ≥ 52 px de alto (CSS 3,25 rem). | — |
+| 2.4 Feedback del juego de audio | **Cumple** | «✓ Kana: ko», «✓ あかい (akai) = rojo», «✓ いえ (ie) = hogar»; al fallar, «Sonó: … · elegiste …». | — |
+| 3.1 Desbloqueo intercalado | **Parcial** | Con h-ta, l-saludos no es enlace en el Camino; con h-na sí. Tras 5 lecciones de kana, el inicio sugiere «Saludos y expresiones básicas» y añade «Siguiente kana: fila は». | QA-036 / QA-038: legibilidad del 68 % en la primera lección de gramática y palabras con っ mal escritas. |
+| 3.2 Tarjetas SRS clicables + ayuda | **Cumple** | La tarjeta «Guru» (62×64 px) abre `/memoria/guru` con 3 filas: «あ a Kana Guru 1 90 % en 6 días», «か … 50 %», «あかい rojo Palabra Guru 2 100 % en 7 días». El diálogo (?) muestra los intervalos de 4 h a 4 meses; Escape lo cierra y devuelve el foco. | QA-048 (el texto de ayuda no explica la regla «solo sube si toca repasar»). |
+| 4.1 Build estática (Pages) | **Cumple** | `VITE_BASE=/nihongo-dojo/`: navegación y lección jugada; los 38 assets están bajo `/nihongo-dojo/assets/` y ninguno da 404; la recarga de `camino`, `leccion/h-a`, `memoria/guru`, `ajustes`, `repaso`, `practica` y `no-existe` sirve `404.html` (status 404, como en Pages) y la app se monta; una ruta desconocida lleva al Inicio. | — |
+| 4.1 Exportar / importar | **Cumple** | `nihongo_dojo_backup_2026-10-11.json` (fecha local). Exportar → reiniciar → importar restaura XP 420 y las lecciones. En el perfil móvil, «Importar progreso» abre el selector de archivos; un JSON inválido da «El archivo no es un JSON válido.». | QA-047 (riesgo en iOS Safari, no probado). |
+| 4.1 Audio (Web Speech + clips estáticos) | **Parcial** | Con voz falsa: autoplay en Escuchar y Dictado. Sin `speechSynthesis`: SpeakButton pide `/nihongo-dojo/audio/%E3%81%82.mp3`, recibe 404 y se desactiva. | QA-046: Escuchar y Dictado no intentan los clips (deciden por voz, no por clip), y nginx devuelve `index.html` con 200 para los `.mp3` que faltan. No se incluye ningún clip. |
+
+## 3. Estado de los hallazgos de la Parte 1
+
+| Id | Estado | Evidencia |
+|---|---|---|
+| QA-001 | Corregido | `invariants.qa` QA-001/001b ✓; e2e «h-yoon-1» ✓. (Nuevo problema relacionado con っ: QA-038.) |
+| QA-002 | Corregido | `srs.qa` QA-002 ✓; e2e «SRS: practicar sin parar…» ✓; `engine/srs.ts` `canAdvance`. |
+| QA-003 | Corregido | **Reescrita**: `q2.qa.test.tsx` renderiza `<Listen>` (h-a sin nada conocido y k-ka) ✓; `invariants.qa` ahora usa `knownKanaPool` como el juego; e2e QA-003 ✓. |
+| QA-004 | Corregido | `linguistic.qa` QA-004 ✓. |
+| QA-005 | Corregido | `srs.qa` QA-005 ✓. **e2e nuevo** en `journeys.e2e.ts`: `number:4173`, `time:7:30` y `date:3:14` vencidos se preguntan («よんせんひゃくななじゅうさん»), ninguno sigue vencido, no se crean ítems `number:/time:/date:` nuevos y el contador del Inicio vuelve a 0. |
+| QA-006 | Corregido | `Numbers.tsx:55` muestra el kana solo `!audio`. En el repaso sin voz se ve el kana con el aviso; con voz, solo audio. |
+| QA-007 | Abierto | `pages/PracticePage.tsx:17` sigue con 4 juegos de kana. |
+| QA-008 | Corregido | **Reescrita**: el e2e ya no lleva `test.fail`. Se juegan l-kore y l-verbos-1 completas sin katakana en pantalla ✓. (El fallo de 999 ms de la Parte 1 era del solver con «boうし», no de la app.) |
+| QA-009 | Corregido | **Reescrita**: `q2.qa` renderiza `<KanaWrite>` con を/ぢ/づ/ヲ: muestra «wo/di/du» con nota, y escribir お/じ/ず cuenta como error ✓. `invariants.qa` comprueba `writePrompt` (la colisión en `kana.json` es intencionada). |
+| QA-010 | Corregido | `invariants.qa` QA-010/010b ✓. |
+| QA-011 | Abierto | `it.fails` sigue fallando: se ofrece と para «ともだち ＿ あいます». |
+| QA-012 | Corregido | ✓ |
+| QA-013 | Corregido | ✓ («nn», Kunrei aceptados). |
+| QA-014 | Abierto | `it.fails` sigue fallando (homófonos あつい…). |
+| QA-015 | Parcial | Sintaxis, Mini‑lectura y Diálogos usan `scopedPatterns` / `scopedDialogues` (ancestros). Pero `Particles.tsx:26` sigue usando `content.patterns` si la lección no tiene patrones, y `MiniReading.tsx:26` usa todo el corpus para los distractores. El informe de pools de `invariants.qa` está desactualizado (QA-049). |
+| QA-016 | Abierto | e2e `practice.e2e.ts` con `test.fail` sigue fallando; `PracticePage.tsx` no usa `ExtraKanaContext`. |
+| QA-017, QA-018, QA-019 | Corregido | `srs.qa` ✓. El banner de guardado aparece en el navegador cuando `setItem` lanza (`journeys.e2e.ts`). |
+| QA-020 … QA-025 | Corregido | `linguistic.qa` ✓ (glosas, notas, チリじん, «wa», tokenización, は en papelería). |
+| QA-026 | Corregido | h-tsu-long tiene 18 palabras y ya no tiene «Reconocer kana»; k-small-tsu tiene 14. |
+| QA-027 | Parcial | De 6 a 10 turnos del alumno por lección (antes 2‑3) para 15 rondas; l-permisos se queda en 6. |
+| QA-028 | Abierto | `aria-keyshortcuts` sigue en `ChoiceRound.tsx:58` y `Dialogues.tsx:82` sin manejador. |
+| QA-029 | Corregido | `hooks/useNow.ts`. |
+| QA-030 | Abierto | `XP_PER_CORRECT` duplicado (`progressStore.ts:19`, `lessonLogic.ts:12`). |
+| QA-031 | Corregido | ✓ |
+| QA-032 | Corregido | to-with:0 ahora es «ともだち と えいが を みます»; las frases hechas restantes son aceptables. |
+| QA-033 | Corregido | `conjugationLogic.ts:232` (`NON_VOLITIONAL_VERBS`). |
+| QA-034 | Corregido | `Syntax.tsx` usa `buildSolutionTable`. |
+
+**Marcas `it.fails` / `test.fail` restantes:** QA-011, QA-014, QA-036 y QA-038 (Vitest); QA-016 (e2e escritorio); QA-035, QA-037 y
+QA-041 (e2e móvil, 6 por perfil). Todas fallan hoy en `main`, así que corresponden a fallos abiertos.
+
+## 4. Hallazgos nuevos
+
+Rutas relativas a `app/src/` salvo que se indique otra cosa.
+
+| Id | Sev. | Área | Título | Ubicación | Reproducción | Esperado / Actual | Arreglo sugerido |
+|---|---|---|---|---|---|---|---|
+| QA-035 | Alta | Móvil / teclado kana | Con el teclado kana abierto, el primer toque en otro control se pierde | `components/KanaInput.tsx:302-303,332-334` (el teclado depende de `focused`), `KanaInput.module.css:246-252` (`padding-bottom` en `body`) | Pixel 7, Práctica → Escribir kana → Dictado, con el campo enfocado: tocar «Escuchar otra vez». También los chips Mixto/Lectura/Dictado o «Terminar». e2e: `feedback.mobile.e2e.ts` «QA-035» (`test.fail`). | Esperado: un toque reproduce el audio o cambia el modo. Actual: en `pointerdown` el input pierde el foco, el teclado se desmonta, se quita el `padding-bottom` y `scrollY` pasa de 132 a 0 (215 a 0 en iPhone); el `click` cae en otro sitio. `__spoken = []` y el chip sigue sin pulsar. | No cerrar el teclado en `blur` al tocar dentro de `main`: cerrarlo solo al tocar fuera del formulario, o con un retraso que conserve el layout. Alternativa: `onPointerDown={e => e.preventDefault()}` en SpeakButton y los chips mientras el teclado está abierto, como ya hace `KanaModeToggle`. |
+| QA-036 | Alta | Progresión / legibilidad (M3) | La etapa 2 se abre antes de conocer ん, dakuten, yōon y っ: textos mezclados kana/romaji | `src/content/curriculum.json` (requisitos de l-saludos, l-numeros, l-desu, l-kore…), `tools/content/gen/build_curriculum.py` | `q2.qa.test.tsx` QA-036 (informe + `it.fails`); `stage2.e2e.ts` (muestras por lección). Camino sugerido por el Inicio: l-saludos 68 % legible, l-numeros 82 %, l-desu 85 %. Con los requisitos mínimos: l-saludos 68 %, l-desu 73 %, l-kore 75 %, l-verbos-1 78 %. Ninguna lección de la etapa 2 exige dakuten‑2, handakuten, yōon ni っ. | Muestras reales: «おhayoう gozaいmaす» (primera lección de gramática), «waたし», «gaくせい», «deす», «すみませn、この かban は いくら deすか？»; en Partículas las opciones salen como «wo», «de», «ga». Esperado: ≥ 90 % legible, o material elegido para los kana conocidos. | En el generador, exigir el hito de kana según el % legible real (como dice PLAN_V2 M3), p. ej. l-saludos tras h-wa-n y l-desu / l-kore tras dakuten. O limitar el material de esas lecciones a palabras legibles y mostrar las frases fijas en kana completo con romaji debajo. |
+| QA-037 | Alta | Móvil / layout | El Calendario hereda la fuente gigante del prompt | `games/calendar/MonthGrid.tsx` dentro de `.prompt` (`games/shared/games.module.css:45-55`: `font-size: clamp(2.75rem, 15vw, 5.5rem)`), `calendar.module.css` | l-fechas → Calendario. `a11y.e2e.ts`: el `caption` y los `td` miden **88 px** (escritorio). Captura `pixel7-1.2-fold-360-l-fechas-Calendario.png`. | Esperado: un mes legible en una pantalla. Actual: «Enero 2026 (Mes 1)» ocupa media pantalla y el último control queda en y=1115‑1206 (pliegue en 587). | `font-size: 1rem; font-family: var(--font-ui)` en `.grid` (y en el caption), o no meter la tabla dentro de `.prompt`. |
+| QA-038 | Alta | Render / invariantes | Un っ bloqueado desaparece: palabras mal escritas | `domain/renderPlan.ts:41-49` (`romajiRun`) y `:110` | `q2.qa.test.tsx` QA-038 (`it.fails`): con todo el hiragana menos っ, `renderKana('みっつ')` → «みつ». En la UI (`stage2.e2e.ts`): «がこう», «まて», «たのしかた», «もてくる», «すわて», «choと», «いてrasshaい». | Esperado: «mittsu», «gakkou» o «mi**xtsu**つ»; nunca otra palabra válida. Actual: wanakana `toRomaji('っ')` / `toRomaji('ちょっ')` descarta el っ final del tramo en romaji. Además, en Escuchar sin voz la opción correcta «みつ» no coincide con el romaji «mittsu». | Si el tramo pendiente termina en っ y sigue un kana conocido, pasar a romaji también ese kana (`mittsu`), o emitir el っ como «t»/doble consonante. Test unitario con みっつ, がっこう, ちょっと. |
+| QA-039 | Media | Invariantes | Números, Reloj y Calendario muestran kana sin filtrar (no pasan por JaText) | `games/numbers/ReadingRound.tsx:186-197` (`KanaWithRomaji`), `:221-226` (opciones), `Numbers.tsx:52,93` | l-kore (requiere hasta h-ya-ra): opciones «せんえん», «きゅうひゃくきゅうじゅうえん» con ん y きゅ sin aprender; l-numeros abre tras h-ma. | Esperado: la regla «nunca mostrar lo no desbloqueado». Actual: kana en crudo (el romaji acompaña si `showRomaji`). Las respuestas escritas son justas con el IME romaji («san» → «さn» se acepta, `q2.qa`), pero con el teclado kana (táctil) hay que buscar kana que aún no se han visto. | Usar `<JaText word={{ kana }} />` en `KanaWithRomaji` y en las opciones, o exigir h-wa-n y yōon antes de l-numeros (ver QA-036). |
+| QA-040 | Baja | A11y | Con el ajuste «teclado», no se puede escribir con un teclado físico | `components/KanaInput.tsx:306-313,322-323` | Escritorio, Ajustes → «Teclado de kana en pantalla» → Escribir kana: pulsar «a» no escribe nada; Tab lleva el foco a «abc» y el teclado kana desaparece, así que sus teclas no se alcanzan con Tab. | Esperado: un método utilizable sin pantalla táctil. Actual: input `readOnly`; solo Backspace funciona. `auto` elige romaji con `pointer: fine`, así que solo afecta a quien lo elige a mano o a portátiles táctiles. | Aceptar las teclas romaji en modo teclado (convertir con wanakana), o mantener el teclado kana mientras el foco esté dentro de él. |
+| QA-041 | Media | Móvil / layout | Juegos de la etapa 2 con la respuesta bajo el pliegue a 360×640 | `games/dialogues/*`, `games/clock/clock.module.css` (reloj al 100 % del ancho), `games/mini-reading/*`, `games/syntax/*` | `feedback.mobile.e2e.ts` «primer pliegue 360×640» (`test.fail`). | Pliegue en 587: Diálogos, opciones en 986 y bajando hasta 1597 a medida que crece la conversación; Reloj, controles en 931; Mini‑lectura ~1640; Sintaxis, «Comprobar» en 618 (bajo la barra inferior). | Diálogos: limitar el historial visible o hacer scroll al grupo de respuestas. Reloj: `max-width: min(60vw, 40dvh)`. Mini‑lectura: pregunta antes del texto o texto plegable. Sintaxis: reducir el hueco del prompt (100 px vacíos) o hacer scroll a la bandeja. |
+| QA-042 | Baja | UX / texto | La descripción del juego no corresponde al modo | `games/registry.ts:38` («Mira el kana y escribe su romaji» con opción múltiple), descripción de kana-write («Lee el romaji…» en Dictado), `Numbers.tsx:95` («Escribe el precio» con opciones) | h-ka juego 1 y juego 2; l-kore Números. | Texto coherente con la ronda actual. | Descripciones neutras («Reconoce el kana…») o una indicación por ronda. |
+| QA-043 | Baja | Pedagogía | En una lección, «Escribir kana» es casi siempre Dictado | `games/kana-write/KanaWrite.tsx:34-37,55,60` (`seen` = `correct > 0`, incluido el juego 1) | h-a con voz: el juego 1 (Reconocer) marca los 5 kana como «vistos», así que el juego 2 empieza y sigue en Dictado. | El diseño dice «lee los nuevos, dicta los ya vistos»; en la práctica el alumno nunca escribe un kana nuevo en Lectura. | Contar como «visto» solo un acierto en kana-write (o una sesión anterior), no el reconocimiento. |
+| QA-044 | Baja | A11y / contraste | Contraste insuficiente en la cabecera oscura y en los bordes de los campos | `styles/index.css` (tokens), `Layout.module.css:85-93` (`color: #fff` sobre `--accent`) | Cálculo WCAG con los tokens: claro, todos los textos ≥ 4,6:1 ✓; oscuro, **#fff sobre #e5535c = 3,67:1** (marca y «Acerca de», texto normal); bordes `--border` sobre `--surface` 1,36:1 (claro) y 1,39:1 (oscuro), por debajo del 3:1 para los límites de los campos. | Texto ≥ 4,5:1 y componentes ≥ 3:1. | En el tema oscuro, texto de cabecera `--accent-contrast` (#14110f, 5,1:1) o un acento más oscuro en la cabecera; borde de los inputs más marcado. |
+| QA-045 | Baja | Móvil / táctil | Chips de modo de 36 px de alto | `games/shared/games.module.css:322` (`.chip { min-height: 2.25rem }`), también `numbers.module.css` (`ModeChips`) | Escaneo de objetivos a 360×640 (`a11y.mobile.e2e.ts`): «Mixto 62×36», «Lectura 76×36», «Dictado 76×36». Todo lo demás ≥ 44 (las casillas de 20 px van dentro de etiquetas de 44). | ≥ 44 px. | `min-height: 2.75rem`. |
+| QA-046 | Baja | Audio | Los clips estáticos no sirven para los juegos de audio, y nginx responde 200 con `index.html` a los `.mp3` que faltan | `games/listen/Listen.tsx:187-191`, `kana-write/KanaWrite.tsx:70` (deciden con `available` = hay voz), `docker/nginx.conf` (`try_files … /index.html`) | Sin voz japonesa, aunque se copien clips a `public/audio/`, Escuchar sigue mostrando el romaji y el Dictado pasa a Lectura. En Docker, `/audio/x.mp3` → 200 text/html (se descarga el HTML y falla la decodificación). | Esperado: si hay clip, se usa como audio. Actual: solo SpeakButton lo intenta. | Comprobar la disponibilidad del clip (HEAD o `canplaythrough`) antes de degradar, y en nginx `location /audio/ { try_files $uri =404; }`. |
+| QA-047 | Baja | Persistencia | La exportación revoca la URL del blob justo después de `click()` y no añade el enlace al DOM | `state/download.ts:9-15` | Funciona en Chromium (e2e). No se pudo probar en iOS Safari (sin WebKit). | Descarga fiable en iOS y Firefox antiguos. | `document.body.append(link)`, `click()` y luego `setTimeout(() => { URL.revokeObjectURL(url); link.remove(); }, 0)`. Opcional: `navigator.share` con `File` en móvil. |
+| QA-048 | Baja | UX / SRS | La ayuda (?) no explica que solo sube lo que toca repasar | `pages/SrsHelp.tsx` («Si aciertas: El ítem sube una etapa…») | Tras QA-002, practicar fuera del repaso no mueve el SRS. | El alumno no entiende por qué practicar no sube sus ítems. | Añadir: «Solo cuenta cuando el ítem está pendiente de repaso; practicar antes no lo sube ni lo baja». |
+| QA-049 | Baja | Pruebas | El informe de pools de la Parte 1 usa su propia lógica, ya desactualizada | `tools/qa/invariants.qa.test.ts` (sección «Pool report») | Dice «l-vacaciones \| mini-reading \| usa TODOS los patrones», pero el juego ya usa `scopedPatterns`. | Que el informe use `scopedPatterns` / `scopedDialogues` / `gameHasMaterial` de `games/lessonScope.ts`. | Reescribir el informe sobre esas funciones. |
+| QA-050 | Baja | UX / feedback | Escribir kana no deja feedback de la ronda anterior si no se acertó a la primera | `games/kana-write/KanaWrite.tsx:90-103` (`firstTry ? … : null`) | Fallar una ronda y reescribir: el hueco superior queda vacío en la ronda siguiente. Leer palabras y Escuchar muestran «Era …». | Coherencia: «≈ Era か». | Mismo patrón que `ReadWords.tsx:279`. |
+
+## 5. Recorridos funcionales, UX, a11y y rendimiento (resultados)
+
+- **Etapa 2 de punta a punta** (`stage2.e2e.ts`): las **21 lecciones** se completan en el navegador con el solver (sin voz), de 45 a 93
+  rondas cada una. La métrica de mezclas kana/romaji (QA-036 / QA-038) va de 6 cadenas (l-pasado) a 63 (l-te-kudasai).
+- **Repaso unificado** (`journeys.e2e.ts`): 11 ítems vencidos de los 11 tipos (kana, katakana, palabra, kanji, patrón, partícula,
+  conjugación, número, hora, fecha, diálogo). El plan los agrupa en 10 juegos; se juegan todos, no queda ninguno vencido, no se
+  generan ítems extra y el Inicio vuelve a 0.
+- **Katakana k-a con ー**: la lección se completa con el IME romaji y con el teclado kana (prompts «-», «oo», «aa», «ee»…).
+- **Kanji y furigana**: en la fila de 一 (Memoria), `auto` Aprendiz da 1 ruby, `auto` Guru 0, `siempre` Guru 1 y `nunca` 0 ✓.
+- **Exportar → reiniciar → importar** ✓ y **banner de guardado fallido** ✓ (stub de `Storage.prototype.setItem` que lanza
+  `QuotaExceededError`).
+- **Consola**: 0 errores y 0 avisos de React en las 104 pruebas e2e (fixture `support/fixtures.ts`). Solo se permiten el
+  `console.warn` esperado del banner y los 404 de documento del mock de Pages.
+- **Solo teclado** (`a11y.e2e.ts`): Reconocer kana, el foco vuelve al campo en cada ronda ✓; Leer palabras, 1 Tab hasta la primera
+  opción y Enter responde ✓; Sintaxis, 1 Tab hasta la primera ficha y Enter la coloca, pero luego el foco vuelve a `body` (aceptable,
+  el punto de partida de la navegación se mantiene). Los atajos «1‑4» siguen sin implementarse (QA-028).
+- **Foco y teclado kana**: el foco se queda en el campo (`preventDefault` en `mousedown`) ✓; Tab cierra el teclado (QA-040).
+- **Reloj y calendario**: SVG `role="img"` con `aria-label` que no revela la hora ✓; el calendario es una `<table>` con `caption`,
+  `th scope=col` y `aria-current="date"` ✓ (salvo el tamaño, QA-037).
+- **Movimiento reducido**: teclado kana y feedback con `animation: none 1e-05s`; `useKeepInView` usa `behavior: auto` ✓.
+- **Objetivos táctiles**: todo ≥ 44 px salvo los chips (QA-045).
+- **Rendimiento** (Pixel 7, Fast 3G 1,6 Mb/s, RTT 150 ms, CPU ×4, Docker): FCP 1,46 s, DCL 1,29 s y primera vista 1,53 s con
+  ~171 KB transferidos; abrir h-a y el primer juego, 2,0 s; recarga con caché, 0,63 s. Ruta crítica (gzip -9): `index-*.js` 111 KB,
+  `progressStore-*.js` 32 KB y CSS 35 KB. `contentLoader` (56 KB gz) y los juegos van en chunks perezosos. Las fuentes Noto Sans JP
+  van en 100+ subconjuntos de ~85 KB que se piden según los glifos usados.
+- **nginx**: `/assets/*` con `Cache-Control: public, max-age=31536000, immutable` y gzip; `index.html` y el resto con `no-cache` y
+  ETag; los assets que faltan dan 404 (no caen a `index.html`) ✓. La SPA cae a `index.html` también para `/audio/*.mp3` (QA-046).
+
+## 6. Qué se probó y qué no
+
+**Probado:** los 5 puntos del documento del usuario en los dos perfiles móviles y a 360×640 y 390×844; los 13 juegos en el
+navegador (los 9 de la etapa 2 más los 4 de kana); las 21 lecciones de la etapa 2; repaso, katakana, kanji y furigana, ajustes,
+banner, build de Pages (navegación, recarga, chunks, exportar e importar, clip estático), a11y básica, contraste por cálculo y
+rendimiento con CDP.
+
+**No probado o con límites:**
+- **WebKit / iOS Safari real.** `npx playwright install webkit` descarga el navegador, pero no arranca por dependencias del sistema.
+  «iPhone 14» es Chromium con el descriptor del iPhone. Sin cubrir: el teclado de iOS (solo encoge el `visualViewport`), la descarga
+  de blobs en Safari (QA-047) y el `100dvh` de Safari.
+- **Un Android real** y la composición IME de Gboard: la ruta `compositionstart/end` solo se cubre a nivel de unidad (M2). El
+  teclado del sistema se simula reduciendo el viewport.
+- **La voz real.** Se usa una voz ja‑JP falsa que registra lo que se locuta (`support/mobile.ts`), sin audio.
+- **Contraste**: calculado sobre los tokens, no con axe-core (no está instalado). Lectores de pantalla: no probados.
+- **El tamaño de la imagen Docker** y Lighthouse.
+
+## 7. Cómo ejecutar
+
+```sh
+cd app
+npm test                 # Vitest unitario: 1214 ✓
+npm run test:qa          # QA Vitest (tools/qa, incl. q2.qa.test.tsx): 274 ✓ + 4 fallos esperados (QA-011, 014, 036, 038)
+
+# e2e contra Docker (docker compose up -d --build en la raíz)
+npm run test:e2e         # escritorio (chromium): 47 ✓ (1 test.fail: QA-016)
+npm run test:e2e:mobile  # pixel7 + iphone14 (*.mobile.e2e.ts): 54 ✓ (12 test.fail: QA-035, QA-037, QA-041 ×4, por perfil)
+npm run test:e2e:pages   # compila con VITE_BASE=/nihongo-dojo/ en dist/ y sirve con scripts/serve-pages.mjs :4173: 3 ✓
+npm run test:e2e:all     # todo lo anterior
+QA_SHOTS=/ruta npm run test:e2e:mobile   # carpeta de capturas (por defecto app/test-results/q2-shots)
+```
+
+- Archivos nuevos: `app/e2e/feedback.mobile.e2e.ts` (aceptación), `a11y.mobile.e2e.ts`, `a11y.e2e.ts`, `journeys.e2e.ts`,
+  `stage2.e2e.ts`, `static.pages.e2e.ts`, `support/mobile.ts` (stub de voz, medidas) y `support/flow.ts`; `tools/qa/q2.qa.test.tsx`.
+- Cambios: `support/solver.ts` (escribe con el teclado kana, resuelve Dictado y Escuchar con voz por el texto locutado, entiende
+  textos mixtos kana/romaji, espera a los chunks perezosos y tokeniza como la app); `invariants.e2e.ts` (QA-008 sin `test.fail`);
+  `tools/qa/invariants.qa.test.ts` (QA-003 y QA-009 sobre el comportamiento real).
+- Las medidas salen en stdout (`[measure][perfil] …`) y como anotaciones en el informe HTML (`npx playwright show-report`).
+- `test:e2e:pages` sobrescribe `app/dist/` con la build de sub-ruta (gitignored; Docker compila la suya).

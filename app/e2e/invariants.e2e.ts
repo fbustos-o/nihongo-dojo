@@ -57,7 +57,6 @@ test('h-yoon-1: las palabras con yōon se ven en kana, no mezcladas con romaji (
 });
 
 test('etapa 2 (l-verbos-1): la retroalimentación no muestra katakana antes de la etapa 3 (QA-008)', async ({ page, consoleLog }) => {
-  test.fail(true, 'QA-008: «¡Correcto! コーヒー = café» usa word.kana sin JaText');
   void consoleLog;
   const leaks = [...(await collectLessonKana(page, 'l-kore')), ...(await collectLessonKana(page, 'l-verbos-1'))];
   expect(leaks.filter((l) => /[ァ-ヺ]/u.test(l))).toEqual([]);

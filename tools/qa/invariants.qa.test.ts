@@ -8,7 +8,7 @@ import { renderKana, renderPlan } from '../../app/src/domain/renderPlan';
 import { checkAnswer } from '../../app/src/engine/answer';
 import { lessonContent, roundsFor } from '../../app/src/lesson/lessonLogic';
 import { unlockedKanaForLessons } from '../../app/src/engine/kanaFilter';
-import { kanaChoices, judgeRomaji } from '../../app/src/games/kanaUtils';
+import { kanaChoices, judgeRomaji, knownKanaPool, writePrompt } from '../../app/src/games/kanaUtils';
 import { meaningChoices } from '../../app/src/games/wordUtils';
 import { isValidOrder, syntaxEntries, tokenize } from '../../app/src/games/syntax/syntaxLogic';
 import { particleEntries, particleOptions } from '../../app/src/games/particles/particleLogic';
@@ -52,10 +52,13 @@ describe('renderPlan: only unlocked kana are shown', () => {
 });
 
 describe('game content selection never shows locked kana', () => {
-  it.fails('QA-003: Listen distractors (kanaChoices) stay inside the known + lesson kana', () => {
+  it('QA-003: Listen distractors (kanaChoices over knownKanaPool, as Listen.tsx builds them) stay inside the known + lesson kana', () => {
+    // Parte 1 probed kanaChoices() without the filter; the game now passes knownKanaPool(known, lesson). The game itself is
+    // covered in tools/qa/q2.qa.test.tsx (renders <Listen>) and e2e/invariants.e2e.ts (QA-003).
     const lessonKana = new Set(['あ', 'い', 'う', 'え', 'お']);
+    const pool = knownKanaPool([], lessonKana);
     const leaked = new Set<string>();
-    for (const k of kana.filter((x) => lessonKana.has(x.char))) for (let i = 0; i < 30; i++) kanaChoices(k).forEach((c) => { if (!lessonKana.has(c.char)) leaked.add(c.char); });
+    for (const k of kana.filter((x) => lessonKana.has(x.char))) for (let i = 0; i < 30; i++) kanaChoices(k, 4, pool).forEach((c) => { if (!lessonKana.has(c.char)) leaked.add(c.char); });
     expect([...leaked]).toEqual([]);
   });
   it('QA-031: Spanish glosses shown in stage 1 contain no kana', () => {
@@ -194,10 +197,12 @@ describe('answer checking fairness', () => {
     const k = (c: string) => kana.find((x) => x.char === c)!;
     expect(['nn', 'si', 'ti', 'tu', 'hu', 'zi'].map((r, i) => judgeRomaji(r, k(['ん', 'し', 'ち', 'つ', 'ふ', 'じ'][i]!)))).toEqual(Array(6).fill('correct'));
   });
-  it.fails('QA-009: kana-write prompts are unambiguous (を/お "o", ぢ/じ "ji", づ/ず "zu" share the romaji shown)', () => {
+  it('QA-009: kana-write prompts are unambiguous: kana that share a romaji (を/お, ぢ/じ, づ/ず) get distinct prompts (writePrompt)', () => {
+    // Parte 1 checked raw kana.json romaji collisions (still there, by design). What the game shows is writePrompt();
+    // the rendered game is covered in tools/qa/q2.qa.test.tsx.
     const dup = ['hiragana', 'katakana'].flatMap((s) => {
       const list = kana.filter((x) => x.script === s && [...x.char].length === 1);
-      return list.filter((a) => list.some((b) => b !== a && b.romaji === a.romaji)).map((a) => `${a.char}=${a.romaji}`);
+      return list.filter((a) => list.some((b) => b !== a && writePrompt(b).romaji === writePrompt(a).romaji)).map((a) => `${a.char}=${writePrompt(a).romaji}`);
     });
     expect(dup).toEqual([]);
   });

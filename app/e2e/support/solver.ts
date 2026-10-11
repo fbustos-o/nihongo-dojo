@@ -1,6 +1,7 @@
 /* Generic game solver for the e2e journeys (QA E8): reads the round from the DOM and answers it from the
  * content JSON + the app's own engines. `wrong: true` answers wrong first (then fixes it to move on). */
 import { expect, type Locator, type Page } from '@playwright/test';
+import { toHiragana, toRomaji } from 'wanakana';
 import {
   conjugationAnswer, dialogues, kana, kanji, meaningText, norm, numberFromKana, patterns, readCounter, readDate, readDayOfWeek,
   readNumber, readPrice, readTime, shiftDay, SPANISH_MONTHS, SPANISH_WEEKDAYS, timeFromKana, vocab, weekdayOf, type KanaEntry, type Word,
@@ -24,10 +25,20 @@ export const jaText = (loc: Locator): Promise<string> =>
     return c.textContent ?? '';
   });
 
-const tokenize = (ja: string): string[] => ja.replace(/[。？！?!]+$/u, '').split(/\s+/u).filter(Boolean);
+// same as src/games/syntax/syntaxLogic.ts tokenize(): clause punctuation is split off and dropped
+const tokenize = (ja: string): string[] =>
+  ja.replace(/[。？！?!]+$/u, '').replace(/([、，。])/gu, ' $1 ').split(/\s+/u).filter((t) => t !== '' && !/^[、，。]$/u.test(t));
 const romajiLabel = (k: KanaEntry): string => (k.char === 'ー' ? '- (vocal larga)' : k.char === 'ッ' || k.char === 'っ' ? 'xtsu (pausa)' : k.romaji);
 const otherScript = (s: string): string =>
   [...s].map((c) => { const code = c.codePointAt(0)!; return code >= 0x3041 && code <= 0x3096 ? String.fromCodePoint(code + 0x60) : code >= 0x30a1 && code <= 0x30f6 ? String.fromCodePoint(code - 0x60) : c; }).join('');
+/** norm() after turning romaji fallbacks back into kana («boうし» -> ぼうし). */
+const mnorm = (s: string): string => norm(toHiragana(s.replace(/\s+/g, ''), { passRomaji: false })).replace(/っ/g, '');
+/** Romaji key without long-vowel distinctions (コーヒー / koohii / こnpyuuたー all compare equal to their romaji). */
+const loose = (s: string): string => toRomaji(katakanaToHiraganaLite(s)).toLowerCase().replace(/[^a-z]/g, '').replace(/ou/g, 'o').replace(/([aeiou])\1+/g, '$1').replace(/([bcdfghjkmpqrstvwxyz])\1/g, '$1');
+const katakanaToHiraganaLite = (s: string): string => [...s].map((c) => (c >= 'ァ' && c <= 'ヶ' ? String.fromCharCode(c.charCodeAt(0) - 0x60) : c)).join('');
+/** Displayed text (possibly mixed kana/romaji) equals the Japanese `ja`. */
+const exactSame = (shown: string, ja: string): boolean => norm(shown) === norm(ja) || mnorm(shown) === mnorm(ja);
+const same = (shown: string, ja: string): boolean => exactSame(shown, ja) || loose(shown) === loose(ja);
 const examples = patterns.flatMap((p) => (p.examples ?? []).map((e, i) => ({ ...e, id: `${p.id}:${i}` })));
 
 /** Name of the game being played (lesson label, review label or practice label). */
@@ -53,26 +64,76 @@ async function choose(page: Page, buttons: Locator, isRight: (text: string, b: L
     if (await isRight(text, b)) right ??= b;
     else bad ??= b;
   }
-  if (!right) throw new Error(`solver: no correct option among ${n} buttons: ${(await buttons.allTextContents()).join(' | ')}`);
+  if (!right) throw new Error(`solver: no correct option among ${n} buttons: ${(await buttons.allTextContents()).join(' | ')} — prompt: ${(await page.getByTestId('prompt').first().innerText().catch(() => '?')).replace(/\s+/g, ' ')}`);
   if (wrong && bad) await bad.click();
   await right.click();
 }
 
+/* On-screen kana keyboard (settings.kanaInput = teclado, or auto on touch devices): the input is read-only. */
+const KB_ROWS = ['あいうえお', 'かきくけこ', 'さしすせそ', 'たちつてと', 'なにぬねの', 'はひふへほ', 'まみむめも', 'や ゆ よ', 'らりるれろ', 'わをん  '];
+const PLAIN = 'かきくけこさしすせそたちつてとはひふへほ';
+const VOICED = 'がぎぐげござじずぜぞだぢづでどばびぶべぼ';
+const SEMI = 'ぱぴぷぺぽ';
+const SMALL: Record<string, string> = { っ: 'つ', ゃ: 'や', ゅ: 'ゆ', ょ: 'よ', ぁ: 'あ', ぃ: 'い', ぅ: 'う', ぇ: 'え', ぉ: 'お', ゎ: 'わ' };
+const toHira = (c: string) => (c >= 'ァ' && c <= 'ヶ' ? String.fromCharCode(c.charCodeAt(0) - 0x60) : c);
+
+/** Types `text` (kana, ー, spaces) by tapping the on-screen kana keyboard, then presses its Enter key. */
+export async function kbType(page: Page, text: string, submit = true): Promise<void> {
+  const kb = page.getByRole('group', { name: 'Teclado de kana' });
+  await expect(kb).toBeVisible();
+  const tap = (name: string) => kb.getByRole('button', { name, exact: true }).click();
+  for (const ch of [...text]) {
+    if (ch === ' ') { await tap('Espacio'); continue; }
+    if (ch === 'ー') { await tap('Alargamiento ー'); continue; }
+    const kata = ch >= 'ァ' && ch <= 'ヶ';
+    // the switch key is labelled with the OTHER script
+    const inKata = (await kb.getByRole('button', { name: 'Cambiar a hiragana' }).count()) > 0;
+    if (kata !== inKata) await tap(kata ? 'Cambiar a katakana' : 'Cambiar a hiragana');
+    let h = toHira(ch);
+    const mods: string[] = [];
+    if (SMALL[h]) { mods.push('Kana pequeño (ゃゅょっぁ) en el último'); h = SMALL[h]!; }
+    else if (VOICED.includes(h)) { mods.push('Dakuten (゛) en el último kana'); h = PLAIN[VOICED.indexOf(h)]!; }
+    else if (SEMI.includes(h)) { mods.push('Handakuten (゜) en el último kana'); h = 'はひふへほ'[SEMI.indexOf(h)]!; }
+    else if (h === 'ゔ') { mods.push('Dakuten (゛) en el último kana'); h = 'う'; }
+    const row = KB_ROWS.findIndex((r) => r.includes(h));
+    if (row < 0) throw new Error(`kbType: no key for ${ch}`);
+    const label = (s: string) => (kata ? String.fromCharCode(s.charCodeAt(0) + 0x60) : s);
+    await tap(`Fila ${label(KB_ROWS[row]![0]!)}`);
+    await tap(label(h));
+    for (const m of mods) await tap(m);
+  }
+  if (submit) await tap('Enter: comprobar');
+}
+
+const isReadOnly = async (input: Locator) => (await input.getAttribute('readonly')) !== null;
+
 async function type(input: Locator, answer: string, wrong: boolean): Promise<void> {
+  const page = input.page();
   if (wrong) {
-    await input.fill('zzzq');
-    await input.press('Enter');
-    await expect(input.page().getByTestId('correct-answer')).toBeVisible();
-    input = input.page().locator('main form input');
+    if (await isReadOnly(input)) { await input.click(); await kbType(page, 'ぬぬ'); }
+    else { await input.fill('zzzq'); await input.press('Enter'); }
+    await expect(page.getByTestId('correct-answer')).toBeVisible();
+    input = page.locator('main form input');
+  }
+  if (await isReadOnly(input)) {
+    await input.click();
+    await kbType(page, answer);
+    return;
   }
   await input.fill(answer);
   await input.press('Enter');
 }
 
+/** Last text sent to the speech stub (support/mobile.ts stubSpeech). */
+const lastSpoken = (page: Page): Promise<string | undefined> =>
+  page.evaluate(() => (window as unknown as { __spoken?: string[] }).__spoken?.at(-1));
+
 const choiceButtons = (main: Locator) => main.locator('[class*="_choices_"] button');
 
 /** Answers the current round of `game`. Returns false when nothing answerable is on screen. */
 export async function answerRound(page: Page, game: GameName, o: SolveOptions = {}): Promise<boolean> {
+  // lazy game chunk still loading (React keeps the previous game hidden in the DOM meanwhile)
+  await expect(page.getByTestId('loading')).toHaveCount(0);
   const main = page.locator('main');
   const wrong = !!o.wrong;
   const formInput = main.locator('form input');
@@ -92,6 +153,14 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       return true;
     }
     case 'Escribir kana': {
+      if (!(await main.getByTestId('romaji').count())) {
+        // Dictado: only audio. The stub recorded what was spoken.
+        await expect(main.getByTestId('write-mode')).toContainText('Dictado');
+        const said = await lastSpoken(page);
+        if (!said) throw new Error('solver: Dictado without spoken text (stubSpeech missing?)');
+        await type(formInput, said, wrong);
+        return true;
+      }
       const r = (await main.getByTestId('romaji').textContent())!.trim();
       const hint = main.getByTestId('prompt').locator('[class*="_hint_"]').first();
       const hintText = (await hint.count()) ? ((await hint.textContent()) ?? '') : '';
@@ -106,18 +175,30 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       return true;
     }
     case 'Leer palabras': {
-      const t = norm(await jaText(main.getByTestId('word-prompt')));
-      const cands = vocab.filter((w) => norm(w.kana) === t || (w.kanji && norm(w.kanji) === t) || w.romaji === t);
+      const raw = await jaText(main.getByTestId('word-prompt'));
+      const t = norm(raw);
+      // JaText falls back to romaji for locked kana: «boうし» (ぼうし before dakuten) -> back to kana
+      const mixed = mnorm(raw);
+      let cands = vocab.filter((w) => norm(w.kana) === t || mnorm(w.kana) === mixed || (w.kanji && norm(w.kanji) === t) || w.romaji === t);
+      if (cands.length === 0) cands = vocab.filter((w) => same(raw, w.kana));
       if (cands.length === 0) throw new Error(`solver: unknown word "${t}"`);
       if (await formInput.count()) await type(formInput, cands[0]!.romaji, wrong);
       else await choose(page, choiceButtons(main), (txt) => cands.some((w) => w.es[0] === txt), wrong);
       return true;
     }
     case 'Escuchar': {
+      if (!(await main.getByTestId('romaji').count())) {
+        const saidRaw = (await lastSpoken(page)) ?? '';
+        const said = norm(saidRaw);
+        await choose(page, choiceButtons(main), (txt) => norm(txt) === said || mnorm(txt) === mnorm(saidRaw) || vocab.some((w) => norm(w.kana) === said && (w.romaji === txt || norm(w.kanji ?? '-') === norm(txt))), wrong);
+        return true;
+      }
       const r = (await main.getByTestId('romaji').textContent())!.trim();
       const words = vocab.filter((w) => w.romaji === r);
       const kanaCands = kana.filter((k) => k.romaji === r).map((k) => k.char);
-      await choose(page, choiceButtons(main), (txt) => kanaCands.includes(txt) || words.some((w) => norm(w.kana) === norm(txt) || norm(w.kanji ?? '-') === norm(txt) || w.romaji === txt), wrong);
+      const exact = async () => { for (const b of await choiceButtons(main).all()) { const txt = (await jaText(b)).trim(); if (kanaCands.includes(txt) || words.some((w) => norm(w.kana) === norm(txt) || norm(w.kana) === mnorm(txt) || norm(w.kanji ?? '-') === norm(txt) || w.romaji === txt)) return true; } return false; };
+      if (await exact()) await choose(page, choiceButtons(main), (txt) => kanaCands.includes(txt) || words.some((w) => norm(w.kana) === norm(txt) || norm(w.kana) === mnorm(txt) || norm(w.kanji ?? '-') === norm(txt) || w.romaji === txt), wrong);
+      else await choose(page, choiceButtons(main), (txt) => loose(txt) === loose(r), wrong);
       return true;
     }
     case 'Sintaxis': {
@@ -125,17 +206,19 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       if (await next.count()) { await next.click(); return true; }
       const es = (await main.getByTestId('prompt').textContent())!.trim();
       const bank = main.getByRole('group', { name: 'Fichas disponibles' }).getByRole('button');
-      const texts = (await Promise.all((await bank.all()).map((b) => jaText(b)))).map(norm);
-      const ex = examples.filter((e) => e.es === es).find((e) => tokenize(e.ja).every((tk) => texts.includes(norm(tk))));
+      const texts = await Promise.all((await bank.all()).map((b) => jaText(b)));
+      const ex = examples.filter((e) => e.es === es).find((e) => tokenize(e.ja).every((tk) => texts.some((t) => exactSame(t, tk)))) ?? examples.filter((e) => e.es === es).find((e) => tokenize(e.ja).every((tk) => texts.some((t) => same(t, tk))));
       if (!ex) throw new Error(`solver: no example for "${es}"`);
       const tokens = tokenize(ex.ja);
       const order = wrong ? [...tokens].reverse() : tokens;
       for (const tk of order) {
         const n = await bank.count();
-        for (let i = 0; i < n; i++) {
-          const b = bank.nth(i);
-          if (!(await b.isDisabled()) && norm(await jaText(b)) === norm(tk)) { await b.click(); break; }
+        let hit = -1;
+        for (const eq of [exactSame, same]) {
+          for (let i = 0; i < n && hit < 0; i++) if (!(await bank.nth(i).isDisabled()) && eq(await jaText(bank.nth(i)), tk)) hit = i;
+          if (hit >= 0) break;
         }
+        if (hit >= 0) await bank.nth(hit).click();
       }
       await main.getByRole('button', { name: 'Comprobar' }).click();
       return true;
@@ -152,27 +235,30 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       const ex = examples.find((e) => e.es === es && tokenize(e.ja).length === n);
       if (!ex || at < 0) throw new Error(`solver: particle example not found "${es}"`);
       const answer = tokenize(ex.ja)[at]!;
-      await choose(page, choiceButtons(main), (t) => t === answer, wrong);
+      await choose(page, choiceButtons(main), (t) => t === answer || mnorm(t) === norm(answer), wrong);
       return true;
     }
     case 'Conjugación': {
-      const t = norm(await jaText(main.getByTestId('word-prompt')));
+      const shownWord = await jaText(main.getByTestId('word-prompt'));
       const meaning = (await main.locator('[class*="_target_"]').first().textContent())!.trim();
       const label = (await main.getByTestId('form-label').textContent())!.trim();
-      const w = vocab.find((x) => norm(x.kana) === t && (x.es[0] ?? x.romaji) === meaning && ['verb', 'i-adj', 'na-adj', 'noun'].includes(x.pos));
-      if (!w) throw new Error(`solver: conjugation word "${t}" (${meaning})`);
+      const conjOk = (x: (typeof vocab)[number]) => (x.es[0] ?? x.romaji) === meaning && ['verb', 'i-adj', 'na-adj', 'noun'].includes(x.pos);
+      const w = vocab.find((x) => exactSame(shownWord, x.kana) && conjOk(x)) ?? vocab.find((x) => same(shownWord, x.kana) && (x.es[0] ?? x.romaji) === meaning && ['verb', 'i-adj', 'na-adj', 'noun'].includes(x.pos));
+      if (!w) throw new Error(`solver: conjugation word "${shownWord}" (${meaning})`);
       await type(formInput, conjugationAnswer(w, label), wrong);
       return true;
     }
     case 'Números y precios': {
       const digits = main.getByRole('textbox', { name: 'Número con cifras' });
       if (await digits.count()) {
-        const k = (await main.locator('[class*="_kanaLine_"] span[lang="ja"]').first().textContent())!.trim();
+        const line = main.locator('[class*="_kanaLine_"] span[lang="ja"]');
+        const k = (await line.count()) ? (await line.first().textContent())!.trim() : ((await lastSpoken(page)) ?? '');
         const n = numberFromKana(k);
         if (n === undefined) throw new Error(`solver: number for ${k}`);
         await type(digits, String(n), wrong);
         return true;
       }
+      if (!(await main.locator('[class*="_big_"]').count())) throw new Error(`solver: numbers round not understood: ${(await main.locator('section').first().innerText()).slice(0, 300)}`);
       const big = (await main.locator('[class*="_big_"]').first().textContent())!.trim();
       let reading: string;
       let m: RegExpMatchArray | null;
@@ -234,17 +320,21 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
       const title = (await main.locator('h2[class*="_title_"]').textContent())!.trim();
       const d = dialogues.find((x) => x.title === title)!;
       const promptText = (await main.getByTestId('prompt').textContent()) ?? '';
-      let correct: string;
+      let line: (typeof d.lines)[number];
+      // romaji is the robust key (kana may be partly shown as romaji before the learner knows them)
+      const rkey = (x: string) => x.toLowerCase().replace(/[^a-z]/g, '');
       if (promptText.includes('Tu turno')) {
         const cur = await main.getByRole('list', { name: 'Conversación' }).locator('li').count();
-        correct = d.lines[cur]!.ja;
+        line = d.lines[cur]!;
       } else {
-        const heard = norm(await jaText(main.getByTestId('prompt').locator('span[lang="ja"]').first()));
-        const i = d.lines.findIndex((l, j) => norm(l.ja) === heard && d.lines[j + 1]);
-        correct = d.lines[i + 1]!.ja;
+        const heardSpan = main.getByTestId('prompt').locator('span[lang="ja"]');
+        const heardKana = mnorm((await heardSpan.count()) ? await jaText(heardSpan.first()) : ((await lastSpoken(page)) ?? ''));
+        let i = d.lines.findIndex((l, j) => d.lines[j + 1] && rkey(promptText).includes(rkey(l.romaji)));
+        if (i < 0) i = d.lines.findIndex((l, j) => mnorm(l.ja) === heardKana && d.lines[j + 1]);
+        line = d.lines[i + 1]!;
       }
       const opts = main.getByRole('group', { name: 'Respuestas posibles' }).getByRole('button');
-      await choose(page, opts, async (_t, b) => norm(await jaText(b.locator('span[lang="ja"]').first())) === norm(correct), wrong);
+      await choose(page, opts, async (t, b) => rkey(t).endsWith(rkey(line.romaji)) || mnorm(await jaText(b.locator('span[lang="ja"]').first())) === mnorm(line.ja), wrong);
       return true;
     }
     case 'Mini-lectura': {
