@@ -68,7 +68,7 @@
 ばん | 番 | número ... | c | numero | ban-numero
 はい | | sí | e | saludo | | | 
 そうですか | | ya veo; ¿en serio? | e | conversacion
-なん | 何 | qué (forma corta de なに) | pr | pregunta
+なん | 何 | qué (forma corta) @@ forma corta de なに | pr | pregunta
 なに | 何 | qué | pr | pregunta+P
 なんじ | 何時 | ¿qué hora? | n | tiempo,pregunta+P
 なんさい | 何歳 | ¿cuántos años? | n | persona,pregunta
@@ -119,8 +119,8 @@
 コンピューター | | informática; computadora | n | escuela
 ビジネス | | negocios | n | escuela
 れきし | 歴史 | historia | n | escuela
-おかあさん | お母さん | madre (de otro; o la propia al hablarle) | n | familia+P
-おとうさん | お父さん | padre (de otro; o el propio al hablarle) | n | familia
+おかあさん | お母さん | madre (de otro, o la propia al hablarle) | n | familia+P
+おとうさん | お父さん | padre (de otro, o el propio al hablarle) | n | familia
 いくら | | ¿cuánto? (precio) | pr | dinero,pregunta+P
 えん | 円 | ... yenes | c | dinero | en-yen
 たかい | 高い | caro; alto | i | adjetivo,dinero+P
@@ -162,9 +162,9 @@
 にちようび | 日曜日 | domingo | n | tiempo,fecha+P
 いつ | | ¿cuándo? | n | tiempo,pregunta+P
 ごろ | | alrededor de (hora) | n | tiempo,sufijo
-いく | 行く | ir (destino に/へ) | vu | verbo,movimiento+P
-かえる | 帰る | volver; regresar (destino に/へ) | vu | verbo,movimiento+P
-きく | 聞く | escuchar; oír; preguntar (persona に) | vu | verbo+P
+いく | 行く | ir @@ destino con に/へ | vu | verbo,movimiento+P
+かえる | 帰る | volver; regresar @@ destino con に/へ | vu | verbo,movimiento+P
+きく | 聞く | escuchar; oír; preguntar (a una persona) @@ persona に | vu | verbo+P
 のむ | 飲む | tomar; beber | vu | verbo,comida+P
 はなす | 話す | hablar; conversar | vu | verbo+P
 よむ | 読む | leer | vu | verbo+P
@@ -176,7 +176,7 @@
 する | | hacer | virr | verbo+P
 べんきょうする | 勉強する | estudiar | virr | verbo,escuela+P
 いい | | bueno | i | adjetivo+P | ii
-はやい | 早い | temprano; (también 速い: rápido) | i | adjetivo,tiempo+P
+はやい | 早い | temprano; rápido @@ también se escribe 速い (rápido) | i | adjetivo,tiempo+P
 あまり | | no mucho (con negativo) | adv | frecuencia
 ぜんぜん | 全然 | para nada (con negativo) | adv | frecuencia
 たいてい | | normalmente | adv | frecuencia
@@ -223,14 +223,14 @@
 すいようび | 水曜日 | miércoles | n | tiempo,fecha+P
 もくようび | 木曜日 | jueves | n | tiempo,fecha+P
 きんようび | 金曜日 | viernes | n | tiempo,fecha+P
-あう | 会う | encontrarse con; ver a (persona に) | vu | verbo+P
-ある | | haber; existir; estar (cosas; lugar に cosa が) | vu | verbo,existencia+P
+あう | 会う | encontrarse con; ver a alguien @@ persona に | vu | verbo+P
+ある | | haber; existir; estar (cosas) @@ lugar に cosa が あります | vu | verbo,existencia+P
 かう | 買う | comprar | vu | verbo,tienda+P
 かく | 書く | escribir; dibujar | vu | verbo+P
 とる | 撮る | tomar (una foto); coger | vu | verbo+P
 まつ | 待つ | esperar | vu | verbo+P
 わかる | 分かる | entender; comprender | vu | verbo+P
-いる | | estar; haber (personas/animales; lugar に persona が) | vru | verbo,existencia+P
+いる | | estar; haber (personas/animales) @@ lugar に persona が います | vru | verbo,existencia+P
 ぐらい | | alrededor de (medida aproximada) | n | sufijo
 ごめんなさい | | lo siento; perdón | e | cortesia
 それから | | y luego; además | e | conversacion
@@ -258,7 +258,7 @@
 エルサイズ | | talla L | n | ropa
 あたらしい | 新しい | nuevo | i | adjetivo+P
 ふるい | 古い | viejo (cosas, no personas) | i | adjetivo+P
-あつい | 暑い | caluroso (clima); caliente (teacher: hot) | i | adjetivo,clima+P
+あつい | 暑い | caluroso (clima) | i | adjetivo,clima+P
 さむい | 寒い | frío (clima) | i | adjetivo,clima+P
 あつい | 熱い | caliente (cosas) | i | adjetivo | atsui-cosa
 いそがしい | 忙しい | ocupado (personas/días) | i | adjetivo+P
@@ -268,11 +268,11 @@
 つまらない | | aburrido | i | adjetivo
 やさしい | | fácil; amable | i | adjetivo
 むずかしい | 難しい | difícil | i | adjetivo
-かっこいい | | guapo; elegante (se conjuga como いい) | i | adjetivo
+かっこいい | | guapo; elegante @@ se conjuga como いい | i | adjetivo
 こわい | 怖い | espeluznante; que da miedo | i | adjetivo
 たのしい | 楽しい | divertido; agradable | i | adjetivo
 やすい | 安い | barato | i | adjetivo,dinero+P
-すき | 好き | gustar; agradable (すきな) | na | adjetivo
+すき | 好き | gustar; agradable @@ すきな | na | adjetivo
 きらい | 嫌い | no gustar; desagradable | na | adjetivo
 だいすき | 大好き | gustar mucho; encantar | na | adjetivo
 だいきらい | 大嫌い | odiar; detestar | na | adjetivo
@@ -282,7 +282,7 @@
 にぎやか | | animado; bullicioso | na | adjetivo
 ひま | 暇 | desocupado; libre (tiempo) | na | adjetivo
 およぐ | 泳ぐ | nadar | vu | verbo,deporte+P
-のる | 乗る | montar; abordar (transporte に) | vu | verbo,transporte+P
+のる | 乗る | montar; abordar (transporte) @@ transporte に | vu | verbo,transporte+P
 やる | | hacer; realizar | vu | verbo
 でかける | 出かける | salir (de casa; a comer, al cine) | vru | verbo,movimiento
 いっしょに | 一緒に | juntos | adv | conversacion
@@ -320,7 +320,7 @@
 たばこをすう | たばこを吸う | fumar | vu | verbo | tabako-wo-suu
 つかう | 使う | utilizar; usar | vu | verbo+P
 てつだう | 手伝う | ayudar | vu | verbo+P
-はいる | 入る | entrar (lugar に) | vu | verbo,movimiento+P
+はいる | 入る | entrar (a un lugar) @@ lugar に | vu | verbo,movimiento+P
 もつ | 持つ | llevar; sostener | vu | verbo+P
 やすむ | 休む | faltar; descansar | vu | verbo+P
 あける | 開ける | abrir (algo) | vru | verbo+P
@@ -351,7 +351,7 @@
 へ | | partícula de dirección (se lee "e") | p | particula,G3 | e-direccion | e
 で | | partícula de lugar de acción / medio | p | particula,G3+P | de
 と | | y (entre sustantivos); con (una persona) | p | particula,G4+P | to
-が | | partícula de sujeto; existencia con あります/います | p | particula,G4+P | ga
+が | | partícula de sujeto; existencia con verbos de existir @@ あります/います | p | particula,G4+P | ga
 から | | desde (origen/inicio); porque | p | particula,G6+P | kara
 や | | y (lista no exhaustiva: ... y otras cosas) | p | particula,P5 | ya
 まで | | hasta | p | particula,P6 | made

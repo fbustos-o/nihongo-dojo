@@ -1017,9 +1017,10 @@
   "kanji": "何",
   "romaji": "nan",
   "es": [
-   "qué (forma corta de なに)"
+   "qué (forma corta)"
   ],
   "pos": "pronoun",
+  "note": "forma corta de なに",
   "lesson": "G1",
   "tags": [
    "pregunta"
@@ -1781,8 +1782,7 @@
   "kanji": "お母さん",
   "romaji": "okaasan",
   "es": [
-   "madre (de otro",
-   "o la propia al hablarle)"
+   "madre (de otro, o la propia al hablarle)"
   ],
   "pos": "noun",
   "lesson": "G2",
@@ -1798,8 +1798,7 @@
   "kanji": "お父さん",
   "romaji": "otousan",
   "es": [
-   "padre (de otro",
-   "o el propio al hablarle)"
+   "padre (de otro, o el propio al hablarle)"
   ],
   "pos": "noun",
   "lesson": "G2",
@@ -2441,9 +2440,10 @@
   "kanji": "行く",
   "romaji": "iku",
   "es": [
-   "ir (destino に/へ)"
+   "ir"
   ],
   "pos": "verb",
+  "note": "destino con に/へ",
   "verbGroup": "u",
   "lesson": "G3",
   "tags": [
@@ -2460,9 +2460,10 @@
   "romaji": "kaeru",
   "es": [
    "volver",
-   "regresar (destino に/へ)"
+   "regresar"
   ],
   "pos": "verb",
+  "note": "destino con に/へ",
   "verbGroup": "u",
   "lesson": "G3",
   "tags": [
@@ -2480,9 +2481,10 @@
   "es": [
    "escuchar",
    "oír",
-   "preguntar (persona に)"
+   "preguntar (a una persona)"
   ],
   "pos": "verb",
+  "note": "persona に",
   "verbGroup": "u",
   "lesson": "G3",
   "tags": [
@@ -2692,9 +2694,10 @@
   "romaji": "hayai",
   "es": [
    "temprano",
-   "(también 速い: rápido)"
+   "rápido"
   ],
   "pos": "i-adj",
+  "note": "también se escribe 速い (rápido)",
   "lesson": "G3",
   "tags": [
    "adjetivo",
@@ -3392,9 +3395,10 @@
   "romaji": "au",
   "es": [
    "encontrarse con",
-   "ver a (persona に)"
+   "ver a alguien"
   ],
   "pos": "verb",
+  "note": "persona に",
   "verbGroup": "u",
   "lesson": "G4",
   "tags": [
@@ -3410,10 +3414,10 @@
   "es": [
    "haber",
    "existir",
-   "estar (cosas",
-   "lugar に cosa が)"
+   "estar (cosas)"
   ],
   "pos": "verb",
+  "note": "lugar に cosa が あります",
   "verbGroup": "u",
   "lesson": "G4",
   "tags": [
@@ -3516,10 +3520,10 @@
   "romaji": "iru",
   "es": [
    "estar",
-   "haber (personas/animales",
-   "lugar に persona が)"
+   "haber (personas/animales)"
   ],
   "pos": "verb",
+  "note": "lugar に persona が います",
   "verbGroup": "ru",
   "lesson": "G4",
   "tags": [
@@ -3926,8 +3930,7 @@
   "kana": "あつい",
   "romaji": "atsui",
   "es": [
-   "caluroso (clima)",
-   "caliente (teacher: hot)"
+   "caluroso (clima)"
   ],
   "pos": "i-adj",
   "lesson": "G5",
@@ -4080,9 +4083,10 @@
   "romaji": "kakkoii",
   "es": [
    "guapo",
-   "elegante (se conjuga como いい)"
+   "elegante"
   ],
   "pos": "i-adj",
+  "note": "se conjuga como いい",
   "lesson": "G5",
   "tags": [
    "adjetivo"
@@ -4142,9 +4146,10 @@
   "romaji": "suki",
   "es": [
    "gustar",
-   "agradable (すきな)"
+   "agradable"
   ],
   "pos": "na-adj",
+  "note": "すきな",
   "lesson": "G5",
   "tags": [
    "adjetivo"
@@ -4298,9 +4303,10 @@
   "romaji": "noru",
   "es": [
    "montar",
-   "abordar (transporte に)"
+   "abordar (transporte)"
   ],
   "pos": "verb",
+  "note": "transporte に",
   "verbGroup": "u",
   "lesson": "G5",
   "tags": [
@@ -4332,8 +4338,7 @@
   "kanji": "出かける",
   "romaji": "dekakeru",
   "es": [
-   "salir (de casa",
-   "a comer, al cine)"
+   "salir (de casa; a comer, al cine)"
   ],
   "pos": "verb",
   "verbGroup": "ru",
@@ -4875,9 +4880,10 @@
   "kanji": "入る",
   "romaji": "hairu",
   "es": [
-   "entrar (lugar に)"
+   "entrar (a un lugar)"
   ],
   "pos": "verb",
+  "note": "lugar に",
   "verbGroup": "u",
   "lesson": "G6",
   "tags": [
@@ -5345,9 +5351,10 @@
   "romaji": "ga",
   "es": [
    "partícula de sujeto",
-   "existencia con あります/います"
+   "existencia con verbos de existir"
   ],
   "pos": "particle",
+  "note": "あります/います",
   "lesson": "G4",
   "tags": [
    "particula",
@@ -5520,7 +5527,7 @@
  },
  {
   "id": "chirijin",
-  "kana": "ちりじん",
+  "kana": "チリじん",
   "kanji": "チリ人",
   "romaji": "chirijin",
   "es": [
@@ -5679,8 +5686,7 @@
   "kana": "つめたい",
   "romaji": "tsumetai",
   "es": [
-   "frío (al tacto",
-   "bebidas, cosas)"
+   "frío (al tacto; bebidas, cosas)"
   ],
   "pos": "i-adj",
   "lesson": "P3",
@@ -5758,9 +5764,10 @@
   "kana": "よろしい",
   "romaji": "yoroshii",
   "es": [
-   "bueno (forma formal de いい)"
+   "bueno (forma formal)"
   ],
   "pos": "i-adj",
+  "note": "forma formal de いい",
   "lesson": "P3",
   "tags": [
    "adjetivo"
@@ -6962,8 +6969,7 @@
   "kana": "おあずかり",
   "romaji": "oazukari",
   "es": [
-   "recibido (lit. \"me quedo con\"",
-   "al recibir dinero)"
+   "recibido (lit. \"me quedo con\"; al recibir dinero)"
   ],
   "pos": "noun",
   "lesson": "P7",

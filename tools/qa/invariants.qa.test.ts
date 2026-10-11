@@ -58,7 +58,7 @@ describe('game content selection never shows locked kana', () => {
     for (const k of kana.filter((x) => lessonKana.has(x.char))) for (let i = 0; i < 30; i++) kanaChoices(k).forEach((c) => { if (!lessonKana.has(c.char)) leaked.add(c.char); });
     expect([...leaked]).toEqual([]);
   });
-  it.fails('QA-031: Spanish glosses shown in stage 1 contain no kana', () => {
+  it('QA-031: Spanish glosses shown in stage 1 contain no kana', () => {
     expect(vocab.filter((w) => w.es.some((e) => /[ぁ-ゖァ-ヺ]/u.test(e))).map((w) => `${w.id}: ${w.es.join(' / ')}`)).toEqual([]);
   });
   it('stage 1 and stage 3 lesson words are readable with known + lesson kana', () => {
@@ -189,7 +189,7 @@ describe('answer checking fairness', () => {
   it.fails('QA-012: a whole sentence typed with わ for the topic particle is accepted outside the particle game', () => {
     expect(ok('わたしわがくせいです', 'わたしはがくせいです')).toBe(true);
   });
-  it.fails('QA-013: kana-recognize accepts "nn" for ん and Kunrei romaji (si, ti, tu, hu, zi)', () => {
+  it('QA-013: kana-recognize accepts "nn" for ん and Kunrei romaji (si, ti, tu, hu, zi)', () => {
     const k = (c: string) => kana.find((x) => x.char === c)!;
     expect(['nn', 'si', 'ti', 'tu', 'hu', 'zi'].map((r, i) => judgeRomaji(r, k(['ん', 'し', 'ち', 'つ', 'ふ', 'じ'][i]!)))).toEqual(Array(6).fill('correct'));
   });
@@ -203,7 +203,7 @@ describe('answer checking fairness', () => {
   it.fails('QA-014: read-words never offers a distractor that is a meaning of a homophone (あつい: caluroso / caliente)', () => {
     const homophones = vocab.filter((w) => !w.kanji && vocab.some((o) => o !== w && o.kana === w.kana && !o.kanji));
     const bad: string[] = [];
-    for (const w of homophones) for (let i = 0; i < 40; i++) {
+    for (const w of homophones) for (let i = 0; i < 400; i++) {
       const others = vocab.filter((o) => o !== w && o.kana === w.kana).map((o) => o.es[0]);
       meaningChoices(w).forEach((c) => { if (!c.correct && others.includes(c.text)) bad.push(`${w.id}: ${c.text}`); });
     }

@@ -224,7 +224,7 @@
    },
    {
     "slot": "N",
-    "text": "ちりじん"
+    "text": "チリじん"
    },
    {
     "slot": "BE",
@@ -296,7 +296,7 @@
   "explanationEs": "Con adjetivos el orden también es Sujeto – Adjetivo – です. Adjetivos い (おいしい, いそがしい, おおきい) terminan en い; adjetivos な (げんき, きれい, しずか) se usan igual delante de です. です aquí solo añade cortesía.",
   "examples": [
    {
-    "es": "Mi madre está bien (sana).",
+    "es": "Mamá está bien (sana).",
     "ja": "おかあさん は げんき です。",
     "romaji": "okaasan wa genki desu."
    },
@@ -378,7 +378,7 @@
     "romaji": "ashita wa nichiyoubi ja naidesu."
    },
    {
-    "es": "Mi madre no está bien.",
+    "es": "Mamá no está bien.",
     "ja": "おかあさん は げんき じゃ ないです。",
     "romaji": "okaasan wa genki ja naidesu."
    }
@@ -410,11 +410,11 @@
    },
    {
     "slot": "ADJ",
-    "text": "おいし"
+    "text": "おいしくない"
    },
    {
     "slot": "BE",
-    "text": "くないです"
+    "text": "です"
    }
   ],
   "explanationEs": "SOLO para adjetivos い: se quita い y se agrega くないです (おいしい → おいしくないです). Los adjetivos な usan じゃないです. Excepción: いい → よくないです.",
@@ -488,8 +488,8 @@
    },
    {
     "es": "Sí, soy estudiante.",
-    "ja": "はい、がくせい です。",
-    "romaji": "hai,gakusei desu."
+    "ja": "はい 、 がくせい です。",
+    "romaji": "hai, gakusei desu."
    },
    {
     "es": "¿Esto es agua?",
@@ -498,8 +498,8 @@
    },
    {
     "es": "No, no es agua.",
-    "ja": "いいえ、みず じゃ ないです。",
-    "romaji": "iie,mizu ja naidesu."
+    "ja": "いいえ 、 みず じゃ ないです。",
+    "romaji": "iie, mizu ja naidesu."
    },
    {
     "es": "¿Qué hora es?",
@@ -742,7 +742,7 @@
     "romaji": "ginkou wa asoko desu."
    },
    {
-    "es": "Ahí es un restaurante.",
+    "es": "Eso de ahí es un restaurante.",
     "ja": "そこ は レストラン です。",
     "romaji": "soko wa resutoran desu."
    },
@@ -759,22 +759,31 @@
   "lesson": "G2",
   "english": [
    {
-    "slot": "S",
+    "slot": "N",
     "text": "¿De quién"
    },
    {
-    "slot": "N",
-    "text": "es este bolso"
+    "slot": "BE",
+    "text": "es"
+   },
+   {
+    "slot": "S",
+    "text": "este bolso?"
    }
   ],
   "japanese": [
+   {
+    "slot": "S",
+    "text": "これ",
+    "particle": "は"
+   },
    {
     "slot": "N",
     "text": "だれ",
     "particle": "の"
    },
    {
-    "slot": "S",
+    "slot": "N",
     "text": "かばん"
    },
    {
@@ -969,8 +978,8 @@
    },
    {
     "es": "Disculpe, deme esto.",
-    "ja": "すみません、これ を ください。",
-    "romaji": "sumimasen,kore o kudasai."
+    "ja": "すみません 、 これ を ください。",
+    "romaji": "sumimasen, kore o kudasai."
    }
   ]
  },
@@ -1263,7 +1272,7 @@
     "romaji": "uchi de terebi o mimasu."
    },
    {
-    "es": "Cenamos en el restaurante.",
+    "es": "Ceno en el restaurante.",
     "ja": "レストラン で ばんごはん を たべます。",
     "romaji": "resutoran de bangohan o tabemasu."
    },
@@ -1331,7 +1340,7 @@
     "romaji": "doyoubi ni eiga o mimasu."
    },
    {
-    "es": "Mañana voy a la escuela (sin に).",
+    "es": "Mañana voy a la escuela.",
     "ja": "あした がっこう に いきます。",
     "romaji": "ashita gakkou ni ikimasu."
    }
@@ -1374,13 +1383,13 @@
   "examples": [
    {
     "es": "¿No quieres tomar café conmigo?",
-    "ja": "いっしょ に コーヒー を のみませんか。",
-    "romaji": "issho ni koohii o nomimasenka."
+    "ja": "いっしょに コーヒー を のみませんか。",
+    "romaji": "isshoni koohii o nomimasenka."
    },
    {
     "es": "Sí, tomemos.",
-    "ja": "ええ、のみましょう。",
-    "romaji": "ee,nomimashou."
+    "ja": "ええ 、 のみましょう。",
+    "romaji": "ee, nomimashou."
    },
    {
     "es": "¿No quieres ver una película?",
@@ -1389,8 +1398,8 @@
    },
    {
     "es": "Lo siento, es que un poco...",
-    "ja": "すみません、ちょっと…。",
-    "romaji": "sumimasen,chotto…."
+    "ja": "すみません 、 ちょっと…。",
+    "romaji": "sumimasen, chotto…."
    },
    {
     "es": "¿No quieres ir al parque mañana?",
@@ -1789,15 +1798,15 @@
    },
    {
     "slot": "V",
-    "text": "みました"
+    "text": "みます"
    }
   ],
   "explanationEs": "と tiene dos usos: \"con (alguien)\": ともだち と いきます; y \"y\" entre sustantivos: パン と コーヒー. No une verbos ni oraciones.",
   "examples": [
    {
-    "es": "Vi una película con un amigo.",
-    "ja": "ともだち と えいが を みました。",
-    "romaji": "tomodachi to eiga o mimashita."
+    "es": "Veo una película con un amigo.",
+    "ja": "ともだち と えいが を みます。",
+    "romaji": "tomodachi to eiga o mimasu."
    },
    {
     "es": "Deme pan y café.",
@@ -1810,7 +1819,7 @@
     "romaji": "inu to neko ga imasu."
    },
    {
-    "es": "Voy a la tienda con mi madre.",
+    "es": "Voy de compras con mamá.",
     "ja": "おかあさん と かいもの に いきます。",
     "romaji": "okaasan to kaimono ni ikimasu."
    }
@@ -2136,8 +2145,8 @@
   "examples": [
    {
     "es": "Volvamos juntos.",
-    "ja": "いっしょ に かえりましょう。",
-    "romaji": "issho ni kaerimashou."
+    "ja": "いっしょに かえりましょう。",
+    "romaji": "isshoni kaerimashou."
    },
    {
     "es": "¿Qué comemos?",
@@ -2307,8 +2316,7 @@
   "japanese": [
    {
     "slot": "S",
-    "text": "いま",
-    "particle": "は"
+    "text": "いま"
    },
    {
     "slot": "N",
@@ -2405,8 +2413,8 @@
    },
    {
     "es": "Dos currys, por favor.",
-    "ja": "カレーライス、ふたつ、おねがいします。",
-    "romaji": "kareeraisu,futatsu,onegaishimasu."
+    "ja": "カレーライス 、 ふたつ 、 おねがいします。",
+    "romaji": "kareeraisu, futatsu, onegaishimasu."
    }
   ]
  },
@@ -2636,18 +2644,18 @@
   "examples": [
    {
     "es": "Me levanto, me ducho y voy a la escuela.",
-    "ja": "おきて、シャワー を あびて、がっこう に いきます。",
-    "romaji": "okite,shawaa o abite,gakkou ni ikimasu."
+    "ja": "おきて 、 シャワー を あびて 、 がっこう に いきます。",
+    "romaji": "okite, shawaa o abite, gakkou ni ikimasu."
    },
    {
     "es": "Voy a la tienda y compro pan.",
-    "ja": "みせ に いって、パン を かいます。",
-    "romaji": "mise ni itte,pan o kaimasu."
+    "ja": "みせ に いって 、 パン を かいます。",
+    "romaji": "mise ni itte, pan o kaimasu."
    },
    {
     "es": "Tomo café y leo el periódico.",
-    "ja": "コーヒー を のんで、しんぶん を よみます。",
-    "romaji": "koohii o nonde,shinbun o yomimasu."
+    "ja": "コーヒー を のんで 、 しんぶん を よみます。",
+    "romaji": "koohii o nonde, shinbun o yomimasu."
    }
   ]
  },
@@ -2685,8 +2693,8 @@
    },
    {
     "es": "Sí, puede.",
-    "ja": "はい、いい です よ。",
-    "romaji": "hai,ii desu yo."
+    "ja": "はい 、 いい です よ。",
+    "romaji": "hai, ii desu yo."
    },
    {
     "es": "¿Puedo sacar fotos?",
@@ -2735,22 +2743,22 @@
    {
     "es": "No se puede sacar fotos aquí.",
     "ja": "ここ で しゃしん を とっては いけません。",
-    "romaji": "koko de shashin o totteha ikemasen."
+    "romaji": "koko de shashin o tottewa ikemasen."
    },
    {
     "es": "No se puede comer en la habitación.",
     "ja": "へや で たべては いけません。",
-    "romaji": "heya de tabeteha ikemasen."
+    "romaji": "heya de tabetewa ikemasen."
    },
    {
     "es": "No se puede entrar aquí.",
     "ja": "ここ に はいっては いけません。",
-    "romaji": "koko ni haitteha ikemasen."
+    "romaji": "koko ni haittewa ikemasen."
    },
    {
     "es": "No se puede fumar aquí.",
     "ja": "ここ で たばこ を すっては いけません。",
-    "romaji": "koko de tabako o sutteha ikemasen."
+    "romaji": "koko de tabako o suttewa ikemasen."
    }
   ]
  },
@@ -2791,18 +2799,18 @@
   "examples": [
    {
     "es": "Como hace calor, bebo agua.",
-    "ja": "あつい から、みず を のみます。",
-    "romaji": "atsui kara,mizu o nomimasu."
+    "ja": "あつい から 、 みず を のみます。",
+    "romaji": "atsui kara, mizu o nomimasu."
    },
    {
     "es": "Como mañana hay un examen, estudio.",
-    "ja": "あした テスト が あります から、べんきょう します。",
-    "romaji": "ashita tesuto ga arimasu kara,benkyou shimasu."
+    "ja": "あした テスト が あります から 、 べんきょう します。",
+    "romaji": "ashita tesuto ga arimasu kara, benkyou shimasu."
    },
    {
     "es": "Como estoy ocupado, no voy.",
-    "ja": "いそがしい から、いきません。",
-    "romaji": "isogashii kara,ikimasen."
+    "ja": "いそがしい から 、 いきません。",
+    "romaji": "isogashii kara, ikimasen."
    }
   ]
  },
@@ -2840,8 +2848,8 @@
    },
    {
     "es": "Sí, por favor.",
-    "ja": "はい、おねがいします。",
-    "romaji": "hai,onegaishimasu."
+    "ja": "はい 、 おねがいします。",
+    "romaji": "hai, onegaishimasu."
    },
    {
     "es": "¿Le llevo el equipaje?",

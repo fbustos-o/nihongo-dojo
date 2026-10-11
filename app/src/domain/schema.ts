@@ -28,6 +28,8 @@ export const WordSchema = z.object({
   kanji: z.string().optional(),
   romaji: z.string(),
   es: z.array(z.string()),
+  /** Spanish usage/grammar note; may contain Japanese. Games show `es` only. */
+  note: z.string().optional(),
   pos: z.enum([
     'noun',
     'verb',

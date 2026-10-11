@@ -15,12 +15,15 @@ def split(s):
 DISP={'を':'o','ぢ':'ji','づ':'zu','ヂ':'ji','ヅ':'zu','ヲ':'o'}
 ALT={'を':['wo'],'ぢ':['di'],'づ':['du'],'ヂ':['di'],'ヅ':['du'],'ヲ':['wo'],
  'ウォ':['who'],'ウィ':['whi'],'ウェ':['whe'],'ジェ':['jye','zye'],'シェ':['sye'],'チェ':['tye','cye'],'ティ':['thi'],'トゥ':['twu'],'ディ':['dhi'],'ドゥ':['dwu'],'デュ':['dhu']}
+# Kunrei-shiki spellings and 'nn' (common IME input); keyed by the hiragana form, applied to both scripts
+KUNREI={'し':['si'],'ち':['ti'],'つ':['tu'],'ふ':['hu'],'じ':['zi'],'ん':['nn'],
+ 'しゃ':['sya'],'しゅ':['syu'],'しょ':['syo'],'ちゃ':['tya'],'ちゅ':['tyu'],'ちょ':['tyo'],'じゃ':['zya','jya'],'じゅ':['zyu','jyu'],'じょ':['zyo','jyo']}
 kana=[]
 def add(ch,script,row,group,romaji=None,alt=None):
     r=romaji or to_romaji(ch)
     if ch in DISP: r=DISP[ch]
     e={'char':ch,'romaji':r,'script':script,'row':row,'group':group}
-    a=ALT.get(ch)
+    a=list(ALT.get(ch,[]))+KUNREI.get(k2h(ch),[])
     if a: e['alt']=a
     kana.append(e)
 for script,conv in (('hiragana',lambda x:x),('katakana',h2k)):

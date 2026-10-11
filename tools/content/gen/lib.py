@@ -39,9 +39,16 @@ def to_romaji(text, particles=False):
     out=[]; toks=re.split(r'(\s+)', text)
     for tok in toks:
         if tok.strip()=='' : out.append(tok); continue
-        if particles and tok in PART: out.append(PART[tok]); continue
+        if particles:
+            m=re.fullmatch(r'(.*?)([?？!！。.…]*)',tok)
+            core,tail=m.group(1),m.group(2)
+            if core in PART: out.append(PART[core]+_word(tail) if tail else PART[core]); continue
+            # Vては / Vでは (te-wa-ikemasen): the は is the topic particle -> wa
+            if re.fullmatch(r'.+[てで]は',core): out.append(_word(core[:-1])+'wa'+(_word(tail) if tail else '')); continue
         out.append(_word(tok))
-    return ''.join(out)
+    r=''.join(out)
+    if particles: r=re.sub(r'\s+,',',',r); r=re.sub(r',(?=\S)',', ',r)
+    return r
 PUNCT={'。':'.','、':',','？':'?','！':'!','〜':'~','・':' ','「':'"','」':'"'}
 def _word(w):
     s=k2h(w.replace('ー','ー')); # keep ー
