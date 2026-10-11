@@ -58,7 +58,7 @@ las convenciones de ids de ítems), `review/` (repaso unificado), `lesson/`, `pa
 `app/src/content/*.json` **no se edita a mano**: lo generan los scripts de `tools/content/gen/` (datos transcritos de Genki I y de los apuntes).
 
 ```sh
-cd tools/content/gen && for f in build_*.py; do python3 $f; done   # regenera los JSON
+bash tools/content/gen/_run_all.sh   # regenera los JSON en el orden correcto
 python3 tools/content/validate.py                                   # coherencia: ids, desbloqueos, lecciones, kana
 python3 tools/content/verify_kanji.py                               # lecturas, trazos y palabras contra KANJIDIC/JMdict/Kanjium
 ```

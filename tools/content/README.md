@@ -3,7 +3,7 @@
 Fuente de `app/src/content/*.json` (E1). Los datos se transcribieron de `Docs/` (Genki I y apuntes del profesor).
 
 ```sh
-cd tools/content/gen && for f in build_*.py; do python3 $f; done   # regenera los JSON
+bash tools/content/gen/_run_all.sh   # regenera los JSON en el orden correcto
 python3 tools/content/validate.py                                   # valida (requiere app/node_modules)
 ```
 
