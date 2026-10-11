@@ -3,7 +3,7 @@ import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
 import type { KanaEntry, Word } from '../../domain/schema';
-import { useSpeech } from '../../hooks/useSpeech';
+import { useCanHear, useSpeech } from '../../hooks/useSpeech';
 import { useProgress } from '../../state/progressStore';
 import { kanaChoices, knownKanaPool } from '../kanaUtils';
 import { ChoiceRound, Feedback, GameFrame, useGameSession, useQuestionPicker, type ChoiceOption, type FeedbackMessage } from '../shared';
@@ -18,7 +18,7 @@ type Question =
 /** Plays a kana or word with TTS; the learner picks what they heard among 4 options. */
 export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
-  const { available, speak } = useSpeech();
+  const { speak } = useSpeech();
   const kanaPool = kana.map((entry) => ({ id: entry.char, entry }));
   const wordPool = words.map((word) => ({ id: word.id, word }));
   // Distractors only from what the learner may know: unlocked kana plus the lesson's (and the ones being practised).
@@ -45,6 +45,8 @@ export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: G
   const [last, setLast] = useState<FeedbackMessage | null>(null);
   const spoken = question ? (question.type === 'word' ? question.word.kana : question.entry.char) : '';
 
+  // A Japanese voice or a static clip is enough to play the audio (QA-046).
+  const available = useCanHear(spoken);
   useEffect(() => {
     if (available && spoken) speak(spoken);
   }, [available, speak, spoken, session.round]);

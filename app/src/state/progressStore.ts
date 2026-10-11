@@ -16,7 +16,8 @@ import { useCelebrations } from './celebrations';
 import { bumpDaily } from './daily';
 import { streakMilestone, touchStreak } from './streak';
 
-const XP_PER_CORRECT = 10;
+/** XP for each first-try correct answer (single source: lesson summaries use it too). */
+export const XP_PER_CORRECT = 10;
 /** Bonus XP the first time a lesson is completed. */
 export const LESSON_BONUS_XP = 30;
 

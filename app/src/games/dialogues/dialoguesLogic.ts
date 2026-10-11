@@ -99,3 +99,10 @@ export function replyOptions(
 }
 
 export const dialogueItemId = (d: Pick<Dialogue, 'id'>, line: number): string => `dialogue:${d.id}:${line}`;
+
+/** Rounds for a dialogue session: the configured number, capped at 1.5 x the learner's turns available (QA-027). */
+export function cappedRounds(rounds: number | undefined, dialogues: readonly Dialogue[], role: Speaker): number | undefined {
+  if (rounds === undefined) return undefined;
+  const turns = dialogues.reduce((n, d) => n + d.lines.filter((l) => l.speaker === role).length, 0);
+  return Math.max(1, Math.min(rounds, Math.round(turns * 1.5)));
+}

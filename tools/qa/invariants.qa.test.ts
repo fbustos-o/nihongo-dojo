@@ -13,7 +13,8 @@ import { meaningChoices } from '../../app/src/games/wordUtils';
 import { isValidOrder, syntaxEntries, tokenize } from '../../app/src/games/syntax/syntaxLogic';
 import { particleEntries, particleOptions } from '../../app/src/games/particles/particleLogic';
 import { makeReadingText } from '../../app/src/games/mini-reading/readingLogic';
-import { eligibleDialogues } from '../../app/src/games/dialogues/dialoguesLogic';
+import { cappedRounds, eligibleDialogues } from '../../app/src/games/dialogues/dialoguesLogic';
+import { gameHasMaterial, scopedDialogues, scopedPatterns } from '../../app/src/games/lessonScope';
 import { conjugableWords, formsForLesson, CATEGORIES } from '../../app/src/games/conjugation/conjugationLogic';
 import type { Lesson } from '../../app/src/domain/schema';
 
@@ -80,22 +81,30 @@ interface PoolRow { lesson: string; game: string; pool: number; rounds: number; 
 const rows: PoolRow[] = [];
 for (const l of curriculum) {
   const c = lessonContent(l, knownBefore(l), content);
-  const lp = patterns.filter((p) => l.patterns?.includes(p.id));
+  const own = patterns.filter((p) => l.patterns?.includes(p.id));
+  // the same helpers the games use: own patterns, else the ancestors' (QA-015); lessons without material skip the game
+  const lp = scopedPatterns(own, l.id, curriculum, patterns);
+  const inherited = own.length === 0 && lp.length > 0;
   for (const g of l.games) {
-    const rounds = g === 'kanji' ? Math.max(12, Math.min(24, c.kanji.length * 2)) : roundsFor(g.startsWith('kana-') ? c.kana.length : c.words.length);
+    let rounds = g === 'kanji' ? Math.max(12, Math.min(24, c.kanji.length * 2)) : roundsFor(g.startsWith('kana-') ? c.kana.length : c.words.length);
     let pool = 0;
     let note = '';
+    if (!gameHasMaterial(g, l, { curriculum, patterns, dialogues })) {
+      rows.push({ lesson: l.id, game: g, pool: 0, rounds, note: 'sin material: el juego se omite en la lección' });
+      continue;
+    }
     switch (g) {
       case 'kana-recognize': case 'kana-write': pool = c.kana.length + (g === 'kana-write' ? c.words.length : 0); break;
       case 'read-words': pool = c.words.length; break;
       case 'listen': pool = c.kana.length + (c.words.length >= 2 ? c.words.length : 0); break;
-      case 'syntax': pool = syntaxEntries(lp).length; if (!pool) note = 'sin patrones: usa TODOS los patrones (gramática no vista)'; break;
-      case 'particles': pool = particleEntries(lp).length; if (!pool) note = 'sin patrones: usa TODOS los patrones'; break;
-      case 'mini-reading': pool = lp.reduce((n, p) => n + (p.examples?.length ?? 0), 0); if (!makeReadingText(lp, [])) note = 'menos de 4 frases: usa TODOS los patrones'; break;
+      case 'syntax': pool = syntaxEntries(lp).length; if (inherited) note = 'patrones heredados de lecciones anteriores'; break;
+      case 'particles': pool = particleEntries(lp).length; if (inherited) note = 'patrones heredados de lecciones anteriores'; break;
+      case 'mini-reading': pool = lp.reduce((n, p) => n + (p.examples?.length ?? 0), 0); if (inherited) note = 'patrones heredados de lecciones anteriores'; break;
       case 'dialogues': {
-        const d = eligibleDialogues(dialogues, curriculum, c.words, l.dialogues);
+        const d = scopedDialogues(dialogues, l.id, l.dialogues, curriculum);
         pool = d.reduce((n, x) => n + x.lines.filter((ln) => ln.speaker === 'B').length, 0);
-        if (!l.dialogues?.length) note = d.length === dialogues.length ? 'sin diálogos propios: usa los 19 diálogos' : `diálogos inferidos: ${d.map((x) => x.id).join(',')}`;
+        rounds = cappedRounds(rounds, d, 'B') ?? rounds;
+        if (!l.dialogues?.length) note = `diálogos heredados: ${d.map((x) => x.id).join(',')}`;
         break;
       }
       case 'conjugation': {
@@ -116,7 +125,7 @@ for (const l of curriculum) {
 describe('every lesson is playable (66 lessons)', () => {
   it('66 lessons, each with at least one game and a non-empty pool for every game', () => {
     expect(curriculum).toHaveLength(66);
-    const empty = rows.filter((r) => r.pool === 0 && !r.note);
+    const empty = rows.filter((r) => r.pool === 0 && !r.note.startsWith('sin material'));
     expect(empty).toEqual([]);
   });
   it('report: thin pools (fewer distinct items than rounds) and fallbacks', () => {
@@ -169,7 +178,7 @@ describe('syntax / particles game logic', () => {
     const glued = syntaxEntries(patterns).flatMap((e) => e.tokens.filter((t) => /[、，]/.test(t)).map((t) => `${e.id}: ${t}`));
     expect(glued).toEqual([]);
   });
-  it.fails('QA-011: particle distractors are never also correct (ともだち に/と あいます)', () => {
+  it('QA-011: particle distractors are never also correct (ともだち に/と あいます)', () => {
     let offered = false;
     for (let i = 0; i < 200; i++) if (particleOptions('に').includes('と')) offered = true;
     expect(offered).toBe(false);
@@ -206,7 +215,7 @@ describe('answer checking fairness', () => {
     });
     expect(dup).toEqual([]);
   });
-  it.fails('QA-014: read-words never offers a distractor that is a meaning of a homophone (あつい: caluroso / caliente)', () => {
+  it('QA-014: read-words never offers a distractor that is a meaning of a homophone (あつい: caluroso / caliente)', () => {
     const homophones = vocab.filter((w) => !w.kanji && vocab.some((o) => o !== w && o.kana === w.kana && !o.kanji));
     const bad: string[] = [];
     for (const w of homophones) for (let i = 0; i < 400; i++) {
