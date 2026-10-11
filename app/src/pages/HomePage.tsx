@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { curriculum } from '../domain/curriculumContent';
 import { levelFromXp } from '../engine/levels';
 import { computePathNodes, nextLesson, STAGE_TITLES, stageProgress } from '../lesson/lessonLogic';
+import { groupSlug } from '../review/memoryLogic';
 import { dueCountsByGroup, REVIEW_GROUP_IDS, REVIEW_GROUP_LABELS, SRS_GROUPS, srsDistribution } from '../review/reviewLogic';
 import { dailyAccuracy, emptyDaily, lastSevenDays } from '../state/daily';
 import { localDateString } from '../state/streak';
 import { useProgress } from '../state/progressStore';
+import { SrsHelp } from './SrsHelp';
 import styles from './home.module.css';
 
 const pct = (n: number, total: number): string => (total ? `${Math.round((n / total) * 100)}%` : '0%');
@@ -134,15 +136,20 @@ export function HomePage() {
       </section>
 
       <section className="card" aria-labelledby="home-srs">
-        <h2 id="home-srs">Tu memoria</h2>
+        <div className={styles.levelHead}>
+          <h2 id="home-srs">Tu memoria</h2>
+          <SrsHelp />
+        </div>
         {srsTotal === 0 ? (
           <p className="muted">Aún no hay ítems en tu repaso. Completa una lección para empezar.</p>
         ) : (
           <ul className={styles.srs}>
             {SRS_GROUPS.map((g) => (
               <li key={g} className={styles[`srs${g}`]} data-testid={`srs-${g}`}>
-                <strong>{srs[g]}</strong>
-                <span>{g}</span>
+                <Link to={`/memoria/${groupSlug(g)}`} className={styles.srsLink} aria-label={`${g}: ${srs[g]} ítems. Ver detalle`}>
+                  <strong>{srs[g]}</strong>
+                  <span>{g}</span>
+                </Link>
               </li>
             ))}
           </ul>
