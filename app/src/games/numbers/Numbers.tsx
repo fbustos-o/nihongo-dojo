@@ -49,7 +49,7 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
     const prompt: ReactNode = (
       <>
         {question.object && <ObjectLine question={question} />}
-        {question.mode === 'priceHear' && <p lang="ja" className={styles.question}>いくらですか？</p>}
+        {question.mode === 'priceHear' && <p className={styles.question}><JaText word={{ kana: 'いくらですか？' }} /></p>}
         <p className={styles.question}>Escucha y escribe el {question.mode === 'priceHear' ? 'precio' : 'número'} con cifras.</p>
         <SpeakButton text={spoken} label="Escuchar otra vez" />
         {!audio && (
@@ -90,7 +90,7 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
     prompt = (
       <>
         <ObjectLine question={question} />
-        <p lang="ja" className={styles.question}>いくらですか？</p>
+        <p className={styles.question}><JaText word={{ kana: 'いくらですか？' }} /></p>
         <p className={styles.big}>{formatYen(question.value)}</p>
         <p className={styles.question}>Escribe el precio en hiragana (con えん).</p>
       </>

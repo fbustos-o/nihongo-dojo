@@ -87,7 +87,7 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
             <span aria-hidden="true">→ en japonés el verbo va al final</span>
           </div>
         )}
-        <Feedback message={message} />
+        {message && <Feedback message={message} />}
 
         <div className={styles.area} aria-label="Tu frase">
           {placed.length === 0 && <p className={styles.areaEmpty}>Toca las fichas para armar la frase</p>}
@@ -109,7 +109,7 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
         )}
 
         {!result && (
-          <div className={styles.actions}>
+          <div className={`${styles.actions} ${styles.stickyActions}`}>
             <button type="button" className="btn" disabled={placed.length === 0} onClick={() => setPlaced([])}>
               Borrar
             </button>

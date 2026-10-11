@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
@@ -30,8 +30,14 @@ function LineText({ line, showEs }: { line: Line; showEs: boolean }) {
 }
 
 function Chat({ lines, showEs, role }: { lines: readonly Line[]; showEs: boolean; role: Speaker }) {
+  // The history is a short scroll area that always shows the latest bubbles (QA-041).
+  const ref = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [lines.length]);
   return (
-    <ol className={styles.chat} aria-label="Conversación">
+    <ol ref={ref} className={styles.chat} aria-label="Conversación" tabIndex={0}>
       {lines.map((line, i) => (
         <li key={i} className={`${styles.bubble} ${line.speaker === role ? styles.right : styles.left}`}>
           <p className={styles.who}>{line.speaker === role ? `${line.speaker} (tú)` : line.speaker}</p>
@@ -74,9 +80,9 @@ export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: Reply
   };
 
   return (
-    <div>
+    <div className={styles.reply}>
       <div data-testid="prompt">{prompt}</div>
-      <Feedback message={message} />
+      {message && <Feedback message={message} />}
       <div className={styles.options} role="group" aria-label="Respuestas posibles">
         {options.map((option, i) => (
           <button key={option.line.ja + i} type="button" className={styles.option} disabled={wrong.includes(i)} aria-keyshortcuts={String(i + 1)} onClick={() => pick(option, i)}>

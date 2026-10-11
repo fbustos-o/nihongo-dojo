@@ -114,3 +114,23 @@
   background: color-mix(in srgb, var(--accent) 22%, transparent);
   font-weight: 700;
 }
+
+/* Phones: compact tile area, and «Borrar / Comprobar» stay pinned above the bottom bar. */
+@media (max-width: 480px), (max-height: 700px) {
+  .area { min-height: 3.4rem; padding: 0.35rem; }
+  .bank { padding: 0.35rem; gap: 0.4rem; }
+  .tile { min-height: 2.75rem; padding: 0.2rem 0.7rem; font-size: 1.25rem; }
+  .structure { font-size: 0.85rem; }
+}
+
+@media (max-width: 719px) {
+  .stickyActions {
+    position: sticky;
+    bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+    width: 100%;
+    padding: 0.35rem 0;
+    background: var(--surface);
+    box-shadow: 0 -8px 8px -8px rgb(0 0 0 / 0.25);
+  }
+}

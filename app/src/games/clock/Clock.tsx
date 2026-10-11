@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { playSfx } from '../shared/sfx';
@@ -32,7 +33,7 @@ export function ClockReadView({ question, rng, onReport, onDone }: ViewProps) {
         m={time.m}
         label={missed ? `Reloj analógico que marca ${spanishTime(time)}` : 'Reloj analógico con una hora dibujada con las manecillas; la respuesta se revela después de contestar'}
       />
-      <p lang="ja" className={styles.kana}>いま なんじですか？</p>
+      <p className={styles.kana}><JaText word={{ kana: 'いま なんじですか？' }} /></p>
       <p className={numberStyles.question}>¿Qué hora marca el reloj?</p>
     </>
   );

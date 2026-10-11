@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { useEffect } from 'react';
 import { checkAnswer, allReadings, type Reading } from '../../engine';
 import { useSpeech } from '../../hooks/useSpeech';
+import { JaText } from '../../components/JaText';
 import { useProgress } from '../../state/progressStore';
 import { ChoiceRound, TypingRound, type Verdict } from '../shared';
 import { buildChoices } from './confusions';
@@ -19,7 +20,7 @@ export function KanaWithRomaji({ reading }: { reading: Reading }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   return (
     <>
-      <span lang="ja">{reading.kana}</span>
+      <JaText word={{ kana: reading.kana }} />
       {showRomaji && (
         <span lang="en" className={styles.romaji}>
           {' '}
@@ -55,7 +56,7 @@ export function ReadingRound({ prompt, reading, format, related, rng = Math.rand
           key: kana,
           label: kana,
           correct: kana === reading.kana,
-          content: <span lang="ja">{kana}</span>,
+          content: <JaText word={{ kana }} />,
         }))}
         onReport={onReport}
         onDone={onDone}

@@ -1,6 +1,6 @@
-.grid { border-collapse: collapse; margin: 0 auto 0.5rem; width: min(100%, 22rem); table-layout: fixed; }
-.grid caption { font-weight: 700; text-transform: capitalize; margin-bottom: 0.25rem; }
-.grid th, .grid td { text-align: center; padding: 0.3rem 0; border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+.grid { border-collapse: collapse; margin: 0 auto 0.25rem; width: min(100%, 22rem); table-layout: fixed; /* own sizing: never inherit the huge .prompt glyph size (QA-037) */ font-family: var(--font-ui); font-size: 0.95rem; line-height: 1.2; }
+.grid caption { font-size: 1rem; font-weight: 700; text-transform: capitalize; margin-bottom: 0.25rem; }
+.grid th, .grid td { text-align: center; padding: 0.2rem 0; border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
 .grid th { font-size: 0.8rem; color: var(--text-muted); }
 .sunday { color: var(--accent); }
 .today { background: var(--accent); color: var(--accent-contrast); font-weight: 700; outline: 3px solid var(--text); outline-offset: -3px; }

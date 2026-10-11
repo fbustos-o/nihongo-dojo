@@ -386,7 +386,7 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
 async function readingAnswer(page: Page, reading: string, wrong: boolean): Promise<void> {
   const main = page.locator('main');
   const buttons = choiceButtons(main);
-  if (await buttons.count()) await choose(page, buttons, (t) => t === reading, wrong);
+  if (await buttons.count()) await choose(page, buttons, (t) => t === reading || exactSame(t, reading), wrong);
   else await type(main.locator('form input'), reading, wrong);
 }
 

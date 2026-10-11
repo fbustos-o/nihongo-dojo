@@ -6,6 +6,8 @@
   --text: #1f1b16;
   --text-muted: #6b625a;
   --border: #e3dcd2;
+  /* Form-control borders: >= 3:1 against the surfaces (WCAG 1.4.11). */
+  --field-border: #8a7f73;
   --accent: #b3202a;
   --accent-contrast: #ffffff;
   --danger: #b00020;
@@ -20,6 +22,7 @@
     --text: #f1ebe3;
     --text-muted: #a69d93;
     --border: #3a332d;
+    --field-border: #8d847a;
     --accent: #e5535c;
     --accent-contrast: #14110f;
     --danger: #ff6b81;
@@ -33,6 +36,7 @@
   --text: #f1ebe3;
   --text-muted: #a69d93;
   --border: #3a332d;
+  --field-border: #8d847a;
   --accent: #e5535c;
   --accent-contrast: #14110f;
   --danger: #ff6b81;
@@ -180,7 +184,7 @@ input[type='text'],
 select {
   font: inherit;
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--field-border);
   border-radius: 0.5rem;
   background: var(--surface);
   color: var(--text);

@@ -1,6 +1,6 @@
 import { useEffect, useEffectEvent, useRef, useState, type ComponentProps, type KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { bind, unbind } from 'wanakana';
+import { bind, toHiragana, toKatakana, unbind } from 'wanakana';
 import { useProgress } from '../state/progressStore';
 import { KanaKeyboard } from './KanaKeyboard';
 import { backspace, type KanaScript } from './kanaKeyboardLogic';
@@ -61,7 +61,9 @@ export function KanaInput({ mode = 'hiragana', onChange, noToggle, className, ..
   const { mode: method } = useKanaInputMode();
   const ref = useRef<HTMLInputElement>(null);
   const [text, setText] = useState('');
-  const [focused, setFocused] = useState(false);
+  // The on-screen keyboard is driven by the round, not by the input focus: it opens when the field is focused and
+  // stays until the explicit hide button (so tapping other controls never closes it or moves the layout).
+  const [kbOpen, setKbOpen] = useState(false);
   const [script, setScript] = useState<KanaScript>(mode);
   const handleChange = onChange;
   const emitChange = useEffectEvent((value: string) => onChange?.(value));
@@ -130,8 +132,8 @@ export function KanaInput({ mode = 'hiragana', onChange, noToggle, className, ..
     autoCorrect: 'off',
     spellCheck: false,
     enterKeyHint: 'done' as const,
-    onFocus: () => setFocused(true),
-    onBlur: () => setFocused(false),
+    onFocus: () => setKbOpen(true),
+    onClick: () => setKbOpen(true),
   };
 
   const teclado = method === 'teclado';
@@ -140,6 +142,22 @@ export function KanaInput({ mode = 'hiragana', onChange, noToggle, className, ..
     if (event.key === 'Backspace') {
       event.preventDefault();
       update(backspace(text));
+      return;
+    }
+    if (event.key === 'Escape') {
+      setKbOpen(false);
+      return;
+    }
+    if (event.ctrlKey || event.metaKey || event.altKey || event.key.length !== 1) return;
+    // Physical keyboard: romaji is converted (wanakana, `n` stays pending) and direct kana is appended as is.
+    if (/^[a-zA-Z]$/.test(event.key)) {
+      event.preventDefault();
+      const convert = script === 'katakana' ? toKatakana : toHiragana;
+      const tail = /[a-zA-Z]*$/.exec(text)![0];
+      update(text.slice(0, text.length - tail.length) + convert(tail + event.key.toLowerCase(), { IMEMode: true }));
+    } else if (/^[ぁ-ゖァ-ヺー]$/u.test(event.key)) {
+      event.preventDefault();
+      update(text + event.key);
     }
   };
 
@@ -161,8 +179,11 @@ export function KanaInput({ mode = 'hiragana', onChange, noToggle, className, ..
       )}
       {!noToggle && <KanaModeToggle />}
       {teclado &&
-        focused &&
-        createPortal(<KanaKeyboard value={text} onChange={update} onSubmit={submit} script={script} onScriptChange={setScript} />, document.body)}
+        kbOpen &&
+        createPortal(
+          <KanaKeyboard value={text} onChange={update} onSubmit={submit} script={script} onScriptChange={setScript} onHide={() => setKbOpen(false)} />,
+          document.body,
+        )}
     </span>
   );
 }

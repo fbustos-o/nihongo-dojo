@@ -1,4 +1,4 @@
-.clock { width: min(100%, 16rem); height: auto; display: block; margin: 0 auto; }
+.clock { width: min(100%, 16rem, 38dvh); height: auto; display: block; margin: 0 auto; }
 .face { fill: var(--surface); stroke: var(--text); stroke-width: 3; }
 .tick { stroke: var(--text-muted); stroke-width: 1; }
 .tickMajor { stroke: var(--text); stroke-width: 2.5; }
