@@ -42,9 +42,23 @@ export function loadProgress(): Progress | null {
   }
 }
 
+let persistRequested = false;
+
+/** Asks the browser not to evict our storage under pressure; best effort, once per session. */
+function requestPersistentStorage(): void {
+  if (persistRequested) return;
+  persistRequested = true;
+  try {
+    void navigator.storage?.persist?.().catch(() => undefined);
+  } catch {
+    /* unsupported */
+  }
+}
+
 export function saveProgress(progress: Progress): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    requestPersistentStorage();
   } catch (error) {
     console.warn('[progress] no se pudo guardar el progreso', error);
   }
