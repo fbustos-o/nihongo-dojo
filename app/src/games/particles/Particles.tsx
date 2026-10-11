@@ -87,7 +87,7 @@ export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, o
           }
           options={options.map((p) => ({
             key: p,
-            content: <JaText word={{ kana: p }} />,
+            content: <JaText text={p} />,
             correct: checkAnswer(p, blank.answer, { strict: true }).correct,
           }))}
           onReport={(ok) => session.report(entry.id, 'pattern', `${blank.answer} · ${entry.example.ja.replace(/\s+/gu, '')}`, ok)}
