@@ -89,16 +89,16 @@ test('teclado kana en pantalla (ajuste «teclado») con teclado físico: escribe
 test('reloj y calendario: alternativas accesibles (role=img + aria-label sin revelar la respuesta; tabla con caption y aria-current)', async ({ page, consoleLog }, info) => {
   void consoleLog;
   await openLessonGame(page, 'l-hora', 'Reloj');
-  let clock = '';
-  for (let i = 0; i < 6 && !clock; i++) {
-    const c = page.getByTestId('analog-clock');
-    if (await c.count()) clock = `${await c.getAttribute('role')} | ${await c.getAttribute('aria-label')}`;
-    else await answerRound(page, 'Reloj');
-  }
+  // Both clock modes (read / set) draw the analog clock; wait for it instead of polling (QA-054).
+  const c = page.getByTestId('analog-clock').first();
+  await c.waitFor();
+  const clock = `${await c.getAttribute('role')} | ${await c.getAttribute('aria-label')}`;
   await openLessonGame(page, 'l-fechas', 'Calendario');
   const grid = page.getByTestId('month-grid');
+  // Not every calendar question draws the month grid (e.g. «mañana/ayer»): answer rounds until one does (QA-054).
+  for (let i = 0; i < 10 && !(await grid.count()); i++) await answerRound(page, 'Calendario');
   const cal = { caption: await grid.locator('caption').innerText(), current: await grid.locator('[aria-current="date"]').count(), captionFontPx: await grid.locator('caption').evaluate((e) => getComputedStyle(e).fontSize), cellFontPx: await grid.locator('td').first().evaluate((e) => getComputedStyle(e).fontSize) };
   measure(info, 'clock/calendar a11y', { clock, cal });
-  expect(clock).toMatch(/^img \| Reloj analógico/);
+  expect(clock).toMatch(/^img \| Reloj (analógico|ajustado)/);
   expect(cal.current).toBe(1);
 });

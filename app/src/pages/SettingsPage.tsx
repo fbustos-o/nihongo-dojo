@@ -12,7 +12,7 @@ const FURIGANA_LABELS: Record<(typeof FuriganaModeSchema.options)[number], strin
 };
 
 const KANA_INPUT_LABELS: Record<KanaInputMode, string> = {
-  auto: 'Automático (teclado de kana en móvil, romaji en escritorio)',
+  auto: 'Automático (según el dispositivo)',
   teclado: 'Teclado de kana en pantalla',
   romaji: 'Escribir romaji (se convierte a kana)',
 };

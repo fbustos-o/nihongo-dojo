@@ -453,3 +453,146 @@ QA_SHOTS=/ruta npm run test:e2e:mobile   # carpeta de capturas (por defecto app/
   `tools/qa/invariants.qa.test.ts` (QA-003 y QA-009 sobre el comportamiento real).
 - Las medidas salen en stdout (`[measure][perfil] …`) y como anotaciones en el informe HTML (`npx playwright show-report`).
 - `test:e2e:pages` sobrescribe `app/dist/` con la build de sub-ruta (gitignored; Docker compila la suya).
+
+---
+
+# Parte 3: verificación final (Q3, cierre de la oleada 4)
+
+`main` en `320ce7c` (G1 + G2 + G3 + manifiesto de audio), Docker en `:8081`. Fecha: 2026-10-11/12.
+
+## 0. Veredicto
+
+**Lista para estudiar a diario en el teléfono en las 4 etapas**, con un único defecto de layout que conviene corregir
+pronto (QA-051: la página Ajustes tiene scroll horizontal en cualquier móvil). Los 10 hallazgos que alguna vez fueron
+Críticos o Altos están corregidos, y cada uno tiene una prueba que ejercita el comportamiento real. Las 5 Medias de esta
+oleada que muestreé también están cerradas. El recorrido exploratorio en Pixel 7 fue nuevo usuario → h-a … h-na →
+l-saludos desde la sugerencia del Inicio → gramática → repaso → memoria → ajustes con exportar e importar. Terminó sin
+errores de consola ni avisos de React.
+
+**Suites (ejecutadas por Q3):**
+
+| Suite | Resultado |
+|---|---|
+| `npm test` | 1244 ✓ |
+| `npm run test:qa` | 287 ✓, 0 fallos esperados |
+| `tsc --noEmit` / `lint` | limpio |
+| `test:e2e` (escritorio) | 46 ✓ y 1 ✘ intermitente (QA-054: «reloj y calendario» falla en 3 de 6 repeticiones, según el modo aleatorio de la primera ronda del Reloj) |
+| `test:e2e:mobile` | las 54 de Q2 ✓, más las pruebas nuevas de Q3: 9 ✓, 1 omitida (el recorrido solo corre en Pixel) y QA-051 como `test.fail` en los dos perfiles |
+| `test:e2e:pages` | 3 ✓ |
+
+**Hallazgos abiertos:** Crítica 0 · Alta 0 · Media 1 (QA-051) · Baja 3 (QA-052, QA-053, QA-054). Las Bajas de Q1/Q2 que
+muestreé (QA-011, 015, 027, 028, 030, 045, 046, 048) están cerradas según los commits de G2/G3, y lo comprobé en el
+código o en las pruebas.
+
+## 1. Críticos y Altos: verificación con evidencia
+
+| Id | Estado | Prueba que lo protege (comportamiento real) | Captura / medida |
+|---|---|---|---|
+| QA-001 | **Corregido** | `invariants.qa` QA-001 exige la igualdad exacta `[{text:'きゃく'}]`. `renderPlan.test` «yoon units stay intact». e2e `invariants.e2e` h-yoon-1 lee el `innerText` del prompt (incluye el `<rt>`) y exige 0 letras latinas. | — |
+| QA-002 | **Corregido** | `srs.qa`: 9 aciertos seguidos dejan la etapa en 1. e2e `practice.e2e` «practicar sin parar» ✓. | — |
+| QA-003 | **Corregido** | `q2.qa` renderiza `<Listen>`. e2e `invariants.e2e` juega h-a dos veces, quita solo `rt` y `_romaji_`, y exige que no aparezca ningún kana fuera de los permitidos. Con el modo ruby ahora es más estricta, porque un kana bloqueado se vería como kana. | — |
+| QA-004 | **Corregido** | `linguistic.qa`: かわいかったです / かわいくないです. | — |
+| QA-005 | **Corregido** | `srs.qa` y e2e `journeys.e2e`: `number:4173`, `time:7:30` y `date:3:14` vencidos se preguntan exactamente y la cola se vacía. | — |
+| QA-009 | **Corregido** | `q2.qa` renderiza `<KanaWrite>` con を/ぢ/づ/ヲ: «wo/di/du» con nota, y お/じ/ず cuentan como error. | — |
+| QA-035 | **Corregido** | e2e `feedback.mobile` QA-035, ya sin `test.fail`, con `touchscreen.tap` real en Pixel y en iPhone. Con el teclado kana abierto, un toque en «Escuchar otra vez» locuta una vez, el scroll se queda en 140→140, el teclado sigue abierto y el chip «Lectura» cambia el modo al primer toque. Unidad: `KanaInput.test` QA-035. | medida `QA-035 … {"scrollBefore":140,"scrollAfter":140,"spoken":["く"]}` |
+| QA-036 | **Corregido (decisión de diseño)** | El desbloqueo temprano se mantiene: los kana desconocidos se muestran como kana con romaji en `<ruby>`. `renderPlan.test` QA-036 (7 casos: は, yōon, っ, ー, katakana→hiragana, kanji). `q2.qa` revisa todos los textos de l-saludos, l-numeros y l-desu en su puerta: 0 tokens con letras latinas en el texto base, y prueba `<JaText>` real con «おはよう ございます». e2e Q3 (abajo): 0 romaji en línea en l-saludos y l-desu. | `pixel7-q3-ruby-*.png` |
+| QA-037 | **Corregido** | Prueba nueva de Q3 `q3.mobile` «QA-037»: a 360×640, caption a 16 px, celdas a 15,2 px y la tabla mide 307×201 px. El pliegue del Calendario pasa (580 ≤ 587). | `*-q3-calendar-360.png`, `pixel7-1.2-fold-360-l-fechas-Calendario.png` |
+| QA-038 | **Corregido** | `renderPlan.test` y `q2.qa` QA-038: con todo menos っ, みっつ / がっこう / まって / ちょっと conservan el っ (inline «みttsu», «がkkoう»; en ruby, っ con rt «t»). Nunca se pierde. | — |
+
+Una nota sobre la calidad de las pruebas: `invariants.qa` **QA-001b** («ningún segmento `romaji`») y la métrica
+`mixedSamples` de `stage2.e2e` ya no detectan regresiones en el modo ruby por defecto, porque ese modo nunca emite
+segmentos `romaji`. QA-001 sigue protegido por las pruebas de igualdad exacta y por el e2e. Lo recojo en QA-054.
+
+## 2. Medias cerradas en esta oleada y decisión QA-036
+
+| Id | Estado | Evidencia |
+|---|---|---|
+| QA-007 | **Corregido** (con QA-052) | `/practica` tiene «Práctica libre de gramática» con 8 juegos de la etapa 2 sobre lo aprendido. En el recorrido: Diálogos tras l-saludos, 4 rondas y «Terminar» → Resumen. |
+| QA-014 | **Corregido** | `invariants.qa` QA-014 pasa como `it` normal sobre el vocabulario real, más `wordUtils.test` (あつい, トイレ/ふろ, 100 sorteos). |
+| QA-016 | **Corregido** | e2e `practice.e2e` QA-016, sin `test.fail`: fila あ sin desbloquear → el prompt no tiene letras latinas (ni en `rt`). |
+| QA-039 | **Corregido** | `KanaWithRomaji` y las opciones de Números, Reloj y Calendario usan `<JaText>`. `q2.qa` QA-039: «きゅうひゃくきゅうじゅうえん» queda en kana y el romaji va en `rt`. En el recorrido, «かばん» se mostró con ruby sobre ば y ん. |
+| QA-041 | **Corregido** | Pliegue a 360×640 (Pixel), sin `test.fail`: Diálogos 580, Reloj 580, Mini‑lectura 580, Sintaxis 570/539, Partículas 555/570, Números 565, Calendario 580, todo ≤ 587. Conjugación y Kanji quedan con el campo sobre el teclado kana (280 ≤ 391). |
+
+**Legibilidad del ruby a 360×640 (progreso hasta h-na; l-desu en su puerta, h-ma).** Prueba `q3.mobile` en los dos
+perfiles, con 3‑5 rondas por juego:
+
+| Pantalla | Tamaño del `rt` (base) | Overflow de página | Cajas desbordadas | `rt` fuera de su caja | `rt` solapados |
+|---|---|---|---|---|---|
+| l-saludos · Leer palabras (prompt) | 14,4 px (28,8) | 0 | 0 | 0 | 0 |
+| l-saludos · Leer palabras (feedback) | 7,2 px (14,4) | 0 | 0 | 0 | 0 |
+| l-saludos · Diálogos (burbujas y respuestas) | **8,4‑8,8 px** (16,8‑17,6) | 0 | 0 | 0 | 0 |
+| Práctica de gramática · Diálogos | 8,4‑8,8 px | 0 | 0 | 0 | 0 |
+| l-desu · Sintaxis (fichas) | 10‑10,4 px (20) | 0 | 0 | 0 | 0 |
+| l-desu · Partículas (opciones) | 12‑14,4 px (24‑28,8) | 0 | 0 | 0 | 0 |
+
+**Juicio:** el ruby **no provoca desbordes**: no hay scroll horizontal, ni cajas desbordadas, ni `rt` recortados o
+solapados, y no aparece ninguna mezcla «おhayoう» en pantalla. En fichas, opciones y prompts se lee bien. En las burbujas
+y respuestas de Diálogos el romaji mide unos 8,5 px CSS, unos 22 px físicos en un Pixel 7: se lee, pero queda pequeño
+(QA-053). Con «Mostrar romaji» activado, la respuesta además repite el romaji completo a la derecha, así que el ruby ahí
+es redundante. La decisión de QA-036 (desbloqueo temprano y ruby) es aceptable.
+Capturas: `pixel7-q3-ruby-l-saludos-dialogos-r0/r4.png`, `pixel7-q3-ruby-l-desu-sintaxis-r0.png`,
+`pixel7-q3-ruby-l-desu-particulas-r0.png`, `pixel7-q3-ruby-l-saludos-leer-r0.png` y las `iphone14-*` equivalentes.
+
+## 3. Regresiones y recorrido exploratorio (Pixel 7)
+
+`q3.mobile.e2e.ts` «Q3 recorrido exploratorio», 48 s, consola limpia (el fixture falla ante cualquier error o aviso de React):
+- h-a, h-ka, h-sa, h-ta y h-na, cada una abierta desde «Siguiente lección» del Inicio: 56 rondas por lección, los 4 juegos.
+- Inicio tras h-na: «Siguiente lección: Saludos y expresiones básicas … Siguiente kana: fila は» ✓. l-saludos se completó en
+  41 rondas (Leer palabras, Escuchar, Diálogos).
+- Práctica de gramática tras l-saludos: Sintaxis, Partículas y Mini‑lectura están deshabilitadas con «Completa antes una
+  lección…» ✓. **Conjugación, Números, Reloj y Calendario están habilitados** y usan material aún no enseñado (QA-052).
+- `/repaso`: «No tienes repasos pendientes» ✓. `/memoria/aprendiz`: 75 filas ✓.
+- Ajustes: los 3 modos de escritura se guardan. Exportar `nihongo_dojo_backup_2026-10-11.json` (XP 3370) → reiniciar →
+  importar → XP 3370 y 6 lecciones ✓. **Se encontró QA-051:** el toque en «Reiniciar progreso» lo interceptaba otro
+  elemento, porque la página está desplazada en horizontal.
+- Audio: `/audio/manifest.json` → `{"clips":[]}`. En Docker, `/audio/x.mp3` → 404 (antes 200 con `index.html`). La prueba
+  de Pages confirma que solo se pide el manifiesto.
+- Observación menor, sin hallazgo: el toast «¡Nivel N!» tapa durante unos segundos la cabecera y la instrucción del juego.
+
+## 4. Hallazgos nuevos
+
+| Id | Sev. | Área | Título | Ubicación | Reproducción | Esperado / Actual | Arreglo sugerido |
+|---|---|---|---|---|---|---|---|
+| QA-051 | Media | Móvil / layout | Ajustes tiene scroll horizontal en todos los móviles | `pages/SettingsPage.tsx:15` (`KANA_INPUT_LABELS.auto` = «Automático (teclado de kana en móvil, romaji en escritorio)»), el `<select>` sin `max-width` | Pixel 7, iPhone 14 o 360×640 → `/ajustes`. e2e `q3.mobile` «QA-051» (`test.fail`). Captura `pixel7-q3-ajustes-360.png`. | El select mide 463 px y la página 496 px (`innerWidth` 496 en un viewport de 360/390/412). Chrome móvil reduce el zoom o desplaza la página. En la emulación, el toque en «Reiniciar progreso» llegaba a otro elemento. Viene de M2, Q2 no lo detectó. | `select { max-width: 100% }` (global o en `.row`) y una etiqueta más corta («Automático»), con la explicación en un texto `muted` debajo. |
+| QA-052 | Baja | Práctica / pedagogía | La práctica de gramática ofrece Conjugación, Números, Reloj y Calendario sin haberlos enseñado | `pages/PracticePage.tsx:104-105` (`grammarMissing` solo mira syntax, particles, mini-reading y dialogues), `games/conjugation/Conjugation.tsx:51` (sin verbos propios usa `content.vocab` completo) | Completar solo l-saludos → Práctica → Conjugación: «あう · ませんでした» con todas las formas. Números: «かばん · いくらですか». Capturas `pixel7-q3-journey-practica-conjugation.png` y `-numbers.png`. | La descripción dice «con todo lo que ya has aprendido», pero aparecen verbos, formas y precios de lecciones futuras. | Habilitar cada juego solo si una lección completada lo incluye en `games`, y no recurrir a `content.vocab` en la práctica libre. |
+| QA-053 | Baja | Legibilidad | El romaji en ruby de Diálogos y del feedback mide 7‑9 px | `components/JaText.module.css:18-25` (`.kanaRuby rt { font-size: 0.5em }`) | Medida `q3 ruby` (tabla de §2): 8,4‑8,8 px en las burbujas y respuestas, 7,2 px en el feedback de Leer palabras. | Se lee con un DPR alto, pero está por debajo de un mínimo cómodo (~10‑11 px). | `font-size: max(0.5em, 10px)`. Opcional: no poner ruby en las respuestas que ya muestran el romaji completo. |
+| QA-054 | Baja | Pruebas | Una prueba intermitente y dos que el modo ruby deja sin efecto | `e2e/a11y.e2e.ts:89-103` (toma la etiqueta del primer `analog-clock`, que en modo «ajustar» es «Reloj ajustado: las 12:00»), `tools/qa/invariants.qa.test.ts:37` (QA-001b), `e2e/stage2.e2e.ts:12-22` (`mixedSamples` busca `_romaji_`) | `--repeat-each=6`: 3 ✘ y 3 ✓. QA-001b y `mixedSamples` no pueden fallar en el modo ruby. | Pruebas deterministas que detecten regresiones. | a11y: buscar la etiqueta solo en rondas de lectura (o aceptar `/^img \| Reloj (analógico\|ajustado)/`). QA-001b: exigir `segs.every(s => s.type === 'text')`. stage2: contar también `ruby[data-testid=kana-ruby]` cuyo kana esté en `knownKana` (no debería haber ninguno). |
+
+## 5. Aceptación del documento del usuario (actualización de los puntos «Parcial» de la Parte 2)
+
+| Punto | Parte 2 | Parte 3 | Evidencia |
+|---|---|---|---|
+| 1.2 Opciones / confirmar en el primer pliegue | Parcial | **Cumple** | 360×640 Pixel: los 9 juegos de la etapa 2 y Kanji quedan ≤ 587, o con el campo sobre el teclado kana (§2, QA-041). Calendario 580 (QA-037). Capturas `pixel7-1.2-fold-360-*.png`. |
+| 3.1 Desbloqueo intercalado | Parcial | **Cumple** | Gramática tras あ‑な sugerida en el Inicio (recorrido real). La legibilidad se resuelve con kana y ruby (QA-036) y っ se conserva (QA-038). Ruby sin desbordes a 360 px (§2). |
+| 4.1 Audio (Web Speech + clips estáticos) | Parcial | **Cumple (mecanismo)** | La disponibilidad de clips se decide con `audio/manifest.json`, sin 404 por clip (Pages e2e). nginx da 404 a los `.mp3` que faltan. Falta **incluir clips**: el manifiesto está vacío, así que sin voz ja‑JP no hay audio. |
+
+Todos los demás puntos siguen en **Cumple**. Nueva salvedad móvil: QA-051 (Ajustes, donde están exportar e importar).
+Sigue sin probarse en WebKit o iOS Safari reales (QA-047) ni en un Android real.
+
+## 6. Próximos pasos recomendados
+
+1. Corregir QA-051 (una línea de CSS y una etiqueta más corta) y quitar el `test.fail` de `q3.mobile.e2e.ts`.
+2. Arreglar QA-054 (prueba del reloj intermitente) para que `test:e2e` sea determinista.
+3. QA-052: habilitar los juegos de práctica de gramática según las lecciones completadas.
+4. QA-053: tamaño mínimo del `rt`.
+5. Generar e incluir clips de audio (al menos los kana) para dispositivos sin voz japonesa, o documentar que hace falta
+   instalar una voz ja‑JP.
+6. Probar una vez en un iPhone real (teclado de iOS, `100dvh`, descarga del backup) y en un Android real con Gboard antes
+   de publicar.
+
+**Artefactos de Q3:** `app/e2e/q3.mobile.e2e.ts` (ruby a 360×640, calendario, recorrido exploratorio y QA-051 como `test.fail`).
+Capturas y logs en el scratchpad de la sesión:
+`/tmp/claude-1000/-home-fabo-ProjectsAI-Japones/32c31f83-b598-4004-a83b-072088cf05e5/scratchpad/q3/` (`shots/`, `*.log`).
+
+## 7. Cierre del planificador (después de Q3)
+
+- **QA-051 corregido:** etiqueta corta «Automático (según el dispositivo)» y `select { max-width: 100% }`. Ajustes ya no tiene
+  scroll horizontal a 360 px; el test de `q3.mobile.e2e.ts` dejó de ser `test.fail` y el recorrido usa `tap()` real.
+- **QA-054 corregido:** la prueba de reloj/calendario espera al reloj (los dos modos lo dibujan) y avanza rondas hasta que
+  aparece la cuadrícula del mes (8/8 repeticiones en verde). La prueba de exportación calcula la fecha en la zona horaria del
+  navegador (America/Santiago), no en la del host.
+- ESLint ignora `playwright-report/` y `test-results/`.
+- Siguen abiertas: QA-052, QA-053 (Bajas) y los próximos pasos 3–6 de la sección anterior.
+
+**Estado final de las suites:** `npm test` 1244 ✓ · `test:qa` 287 ✓ · `test:e2e` 47 ✓ · `test:e2e:mobile` 63 ✓ (1 omitida) ·
+`test:e2e:pages` 3 ✓ · `tsc` y `lint` limpios.

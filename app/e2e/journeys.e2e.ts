@@ -126,8 +126,9 @@ test('ajustes: exportar (nombre nihongo_dojo_backup_AAAA-MM-DD.json) → reinici
   await expect(page.getByText('El archivo no es un JSON válido.')).toBeVisible();
   measure(info, 'export/import', { name, xpExported: json.xp, xpAfterImport: p.xp, completed: p.completedLessons });
   expect(name).toMatch(/^nihongo_dojo_backup_\d{4}-\d{2}-\d{2}\.json$/);
-  const d = new Date();
-  expect(name).toBe(`nihongo_dojo_backup_${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}.json`);
+  // The browser's local date (Playwright runs it in America/Santiago), not the host's.
+  const today = await page.evaluate(() => { const t = new Date(); return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`; });
+  expect(name).toBe(`nihongo_dojo_backup_${today}.json`);
   expect(p.xp).toBe(420);
   expect(p.completedLessons).toEqual(expect.arrayContaining(['h-a', 'h-ka']));
   await page.goto('/');

@@ -84,7 +84,15 @@ La app es 100 % cliente: todo el estado vive en `localStorage` (clave `nihongo-d
 
 ### Audio
 
-La voz principal es la Web Speech API (`speechSynthesis`, voz `ja`). Si no hay voz japonesa o falla, `useSpeech` intenta un clip estático en `${BASE_URL}audio/<clave>.mp3` (una sola vez por clave; los fallos se recuerdan en memoria para no generar 404 repetidos). La clave es el texto normalizado: NFKC, sin espacios, puntuación ni símbolos, y codificado como URL; p. ej. `ありがとう。` -> `audio/%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86.mp3`. Para añadir clips basta con copiar los `.mp3` a `app/public/audio/` con ese nombre (los nombres en disco son el texto sin codificar, p. ej. `ありがとう.mp3`). No se incluye ningún audio todavía.
+La voz principal es la Web Speech API (`speechSynthesis`, voz `ja`). Si no hay voz japonesa o falla, `useSpeech` reproduce un clip estático de `${BASE_URL}audio/<clave>.mp3`, pero **solo si la clave figura en `app/public/audio/manifest.json`** (`{ "clips": ["ありがとう", …] }`), que se descarga una vez al iniciar: así nunca se piden archivos inexistentes. La clave es el texto normalizado (NFKC, sin espacios, puntuación ni símbolos); el nombre en disco es esa clave, p. ej. `ありがとう.mp3`. Para añadir audio: copiar los `.mp3` a `app/public/audio/` y listarlos en el manifiesto. Hoy el manifiesto está vacío, así que un dispositivo sin voz japonesa no tiene audio.
+
+### Antes de publicar en una web de pruebas (checklist)
+
+1. **Decidir la visibilidad:** GitHub Pages es público. El repo contiene vocabulario, listas de kanji y orden de lecciones derivados de Genki y de los apuntes del profesor (los libros y fotos en `Docs/` no están en git).
+2. **Probar en dispositivos reales** una vez: un Android con Gboard y un iPhone (teclado, `100dvh`, descarga del respaldo). Las pruebas automáticas emulan móviles con Chromium.
+3. **Correr todo:** `cd app && npm test && npm run test:qa && npm run lint && docker compose up -d --build` (desde la raíz) y `npm run test:e2e:all`.
+4. **Publicar:** Settings > Pages > Source = "GitHub Actions", luego Actions > "Deploy to GitHub Pages" > Run workflow.
+5. Pendientes conocidos (bajos): ver `QA_REPORT.md`, Parte 3, secciones 4, 6 y 7.
 
 ## Atribuciones
 
