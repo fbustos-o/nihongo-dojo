@@ -59,7 +59,6 @@ test('SRS: practicar sin parar no debería quemar ítems que no tocaba repasar (
 // QA-016: free practice of a row that is not unlocked yet shows the words in romaji (no ExtraKanaContext), so
 // «Leer palabras» asks to type the romaji of a word shown in romaji.
 test('práctica libre de una fila no desbloqueada: las palabras se muestran en kana (QA-016)', async ({ page, consoleLog }) => {
-  test.fail(true, 'QA-016: PracticePage no envuelve el juego en ExtraKanaContext');
   void consoleLog;
   await page.goto('/practica');
   await page.getByRole('combobox', { name: 'Juego:' }).selectOption('read-words');

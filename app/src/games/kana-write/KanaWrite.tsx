@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { SpeakButton } from '../../components/SpeakButton';
 import { checkAnswer } from '../../engine';
 import type { KanaEntry, Word } from '../../domain/schema';
-import { useSpeech } from '../../hooks/useSpeech';
+import { useCanHear, useSpeech } from '../../hooks/useSpeech';
 import { itemKey } from '../../state/progressSchema';
 import { useProgress } from '../../state/progressStore';
 import { Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type Verdict } from '../shared';
@@ -39,7 +39,9 @@ export function modeFor(choice: WriteChoice, seen: boolean, ambiguous: boolean):
 /** Type the kana for a romaji (Lectura) or for what you hear (Dictado). Every third round uses a lesson word when there are some. */
 export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
-  const { available, speak } = useSpeech();
+  const { speak } = useSpeech();
+  // Items answered right in this game's own session: Dictado is for those (every other round in a lesson); new ones are read first (QA-043).
+  const [answeredHere] = useState(() => new Set<string>());
   const kanaPool = kana.map((entry) => ({ id: entry.char, entry }));
   const wordPool = words.map((word) => ({ id: word.id, word }));
   const pickKana = useQuestionPicker('kana', sequential);
@@ -52,12 +54,12 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
     const useWord = wordPool.length > 0 && (kanaPool.length === 0 || round % 3 === 2);
     if (useWord) {
       const { word } = pickWord(wordPool);
-      const seen = (items[itemKey('word', word.id)]?.correct ?? 0) > 0;
+      const seen = (answeredHere.has(word.id) && (free || round % 2 === 1)) || (free && (items[itemKey('word', word.id)]?.correct ?? 0) > 0);
       return { type: 'word', id: word.id, word, wanted: modeFor(pref, seen, false) };
     }
     if (kanaPool.length === 0) return null;
     const { entry } = pickKana(kanaPool);
-    const seen = (items[itemKey('kana', entry.char)]?.correct ?? 0) > 0;
+    const seen = (answeredHere.has(entry.char) && (free || round % 2 === 1)) || (free && (items[itemKey('kana', entry.char)]?.correct ?? 0) > 0);
     return { type: 'kana', id: entry.char, entry, wanted: modeFor(pref, seen, writePrompt(entry).note !== undefined) };
   };
 
@@ -67,6 +69,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
   const isWord = question?.type === 'word';
   const expected = !question ? '' : question.type === 'word' ? question.word.kana : question.entry.char;
   // Without a Japanese voice, Dictado degrades to Lectura (and says so).
+  const available = useCanHear(expected);
   const mode: WriteMode = question?.wanted === 'dictado' && available ? 'dictado' : 'lectura';
   const degraded = !available && (choice === 'dictado' || (choice === 'mixto' && question?.wanted === 'dictado'));
 
@@ -82,6 +85,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
 
   const onReport = (ok: boolean) => {
     setLast(null);
+    if (ok) answeredHere.add(question.id);
     session.report(question.id, isWord ? 'word' : 'kana', expected, ok);
   };
   const onDone = (firstTry: boolean) => {
