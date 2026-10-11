@@ -11,3 +11,4 @@ test-results/
 .env.local
 .claude/
 qa-shots/
+__pycache__/
