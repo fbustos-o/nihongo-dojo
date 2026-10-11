@@ -141,7 +141,7 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
   switch (game) {
     case 'Reconocer kana': {
       const prompt = main.getByTestId('prompt');
-      const shown = (await prompt.locator('span[lang="ja"]').first().textContent())!.trim();
+      const shown = (await jaText(prompt.locator('span[lang="ja"]').first())).trim();
       if (await prompt.getByTestId('script-pair-hint').count()) {
         const target = otherScript(shown);
         await choose(page, choiceButtons(main), (t) => t === target, wrong);
@@ -275,7 +275,7 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
     case 'Reloj': {
       const set = main.getByTestId('set-time');
       if (await set.count()) {
-        const k = (await main.getByTestId('prompt').locator('span[lang="ja"]').first().textContent())!.trim();
+        const k = (await jaText(main.getByTestId('prompt').locator('span[lang="ja"]').first())).trim();
         const target = timeFromKana(k)!;
         const [h, m] = (await set.textContent())!.split(':').map(Number) as [number, number];
         if (wrong) { await main.getByRole('button', { name: 'Hora +' }).click(); await main.getByRole('button', { name: 'Comprobar' }).click(); await main.getByRole('button', { name: 'Hora −' }).click(); }
@@ -374,7 +374,7 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
         await choose(page, choiceButtons(main), (t) => cands.includes(t), wrong);
         return true;
       }
-      const ch = (await main.getByTestId('prompt').locator('span[lang="ja"]').first().textContent())!.trim();
+      const ch = (await jaText(main.getByTestId('prompt').locator('span[lang="ja"]').first())).trim();
       const k = kanji.find((x) => x.char === ch)!;
       await choose(page, choiceButtons(main), (t) => t === meaningText(k), wrong);
       return true;
