@@ -70,7 +70,7 @@ test('una lección por debajo del 80 % no se completa', async ({ page, consoleLo
   await expect(page.getByRole('link', { name: /fila か/ })).toHaveCount(0);
 });
 
-test('justo en el umbral: 1 fallo de ~50 rondas sigue aprobando; muchos fallos no', async ({ page, consoleLog }) => {
+test('umbral: con ~75 % de aciertos (1 de cada 4 mal) la lección no se aprueba', async ({ page, consoleLog }) => {
   void consoleLog;
   await page.goto('/leccion/h-a');
   await page.getByRole('button', { name: 'Empezar práctica' }).click();

@@ -71,6 +71,6 @@ test("h-ka … h-wa-n: ninguna lección de hiragana filtra kana posteriores (sal
   for (const id of ['h-ka', 'h-sa', 'h-ta', 'h-wa-n']) leaks.push(...(await collectLessonKana(page, id)).map((l) => `${id}: ${l}`));
   // Known leaks reported separately: Listen distractors (QA-003) and Japanese particles inside Spanish glosses
   // shown by «Escribir kana» / «Leer palabras» (QA-031, e.g. «preguntar (persona に)» in h-ta).
-  expect(leaks.filter((l) => !l.endsWith('(Escuchar)') && !/: [にがへを] \(Escribir kana\)$/u.test(l))).toEqual([]);
+  expect(leaks.filter((l) => !l.endsWith('(Escuchar)') && !/: [にがへを] \((Escribir kana|Leer palabras)\)$/u.test(l))).toEqual([]);
   void KANA_RE;
 });
