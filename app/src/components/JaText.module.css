@@ -8,3 +8,18 @@
   color: var(--text-muted);
   margin: 0 0.05em;
 }
+
+/* unknown kana: the kana itself with its romaji over it; compact so choice buttons keep their line height */
+.kanaRuby {
+  ruby-align: center;
+  ruby-position: over;
+}
+
+.kanaRuby rt {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.5em;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}

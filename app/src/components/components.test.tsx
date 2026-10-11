@@ -13,17 +13,31 @@ beforeEach(() => {
 });
 
 describe('JaText', () => {
-  it('shows romaji by default and ruby once the kanji is unlocked', () => {
+  it('shows kana with romaji ruby by default and furigana once the kanji is unlocked', () => {
     const word = { kana: 'たべる', kanji: '食べる' };
     const { container, rerender } = render(<JaText word={word} />);
-    expect(container).toHaveTextContent('taberu');
-    expect(container.querySelector('ruby')).toBeNull();
+    // locked kana stay kana, each with its romaji as ruby (QA-036)
+    expect(container.querySelectorAll('[data-testid="kana-ruby"]').length).toBe(3);
+    expect(container).toHaveTextContent('たtaべbeるru');
+    expect(container.querySelector('ruby')).not.toBeNull();
 
     useProgress.getState().unlockKana([...'たべる']);
     useProgress.getState().unlockKanji(['食']);
     rerender(<JaText word={word} />);
     expect(container.querySelector('ruby')).toHaveTextContent('食た');
     expect(container).toHaveTextContent('べる');
+    expect(container.querySelector('[data-testid="kana-ruby"]')).toBeNull();
+  });
+
+  it("romajiMode='inline' keeps the old romaji", () => {
+    const { container } = render(<JaText word={{ kana: 'たべる' }} romajiMode="inline" />);
+    expect(container).toHaveTextContent('taberu');
+    expect(container.querySelector('ruby')).toBeNull();
+  });
+
+  it('accepts plain kana through `text`', () => {
+    const { container } = render(<JaText text="で" />);
+    expect(container.querySelector('ruby')).toHaveTextContent('でde');
   });
 });
 

@@ -77,7 +77,8 @@ describe('syntax game', () => {
   it('shows romaji for kana that are not unlocked yet', () => {
     useProgress.getState().resetProgress();
     render(<Syntax kana={[]} words={[]} patterns={[pattern]} rounds={1} />);
+    // locked kana stay kana, with romaji ruby over each: the accessible name carries both
     expect(bank().queryByRole('button', { name: 'わたし' })).toBeNull();
-    expect(bank().getByRole('button', { name: 'watashi' })).toBeInTheDocument();
+    expect(bank().getByRole('button', { name: /わ.*wa.*た.*ta.*し.*shi/ })).toBeInTheDocument();
   });
 });
