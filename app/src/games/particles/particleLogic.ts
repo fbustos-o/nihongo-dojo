@@ -42,8 +42,21 @@ export function makeBlank(ja: string, rng: () => number = Math.random): Blank | 
   return { tokens, at, answer: tokens[at]! };
 }
 
-/** Particles that could also fit in the same place, so they are never offered as distractors. */
-const INTERCHANGEABLE: Record<string, string[]> = { に: ['へ'], へ: ['に'], は: ['が', 'も'], が: ['は'], も: ['は', 'を'], を: ['も'] };
+/**
+ * Particles that could also be grammatical where the answer goes, so they are never offered as distractors
+ * (QA-011): に/へ/と/で overlap with あいます / いきます / いる; は/が/も/を swap on a noun (すき, あります).
+ */
+const INTERCHANGEABLE: Record<string, string[]> = {
+  に: ['へ', 'と', 'で'],
+  へ: ['に', 'で'],
+  で: ['に', 'へ'],
+  と: ['に', 'や', 'も'],
+  や: ['と'],
+  は: ['が', 'も', 'を'],
+  が: ['は', 'も', 'を'],
+  も: ['は', 'が', 'を'],
+  を: ['も', 'が', 'は'],
+};
 
 /** The right particle plus three distractors that cannot also be right, shuffled. */
 export function particleOptions(answer: string, count = 4, rng: () => number = Math.random): string[] {

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useProgress } from '../state/progressStore';
-import { playStaticClip } from './staticAudio';
+import { playStaticClip, probeStaticClip } from './staticAudio';
 
 const isJapanese = (voice: SpeechSynthesisVoice) => voice.lang.toLowerCase().replace('_', '-').startsWith('ja');
 
@@ -47,4 +47,22 @@ export function useSpeech() {
   );
 
   return { available: voice !== null, speak };
+}
+
+/**
+ * Whether `text` can be heard: a Japanese voice exists, or a static clip does (probed once with a cached HEAD request).
+ * The audio games (Escuchar, Dictado) use this instead of `available` so shipped clips are enough (QA-046).
+ */
+export function useCanHear(text: string): boolean {
+  const { available } = useSpeech();
+  const [clip, setClip] = useState<{ text: string; ok: boolean } | null>(null);
+  useEffect(() => {
+    if (available || !text) return;
+    let live = true;
+    void probeStaticClip(text).then((r) => live && setClip({ text, ok: r === 'yes' }));
+    return () => {
+      live = false;
+    };
+  }, [available, text]);
+  return available || (clip?.text === text && clip.ok);
 }

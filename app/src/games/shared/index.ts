@@ -6,3 +6,4 @@ export { useGameSession, type GameSession } from './useGameSession';
 export { useQuestionPicker } from './useQuestionPicker';
 export { TypingHint } from './TypingHint';
 export { useKeepInView } from './useKeepInView';
+export { useFirstAttempt } from './useFirstAttempt';

@@ -81,13 +81,20 @@ describe('kana-write modes', () => {
   it('Dictado (already seen kana): only audio, no romaji and no kana before answering', async () => {
     withJapaneseVoice();
     useProgress.getState().recordAnswer('あ', 'kana', true);
-    render(<KanaWrite kana={[kana('あ')]} words={[]} rounds={3} />);
+    render(<KanaWrite kana={[kana('あ')]} words={[]} />);
     expect(screen.getByTestId('write-mode')).toHaveTextContent('Dictado');
     expect(screen.queryByTestId('romaji')).toBeNull();
     expect(screen.getByRole('button', { name: 'Escuchar otra vez' })).toBeEnabled();
     expect(screen.getByTestId('prompt')).not.toHaveTextContent('あ');
     await user().type(screen.getByLabelText('Escribe en kana'), 'a{Enter}');
     expect(screen.getByText(/Correcto/)).toBeInTheDocument();
+  });
+
+  it('in a lesson, answers from other games do not count as seen: a new kana is read first (QA-043)', () => {
+    withJapaneseVoice();
+    useProgress.getState().recordAnswer('あ', 'kana', true);
+    render(<KanaWrite kana={[kana('あ')]} words={[]} rounds={3} />);
+    expect(screen.getByTestId('write-mode')).toHaveTextContent('Lectura');
   });
 
   it('free practice has mode chips; Dictado without a voice falls back to Lectura with a notice', async () => {

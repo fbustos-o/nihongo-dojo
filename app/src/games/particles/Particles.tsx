@@ -4,6 +4,7 @@ import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
 import { checkAnswer } from '../../engine';
 import { useProgress } from '../../state/progressStore';
+import { scopedPatterns } from '../lessonScope';
 import { ChoiceRound, GameFrame, useGameSession, useQuestionPicker } from '../shared';
 import shared from '../shared/games.module.css';
 import type { GameProps } from '../types';
@@ -19,14 +20,14 @@ interface Question {
  * A sentence with one particle missing; choose it among は / を / に / で / へ / も / の / と / が / か.
  * Answers are compared strictly (は is not わ, を is not お). After answering, a one-line explanation.
  */
-export function Particles({ patterns, rounds, sequential, onlyItems, onFinish }: GameProps) {
+export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const pool = useMemo(() => {
-    const all = particleEntries(patterns?.length ? patterns : content.patterns);
+    const all = particleEntries(scopedPatterns(patterns, lessonId, content.curriculum, content.patterns));
     const only = onlyItems ? all.filter((e) => onlyItems.includes(e.id)) : all;
     return only.length > 0 ? only : all;
-  }, [patterns, onlyItems]);
+  }, [patterns, lessonId, onlyItems]);
   const pick = useQuestionPicker('pattern', sequential);
 
   const make = (): Question => {
@@ -86,7 +87,7 @@ export function Particles({ patterns, rounds, sequential, onlyItems, onFinish }:
           }
           options={options.map((p) => ({
             key: p,
-            content: <JaText word={{ kana: p }} />,
+            content: <JaText text={p} />,
             correct: checkAnswer(p, blank.answer, { strict: true }).correct,
           }))}
           onReport={(ok) => session.report(entry.id, 'pattern', `${blank.answer} · ${entry.example.ja.replace(/\s+/gu, '')}`, ok)}

@@ -7,13 +7,19 @@ export function backupFilename(date: Date): string {
   return `nihongo_dojo_backup_${localDateString(date)}.json`;
 }
 
-/** Saves the current progress as a JSON file through a temporary download link. */
+/**
+ * Saves the current progress as a JSON file through a temporary download link. The link is attached to the DOM
+ * for the click and the blob URL is revoked later, which iOS Safari and old Firefox need (QA-047).
+ */
 export function downloadProgress(): void {
   const blob = new Blob([serializeProgress(getProgressSnapshot())], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
   link.download = backupFilename(new Date());
+  link.hidden = true;
+  document.body.append(link);
   link.click();
-  URL.revokeObjectURL(url);
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 10_000);
 }

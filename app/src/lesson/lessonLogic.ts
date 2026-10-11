@@ -5,11 +5,12 @@ import { candidateFromItem, candidateWeight } from '../engine/picker';
 import { itemKey, type Progress } from '../state/progressSchema';
 import { isImplemented } from '../games/registry';
 import { emptyStats, type GameStats } from '../games/types';
-import { useProgress } from '../state/progressStore';
+import { XP_PER_CORRECT, useProgress } from '../state/progressStore';
+import { ancestorLessons } from '../games/lessonScope';
 
 /** A lesson is completed when overall accuracy reaches this. */
 export const PASS_ACCURACY = 0.8;
-export const XP_PER_CORRECT = 10;
+export { XP_PER_CORRECT };
 
 export type LessonStatus = 'locked' | 'available' | 'completed';
 
@@ -199,19 +200,7 @@ export interface LessonContent {
   newKanji: string[];
 }
 
-/** Direct and indirect `requires` of a lesson, in curriculum order. */
-function ancestors(lesson: Lesson, curriculum: readonly Lesson[]): Lesson[] {
-  const byId = new Map(curriculum.map((l) => [l.id, l]));
-  const seen = new Set<string>();
-  const visit = (l: Lesson) => l.requires.forEach((id) => {
-    if (seen.has(id)) return;
-    seen.add(id);
-    const dep = byId.get(id);
-    if (dep) visit(dep);
-  });
-  visit(lesson);
-  return curriculum.filter((l) => seen.has(l.id));
-}
+const ancestors = (lesson: Lesson, curriculum: readonly Lesson[]): Lesson[] => ancestorLessons(lesson.id, curriculum);
 
 const IS_KANJI = /[一-鿿]/u;
 

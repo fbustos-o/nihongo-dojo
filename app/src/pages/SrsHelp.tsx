@@ -70,11 +70,11 @@ export function SrsHelp() {
               </tbody>
             </table>
             <h3>Si aciertas</h3>
-            <p>El ítem sube una etapa y el siguiente repaso se programa con el intervalo de la tabla.</p>
+            <p>El ítem sube una etapa y el siguiente repaso se programa con el intervalo de la tabla. Solo cuenta cuando el ítem está pendiente de repaso: practicar antes (en una lección o en la práctica libre) no lo sube ni lo baja.</p>
             <h3>Si fallas</h3>
             <p>
               El ítem baja una etapa por cada dos errores en el repaso (redondeando hacia arriba) y el doble si ya estaba en {stageName(GURU_STAGE)} o más. Nunca baja de {stageName(1)}. Un ítem nuevo que
-              fallas se queda en Nuevo y vuelve a salir enseguida.
+              fallas se queda en Nuevo y vuelve a salir enseguida. Aunque no toque repasar, un error sigue contando: el ítem sale con más frecuencia en los juegos.
             </p>
             <h3>Furigana</h3>
             <p>Desde {stageName(GURU_STAGE)} se considera que ya conoces el kanji y deja de mostrarse su furigana (con el ajuste automático).</p>

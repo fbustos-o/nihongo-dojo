@@ -6,11 +6,10 @@ import type { Dialogue } from '../../domain/schema';
 import { useProgress } from '../../state/progressStore';
 import { shuffle } from '../kanaUtils';
 import { ModeChips, useAutoSpeak } from '../numbers/ReadingRound';
-import { Feedback, GameFrame, useGameSession, type FeedbackMessage } from '../shared';
-import { playSfx } from '../shared/sfx';
+import { Feedback, GameFrame, useFirstAttempt, useGameSession, type FeedbackMessage } from '../shared';
 import type { GameProps } from '../types';
 import styles from './dialogues.module.css';
-import { DIALOGUE_ITEM_KIND, dialogueItemId, eligibleDialogues, hasRoleLine, listenTargets, nextRoleLine, replyOptions, type Line, type ReplyOption, type Speaker } from './dialoguesLogic';
+import { DIALOGUE_ITEM_KIND, cappedRounds, dialogueItemId, eligibleDialogues, hasRoleLine, listenTargets, nextRoleLine, replyOptions, type Line, type ReplyOption, type Speaker } from './dialoguesLogic';
 
 function LineText({ line, showEs }: { line: Line; showEs: boolean }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
@@ -60,22 +59,12 @@ interface ReplyChoiceProps {
 /** Pick the right reply among 3-4 lines; a wrong pick is reported once and disabled. */
 export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: ReplyChoiceProps) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
-  const [wrong, setWrong] = useState<number[]>([]);
   const [message, setMessage] = useState<FeedbackMessage | null>(null);
   const counter = useRef(0);
+  const { wrongKeys, attempt } = useFirstAttempt(onReport, onDone);
 
   const pick = (option: ReplyOption, index: number) => {
-    if (option.correct) {
-      if (wrong.length === 0) {
-        onReport(true);
-        playSfx('ok');
-      }
-      onDone(wrong.length === 0);
-      return;
-    }
-    if (wrong.length === 0) onReport(false);
-    playSfx('bad');
-    setWrong((w) => [...w, index]);
+    if (attempt(String(index), option.correct)) return;
     setMessage({ tone: 'bad', text: 'Incorrecto. Elige la respuesta que encaja con la conversación.', id: ++counter.current });
   };
 
@@ -85,7 +74,7 @@ export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: Reply
       {message && <Feedback message={message} />}
       <div className={styles.options} role="group" aria-label="Respuestas posibles">
         {options.map((option, i) => (
-          <button key={option.line.ja + i} type="button" className={styles.option} disabled={wrong.includes(i)} aria-keyshortcuts={String(i + 1)} onClick={() => pick(option, i)}>
+          <button key={option.line.ja + i} type="button" className={styles.option} disabled={wrongKeys.includes(String(i))} onClick={() => pick(option, i)}>
             <JaText word={{ kana: option.line.ja }} />
             {showRomaji && <small lang="en" className={styles.sub}> {option.line.romaji}</small>}
             {showEs && <small className={styles.sub}> {option.line.es}</small>}
@@ -134,7 +123,6 @@ interface Pos {
 }
 
 export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: GameProps) {
-  const session = useGameSession({ rounds, onFinish });
   const [role, setRole] = useState<Speaker>('B');
   const [showEs, setShowEs] = useState(false);
   const [last, setLast] = useState<FeedbackMessage | null>(null);
@@ -143,6 +131,8 @@ export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: Ga
     return rounds === undefined ? shuffle(list) : list;
   });
   const playable = queue.filter((d) => hasRoleLine(d, role));
+  // Thin pools would repeat the same turns: never ask for more than ~1.5 rounds per available learner turn (QA-027).
+  const session = useGameSession({ rounds: cappedRounds(rounds, playable, role), onFinish });
   const [pos, setPos] = useState<Pos>(() => ({ d: 0, cur: nextRoleLine(playable[0]?.lines ?? [], 0, role), stage: 'talk' }));
 
   const startDialogue = (d: number, r: Speaker = role): Pos => {
