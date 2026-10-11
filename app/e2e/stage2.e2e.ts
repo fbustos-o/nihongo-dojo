@@ -8,7 +8,7 @@ import { answerRound, currentGame, lessonResultVisible, type GameName } from './
 import { buildProgress, readProgress, seed } from './support/state';
 import { measure } from './support/flow';
 
-/** JaText nodes on screen that mix kana and romaji fallback segments. */
+/** JaText nodes on screen that mix kana and inline romaji (QA-036: the default ruby mode must give none; romaji lives in <rt>). */
 async function mixedSamples(page: Page): Promise<string[]> {
   return page.locator('main').evaluate((main) => {
     const out: string[] = [];

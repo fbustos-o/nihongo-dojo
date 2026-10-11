@@ -1,6 +1,7 @@
 import patternsRaw from '../content/patterns.json';
 import { renderKana, renderPlan, type UnlockState } from './renderPlan';
 
+const inline = (text: string, known: ReadonlySet<string>) => renderKana(text, known, 'inline');
 const hira = (chars: string) => new Set([...chars]);
 const state = (known = '', kanji: [string, number][] = [], furigana?: UnlockState['furigana']): UnlockState => ({
   knownKana: hira(known),
@@ -10,11 +11,11 @@ const state = (known = '', kanji: [string, number][] = [], furigana?: UnlockStat
 
 describe('renderKana', () => {
   it('shows romaji for kana the learner does not know', () => {
-    expect(renderKana('たべる', hira(''))).toEqual([{ type: 'romaji', text: 'taberu' }]);
+    expect(inline('たべる', hira(''))).toEqual([{ type: 'romaji', text: 'taberu' }]);
   });
 
   it('mixes known kana and romaji', () => {
-    expect(renderKana('たべる', hira('たる'))).toEqual([
+    expect(inline('たべる', hira('たる'))).toEqual([
       { type: 'text', text: 'た' },
       { type: 'romaji', text: 'be' },
       { type: 'text', text: 'る' },
@@ -22,12 +23,12 @@ describe('renderKana', () => {
   });
 
   it('keeps a romaji run together so combinations convert correctly', () => {
-    expect(renderKana('きゃく', hira(''))).toEqual([{ type: 'romaji', text: 'kyaku' }]);
-    expect(renderKana('きって', hira(''))).toEqual([{ type: 'romaji', text: 'kitte' }]);
+    expect(inline('きゃく', hira(''))).toEqual([{ type: 'romaji', text: 'kyaku' }]);
+    expect(inline('きって', hira(''))).toEqual([{ type: 'romaji', text: 'kitte' }]);
   });
 
   it('passes non-kana characters through', () => {
-    expect(renderKana('あ、1', hira('あ'))).toEqual([{ type: 'text', text: 'あ、1' }]);
+    expect(inline('あ、1', hira('あ'))).toEqual([{ type: 'text', text: 'あ、1' }]);
   });
 
 
@@ -37,46 +38,46 @@ describe('renderKana', () => {
       const known = new Set([...w].filter((c) => !'ゃゅょ'.includes(c)));
       const units = (w.match(/[^ゃゅょ][ゃゅょ]?/g) ?? []).filter((u) => u.length === 2);
       for (const u of units) known.add(u);
-      expect(renderKana(w, known)).toEqual([{ type: 'text', text: w }]);
+      expect(inline(w, known)).toEqual([{ type: 'text', text: w }]);
     });
     it.each(words)('%s renders whole when base + small kana are unlocked separately', (w) => {
-      expect(renderKana(w, new Set([...w]))).toEqual([{ type: 'text', text: w }]);
+      expect(inline(w, new Set([...w]))).toEqual([{ type: 'text', text: w }]);
     });
     it.each(words)('%s is fully romaji when nothing is known', (w, romaji) => {
-      expect(renderKana(w, hira(''))).toEqual([{ type: 'romaji', text: romaji }]);
+      expect(inline(w, hira(''))).toEqual([{ type: 'romaji', text: romaji }]);
     });
     it('never mixes a base kana with the romaji of its small kana', () => {
-      expect(renderKana('きょう', hira('きう'))).toEqual([{ type: 'romaji', text: 'kyo' }, { type: 'text', text: 'う' }]);
-      expect(renderKana('きょう', new Set(['きょ', 'う']))).toEqual([{ type: 'text', text: 'きょう' }]);
+      expect(inline('きょう', hira('きう'))).toEqual([{ type: 'romaji', text: 'kyo' }, { type: 'text', text: 'う' }]);
+      expect(inline('きょう', new Set(['きょ', 'う']))).toEqual([{ type: 'text', text: 'きょう' }]);
     });
     it('katakana digraphs fall back to hiragana digraphs', () => {
-      expect(renderKana('シャツ', new Set(['しゃ', 'つ']))).toEqual([{ type: 'text', text: 'しゃつ' }]);
-      expect(renderKana('シャツ', new Set(['シャ', 'ツ']))).toEqual([{ type: 'text', text: 'シャツ' }]);
-      expect(renderKana('チョコ', hira(''))).toEqual([{ type: 'romaji', text: 'choko' }]);
+      expect(inline('シャツ', new Set(['しゃ', 'つ']))).toEqual([{ type: 'text', text: 'しゃつ' }]);
+      expect(inline('シャツ', new Set(['シャ', 'ツ']))).toEqual([{ type: 'text', text: 'シャツ' }]);
+      expect(inline('チョコ', hira(''))).toEqual([{ type: 'romaji', text: 'choko' }]);
     });
     it('keeps っ and ー consistent next to digraphs', () => {
-      expect(renderKana('ちょっと', new Set(['ちょ', 'っ', 'と']))).toEqual([{ type: 'text', text: 'ちょっと' }]);
-      expect(renderKana('ジュース', new Set(['ジュ', 'ス']))).toEqual([{ type: 'text', text: 'ジュース' }]);
+      expect(inline('ちょっと', new Set(['ちょ', 'っ', 'と']))).toEqual([{ type: 'text', text: 'ちょっと' }]);
+      expect(inline('ジュース', new Set(['ジュ', 'ス']))).toEqual([{ type: 'text', text: 'ジュース' }]);
     });
   });
 
   describe('katakana', () => {
     it('falls back to hiragana when katakana is locked but hiragana is known', () => {
-      expect(renderKana('テニス', hira('てにす'))).toEqual([{ type: 'text', text: 'てにす' }]);
+      expect(inline('テニス', hira('てにす'))).toEqual([{ type: 'text', text: 'てにす' }]);
     });
 
     it('falls back to romaji when neither script is known', () => {
-      expect(renderKana('テニス', hira(''))).toEqual([{ type: 'romaji', text: 'tenisu' }]);
+      expect(inline('テニス', hira(''))).toEqual([{ type: 'romaji', text: 'tenisu' }]);
     });
 
     it('shows real katakana once unlocked', () => {
-      expect(renderKana('テニス', hira('テニス'))).toEqual([{ type: 'text', text: 'テニス' }]);
+      expect(inline('テニス', hira('テニス'))).toEqual([{ type: 'text', text: 'テニス' }]);
     });
 
     it('handles the long vowel mark in romaji and in kana', () => {
-      expect(renderKana('コーヒー', hira(''))).toEqual([{ type: 'romaji', text: 'koohii' }]);
-      expect(renderKana('コーヒー', hira('こひ'))).toEqual([{ type: 'text', text: 'こーひー' }]);
-      expect(renderKana('コーヒー', hira('コヒ'))).toEqual([{ type: 'text', text: 'コーヒー' }]);
+      expect(inline('コーヒー', hira(''))).toEqual([{ type: 'romaji', text: 'koohii' }]);
+      expect(inline('コーヒー', hira('こひ'))).toEqual([{ type: 'text', text: 'こーひー' }]);
+      expect(inline('コーヒー', hira('コヒ'))).toEqual([{ type: 'text', text: 'コーヒー' }]);
     });
   });
 });
@@ -133,27 +134,27 @@ describe('stage 2 sentences with katakana loanwords', () => {
   // The example is stored once, with real katakana; JaText decides how to show it.
   const patterns = patternsRaw as { id: string; examples: { ja: string }[] }[];
   const ja = patterns.find((p) => p.id === 'masu-masen')!.examples.find((e) => e.ja.includes('コーヒー'))!.ja;
-  const text = (segments: ReturnType<typeof renderKana>) => segments.map((s) => (s.type === 'ruby' ? s.base : s.text)).join('');
+  const text = (segments: ReturnType<typeof inline>) => segments.map((s) => (s.type === 'ruby' ? s.base : s.type === 'kanaRuby' ? s.kana : s.text)).join('');
   const hiragana = 'わたしはをのみません';
 
   it('shows locked katakana as hiragana (stage 2)', () => {
-    const shown = text(renderKana(ja, hira(hiragana + 'こひ')));
+    const shown = text(inline(ja, hira(hiragana + 'こひ')));
     expect(shown).toContain('こーひー');
     expect(shown).not.toContain('コ');
   });
 
   it('shows the same example in real katakana once those katakana are unlocked (stage 3)', () => {
-    const shown = text(renderKana(ja, hira(hiragana + 'こひコヒ')));
+    const shown = text(inline(ja, hira(hiragana + 'こひコヒ')));
     expect(shown).toContain('コーヒー');
   });
 
   it('falls back to romaji while neither script is known', () => {
-    expect(text(renderKana('コーヒー', hira('')))).toBe('koohii');
+    expect(text(inline('コーヒー', hira('')))).toBe('koohii');
   });
 
   it('only the unlocked katakana change script', () => {
     // コ known, ヒ not: コ stays katakana, ヒ falls back to hiragana
-    expect(text(renderKana('コーヒー', hira('こひコ')))).toBe('コーひー');
+    expect(text(inline('コーヒー', hira('こひコ')))).toBe('コーひー');
   });
 });
 
@@ -200,5 +201,89 @@ describe('renderPlan furigana setting', () => {
     const tokidoki = { kana: 'ときどき', kanji: '時々' };
     expect(renderPlan(tokidoki, state('ときどき', [['時', 1]]))).toEqual([{ type: 'ruby', base: '時々', reading: 'ときどき' }]);
     expect(renderPlan(tokidoki, state('ときどき', [['時', 5]]))).toEqual([{ type: 'text', text: '時々' }]);
+  });
+});
+
+describe('QA-038: a locked っ is never dropped (inline)', () => {
+  const all = (skip: string) => new Set([...'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽ'].filter((c) => !skip.includes(c)));
+  const shown = (w: string, known: ReadonlySet<string>) => inline(w, known).map((s) => (s.type === 'kanaRuby' ? s.kana : s.type === 'ruby' ? s.base : s.text)).join('');
+  it('doubles the next consonant: みっつ -> mittsu', () => {
+    expect(inline('みっつ', hira(''))).toEqual([{ type: 'romaji', text: 'mittsu' }]);
+    expect(shown('みっつ', all('っ'))).toBe('みttsu');
+  });
+  it('pulls the next known kana into the romaji run: がっこう -> gakkou, まって -> matte', () => {
+    expect(shown('がっこう', all('っ'))).toBe('がkkoう');
+    expect(shown('まって', all('っ'))).toBe('まtte');
+    expect(shown('ちょっと', all('っ').add('ちょ'))).toBe('ちょtto');
+  });
+  it('spells a っ that has nothing to double (end of word, before a vowel)', () => {
+    expect(inline('あっ', hira(''))).toEqual([{ type: 'romaji', text: 'axtsu' }]);
+    expect(shown('あっ', all('っ'))).toBe('あxtsu'.replace('あ', 'あ'));
+  });
+  it('handles katakana ッ', () => {
+    expect(inline('ホッチキス', hira(''))).toEqual([{ type: 'romaji', text: 'hotchikisu' }]);
+    expect(shown('サッカー', hira('かー'))).toBe('sakkaa');
+  });
+  it('keeps っ when known', () => {
+    expect(inline('がっこう', new Set([...'がっこう']))).toEqual([{ type: 'text', text: 'がっこう' }]);
+  });
+});
+
+describe('QA-036: unknown kana are kana with romaji ruby (default mode)', () => {
+  it('おはよう with は unknown -> plain kana + ruby over は', () => {
+    expect(renderKana('おはよう', hira('およう'))).toEqual([
+      { type: 'text', text: 'お' },
+      { type: 'kanaRuby', kana: 'は', romaji: 'ha' },
+      { type: 'text', text: 'よう' },
+    ]);
+  });
+  it('fully known text has no ruby, nothing known has ruby on every unit', () => {
+    expect(renderKana('ねこ', hira('ねこ'))).toEqual([{ type: 'text', text: 'ねこ' }]);
+    expect(renderKana('ねこ', hira(''))).toEqual([
+      { type: 'kanaRuby', kana: 'ね', romaji: 'ne' },
+      { type: 'kanaRuby', kana: 'こ', romaji: 'ko' },
+    ]);
+  });
+  it('yoon units stay intact', () => {
+    expect(renderKana('きょう', hira('う'))).toEqual([
+      { type: 'kanaRuby', kana: 'きょ', romaji: 'kyo' },
+      { type: 'text', text: 'う' },
+    ]);
+    expect(renderKana('きょう', new Set(['きょ', 'う']))).toEqual([{ type: 'text', text: 'きょう' }]);
+  });
+  it('っ shows the doubled consonant of the next unit over itself', () => {
+    expect(renderKana('みっつ', hira('みつ'))).toEqual([
+      { type: 'text', text: 'み' },
+      { type: 'kanaRuby', kana: 'っ', romaji: 't' },
+      { type: 'text', text: 'つ' },
+    ]);
+    expect(renderKana('まって', hira('まて'))).toContainEqual({ type: 'kanaRuby', kana: 'っ', romaji: 't' });
+    expect(renderKana('あっ', hira('あ'))).toContainEqual({ type: 'kanaRuby', kana: 'っ', romaji: 'xtsu' });
+    expect(renderKana('ホッチ', hira(''))).toContainEqual({ type: 'kanaRuby', kana: 'っ', romaji: 't' });
+  });
+  it('ー stays a plain mark; spaces and punctuation pass through', () => {
+    expect(renderKana('コーヒー', hira('こ'))).toEqual([
+      { type: 'text', text: 'こー' },
+      { type: 'kanaRuby', kana: 'ひ', romaji: 'hi' },
+      { type: 'text', text: 'ー' },
+    ]);
+    expect(renderKana('しちじ じゅうごふん、', hira('しちゅうごふ'))).toContainEqual({ type: 'kanaRuby', kana: 'じ', romaji: 'ji' });
+  });
+  it('katakana falls back to hiragana, and to hiragana + ruby when that is unknown too', () => {
+    expect(renderKana('テニス', hira('てにす'))).toEqual([{ type: 'text', text: 'てにす' }]);
+    expect(renderKana('テニス', hira('て'))).toEqual([
+      { type: 'text', text: 'て' },
+      { type: 'kanaRuby', kana: 'に', romaji: 'ni' },
+      { type: 'kanaRuby', kana: 'す', romaji: 'su' },
+    ]);
+  });
+  it('locked kanji fall back to their reading, with the same ruby rule', () => {
+    expect(renderPlan({ kana: 'たべる', kanji: '食べる' }, state('べる'))).toEqual([
+      { type: 'kanaRuby', kana: 'た', romaji: 'ta' },
+      { type: 'text', text: 'べる' },
+    ]);
+  });
+  it("'inline' keeps the old mixed romaji", () => {
+    expect(renderPlan({ kana: 'たべる' }, state('る'), 'inline')).toEqual([{ type: 'romaji', text: 'tabe' }, { type: 'text', text: 'る' }]);
   });
 });
