@@ -65,7 +65,7 @@ test('Pages: exportar con nombre fechado e importar desde un archivo (perfil mó
   expect(xp).toBe(77);
 });
 
-test('Pages: sin voz japonesa, el botón de audio intenta un clip estático bajo la base y se desactiva tras el 404', async ({ page, consoleLog }, info) => {
+test('Pages: sin voz japonesa, el audio consulta solo el manifiesto bajo la base (sin .mp3 inexistentes) y el botón se desactiva', async ({ page, consoleLog }, info) => {
   void consoleLog;
   await page.addInitScript(() => { delete (window as unknown as Record<string, unknown>).speechSynthesis; });
   const audio: string[] = [];
@@ -75,5 +75,5 @@ test('Pages: sin voz japonesa, el botón de audio intenta un clip estático bajo
   await btn.tap();
   await expect(btn).toBeDisabled();
   measure(info, 'static audio fallback', { requests: audio.map(decodeURIComponent) });
-  expect(audio[0]).toBe(`${BASE}audio/${encodeURIComponent('あ')}.mp3`);
+  expect(audio).toEqual([`${BASE}audio/manifest.json`]);
 });
