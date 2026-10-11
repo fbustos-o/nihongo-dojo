@@ -6,6 +6,7 @@ import { content } from '../domain/contentLoader';
 import type { Lesson } from '../domain/schema';
 import { CONFUSABLE_GROUPS } from '../games/confusables';
 import { kanaHint, romajiLabel } from '../games/kanaUtils';
+import { gameHasMaterial } from '../games/lessonScope';
 import { getGame, preloadGame } from '../games/registry';
 import { Loading } from '../components/Loading';
 import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, sampleWords, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
@@ -78,6 +79,8 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
     () =>
       playableGames(lesson).filter((id) => {
         if (id === 'kanji') return data.kanji.length > 0;
+        // syntax / mini-reading / dialogues without any (own or inherited) material are skipped
+        if (!gameHasMaterial(id, lesson, content)) return false;
         const needsKana = id === 'kana-recognize' || id === 'kana-write';
         return needsKana ? data.kana.length > 0 : data.words.length > 0 || data.kana.length > 0;
       }),

@@ -120,7 +120,7 @@ describe('unlockKanji', () => {
     recordAnswer('食', 'kanji', true);
     recordAnswer('食', 'kanji', true);
     unlockKanji(['食']);
-    expect(useProgress.getState().items['kanji:食']).toMatchObject({ srsStage: 3, correct: 3 });
+    expect(useProgress.getState().items['kanji:食']).toMatchObject({ srsStage: 1, correct: 3 });
   });
 
   it('lifts a kanji that is still at stage 0 and does not duplicate unlocked ones', () => {

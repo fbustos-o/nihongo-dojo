@@ -119,6 +119,28 @@ function lenientParticleVariants(s: string): string[] {
   return [...variants];
 }
 
+const MAX_PARTICLE_TOKENS = 4;
+
+/**
+ * Spellings of an expected answer with its isolated topic / direction particle tokens (a whitespace-separated
+ * 「は」 or 「へ」) read as they sound (わ / え), in every combination (QA-012). Only whole tokens count, so words
+ * that contain は / へ (はな, へや, こんにちは) are untouched. Text without spaces has no tokens: only the
+ * end-of-string rule of `lenientParticleVariants` applies there.
+ */
+export function particleSpellings(expected: string): string[] {
+  const tokens = expected.normalize('NFKC').trim().split(/\s+/u);
+  const slots = tokens.flatMap((t, i) => (t === 'は' || t === 'へ' ? [i] : [])).slice(0, MAX_PARTICLE_TOKENS);
+  const spellings: string[] = [];
+  for (let mask = 0; mask < 1 << slots.length; mask++) {
+    const copy = [...tokens];
+    slots.forEach((index, bit) => {
+      if (mask & (1 << bit)) copy[index] = tokens[index] === 'は' ? 'わ' : 'え';
+    });
+    spellings.push(copy.join(' '));
+  }
+  return spellings;
+}
+
 function expectedVariants(normalized: string, strict: boolean): string[] {
   const bases = [normalized, ...expandLongMarks(normalized)];
   return strict ? bases : [...new Set(bases.flatMap(lenientParticleVariants))];
@@ -141,7 +163,8 @@ export function checkAnswer(input: string, expected: string | readonly string[],
   for (const [index, candidate] of candidates.entries()) {
     const normalizedInput = normalizeAnswer(input, options, targetOf(candidate));
     if (index === 0) primaryInput = normalizedInput;
-    const variants = expectedVariants(normalizeAnswer(candidate, options, targetOf(candidate)), strict);
+    const spellings = strict ? [candidate] : particleSpellings(candidate);
+    const variants = [...new Set(spellings.flatMap((s) => expectedVariants(normalizeAnswer(s, options, targetOf(candidate)), strict)))];
     if (normalizedInput !== '' && variants.includes(normalizedInput)) {
       return { correct: true, normalizedInput, expected: candidate, nearMiss: false };
     }

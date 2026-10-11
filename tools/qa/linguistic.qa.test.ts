@@ -63,7 +63,7 @@ describe('conjugateVerb vs the teacher tables', () => {
 // Teacher's い-adjective table (photo 144252): 29 adjectives + the たい suffix.
 const TEACHER_IADJ = ['すばらしい', 'おもしろい', 'あまい', 'からい', 'かわいい', 'いそがしい', 'あつい', 'さむい', 'つめたい', 'すずしい', 'あたたかい', 'おおきい', 'ちいさい', 'ちかい', 'とおい', 'あたらしい', 'ふるい', 'たかい', 'やすい', 'はやい', 'おそい', 'おいしい', 'うまい', 'いい', 'よろしい', 'わるい', 'すごい', 'ない', 'ほしい'];
 describe('conjugateIAdjective vs the teacher table', () => {
-  it.fails('QA-004: かわいい conjugates as かわいかったです / かわいくないです (not かわよ-)', () => {
+  it('QA-004: かわいい conjugates as かわいかったです / かわいくないです (not かわよ-)', () => {
     const f = conjugateIAdjective('かわいい');
     expect([f.past.kana, f.negative.kana]).toEqual(['かわいかったです', 'かわいくないです']);
   });

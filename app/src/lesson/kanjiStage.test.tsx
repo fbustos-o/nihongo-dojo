@@ -113,7 +113,8 @@ describe('kanji lessons: unlocking', () => {
     syncKnownKanji();
     const s = useProgress.getState();
     expect(new Set(s.unlockedKanji)).toEqual(unlockedKanjiForLessons(content.curriculum, ['kanji-3']));
-    expect(s.items['kanji:一']!.srsStage).toBe(2);
+    // the first answer introduces the item (stage 1); the second came too early to advance it
+    expect(s.items['kanji:一']).toMatchObject({ srsStage: 1, correct: 2 });
     expect(s.items['kanji:二']!.srsStage).toBe(1);
   });
 });

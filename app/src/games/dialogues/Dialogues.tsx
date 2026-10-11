@@ -127,13 +127,13 @@ interface Pos {
   heard?: number;
 }
 
-export function Dialogues({ words, rounds, dialogueIds, onFinish }: GameProps) {
+export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const [role, setRole] = useState<Speaker>('B');
   const [showEs, setShowEs] = useState(false);
   const [last, setLast] = useState<FeedbackMessage | null>(null);
   const [queue] = useState(() => {
-    const list = eligibleDialogues(content.dialogues, content.curriculum, words, dialogueIds);
+    const list = eligibleDialogues(content.dialogues, content.curriculum, words, dialogueIds, lessonId);
     return rounds === undefined ? shuffle(list) : list;
   });
   const playable = queue.filter((d) => hasRoleLine(d, role));

@@ -73,8 +73,18 @@ export interface ClockQuestion {
   label: string;
 }
 
-export function makeClockQuestion(kind: ClockQuestion['kind'], tier: number, rng: Rng): ClockQuestion {
-  const time = randomClockTime(tier, rng);
+/** `time:4:30` -> {h: 4, m: 30}; null when the id is not a valid time id. */
+export function parseTimeItemId(itemId: string): ClockTime | null {
+  const match = /^time:(\d{1,2}):(\d{1,2})$/.exec(itemId);
+  if (!match) return null;
+  const h = Number(match[1]);
+  const m = Number(match[2]);
+  return h >= 1 && h <= 12 && m <= 59 ? { h, m } : null;
+}
+
+/** `fixed` makes the question about exactly that time (review of a due `time:h:m` item). */
+export function makeClockQuestion(kind: ClockQuestion['kind'], tier: number, rng: Rng, fixed?: ClockTime): ClockQuestion {
+  const time = fixed ?? randomClockTime(tier, rng);
   const reading = readClock(time);
   const itemId = timeItemId(time);
   return {

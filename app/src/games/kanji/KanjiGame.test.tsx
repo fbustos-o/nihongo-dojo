@@ -113,7 +113,11 @@ describe('KanjiGame', () => {
     const word = { kana: 'たべる', kanji: '食べる' };
     const { container } = render(<JaText word={word} />);
     expect(container.querySelector('ruby')).not.toBeNull();
-    for (let i = 0; i < 4; i++) useProgress.getState().recordAnswer('食', 'kanji', true); // stage 1 -> 5
+    for (let i = 0; i < 4; i++) {
+      // reviewed when due: each right answer climbs one stage (1 -> 5)
+      useProgress.setState((s) => ({ items: { ...s.items, 'kanji:食': { ...s.items['kanji:食']!, nextDue: 1 } } }));
+      useProgress.getState().recordAnswer('食', 'kanji', true);
+    }
     expect(useProgress.getState().items['kanji:食']!.srsStage).toBe(5);
     // re-render picks the new state up
     const { container: after } = render(<JaText word={word} />);

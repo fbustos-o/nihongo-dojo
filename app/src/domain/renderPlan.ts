@@ -57,6 +57,19 @@ function pushMerged(segments: Segment[], segment: Segment): void {
   }
 }
 
+const SMALL_KANA = new Set('ゃゅょぁぃぅぇぉゎャュョァィゥェォヮ');
+
+/** A unit (single kana or digraph) is known when the set holds it whole or every one of its characters. */
+const unitKnown = (unit: string, known: ReadonlySet<string>): boolean =>
+  known.has(unit) || (Array.from(unit).length > 1 && Array.from(unit).every((c) => known.has(c)));
+
+/** How a kana unit is shown: itself, its hiragana when only that is known (katakana), or undefined (-> romaji). */
+function readableForm(unit: string, known: ReadonlySet<string>): string | undefined {
+  if (unitKnown(unit, known)) return unit;
+  const hiragana = toHiragana(unit);
+  return hiragana !== unit && unitKnown(hiragana, known) ? hiragana : undefined;
+}
+
 /**
  * Renders a kana string for the learner: known kana stay as they are, unknown
  * katakana falls back to the equivalent hiragana, and anything still unknown
@@ -72,7 +85,9 @@ export function renderKana(text: string, knownKana: ReadonlySet<string>): Segmen
     pendingRomaji = '';
   };
 
-  for (const char of text) {
+  const chars = Array.from(text);
+  for (let i = 0; i < chars.length; i++) {
+    const char = chars[i]!;
     if (char === LONG_MARK && lastWasKana) {
       if (pendingRomaji) pendingRomaji += char;
       else pushMerged(segments, { type: 'text', text: char });
@@ -81,13 +96,19 @@ export function renderKana(text: string, knownKana: ReadonlySet<string>): Segmen
     lastWasKana = false;
     if (isHiragana(char) || isKatakana(char)) {
       lastWasKana = true;
-      const hiragana = toHiragana(char);
-      const shown = knownKana.has(char) ? char : knownKana.has(hiragana) && hiragana !== char ? hiragana : undefined;
+      // a base kana followed by a small ゃ/ゅ/ょ/ぁ… is one unit (yoon digraph), as in `splitKanaUnits`
+      const next = chars[i + 1];
+      let unit = char;
+      if (next && SMALL_KANA.has(next) && !SMALL_KANA.has(char)) {
+        unit = char + next;
+        i++;
+      }
+      const shown = readableForm(unit, knownKana);
       if (shown) {
         flush();
         pushMerged(segments, { type: 'text', text: shown });
       } else {
-        pendingRomaji += char;
+        pendingRomaji += unit;
       }
     } else {
       flush();

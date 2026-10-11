@@ -4,6 +4,7 @@ import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
 import { ExtraKanjiContext } from '../../state/extraKana';
 import { useProgress } from '../../state/progressStore';
+import { scopedPatterns } from '../lessonScope';
 import { kanaIndex, tokensWithKanji } from '../kanji/kanjiLogic';
 import { ChoiceRound, GameFrame, useGameSession } from '../shared';
 import shared from '../shared/games.module.css';
@@ -17,12 +18,13 @@ const QUESTIONS_PER_TEXT = 3;
  * A short text (4-6 sentences taken from the lesson's pattern examples, shown with JaText so only
  * unlocked kana appear as kana) followed by three multiple-choice questions in Spanish.
  */
-export function MiniReading({ patterns, rounds, onFinish }: GameProps) {
+export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
-  const source = useMemo(() => (patterns && patterns.length > 0 ? patterns : content.patterns), [patterns]);
+  // own patterns, else those of the lessons it builds on (never the whole corpus: QA-015)
+  const source = useMemo(() => scopedPatterns(patterns, lessonId, content.curriculum, content.patterns), [patterns, lessonId]);
   const pool = useMemo(() => sentencesOf(content.patterns), []);
-  const make = (): ReadingText | null => makeReadingText(source, pool) ?? makeReadingText(content.patterns, pool);
+  const make = (): ReadingText | null => makeReadingText(source, pool);
 
   // Words with unlocked kanji (or the lesson's new ones) are shown in kanji; JaText adds the furigana.
   const unlocked = useProgress((s) => s.unlockedKanji);

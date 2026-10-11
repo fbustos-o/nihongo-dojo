@@ -1,4 +1,5 @@
-import { ProgressSchema, STORAGE_KEY, type Progress } from './progressSchema';
+import { create } from 'zustand';
+import { ProgressSchema, STORAGE_KEY, migrate, type Progress } from './progressSchema';
 
 /** Set when saved progress existed but could not be used (shown once as a banner). */
 export const loadIssue: { message: string | null } = { message: null };
@@ -12,7 +13,9 @@ export function parseProgress(text: string): ParseResult {
   } catch {
     return { ok: false, error: 'El archivo no es un JSON válido.' };
   }
-  const result = ProgressSchema.safeParse(json);
+  const migrated = migrate(json);
+  if (!migrated.ok) return { ok: false, error: migrated.error };
+  const result = ProgressSchema.safeParse(migrated.json);
   if (!result.success) {
     const issue = result.error.issues[0];
     return { ok: false, error: `Progreso inválido (${issue?.path.join('.') || 'raíz'}: ${issue?.message}).` };
@@ -55,12 +58,17 @@ function requestPersistentStorage(): void {
   }
 }
 
+/** Whether the last attempt to save the progress failed (quota full, private mode…); the Layout shows a banner. */
+export const useSaveStatus = create<{ failed: boolean }>()(() => ({ failed: false }));
+
 export function saveProgress(progress: Progress): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     requestPersistentStorage();
+    if (useSaveStatus.getState().failed) useSaveStatus.setState({ failed: false });
   } catch (error) {
     console.warn('[progress] no se pudo guardar el progreso', error);
+    if (!useSaveStatus.getState().failed) useSaveStatus.setState({ failed: true });
   }
 }
 

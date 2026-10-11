@@ -205,8 +205,8 @@ export function batchProps(batch: ReviewBatch, data: ReviewData): BatchProps | n
       return { kana: [], words: [], dialogueIds, rounds: ids.length };
     }
     default:
-      // numbers / clock / calendar: questions are generated at random (weighted by SRS), one round per due item
-      return { kana: [], words: [], rounds: ids.length };
+      // numbers / clock / calendar: the game generates round i from the i-th due id (`number:416`, `time:4:30`, `date:4:1`)
+      return { kana: [], words: [], onlyItems: ids, rounds: ids.length };
   }
 }
 

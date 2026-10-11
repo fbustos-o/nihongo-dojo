@@ -118,3 +118,17 @@ describe('labels', () => {
     }
   });
 });
+
+describe('QA-004: only いい-type compounds use よ-', () => {
+  it.each([
+    ['かわいい', 'かわいかったです', 'かわいくないです'],
+    ['おいしい', 'おいしかったです', 'おいしくないです'],
+    ['おおきい', 'おおきかったです', 'おおきくないです'],
+    ['いい', 'よかったです', 'よくないです'],
+    ['かっこいい', 'かっこよかったです', 'かっこよくないです'],
+    ['あたまがいい', 'あたまがよかったです', 'あたまがよくないです'],
+  ])('%s', (dict, past, negative) => {
+    const f = conjugateIAdjective(dict);
+    expect([f.past.kana, f.negative.kana]).toEqual([past, negative]);
+  });
+});

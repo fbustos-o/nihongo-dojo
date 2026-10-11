@@ -61,15 +61,39 @@ export interface CalendarQuestion {
 
 const weekdayReadings = (except: number): string[] => [0, 1, 2, 3, 4, 5, 6].filter((w) => w !== except).map((w) => readDayOfWeek(w).kana);
 
-export function makeCalendarQuestion(kind: CalendarKind, rng: Rng): CalendarQuestion {
-  const q = buildCalendarQuestion(kind, rng);
+/** What a due `date:` progress id asks for. */
+export type FixedDate =
+  | { kind: 'date' | 'weekday'; today: DayRef }
+  | { kind: 'relWeekday'; today: DayRef; direction: 1 | -1 };
+
+/**
+ * Parses `date:4:1` (read the date), `date:4:1:wd` (its weekday) and `date:wd:3:next|prev` (tomorrow / yesterday's
+ * weekday); null for anything else or an impossible date.
+ */
+export function parseDateItemId(itemId: string): FixedDate | null {
+  const rel = /^date:wd:([0-6]):(next|prev)$/.exec(itemId);
+  if (rel) {
+    // 2026-01-04 is a Sunday, so day 4 + weekday is a January day with that weekday
+    return { kind: 'relWeekday', today: { month: 1, day: 4 + Number(rel[1]) }, direction: rel[2] === 'next' ? 1 : -1 };
+  }
+  const match = /^date:(\d{1,2}):(\d{1,2})(:wd)?$/.exec(itemId);
+  if (!match) return null;
+  const month = Number(match[1]);
+  const day = Number(match[2]);
+  if (month < 1 || month > 12 || day < 1 || day > daysInMonth(month)) return null;
+  return { kind: match[3] ? 'weekday' : 'date', today: { month, day } };
+}
+
+/** `fixed` makes the question about exactly that item (review of a due item). */
+export function makeCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate): CalendarQuestion {
+  const q = buildCalendarQuestion(fixed?.kind ?? kind, rng, fixed);
   const accepted = new Set([q.reading.kana, ...q.reading.alternatives]);
   return { ...q, related: [...new Set(q.related)].filter((r) => !accepted.has(r)) };
 }
 
-function buildCalendarQuestion(kind: CalendarKind, rng: Rng): CalendarQuestion {
-  let today = randomDay(rng);
-  const direction: 1 | -1 = rng() < 0.5 ? 1 : -1;
+function buildCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate): CalendarQuestion {
+  let today = fixed?.today ?? randomDay(rng);
+  const direction: 1 | -1 = fixed && 'direction' in fixed ? fixed.direction : rng() < 0.5 ? 1 : -1;
   const format = rng() < 0.35 ? 'choice' : 'type';
   // Relative questions stay inside the year.
   if (kind === 'relDate' || kind === 'relWeekday') {

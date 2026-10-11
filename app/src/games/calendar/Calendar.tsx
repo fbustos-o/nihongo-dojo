@@ -6,7 +6,7 @@ import { pickWeighted, uniqueById, type Rng } from '../numbers/random';
 import numberStyles from '../numbers/numbers.module.css';
 import type { GameProps } from '../types';
 import styles from './calendar.module.css';
-import { CALENDAR_ITEM_KIND, KIND_LABELS, SPANISH_MONTHS, SPANISH_WEEKDAYS, makeCalendarQuestion, weekdayOf, type CalendarKind, type CalendarQuestion } from './calendarLogic';
+import { CALENDAR_ITEM_KIND, KIND_LABELS, SPANISH_MONTHS, SPANISH_WEEKDAYS, makeCalendarQuestion, parseDateItemId, weekdayOf, type CalendarKind, type CalendarQuestion } from './calendarLogic';
 import { MonthGrid } from './MonthGrid';
 
 type ModeChoice = 'mix' | CalendarKind;
@@ -84,17 +84,20 @@ export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewPr
 
 const readDayOfWeekEs = (d: { month: number; day: number }) => SPANISH_WEEKDAYS[weekdayOf(d)];
 
-export function Calendar({ rounds, sequential, onFinish }: GameProps) {
+export function Calendar({ rounds, sequential, onlyItems, onFinish }: GameProps) {
   const session = useGameSession({ rounds, onFinish });
   const pick = useQuestionPicker(CALENDAR_ITEM_KIND, sequential);
   const [mode, setMode] = useState<ModeChoice>('mix');
 
-  const make = (choice: ModeChoice): CalendarQuestion => {
+  const make = (choice: ModeChoice, round: number): CalendarQuestion => {
+    // review: round i asks exactly the i-th due date item
+    const fixed = onlyItems?.[round] ? parseDateItemId(onlyItems[round]!) : null;
+    if (fixed) return makeCalendarQuestion(fixed.kind, Math.random, fixed);
     const kind = choice === 'mix' ? pickWeighted(Math.random, KINDS, (k) => KIND_WEIGHT[k]) : choice;
     return pick(uniqueById(Array.from({ length: 6 }, () => makeCalendarQuestion(kind, Math.random))));
   };
 
-  const [question, setQuestion] = useState<CalendarQuestion>(() => make('mix'));
+  const [question, setQuestion] = useState<CalendarQuestion>(() => make('mix', 0));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
 
   return (
@@ -105,7 +108,7 @@ export function Calendar({ rounds, sequential, onFinish }: GameProps) {
           value={mode}
           onChange={(next) => {
             setMode(next);
-            setQuestion(make(next));
+            setQuestion(make(next, session.round));
           }}
           options={[{ value: 'mix', label: 'Mezcla' }, ...KINDS.map((k) => ({ value: k, label: KIND_LABELS[k] }))]}
         />
@@ -121,7 +124,7 @@ export function Calendar({ rounds, sequential, onFinish }: GameProps) {
         onDone={(firstTry) => {
           setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${question.reading.kana} (${question.reading.romaji})`, id: session.round } : null);
           session.next();
-          setQuestion(make(mode));
+          setQuestion(make(mode, session.round + 1));
         }}
       />
     </GameFrame>

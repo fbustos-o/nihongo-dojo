@@ -1,4 +1,5 @@
 import { Suspense, useMemo, useState } from 'react';
+import { useNow } from '../hooks/useNow';
 import { Link } from 'react-router-dom';
 import { Loading } from '../components/Loading';
 import { groupParam } from '../review/ReviewPage';
@@ -40,7 +41,7 @@ export function PracticePage() {
   );
   const [game, setGame] = useState<GameId>('kana-recognize');
   const [session, setSession] = useState<Session | null>(null);
-  const [now] = useState(() => Date.now());
+  const now = useNow();
   const unlockedKanji = useProgress((s) => s.unlockedKanji);
   const [fromLesson, setFromLesson] = useState(KANJI_LESSONS[0] ?? 3);
   const [toLesson, setToLesson] = useState(KANJI_LESSONS.at(-1) ?? 12);

@@ -6,6 +6,7 @@ import {
   conjugateNaAdjective,
   conjugateNoun,
   conjugateVerb,
+  isYoiCompound,
   type IAdjFormId,
   type NaAdjFormId,
   type NounFormId,
@@ -182,7 +183,7 @@ export function ruleHint(word: Word, category: Category, form: AnyForm): string 
   }
   const tense = form as NounFormId;
   if (category === 'i-adj') {
-    if (word.kana.endsWith('いい')) return 'Adjetivo い: いい es irregular, usa よ- (よかったです, よくないです)';
+    if (isYoiCompound(word.kana)) return 'Adjetivo い: いい es irregular, usa よ- (よかったです, よくないです)';
     const rule = { present: 'el adjetivo + です', past: 'quita い + かったです', negative: 'quita い + くないです', negativePast: 'quita い + くなかったです' }[tense as 'present'];
     return `Adjetivo い: ${rule}`;
   }
@@ -200,10 +201,40 @@ export interface ConjEntry {
 
 const PREFIX: Record<Category, string> = { verb: 'verb', 'i-adj': 'iadj', 'na-adj': 'naadj', noun: 'noun' };
 
-/** All (word, form) questions of a category. */
+/** Forms that need a volitional subject: invitations, requests and desires. */
+const VOLITIONAL_FORMS: readonly VerbFormId[] = ['mashou', 'mashouka', 'tekudasai', 'taidesu', 'takunaidesu'];
+
+/**
+ * Non-volitional verbs (existence, states, happenings, "need"): ある, いる (estar / necesitar), わかる, かかる…
+ * Their ましょう / てください / たい forms are valid morphology but not natural Japanese (ありましょうか,
+ * あってください, わかりたいです), so the quiz does not ask them (QA-033). Keys are vocabulary ids.
+ */
+export const NON_VOLITIONAL_VERBS: ReadonlySet<string> = new Set([
+  'aru',
+  'iru',
+  'iru-necesitar',
+  'wakaru',
+  'kakaru',
+  'naru',
+  'kawaku',
+  'okoru',
+  'yureru',
+  'yaseru',
+  'nureru',
+  'utsuru',
+  'ureru',
+]);
+
+/** True when a (verb, form) question would be nonsense for that verb. */
+export const isUnnaturalForm = (word: Pick<Word, 'id'>, category: Category, form: AnyForm): boolean =>
+  category === 'verb' && NON_VOLITIONAL_VERBS.has(word.id) && (VOLITIONAL_FORMS as readonly string[]).includes(form);
+
+/** All (word, form) questions of a category, without the unnatural ones (see `NON_VOLITIONAL_VERBS`). */
 export function conjEntries(words: readonly Word[], category: Category, forms: readonly AnyForm[]): ConjEntry[] {
   return conjugableWords(words, category).flatMap((word) =>
-    forms.map((form) => ({ id: `${PREFIX[category]}:${word.id}:${form}`, category, word, form })),
+    forms
+      .filter((form) => !isUnnaturalForm(word, category, form))
+      .map((form) => ({ id: `${PREFIX[category]}:${word.id}:${form}`, category, word, form })),
   );
 }
 

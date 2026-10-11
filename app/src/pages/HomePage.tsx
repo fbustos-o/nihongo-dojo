@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
+import { useNow } from '../hooks/useNow';
 import { Link } from 'react-router-dom';
 import { curriculum } from '../domain/curriculumContent';
 import { levelFromXp } from '../engine/levels';
@@ -19,7 +20,8 @@ export function HomePage() {
   const daily = useProgress((s) => s.daily);
   const items = useProgress((s) => s.items);
   const completedIds = useProgress((s) => s.completedLessons);
-  const [now] = useState(() => new Date());
+  const nowMs = useNow();
+  const now = useMemo(() => new Date(nowMs), [nowMs]);
 
   const level = levelFromXp(xp);
   const week = useMemo(() => lastSevenDays(daily, streak, now), [daily, streak, now]);

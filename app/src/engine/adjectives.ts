@@ -50,11 +50,19 @@ export const ADJ_FORM_LABELS_ES: Record<IAdjFormId | NaAdjFormId | NounFormId, A
   plainNegativePast: { label: 'Negativo pasado plano', explanation: 'Negativo pasado sin です (おいしくなかった).' },
 };
 
+const YOI_COMPOUND_SUFFIXES = ['かっこいい', 'がいい'] as const;
+
+/** True for いい and compounds built on it ("good"): いい, かっこいい, あたまがいい, ねつがいい… (not かわいい). */
+export function isYoiCompound(dict: string): boolean {
+  return dict === 'いい' || YOI_COMPOUND_SUFFIXES.some((suffix) => dict.endsWith(suffix));
+}
+
 /** Stem of an い-adjective; いい is the irregular よい (よかった, よくない). */
 export function iAdjStem(dict: string): string {
   if (dict.length < 2 || !dict.endsWith('い')) throw new Error(`An い-adjective must end in い: ${dict}`);
-  // いい itself and compounds (かっこいい, ねつがいい…) use よ- for every inflection except the dictionary form.
-  if (dict.endsWith('いい')) return dict.slice(0, -2) + 'よ';
+  // いい itself and compounds meaning "good" (かっこいい, あたまがいい…) use よ- for every inflection except the
+  // dictionary form. Other adjectives that merely end in いい (かわいい, おおきい…) are regular.
+  if (isYoiCompound(dict)) return dict.slice(0, -2) + 'よ';
   return dict.slice(0, -1);
 }
 

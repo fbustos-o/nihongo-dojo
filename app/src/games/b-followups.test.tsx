@@ -107,6 +107,8 @@ describe('B5: kanji partial credit from words', () => {
     useProgress.getState().unlockKanji(['食']);
     const w = word('taberu');
     const kanjiItem = () => useProgress.getState().items[itemKey('kanji', '食')]!;
+    // the kanji is due for review, so the credit can advance it
+    useProgress.setState((s) => ({ items: { ...s.items, 'kanji:食': { ...kanjiItem(), nextDue: 1 } } }));
     render(<KanjiGame kanji={[]} words={[w]} kana={[]} rounds={2} />);
     const input = () => screen.getByLabelText('Lectura en kana');
     await u.type(input(), `${w.romaji}{Enter}`);

@@ -43,7 +43,6 @@ test('práctica sin filas seleccionadas no se puede empezar', async ({ page, con
 // QA-002: every answer moves the SRS stage, even when the item is not due. 45 correct answers in a few
 // minutes of free practice burn the five kana (stage 9 = "Quemado", never reviewed again).
 test('SRS: practicar sin parar no debería quemar ítems que no tocaba repasar (QA-002)', async ({ page, consoleLog }) => {
-  test.fail(true, 'QA-002: recordAnswer avanza el SRS en cada acierto aunque el ítem no esté vencido');
   void consoleLog;
   await page.goto('/practica');
   await page.getByRole('checkbox', { name: 'Básicos (hiragana)' }).uncheck();
