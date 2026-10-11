@@ -56,7 +56,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
 
   return (
     <GameFrame session={session}>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       {answered?.origin && (
         <p className={`muted ${styles.hint}`} data-testid="origin" role="note">
           Pronunciación original: <JaText word={answered} /> ← {answered.origin}

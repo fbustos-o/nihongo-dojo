@@ -65,7 +65,7 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
 
   return (
     <GameFrame session={session}>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       {question.kind === 'choice' && (
         <ChoiceRound
           key={session.round}

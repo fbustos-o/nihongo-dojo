@@ -64,7 +64,7 @@ export function Listen({ kana, words, rounds, sequential, onFinish }: GameProps)
           Tu navegador no tiene una voz en japonés: sin audio, se muestra el romaji en su lugar y eliges el kana que corresponde.
         </p>
       )}
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <ChoiceRound
         key={session.round}
         prompt={prompt}

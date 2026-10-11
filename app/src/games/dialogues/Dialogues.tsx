@@ -235,7 +235,7 @@ export function Dialogues({ words, rounds, dialogueIds, onFinish }: GameProps) {
     <GameFrame session={session}>
       {toolbar}
       <h2 className={styles.title}>{dialogue.title}</h2>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       {visible.length > 0 && <Chat lines={visible} showEs={showEs} role={role} />}
       {body}
     </GameFrame>

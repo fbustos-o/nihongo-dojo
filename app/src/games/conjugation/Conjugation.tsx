@@ -138,7 +138,7 @@ function QuizPane({ words, forms, session, sequential, fixedPool, ...rest }: Pan
 
   return (
     <>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <TypingRound
         key={session.round}
         prompt={

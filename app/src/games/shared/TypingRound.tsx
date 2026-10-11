@@ -2,6 +2,7 @@ import { useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { KanaInput } from '../../components/KanaInput';
 import { Feedback, type FeedbackMessage } from './Feedback';
 import { playSfx } from './sfx';
+import { useKeepInView } from './useKeepInView';
 import styles from './games.module.css';
 
 export type Verdict = 'correct' | 'near' | 'wrong';
@@ -31,6 +32,9 @@ export function TypingRound({ prompt, answer, evaluate, inputMode, ariaLabel, pl
   const [retype, setRetype] = useState(false);
   const [message, setMessage] = useState<FeedbackMessage | null>(null);
   const counter = useRef(0);
+  const roundRef = useRef<HTMLDivElement>(null);
+  const promptRef = useRef<HTMLDivElement>(null);
+  useKeepInView(roundRef, promptRef);
   const say = (tone: FeedbackMessage['tone'], text: string) => setMessage({ tone, text, id: ++counter.current });
 
   const submit = (event: FormEvent) => {
@@ -64,8 +68,8 @@ export function TypingRound({ prompt, answer, evaluate, inputMode, ariaLabel, pl
   };
 
   return (
-    <div className={styles.round}>
-      <div className={styles.prompt} data-testid="prompt">{prompt}</div>
+    <div className={styles.round} ref={roundRef}>
+      <div className={styles.prompt} ref={promptRef} data-testid="prompt">{prompt}</div>
       <Feedback message={message} />
       {retype && (
         <p className={styles.answer} data-testid="correct-answer">

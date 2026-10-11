@@ -5,6 +5,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Celebrations } from './Celebrations';
 import { ErrorBoundary } from './ErrorBoundary';
 import { Loading } from './Loading';
+import { useKeyboardOpen } from './useKeyboardOpen';
 import styles from './Layout.module.css';
 
 const LINKS = [
@@ -18,6 +19,7 @@ const LINKS = [
 export function Layout() {
   const { pathname } = useLocation();
   const [dismissed, setDismissed] = useState(false);
+  const keyboardOpen = useKeyboardOpen();
   const issues = [loadIssue.message, ...new Set(contentIssues.map((i) => `Contenido: ${i}`))].filter((m): m is string => !!m);
   return (
     <div className={styles.shell}>
@@ -29,7 +31,7 @@ export function Layout() {
           Acerca de
         </NavLink>
       </header>
-      <nav className={styles.nav} aria-label="Navegación principal">
+      <nav className={styles.nav} hidden={keyboardOpen} aria-label="Navegación principal">
         {LINKS.map((link) => (
           <NavLink
             key={link.to}

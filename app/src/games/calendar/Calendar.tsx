@@ -110,7 +110,7 @@ export function Calendar({ rounds, sequential, onFinish }: GameProps) {
           options={[{ value: 'mix', label: 'Mezcla' }, ...KINDS.map((k) => ({ value: k, label: KIND_LABELS[k] }))]}
         />
       )}
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <CalendarQuestionView
         key={`${session.round}-${question.itemId}`}
         question={question}
