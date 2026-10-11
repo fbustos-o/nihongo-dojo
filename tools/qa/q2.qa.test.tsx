@@ -5,8 +5,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { content } from '../../app/src/domain/contentLoader';
-import { renderKana } from '../../app/src/domain/renderPlan';
+import { renderKana, renderPlan } from '../../app/src/domain/renderPlan';
 import { unlockedKanaForLessons } from '../../app/src/engine/kanaFilter';
+import { JaText } from '../../app/src/components/JaText';
 import { Listen } from '../../app/src/games/listen';
 import { KanaWrite } from '../../app/src/games/kana-write/KanaWrite';
 import { computePathNodes, lessonContent, nextSuggestions } from '../../app/src/lesson/lessonLogic';
@@ -79,13 +80,22 @@ describe('QA-009 (juego real): «Escribir kana» pide を/ぢ/づ sin ambigüeda
 // ------------------------------------------------------------------------------------------------
 describe('QA-038: renderKana con っ bloqueado', () => {
   const upTo = (id: string) => unlockedKanaForLessons(curriculum, curriculum.slice(0, curriculum.findIndex((l) => l.id === id) + 1).filter((l) => l.stage === 1).map((l) => l.id));
-  const show = (text: string, known: ReadonlySet<string>) => renderKana(text, known).map((s) => s.text).join('');
-  it.fails('みっつ / がっこう / まって con todo menos っ: no se muestran como «みつ», «がこう», «まて»', () => {
+  const show = (text: string, known: ReadonlySet<string>) => renderKana(text, known, 'inline').map((s) => (s.type === 'kanaRuby' ? s.kana : s.text)).join('');
+  it('みっつ / がっこう / まって con todo menos っ: no se muestran como «みつ», «がこう», «まて» (inline)', () => {
     const known = new Set([...upTo('h-yoon-2')]);
     expect(known.has('っ')).toBe(false);
-    // today: みっつ -> «みつ», がっこう -> «がこう», まって -> «まて», ちょっと -> «choと» (wanakana drops a trailing っ)
     for (const w of ['みっつ', 'がっこう', 'まって']) expect(show(w, known)).not.toBe(w.replace('っ', ''));
-    expect(show('ちょっと', known)).not.toBe('choと');
+    expect(show('みっつ', known)).toBe('みttsu');
+    expect(show('がっこう', known)).toBe('がkkoう');
+    expect(show('ちょっと', known)).toBe('ちょtto');
+  });
+  it('modo ruby (por defecto): el っ bloqueado sigue presente como kana con su consonante doble', () => {
+    const known = new Set([...upTo('h-yoon-2')]);
+    for (const w of ['みっつ', 'がっこう', 'まって', 'ちょっと']) {
+      const segs = renderKana(w, known);
+      expect(segs.map((s) => (s.type === 'kanaRuby' ? s.kana : s.type === 'text' ? s.text : '?')).join('')).toBe(w);
+      expect(segs).toContainEqual(expect.objectContaining({ type: 'kanaRuby', kana: 'っ' }));
+    }
   });
 });
 
@@ -138,9 +148,40 @@ describe('QA-036: legibilidad de la etapa 2 con el desbloqueo intercalado (M3)',
     expect(rows.length).toBeGreaterThan(0);
   });
 
-  it.fails('ninguna lección de la etapa 2 se abre con menos del 90 % de su material legible en kana', () => {
-    const bad = stage2.map((l) => ({ id: l.id, pct: readable(l.id, unlockedKanaForLessons(curriculum, ancestors(l.id))) })).filter((r) => r.pct < 90);
-    expect(bad).toEqual([]);
+  // Decisión del planificador: se mantiene el desbloqueo temprano; se arregla la VISUALIZACIÓN.
+  // Ningún token en kana lleva letras latinas mezcladas (el romaji va en <rt> sobre cada kana desconocido).
+  const textsOf = (id: string) => {
+    const l = byId.get(id)!;
+    const c = lessonContent(l, new Set(), content);
+    return [
+      ...c.words.map((w) => w.kana),
+      ...patterns.filter((p) => l.patterns?.includes(p.id)).flatMap((p) => (p.examples ?? []).map((e) => e.ja)),
+      ...dialogues.filter((d) => l.dialogues?.includes(d.id)).flatMap((d) => d.lines.map((x) => x.ja)),
+    ];
+  };
+  for (const id of ['l-saludos', 'l-numeros', 'l-desu']) {
+    it(`${id} en su puerta: ningún token mezcla letras latinas dentro de una palabra en kana (modo ruby)`, () => {
+      const known = unlockedKanaForLessons(curriculum, ancestors(id));
+      const state = { knownKana: known, kanji: new Map<string, number>() };
+      const bad: string[] = [];
+      for (const t of textsOf(id)) {
+        const segs = renderPlan({ kana: t }, state);
+        if (segs.some((s) => s.type === 'romaji')) bad.push(t);
+        // the visible (non-rt) text never holds Latin letters
+        const visible = segs.map((s) => (s.type === 'kanaRuby' ? s.kana : s.type === 'ruby' ? s.base : s.text)).join('');
+        if (/[A-Za-z]/.test(visible) && !/[A-Za-z]/.test(t)) bad.push(`${t} -> ${visible}`);
+      }
+      expect(bad).toEqual([]);
+    });
+  }
+
+  it('JaText real en l-saludos: «おはよう ございます» → kana con <rt> de romaji, el texto base sin latinos', () => {
+    const known = unlockedKanaForLessons(curriculum, ancestors('l-saludos'));
+    useProgress.setState({ knownKana: [...known], items: {} });
+    const { container } = render(<JaText text="おはよう ございます" />);
+    const base = [...container.querySelectorAll('span[lang=ja] > *')].map((n) => [...n.childNodes].filter((c) => c.nodeType === 3 || (c as Element).tagName !== 'RT').map((c) => c.textContent).join('')).join('');
+    expect(base.replace(/\s/g, '')).toBe('おはようございます');
+    expect(container.querySelector('span[lang=ja]')!.textContent).toContain(' ');
   });
 });
 
@@ -160,5 +201,28 @@ describe('Números tras h-ma: respuestas escritas', () => {
     await user.type(screen.getByRole('textbox', { name: 'k' }), 'san');
     console.log(`IME «san» -> «${value}»; checkAnswer: ${checkAnswer(value, 'さん').correct}`);
     expect(checkAnswer(value, 'さん').correct).toBe(true);
+  });
+});
+
+
+// ------------------------------------------------------------------------------------------------
+// QA-039 (soporte): JaText acepta lecturas en kana planas (espacios, ー, じゅう…) bajo desbloqueo parcial
+// ------------------------------------------------------------------------------------------------
+describe('QA-039: JaText con lecturas de números / reloj / calendario', () => {
+  const readings = ['しちじ じゅうごふん', 'きゅうひゃくきゅうじゅうえん', 'ろくがつ ついたち', 'いち、に、さん'];
+  it.each(readings)('«%s»: sin desbloqueo, todo el texto base sigue siendo kana y el romaji va en rt', (reading) => {
+    useProgress.setState({ knownKana: [], items: {} });
+    const { container } = render(<JaText text={reading} />);
+    const rubies = container.querySelectorAll('ruby[data-testid=kana-ruby]');
+    expect(rubies.length).toBeGreaterThan(0);
+    const base = [...container.querySelectorAll('span[lang=ja]')[0]!.querySelectorAll(':scope > *')].map((n) => (n.tagName === 'RUBY' ? n.childNodes[0]!.textContent : n.textContent)).join('');
+    expect(base).toBe(reading);
+    expect(/[a-z]/.test(base)).toBe(false);
+  });
+  it('desbloqueo parcial (し ち じ ゅ う ご ふ ん conocidos): solo lo desconocido lleva rt', () => {
+    useProgress.setState({ knownKana: [...'しちゅうごふ'], items: {} });
+    const { container } = render(<JaText text="しちじ じゅうごふん" />);
+    const rts = [...container.querySelectorAll('rt')].map((r) => r.textContent);
+    expect(rts).toEqual(['ji', 'ju', 'n']);
   });
 });

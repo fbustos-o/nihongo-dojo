@@ -149,11 +149,11 @@ describe('read-words', () => {
     expect(item('word', 'ie')).toMatchObject({ correct: 2 });
   });
 
-  it('shows locked kana as romaji (JaText) and hides the romaji hint when showRomaji is off', () => {
+  it('shows locked kana with romaji ruby (JaText) and hides the romaji hint when showRomaji is off', () => {
     useProgress.getState().updateSettings({ showRomaji: false });
     const { container } = render(<ReadWords kana={[]} words={[word('ie')]} rounds={1} />);
-    // nothing unlocked: the word is rendered as romaji by JaText, no extra hint line
-    expect(screen.getByTestId('word-prompt')).toHaveTextContent('ie');
+    // nothing unlocked: the word is kana with romaji ruby (JaText), no extra hint line
+    expect(screen.getByTestId('word-prompt')).toHaveTextContent('いiえe');
     expect(container.querySelectorAll('[class*=hint]').length).toBe(0);
   });
 
