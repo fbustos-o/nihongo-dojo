@@ -8,6 +8,7 @@ import { ChoiceRound, TypingRound, type Verdict } from '../shared';
 import { buildChoices } from './confusions';
 import type { Rng } from './random';
 import styles from './numbers.module.css';
+import shared from '../shared/games.module.css';
 
 /** Verdict for a typed reading: any accepted kana (primary or alternative). */
 export function readingVerdict(input: string, reading: Reading): Verdict {
@@ -50,7 +51,12 @@ export function ReadingRound({ prompt, reading, format, related, rng = Math.rand
   if (format === 'choice' && options.length >= 2) {
     return (
       <ChoiceRound
-        prompt={prompt}
+        prompt={
+          <>
+            <span className={shared.stickyChoices} />
+            {prompt}
+          </>
+        }
         small
         options={options.map((kana) => ({
           key: kana,

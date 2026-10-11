@@ -333,3 +333,23 @@
   border-color: var(--accent);
   color: var(--accent-contrast);
 }
+
+/* Phones, games that opt in with a hidden .stickyChoices marker: the options stay pinned just above the
+   bottom bar while the page scrolls under them (the question + text above may be taller than the screen). */
+.stickyChoices { display: none; }
+
+@media (max-width: 719px) {
+  .frame:has(.stickyChoices) .round { display: contents; }
+  .frame:has(.stickyChoices) .prompt { margin: 0 auto 0.4rem; text-align: center; }
+  .frame:has(.stickyChoices) .round > .feedbackSlot { position: static; height: auto; min-height: 0; background: none; }
+  .frame:has(.stickyChoices) .round > .feedbackSlot:empty { display: none; }
+  .frame:has(.stickyChoices) .choices {
+    position: sticky;
+    bottom: calc(3.4rem + env(safe-area-inset-bottom, 0px));
+    z-index: 2;
+    margin: 0 auto;
+    padding: 0.35rem 0;
+    background: var(--surface);
+    box-shadow: 0 -8px 8px -8px rgb(0 0 0 / 0.25);
+  }
+}

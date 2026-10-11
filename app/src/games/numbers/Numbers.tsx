@@ -92,7 +92,7 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
         <ObjectLine question={question} />
         <p className={styles.question}><JaText word={{ kana: 'いくらですか？' }} /></p>
         <p className={styles.big}>{formatYen(question.value)}</p>
-        <p className={styles.question}>Escribe el precio en hiragana (con えん).</p>
+        <p className={styles.question}>Precio en hiragana (con えん).</p>
       </>
     );
   } else {

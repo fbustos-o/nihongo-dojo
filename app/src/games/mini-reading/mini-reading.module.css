@@ -44,7 +44,7 @@
 /* Short screens: the text is a compact scroll area so the question and the options stay in the first view. */
 @media (max-width: 480px), (max-height: 700px) {
   .text {
-    max-height: 30dvh;
+    max-height: 24dvh;
     overflow-y: auto;
     gap: 0.3rem;
     margin-bottom: 0.5rem;

@@ -69,7 +69,12 @@ export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps)
       </ol>
       <ChoiceRound
         key={`${session.round}`}
-        prompt={<span className={styles.question}>{question.prompt}</span>}
+        prompt={
+          <>
+            <span className={shared.stickyChoices} />
+            <span className={styles.question}>{question.prompt}</span>
+          </>
+        }
         small
         options={question.options.map((o) => ({ key: o.key, content: o.text, correct: o.correct }))}
         onReport={(ok) => session.report(question.itemId, 'pattern', question.prompt, ok)}
