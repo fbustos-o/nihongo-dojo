@@ -13,7 +13,10 @@ const seeded = (seed: number) => () => {
   return seed / 4294967296;
 };
 const user = () => userEvent.setup({ delay: null });
-beforeEach(() => useProgress.getState().resetProgress());
+beforeEach(() => {
+  useProgress.getState().resetProgress();
+  useProgress.getState().unlockKana([...'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽゃゅょっー']);
+});
 
 describe('difficulty tiers', () => {
   it('grows with the round', () => {

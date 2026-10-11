@@ -114,6 +114,14 @@ describe('kana-write modes', () => {
     expect(useProgress.getState().items['kana:を']).toMatchObject({ correct: 1 });
   });
 
+  it('QA-050: after a miss and a retype, the next round shows «Era: …» feedback', async () => {
+    render(<KanaWrite kana={[kana('む')]} words={[]} rounds={3} />);
+    const u = user();
+    await u.type(screen.getByLabelText('Escribe en kana'), 'a{Enter}');
+    await u.type(screen.getByLabelText('Escribe en kana'), 'mu{Enter}');
+    expect(screen.getByText(/Era:/)).toHaveTextContent('Era: む (mu)');
+  });
+
   it('types with the on-screen keyboard in teclado mode', async () => {
     useProgress.getState().updateSettings({ kanaInput: 'teclado' });
     render(<KanaWrite kana={[kana('か')]} words={[]} rounds={1} />);

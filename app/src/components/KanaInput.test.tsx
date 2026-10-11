@@ -138,7 +138,54 @@ describe('KanaInput on-screen keyboard mode', () => {
     await userEvent.click(screen.getByLabelText('kana'));
     const group = screen.getByRole('group', { name: 'Teclado de kana' });
     for (const b of group.querySelectorAll('button')) expect(b).toHaveAccessibleName();
-    // 10 row keys + 5 vowels + 5 tools + 4 bottom keys
-    expect(group.querySelectorAll('button').length).toBe(10 + 5 + 5 + 4);
+    // 10 row keys + 5 vowels + 5 tools + 4 bottom keys + the hide tab
+    expect(group.querySelectorAll('button').length).toBe(10 + 5 + 5 + 4 + 1);
+  });
+
+  it('QA-035: the keyboard stays open when another control is tapped (first tap works, no layout change)', async () => {
+    const onOther = vi.fn();
+    render(
+      <>
+        <Harness />
+        <button type="button" onClick={onOther}>
+          Escuchar otra vez
+        </button>
+      </>,
+    );
+    await userEvent.click(screen.getByLabelText('kana'));
+    expect(document.documentElement.dataset.kanaKb).toBe('open');
+    // pointerdown blurs the input; the keyboard must not unmount, and the click must land
+    await userEvent.click(screen.getByRole('button', { name: 'Escuchar otra vez' }));
+    expect(onOther).toHaveBeenCalledTimes(1);
+    expect(screen.getByLabelText('kana')).not.toHaveFocus();
+    expect(screen.getByRole('group', { name: 'Teclado de kana' })).toBeInTheDocument();
+    expect(document.documentElement.dataset.kanaKb).toBe('open');
+  });
+
+  it('the hide button closes the keyboard and tapping the field reopens it', async () => {
+    render(<Harness />);
+    const input = screen.getByLabelText('kana');
+    await userEvent.click(input);
+    await userEvent.click(screen.getByRole('button', { name: 'Ocultar teclado' }));
+    expect(screen.queryByRole('group', { name: 'Teclado de kana' })).toBeNull();
+    await userEvent.click(input);
+    expect(screen.getByRole('group', { name: 'Teclado de kana' })).toBeInTheDocument();
+  });
+
+  it('QA-040: a physical keyboard types romaji (converted) and direct kana', async () => {
+    render(<Harness />);
+    const input = screen.getByLabelText('kana');
+    await userEvent.click(input);
+    await userEvent.keyboard('kyonn');
+    expect(screen.getByTestId('out')).toHaveTextContent('きょん');
+    await userEvent.keyboard('{Backspace}あ');
+    expect(screen.getByTestId('out')).toHaveTextContent('きょあ');
+  });
+
+  it('QA-040: katakana script converts physical romaji to katakana', async () => {
+    render(<Harness mode="katakana" />);
+    await userEvent.click(screen.getByLabelText('kana'));
+    await userEvent.keyboard('ka');
+    expect(screen.getByTestId('out')).toHaveTextContent('カ');
   });
 });

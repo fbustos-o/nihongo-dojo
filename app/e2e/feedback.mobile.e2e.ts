@@ -221,8 +221,7 @@ test('2.2 Escribir kana sin voz japonesa: el Dictado se sustituye por Lectura co
   measure(info, '2.2 sin voz', await page.getByTestId('dictado-fallback').innerText());
 });
 
-test('QA-035: con el teclado kana abierto, el primer toque en «Escuchar otra vez» (Dictado) o en un chip se pierde', async ({ page, consoleLog }, info) => {
-  test.fail(true, 'QA-035: blur -> el teclado se cierra y el scroll salta antes del click; hace falta un segundo toque');
+test('QA-035: con el teclado kana abierto, un toque en «Escuchar otra vez» o en un chip funciona a la primera y el scroll no salta', async ({ page, consoleLog }, info) => {
   void consoleLog;
   await stubSpeech(page, true);
   await openPractice(page, 'kana-write', 'か', ['h-a', 'h-ka']);
@@ -240,6 +239,12 @@ test('QA-035: con el teclado kana abierto, el primer toque en «Escuchar otra ve
   const said = await spoken(page);
   measure(info, 'QA-035 speaker tap with kana keyboard open', { scrollBefore: before, scrollAfter: after, spoken: said });
   expect(said.length, 'one tap on the speaker replays the audio').toBe(1);
+  expect(after, 'the scroll does not jump').toBe(before);
+  await expect(page.getByRole('group', { name: 'Teclado de kana' })).toBeVisible();
+  // a mode chip also works on the first tap
+  const chip = await box(page.getByRole('button', { name: 'Lectura' }));
+  await page.touchscreen.tap(chip.left + chip.width / 2, chip.top + chip.height / 2);
+  await expect(page.getByTestId('write-mode')).toContainText('Lectura');
 });
 
 // ---------------------------------------------------------------------------------------------
@@ -362,14 +367,6 @@ for (const [lesson, game] of STAGE2) {
     await page.setViewportSize(SMALL);
     await openLessonGame(page, lesson, game);
     const rows: string[] = [];
-    const known: Record<string, string> = {
-      'Diálogos': 'QA-041: la conversación y las respuestas quedan bajo el pliegue',
-      'Reloj': 'QA-041: el reloj ocupa todo el ancho y los controles quedan bajo el pliegue',
-      'Calendario': 'QA-037: el calendario hereda la fuente gigante del prompt',
-      'Sintaxis': 'QA-041: «Comprobar» queda bajo la barra inferior',
-      'Mini-lectura': 'QA-041: el texto completo va antes de la pregunta; las opciones quedan ~1 pantalla más abajo',
-    };
-    if (known[game]) test.fail(true, known[game]);
     for (let r = 0; r < 3; r++) {
       // with the kana keyboard the app scrolls the field into view itself: do not undo it
       if (!(await page.getByRole('group', { name: 'Teclado de kana' }).count())) await page.evaluate(() => scrollTo(0, 0));
