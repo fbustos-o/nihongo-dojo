@@ -33,7 +33,6 @@ async function collectLessonKana(page: import('@playwright/test').Page, lessonId
 }
 
 test('h-a: los distractores de «Escuchar» no muestran kana sin desbloquear (QA-003)', async ({ page, consoleLog }) => {
-  test.fail(true, 'QA-003: Listen usa kanaChoices sobre todos los kana (か, き, く… en la lección de あいうえお)');
   void consoleLog;
   // run the lesson twice to make the random distractors show up
   const leaks = [...(await collectLessonKana(page, 'h-a')), ...(await collectLessonKana(page, 'h-a'))];
