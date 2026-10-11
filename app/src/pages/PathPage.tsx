@@ -40,7 +40,7 @@ export function PathPage() {
   const { curriculum } = content;
   const completedSet = new Set(completed);
   const nodes = computePathNodes(curriculum, completed);
-  const currentId = nextLesson(nodes)?.id;
+  const currentId = nextLesson(nodes, completed)?.id;
 
   if (curriculum.length === 0) {
     return (

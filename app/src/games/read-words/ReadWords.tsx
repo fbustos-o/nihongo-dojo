@@ -43,7 +43,18 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
     session.report(word.id, 'word', word.kana, ok);
   };
   const onDone = (firstTry: boolean) => {
-    setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${word.kana} = ${meaningOf(word)}`, id: session.round } : null);
+    // The previous word's feedback stays in the fixed slot above the new question; kana go through JaText (unlock rules).
+    setLast({
+      tone: firstTry ? 'ok' : 'near',
+      text: `${firstTry ? '¡Correcto!' : 'Era'} ${word.romaji} = ${meaningOf(word)}`,
+      node: (
+        <>
+          {firstTry ? '¡Correcto! ' : 'Era '}
+          <JaText word={word} /> = {meaningOf(word)}
+        </>
+      ),
+      id: session.round,
+    });
     setAnswered(word.origin ? word : null);
     session.next();
     setQuestion(make(session.round + 1));

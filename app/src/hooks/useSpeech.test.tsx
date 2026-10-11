@@ -45,7 +45,9 @@ describe('useSpeech', () => {
     setupSynth([{ lang: 'ja-JP' }], spoken);
     const { result } = renderHook(() => useSpeech());
     expect(result.current.available).toBe(true);
-    act(() => result.current.speak('あ'));
+    act(() => {
+      void result.current.speak('あ');
+    });
     expect(spoken).toHaveBeenCalledTimes(1);
     expect(played).toHaveLength(0);
   });
@@ -54,7 +56,9 @@ describe('useSpeech', () => {
     setupSynth([{ lang: 'en-US' }]);
     const { result } = renderHook(() => useSpeech());
     expect(result.current.available).toBe(false);
-    await act(async () => result.current.speak('あ'));
+    await act(async () => {
+      await result.current.speak('あ');
+    });
     expect(played).toHaveLength(1);
     expect(played[0]).toMatch(/audio\/.+\.mp3$/);
   });
@@ -64,12 +68,36 @@ describe('useSpeech', () => {
       throw new Error('boom');
     });
     const { result } = renderHook(() => useSpeech());
-    await act(async () => result.current.speak('い'));
+    await act(async () => {
+      await result.current.speak('い');
+    });
     expect(played).toHaveLength(1);
 
     setupSynth([{ lang: 'ja-JP' }], (u) => u.onerror?.({ error: 'synthesis-failed' }));
     const second = renderHook(() => useSpeech());
-    await act(async () => second.result.current.speak('う'));
+    await act(async () => {
+      await second.result.current.speak('う');
+    });
     expect(played).toHaveLength(2);
+  });
+
+  it('speak resolves true when a clip played and false when nothing could', async () => {
+    setupSynth([{ lang: 'en-US' }]);
+    const { result } = renderHook(() => useSpeech());
+    let ok = false;
+    await act(async () => {
+      ok = await result.current.speak('あ');
+    });
+    expect(ok).toBe(true);
+    vi.stubGlobal('Audio', class {
+      play() {
+        return Promise.reject(new Error('404'));
+      }
+    });
+    resetStaticAudioCache();
+    await act(async () => {
+      ok = await result.current.speak('い');
+    });
+    expect(ok).toBe(false);
   });
 });

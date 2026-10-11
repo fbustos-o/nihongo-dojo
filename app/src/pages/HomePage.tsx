@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { curriculum } from '../domain/curriculumContent';
 import { levelFromXp } from '../engine/levels';
-import { computePathNodes, nextLesson, STAGE_TITLES, stageProgress } from '../lesson/lessonLogic';
+import { computePathNodes, nextSuggestions, STAGE_TITLES, stageProgress } from '../lesson/lessonLogic';
 import { groupSlug } from '../review/memoryLogic';
 import { dueCountsByGroup, REVIEW_GROUP_IDS, REVIEW_GROUP_LABELS, SRS_GROUPS, srsDistribution } from '../review/reviewLogic';
 import { dailyAccuracy, emptyDaily, lastSevenDays } from '../state/daily';
@@ -27,7 +27,8 @@ export function HomePage() {
   const due = useMemo(() => dueCountsByGroup(items, now.getTime()), [items, now]);
   const srs = useMemo(() => srsDistribution(items), [items]);
   const srsTotal = Object.values(srs).reduce((a, b) => a + b, 0);
-  const next = nextLesson(computePathNodes(curriculum, completedIds));
+  const { kana: nextKana, grammar: nextGrammar, next } = nextSuggestions(computePathNodes(curriculum, completedIds), completedIds);
+  const other = next && nextKana && nextGrammar ? (next === nextKana ? nextGrammar : nextKana) : undefined;
   const stages = stageProgress(curriculum, completedIds);
   // a streak only counts while it is alive (studied today or yesterday)
   const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
@@ -111,6 +112,12 @@ export function HomePage() {
             <Link className={`btn btn-primary ${styles.cta}`} to={`/leccion/${next.id}`}>
               Empezar
             </Link>
+            {other && (
+              <p className="muted" data-testid="next-other">
+                {other === nextGrammar ? 'Siguiente gramática' : 'Siguiente kana'}:{' '}
+                <Link to={`/leccion/${other.id}`}>{other.title}</Link>
+              </p>
+            )}
           </>
         ) : (
           <p className="muted">No hay más lecciones disponibles por ahora. Sigue repasando.</p>

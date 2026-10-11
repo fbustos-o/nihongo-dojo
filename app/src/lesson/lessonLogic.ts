@@ -65,9 +65,48 @@ export function stageProgress(curriculum: readonly Lesson[], completedIds: Itera
   });
 }
 
-/** First available, playable, not completed lesson in curriculum order. */
-export const nextLesson = (nodes: readonly LessonNode[]): Lesson | undefined =>
-  nodes.find((n) => n.status === 'available' && n.playable)?.lesson;
+/** Kana lessons teach script (hiragana stage 1, katakana stage 3); the rest is grammar / kanji. */
+export const isKanaLesson = (lesson: Lesson): boolean => lesson.stage === 1 || lesson.stage === 3;
+
+/** Kana lessons the learner must complete in a row before the suggestion switches to an available grammar lesson. */
+export const KANA_BEFORE_GRAMMAR = 2;
+
+export interface NextSuggestions {
+  /** First available kana lesson in curriculum order. */
+  kana?: Lesson;
+  /** First available grammar (non-kana) lesson in curriculum order. */
+  grammar?: Lesson;
+  /** The one to highlight: interleaves kana and grammar. */
+  next?: Lesson;
+}
+
+/**
+ * Next lessons, interleaving grammar with kana. `next` is the first available kana lesson, except when a
+ * grammar lesson is available and the learner has completed `KANA_BEFORE_GRAMMAR`+ kana lessons since the
+ * last grammar lesson (`completedOrder` is `progress.completedLessons`, in completion order).
+ */
+export function nextSuggestions(
+  nodes: readonly LessonNode[],
+  completedOrder: readonly string[] = [],
+): NextSuggestions {
+  const open = nodes.filter((n) => n.status === 'available' && n.playable).map((n) => n.lesson);
+  const kana = open.find(isKanaLesson);
+  const grammar = open.find((l) => !isKanaLesson(l));
+  const byId = new Map(nodes.map((n) => [n.lesson.id, n.lesson]));
+  let kanaRun = 0;
+  for (let i = completedOrder.length - 1; i >= 0; i--) {
+    const done = byId.get(completedOrder[i]!);
+    if (!done) continue;
+    if (!isKanaLesson(done)) break;
+    kanaRun++;
+  }
+  const next = kana && grammar ? (kanaRun >= KANA_BEFORE_GRAMMAR ? grammar : kana) : (kana ?? grammar);
+  return { kana, grammar, next };
+}
+
+/** The lesson to suggest next (see `nextSuggestions`). Without `completedOrder` it is the first available kana lesson. */
+export const nextLesson = (nodes: readonly LessonNode[], completedOrder?: readonly string[]): Lesson | undefined =>
+  nextSuggestions(nodes, completedOrder).next;
 
 /** Rounds per game: 10-15, growing with the number of items. */
 export const roundsFor = (itemCount: number): number => Math.max(10, Math.min(15, 8 + itemCount));

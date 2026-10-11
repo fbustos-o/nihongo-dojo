@@ -72,7 +72,10 @@ describe('particles game', () => {
   it('wrong choice is disabled and counted; the right one must still be found', async () => {
     const u = user();
     render(<Particles kana={[]} words={[]} patterns={[pattern]} rounds={1} />);
-    const wrong = screen.getAllByRole('button').find((b) => /^[はをでもの]$/.test(b.textContent ?? '') && b.textContent !== 'に')!;
+    // options are drawn at random: take whichever distractor was offered (any option other than the answer)
+    const isParticle = (b: HTMLElement) => (BASE_PARTICLES as readonly string[]).includes(b.textContent ?? '');
+    const wrong = screen.getAllByRole('button').find((b) => isParticle(b) && b.textContent !== 'に')!;
+    expect(wrong).toBeDefined();
     await u.click(wrong);
     expect(wrong).toBeDisabled();
     expect(screen.getByText(/Incorrecto/)).toBeInTheDocument();

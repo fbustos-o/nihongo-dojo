@@ -15,12 +15,14 @@ interface ChoiceRoundProps {
   prompt: ReactNode;
   options: ChoiceOption[];
   small?: boolean;
+  /** Message for a wrong pick; default is a generic "Incorrecto". */
+  wrongFeedback?: (option: ChoiceOption) => { text: string; node?: ReactNode };
   onReport: (correct: boolean) => void;
   onDone: (firstTry: boolean) => void;
 }
 
 /** Multiple-choice question. A wrong pick is reported once, disabled, and the learner must find the right one. */
-export function ChoiceRound({ prompt, options, small, onReport, onDone }: ChoiceRoundProps) {
+export function ChoiceRound({ prompt, options, small, wrongFeedback, onReport, onDone }: ChoiceRoundProps) {
   const [wrongKeys, setWrongKeys] = useState<string[]>([]);
   const [message, setMessage] = useState<FeedbackMessage | null>(null);
   const counter = useRef(0);
@@ -37,7 +39,8 @@ export function ChoiceRound({ prompt, options, small, onReport, onDone }: Choice
     if (wrongKeys.length === 0) onReport(false);
     playSfx('bad');
     setWrongKeys((keys) => [...keys, option.key]);
-    setMessage({ tone: 'bad', text: 'Incorrecto. Elige la respuesta correcta para continuar.', id: ++counter.current });
+    const custom = wrongFeedback?.(option);
+    setMessage({ tone: 'bad', text: custom?.text ?? 'Incorrecto. Elige la respuesta correcta para continuar.', node: custom?.node, id: ++counter.current });
   };
 
   return (

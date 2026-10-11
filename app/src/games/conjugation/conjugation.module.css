@@ -119,3 +119,10 @@
   color: var(--text-muted);
   font-weight: 400;
 }
+
+.kanaToggleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}

@@ -10,6 +10,7 @@ import {
   lessonStatus,
   mergeStats,
   nextLesson,
+  nextSuggestions,
   roundsFor,
   stageProgress,
   syncKnownKana,
@@ -61,6 +62,33 @@ describe('path state against the real curriculum', () => {
     expect(progress[0]).toMatchObject({ stage: 1, done: 2, total: 15 });
     expect(progress.reduce((n, p) => n + p.total, 0)).toBe(curriculum.length);
     expect(nextLesson(computePathNodes(curriculum, ['h-a']))?.id).toBe('h-ka');
+  });
+
+  it('interleaves grammar once 2+ kana lessons were completed since the last grammar lesson', () => {
+    const done = ['h-a', 'h-ka', 'h-sa', 'h-ta', 'h-na'];
+    const nodes = computePathNodes(curriculum, done);
+    // l-saludos is open (after h-na) but only the last 2 kana lessons count: h-ta, h-na
+    const s = nextSuggestions(nodes, done);
+    expect(s.kana?.id).toBe('h-ha');
+    expect(s.grammar?.id).toBe('l-saludos');
+    expect(s.next?.id).toBe('l-saludos');
+    // after the grammar lesson the run restarts: kana first again
+    const after = [...done, 'l-saludos'];
+    const n2 = computePathNodes(curriculum, after);
+    expect(nextSuggestions(n2, after).next?.id).toBe('h-ha');
+    // one kana lesson since grammar: still kana
+    const one = [...after, 'h-ha'];
+    expect(nextSuggestions(computePathNodes(curriculum, one), one).next?.id).toBe('h-ma');
+    const two = [...one, 'h-ma'];
+    const s2 = nextSuggestions(computePathNodes(curriculum, two), two);
+    expect(s2.next?.stage).toBe(2);
+    // without completion order the old behaviour (kana first) is kept
+    expect(nextLesson(nodes)?.id).toBe('h-ha');
+  });
+
+  it('suggests the only available kind', () => {
+    expect(nextSuggestions(computePathNodes(curriculum, []), []).grammar).toBeUndefined();
+    expect(nextSuggestions(computePathNodes(curriculum, []), []).next?.id).toBe('h-a');
   });
 
   it('lessonStatus works on a set', () => {

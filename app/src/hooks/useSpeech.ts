@@ -6,7 +6,10 @@ const isJapanese = (voice: SpeechSynthesisVoice) => voice.lang.toLowerCase().rep
 
 /**
  * Japanese text-to-speech through the Web Speech API. `available` is false when
- * the browser has no speech synthesis or no ja-JP voice installed.
+ * the browser has no speech synthesis or no ja-JP voice installed. `speak` then falls back to a static
+ * clip (`public/audio/<id>.mp3`) and reports whether anything played: UI that only needs "a sound button"
+ * (SpeakButton) stays enabled until a clip actually fails, while games that depend on audio (Dictado,
+ * Escuchar) keep using `available` (voice) to decide on a text fallback.
  */
 export function useSpeech() {
   const rate = useProgress((s) => s.settings.ttsRate);
@@ -22,11 +25,9 @@ export function useSpeech() {
   }, [synth]);
 
   const speak = useCallback(
-    (text: string) => {
-      if (!synth || !voice) {
-        void playStaticClip(text);
-        return;
-      }
+    /** Resolves true when something started playing (voice, or a static clip when there is no voice). */
+    async (text: string): Promise<boolean> => {
+      if (!synth || !voice) return playStaticClip(text);
       try {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.voice = voice;
@@ -37,8 +38,9 @@ export function useSpeech() {
         };
         synth.cancel();
         synth.speak(utterance);
+        return true;
       } catch {
-        void playStaticClip(text);
+        return playStaticClip(text);
       }
     },
     [synth, voice, rate],

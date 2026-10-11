@@ -1,0 +1,40 @@
+.wrap {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0.25rem;
+  flex: 1 1 10rem;
+  max-width: 18rem;
+  min-width: 0;
+}
+
+.wrap > input {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
+}
+
+.toggle {
+  flex: 0 0 auto;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  border-color: var(--accent);
+}
+
+/* Room for the fixed on-screen keyboard so the page can scroll the field above it. */
+:global(html[data-kana-kb='open']) {
+  scroll-padding-bottom: calc(var(--kana-kb-h, 0px) + 1rem);
+}
+
+:global(html[data-kana-kb='open']) body {
+  padding-bottom: calc(var(--kana-kb-h, 0px) + 1rem);
+}

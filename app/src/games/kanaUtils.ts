@@ -118,3 +118,37 @@ export function typingHints(text: string, all: readonly KanaEntry[] = content.ka
   }
   return [...out].map(([char, typing]) => ({ char, typing }));
 }
+
+/**
+ * Kana that share their plain romaji with another kana of the same script (を/お, ぢ/じ, づ/ず and the katakana
+ * twins): a blind «o» / «ji» / «zu» prompt cannot be answered fairly. They are asked with the IME spelling
+ * (wo, di, du) plus a Spanish note.
+ */
+const AMBIGUOUS: Record<string, { typing: string; note: string }> = {
+  を: { typing: 'wo', note: 'la «o» de la partícula を' },
+  ヲ: { typing: 'wo', note: 'la «o» de la partícula ヲ' },
+  ぢ: { typing: 'di', note: '«ji» de ぢ (ち con dakuten)' },
+  ヂ: { typing: 'di', note: '«ji» de ヂ (チ con dakuten)' },
+  づ: { typing: 'du', note: '«zu» de づ (つ con dakuten)' },
+  ヅ: { typing: 'du', note: '«zu» de ヅ (ツ con dakuten)' },
+};
+
+/** Romaji to show when asking for `entry` blind, with an optional Spanish note for the ambiguous ones. */
+export function writePrompt(entry: KanaEntry): { romaji: string; note?: string } {
+  const a = AMBIGUOUS[entry.char];
+  return a ? { romaji: a.typing, note: `Es ${a.note}` } : { romaji: entry.romaji };
+}
+
+/** Kana the learner may see as options: the known ones plus the lesson's. */
+export function knownKanaPool(known: Iterable<string>, extra: Iterable<string>, all: readonly KanaEntry[] = content.kana): KanaEntry[] {
+  const ok = new Set([...known, ...extra]);
+  return all.filter((k) => ok.has(k.char));
+}
+
+/** Condensed reinforcement after a kana: «し = shi · fila さ» (the row head; no row for the special / extended kana). */
+export function kanaReinforcement(entry: KanaEntry, all: readonly KanaEntry[] = content.kana): string {
+  const base = `${entry.char} = ${entry.char === 'ー' || entry.char === 'ッ' || entry.char === 'っ' ? romajiLabel(entry) : entry.romaji}`;
+  if (entry.row === 'special' || entry.row === 'ext') return base;
+  const head = all.find((k) => k.script === entry.script && k.group === entry.group && k.row === entry.row);
+  return head ? `${base} · fila ${head.char}` : base;
+}

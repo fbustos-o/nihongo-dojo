@@ -80,7 +80,7 @@ describe('conjugation table mode', () => {
     const buttons = screen.getAllByRole('button', { name: 'Comprobar fila' });
     expect(buttons).toHaveLength(2);
     // rows are shuffled: check whichever row holds each verb
-    for (const b of buttons) await u.click(b.closest('tr')!.querySelector('button')!);
+    for (const b of buttons) await u.click(b);
     expect(screen.getAllByText('✓').length).toBe(3);
     expect(screen.getByText(/✗ のみません/)).toBeInTheDocument();
     expect(useProgress.getState().items['word:verb:taberu:masu']).toMatchObject({ correct: 1 });
