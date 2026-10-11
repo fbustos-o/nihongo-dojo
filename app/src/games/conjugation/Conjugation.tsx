@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { JaText } from '../../components/JaText';
-import { KanaInput } from '../../components/KanaInput';
+import { KanaInput, KanaModeToggle } from '../../components/KanaInput';
 import { content } from '../../domain/contentLoader';
 import type { Word } from '../../domain/schema';
 import { checkAnswer } from '../../engine';
@@ -213,6 +213,9 @@ function TablePane({ category, words, forms, session }: PaneProps) {
   return (
     <div className={shared.round}>
       <p className="muted">Completa cada fila con la conjugación en kana y pulsa «Comprobar fila».</p>
+      <div className={styles.kanaToggleRow}>
+        <span className="muted">Escritura de kana:</span> <KanaModeToggle />
+      </div>
       <div className={styles.tableWrap}>
         <table className={styles.grid} data-testid="conjugation-table">
           <thead>
@@ -243,6 +246,7 @@ function TablePane({ category, words, forms, session }: PaneProps) {
                     return (
                       <td key={form} className={ok === undefined ? undefined : ok ? styles.cellOk : styles.cellBad}>
                         <KanaInput
+                          noToggle
                           key={`${tableId}-${word.id}-${form}`}
                           mode="hiragana"
                           aria-label={`${word.kana}: ${formLabel(category, form)}`}

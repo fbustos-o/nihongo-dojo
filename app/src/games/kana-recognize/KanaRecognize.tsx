@@ -3,7 +3,7 @@ import type { KanaEntry } from '../../domain/schema';
 import { itemKey } from '../../state/progressSchema';
 import { useProgress } from '../../state/progressStore';
 import { confusableReview, hasConfusables, pickWithConfusableBoost } from '../confusables';
-import { judgeRomaji, kanaHint, romajiLabel } from '../kanaUtils';
+import { judgeRomaji, kanaHint, kanaReinforcement, romajiLabel } from '../kanaUtils';
 import { ChoiceRound, Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
@@ -55,7 +55,7 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
     session.report(entry.char, 'kana', entry.char, ok);
   };
   const onDone = (firstTry: boolean) => {
-    setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${entry.char} = ${entry.romaji}`, id: session.round } : null);
+    setLast(firstTry ? { tone: 'ok', text: kanaReinforcement(entry), id: session.round } : { tone: 'near', text: `Era ${kanaReinforcement(entry)}`, id: session.round });
     session.next();
     setQuestion(make());
   };

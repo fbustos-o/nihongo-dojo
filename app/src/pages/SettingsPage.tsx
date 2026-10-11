@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { SpeakButton } from '../components/SpeakButton';
 import { useSpeech } from '../hooks/useSpeech';
-import { FuriganaModeSchema, ThemeSchema, type Theme } from '../state/progressSchema';
+import { FuriganaModeSchema, KanaInputModeSchema, ThemeSchema, type KanaInputMode, type Theme } from '../state/progressSchema';
 import { downloadProgress } from '../state/download';
 import { useProgress } from '../state/progressStore';
 
@@ -9,6 +9,12 @@ const FURIGANA_LABELS: Record<(typeof FuriganaModeSchema.options)[number], strin
   auto: 'Automático (se quita al llegar a Guru)',
   siempre: 'Siempre',
   nunca: 'Nunca',
+};
+
+const KANA_INPUT_LABELS: Record<KanaInputMode, string> = {
+  auto: 'Automático (teclado de kana en móvil, romaji en escritorio)',
+  teclado: 'Teclado de kana en pantalla',
+  romaji: 'Escribir romaji (se convierte a kana)',
 };
 
 const THEME_LABELS: Record<Theme, string> = {
@@ -65,6 +71,20 @@ export function SettingsPage() {
             {FuriganaModeSchema.options.map((mode) => (
               <option key={mode} value={mode}>
                 {FURIGANA_LABELS[mode]}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="row">
+          Escribir kana con:
+          <select
+            aria-label="Escritura de kana"
+            value={settings.kanaInput}
+            onChange={(e) => updateSettings({ kanaInput: KanaInputModeSchema.parse(e.target.value) })}
+          >
+            {KanaInputModeSchema.options.map((mode) => (
+              <option key={mode} value={mode}>
+                {KANA_INPUT_LABELS[mode]}
               </option>
             ))}
           </select>

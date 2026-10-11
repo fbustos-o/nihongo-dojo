@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { App } from '../App';
@@ -43,10 +44,13 @@ describe('KanaInput', () => {
 });
 
 describe('SpeakButton', () => {
-  it('is disabled with an explanation when speech is unavailable', () => {
+  it('stays enabled without a voice (a static clip may exist) and gives up once no clip plays', async () => {
+    vi.stubGlobal('Audio', class { play() { return Promise.reject(new Error('404')); } });
     render(<SpeakButton text="こんにちは" />);
-    const button = screen.getByRole('button');
-    expect(button).toBeDisabled();
+    const button = screen.getByRole('button', { name: 'Escuchar' });
+    expect(button).toBeEnabled();
+    await userEvent.click(button); // jsdom has no Audio: nothing plays
+    await waitFor(() => expect(button).toBeDisabled());
     expect(button).toHaveAttribute('title', expect.stringContaining('voz'));
   });
 });

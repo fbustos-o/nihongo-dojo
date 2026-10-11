@@ -218,7 +218,7 @@ function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnT
 
 function Result({ lesson, stats, passed, onRetry }: { lesson: Lesson; stats: GameStats; passed: boolean; onRetry: () => void }) {
   const completed = useProgress((s) => s.completedLessons);
-  const next = nextLesson(computePathNodes(content.curriculum, completed));
+  const next = nextLesson(computePathNodes(content.curriculum, completed), completed);
   const weak = weakestItems(stats);
   const accuracy = Math.round(accuracyOf(stats) * 100);
   return (

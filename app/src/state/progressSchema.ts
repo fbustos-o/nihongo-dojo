@@ -28,6 +28,10 @@ export type Theme = z.infer<typeof ThemeSchema>;
 
 export const FuriganaModeSchema = z.enum(['auto', 'siempre', 'nunca']);
 
+/** Kana typing: `auto` = on-screen keyboard on touch devices, romaji->kana IME on desktop. */
+export const KanaInputModeSchema = z.enum(['auto', 'teclado', 'romaji']);
+export type KanaInputMode = z.infer<typeof KanaInputModeSchema>;
+
 export const SettingsSchema = z.object({
   showRomaji: z.boolean(),
   ttsRate: z.number().min(0.5).max(1.5),
@@ -36,6 +40,8 @@ export const SettingsSchema = z.object({
   theme: ThemeSchema,
   /** Furigana over unlocked kanji: `auto` = fade out from SRS stage Guru, `siempre`, `nunca`. */
   furigana: FuriganaModeSchema.default('auto'),
+  /** How kana are typed in the games. Absent in old saves. */
+  kanaInput: KanaInputModeSchema.default('auto'),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
 
@@ -71,6 +77,6 @@ export function createInitialProgress(): Progress {
     xp: 0,
     streak: { lastStudyDate: null, count: 0 },
     daily: {},
-    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto' },
+    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto', kanaInput: 'auto' },
   };
 }

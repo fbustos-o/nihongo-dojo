@@ -36,7 +36,7 @@ describe('kana-recognize', () => {
     const input = screen.getByLabelText('Romaji');
     expect(input).toHaveFocus();
     await user().type(input, 'KA{Enter}');
-    expect(screen.getByText(/¡Correcto!/)).toBeInTheDocument();
+    expect(screen.getByText('か = ka · fila か')).toBeInTheDocument();
     expect(screen.getByText(/Racha: 1/)).toBeInTheDocument();
     expect(screen.getByLabelText('Romaji')).toHaveFocus();
     await user().type(screen.getByLabelText('Romaji'), 'ka{Enter}');
@@ -120,13 +120,14 @@ describe('listen', () => {
 
   it('wrong option is disabled and the right one must be chosen', async () => {
     const onFinish = vi.fn();
+    useProgress.getState().unlockKana([...'あいうえお']);
     render(<Listen kana={[kana('あ')]} words={[]} rounds={1} onFinish={onFinish} />);
     const options = screen.getAllByRole('button').filter((b) => /^[぀-ゟ]$/.test(b.textContent ?? ''));
     expect(options).toHaveLength(4);
     const wrong = options.find((b) => b.textContent !== 'あ')!;
     await user().click(wrong);
     expect(wrong).toBeDisabled();
-    expect(screen.getByText(/Incorrecto/)).toBeInTheDocument();
+    expect(screen.getByText(/Sonó: Kana: a · elegiste/)).toBeInTheDocument();
     expect(onFinish).not.toHaveBeenCalled();
     await user().click(screen.getByRole('button', { name: 'あ' }));
     expect(onFinish).toHaveBeenCalled();
