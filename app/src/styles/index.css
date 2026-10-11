@@ -190,3 +190,60 @@ select {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Anchors/headings never hide under the top bar when scrolled into view. */
+html {
+  scroll-padding-top: 4.5rem;
+  scroll-padding-bottom: 1rem;
+}
+
+[id],
+h1,
+h2,
+h3 {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Audio button: compact touch target, icon only on phones. */
+.speak-btn {
+  min-width: 2.75rem;
+  max-width: 3.5rem;
+  height: 2.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  gap: 0.4rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-family: var(--font-ui);
+}
+
+.speak-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.speak-label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .speak-btn {
+    max-width: none;
+    padding: 0.25rem 1rem;
+  }
+
+  .speak-label {
+    display: inline;
+  }
+}
+
+@media (max-width: 479px) {
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+}

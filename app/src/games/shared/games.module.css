@@ -34,6 +34,7 @@
 }
 
 .round {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,13 +44,34 @@
 
 .prompt {
   font-family: var(--font-ja);
-  font-size: clamp(3.5rem, 22vw, 6.5rem);
+  font-size: clamp(2.75rem, 15vw, 5.5rem);
   line-height: 1.1;
   min-height: 1.2em;
+  /* flex: no inline "strut" of the huge font around a lone audio button */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* A lone audio button needs no glyph-sized box. */
+.prompt:has(> :global(.speak-btn):only-child) {
+  min-height: 0;
+}
+
+/* Question captions ("¿Qué significa?", hints) inside a prompt are text, not glyphs: keep them small. */
+.prompt > div:not(.promptText) {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.prompt .muted {
+  font-size: 0.95rem;
 }
 
 .promptText {
-  font-size: clamp(2rem, 9vw, 3rem);
+  font-size: clamp(1.75rem, 8vw, 3rem);
 }
 
 .hint {
@@ -91,8 +113,8 @@
   font: inherit;
   font-size: 1.5rem;
   font-family: var(--font-ja);
-  min-height: 3.5rem;
-  padding: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.4rem;
   border: 2px solid var(--border);
   border-radius: 0.6rem;
   background: var(--surface);
@@ -115,10 +137,13 @@
 }
 
 .feedbackSlot {
-  min-height: 2.6rem;
+  /* Reserved, fixed height: showing feedback never moves what comes below. */
+  height: 3rem;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .feedback {
@@ -126,11 +151,26 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0;
-  padding: 0.4rem 0.9rem;
+  max-width: 100%;
+  padding: 0.2rem 0.7rem;
   border-radius: 0.5rem;
   border: 2px solid currentColor;
+  font-size: 0.9rem;
+  line-height: 1.2;
   font-weight: 600;
   animation: pop 0.25s ease-out;
+}
+
+/* When the frame already shows the previous result on top, the round's own message takes its place
+   (overlay) instead of reserving a second row. */
+.frame:has(> .feedbackSlot) .round > .feedbackSlot {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: var(--surface);
+  pointer-events: none;
 }
 
 .icon {
@@ -201,4 +241,64 @@
   .barFill {
     transition: none;
   }
+}
+
+/* Phones: tighter frame so options and the confirm button stay above the fold. */
+@media (max-width: 479px) {
+  .frame {
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .round {
+    gap: 0.4rem;
+  }
+
+  .hint {
+    font-size: 0.9rem;
+  }
+
+  .answer {
+    font-size: 1.4rem;
+  }
+
+  .input {
+    flex: 1 1 8rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Virtual keyboard open (set on <html> by useKeyboardOpen): compact everything. */
+:global(html[data-keyboard='open']) .frame {
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+:global(html[data-keyboard='open']) .meta {
+  margin-bottom: 0.25rem;
+}
+
+:global(html[data-keyboard='open']) .round {
+  gap: 0.25rem;
+}
+
+:global(html[data-keyboard='open']) .prompt {
+  font-size: clamp(1.75rem, 9vw, 2.75rem);
+}
+
+:global(html[data-keyboard='open']) .promptText {
+  font-size: clamp(1.5rem, 7vw, 2rem);
+}
+
+:global(html[data-keyboard='open']) .hint {
+  font-size: 0.8rem;
+}
+
+:global(html[data-keyboard='open']) .feedbackSlot {
+  height: 2.75rem;
 }

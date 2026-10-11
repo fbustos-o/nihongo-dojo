@@ -138,7 +138,7 @@ export function Numbers({ words, rounds, sequential, onFinish }: GameProps) {
           options={[{ value: 'mix', label: 'Mezcla' }, ...modes.map((m) => ({ value: m, label: MODE_LABELS[m] }))]}
         />
       )}
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <NumberQuestionView
         key={`${session.round}-${question.itemId}`}
         question={question}

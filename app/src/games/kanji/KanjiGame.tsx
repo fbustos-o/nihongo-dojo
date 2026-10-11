@@ -237,7 +237,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
 
   return (
     <GameFrame session={session}>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       {body}
     </GameFrame>
   );

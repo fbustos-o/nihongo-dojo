@@ -374,3 +374,27 @@ a.node:hover {
   flex-direction: column;
   gap: 0.4rem;
 }
+
+/* Phones: slimmer lesson chrome so the first game question and its options fit above the fold. */
+@media (max-width: 479px) {
+  .header {
+    margin-bottom: 0.25rem;
+  }
+
+  .steps {
+    gap: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .step {
+    padding: 0.1rem 0.5rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .steps ~ p {
+    margin: 0.3rem 0;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+}

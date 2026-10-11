@@ -148,7 +148,7 @@ export function Clock({ rounds, sequential, onFinish }: GameProps) {
           ]}
         />
       )}
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <View
         key={`${session.round}-${question.kind}-${question.itemId}`}
         question={question}

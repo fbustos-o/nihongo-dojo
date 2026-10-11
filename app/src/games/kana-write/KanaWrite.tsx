@@ -56,7 +56,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
 
   return (
     <GameFrame session={session}>
-      {last && <Feedback message={last} />}
+      <Feedback message={last} />
       <TypingRound
         key={session.round}
         prompt={
