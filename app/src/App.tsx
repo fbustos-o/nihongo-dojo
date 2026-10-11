@@ -12,6 +12,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default:
 const PathPage = lazy(() => import('./pages/PathPage').then((m) => ({ default: m.PathPage })));
 const PracticePage = lazy(() => import('./pages/PracticePage').then((m) => ({ default: m.PracticePage })));
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then((m) => ({ default: m.SettingsPage })));
+const MemoryPage = lazy(() => import('./pages/MemoryPage').then((m) => ({ default: m.MemoryPage })));
 const ReviewPage = lazy(() => import('./review/ReviewPage').then((m) => ({ default: m.ReviewPage })));
 
 export function App() {
@@ -36,6 +37,7 @@ export function App() {
         <Route path="camino" element={<PathPage />} />
         <Route path="leccion/:id" element={<LessonRunner />} />
         <Route path="repaso" element={<ReviewPage />} />
+        <Route path="memoria/:etapa" element={<MemoryPage />} />
         <Route path="practica" element={<PracticePage />} />
         <Route path="ajustes" element={<SettingsPage />} />
         <Route path="acerca-de" element={<AboutPage />} />
