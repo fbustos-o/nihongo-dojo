@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useProgress } from '../state/progressStore';
+import { playStaticClip } from './staticAudio';
 
 const isJapanese = (voice: SpeechSynthesisVoice) => voice.lang.toLowerCase().replace('_', '-').startsWith('ja');
 
@@ -22,13 +23,23 @@ export function useSpeech() {
 
   const speak = useCallback(
     (text: string) => {
-      if (!synth || !voice) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.voice = voice;
-      utterance.lang = voice.lang;
-      utterance.rate = rate;
-      synth.cancel();
-      synth.speak(utterance);
+      if (!synth || !voice) {
+        void playStaticClip(text);
+        return;
+      }
+      try {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = voice;
+        utterance.lang = voice.lang;
+        utterance.rate = rate;
+        utterance.onerror = (event) => {
+          if (event.error !== 'canceled' && event.error !== 'interrupted') void playStaticClip(text);
+        };
+        synth.cancel();
+        synth.speak(utterance);
+      } catch {
+        void playStaticClip(text);
+      }
     },
     [synth, voice, rate],
   );

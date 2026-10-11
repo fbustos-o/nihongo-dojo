@@ -71,6 +71,21 @@ las entradas erróneas y lo avisa con un cartel.
 En Ajustes se puede exportar el progreso, importarlo y reiniciarlo. Cambiar de navegador o borrar los datos del sitio elimina el progreso local.
 Un progreso guardado dañado se ignora con un aviso y se conserva una copia en bruto (`nihongo-dojo:v1:corrupto`).
 
+## Despliegue estático (GitHub Pages)
+
+La app es 100 % cliente: todo el estado vive en `localStorage` (clave `nihongo-dojo:v1`) y no hay backend. Por eso puede servirse como sitio estático.
+
+**Aviso:** publicar en GitHub Pages hace el sitio **público**, aunque el repositorio sea privado (los repos privados necesitan GitHub Pro/Team para usar Pages). El contenido incluye material derivado de Genki, sujeto a copyright: publícalo solo si estás seguro. Por eso el workflow es solo manual y **no está activado**.
+
+- **Build para un sub-ruta:** `cd app && VITE_BASE=/nihongo-dojo/ npm run build`. Sin `VITE_BASE` la base es `/` (Docker). El router usa `import.meta.env.BASE_URL` como `basename`. El build genera `dist/404.html` (copia de `index.html`, fallback SPA para enlaces profundos) y `dist/.nojekyll`.
+- **Vista previa local (imita Pages):** `node scripts/serve-pages.mjs /nihongo-dojo/ 4173` desde `app/` tras el build, y abrir `http://localhost:4173/nihongo-dojo/`. Las rutas desconocidas devuelven `404.html`, como en Pages.
+- **Activar el workflow:** en GitHub, Settings > Pages > Source = "GitHub Actions"; luego Actions > "Deploy to GitHub Pages" > Run workflow. Compila con `VITE_BASE=/<nombre-del-repo>/`, ejecuta los tests y despliega.
+- **Copias de seguridad:** Ajustes exporta `nihongo_dojo_backup_AAAA-MM-DD.json` e importa desde un selector de archivos (`.json`). Al guardar se pide `navigator.storage.persist()` (mejor esfuerzo).
+
+### Audio
+
+La voz principal es la Web Speech API (`speechSynthesis`, voz `ja`). Si no hay voz japonesa o falla, `useSpeech` intenta un clip estático en `${BASE_URL}audio/<clave>.mp3` (una sola vez por clave; los fallos se recuerdan en memoria para no generar 404 repetidos). La clave es el texto normalizado: NFKC, sin espacios, puntuación ni símbolos, y codificado como URL; p. ej. `ありがとう。` -> `audio/%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86.mp3`. Para añadir clips basta con copiar los `.mp3` a `app/public/audio/` con ese nombre (los nombres en disco son el texto sin codificar, p. ej. `ありがとう.mp3`). No se incluye ningún audio todavía.
+
 ## Atribuciones
 
 - Vocabulario y kanji derivados de [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) y KANJIDIC (EDRDG), licencia CC BY‑SA 4.0; parecidos de kanji de Kanjium.
