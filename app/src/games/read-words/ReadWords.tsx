@@ -94,13 +94,14 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
           prompt={
             <>
               {shown}
+              <div className={styles.hint} data-testid="word-meaning">Significa: {meaningOf(word)}</div>
               <div className={styles.hint}>Escribe cómo se lee (romaji)</div>
               <TypingHint text={word.kana} />
             </>
           }
           answer={
             <>
-              <JaText word={word} /> ({word.romaji})
+              <JaText word={word} /> ({word.romaji}) = {meaningOf(word)}
             </>
           }
           evaluate={(input) => {

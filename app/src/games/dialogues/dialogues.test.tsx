@@ -84,12 +84,17 @@ describe('Dialogues game', () => {
     vi.restoreAllMocks();
   });
 
-  it('translation is hidden until toggled', async () => {
+  it('translation is hidden until the line card is flipped (and flips back)', async () => {
     render(<Dialogues kana={[]} words={[]} dialogueIds={['como-llegar']} rounds={10} />);
     const es = dlg('como-llegar').lines[0]!.es;
     expect(screen.queryByText(es)).not.toBeInTheDocument();
-    await user().click(screen.getByLabelText('Mostrar traducción'));
+    expect(screen.queryByLabelText('Mostrar traducción')).not.toBeInTheDocument();
+    const card = screen.getAllByTestId('flip-line')[0]!;
+    await user().click(card);
     expect(screen.getByText(es)).toBeInTheDocument();
+    expect(card).toHaveAttribute('aria-pressed', 'true');
+    await user().click(card);
+    expect(screen.queryByText(es)).not.toBeInTheDocument();
   });
 
   it('shows romaji only when the setting is on', () => {

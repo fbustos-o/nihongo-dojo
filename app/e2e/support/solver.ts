@@ -162,8 +162,8 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
         return true;
       }
       const r = (await main.getByTestId('romaji').textContent())!.trim();
-      const hint = main.getByTestId('prompt').locator('[class*="_hint_"]').first();
-      const hintText = (await hint.count()) ? ((await hint.textContent()) ?? '') : '';
+      const hint = main.getByTestId('prompt').getByTestId('word-meaning');
+      const hintText = (await hint.count()) ? ((await hint.textContent()) ?? '').replace(/^Significa: /, '') : '';
       const word = vocab.find((w) => w.romaji === r && w.es.join(', ') === hintText);
       let answer: string;
       if (word) answer = word.kana;

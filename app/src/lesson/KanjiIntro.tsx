@@ -68,7 +68,7 @@ export function KanjiIntro({ kanji, onStart }: { kanji: readonly Kanji[]; onStar
                 <li key={w.id}>
                   <JaText word={w} /> <span lang="ja">({w.kana})</span> <span className="muted">{w.es[0]}</span>
                   {showRomaji && <span className="muted"> · {w.romaji}</span>}{' '}
-                  <SpeakButton text={w.kana} label="Oír" />
+                  <SpeakButton text={w.kana} label="Escuchar" />
                 </li>
               ))}
             </ul>

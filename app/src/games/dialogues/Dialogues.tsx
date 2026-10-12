@@ -11,24 +11,59 @@ import type { GameProps } from '../types';
 import styles from './dialogues.module.css';
 import { DIALOGUE_ITEM_KIND, cappedRounds, dialogueItemId, eligibleDialogues, hasRoleLine, listenTargets, nextRoleLine, replyOptions, type Line, type ReplyOption, type Speaker } from './dialoguesLogic';
 
-function LineText({ line, showEs }: { line: Line; showEs: boolean }) {
+function LineText({ line }: { line: Line }) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   return (
     <>
-      <p className={styles.ja}>
+      <span className={styles.ja}>
         <JaText word={{ kana: line.ja }} />
-      </p>
+      </span>
       {showRomaji && (
-        <p lang="en" className={styles.sub}>
+        <span lang="en" className={styles.sub}>
           {line.romaji}
-        </p>
+        </span>
       )}
-      {showEs && <p className={styles.sub}>{line.es}</p>}
     </>
   );
 }
 
-function Chat({ lines, showEs, role }: { lines: readonly Line[]; showEs: boolean; role: Speaker }) {
+/**
+ * A line as a card that flips on tap: front = Japanese (+ romaji), back = Spanish with the kana small underneath.
+ * Replaces the old «Mostrar traducción» checkbox, so the translation costs no space until it is asked for.
+ */
+export function FlipLine({ line }: { line: Line }) {
+  const [flipped, setFlipped] = useState(false);
+  // Animate only once the learner has turned it (not when a new line appears).
+  const [turned, setTurned] = useState(false);
+  return (
+    <button
+      type="button"
+      className={`${styles.flip} ${turned ? styles.turned : ''}`}
+      aria-pressed={flipped}
+      title={flipped ? 'Toca para ver el japonés' : 'Toca para ver la traducción'}
+      onClick={() => {
+        setTurned(true);
+        setFlipped((f) => !f);
+      }}
+      data-testid="flip-line"
+    >
+      {flipped ? (
+        <span key="es" className={styles.face}>
+          <span className={styles.es}>{line.es}</span>
+          <span lang="ja" className={styles.sub}>
+            {line.ja}
+          </span>
+        </span>
+      ) : (
+        <span key="ja" className={styles.face}>
+          <LineText line={line} />
+        </span>
+      )}
+    </button>
+  );
+}
+
+function Chat({ lines, role }: { lines: readonly Line[]; role: Speaker }) {
   // The history is a short scroll area that always shows the latest bubbles (QA-041).
   const ref = useRef<HTMLOListElement>(null);
   useEffect(() => {
@@ -36,32 +71,41 @@ function Chat({ lines, showEs, role }: { lines: readonly Line[]; showEs: boolean
     if (el) el.scrollTop = el.scrollHeight;
   }, [lines.length]);
   return (
-    <ol ref={ref} className={styles.chat} aria-label="Conversación" tabIndex={0}>
-      {lines.map((line, i) => (
-        <li key={i} className={`${styles.bubble} ${line.speaker === role ? styles.right : styles.left}`}>
-          <p className={styles.who}>{line.speaker === role ? `${line.speaker} (tú)` : line.speaker}</p>
-          <LineText line={line} showEs={showEs} />
-          <SpeakButton text={line.ja.replace(/\s+/g, '')} label="Oír" />
-        </li>
-      ))}
-    </ol>
+    <>
+      <p className={styles.tip}>Toca una frase para ver su traducción.</p>
+      <ol ref={ref} className={styles.chat} aria-label="Conversación" tabIndex={0}>
+        {lines.map((line, i) => (
+          <li key={i} className={`${styles.bubble} ${line.speaker === role ? styles.right : styles.left}`}>
+            <p className={styles.who}>{line.speaker === role ? `${line.speaker} (tú)` : line.speaker}</p>
+            <FlipLine line={line} />
+            <SpeakButton text={line.ja.replace(/\s+/g, '')} label="Escuchar" />
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }
 
 interface ReplyChoiceProps {
   prompt: ReactNode;
   options: ReplyOption[];
-  showEs: boolean;
   onReport: (correct: boolean) => void;
   onDone: (firstTry: boolean) => void;
 }
 
 /** Pick the right reply among 3-4 lines; a wrong pick is reported once and disabled. */
-export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: ReplyChoiceProps) {
+export function ReplyChoice({ prompt, options, onReport, onDone }: ReplyChoiceProps) {
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const [message, setMessage] = useState<FeedbackMessage | null>(null);
   const counter = useRef(0);
   const { wrongKeys, attempt } = useFirstAttempt(onReport, onDone);
+  // The options are not pinned (the chat keeps the room): bring them to the bottom of the screen on each new turn;
+  // the conversation stays above them, uncovered, and scrolls up.
+  const optionsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    optionsRef.current?.scrollIntoView?.({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+  }, []);
 
   const pick = (option: ReplyOption, index: number) => {
     if (attempt(String(index), option.correct)) return;
@@ -72,12 +116,11 @@ export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: Reply
     <div className={styles.reply}>
       <div data-testid="prompt">{prompt}</div>
       {message && <Feedback message={message} />}
-      <div className={styles.options} role="group" aria-label="Respuestas posibles">
+      <div ref={optionsRef} className={styles.options} role="group" aria-label="Respuestas posibles">
         {options.map((option, i) => (
           <button key={option.line.ja + i} type="button" className={styles.option} disabled={wrongKeys.includes(String(i))} onClick={() => pick(option, i)}>
             <JaText word={{ kana: option.line.ja }} />
             {showRomaji && <small lang="en" className={styles.sub}> {option.line.romaji}</small>}
-            {showEs && <small className={styles.sub}> {option.line.es}</small>}
           </button>
         ))}
       </div>
@@ -86,13 +129,12 @@ export function ReplyChoice({ prompt, options, showEs, onReport, onDone }: Reply
 }
 
 /** "Escucha y responde": hear a line (TTS) and pick the reply. */
-export function ListenReply({ dialogue, heard, showEs, onReport, onDone }: { dialogue: Dialogue; heard: number; showEs: boolean; onReport: (ok: boolean) => void; onDone: (firstTry: boolean) => void }) {
+export function ListenReply({ dialogue, heard, onReport, onDone }: { dialogue: Dialogue; heard: number; onReport: (ok: boolean) => void; onDone: (firstTry: boolean) => void }) {
   const line = dialogue.lines[heard]!;
   const [options] = useState(() => replyOptions(dialogue, heard + 1, content.dialogues, Math.random));
   const available = useAutoSpeak(line.ja.replace(/\s+/g, ''), heard);
   return (
     <ReplyChoice
-      showEs={showEs}
       options={options}
       onReport={onReport}
       onDone={onDone}
@@ -103,7 +145,7 @@ export function ListenReply({ dialogue, heard, showEs, onReport, onDone }: { dia
           {!available && (
             <div className={styles.bubble}>
               <p className="muted">Sin voz en japonés: lee la frase.</p>
-              <LineText line={line} showEs={showEs} />
+              <FlipLine line={line} />
             </div>
           )}
         </>
@@ -124,7 +166,6 @@ interface Pos {
 
 export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: GameProps) {
   const [role, setRole] = useState<Speaker>('B');
-  const [showEs, setShowEs] = useState(false);
   const [last, setLast] = useState<FeedbackMessage | null>(null);
   const [queue] = useState(() => {
     const list = eligibleDialogues(content.dialogues, content.curriculum, words, dialogueIds, lessonId);
@@ -151,25 +192,20 @@ export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: Ga
     session.next();
   };
 
-  const toolbar = (
+  const toolbar = rounds === undefined && (
     <div className={styles.toolbar}>
-      {rounds === undefined && (
-        <ModeChips
-          label="Tu papel"
-          value={role}
-          onChange={(r) => {
-            setRole(r);
-            setPos(startDialogue(0, r));
-          }}
-          options={[
-            { value: 'A', label: 'Hablo como A' },
-            { value: 'B', label: 'Hablo como B' },
-          ]}
-        />
-      )}
-      <label>
-        <input type="checkbox" checked={showEs} onChange={(e) => setShowEs(e.target.checked)} /> Mostrar traducción
-      </label>
+      <ModeChips
+        label="Tu papel"
+        value={role}
+        onChange={(r) => {
+          setRole(r);
+          setPos(startDialogue(0, r));
+        }}
+        options={[
+          { value: 'A', label: 'Hablo como A' },
+          { value: 'B', label: 'Hablo como B' },
+        ]}
+      />
     </div>
   );
 
@@ -181,7 +217,6 @@ export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: Ga
         key={`${session.round}-${dialogue.id}`}
         dialogue={dialogue}
         heard={heard}
-        showEs={showEs}
         onReport={(ok) => {
           setLast(null);
           session.report(dialogueItemId(dialogue, heard + 1), DIALOGUE_ITEM_KIND, dialogue.lines[heard + 1]!.ja, ok);
@@ -213,7 +248,6 @@ export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: Ga
         dialogue={dialogue}
         index={pos.cur}
         pool={queue}
-        showEs={showEs}
         onReport={(ok) => {
           setLast(null);
           session.report(dialogueItemId(dialogue, pos.cur), DIALOGUE_ITEM_KIND, dialogue.lines[pos.cur]!.ja, ok);
@@ -232,7 +266,7 @@ export function Dialogues({ words, rounds, dialogueIds, lessonId, onFinish }: Ga
       {toolbar}
       <h2 className={styles.title}>{dialogue.title}</h2>
       <Feedback message={last} />
-      {visible.length > 0 && <Chat lines={visible} showEs={showEs} role={role} />}
+      {visible.length > 0 && <Chat lines={visible} role={role} />}
       {body}
     </GameFrame>
   );

@@ -9,6 +9,7 @@ import { Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuesti
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
 import { writePrompt } from '../kanaUtils';
+import { meaningOf } from '../wordUtils';
 
 /** Lectura: the romaji is shown (audio only after answering). Dictado: audio only, no text before answering. */
 export type WriteMode = 'lectura' | 'dictado';
@@ -82,6 +83,8 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
   // Katakana-only words (loanwords) are typed with the katakana IME, where `-` and a repeated vowel give ー.
   const katakana = isWord ? /^[ァ-ヺー]+$/.test(question.word.kana) : question.entry.script === 'katakana';
   const prompt = isWord ? { romaji: question.word.romaji } : writePrompt(question.entry);
+  /** Words always carry their Spanish meaning (prompt, correction and result); single kana have none. */
+  const gloss = isWord ? ` = ${meaningOf(question.word)}` : '';
 
   const onReport = (ok: boolean) => {
     setLast(null);
@@ -95,20 +98,20 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
       firstTry
         ? {
             tone: 'ok',
-            text: `¡Correcto! ${expected}`,
+            text: `¡Correcto! ${expected}${gloss}`,
             node: (
               <>
-                ¡Correcto! <span lang="ja">{expected}</span> <SpeakButton text={expected} />
+                ¡Correcto! <span lang="ja">{expected}</span>{gloss} <SpeakButton text={expected} iconOnly />
               </>
             ),
             id: session.round,
           }
         : {
             tone: 'near',
-            text: `Era: ${expected} (${prompt.romaji})`,
+            text: `Era: ${expected} (${prompt.romaji})${gloss}`,
             node: (
               <>
-                Era: <span lang="ja">{expected}</span> ({prompt.romaji})
+                Era: <span lang="ja">{expected}</span> ({prompt.romaji}){gloss}
               </>
             ),
             id: session.round,
@@ -151,7 +154,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
             <>
               <span className={styles.promptText} data-testid="romaji">{prompt.romaji}</span>
               {prompt.note && <div className={styles.hint} data-testid="write-note">{prompt.note}</div>}
-              {isWord && <div className={styles.hint}>{question.word.es.join(', ')}</div>}
+              {isWord && <div className={styles.hint} data-testid="word-meaning">Significa: {question.word.es.join(', ')}</div>}
               <TypingHint text={expected} />
               {katakana && expected.includes('ー') && <div className={styles.hint}>ー se escribe con «-» (o repitiendo la vocal).</div>}
               <div className={styles.hint} data-testid="write-mode">Lectura</div>
@@ -159,6 +162,7 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
           ) : (
             <>
               <SpeakButton text={expected} label="Escuchar otra vez" />
+              {isWord && <div className={styles.hint} data-testid="word-meaning">Significa: {question.word.es.join(', ')}</div>}
               <div className={styles.hint} data-testid="write-mode">
                 Dictado · escribe en {katakana ? 'katakana' : 'hiragana'} lo que oyes
               </div>
@@ -167,7 +171,8 @@ export function KanaWrite({ kana, words, rounds, sequential, onFinish }: GamePro
         }
         answer={
           <>
-            {expected} <SpeakButton text={expected} />
+            {expected}
+            {gloss} <SpeakButton text={expected} />
           </>
         }
         evaluate={(input) => verdictOf(input, expected, katakana)}

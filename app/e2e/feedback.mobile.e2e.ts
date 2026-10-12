@@ -95,20 +95,22 @@ test.describe('1.1 teclado virtual', () => {
 // ---------------------------------------------------------------------------------------------
 // 1.2 Scale: speaker button, options above the fold
 // ---------------------------------------------------------------------------------------------
-test('1.2 botón de audio compacto (≤ 56 px, sin texto en móvil) en Escuchar y Dictado', async ({ page, consoleLog }, info) => {
+test('1.2 botón de audio con texto «Escuchar» en móvil (alto 44–56 px, compacto) en Escuchar y Dictado', async ({ page, consoleLog }, info) => {
   void consoleLog;
   await stubSpeech(page, true);
   await page.setViewportSize(SMALL);
   await openLessonGame(page, 'h-ka', 'Escuchar');
   const btn = page.getByRole('button', { name: 'Escuchar otra vez' });
   const b = await box(btn);
-  const labelShown = await btn.locator('.speak-label').isVisible();
-  measure(info, '1.2 SpeakButton Escuchar 360', { w: b.width, h: b.height, labelShown });
+  const shortShown = await btn.locator('.speak-label-short').isVisible();
+  const text = (await btn.innerText()).trim();
+  measure(info, '1.2 SpeakButton Escuchar 360', { w: b.width, h: b.height, shortShown, text });
   await shot(page, info, '1.2-listen-360');
-  expect(b.width).toBeLessThanOrEqual(56);
+  expect(shortShown).toBe(true);
+  expect(text).toContain('Escuchar');
+  expect(b.width).toBeLessThanOrEqual(160);
   expect(b.height).toBeLessThanOrEqual(56);
   expect(b.height).toBeGreaterThanOrEqual(44);
-  expect(labelShown).toBe(false);
 });
 
 const LAST_ACTION = 'main [class*="_choices_"] button, main form button[type=submit], main [role="group"][aria-label="Respuestas posibles"] button, main button:has-text("Comprobar")';
@@ -267,6 +269,13 @@ test('2.3 Leer palabras: la retroalimentación anterior queda visible sin tapar 
     const prB = await box(page.getByTestId('prompt'));
     rows.push({ round: r, wrong, feedback: (await fb.innerText()).replace(/\s+/g, ' ').trim(), fb: [fbB.top, fbB.bottom], prompt: [prB.top, prB.bottom] });
     expect(fbB.bottom, 'feedback above the new prompt').toBeLessThanOrEqual(prB.top);
+    // Really seen, not just in the DOM: nothing (e.g. the next round's empty slot) is painted over it.
+    const onTop = await fb.locator('p').evaluate((p) => {
+      const b = p.getBoundingClientRect();
+      const hit = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+      return !!hit && p.contains(hit);
+    });
+    expect(onTop, 'previous feedback is not covered').toBe(true);
     if (r === 1) await shot(page, info, '2.3-read-words');
   }
   const cards = await page.locator('main [class*="_choices_"] button').evaluateAll((bs) => bs.map((b) => Math.round(b.getBoundingClientRect().height)));
@@ -368,8 +377,8 @@ for (const [lesson, game] of STAGE2) {
     await openLessonGame(page, lesson, game);
     const rows: string[] = [];
     for (let r = 0; r < 3; r++) {
-      // with the kana keyboard the app scrolls the field into view itself: do not undo it
-      if (!(await page.getByRole('group', { name: 'Teclado de kana' }).count())) await page.evaluate(() => scrollTo(0, 0));
+      // with the kana keyboard (and in Diálogos, whose options are not pinned) the app scrolls the answer area into view itself: do not undo it
+      if (game !== 'Diálogos' && !(await page.getByRole('group', { name: 'Teclado de kana' }).count())) await page.evaluate(() => scrollTo(0, 0));
       await page.waitForTimeout(700);
       const f = await fold(page);
       const usesKb = f.kbTop !== null;

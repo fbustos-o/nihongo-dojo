@@ -71,7 +71,7 @@ test('Pages: sin voz japonesa, el audio consulta solo el manifiesto bajo la base
   const audio: string[] = [];
   page.on('request', (r) => { if (r.url().includes('/audio/')) audio.push(new URL(r.url()).pathname); });
   await page.goto('leccion/h-a');
-  const btn = page.getByRole('button', { name: 'Oír' }).first();
+  const btn = page.getByRole('button', { name: 'Escuchar', exact: true }).first();
   await btn.tap();
   await expect(btn).toBeDisabled();
   measure(info, 'static audio fallback', { requests: audio.map(decodeURIComponent) });

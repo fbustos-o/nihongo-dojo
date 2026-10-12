@@ -179,6 +179,11 @@
   pointer-events: none;
 }
 
+/* An empty round slot must not cover the previous result shown by the frame. */
+.frame:has(> .feedbackSlot) .round > .feedbackSlot:empty {
+  visibility: hidden;
+}
+
 .icon {
   font-size: 1.2em;
 }

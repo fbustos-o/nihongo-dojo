@@ -55,7 +55,7 @@ describe('LessonRunner', () => {
   it('intro shows the new kana with romaji, audio and the row chart', async () => {
     await renderAt('/leccion/h-a');
     expect(screen.getByRole('heading', { name: 'Kana nuevos' })).toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: /Oír/ })).toHaveLength(5);
+    expect(screen.getAllByRole('button', { name: /^Escuchar$/ })).toHaveLength(5);
     const chart = screen.getByRole('group', { name: 'Tabla de filas' });
     expect(chart).toHaveTextContent('あいうえお');
     expect(screen.getByRole('button', { name: 'Empezar práctica' })).toBeInTheDocument();

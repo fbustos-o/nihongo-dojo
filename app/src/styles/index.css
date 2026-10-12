@@ -209,21 +209,26 @@ h3 {
   scroll-margin-top: 4.5rem;
 }
 
-/* Audio button: compact touch target, icon only on phones. */
+/* Audio button: icon + text («Escuchar» on phones, the full label on wide screens). */
 .speak-btn {
   min-width: 2.75rem;
-  max-width: 3.5rem;
   height: 2.75rem;
-  padding: 0.25rem;
+  padding: 0.25rem 0.9rem 0.25rem 0.7rem;
   border-radius: 999px;
   gap: 0.4rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.2;
   font-family: var(--font-ui);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.speak-btn-icon {
+  padding: 0.25rem;
 }
 
 .speak-icon {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   line-height: 1;
 }
 
@@ -233,12 +238,19 @@ h3 {
 
 @media (min-width: 640px) {
   .speak-btn {
-    max-width: none;
     padding: 0.25rem 1rem;
+  }
+
+  .speak-btn-icon {
+    padding: 0.25rem;
   }
 
   .speak-label {
     display: inline;
+  }
+
+  .speak-label-short {
+    display: none;
   }
 }
 

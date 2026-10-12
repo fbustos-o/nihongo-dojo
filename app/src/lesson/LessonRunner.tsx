@@ -185,7 +185,7 @@ function Intro({ lesson, data, known, onStart }: { lesson: Lesson; data: ReturnT
                 </div>
                 <div className={styles.romaji}>{romajiLabel(k)}</div>
                 {kanaHint(k) && <div className="muted">{kanaHint(k)}</div>}
-                <SpeakButton text={k.char} label="Oír" />
+                <SpeakButton text={k.char} label="Escuchar" />
               </li>
             ))}
           </ul>

@@ -136,7 +136,7 @@ describe('kanji lesson page', () => {
     expect(card).toHaveTextContent('on');
     expect(card).toHaveTextContent('kun');
     expect(within(card).getByText('じ', { selector: 'strong' })).toBeInTheDocument();
-    expect(within(card).getAllByRole('button', { name: /Oír/ }).length).toBeGreaterThanOrEqual(2);
+    expect(within(card).getAllByRole('button', { name: /^Escuchar$/ }).length).toBeGreaterThanOrEqual(2);
     // new kanji already show with furigana inside the lesson, before being unlocked
     expect(card.querySelector('ruby')).not.toBeNull();
     expect(useProgress.getState().unlockedKanji).not.toContain('時');
