@@ -32,7 +32,16 @@ export const FuriganaModeSchema = z.enum(['auto', 'siempre', 'nunca']);
 export const KanaInputModeSchema = z.enum(['auto', 'teclado', 'romaji']);
 export type KanaInputMode = z.infer<typeof KanaInputModeSchema>;
 
+export const LangSchema = z.enum(['es', 'en']);
+export type Lang = z.infer<typeof LangSchema>;
+
 export const SettingsSchema = z.object({
+  /** Interface language. Absent in old saves (Spanish). */
+  uiLang: LangSchema.default('es'),
+  /** Language of word meanings and translations (`glosses`). Absent in old saves (Spanish). */
+  meaningLang: LangSchema.default('es'),
+  /** Daily goal of new essential words (stage 5 / vocabulary page). */
+  newWordsPerDay: z.number().int().min(0).max(100).default(10),
   showRomaji: z.boolean(),
   ttsRate: z.number().min(0.5).max(1.5),
   /** Sound effects in games. Off by default. */
@@ -107,6 +116,6 @@ export function createInitialProgress(): Progress {
     xp: 0,
     streak: { lastStudyDate: null, count: 0 },
     daily: {},
-    settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto', kanaInput: 'auto' },
+    settings: { uiLang: 'es', meaningLang: 'es', newWordsPerDay: 10, showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto', kanaInput: 'auto' },
   };
 }

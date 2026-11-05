@@ -28,6 +28,7 @@ export const STAGE_TITLES: Record<Lesson['stage'], string> = {
   2: 'Gramática en hiragana',
   3: 'Katakana',
   4: 'Kanji',
+  5: 'Vocabulario esencial',
 };
 
 export function lessonStatus(lesson: Lesson, completed: ReadonlySet<string>): LessonStatus {

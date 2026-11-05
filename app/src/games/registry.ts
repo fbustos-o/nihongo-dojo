@@ -48,6 +48,7 @@ export const GAME_REGISTRY: Record<GameId, GameMeta> = {
   dialogues: { id: 'dialogues', name: 'Diálogos', description: 'Elige la respuesta correcta en una conversación.', component: lazyGame(LOADERS['dialogues']!) },
   'mini-reading': { id: 'mini-reading', name: 'Mini-lectura', description: 'Lee un texto corto y responde.', component: lazyGame(LOADERS['mini-reading']!) },
   kanji: { id: 'kanji', name: 'Kanji', description: 'Kanji: significado, lectura en palabras reales y frases que se transforman.', component: lazyGame(LOADERS['kanji']!) },
+  flashcards: { id: 'flashcards', name: 'Tarjetas', description: 'Conoce palabras nuevas con tarjetas que se voltean y decide si ya las sabes.' },
 };
 
 export const getGame = (id: GameId): GameMeta => GAME_REGISTRY[id];
