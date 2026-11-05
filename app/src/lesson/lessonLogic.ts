@@ -244,7 +244,10 @@ export function lessonContent(
   const newKanji = lesson.kanji ?? [];
   const kanji = newKanji.flatMap((c) => data.kanji?.find((k) => k.char === c) ?? []);
   const words =
-    lesson.stage === 1
+    lesson.stage === 5
+      ? // essential vocabulary: the lesson's own words only (earlier packages come back through the SRS, not as practice material)
+        (lesson.words ?? []).flatMap((id) => byId.get(id) ?? [])
+      : lesson.stage === 1
       ? filterReadable(unique, known)
       : lesson.stage === 3
         ? stage3Words(unique, known)
@@ -280,3 +283,18 @@ export function sampleWords(
   }
   return words.filter((w) => chosen.has(w.id));
 }
+
+/** Words per run of the non-flashcard games of a stage 5 lesson (the lesson has ~25; flashcards get all of them). */
+export const MAX_ESSENTIAL_GAME_WORDS = 12;
+
+/**
+ * Words a game receives in a lesson run. Stage 5 lessons give ALL their words to `flashcards` and a weighted sample
+ * (`MAX_ESSENTIAL_GAME_WORDS`) to the other games; other stages are unchanged (the run's words).
+ */
+export function wordsForGame(game: GameId, lesson: Pick<Lesson, 'stage'>, words: readonly Word[], sample: readonly Word[] = words): Word[] {
+  if (lesson.stage !== 5) return [...words];
+  return game === 'flashcards' ? [...words] : [...sample];
+}
+
+/** Rounds of a word game in a lesson: flashcards always go through every card once; the others use `roundsFor`. */
+export const wordGameRounds = (game: GameId, wordCount: number): number => (game === 'flashcards' ? wordCount : roundsFor(wordCount));

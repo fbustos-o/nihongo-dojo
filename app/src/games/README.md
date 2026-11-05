@@ -99,3 +99,20 @@ entre parecidos (`Kanji.similar`); palabra en kanji → escribir la lectura con 
 de la etapa 2 con sus palabras ahora en kanji (JaText con furigana) → elegir su significado. Registra `kanji:<char>` y `word:<id>:kanji`.
 Props: `kanji` (a practicar), `words`; con `sequential` recorre los ítems vencidos (repaso). En las lecciones, `ExtraKanjiContext` trata
 los kanji nuevos como desbloqueados mientras se practica; al aprobar, `finishLesson` llama a `unlockKanji` (SRS 1).
+
+## Tarjetas (`flashcards`), «Ya la sé» y plan diario (v2, agente G1)
+
+- `flashcards/Flashcards.tsx`: tarjeta con la palabra (`JaText`) y `SpeakButton`; al tocarla (o con Espacio) se voltea y muestra
+  significados (`glosses(word, meaningLang)`), romaji si `settings.showRomaji`, «Se escribe 言葉» (`Word.written`), la nota y la insignia «Core #rank».
+  Después, «Ya la sé» (tecla 1) o «Todavía no» (tecla 2) llaman a `report(word.id, 'word', word.kana, correcto)`.
+  Sin `rounds` recorre todas las `words` una vez (`rounds` por defecto = `words.length`); con `sequential` en orden, si no barajadas
+  (no usa el selector ponderado: una baraja no repite tarjetas). Si es la primera respuesta correcta de una palabra nueva (srsStage 0),
+  llama a `countNewWord()` y suma a `daily[hoy].newWords`.
+- En lecciones de etapa 5 (`c-01`…`c-40`) `lessonContent` entrega solo las palabras propias de la lección; `wordsForGame` da **todas** a
+  `flashcards` (rondas = nº de palabras, `wordGameRounds`) y una muestra ponderada de `MAX_ESSENTIAL_GAME_WORDS` (12) al resto de juegos.
+- Acciones del store de progreso: `markKnown(kind, itemId, label?)` pone el ítem en Guru 1 (`srsStage` 5, `nextDue = dueTimeFor(5, ahora)`, sin XP,
+  racha ni contadores diarios; si ya está en Guru o más, no cambia); `unmarkKnown(kind, itemId)` lo devuelve a 0 (nuevo, no vence);
+  `countNewWord()` suma una palabra nueva al día. La página `/vocabulario` usa `markKnown`/`unmarkKnown` (conmutador «Ya la sé»).
+- `state/dailyPlan.ts`: `planToday` (puro) → `{ reviewsDue, newWordsTarget, newWordsDone, newWordsLeft, nextLesson, primary }`; `selectNewWords`
+  elige palabras con `rank`, aún nuevas (sin ítem o stage 0) y legibles con los kana conocidos (`isReadableWith(kana, knownKana)`), por rango.
+  `/aprender` toma `max(5, newWordsLeft)` de ellas: tarjetas y luego `read-words`.

@@ -8,8 +8,8 @@ describe('daily activity', () => {
     let daily = bumpDaily({}, at('2026-03-01'), { correct: 1, reviews: 1 });
     daily = bumpDaily(daily, at('2026-03-01'), { wrong: 1 });
     daily = bumpDaily(daily, at('2026-03-02'), { lessons: 1 });
-    expect(daily['2026-03-01']).toEqual({ reviews: 1, lessons: 0, correct: 1, wrong: 1 });
-    expect(daily['2026-03-02']).toEqual({ reviews: 0, lessons: 1, correct: 0, wrong: 0 });
+    expect(daily['2026-03-01']).toEqual({ reviews: 1, lessons: 0, newWords: 0, correct: 1, wrong: 1 });
+    expect(daily['2026-03-02']).toEqual({ reviews: 0, lessons: 1, newWords: 0, correct: 0, wrong: 0 });
     expect(dailyAccuracy(daily['2026-03-01']!)).toBe(0.5);
     expect(dailyAccuracy(daily['2026-03-02']!)).toBe(0);
   });

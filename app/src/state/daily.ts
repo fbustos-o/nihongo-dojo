@@ -7,6 +7,8 @@ export const DailyEntrySchema = z.object({
   reviews: z.number().int().min(0).default(0),
   /** Lessons passed. */
   lessons: z.number().int().min(0).default(0),
+  /** Brand-new words that got their first correct answer today (flashcards, /aprender). */
+  newWords: z.number().int().min(0).default(0),
   correct: z.number().int().min(0).default(0),
   wrong: z.number().int().min(0).default(0),
 });
@@ -19,7 +21,7 @@ export type Daily = z.infer<typeof DailySchema>;
 /** Days kept in the store. */
 export const DAILY_KEEP_DAYS = 90;
 
-export const emptyDaily = (): DailyEntry => ({ reviews: 0, lessons: 0, correct: 0, wrong: 0 });
+export const emptyDaily = (): DailyEntry => ({ reviews: 0, lessons: 0, newWords: 0, correct: 0, wrong: 0 });
 
 /** Adds `delta` to the counters of `now`'s day and drops entries older than `DAILY_KEEP_DAYS`. */
 export function bumpDaily(daily: Daily, now: Date, delta: Partial<DailyEntry>): Daily {
@@ -30,6 +32,7 @@ export function bumpDaily(daily: Daily, now: Date, delta: Partial<DailyEntry>): 
     [key]: {
       reviews: current.reviews + (delta.reviews ?? 0),
       lessons: current.lessons + (delta.lessons ?? 0),
+      newWords: current.newWords + (delta.newWords ?? 0),
       correct: current.correct + (delta.correct ?? 0),
       wrong: current.wrong + (delta.wrong ?? 0),
     },

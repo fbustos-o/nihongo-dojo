@@ -10,7 +10,7 @@ import {
   type Progress,
   type Settings,
 } from './progressSchema';
-import { applyAnswer, dueTimeFor, isDue } from '../engine/srs';
+import { applyAnswer, dueTimeFor, GURU_STAGE, isDue } from '../engine/srs';
 import { levelFromXp } from '../engine/levels';
 import { useCelebrations } from './celebrations';
 import { bumpDaily } from './daily';
@@ -32,6 +32,15 @@ export interface RecordOptions {
 interface ProgressActions {
   /** Records one answer: updates the item's SRS state, XP and streak. */
   recordAnswer: (itemId: string, kind: ItemKind, correct: boolean, options?: RecordOptions) => void;
+  /**
+   * «Ya la sé»: puts the item at Guru 1 (srsStage 5) with `nextDue` from the SRS table, with no XP, streak or daily counters.
+   * Items already at Guru or above are left alone. `label` is only informative (the caller's display text).
+   */
+  markKnown: (kind: ItemKind, itemId: string, label?: string) => void;
+  /** Undoes `markKnown`: the item goes back to stage 0 (new, not due). */
+  unmarkKnown: (kind: ItemKind, itemId: string) => void;
+  /** Counts one brand-new word learned today (`daily.newWords`). */
+  countNewWord: () => void;
   unlockKana: (chars: Iterable<string>) => void;
   unlockKanji: (chars: Iterable<string>) => void;
   unlockLesson: (lessonId: string) => void;
@@ -91,6 +100,23 @@ export const useProgress = create<ProgressStore>()((set) => ({
     });
     celebrate(before.xp, xp, before.streak, streak);
   },
+
+  markKnown: (kind, itemId) =>
+    set((state) => {
+      const now = Date.now();
+      const key = itemKey(kind, itemId);
+      const current = state.items[key] ?? { itemId, kind, srsStage: 0, correct: 0, wrong: 0, lastSeen: 0, nextDue: 0, weight: 1 };
+      if (current.srsStage >= GURU_STAGE) return state;
+      return { items: { ...state.items, [key]: { ...current, srsStage: GURU_STAGE, lastSeen: now, nextDue: dueTimeFor(GURU_STAGE, now), weight: 1 } } };
+    }),
+  unmarkKnown: (kind, itemId) =>
+    set((state) => {
+      const key = itemKey(kind, itemId);
+      const current = state.items[key];
+      if (!current) return state;
+      return { items: { ...state.items, [key]: { ...current, srsStage: 0, lastSeen: 0, nextDue: 0 } } };
+    }),
+  countNewWord: () => set((state) => ({ daily: bumpDaily(state.daily, new Date(), { newWords: 1 }) })),
 
   unlockKana: (chars) => set((state) => ({ knownKana: union(state.knownKana, chars) })),
   /** Unlocks kanji (JaText shows them with furigana) and starts them at SRS stage 1 (Aprendiz 1) unless already further. */
