@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useDeferredValue, useMemo, useState } from 'react';
 import { JaText } from '../components/JaText';
 import { SpeakButton } from '../components/SpeakButton';
 import { content } from '../domain/contentLoader';
@@ -27,7 +27,9 @@ export function VocabPage({ vocab = content.vocab }: { vocab?: readonly Word[] }
   };
 
   const { known, total } = useMemo(() => coreKnown(vocab, items), [vocab, items]);
-  const list = useMemo(() => filterVocab(vocab, items, filters, lang), [vocab, items, filters, lang]);
+  // the input stays responsive on slow phones: the 1343-word filter runs on a deferred copy (QA-115)
+  const deferred = useDeferredValue(filters);
+  const list = useMemo(() => filterVocab(vocab, items, deferred, lang), [vocab, items, deferred, lang]);
 
   return (
     <>

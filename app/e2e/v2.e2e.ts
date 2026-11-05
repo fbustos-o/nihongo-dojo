@@ -3,7 +3,7 @@
 import { test, expect } from './support/fixtures';
 import { stubSpeech } from './support/mobile';
 import { readProgress } from './support/state';
-import { coreLessonJourney, deepLinkRestore, englishJourney, learnJourney, vocabJourney } from './support/v2';
+import { coreLessonJourney, deepLinkRestore, englishJourney, learnJourney, stage5Leaks, vocabJourney } from './support/v2';
 
 test.beforeEach(async ({ page }) => {
   await stubSpeech(page, true);
@@ -36,4 +36,10 @@ test('Ajustes → inglés: Inicio, Camino y un juego en inglés; los significado
 test('enlace profundo con ?r=: /?r=camino termina en /camino', async ({ page, consoleLog }) => {
   void consoleLog;
   await deepLinkRestore(page);
+});
+
+test('etapa 5 (c-01 tras な, c-13 tras や・ら, c-29 tras が・ざ): ningún juego muestra kana ni kanji sin desbloquear', async ({ page, consoleLog }) => {
+  void consoleLog;
+  test.setTimeout(300_000);
+  for (const id of ['c-01', 'c-13', 'c-29']) expect(await stage5Leaks(page, id), id).toEqual([]);
 });

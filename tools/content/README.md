@@ -52,7 +52,7 @@ que la app lee con los helpers de `i18n` y, si faltan, cae al español.
 | Archivo | Formato | Para qué |
 |---|---|---|
 | `gen/core1000_matches.txt` | `rank \| id-existente` o `rank \| NEW [\| id-nuevo]` | Decisiones manuales de emparejado (homófonos como かみ/はし/さん/いる, glosas distintas). Una línea gana a la regla automática. |
-| `gen/core1000_pos.txt` | `rank \| pos \| verbGroup \| tags` | `pos`, grupo verbal y tags de **cada** palabra nueva (Core no trae tipo). Cada rango NEW debe estar y ninguno más. |
+| `gen/core1000_pos.txt` | `rank \| pos \| verbGroup \| tags [\| es]` | `pos`, grupo verbal y tags de **cada** palabra nueva (Core no trae tipo). Cada rango NEW debe estar y ninguno más. La 5.ª columna opcional sustituye las glosas en español de Core (separadas por `;`) cuando son erróneas o demasiado técnicas (QA v2). |
 | `gen/vocab_en.txt` | `id \| en (;) \| noteEn` | Inglés de las palabras (lo produce el agente de inglés); su `en` gana al de Core. Opcional. |
 
 Regla automática de emparejado: coincide si `reading == kana` y (mismo `kanji`, o la palabra Core se escribe en kana, o

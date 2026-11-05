@@ -37,17 +37,24 @@ test('?r= en móvil', async ({ page, consoleLog }) => {
   await deepLinkRestore(page);
 });
 
-test('páginas v2 sin scroll horizontal; barra inferior con 6 entradas; «Ir a la lección actual»', async ({ page, consoleLog }) => {
+test('páginas v2 sin scroll horizontal (también a 360 px); barra inferior con 6 entradas; «Ir a la lección actual»', async ({ page, consoleLog }) => {
   void consoleLog;
+  await page.setViewportSize({ width: 360, height: 640 });
   await seed(page, buildProgress({ completed: lessonsUpTo('c-03') }), '/');
   for (const path of ['/', '/camino', '/vocabulario', '/aprender', '/ajustes', '/leccion/c-03']) {
     await page.goto(path);
     await page.waitForLoadState('networkidle');
     const { sw, w } = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, w: window.innerWidth }));
     expect(sw, `${path}: scrollWidth ${sw} > ${w}`).toBeLessThanOrEqual(w);
+    // a wider layout makes mobile Chrome zoom out instead of scrolling: innerWidth must stay the device width (QA-112)
+    expect(w, `${path}: layout viewport`).toBe(page.viewportSize()!.width);
   }
   const nav = page.getByRole('navigation', { name: 'Navegación principal' });
   await expect(nav.getByRole('link')).toHaveCount(6);
+  // short label on the bar, full accessible name (QA-111)
+  expect((await nav.getByRole('link', { name: 'Vocabulario' }).innerText()).trim()).toBe('Palabras');
+  const clipped = await nav.locator('a').evaluateAll((links) => links.filter((a) => { const l = a.querySelector('[class*="_label_"]') as HTMLElement; return l.scrollWidth > l.clientWidth + 1; }).length);
+  expect(clipped).toBe(0);
   for (const link of await nav.getByRole('link').all()) {
     const b = (await link.boundingBox())!;
     expect(b.height).toBeGreaterThanOrEqual(44);

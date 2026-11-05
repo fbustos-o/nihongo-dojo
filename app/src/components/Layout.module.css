@@ -21,6 +21,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  /* QA-112: the brand gives way (never the page): with the «v2 beta» badge the header was 420 px wide at 360 */
+  min-width: 0;
+  overflow: hidden;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -97,6 +100,11 @@
   white-space: nowrap;
 }
 
+/* Bottom bar: short label; the sidebar / top bar (>= 720 px) shows the full one. */
+.long {
+  display: none;
+}
+
 .iconWrap {
   display: grid;
   place-items: center;
@@ -144,6 +152,14 @@
 
 /* Tablet: top tab strip. */
 @media (min-width: 720px) {
+  .long {
+    display: inline;
+  }
+
+  .short {
+    display: none;
+  }
+
   .nav {
     position: static;
     inset: auto;
@@ -256,6 +272,7 @@
 }
 
 .about {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -293,6 +310,13 @@
 .banner ul {
   margin: 0;
   padding-left: 1.1rem;
+}
+
+/* Narrow phones: drop the Japanese subtitle so brand, badge and «Acerca de» fit in one line. */
+@media (max-width: 419px) {
+  .brandText span[lang='ja'] {
+    display: none;
+  }
 }
 
 /* Deployment channel badge (VITE_CHANNEL, e.g. the /v2/ preview). */

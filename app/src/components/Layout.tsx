@@ -10,10 +10,11 @@ import { Loading } from './Loading';
 import { useKeyboardOpen } from './useKeyboardOpen';
 import styles from './Layout.module.css';
 
-const LINKS: { to: string; label: string; icon: IconName; end?: boolean }[] = [
+/** `short`: label of the bottom tab bar on phones, where six entries leave ~60 px each (QA-111: «Vocabul…»). */
+const LINKS: { to: string; label: string; short?: string; icon: IconName; end?: boolean }[] = [
   { to: '/', label: 'nav.home', icon: 'home', end: true },
   { to: '/camino', label: 'nav.path', icon: 'map' },
-  { to: '/vocabulario', label: 'nav.vocab', icon: 'vocab' },
+  { to: '/vocabulario', label: 'nav.vocab', short: 'nav.vocabShort', icon: 'vocab' },
   { to: '/repaso', label: 'nav.review', icon: 'repeat' },
   { to: '/practica', label: 'nav.practice', icon: 'pencil' },
   { to: '/ajustes', label: 'nav.settings', icon: 'settings' },
@@ -50,11 +51,19 @@ export function Layout() {
             to={link.to}
             end={link.end}
             className={({ isActive }) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}
+            aria-label={link.short ? t(link.label) : undefined}
           >
             <span className={styles.iconWrap}>
               <Icon name={link.icon} size={22} />
             </span>
-            <span className={styles.label}>{t(link.label)}</span>
+            {link.short ? (
+              <span className={styles.label} aria-hidden="true">
+                <span className={styles.long}>{t(link.label)}</span>
+                <span className={styles.short}>{t(link.short)}</span>
+              </span>
+            ) : (
+              <span className={styles.label}>{t(link.label)}</span>
+            )}
           </NavLink>
         ))}
       </nav>

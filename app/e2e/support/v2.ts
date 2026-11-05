@@ -2,8 +2,8 @@
 import { expect, type Page } from '@playwright/test';
 import { toHiragana } from 'wanakana';
 import { isReadableWith } from '../../src/engine/kanaFilter';
-import { kana, lessonsUpTo, norm, vocab } from './content';
-import { answerRound, jaText, lessonResultVisible, playUntil } from './solver';
+import { curriculum, kana, lessonsUpTo, norm, vocab } from './content';
+import { answerRound, currentGame, jaText, lessonResultVisible, playUntil } from './solver';
 import { buildProgress, readProgress, seed } from './state';
 
 interface CoreWord { id: string; kana: string; rank?: number; source: string; en?: string[]; es: string[] }
@@ -28,6 +28,36 @@ async function flashcard(page: Page, expectedKana?: string): Promise<void> {
   await card.click();
   await expect(page.getByTestId('flashcard-back')).toBeVisible();
   await page.getByRole('button', { name: 'Ya la sé', exact: true }).click();
+}
+
+/** Kana and kanji visible in the game area, without the `written` info of cards, furigana/ruby, inputs and the title. */
+async function visibleScript(page: Page): Promise<string[]> {
+  return page.locator('main').evaluate((main) => {
+    const c = main.cloneNode(true) as HTMLElement;
+    // kana-ruby: a locked kana shown with its romaji on top (QA-036 decision), the accepted way to show it
+    c.querySelectorAll('h1, input, rt, ruby[data-testid="kana-ruby"], [data-testid="flashcard-back"] [lang="ja"], [class*="_romaji_"]').forEach((n) => n.remove());
+    return [...new Set(c.innerText.match(/[ぁ-ゖァ-ヺ一-鿿]/gu) ?? [])];
+  });
+}
+
+/**
+ * Plays a stage 5 lesson and returns the kana / kanji shown that the learner has not unlocked (JaText invariant):
+ * known kana = those of the completed lessons, no kanji unlocked.
+ */
+export async function stage5Leaks(page: Page, lessonId: string): Promise<string[]> {
+  const done = lessonsUpTo(lessonId);
+  await seed(page, buildProgress({ completed: done }), `/leccion/${lessonId}`);
+  const allowed = new Set(curriculum.filter((l) => done.includes(l.id)).flatMap((l) => l.kana ?? []).flatMap((k) => [...k]));
+  await page.getByRole('button', { name: 'Empezar práctica' }).click();
+  const leaks = new Map<string, string>();
+  const finished = lessonResultVisible(page);
+  for (let i = 0; i < 250 && !(await finished()); i++) {
+    const game = await currentGame(page);
+    if (!game) { await page.waitForTimeout(100); continue; }
+    for (const ch of await visibleScript(page)) if (!allowed.has(ch) && !leaks.has(ch)) leaks.set(ch, game);
+    await answerRound(page, game);
+  }
+  return [...leaks].map(([ch, game]) => `${ch} (${game})`);
 }
 
 export async function coreLessonJourney(page: Page): Promise<void> {
@@ -89,7 +119,10 @@ export async function learnJourney(page: Page): Promise<void> {
   const batch = expectedNewWords(hiragana).slice(0, 10);
   // only readable with the known kana (no katakana yet), and in rank order
   for (const w of batch) expect(isReadableWith(w.kana, hiragana)).toBe(true);
-  for (const w of batch) await flashcard(page, w.kana);
+  for (const w of batch) {
+    expect((await visibleScript(page)).filter((ch) => !hiragana.has(ch)), `card ${w.kana}`).toEqual([]);
+    await flashcard(page, w.kana);
+  }
   await expect(page.getByRole('listitem').filter({ hasText: '2 · Leer palabras' })).toHaveAttribute('aria-current', 'step');
   for (let i = 0; i < 40 && !(await page.getByTestId('learn-summary').count()); i++) {
     if (await page.getByTestId('word-prompt').count()) await answerRound(page, 'Leer palabras');

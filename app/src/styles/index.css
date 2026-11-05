@@ -140,6 +140,8 @@ table {
 button,
 select,
 input[type='text'],
+input[type='number'],
+input[type='search'],
 input[type='range'] {
   min-height: 2.75rem;
 }
@@ -324,6 +326,8 @@ a.card:active {
 }
 
 input[type='text'],
+input[type='number'],
+input[type='search'],
 select {
   max-width: 100%;
   font: inherit;
@@ -335,6 +339,8 @@ select {
 }
 
 input[type='text']:hover,
+input[type='number']:hover,
+input[type='search']:hover,
 select:hover {
   border-color: var(--text-muted);
 }
