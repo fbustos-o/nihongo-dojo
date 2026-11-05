@@ -1,3 +1,4 @@
+import { useT } from '../../i18n';
 import { typingHints } from '../kanaUtils';
 import styles from './games.module.css';
 
@@ -7,11 +8,12 @@ import styles from './games.module.css';
  * Renders nothing when the text needs no help.
  */
 export function TypingHint({ text }: { text: string }) {
+  const t = useT();
   const hints = typingHints(text);
   if (hints.length === 0) return null;
   return (
     <div className={styles.hint} data-testid="typing-hint">
-      Para escribirlo: {hints.map((h) => `${h.char} → «${h.typing}»`).join(' · ')}
+      {t('games.typeIt')}{hints.map((h) => `${h.char} → «${h.typing}»`).join(' · ')}
     </div>
   );
 }

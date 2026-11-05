@@ -1,3 +1,5 @@
+import { getLang } from '../i18n';
+import type { Lang } from '../state/progressSchema';
 import { makeReading, type Reading } from './reading';
 
 export const I_ADJ_FORM_IDS = [
@@ -49,6 +51,24 @@ export const ADJ_FORM_LABELS_ES: Record<IAdjFormId | NaAdjFormId | NounFormId, A
   plainNegative: { label: 'Negativo plano', explanation: 'Negativo sin です (おいしくない).' },
   plainNegativePast: { label: 'Negativo pasado plano', explanation: 'Negativo pasado sin です (おいしくなかった).' },
 };
+
+export const ADJ_FORM_LABELS_EN: Record<IAdjFormId | NaAdjFormId | NounFormId, AdjFormLabel> = {
+  dictionary: { label: 'Dictionary form', explanation: 'The adjective without です (おいしい).' },
+  present: { label: 'Present (です)', explanation: 'Affirmative present, polite (おいしいです / きれいです / がくせいです).' },
+  past: { label: 'Past (でした / かったです)', explanation: 'Affirmative past, polite (おいしかったです / きれいでした).' },
+  negative: { label: 'Negative (くないです / じゃないです)', explanation: 'Negative present, polite (おいしくないです / きれいじゃないです).' },
+  negativePast: { label: 'Negative past', explanation: 'Negative past, polite (おいしくなかったです / きれいじゃなかったです).' },
+  adverb: { label: 'Adverb (く / に)', explanation: 'Turns the adjective into an adverb (おいしく / きれいに).' },
+  te: { label: 'て form (くて / で)', explanation: 'Links adjectives or clauses (おいしくて / きれいで).' },
+  attributive: { label: 'Before a noun (な)', explanation: 'な-adjectives take な before the noun (きれいな ひと).' },
+  plainPast: { label: 'Plain past', explanation: 'Past without です (おいしかった).' },
+  plainNegative: { label: 'Plain negative', explanation: 'Negative without です (おいしくない).' },
+  plainNegativePast: { label: 'Plain negative past', explanation: 'Negative past without です (おいしくなかった).' },
+};
+
+/** Label and explanation of an adjective / noun form in `lang` (the interface language by default). */
+export const adjFormLabel = (id: IAdjFormId | NaAdjFormId | NounFormId, lang: Lang = getLang()): AdjFormLabel =>
+  (lang === 'en' ? ADJ_FORM_LABELS_EN : ADJ_FORM_LABELS_ES)[id];
 
 const YOI_COMPOUND_SUFFIXES = ['かっこいい', 'がいい'] as const;
 

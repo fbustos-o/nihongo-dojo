@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { playSfx } from '../games/shared/sfx';
+import { useT } from '../i18n';
 import { useCelebrations, type Celebration } from '../state/celebrations';
 import styles from './Celebrations.module.css';
 
@@ -7,6 +8,7 @@ const ICON: Record<Celebration['kind'], string> = { level: '⭐', streak: '🔥'
 export const CELEBRATION_MS = 4500;
 
 function Toast({ celebration }: { celebration: Celebration }) {
+  const t = useT();
   const dismiss = useCelebrations((s) => s.dismiss);
   useEffect(() => {
     playSfx('celebrate'); // silent unless the sound setting is on
@@ -22,7 +24,7 @@ function Toast({ celebration }: { celebration: Celebration }) {
         <strong>{celebration.title}</strong>
         {celebration.detail && <span className="muted">{celebration.detail}</span>}
       </span>
-      <button type="button" className={styles.close} aria-label="Cerrar aviso" onClick={() => dismiss(celebration.id)}>
+      <button type="button" className={styles.close} aria-label={t('lesson.closeToast')} onClick={() => dismiss(celebration.id)}>
         ×
       </button>
     </div>

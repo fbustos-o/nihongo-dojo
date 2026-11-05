@@ -1,18 +1,14 @@
 import { readCounter, readCounterQuestion, readNumber, readPrice, type Counter, type Reading } from '../../engine';
 import type { ItemKind } from '../../state/progressSchema';
 import type { Word } from '../../domain/schema';
+import { t } from '../../i18n';
 import { PRICE_OBJECTS, type PriceObject } from './objects';
 import { pickOne, pickWeighted, randInt, type Rng } from './random';
 
 export type NumberMode = 'digits' | 'hear' | 'price' | 'priceHear' | 'counter';
 
-export const MODE_LABELS: Record<NumberMode, string> = {
-  digits: 'Cifras → lectura',
-  hear: 'Audio → cifras',
-  price: 'Precios (いくら)',
-  priceHear: 'Precios al oído',
-  counter: 'Contadores',
-};
+/** Label of a practice mode in the interface language. */
+export const modeLabel = (mode: NumberMode): string => t(`games.nmode.${mode}`);
 
 /** Item kind stored in the progress store (numbers share the "word" kind; ids are `number:<n>` etc.). */
 export const NUMBER_ITEM_KIND: ItemKind = 'word';
@@ -78,10 +74,10 @@ export interface CounterSpec {
 }
 
 export const COUNTER_SPECS: readonly CounterSpec[] = [
-  { counter: 'tsu', max: 10, hot: [1, 2, 4, 7, 10], display: (n) => `${n} ${n === 1 ? 'cosa' : 'cosas'} (con つ)` },
-  { counter: 'nin', max: 10, hot: [1, 2, 4, 7], display: (n) => `${n} ${n === 1 ? 'persona' : 'personas'}` },
-  { counter: 'kai', max: 12, hot: [1, 3, 6, 8, 10], display: (n) => `piso ${n} (${n}.º piso)` },
-  { counter: 'sai', max: 20, hot: [1, 8, 10, 20], display: (n) => `${n} ${n === 1 ? 'año' : 'años'} de edad` },
+  { counter: 'tsu', max: 10, hot: [1, 2, 4, 7, 10], display: (n) => t(n === 1 ? 'games.ctr.tsu1' : 'games.ctr.tsuN', { n }) },
+  { counter: 'nin', max: 10, hot: [1, 2, 4, 7], display: (n) => t(n === 1 ? 'games.ctr.nin1' : 'games.ctr.ninN', { n }) },
+  { counter: 'kai', max: 12, hot: [1, 3, 6, 8, 10], display: (n) => t('games.ctr.kai', { n }) },
+  { counter: 'sai', max: 20, hot: [1, 8, 10, 20], display: (n) => t(n === 1 ? 'games.ctr.sai1' : 'games.ctr.saiN', { n }) },
 ];
 
 export type NumberQuestion = {

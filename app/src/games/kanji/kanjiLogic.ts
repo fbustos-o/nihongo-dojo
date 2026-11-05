@@ -1,4 +1,7 @@
+import { exampleTranslation, kanjiMeanings } from '../../domain/glosses';
 import type { Kanji, SentencePattern, Word } from '../../domain/schema';
+import { getMeaningLang } from '../../i18n';
+import type { Lang } from '../../state/progressSchema';
 import { shuffle } from '../kanaUtils';
 import { examplesOf, isParticle, tokenize } from '../syntax/syntaxLogic';
 
@@ -16,8 +19,8 @@ export function kanjiToCredit(word: Pick<Word, 'kanji'>, unlocked: Iterable<stri
   return [...new Set(kanjiOf(word.kanji ?? ''))].filter((c) => ok.has(c) && !credited.has(c));
 }
 
-/** Spanish meaning shown for a kanji: its first two glosses. */
-export const meaningText = (k: Kanji): string => k.es.slice(0, 2).join('; ');
+/** Meaning shown for a kanji in the meaning language: its first two glosses. */
+export const meaningText = (k: Kanji, lang: Lang = getMeaningLang()): string => kanjiMeanings(k, lang).slice(0, 2).join('; ');
 
 /** Readings Genki teaches for the kanji, split in on-yomi and kun-yomi (falls back to the first of each). */
 export function taughtReadings(k: Kanji): { on: string[]; kun: string[] } {
@@ -33,16 +36,16 @@ export function readingLabel(k: Kanji): string {
   return [on.length > 0 ? `on: ${on.slice(0, 2).join(', ')}` : '', kun.length > 0 ? `kun: ${kun.slice(0, 2).join(', ')}` : ''].filter(Boolean).join(' · ');
 }
 
-/** Four Spanish meanings: the target's plus distractors with other meanings, shuffled. */
-export function meaningOptions(target: Kanji, pool: readonly Kanji[], count = 4, rng: () => number = Math.random): { text: string; correct: boolean }[] {
-  const taken = new Set(target.es);
+/** Four meanings (in the meaning language): the target's plus distractors with other meanings, shuffled. */
+export function meaningOptions(target: Kanji, pool: readonly Kanji[], count = 4, rng: () => number = Math.random, lang: Lang = getMeaningLang()): { text: string; correct: boolean }[] {
+  const taken = new Set(kanjiMeanings(target, lang));
   const texts: string[] = [];
   for (const k of shuffle(pool, rng)) {
-    const text = meaningText(k);
-    if (k.char !== target.char && !k.es.some((m) => taken.has(m)) && !texts.includes(text)) texts.push(text);
+    const text = meaningText(k, lang);
+    if (k.char !== target.char && !kanjiMeanings(k, lang).some((m) => taken.has(m)) && !texts.includes(text)) texts.push(text);
     if (texts.length === count - 1) break;
   }
-  return shuffle([{ text: meaningText(target), correct: true }, ...texts.map((text) => ({ text, correct: false }))], rng);
+  return shuffle([{ text: meaningText(target, lang), correct: true }, ...texts.map((text) => ({ text, correct: false }))], rng);
 }
 
 /**
@@ -122,6 +125,7 @@ export function transformSentences(
   vocab: readonly Word[],
   allowed: ReadonlySet<string>,
   practice: ReadonlySet<string> = new Set(),
+  lang: Lang = getMeaningLang(),
 ): TransformSentence[] {
   const byKana = kanaIndex(vocab, allowed);
   const practised = (w: Word) => practice.size === 0 || kanjiOf(w.kanji ?? '').some((c) => practice.has(c));
@@ -131,13 +135,13 @@ export function transformSentences(
       if (!example.ja || !example.es) return;
       const tokens = tokensWithKanji(tokenize(example.ja), byKana, practised);
       const target = tokens.find((t) => t.word && practised(t.word))?.word;
-      if (target) out.push({ id: `${pattern.id}:${index}`, es: example.es, romaji: example.romaji, tokens, target });
+      if (target) out.push({ id: `${pattern.id}:${index}`, es: exampleTranslation(example, lang), romaji: example.romaji, tokens, target });
     });
   }
   return out;
 }
 
-/** Four Spanish sentence meanings: the sentence's plus others, shuffled. */
+/** Four sentence meanings (in the language they were built with): the sentence's plus others, shuffled. */
 export function sentenceOptions(target: TransformSentence, pool: readonly { es: string }[], count = 4, rng: () => number = Math.random): { text: string; correct: boolean }[] {
   const texts: string[] = [];
   for (const s of shuffle(pool, rng)) {

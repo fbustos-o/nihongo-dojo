@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { t } from '../../i18n';
 import { Feedback, type FeedbackMessage } from './Feedback';
 import { useFirstAttempt } from './useFirstAttempt';
 import styles from './games.module.css';
@@ -30,7 +31,7 @@ export function ChoiceRound({ prompt, options, small, wrongFeedback, onReport, o
   const pick = (option: ChoiceOption) => {
     if (attempt(option.key, option.correct)) return;
     const custom = wrongFeedback?.(option);
-    setMessage({ tone: 'bad', text: custom?.text ?? 'Incorrecto. Elige la respuesta correcta para continuar.', node: custom?.node, id: ++counter.current });
+    setMessage({ tone: 'bad', text: custom?.text ?? t('games.wrongChoose'), node: custom?.node, id: ++counter.current });
   };
 
   // Keys 1-4 pick the option in that position (ignored while typing in a field, or with a modifier).

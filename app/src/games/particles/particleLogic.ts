@@ -1,4 +1,6 @@
 import type { SentencePattern } from '../../domain/schema';
+import { getMeaningLang } from '../../i18n';
+import type { Lang } from '../../state/progressSchema';
 import { shuffle } from '../kanaUtils';
 import { BASE_PARTICLES, examplesOf, tokenize, type PatternExample } from '../syntax/syntaxLogic';
 
@@ -19,6 +21,24 @@ export const PARTICLE_EXPLANATIONS: Record<string, string> = {
   か: 'か al final de la frase la convierte en pregunta.',
   や: 'や enumera ejemplos entre sustantivos («A, B y otras cosas»).',
 };
+
+export const PARTICLE_EXPLANATIONS_EN: Record<string, string> = {
+  は: 'は marks the topic of the sentence (what or whom I am talking about). It is written は but read "wa".',
+  を: 'を marks the direct object: what receives the action of the verb. It is read "o".',
+  に: 'に marks the destination or direction (with ikimasu), a point in time and the place where something is.',
+  で: 'で marks the place where an action happens and also the means (by bus, with chopsticks).',
+  へ: 'へ marks the direction of movement ("to"). It is written へ but read "e".',
+  も: 'も means "also" and replaces は or を.',
+  の: 'の links two nouns: possession or belonging ("of").',
+  と: 'と means "with" (company) or "and" between nouns.',
+  が: 'が marks the subject, especially with あります / います, すき and questions with a question word.',
+  か: 'か at the end of a sentence turns it into a question.',
+  や: 'や lists examples between nouns ("A, B and other things").',
+};
+
+/** Explanation of a particle in the meaning language. */
+export const particleExplanation = (particle: string, lang: Lang = getMeaningLang()): string =>
+  (lang === 'en' ? PARTICLE_EXPLANATIONS_EN : PARTICLE_EXPLANATIONS)[particle] ?? '';
 
 export interface Blank {
   /** Tokens of the sentence. */

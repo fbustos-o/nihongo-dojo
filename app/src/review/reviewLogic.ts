@@ -1,5 +1,6 @@
 import type { GameId, Kanji, KanaEntry, SentencePattern, Word } from '../domain/schema';
 import { reviewQueue, stageGroupName, type ItemCollection } from '../engine/srs';
+import { t } from '../i18n';
 import type { ItemState } from '../state/progressSchema';
 
 /**
@@ -25,8 +26,9 @@ export type ReviewCategory = 'kana' | 'kanji' | 'word' | 'conjugation' | 'number
 /** Dashboard groups: kana, words (vocabulary, conjugation, numbers, time, dates), patterns (sentences, particles, dialogues), kanji. */
 export type ReviewGroupId = 'kana' | 'words' | 'patterns' | 'kanji';
 
-export const REVIEW_GROUP_LABELS: Record<ReviewGroupId, string> = { kana: 'Kana', words: 'Palabras', patterns: 'Patrones', kanji: 'Kanji' };
-export const REVIEW_GROUP_IDS = Object.keys(REVIEW_GROUP_LABELS) as ReviewGroupId[];
+export const REVIEW_GROUP_IDS: ReviewGroupId[] = ['kana', 'words', 'patterns', 'kanji'];
+/** Display name of a dashboard group in the interface language. */
+export const reviewGroupLabel = (group: ReviewGroupId): string => t(`review.group.${group}`);
 
 const CONJUGATION_PREFIXES = ['verb:', 'iadj:', 'naadj:', 'noun:'];
 
@@ -98,6 +100,8 @@ export function dueCountsByGroup(items: ItemCollection, now: number): DueCounts 
 
 export const SRS_GROUPS = ['Aprendiz', 'Guru', 'Maestro', 'Iluminado', 'Quemado'] as const;
 export type SrsGroup = (typeof SRS_GROUPS)[number];
+/** Display name of an SRS group (the id itself stays Spanish: it is the URL slug and the test id). */
+export const srsGroupLabel = (group: SrsGroup): string => t(`memory.group.${group}`);
 
 /** Items per SRS group. Stage 0 (answered wrong while new) counts as Aprendiz. */
 export function srsDistribution(items: ItemCollection): Record<SrsGroup, number> {
@@ -210,16 +214,9 @@ export function batchProps(batch: ReviewBatch, data: ReviewData): BatchProps | n
   }
 }
 
-/** Short Spanish description of a batch for the session header. */
-export const BATCH_UNIT: Partial<Record<GameId, string>> = {
-  'kana-recognize': 'kana',
-  'read-words': 'palabras',
-  kanji: 'kanji y palabras con kanji',
-  conjugation: 'conjugaciones',
-  syntax: 'frases',
-  particles: 'partículas',
-  numbers: 'números y contadores',
-  clock: 'horas',
-  calendar: 'fechas',
-  dialogues: 'frases de diálogos',
+/** Plural noun for the items of a batch in the session header ("palabras", "words"…). */
+export const batchUnit = (game: GameId): string => {
+  const key = `review.unit.${game}`;
+  const text = t(key);
+  return text === key ? t('review.unit.default') : text;
 };

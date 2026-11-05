@@ -1,5 +1,16 @@
 import { create } from 'zustand';
-import { ProgressSchema, STORAGE_KEY, migrate, type Progress } from './progressSchema';
+import { t, translate } from '../i18n';
+import { ProgressSchema, STORAGE_KEY, migrate, type Lang, type Progress } from './progressSchema';
+
+/** Interface language, or the browser's while the store is still being created (the first load happens before it exists). */
+function currentT(key: string, vars?: Record<string, string | number>): string {
+  try {
+    return t(key, vars);
+  } catch {
+    const lang: Lang = typeof navigator !== 'undefined' && /^en/i.test(navigator.language) ? 'en' : 'es';
+    return translate(lang, key, vars);
+  }
+}
 
 /** Set when saved progress existed but could not be used (shown once as a banner). */
 export const loadIssue: { message: string | null } = { message: null };
@@ -11,14 +22,14 @@ export function parseProgress(text: string): ParseResult {
   try {
     json = JSON.parse(text);
   } catch {
-    return { ok: false, error: 'El archivo no es un JSON válido.' };
+    return { ok: false, error: currentT('settings.errJson') };
   }
   const migrated = migrate(json);
-  if (!migrated.ok) return { ok: false, error: migrated.error };
+  if (!migrated.ok) return { ok: false, error: migrated.i18n ? currentT(migrated.i18n.key, migrated.i18n.vars) : migrated.error };
   const result = ProgressSchema.safeParse(migrated.json);
   if (!result.success) {
     const issue = result.error.issues[0];
-    return { ok: false, error: `Progreso inválido (${issue?.path.join('.') || 'raíz'}: ${issue?.message}).` };
+    return { ok: false, error: currentT('settings.errInvalid', { where: issue?.path.join('.') || currentT('settings.errRoot'), message: issue?.message ?? '' }) };
   }
   return { ok: true, progress: result.data };
 }
@@ -31,7 +42,7 @@ export function loadProgress(): Progress | null {
     const parsed = parseProgress(raw);
     if (!parsed.ok) {
       console.warn(`[progress] se ignora el progreso guardado: ${parsed.error}`);
-      loadIssue.message = `El progreso guardado en este navegador estaba dañado (${parsed.error}) y no se pudo cargar. Se guardó una copia en bruto por si quieres recuperarla.`;
+      loadIssue.message = currentT('settings.errCorrupt', { error: parsed.error });
       try {
         localStorage.setItem(`${STORAGE_KEY}:corrupto`, raw);
       } catch {

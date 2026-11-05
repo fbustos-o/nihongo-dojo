@@ -1,6 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { ExtraKanaContext, ExtraKanjiContext } from './extraKana';
 import { create } from 'zustand';
+import { t } from '../i18n';
 import type { UnlockState } from '../domain/renderPlan';
 import { loadProgress, parseProgress, saveProgress } from './persistence';
 import {
@@ -50,9 +51,9 @@ const union = (current: string[], added: Iterable<string>): string[] => [...new 
 function celebrate(xpBefore: number, xpAfter: number, streakBefore: Progress['streak'], streakAfter: Progress['streak']): void {
   const { push } = useCelebrations.getState();
   const level = levelFromXp(xpAfter).level;
-  if (level > levelFromXp(xpBefore).level) push({ kind: 'level', title: `¡Nivel ${level}!`, detail: 'Sigue así' });
+  if (level > levelFromXp(xpBefore).level) push({ kind: 'level', title: t('lesson.celebrateLevel', { n: level }), detail: t('lesson.celebrateLevelDetail') });
   const milestone = streakMilestone(streakBefore, streakAfter);
-  if (milestone) push({ kind: 'streak', title: `¡Racha de ${milestone} días!`, detail: 'Constancia de dojo' });
+  if (milestone) push({ kind: 'streak', title: t('lesson.celebrateStreak', { n: milestone }), detail: t('lesson.celebrateStreakDetail') });
 }
 
 export const useProgress = create<ProgressStore>()((set) => ({
@@ -125,7 +126,7 @@ export const useProgress = create<ProgressStore>()((set) => ({
       // QA-019: only the first completion counts as a lesson of the day; replays add nothing to the counter
       daily: first ? bumpDaily(before.daily, now, { lessons: 1 }) : before.daily,
     });
-    if (first) useCelebrations.getState().push({ kind: 'lesson', title: '¡Lección completada!', detail: `+${LESSON_BONUS_XP} XP de bonificación` });
+    if (first) useCelebrations.getState().push({ kind: 'lesson', title: t('lesson.passed'), detail: t('lesson.celebrateBonus', { xp: LESSON_BONUS_XP }) });
     celebrate(before.xp, xp, before.streak, streak);
   },
   updateSettings: (patch) => set((state) => ({ settings: { ...state.settings, ...patch } })),

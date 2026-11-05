@@ -1,7 +1,10 @@
-export function Loading({ label = 'Cargando…' }: { label?: string }) {
+import { useT } from '../i18n';
+
+export function Loading({ label }: { label?: string }) {
+  const t = useT();
   return (
     <p className="muted" role="status" data-testid="loading">
-      {label}
+      {label ?? t('common.loading')}
     </p>
   );
 }

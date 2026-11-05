@@ -1,4 +1,5 @@
 import type { PatternExample, SentencePattern } from '../../domain/schema';
+import { t } from '../../i18n';
 import { shuffle } from '../kanaUtils';
 
 export type { PatternExample };
@@ -134,6 +135,10 @@ const SLOT_ES: Record<string, string> = {
 };
 export const slotLabelEs = (slot: string): string => SLOT_ES[slot] ?? slot;
 
+/** Label of a structure slot in the interface language. */
+export const slotLabel = (slot: string): string => (slot in SLOT_ES ? t(`games.slot.${slot}`) : slot);
+
+/** Spanish role labels; the interface language is looked up under `games.role.<particle>`. */
 const PARTICLE_ROLE: Record<string, string> = {
   は: 'Tema / sujeto',
   が: 'Sujeto',
@@ -161,10 +166,10 @@ export interface TableCell {
 /** Label of the predicate by the last slot of the pattern's Spanish structure. */
 function predicateLabel(pattern: SentencePattern | undefined): string {
   const last = pattern?.english.at(-1)?.slot;
-  if (last === 'V') return 'Verbo';
-  if (last === 'ADJ') return 'Adjetivo + です';
-  if (last === 'N' || last === 'BE') return 'Predicado (です)';
-  return pattern?.english.some((s) => s.slot === 'V') ? 'Verbo' : 'Predicado';
+  if (last === 'V') return t('games.pred.verb');
+  if (last === 'ADJ') return t('games.pred.adj');
+  if (last === 'N' || last === 'BE') return t('games.pred.copula');
+  return pattern?.english.some((s) => s.slot === 'V') ? t('games.pred.verb') : t('games.pred.other');
 }
 
 export interface SolutionTable {
@@ -187,14 +192,14 @@ export function buildSolutionTable(pattern: SentencePattern | undefined, tokens:
   });
   for (const chunk of chunks) {
     const particle = [...chunk].reverse().find(isParticle);
-    cells.push({ label: particle ? (PARTICLE_ROLE[particle] ?? 'Complemento') : 'Complemento', text: joinTokens(chunk), predicate: false });
+    cells.push({ label: particle && PARTICLE_ROLE[particle] ? t(`games.role.${particle}`) : t('games.role.complement'), text: joinTokens(chunk), predicate: false });
   }
   if (p.tail.length > 0 || p.suffix.length > 0) {
     cells.push({ label: predicateLabel(pattern), text: joinTokens([...p.tail, ...p.suffix]), predicate: true });
   }
   // QA-034: the pattern's Spanish slots only describe a sentence with as many parts; a short answer
   // (「はい、がくせい です」) or one with extra adverbs has other parts, so the row is left out.
-  const slots = (pattern?.english ?? []).map((s) => ({ label: slotLabelEs(s.slot), predicate: s.slot === 'V' || s.slot === 'BE' || s.slot === 'ADJ' }));
+  const slots = (pattern?.english ?? []).map((s) => ({ label: slotLabel(s.slot), predicate: s.slot === 'V' || s.slot === 'BE' || s.slot === 'ADJ' }));
   const spanish = slots.length === cells.length ? slots : [];
   return { spanish, japanese: cells };
 }

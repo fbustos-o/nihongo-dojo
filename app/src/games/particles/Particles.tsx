@@ -3,12 +3,14 @@ import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
 import { checkAnswer } from '../../engine';
+import { exampleTranslation } from '../../domain/glosses';
+import { useMeaningLang, useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
 import { scopedPatterns } from '../lessonScope';
 import { ChoiceRound, GameFrame, useGameSession, useQuestionPicker } from '../shared';
 import shared from '../shared/games.module.css';
 import type { GameProps } from '../types';
-import { PARTICLE_EXPLANATIONS, makeBlank, particleEntries, particleOptions, type Blank, type ParticleEntry } from './particleLogic';
+import { particleExplanation, makeBlank, particleEntries, particleOptions, type Blank, type ParticleEntry } from './particleLogic';
 
 interface Question {
   entry: ParticleEntry;
@@ -21,6 +23,8 @@ interface Question {
  * Answers are compared strictly (は is not わ, を is not お). After answering, a one-line explanation.
  */
 export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const pool = useMemo(() => {
@@ -38,7 +42,7 @@ export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, o
 
   const [question, setQuestion] = useState<Question | null>(() => (pool.length ? make() : null));
   const [answered, setAnswered] = useState(false);
-  if (!question) return <p className="muted">No hay frases con partículas para esta lección todavía.</p>;
+  if (!question) return <p className="muted">{t('games.noParticles')}</p>;
 
   const { entry, blank, options } = question;
   const sentence = (filled: boolean) =>
@@ -46,7 +50,7 @@ export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, o
       <span key={i}>
         {i > 0 && ' '}
         {i === blank.at ? (
-          filled ? <strong data-testid="filled"><JaText word={{ kana: token }} /></strong> : <span role="img" aria-label="hueco">＿＿</span>
+          filled ? <strong data-testid="filled"><JaText word={{ kana: token }} /></strong> : <span role="img" aria-label={t('games.blank')}>＿＿</span>
         ) : (
           <JaText word={{ kana: token }} />
         )}
@@ -64,15 +68,15 @@ export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, o
       {answered ? (
         <div className={shared.round}>
           <p className={shared.promptText} data-testid="prompt">{sentence(true)}。</p>
-          <p className="muted">{entry.example.es}</p>
+          <p className="muted">{exampleTranslation(entry.example, meaningLang)}</p>
           {showRomaji && <p className={shared.hint}>{entry.example.romaji}</p>}
           <p role="status" data-testid="explanation">
-            {PARTICLE_EXPLANATIONS[blank.answer] ?? ''}
+            {particleExplanation(blank.answer, meaningLang)}
           </p>
           <div className={shared.form}>
-            <SpeakButton text={entry.example.ja.replace(/\s+/gu, '')} label="Escuchar la frase" />
+            <SpeakButton text={entry.example.ja.replace(/\s+/gu, '')} label={t('games.listenSentence')} />
             <button type="button" className="btn btn-primary" autoFocus onClick={next}>
-              Siguiente
+              {t('common.next')}
             </button>
           </div>
         </div>
@@ -82,7 +86,7 @@ export function Particles({ patterns, lessonId, rounds, sequential, onlyItems, o
           prompt={
             <>
               <span className={shared.promptText}>{sentence(false)}。</span>
-              <div className={shared.hint}>{entry.example.es}</div>
+              <div className={shared.hint}>{exampleTranslation(entry.example, meaningLang)}</div>
             </>
           }
           options={options.map((p) => ({

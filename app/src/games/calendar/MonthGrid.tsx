@@ -1,19 +1,22 @@
-import { SPANISH_MONTHS, YEAR, monthGrid } from './calendarLogic';
+import { useLang, useT } from '../../i18n';
+import { monthName, weekdayShort } from '../../i18n/dates';
+import { YEAR, monthGrid } from './calendarLogic';
 import styles from './calendar.module.css';
-
-const HEADERS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
 /** Month table with one highlighted day (aria-current="date"). */
 export function MonthGrid({ month, day }: { month: number; day: number }) {
+  const t = useT();
+  const lang = useLang();
+  const headers = [0, 1, 2, 3, 4, 5, 6].map((d) => weekdayShort(d, lang));
   const rows = monthGrid(month);
   return (
     <table className={styles.grid} data-testid="month-grid">
       <caption>
-        {SPANISH_MONTHS[month - 1]} {YEAR} (mes {month})
+        {monthName(month, lang)} {YEAR} ({t('games.monthNumber', { n: month })})
       </caption>
       <thead>
         <tr>
-          {HEADERS.map((h, i) => (
+          {headers.map((h, i) => (
             <th key={h} scope="col" className={i === 0 ? styles.sunday : undefined}>
               {h}
             </th>

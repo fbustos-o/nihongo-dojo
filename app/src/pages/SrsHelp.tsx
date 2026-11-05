@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { GURU_STAGE, stageName } from '../engine/srs';
+import { useT } from '../i18n';
 import { stageHelpRows } from '../review/memoryLogic';
 import styles from './memory.module.css';
 
@@ -7,6 +8,7 @@ const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabi
 
 /** "(?)" button that opens an accessible dialog explaining the SRS stages. */
 export function SrsHelp() {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const titleId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -44,42 +46,39 @@ export function SrsHelp() {
   const rows = stageHelpRows();
   return (
     <>
-      <button ref={triggerRef} type="button" className={styles.helpBtn} aria-haspopup="dialog" aria-label="Ayuda: cómo funciona la memoria" onClick={() => setOpen(true)}>
+      <button ref={triggerRef} type="button" className={styles.helpBtn} aria-haspopup="dialog" aria-label={t('memory.help.aria')} onClick={() => setOpen(true)}>
         <span aria-hidden="true">?</span>
       </button>
       {open && (
         <div className={styles.backdrop} onClick={close}>
           <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={titleId} className={styles.dialog} onClick={(e) => e.stopPropagation()} onKeyDown={onKeyDown}>
-            <h2 id={titleId}>Cómo funciona tu memoria</h2>
-            <p>Cada ítem sube o baja por etapas. Cuanto más alta la etapa, más tiempo pasa hasta que vuelve a tocarte repasarlo.</p>
+            <h2 id={titleId}>{t('memory.help.title')}</h2>
+            <p>{t('memory.help.intro')}</p>
             <table className={styles.helpTable}>
-              <caption className={styles.srOnly}>Etapas y tiempo hasta el siguiente repaso</caption>
+              <caption className={styles.srOnly}>{t('memory.help.caption')}</caption>
               <thead>
                 <tr>
-                  <th scope="col">Etapa</th>
-                  <th scope="col">Siguiente repaso</th>
+                  <th scope="col">{t('memory.help.colStage')}</th>
+                  <th scope="col">{t('memory.help.colNext')}</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.stage}>
                     <th scope="row">{r.name}</th>
-                    <td>{r.interval ? `a los ${r.interval}` : 'ya no se repasa'}</td>
+                    <td>{r.interval ? t('memory.help.after', { interval: r.interval }) : t('memory.help.neverAgain')}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <h3>Si aciertas</h3>
-            <p>El ítem sube una etapa y el siguiente repaso se programa con el intervalo de la tabla. Solo cuenta cuando el ítem está pendiente de repaso: practicar antes (en una lección o en la práctica libre) no lo sube ni lo baja.</p>
-            <h3>Si fallas</h3>
-            <p>
-              El ítem baja una etapa por cada dos errores en el repaso (redondeando hacia arriba) y el doble si ya estaba en {stageName(GURU_STAGE)} o más. Nunca baja de {stageName(1)}. Un ítem nuevo que
-              fallas se queda en Nuevo y vuelve a salir enseguida. Aunque no toque repasar, un error sigue contando: el ítem sale con más frecuencia en los juegos.
-            </p>
-            <h3>Furigana</h3>
-            <p>Desde {stageName(GURU_STAGE)} se considera que ya conoces el kanji y deja de mostrarse su furigana (con el ajuste automático).</p>
+            <h3>{t('memory.help.rightTitle')}</h3>
+            <p>{t('memory.help.rightBody')}</p>
+            <h3>{t('memory.help.wrongTitle')}</h3>
+            <p>{t('memory.help.wrongBody', { guru: stageName(GURU_STAGE), first: stageName(1) })}</p>
+            <h3>{t('memory.help.furiganaTitle')}</h3>
+            <p>{t('memory.help.furiganaBody', { guru: stageName(GURU_STAGE) })}</p>
             <button type="button" className="btn btn-primary" onClick={close}>
-              Cerrar
+              {t('common.close')}
             </button>
           </div>
         </div>

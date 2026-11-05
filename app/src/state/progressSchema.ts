@@ -76,7 +76,8 @@ export type Progress = z.infer<typeof ProgressSchema>;
 /** Upgrades from schema version N to N + 1; add an entry here whenever `PROGRESS_VERSION` is raised. */
 const MIGRATIONS: Record<number, (json: Record<string, unknown>) => Record<string, unknown>> = {};
 
-export type MigrationResult = { ok: true; json: unknown } | { ok: false; error: string };
+/** `error` is the Spanish text (kept for tests and logs); `i18n` lets the UI show it in the interface language. */
+export type MigrationResult = { ok: true; json: unknown } | { ok: false; error: string; i18n?: { key: string; vars: Record<string, number> } };
 
 /**
  * Brings a parsed progress file up to `PROGRESS_VERSION` before validation (QA-017). Version 1 is the current
@@ -93,11 +94,12 @@ export function migrate(json: unknown): MigrationResult {
     return {
       ok: false,
       error: `Este progreso es de una versión más nueva (${version}) que la que entiende esta app (${PROGRESS_VERSION}). Actualiza la app para poder cargarlo.`,
+      i18n: { key: 'settings.errNewer', vars: { version, supported: PROGRESS_VERSION } },
     };
   }
   for (let v = version; v < PROGRESS_VERSION; v++) {
     const step = MIGRATIONS[v];
-    if (!step) return { ok: false, error: `No sé migrar un progreso de la versión ${v}.` };
+    if (!step) return { ok: false, error: `No sé migrar un progreso de la versión ${v}.`, i18n: { key: 'settings.errMigrate', vars: { version: v } } };
     data = { ...step(data), version: v + 1 };
   }
   return { ok: true, json: data };

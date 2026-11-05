@@ -1,4 +1,7 @@
+import { exampleTranslation } from '../../domain/glosses';
 import type { SentencePattern } from '../../domain/schema';
+import { getMeaningLang, t } from '../../i18n';
+import type { Lang } from '../../state/progressSchema';
 import { shuffle } from '../kanaUtils';
 import { examplesOf, tokenize } from '../syntax/syntaxLogic';
 
@@ -7,6 +10,7 @@ export interface ReadingSentence {
   id: string;
   patternId: string;
   ja: string;
+  /** Translation in the meaning language (the field keeps its historical name). */
   es: string;
   romaji: string;
   tokens: string[];
@@ -34,10 +38,10 @@ export const MIN_SENTENCES = 4;
 export const MAX_SENTENCES = 6;
 
 /** Every example of the patterns as a sentence. */
-export function sentencesOf(patterns: readonly SentencePattern[]): ReadingSentence[] {
+export function sentencesOf(patterns: readonly SentencePattern[], lang: Lang = getMeaningLang()): ReadingSentence[] {
   return patterns.flatMap((pattern) =>
     examplesOf(pattern).flatMap((example, index) =>
-      example.ja && example.es ? [{ id: `${pattern.id}:${index}`, patternId: pattern.id, ja: example.ja, es: example.es, romaji: example.romaji, tokens: tokenize(example.ja) }] : [],
+      example.ja && example.es ? [{ id: `${pattern.id}:${index}`, patternId: pattern.id, ja: example.ja, es: exampleTranslation(example, lang), romaji: example.romaji, tokens: tokenize(example.ja) }] : [],
     ),
   );
 }
@@ -80,7 +84,7 @@ export function buildQuestions(sentences: readonly ReadingSentence[], pool: read
     for (const s of others) if (!distractors.includes(s.es)) distractors.push(s.es);
     return {
       itemId: target.id,
-      prompt: `¿Qué significa la frase ${index + 1}?`,
+      prompt: t('games.readMeans', { n: index + 1 }),
       options: shuffle(
         [{ key: 'ok', text: target.es, correct: true }, ...distractors.slice(0, 3).map((text, i) => ({ key: `d${i}`, text, correct: false }))],
         rng,
@@ -92,9 +96,9 @@ export function buildQuestions(sentences: readonly ReadingSentence[], pool: read
     const wrong = sentences.map((_, i) => i).filter((i) => i !== index);
     return {
       itemId: target.id,
-      prompt: `¿Qué frase dice «${target.es}»?`,
+      prompt: t('games.readWhich', { text: target.es }),
       options: shuffle(
-        [{ key: 'ok', text: `Frase ${index + 1}`, correct: true }, ...shuffle(wrong, rng).slice(0, 3).map((i) => ({ key: `d${i}`, text: `Frase ${i + 1}`, correct: false }))],
+        [{ key: 'ok', text: t('games.sentenceN', { n: index + 1 }), correct: true }, ...shuffle(wrong, rng).slice(0, 3).map((i) => ({ key: `d${i}`, text: t('games.sentenceN', { n: i + 1 }), correct: false }))],
         rng,
       ),
     };

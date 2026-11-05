@@ -2,7 +2,9 @@ import { useMemo, useRef, useState } from 'react';
 import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
+import { exampleTranslation } from '../../domain/glosses';
 import { useSpeech } from '../../hooks/useSpeech';
+import { useMeaningLang, useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { playSfx } from '../shared/sfx';
@@ -25,6 +27,8 @@ const Word = ({ text }: { text: string }) => <JaText word={{ kana: text }} />;
  * (in the answer) to take it back. Everything is a button, so Tab / Enter work too.
  */
 export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const { speak } = useSpeech();
@@ -45,10 +49,10 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
   const [placed, setPlaced] = useState<string[]>([]);
   const [result, setResult] = useState<{ correct: boolean } | null>(null);
   const [message, setMessage] = useState<FeedbackMessage | null>(null);
-  if (!question) return <p className="muted">No hay frases de práctica para esta lección todavía.</p>;
+  if (!question) return <p className="muted">{t('games.noSyntax')}</p>;
 
   const { entry, tiles } = question;
-  const byId = new Map(tiles.map((t) => [t.id, t]));
+  const byId = new Map(tiles.map((tile) => [tile.id, tile]));
   const answerTokens = placed.map((id) => byId.get(id)!.text);
 
   const check = () => {
@@ -57,7 +61,7 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
     session.report(entry.id, 'pattern', entry.example.ja.replace(/\s+/gu, ''), correct);
     playSfx(correct ? 'ok' : 'bad');
     setResult({ correct });
-    setMessage({ tone: correct ? 'ok' : 'bad', text: correct ? '¡Correcto! El verbo va al final.' : 'Incorrecto. Así se arma la frase:', id: ++counter.current });
+    setMessage({ tone: correct ? 'ok' : 'bad', text: correct ? t('games.syntaxOk') : t('games.syntaxBad'), id: ++counter.current });
     speak(entry.example.ja.replace(/\s+/gu, ''));
   };
 
@@ -75,31 +79,31 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
     <GameFrame session={session}>
       <div className={shared.round}>
         <p className={styles.sentence} data-testid="prompt">
-          {entry.example.es}
+          {exampleTranslation(entry.example, meaningLang)}
         </p>
         {table.spanish.length > 0 && (
-          <div className={styles.structure} aria-label="Estructura española">
+          <div className={styles.structure} aria-label={t(meaningLang === 'en' ? 'games.structureEn' : 'games.structureEs')}>
             {table.spanish.map((slot, i) => (
               <span key={i} className={styles.slot}>
                 {slot.label}
               </span>
             ))}
-            <span aria-hidden="true">→ en japonés el verbo va al final</span>
+            <span aria-hidden="true">{t('games.verbLast')}</span>
           </div>
         )}
         {message && <Feedback message={message} />}
 
-        <div className={styles.area} aria-label="Tu frase">
-          {placed.length === 0 && <p className={styles.areaEmpty}>Toca las fichas para armar la frase</p>}
+        <div className={styles.area} aria-label={t('games.yourSentence')}>
+          {placed.length === 0 && <p className={styles.areaEmpty}>{t('games.tapTiles')}</p>}
           {placed.map((id, i) => (
-            <button key={id} type="button" className={`${styles.tile} ${byId.get(id)!.particle ? styles.particleTile : ''}`} disabled={result !== null} title="Quitar" onClick={() => setPlaced(placed.filter((_, j) => j !== i))} data-testid={`placed-${i}`}>
+            <button key={id} type="button" className={`${styles.tile} ${byId.get(id)!.particle ? styles.particleTile : ''}`} disabled={result !== null} title={t('games.remove')} onClick={() => setPlaced(placed.filter((_, j) => j !== i))} data-testid={`placed-${i}`}>
               <Word text={byId.get(id)!.text} />
             </button>
           ))}
         </div>
 
         {!result && (
-          <div className={styles.bank} role="group" aria-label="Fichas disponibles">
+          <div className={styles.bank} role="group" aria-label={t('games.tilesAvailable')}>
             {tiles.map((tile) => (
               <button key={tile.id} type="button" className={`${styles.tile} ${tile.particle ? styles.particleTile : ''} ${placed.includes(tile.id) ? styles.used : ''}`} disabled={placed.includes(tile.id)} aria-hidden={placed.includes(tile.id) || undefined} onClick={() => setPlaced([...placed, tile.id])}>
                 <Word text={tile.text} />
@@ -111,10 +115,10 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
         {!result && (
           <div className={`${styles.actions} ${styles.stickyActions}`}>
             <button type="button" className="btn" disabled={placed.length === 0} onClick={() => setPlaced([])}>
-              Borrar
+              {t('games.clear')}
             </button>
             <button type="button" className="btn btn-primary" disabled={placed.length === 0} onClick={check}>
-              Comprobar
+              {t('common.check')}
             </button>
           </div>
         )}
@@ -123,11 +127,11 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
           <>
             <div className={styles.tableWrap}>
               <table className={styles.table} data-testid="solution-table">
-                <caption className="muted">Sintaxis: español → japonés</caption>
+                <caption className="muted">{t(meaningLang === 'en' ? 'games.syntaxCaptionEn' : 'games.syntaxCaptionEs')}</caption>
                 <tbody>
                   {table.spanish.length > 0 && (
                     <tr>
-                      <th scope="row">Estructura española</th>
+                      <th scope="row">{t(meaningLang === 'en' ? 'games.structureEnRow' : 'games.structureEsRow')}</th>
                       {table.spanish.map((cell, i) => (
                         <td key={i} className={cell.predicate ? styles.verb : undefined}>
                           {cell.label}
@@ -136,7 +140,7 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
                     </tr>
                   )}
                   <tr>
-                    <th scope="row">Estructura japonesa</th>
+                    <th scope="row">{t('games.structureJa')}</th>
                     {table.japanese.map((cell, i) => (
                       <td key={i} className={cell.predicate ? styles.verb : undefined}>
                         {cell.label}
@@ -144,13 +148,13 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
                     ))}
                   </tr>
                   <tr>
-                    <th scope="row">Frase japonesa</th>
+                    <th scope="row">{t('games.sentenceJa')}</th>
                     {table.japanese.map((cell, i) => (
                       <td key={i} className={`${styles.ja} ${cell.predicate ? styles.verb : ''}`}>
-                        {cell.text.split(' ').map((t, j) => (
+                        {cell.text.split(' ').map((piece, j) => (
                           <span key={j}>
                             {j > 0 && ' '}
-                            <Word text={t} />
+                            <Word text={piece} />
                           </span>
                         ))}
                       </td>
@@ -161,9 +165,9 @@ export function Syntax({ patterns, rounds, sequential, onlyItems, lessonId, onFi
             </div>
             {showRomaji && <p className={shared.hint}>{entry.example.romaji}</p>}
             <div className={styles.actions}>
-              <SpeakButton text={entry.example.ja.replace(/\s+/gu, '')} label="Escuchar la frase" />
+              <SpeakButton text={entry.example.ja.replace(/\s+/gu, '')} label={t('games.listenSentence')} />
               <button type="button" className="btn btn-primary" autoFocus onClick={next}>
-                Siguiente
+                {t('common.next')}
               </button>
             </div>
           </>

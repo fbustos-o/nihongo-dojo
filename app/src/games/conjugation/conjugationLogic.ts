@@ -1,6 +1,6 @@
 import {
-  ADJ_FORM_LABELS_ES,
-  FORM_LABELS_ES,
+  adjFormLabel,
+  verbFormLabel,
   allReadings,
   conjugateIAdjective,
   conjugateNaAdjective,
@@ -15,11 +15,14 @@ import {
   type VerbGroup,
 } from '../../engine';
 import type { Word } from '../../domain/schema';
+import { t } from '../../i18n';
 
 
 export type Category = 'verb' | 'i-adj' | 'na-adj' | 'noun';
 export const CATEGORIES: Category[] = ['verb', 'i-adj', 'na-adj', 'noun'];
 export const CATEGORY_LABELS: Record<Category, string> = { verb: 'Verbos', 'i-adj': 'Adjetivos い', 'na-adj': 'Adjetivos な', noun: 'Sustantivos + です' };
+/** Label of a word category in the interface language. */
+export const categoryLabel = (category: Category): string => t(`games.cat.${category}`);
 
 export interface FormConfig {
   verb: VerbFormId[];
@@ -107,7 +110,7 @@ export function formsForLesson(lessonId: string | undefined, patternIds: readonl
 export type AnyForm = string;
 
 export const formLabel = (category: Category, form: AnyForm): string =>
-  category === 'verb' ? FORM_LABELS_ES[form as VerbFormId].label : ADJ_FORM_LABELS_ES[form as IAdjFormId].label;
+  category === 'verb' ? verbFormLabel(form as VerbFormId).label : adjFormLabel(form as IAdjFormId).label;
 
 const KANA_ONLY = /^[ぁ-ゖァ-ヺー]+$/u;
 
@@ -145,6 +148,7 @@ export function conjugableWords(words: readonly Word[], category: Category): Wor
 }
 
 export const GROUP_NAMES: Record<VerbGroup, string> = { u: 'Grupo I', ru: 'Grupo II', irregular: 'Grupo III' };
+const groupName = (group: VerbGroup): string => t(`games.group.${group}`);
 
 const MASU_SUFFIX: Partial<Record<VerbFormId, string>> = {
   masu: 'ます',
@@ -158,11 +162,11 @@ const MASU_SUFFIX: Partial<Record<VerbFormId, string>> = {
 };
 const TE_SUFFIX: Partial<Record<VerbFormId, string>> = { tekudasai: 'ください', teimasu: 'います', temoiidesu: 'もいいです', tehaikemasen: 'はいけません' };
 
-/** Short Spanish hint for the rule applied, e.g. «Grupo I: う→い + ます». */
+/** Short hint (interface language) for the rule applied, e.g. «Grupo I: う→い + ます». */
 export function ruleHint(word: Word, category: Category, form: AnyForm): string {
   if (category === 'verb') {
     const group = word.verbGroup as VerbGroup;
-    const name = GROUP_NAMES[group];
+    const name = groupName(group);
     const dict = word.kana;
     const conj = conjugateVerb(dict, group);
     const last = dict.slice(-1);
@@ -170,25 +174,24 @@ export function ruleHint(word: Word, category: Category, form: AnyForm): string 
     if (suffix !== undefined) {
       const stem = conj.masu.kana.slice(0, -2);
       if (group === 'u') return `${name}: ${last}→${stem.slice(-1)} + ${suffix}`;
-      if (group === 'ru') return `${name}: quita る + ${suffix}`;
-      return `${name} (irregular): ${dict.endsWith('する') ? 'する→し' : 'くる→き'} + ${suffix}`;
+      if (group === 'ru') return t('games.rule.dropRu', { name, suffix });
+      return t('games.rule.irregMasu', { name, change: dict.endsWith('する') ? 'する→し' : 'くる→き', suffix });
     }
     const extra = TE_SUFFIX[form as VerbFormId];
     const te = conj.te.kana;
     const more = extra ? ` + ${extra}` : '';
-    if (group === 'ru') return `${name}: quita る + て${more}`;
-    if (group === 'irregular') return `${name} (irregular): ${dict.endsWith('する') ? 'する→して' : 'くる→きて'}${more}`;
-    if (dict.endsWith('いく')) return `${name}: いく→いって (excepción)${more}`;
+    if (group === 'ru') return t('games.rule.dropRuTe', { name, more });
+    if (group === 'irregular') return t('games.rule.irregTe', { name, change: dict.endsWith('する') ? 'する→して' : 'くる→きて', more });
+    if (dict.endsWith('いく')) return t('games.rule.iku', { name, more });
     return `${name}: ${last}→${te.slice(dict.length - 1)}${more}`;
   }
   const tense = form as NounFormId;
   if (category === 'i-adj') {
-    if (isYoiCompound(word.kana)) return 'Adjetivo い: いい es irregular, usa よ- (よかったです, よくないです)';
-    const rule = { present: 'el adjetivo + です', past: 'quita い + かったです', negative: 'quita い + くないです', negativePast: 'quita い + くなかったです' }[tense as 'present'];
-    return `Adjetivo い: ${rule}`;
+    if (isYoiCompound(word.kana)) return t('games.rule.yoi');
+    return t('games.rule.iadj', { rule: t(`games.rule.i.${tense}`) });
   }
   const rule = { present: '+ です', past: '+ でした', negative: '+ じゃないです', negativePast: '+ じゃなかったです' }[tense as 'present'];
-  return `${category === 'na-adj' ? 'Adjetivo な (sin な)' : 'Sustantivo'}: ${rule}`;
+  return t(category === 'na-adj' ? 'games.rule.naadj' : 'games.rule.noun', { rule });
 }
 
 export interface ConjEntry {

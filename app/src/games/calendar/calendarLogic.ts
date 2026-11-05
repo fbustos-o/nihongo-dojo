@@ -1,4 +1,6 @@
 import { readDate, readDayOfWeek, type Reading } from '../../engine';
+import { t } from '../../i18n';
+import { formatMonthDay, weekdayName } from '../../i18n/dates';
 import type { ItemKind } from '../../state/progressSchema';
 import { pickOne, pickWeighted, randInt, type Rng } from '../numbers/random';
 
@@ -111,7 +113,7 @@ function buildCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate):
       itemId: `date:${today.month}:${today.day}`,
       reading,
       related: [...near.map((d) => readDate(d.month, d.day).kana), readDate(today.month, pickOne(rng, SPECIAL_DAYS.filter((d) => d <= daysInMonth(today.month)))).kana],
-      label: `${today.day} de ${SPANISH_MONTHS[today.month - 1]} → ${reading.kana}`,
+      label: `${formatMonthDay(today.month, today.day)} → ${reading.kana}`,
     };
   }
   if (kind === 'weekday') {
@@ -123,7 +125,7 @@ function buildCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate):
       itemId: `date:${today.month}:${today.day}:wd`,
       reading,
       related: weekdayReadings(wd),
-      label: `${today.day} de ${SPANISH_MONTHS[today.month - 1]} (${SPANISH_WEEKDAYS[wd]}) → ${reading.kana}`,
+      label: `${formatMonthDay(today.month, today.day)} (${weekdayName(wd)}) → ${reading.kana}`,
     };
   }
   if (kind === 'relWeekday') {
@@ -137,7 +139,7 @@ function buildCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate):
       itemId: id,
       reading,
       related: weekdayReadings(answerWd),
-      label: `${direction > 0 ? 'mañana' : 'ayer'} de ${SPANISH_WEEKDAYS[wd]} → ${reading.kana}`,
+      label: t(direction > 0 ? 'games.labelNextWd' : 'games.labelPrevWd', { weekday: weekdayName(wd), kana: reading.kana }),
     };
   }
   const target = shiftDay(today, direction);
@@ -148,13 +150,9 @@ function buildCalendarQuestion(kind: CalendarKind, rng: Rng, fixed?: FixedDate):
     itemId: `date:${target.month}:${target.day}`,
     reading,
     related: [shiftDay(target, 1), shiftDay(target, -1), today].map((d) => readDate(d.month, d.day).kana),
-    label: `${direction > 0 ? 'mañana' : 'ayer'}: ${target.day} de ${SPANISH_MONTHS[target.month - 1]} → ${reading.kana}`,
+    label: t(direction > 0 ? 'games.labelNextDate' : 'games.labelPrevDate', { date: formatMonthDay(target.month, target.day), kana: reading.kana }),
   };
 }
 
-export const KIND_LABELS: Record<CalendarKind, string> = {
-  date: 'Leer la fecha',
-  weekday: 'Día de la semana',
-  relWeekday: 'Ayer / mañana (día)',
-  relDate: 'Ayer / mañana (fecha)',
-};
+/** Label of a practice mode in the interface language. */
+export const kindLabel = (kind: CalendarKind): string => t(`games.ckind.${kind}`);

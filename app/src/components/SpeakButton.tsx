@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSpeech } from '../hooks/useSpeech';
+import { useT } from '../i18n';
 
 interface SpeakButtonProps {
   text: string;
@@ -9,8 +10,10 @@ interface SpeakButtonProps {
 }
 
 /** Visible label so it reads as a button: phones show «Escuchar» (or the label when it is that short), wide screens the full label. */
-export function SpeakButton({ text, label = 'Escuchar', iconOnly = false }: SpeakButtonProps) {
-  const short = label.length <= 10 ? label : 'Escuchar';
+export function SpeakButton({ text, label: labelProp, iconOnly = false }: SpeakButtonProps) {
+  const t = useT();
+  const label = labelProp ?? t('common.listen');
+  const short = label.length <= 10 ? label : t('common.listen');
   const { available, speak } = useSpeech();
   // Without a voice the button still tries the static clip; it only gives up once that fails.
   const [noClip, setNoClip] = useState(false);
@@ -21,7 +24,7 @@ export function SpeakButton({ text, label = 'Escuchar', iconOnly = false }: Spea
       className={`btn speak-btn${iconOnly ? ' speak-btn-icon' : ''}`}
       disabled={!usable}
       aria-label={label}
-      title={usable ? label : 'Tu navegador no tiene una voz en japonés disponible'}
+      title={usable ? label : t('games.noVoiceTitle')}
       onClick={() => {
         void speak(text).then((played) => {
           if (!played && !available) setNoClip(true);

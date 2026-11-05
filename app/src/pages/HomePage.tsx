@@ -1,11 +1,14 @@
 import { useMemo } from 'react';
 import { useNow } from '../hooks/useNow';
 import { Link } from 'react-router-dom';
+import { weekdayInitial } from '../i18n/dates';
+import { useLang, useT } from '../i18n';
 import { curriculum } from '../domain/curriculumContent';
 import { levelFromXp } from '../engine/levels';
-import { computePathNodes, nextSuggestions, STAGE_TITLES, stageProgress } from '../lesson/lessonLogic';
+import { lessonTitle } from '../domain/glosses';
+import { computePathNodes, nextSuggestions, stageProgress } from '../lesson/lessonLogic';
 import { groupSlug } from '../review/memoryLogic';
-import { dueCountsByGroup, REVIEW_GROUP_IDS, REVIEW_GROUP_LABELS, SRS_GROUPS, srsDistribution } from '../review/reviewLogic';
+import { dueCountsByGroup, REVIEW_GROUP_IDS, reviewGroupLabel, SRS_GROUPS, srsDistribution, srsGroupLabel } from '../review/reviewLogic';
 import { dailyAccuracy, emptyDaily, lastSevenDays } from '../state/daily';
 import { localDateString } from '../state/streak';
 import { useProgress } from '../state/progressStore';
@@ -14,7 +17,14 @@ import styles from './home.module.css';
 
 const pct = (n: number, total: number): string => (total ? `${Math.round((n / total) * 100)}%` : '0%');
 
+const weekdayOfDate = (date: string): number => {
+  const [y, m, d] = date.split('-').map(Number) as [number, number, number];
+  return new Date(y, m - 1, d).getDay();
+};
+
 export function HomePage() {
+  const t = useT();
+  const lang = useLang();
   const xp = useProgress((s) => s.xp);
   const streak = useProgress((s) => s.streak);
   const daily = useProgress((s) => s.daily);
@@ -40,34 +50,34 @@ export function HomePage() {
   return (
     <>
       <h1>
-        ようこそ <span className="muted">· Bienvenido</span>
+        ようこそ <span className="muted">· {t('home.welcome')}</span>
       </h1>
 
       <section className={`card ${styles.level}`} aria-labelledby="home-level">
         <div className={styles.levelHead}>
           <h2 id="home-level">
-            Nivel <span data-testid="level">{level.level}</span>
+            {t('home.level')} <span data-testid="level">{level.level}</span>
           </h2>
           <span className="muted" data-testid="xp-text">
-            {level.xpInto} / {level.xpNeeded} XP · {xp} en total
+            {t('home.xpText', { into: level.xpInto, needed: level.xpNeeded, total: xp })}
           </span>
         </div>
-        <div className={styles.bar} role="progressbar" aria-label="Experiencia del nivel" aria-valuemin={0} aria-valuemax={level.xpNeeded} aria-valuenow={level.xpInto}>
+        <div className={styles.bar} role="progressbar" aria-label={t('home.xpBar')} aria-valuemin={0} aria-valuemax={level.xpNeeded} aria-valuenow={level.xpInto}>
           <div className={styles.barFill} style={{ width: `${level.progress * 100}%` }} />
         </div>
       </section>
 
       <section className="card" aria-labelledby="home-streak">
         <div className={styles.levelHead}>
-          <h2 id="home-streak">Racha</h2>
+          <h2 id="home-streak">{t('home.streak')}</h2>
           <span data-testid="streak">
-            <strong>{streakDays}</strong> {streakDays === 1 ? 'día' : 'días'}
+            <strong>{streakDays}</strong> {streakDays === 1 ? t('home.dayOne') : t('home.dayMany')}
           </span>
         </div>
-        <ol className={styles.week} aria-label="Últimos 7 días">
+        <ol className={styles.week} aria-label={t('home.last7')}>
           {week.map((d) => (
-            <li key={d.date} className={`${styles.day} ${d.active ? styles.dayOn : ''} ${d.today ? styles.dayToday : ''}`} aria-label={`${d.label}${d.today ? ' (hoy)' : ''}: ${d.active ? 'estudiaste' : 'sin estudio'}`}>
-              <span aria-hidden="true">{d.label}</span>
+            <li key={d.date} className={`${styles.day} ${d.active ? styles.dayOn : ''} ${d.today ? styles.dayToday : ''}`} aria-label={`${weekdayInitial(weekdayOfDate(d.date), lang)}${d.today ? t('home.todaySuffix') : ''}: ${d.active ? t('home.studied') : t('home.notStudied')}`}>
+              <span aria-hidden="true">{weekdayInitial(weekdayOfDate(d.date), lang)}</span>
               <span aria-hidden="true" className={styles.dot}>
                 {d.active ? '✓' : ''}
               </span>
@@ -77,68 +87,68 @@ export function HomePage() {
       </section>
 
       <section className="card" aria-labelledby="home-due">
-        <h2 id="home-due">Repasos pendientes</h2>
+        <h2 id="home-due">{t('home.due')}</h2>
         <p className={styles.big} data-testid="due-total">
           {due.total}
         </p>
         {due.total > 0 ? (
-          <ul className={styles.chips} aria-label="Pendientes por tipo">
+          <ul className={styles.chips} aria-label={t('home.dueByType')}>
             {REVIEW_GROUP_IDS.map((g) => (
               <li key={g}>
-                {REVIEW_GROUP_LABELS[g]} <strong>{due[g]}</strong>
+                {reviewGroupLabel(g)} <strong>{due[g]}</strong>
               </li>
             ))}
           </ul>
         ) : (
-          <p className="muted">Nada pendiente por ahora. Los ítems vuelven cuando toca repasarlos.</p>
+          <p className="muted">{t('home.dueNone')}</p>
         )}
         {due.total > 0 ? (
           <Link className={`btn btn-primary ${styles.cta}`} to="/repaso">
-            Repasar ahora ({Math.min(due.total, 50)})
+            {t('home.reviewNow', { n: Math.min(due.total, 50) })}
           </Link>
         ) : (
           <Link className={`btn ${styles.cta}`} to="/practica">
-            Práctica libre
+            {t('home.freePractice')}
           </Link>
         )}
       </section>
 
       <section className="card" aria-labelledby="home-next">
-        <h2 id="home-next">Siguiente lección</h2>
+        <h2 id="home-next">{t('home.nextLesson')}</h2>
         {next ? (
           <>
-            <p className={styles.lessonTitle}>{next.title}</p>
+            <p className={styles.lessonTitle}>{lessonTitle(next, lang)}</p>
             <p className="muted">
-              Etapa {next.stage} · {STAGE_TITLES[next.stage]}
+              {t('home.stageLine', { n: next.stage, title: t(`stage.${next.stage}`) })}
             </p>
             <Link className={`btn btn-primary ${styles.cta}`} to={`/leccion/${next.id}`}>
-              Empezar
+              {t('home.start')}
             </Link>
             {other && (
               <p className="muted" data-testid="next-other">
-                {other === nextGrammar ? 'Siguiente gramática' : 'Siguiente kana'}:{' '}
-                <Link to={`/leccion/${other.id}`}>{other.title}</Link>
+                {other === nextGrammar ? t('home.nextGrammar') : t('home.nextKana')}:{' '}
+                <Link to={`/leccion/${other.id}`}>{lessonTitle(other, lang)}</Link>
               </p>
             )}
           </>
         ) : (
-          <p className="muted">No hay más lecciones disponibles por ahora. Sigue repasando.</p>
+          <p className="muted">{t('home.noMore')}</p>
         )}
       </section>
 
       <section className="card" aria-labelledby="home-today">
-        <h2 id="home-today">Hoy</h2>
+        <h2 id="home-today">{t('home.today')}</h2>
         <dl className={styles.stats}>
           <div>
-            <dt>Repasos</dt>
+            <dt>{t('home.statReviews')}</dt>
             <dd data-testid="today-reviews">{today.reviews}</dd>
           </div>
           <div>
-            <dt>Lecciones</dt>
+            <dt>{t('home.statLessons')}</dt>
             <dd data-testid="today-lessons">{today.lessons}</dd>
           </div>
           <div>
-            <dt>Precisión</dt>
+            <dt>{t('home.statAccuracy')}</dt>
             <dd data-testid="today-accuracy">{today.correct + today.wrong === 0 ? '–' : `${Math.round(dailyAccuracy(today) * 100)}%`}</dd>
           </div>
         </dl>
@@ -146,18 +156,18 @@ export function HomePage() {
 
       <section className="card" aria-labelledby="home-srs">
         <div className={styles.levelHead}>
-          <h2 id="home-srs">Tu memoria</h2>
+          <h2 id="home-srs">{t('home.memory')}</h2>
           <SrsHelp />
         </div>
         {srsTotal === 0 ? (
-          <p className="muted">Aún no hay ítems en tu repaso. Completa una lección para empezar.</p>
+          <p className="muted">{t('home.memoryEmpty')}</p>
         ) : (
           <ul className={styles.srs}>
             {SRS_GROUPS.map((g) => (
               <li key={g} className={styles[`srs${g}`]} data-testid={`srs-${g}`}>
-                <Link to={`/memoria/${groupSlug(g)}`} className={styles.srsLink} aria-label={`${g}: ${srs[g]} ítems. Ver detalle`}>
+                <Link to={`/memoria/${groupSlug(g)}`} className={styles.srsLink} aria-label={t('home.srsAria', { group: srsGroupLabel(g), n: srs[g] })}>
                   <strong>{srs[g]}</strong>
-                  <span>{g}</span>
+                  <span>{srsGroupLabel(g)}</span>
                 </Link>
               </li>
             ))}
@@ -166,17 +176,17 @@ export function HomePage() {
       </section>
 
       <section className="card" aria-labelledby="home-stages">
-        <h2 id="home-stages">Progreso por etapa</h2>
+        <h2 id="home-stages">{t('home.stages')}</h2>
         <ul className={styles.stages}>
           {stages.map(({ stage, total, done }) => (
             <li key={stage}>
               <div className={styles.levelHead}>
-                <span>{STAGE_TITLES[stage]}</span>
+                <span>{t(`stage.${stage}`)}</span>
                 <span className="muted">
                   {done} / {total}
                 </span>
               </div>
-              <div className={styles.bar} role="progressbar" aria-label={`Progreso de ${STAGE_TITLES[stage]}`} aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}>
+              <div className={styles.bar} role="progressbar" aria-label={t('home.stageProgress', { title: t(`stage.${stage}`) })} aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}>
                 <div className={styles.barFill} style={{ width: pct(done, total) }} />
               </div>
             </li>

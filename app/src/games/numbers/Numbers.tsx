@@ -1,11 +1,13 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { JaText } from '../../components/JaText';
+import { useMeaningLang, useT } from '../../i18n';
 import { SpeakButton } from '../../components/SpeakButton';
 import { Feedback, GameFrame, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from './numbers.module.css';
 import type { GameProps } from '../types';
 import { KanaWithRomaji, ModeChips, ReadingRound, useAutoSpeak } from './ReadingRound';
-import { MODE_LABELS, NUMBER_ITEM_KIND, formatYen, makeNumberQuestion, makeNumberQuestionForItem, modePool, availableModes, parseTypedNumber, tierForRound, type NumberMode, type NumberQuestion } from './numbersLogic';
+import { modeLabel, NUMBER_ITEM_KIND, formatYen, makeNumberQuestion, makeNumberQuestionForItem, modePool, availableModes, parseTypedNumber, tierForRound, type NumberMode, type NumberQuestion } from './numbersLogic';
+import { objectName } from './objects';
 import { pickOne, uniqueById, type Rng } from './random';
 
 type ModeChoice = 'mix' | NumberMode;
@@ -29,18 +31,20 @@ interface ViewProps {
 }
 
 function ObjectLine({ question }: { question: NumberQuestion }) {
+  const meaningLang = useMeaningLang();
   const object = question.object!;
   return (
     <p className={styles.question}>
       <span className={styles.emoji} aria-hidden="true">{object.emoji}</span>
       <br />
-      <JaText word={{ kana: object.kana }} /> · {object.es}
+      <JaText word={{ kana: object.kana }} /> · {objectName(object, meaningLang)}
     </p>
   );
 }
 
 /** One question of the numbers game (typed / choice / hear-and-type). */
 export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProps) {
+  const t = useT();
   const spoken = question.reading.kana;
   const hears = question.mode === 'hear' || question.mode === 'priceHear';
   const audio = useAutoSpeak(hears ? spoken : '', question.itemId);
@@ -50,12 +54,12 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
       <>
         {question.object && <ObjectLine question={question} />}
         {question.mode === 'priceHear' && <p className={styles.question}><JaText word={{ kana: 'いくらですか？' }} /></p>}
-        <p className={styles.question}>Escucha y escribe el {question.mode === 'priceHear' ? 'precio' : 'número'} con cifras.</p>
-        <SpeakButton text={spoken} label="Escuchar otra vez" />
+        <p className={styles.question}>{t(question.mode === 'priceHear' ? 'games.hearPrice' : 'games.hearNumber')}</p>
+        <SpeakButton text={spoken} label={t('games.listenAgain')} />
         {!audio && (
           <>
             <p className={styles.kanaLine}><KanaWithRomaji reading={question.reading} /></p>
-            <small className="muted">Sin voz en japonés: lee el kana.</small>
+            <small className="muted">{t('games.noVoiceKana')}</small>
           </>
         )}
       </>
@@ -69,8 +73,8 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
           </span>
         }
         inputMode="plain"
-        ariaLabel="Número con cifras"
-        placeholder="Escribe las cifras"
+        ariaLabel={t('games.digitsAria')}
+        placeholder={t('games.digitsPlaceholder')}
         evaluate={(input) => (parseTypedNumber(input) === question.value ? 'correct' : 'wrong')}
         onReport={onReport}
         onDone={onDone}
@@ -82,7 +86,7 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
   if (question.mode === 'digits') {
     prompt = (
       <>
-        <p className={styles.question}>¿Cómo se lee?</p>
+        <p className={styles.question}>{t('games.howRead')}</p>
         <p className={styles.big}>{question.value}</p>
       </>
     );
@@ -92,14 +96,14 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
         <ObjectLine question={question} />
         <p className={styles.question}><JaText word={{ kana: 'いくらですか？' }} /></p>
         <p className={styles.big}>{formatYen(question.value)}</p>
-        <p className={styles.question}>Precio en hiragana (con えん).</p>
+        <p className={styles.question}>{t('games.priceHira')}</p>
       </>
     );
   } else {
     const { spec, n } = question.counter!;
     prompt = (
       <>
-        <p className={styles.question}>¿Cómo se dice?</p>
+        <p className={styles.question}>{t('games.howSay')}</p>
         <p className={styles.big}>{spec.display(n)}</p>
       </>
     );
@@ -119,6 +123,7 @@ export function NumberQuestionView({ question, rng, onReport, onDone }: ViewProp
 
 /** "Números y precios": numbers, prices, counters (see games/README.md). */
 export function Numbers({ words, rounds, sequential, onlyItems, onFinish }: GameProps) {
+  const t = useT();
   const session = useGameSession({ rounds, onFinish });
   const pick = useQuestionPicker(NUMBER_ITEM_KIND, sequential);
   const [mode, setMode] = useState<ModeChoice>('mix');
@@ -142,10 +147,10 @@ export function Numbers({ words, rounds, sequential, onlyItems, onFinish }: Game
     <GameFrame session={session}>
       {rounds === undefined && (
         <ModeChips
-          label="Modo"
+          label={t('games.mode')}
           value={mode}
           onChange={changeMode}
-          options={[{ value: 'mix', label: 'Mezcla' }, ...modes.map((m) => ({ value: m, label: MODE_LABELS[m] }))]}
+          options={[{ value: 'mix', label: t('games.mix') }, ...modes.map((m) => ({ value: m, label: modeLabel(m) }))]}
         />
       )}
       <Feedback message={last} />
@@ -157,7 +162,7 @@ export function Numbers({ words, rounds, sequential, onlyItems, onFinish }: Game
           session.report(question.itemId, NUMBER_ITEM_KIND, question.label, ok);
         }}
         onDone={(firstTry) => {
-          setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${question.label}`, id: session.round } : null);
+          setLast(firstTry ? { tone: 'ok', text: t('games.correctMsg', { text: question.label }), id: session.round } : null);
           session.next();
           setQuestion(make(session.round + 1, mode));
         }}

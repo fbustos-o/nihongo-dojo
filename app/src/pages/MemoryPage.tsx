@@ -3,15 +3,17 @@ import { useNow } from '../hooks/useNow';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { JaText } from '../components/JaText';
 import { content } from '../domain/contentLoader';
+import { useLang, useMeaningLang, useT } from '../i18n';
 import {
   absoluteDate,
   buildLookup,
   categoryCounts,
-  CATEGORY_LABELS,
+  categoryLabel,
   CATEGORY_ORDER,
   memoryRows,
   relativeTime,
-  SORT_LABELS,
+  SORT_ORDER,
+  sortLabel,
   sortAndFilter,
   groupFromSlug,
   type ItemLabel,
@@ -19,6 +21,7 @@ import {
   type MemoryRow,
   type MemorySort,
 } from '../review/memoryLogic';
+import { srsGroupLabel } from '../review/reviewLogic';
 import { useProgress } from '../state/progressStore';
 import { SrsHelp } from './SrsHelp';
 import styles from './memory.module.css';
@@ -57,6 +60,9 @@ function NextReview({ row, now }: { row: MemoryRow; now: number }) {
 const accuracyText = (a: number | null): string => (a === null ? '–' : `${a}%`);
 
 export function MemoryPage() {
+  const t = useT();
+  const lang = useLang();
+  const meaningLang = useMeaningLang();
   const { etapa } = useParams();
   const group = groupFromSlug(etapa);
   const items = useProgress((s) => s.items);
@@ -64,7 +70,9 @@ export function MemoryPage() {
   const [sort, setSort] = useState<MemorySort>('next');
   const [filter, setFilter] = useState<MemoryFilter>('all');
 
-  const allRows = useMemo(() => (group ? memoryRows(items, group, lookup, kanaRomaji) : []), [items, group]);
+  // lang / meaningLang are not read here but the labels are resolved inside memoryRows, so a language change must recompute them
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const allRows = useMemo(() => (group ? memoryRows(items, group, lookup, kanaRomaji) : []), [items, group, lang, meaningLang]);
   const counts = useMemo(() => categoryCounts(allRows), [allRows]);
   const rows = useMemo(() => sortAndFilter(allRows, sort, filter), [allRows, sort, filter]);
 
@@ -74,40 +82,40 @@ export function MemoryPage() {
     <>
       <p>
         <Link to="/" className={styles.back}>
-          ← Inicio
+          {t('memory.back')}
         </Link>
       </p>
       <div className={styles.head}>
         <h1>
-          {group} <span className="muted">· {allRows.length}</span>
+          {srsGroupLabel(group)} <span className="muted">· {allRows.length}</span>
         </h1>
         <SrsHelp />
       </div>
 
       {allRows.length === 0 ? (
         <p className="card muted" data-testid="memory-empty">
-          Todavía no tienes ítems en {group}. Sigue estudiando y repasando y aparecerán aquí.
+          {t('memory.empty', { group: srsGroupLabel(group) })}
         </p>
       ) : (
         <>
           <div className={styles.controls}>
             <label>
-              Ordenar por
+              {t('memory.sortBy')}
               <select value={sort} onChange={(e) => setSort(e.target.value as MemorySort)}>
-                {(Object.keys(SORT_LABELS) as MemorySort[]).map((s) => (
+                {SORT_ORDER.map((s) => (
                   <option key={s} value={s}>
-                    {SORT_LABELS[s]}
+                    {sortLabel(s)}
                   </option>
                 ))}
               </select>
             </label>
             <label>
-              Tipo
+              {t('memory.type')}
               <select value={filter} onChange={(e) => setFilter(e.target.value as MemoryFilter)}>
-                <option value="all">Todos ({allRows.length})</option>
+                <option value="all">{t('memory.all', { n: allRows.length })}</option>
                 {CATEGORY_ORDER.filter((c) => counts[c]).map((c) => (
                   <option key={c} value={c}>
-                    {CATEGORY_LABELS[c]} ({counts[c]})
+                    {categoryLabel(c)} ({counts[c]})
                   </option>
                 ))}
               </select>
@@ -115,17 +123,17 @@ export function MemoryPage() {
           </div>
 
           {rows.length === 0 ? (
-            <p className="muted">Ningún ítem de este tipo en {group}.</p>
+            <p className="muted">{t('memory.noneOfType', { group: srsGroupLabel(group) })}</p>
           ) : (
             <>
-              <ul className={styles.cards} aria-label={`Ítems en ${group}`}>
+              <ul className={styles.cards} aria-label={t('memory.itemsIn', { group: srsGroupLabel(group) })}>
                 {rows.map((row) => (
                   <li key={`${row.item.kind}:${row.item.itemId}`} className={`card ${styles.cardRow}`} data-testid="memory-row">
                     <ItemView label={row.label} />
                     <div className={styles.meta}>
-                      <span className={styles.badge}>{CATEGORY_LABELS[row.category]}</span>
+                      <span className={styles.badge}>{categoryLabel(row.category)}</span>
                       <span className={styles.badge}>{row.stageName}</span>
-                      <span className={styles.badge} aria-label="Precisión">
+                      <span className={styles.badge} aria-label={t('memory.accuracy')}>
                         {accuracyText(row.accuracy)}
                       </span>
                     </div>
@@ -134,14 +142,14 @@ export function MemoryPage() {
                 ))}
               </ul>
               <table className={styles.table}>
-                <caption className={styles.srOnly}>Ítems en {group}</caption>
+                <caption className={styles.srOnly}>{t('memory.itemsIn', { group: srsGroupLabel(group) })}</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Ítem</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Etapa</th>
-                    <th scope="col">Precisión</th>
-                    <th scope="col">Próximo repaso</th>
+                    <th scope="col">{t('memory.colItem')}</th>
+                    <th scope="col">{t('memory.type')}</th>
+                    <th scope="col">{t('memory.colStage')}</th>
+                    <th scope="col">{t('memory.accuracy')}</th>
+                    <th scope="col">{t('memory.colNext')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -150,7 +158,7 @@ export function MemoryPage() {
                       <td>
                         <ItemView label={row.label} />
                       </td>
-                      <td>{CATEGORY_LABELS[row.category]}</td>
+                      <td>{categoryLabel(row.category)}</td>
                       <td>{row.stageName}</td>
                       <td>{accuracyText(row.accuracy)}</td>
                       <td>

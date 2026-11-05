@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { KanaEntry } from '../../domain/schema';
+import { useT } from '../../i18n';
 import { itemKey } from '../../state/progressSchema';
 import { useProgress } from '../../state/progressStore';
 import { confusableReview, hasConfusables, pickWithConfusableBoost } from '../confusables';
@@ -19,6 +20,7 @@ const CONFUSABLE_RATE = 0.5;
  * for the same sound in the other script (あ -> ア, ア -> あ).
  */
 export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: GameProps) {
+  const t = useT();
   const session = useGameSession({ rounds, onFinish });
   const katakanaLesson = kana.length > 0 && kana.every((k) => k.script === 'katakana');
   const pool = useMemo(() => {
@@ -47,7 +49,7 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
 
   const [question, setQuestion] = useState<RecognizeQuestion | null>(() => (pool.length ? make() : null));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
-  if (!question) return <p className="muted">No hay kana para practicar.</p>;
+  if (!question) return <p className="muted">{t('games.noKana')}</p>;
 
   const { entry } = question;
   const onReport = (ok: boolean) => {
@@ -55,7 +57,7 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
     session.report(entry.char, 'kana', entry.char, ok);
   };
   const onDone = (firstTry: boolean) => {
-    setLast(firstTry ? { tone: 'ok', text: kanaReinforcement(entry), id: session.round } : { tone: 'near', text: `Era ${kanaReinforcement(entry)}`, id: session.round });
+    setLast(firstTry ? { tone: 'ok', text: kanaReinforcement(entry), id: session.round } : { tone: 'near', text: t('games.wasText', { text: kanaReinforcement(entry) }), id: session.round });
     session.next();
     setQuestion(make());
   };
@@ -82,7 +84,7 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
             <>
               {big}
               <div className={styles.hint} data-testid="script-pair-hint">
-                {shown.script === 'hiragana' ? 'Elige el mismo sonido en katakana' : 'Elige el mismo sonido en hiragana'}
+                {t(shown.script === 'hiragana' ? 'games.sameSoundKata' : 'games.sameSoundHira')}
               </div>
             </>
           }
@@ -98,14 +100,14 @@ export function KanaRecognize({ kana, newKana, rounds, sequential, onFinish }: G
           answer={entry.romaji}
           evaluate={(input) => judgeRomaji(input, entry)}
           inputMode="plain"
-          ariaLabel="Romaji"
-          placeholder="romaji"
+          ariaLabel={t('games.romaji')}
+          placeholder={t('games.romajiPlaceholder')}
           onReport={onReport}
           onDone={onDone}
         />
       )}
       {question.kind === 'type' ? (
-        <p className={`muted ${styles.hint}`}>{hint ?? 'Escribe el romaji y pulsa Enter.'}</p>
+        <p className={`muted ${styles.hint}`}>{hint ?? t('games.typeRomajiEnter')}</p>
       ) : (
         hint && <p className={`muted ${styles.hint}`}>{hint}</p>
       )}

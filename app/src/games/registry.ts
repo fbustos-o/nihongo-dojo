@@ -1,5 +1,7 @@
 import { lazy, type ComponentType } from 'react';
 import { GAME_IDS, type GameId } from '../domain/schema';
+import { t, translate } from '../i18n';
+import type { Lang } from '../state/progressSchema';
 import type { GameProps } from './types';
 
 const LOADERS: Partial<Record<GameId, () => Promise<{ default: ComponentType<GameProps> }>>> = {
@@ -52,5 +54,16 @@ export const GAME_REGISTRY: Record<GameId, GameMeta> = {
 };
 
 export const getGame = (id: GameId): GameMeta => GAME_REGISTRY[id];
+
+/** Display name of a game (`games.name.<id>` in the dictionaries; `name` above is the Spanish fallback). */
+export const gameName = (id: GameId, lang?: Lang): string => translateGame('name', id, lang);
+/** One-line description of a game in the interface language (or `lang`). */
+export const gameDescription = (id: GameId, lang?: Lang): string => translateGame('desc', id, lang);
+
+function translateGame(part: 'name' | 'desc', id: GameId, lang?: Lang): string {
+  const key = `games.${part}.${id}`;
+  const text = lang ? translate(lang, key) : t(key);
+  return text === key ? (part === 'name' ? GAME_REGISTRY[id].name : GAME_REGISTRY[id].description) : text;
+}
 export const isImplemented = (id: GameId): boolean => GAME_REGISTRY[id].component !== undefined;
 export const implementedGameIds = (): GameId[] => GAME_IDS.filter(isImplemented);
