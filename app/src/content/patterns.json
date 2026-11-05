@@ -7,15 +7,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "como"
+    "text": "como",
+    "textEn": "eat"
    },
    {
     "slot": "O",
-    "text": "el almuerzo"
+    "text": "el almuerzo",
+    "textEn": "lunch"
    }
   ],
   "japanese": [
@@ -83,15 +86,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "hago"
+    "text": "hago",
+    "textEn": "do"
    },
    {
     "slot": "O",
-    "text": "las compras"
+    "text": "las compras",
+    "textEn": "the shopping"
    }
   ],
   "japanese": [
@@ -159,15 +165,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "voy"
+    "text": "voy",
+    "textEn": "go"
    },
    {
     "slot": "DIR",
-    "text": "al parque"
+    "text": "al parque",
+    "textEn": "to the park"
    }
   ],
   "japanese": [
@@ -229,15 +238,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "BE",
-    "text": "soy"
+    "text": "soy",
+    "textEn": "am"
    },
    {
     "slot": "N",
-    "text": "chileno"
+    "text": "chileno",
+    "textEn": "Chilean"
    }
   ],
   "japanese": [
@@ -298,15 +310,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "El desayuno"
+    "text": "El desayuno",
+    "textEn": "Breakfast"
    },
    {
     "slot": "BE",
-    "text": "está"
+    "text": "está",
+    "textEn": "is"
    },
    {
     "slot": "ADJ",
-    "text": "delicioso"
+    "text": "delicioso",
+    "textEn": "delicious"
    }
   ],
   "japanese": [
@@ -367,15 +382,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "BE",
-    "text": "no soy"
+    "text": "no soy",
+    "textEn": "am not"
    },
    {
     "slot": "N",
-    "text": "estadounidense"
+    "text": "estadounidense",
+    "textEn": "American"
    }
   ],
   "japanese": [
@@ -436,15 +454,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "El desayuno"
+    "text": "El desayuno",
+    "textEn": "Breakfast"
    },
    {
     "slot": "BE",
-    "text": "no está"
+    "text": "no está",
+    "textEn": "is not"
    },
    {
     "slot": "ADJ",
-    "text": "delicioso"
+    "text": "delicioso",
+    "textEn": "delicious"
    }
   ],
   "japanese": [
@@ -505,15 +526,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Tú"
+    "text": "Tú",
+    "textEn": "You"
    },
    {
     "slot": "BE",
-    "text": "eres"
+    "text": "eres",
+    "textEn": "are"
    },
    {
     "slot": "N",
-    "text": "estudiante"
+    "text": "estudiante",
+    "textEn": "a student"
    }
   ],
   "japanese": [
@@ -580,11 +604,13 @@
   "english": [
    {
     "slot": "N",
-    "text": "la universidad"
+    "text": "la universidad",
+    "textEn": "the university"
    },
    {
     "slot": "N",
-    "text": "de Mary"
+    "text": "de Mary",
+    "textEn": "of Mary"
    }
   ],
   "japanese": [
@@ -641,15 +667,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Esto"
+    "text": "Esto",
+    "textEn": "This"
    },
    {
     "slot": "BE",
-    "text": "es"
+    "text": "es",
+    "textEn": "is"
    },
    {
     "slot": "N",
-    "text": "un libro"
+    "text": "un libro",
+    "textEn": "a book"
    }
   ],
   "japanese": [
@@ -710,15 +739,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Este bolso"
+    "text": "Este bolso",
+    "textEn": "This bag"
    },
    {
     "slot": "BE",
-    "text": "es"
+    "text": "es",
+    "textEn": "is"
    },
    {
     "slot": "ADJ",
-    "text": "caro"
+    "text": "caro",
+    "textEn": "expensive"
    }
   ],
   "japanese": [
@@ -779,15 +811,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "El baño"
+    "text": "El baño",
+    "textEn": "The bathroom"
    },
    {
     "slot": "BE",
-    "text": "está"
+    "text": "está",
+    "textEn": "is"
    },
    {
     "slot": "N",
-    "text": "allí"
+    "text": "allí",
+    "textEn": "over there"
    }
   ],
   "japanese": [
@@ -848,15 +883,18 @@
   "english": [
    {
     "slot": "N",
-    "text": "¿De quién"
+    "text": "¿De quién",
+    "textEn": "Whose"
    },
    {
     "slot": "BE",
-    "text": "es"
+    "text": "es",
+    "textEn": "is"
    },
    {
     "slot": "S",
-    "text": "este bolso?"
+    "text": "este bolso?",
+    "textEn": "this bag?"
    }
   ],
   "japanese": [
@@ -916,15 +954,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo también"
+    "text": "Yo también",
+    "textEn": "I too"
    },
    {
     "slot": "BE",
-    "text": "soy"
+    "text": "soy",
+    "textEn": "am"
    },
    {
     "slot": "N",
-    "text": "estudiante"
+    "text": "estudiante",
+    "textEn": "a student"
    }
   ],
   "japanese": [
@@ -979,15 +1020,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Este bolso"
+    "text": "Este bolso",
+    "textEn": "This bag"
    },
    {
     "slot": "BE",
-    "text": "cuesta"
+    "text": "cuesta",
+    "textEn": "costs"
    },
    {
     "slot": "N",
-    "text": "cuánto"
+    "text": "cuánto",
+    "textEn": "how much"
    }
   ],
   "japanese": [
@@ -1048,11 +1092,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "Deme"
+    "text": "Deme",
+    "textEn": "Give me"
    },
    {
     "slot": "O",
-    "text": "esto"
+    "text": "esto",
+    "textEn": "this"
    }
   ],
   "japanese": [
@@ -1103,11 +1149,13 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "como / comí / no como / no comí"
+    "text": "como / comí / no como / no comí",
+    "textEn": "eat / ate / do not eat / did not eat"
    }
   ],
   "japanese": [
@@ -1158,15 +1206,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Tú"
+    "text": "Tú",
+    "textEn": "You"
    },
    {
     "slot": "V",
-    "text": "tomas"
+    "text": "tomas",
+    "textEn": "drink"
    },
    {
     "slot": "O",
-    "text": "qué"
+    "text": "qué",
+    "textEn": "what"
    }
   ],
   "japanese": [
@@ -1228,15 +1279,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "no tomo"
+    "text": "no tomo",
+    "textEn": "do not drink"
    },
    {
     "slot": "O",
-    "text": "café"
+    "text": "café",
+    "textEn": "coffee"
    }
   ],
   "japanese": [
@@ -1292,15 +1346,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "vuelvo"
+    "text": "vuelvo",
+    "textEn": "return"
    },
    {
     "slot": "DIR",
-    "text": "a casa"
+    "text": "a casa",
+    "textEn": "home"
    }
   ],
   "japanese": [
@@ -1356,19 +1413,23 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "leo"
+    "text": "leo",
+    "textEn": "read"
    },
    {
     "slot": "O",
-    "text": "un libro"
+    "text": "un libro",
+    "textEn": "a book"
    },
    {
     "slot": "N",
-    "text": "en la biblioteca"
+    "text": "en la biblioteca",
+    "textEn": "in the library"
    }
   ],
   "japanese": [
@@ -1435,15 +1496,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "me levanto"
+    "text": "me levanto",
+    "textEn": "get up"
    },
    {
     "slot": "N",
-    "text": "a las siete"
+    "text": "a las siete",
+    "textEn": "at seven"
    }
   ],
   "japanese": [
@@ -1505,15 +1569,18 @@
   "english": [
    {
     "slot": "V",
-    "text": "¿No quieres tomar"
+    "text": "¿No quieres tomar",
+    "textEn": "Won't you have"
    },
    {
     "slot": "O",
-    "text": "café"
+    "text": "café",
+    "textEn": "coffee"
    },
    {
     "slot": "N",
-    "text": "juntos?"
+    "text": "juntos?",
+    "textEn": "together?"
    }
   ],
   "japanese": [
@@ -1574,19 +1641,23 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "N",
-    "text": "a veces"
+    "text": "a veces",
+    "textEn": "sometimes"
    },
    {
     "slot": "V",
-    "text": "veo"
+    "text": "veo",
+    "textEn": "watch"
    },
    {
     "slot": "O",
-    "text": "películas"
+    "text": "películas",
+    "textEn": "movies"
    }
   ],
   "japanese": [
@@ -1646,15 +1717,18 @@
   "english": [
    {
     "slot": "V",
-    "text": "Hay"
+    "text": "Hay",
+    "textEn": "There is"
    },
    {
     "slot": "S",
-    "text": "un perro"
+    "text": "un perro",
+    "textEn": "a dog"
    },
    {
     "slot": "N",
-    "text": "en el parque"
+    "text": "en el parque",
+    "textEn": "in the park"
    }
   ],
   "japanese": [
@@ -1716,7 +1790,8 @@
   "english": [
    {
     "slot": "N",
-    "text": "encima de la mesa"
+    "text": "encima de la mesa",
+    "textEn": "on the table"
    }
   ],
   "japanese": [
@@ -1767,11 +1842,13 @@
   "english": [
    {
     "slot": "N",
-    "text": "En la habitación"
+    "text": "En la habitación",
+    "textEn": "In the room"
    },
    {
     "slot": "S",
-    "text": "no hay nadie"
+    "text": "no hay nadie",
+    "textEn": "there is nobody"
    }
   ],
   "japanese": [
@@ -1826,15 +1903,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Ayer"
+    "text": "Ayer",
+    "textEn": "Yesterday"
    },
    {
     "slot": "BE",
-    "text": "fue"
+    "text": "fue",
+    "textEn": "was"
    },
    {
     "slot": "N",
-    "text": "lluvia"
+    "text": "lluvia",
+    "textEn": "rainy"
    }
   ],
   "japanese": [
@@ -1889,19 +1969,23 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "vi"
+    "text": "vi",
+    "textEn": "saw"
    },
    {
     "slot": "O",
-    "text": "a mi amigo"
+    "text": "a mi amigo",
+    "textEn": "my friend"
    },
    {
     "slot": "N",
-    "text": "ayer"
+    "text": "ayer",
+    "textEn": "yesterday"
    }
   ],
   "japanese": [
@@ -1961,19 +2045,23 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "veo"
+    "text": "veo",
+    "textEn": "watch"
    },
    {
     "slot": "O",
-    "text": "una película"
+    "text": "una película",
+    "textEn": "a movie"
    },
    {
     "slot": "N",
-    "text": "con un amigo"
+    "text": "con un amigo",
+    "textEn": "with a friend"
    }
   ],
   "japanese": [
@@ -2034,15 +2122,18 @@
   "english": [
    {
     "slot": "V",
-    "text": "Hay"
+    "text": "Hay",
+    "textEn": "There are"
    },
    {
     "slot": "S",
-    "text": "un periódico y flores"
+    "text": "un periódico y flores",
+    "textEn": "a newspaper and flowers"
    },
    {
     "slot": "N",
-    "text": "sobre la mesa"
+    "text": "sobre la mesa",
+    "textEn": "on the table"
    }
   ],
   "japanese": [
@@ -2092,15 +2183,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "estudio"
+    "text": "estudio",
+    "textEn": "study"
    },
    {
     "slot": "N",
-    "text": "de las diez a las once"
+    "text": "de las diez a las once",
+    "textEn": "from ten to eleven"
    }
   ],
   "japanese": [
@@ -2161,15 +2255,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Ayer"
+    "text": "Ayer",
+    "textEn": "Yesterday"
    },
    {
     "slot": "BE",
-    "text": "hizo"
+    "text": "hizo",
+    "textEn": "was"
    },
    {
     "slot": "ADJ",
-    "text": "calor"
+    "text": "calor",
+    "textEn": "hot"
    }
   ],
   "japanese": [
@@ -2230,11 +2327,13 @@
   "english": [
    {
     "slot": "N",
-    "text": "un perro"
+    "text": "un perro",
+    "textEn": "a dog"
    },
    {
     "slot": "ADJ",
-    "text": "grande"
+    "text": "grande",
+    "textEn": "big"
    }
   ],
   "japanese": [
@@ -2290,15 +2389,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "me gustan"
+    "text": "me gustan",
+    "textEn": "like"
    },
    {
     "slot": "O",
-    "text": "los gatos"
+    "text": "los gatos",
+    "textEn": "cats"
    }
   ],
   "japanese": [
@@ -2358,11 +2460,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "Comamos"
+    "text": "Comamos",
+    "textEn": "Let's eat"
    },
    {
     "slot": "N",
-    "text": "juntos"
+    "text": "juntos",
+    "textEn": "together"
    }
   ],
   "japanese": [
@@ -2418,15 +2522,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "voy"
+    "text": "voy",
+    "textEn": "go"
    },
    {
     "slot": "N",
-    "text": "en tren"
+    "text": "en tren",
+    "textEn": "by train"
    }
   ],
   "japanese": [
@@ -2488,15 +2595,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Hoy"
+    "text": "Hoy",
+    "textEn": "Today"
    },
    {
     "slot": "BE",
-    "text": "es"
+    "text": "es",
+    "textEn": "is"
    },
    {
     "slot": "N",
-    "text": "5 de mayo"
+    "text": "5 de mayo",
+    "textEn": "May 5th"
    }
   ],
   "japanese": [
@@ -2557,15 +2667,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Ahora"
+    "text": "Ahora",
+    "textEn": "Now"
    },
    {
     "slot": "BE",
-    "text": "es"
+    "text": "es",
+    "textEn": "it is"
    },
    {
     "slot": "N",
-    "text": "las cinco y media"
+    "text": "las cinco y media",
+    "textEn": "half past five"
    }
   ],
   "japanese": [
@@ -2625,15 +2738,18 @@
   "english": [
    {
     "slot": "V",
-    "text": "Deme"
+    "text": "Deme",
+    "textEn": "Give me"
    },
    {
     "slot": "N",
-    "text": "dos"
+    "text": "dos",
+    "textEn": "two"
    },
    {
     "slot": "O",
-    "text": "cafés"
+    "text": "cafés",
+    "textEn": "coffees"
    }
   ],
   "japanese": [
@@ -2694,15 +2810,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "El boleto"
+    "text": "El boleto",
+    "textEn": "The ticket"
    },
    {
     "slot": "BE",
-    "text": "está"
+    "text": "está",
+    "textEn": "is"
    },
    {
     "slot": "N",
-    "text": "dónde"
+    "text": "dónde",
+    "textEn": "where"
    }
   ],
   "japanese": [
@@ -2757,15 +2876,18 @@
   "english": [
    {
     "slot": "V",
-    "text": "Se tarda"
+    "text": "Se tarda",
+    "textEn": "It takes"
    },
    {
     "slot": "N",
-    "text": "cuánto"
+    "text": "cuánto",
+    "textEn": "how long"
    },
    {
     "slot": "N",
-    "text": "hasta la estación"
+    "text": "hasta la estación",
+    "textEn": "to the station"
    }
   ],
   "japanese": [
@@ -2819,11 +2941,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "Abra"
+    "text": "Abra",
+    "textEn": "Open"
    },
    {
     "slot": "O",
-    "text": "la ventana"
+    "text": "la ventana",
+    "textEn": "the window"
    }
   ],
   "japanese": [
@@ -2886,23 +3010,28 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "me levanto,"
+    "text": "me levanto,",
+    "textEn": "get up,"
    },
    {
     "slot": "V",
-    "text": "me ducho,"
+    "text": "me ducho,",
+    "textEn": "take a shower,"
    },
    {
     "slot": "V",
-    "text": "voy"
+    "text": "voy",
+    "textEn": "go"
    },
    {
     "slot": "DIR",
-    "text": "a la escuela"
+    "text": "a la escuela",
+    "textEn": "to school"
    }
   ],
   "japanese": [
@@ -2960,11 +3089,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "¿Puedo comer"
+    "text": "¿Puedo comer",
+    "textEn": "May I eat"
    },
    {
     "slot": "N",
-    "text": "aquí?"
+    "text": "aquí?",
+    "textEn": "here?"
    }
   ],
   "japanese": [
@@ -3015,11 +3146,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "No se debe fumar"
+    "text": "No se debe fumar",
+    "textEn": "You must not smoke"
    },
    {
     "slot": "N",
-    "text": "aquí"
+    "text": "aquí",
+    "textEn": "here"
    }
   ],
   "japanese": [
@@ -3075,15 +3208,18 @@
   "english": [
    {
     "slot": "N",
-    "text": "Como hace calor"
+    "text": "Como hace calor",
+    "textEn": "Because it is hot"
    },
    {
     "slot": "V",
-    "text": "tomo"
+    "text": "tomo",
+    "textEn": "I drink"
    },
    {
     "slot": "O",
-    "text": "agua"
+    "text": "agua",
+    "textEn": "water"
    }
   ],
   "japanese": [
@@ -3132,11 +3268,13 @@
   "english": [
    {
     "slot": "V",
-    "text": "¿Le abro"
+    "text": "¿Le abro",
+    "textEn": "Shall I open"
    },
    {
     "slot": "O",
-    "text": "la ventana?"
+    "text": "la ventana?",
+    "textEn": "the window?"
    }
   ],
   "japanese": [
@@ -3187,15 +3325,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "estoy leyendo"
+    "text": "estoy leyendo",
+    "textEn": "am reading"
    },
    {
     "slot": "O",
-    "text": "un libro"
+    "text": "un libro",
+    "textEn": "a book"
    }
   ],
   "japanese": [
@@ -3251,15 +3392,18 @@
   "english": [
    {
     "slot": "S",
-    "text": "Yo"
+    "text": "Yo",
+    "textEn": "I"
    },
    {
     "slot": "V",
-    "text": "quiero comer"
+    "text": "quiero comer",
+    "textEn": "want to eat"
    },
    {
     "slot": "O",
-    "text": "takoyaki"
+    "text": "takoyaki",
+    "textEn": "takoyaki"
    }
   ],
   "japanese": [

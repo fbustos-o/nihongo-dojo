@@ -95,10 +95,12 @@ export const SentencePatternSchema = z.object({
   /** English title. Absent = fall back to `title`. */
   titleEn: z.string().optional(),
   lesson: z.string(),
+  /** Source sentence in the learner's language, in S-V-O order. `text` is Spanish; `textEn` its English counterpart. */
   english: z.array(
     z.object({
       slot: z.enum(['S', 'V', 'O', 'DIR', 'BE', 'ADJ', 'N']),
       text: z.string(),
+      textEn: z.string().optional(),
     }),
   ),
   japanese: z.array(

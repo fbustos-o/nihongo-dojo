@@ -29,3 +29,6 @@ export const lineTranslation = (line: { es: string; en?: string }, lang: Lang): 
 
 export const wordNote = (word: Pick<Word, 'note' | 'noteEn'>, lang: Lang): string | undefined =>
   lang === 'en' ? word.noteEn || word.note : word.note;
+
+/** Text of one S-V-O source slot of a pattern (Spanish by default, English when available). */
+export const slotText = (slot: { text: string; textEn?: string }, lang: Lang): string => (lang === 'en' && slot.textEn) || slot.text;
