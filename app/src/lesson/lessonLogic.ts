@@ -61,7 +61,7 @@ export interface StageProgress {
 
 export function stageProgress(curriculum: readonly Lesson[], completedIds: Iterable<string>): StageProgress[] {
   const completed = new Set(completedIds);
-  return ([1, 2, 3, 4] as const).map((stage) => {
+  return ([1, 2, 3, 4, 5] as const).map((stage) => {
     const lessons = curriculum.filter((l) => l.stage === stage);
     return { stage, total: lessons.length, done: lessons.filter((l) => completed.has(l.id)).length };
   });

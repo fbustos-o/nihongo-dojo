@@ -2,7 +2,10 @@
 import json,re
 from lib import *
 from build_kana import split
-V=json.load(open(OUT+'/vocab.json',encoding='utf-8'))
+VALL=json.load(open(OUT+'/vocab.json',encoding='utf-8'))
+# Core 1000 words that are new to the vocabulary (source core1000) only live in the stage-5 lessons; the Genki/teacher
+# stages (1-4) are built from the original words, so their lesson contents never change when the list grows.
+V=[w for w in VALL if w['source']!='core1000']
 K=json.load(open(OUT+'/kanji.json',encoding='utf-8'))
 PT=json.load(open(OUT+'/patterns.json',encoding='utf-8'))
 DG=json.load(open(OUT+'/dialogues.json',encoding='utf-8'))
@@ -294,6 +297,62 @@ for l in lessons:
     if l['stage'] in (1,3) and not l.get('words'):
         l['games']=[g for g in l['games'] if g not in('read-words','listen')]
         l.pop('words',None) if False else None
+# ---------------- Stage 5: Kanjikana Core 1000, 40 packages of 25 words (by frequency rank)
+# Unlock = previous package + hiragana milestone. The milestone uses the same readability measure as stage 2 (share of
+# the hiragana of the package's words already taught), but only the hiragana of the words themselves: katakana and
+# kanji never gate (JaText shows them as kana until unlocked). Grammar is never required. Words that already live in a
+# Genki lesson are included too (review). Monotone: a package never opens before the previous one.
+CORE_BY_RANK=sorted([w for w in VALL if 'rank' in w],key=lambda w:w['rank'])
+assert [w['rank'] for w in CORE_BY_RANK]==list(range(1,1001)),'Core ranks must be exactly 1..1000'
+C_TARGET=0.70; C_FLOOR=0.50; C_FLOOR_OCC=0.55; C_FIRST=3; C_TIER=3   # pacing: cap = h-ta + one more hiragana row every C_TIER packages
+def core_tokens(ws):
+    return [t for x in ws for t in split(re.sub(r'[^ぁ-ゖ]','',x['kana']))]
+def core_first_idx(toks,d_min,o_min):
+    for i in range(C_FIRST,len(H)):
+        d,o=readable_at(toks,i)
+        if d>=d_min and o>=o_min: return i
+    return len(H)-1
+CGATE=[]; prevc=None; prev_g=-1
+for n in range(40):
+    ws=CORE_BY_RANK[25*n:25*n+25]
+    toks=core_tokens(ws)
+    target=core_first_idx(toks,C_TARGET,C_TARGET); floor=core_first_idx(toks,C_FLOOR,C_FLOOR_OCC)
+    cap=min(len(H)-1,C_FIRST+n//C_TIER)
+    g=max(prev_g,floor,min(target,cap))
+    d,o=readable_at(toks,g)
+    req=[prevc] if prevc else []
+    if g>prev_g: req=req+[H[g][0]]
+    cid='c-%02d'%(n+1)
+    L(cid,5,'Vocabulario esencial %d–%d'%(25*n+1,25*n+25),req,words=[w['id'] for w in ws],games=['flashcards','read-words','listen','kana-write'],
+      titleEn='Essential vocabulary %d–%d'%(25*n+1,25*n+25))
+    CGATE.append((cid,H[g][0],round(d*100),round(o*100),H[target][0]))
+    prevc=cid; prev_g=g
+print('hiragana gating of stage 5 (Core 1000): package -> hiragana lesson, distinct%, occurrence%, (data milestone)')
+for r in CGATE: print('  %-6s %-12s %3d%% %3d%%   target %s'%r)
+# ---------------- English titles of the Spanish-titled lessons
+TITLE_EN={
+'h-a':'Hiragana: あ い う え お','h-ka':'Hiragana: the か row (ka ki ku ke ko)','h-sa':'Hiragana: the さ row (sa shi su se so)',
+'h-ta':'Hiragana: the た row (ta chi tsu te to)','h-na':'Hiragana: the な row (na ni nu ne no)','h-ha':'Hiragana: the は row (ha hi fu he ho)',
+'h-ma':'Hiragana: the ま row (ma mi mu me mo)','h-ya-ra':'Hiragana: the や and ら rows (ya yu yo, ra ri ru re ro)','h-wa-n':'Hiragana: わ, を and ん',
+'h-dakuten-1':'Hiragana with dakuten: the が and ざ rows','h-dakuten-2':'Hiragana with dakuten: the だ and ば rows','h-handakuten':'Hiragana with handakuten: the ぱ row',
+'h-yoon-1':'Yōon: きゃ ぎゃ しゃ じゃ ちゃ','h-yoon-2':'Yōon: にゃ ひゃ びゃ ぴゃ みゃ りゃ','h-tsu-long':'Small っ and long vowels',
+'l-saludos':'Greetings and basic expressions','l-numeros':'Numbers from 0 to 10,000','l-desu':'X は Y です: introducing yourself (Genki 1)',
+'l-hora':'Telling time: じ, はん, ふん','l-kore':'これ / それ / あれ, shopping and prices (Genki 2)','l-verbos-1':'ます verbs: わたしは X を V (teacher + Genki 3)',
+'l-particulas':'Particles で, に, と and the daily routine','l-invitar':'Inviting: ませんか and ましょう, frequency','l-aru-iru':'あります / います and location (Genki 4)',
+'l-conj-masu':'Verb table: ます, ました, ません, ませんでした','l-pasado':'The past of です and talking about yesterday','l-adjetivos-i':'い-adjectives: conjugation table (Genki 5 + teacher)',
+'l-adjetivos-na':'な-adjectives, すき/きらい and じゃないです','l-vacaciones':'Vacations and trips (Genki 5)','l-fechas':'Calendar: months, days and the week',
+'l-contadores':'Counters: つ, にん, かい, さい','l-transporte':'Transportation and directions','l-restaurante':'At the restaurant',
+'l-te-kudasai':'The て-form: ください, sequences and offers (Genki 6)','l-permisos':'Permission and prohibition: てもいい, てはいけません','l-te-imasu-tai':'ています and たいです',
+'k-a':'Katakana: ア イ ウ エ オ and the long vowel mark ー','k-ka':'Katakana: the カ row','k-sa':'Katakana: the サ row','k-ta':'Katakana: the タ row',
+'k-na':'Katakana: the ナ row','k-ha':'Katakana: the ハ row','k-ma':'Katakana: the マ row','k-ya-ra':'Katakana: the ヤ and ラ rows','k-wa-n':'Katakana: ワ, ヲ and ン',
+'k-dakuten-1':'Katakana with dakuten: the ガ and ザ rows','k-dakuten-2':'Katakana with dakuten: the ダ and バ rows','k-handakuten':'Katakana with handakuten: the パ row',
+'k-small-tsu':'Katakana: the small ッ (double consonant)','k-yoon':'Katakana: yōon (キャ シャ チャ ジャ ...)','k-extended':'Extended katakana: ファ ティ ウィ ヴ ジェ ...',
+'k-prestamos-comida':'Loanwords: food and drink','k-prestamos-lugares':'Loanwords: places and transportation','k-prestamos-cosas':'Loanwords: things, clothes and home',
+'k-prestamos-ocio':'Loanwords: leisure, sports and school','k-repaso':'Review: dialogues and readings with katakana'}
+for n in range(3,13): TITLE_EN['kanji-%d'%n]='Genki kanji, lesson %d'%n
+for l in lessons:
+    if 'titleEn' not in l:
+        l['titleEn']=TITLE_EN[l['id']]
 dump('curriculum.json',lessons)
 print(len(lessons),'lessons')
 for l in lessons: print(l['id'],len(l.get('words',[])),len(l.get('kana',[])),l['requires'])

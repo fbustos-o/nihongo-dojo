@@ -26,7 +26,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: あ い う え お"
  },
  {
   "id": "h-ka",
@@ -57,7 +58,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the か row (ka ki ku ke ko)"
  },
  {
   "id": "h-sa",
@@ -88,7 +90,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the さ row (sa shi su se so)"
  },
  {
   "id": "h-ta",
@@ -119,7 +122,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the た row (ta chi tsu te to)"
  },
  {
   "id": "h-na",
@@ -150,7 +154,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the な row (na ni nu ne no)"
  },
  {
   "id": "h-ha",
@@ -181,7 +186,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the は row (ha hi fu he ho)"
  },
  {
   "id": "h-ma",
@@ -212,7 +218,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the ま row (ma mi mu me mo)"
  },
  {
   "id": "h-ya-ra",
@@ -246,7 +253,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: the や and ら rows (ya yu yo, ra ri ru re ro)"
  },
  {
   "id": "h-wa-n",
@@ -275,7 +283,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana: わ, を and ん"
  },
  {
   "id": "h-dakuten-1",
@@ -313,7 +322,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana with dakuten: the が and ざ rows"
  },
  {
   "id": "h-dakuten-2",
@@ -351,7 +361,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana with dakuten: the だ and ば rows"
  },
  {
   "id": "h-handakuten",
@@ -377,7 +388,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Hiragana with handakuten: the ぱ row"
  },
  {
   "id": "h-yoon-1",
@@ -420,7 +432,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Yōon: きゃ ぎゃ しゃ じゃ ちゃ"
  },
  {
   "id": "h-yoon-2",
@@ -460,7 +473,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Yōon: にゃ ひゃ びゃ ぴゃ みゃ りゃ"
  },
  {
   "id": "h-tsu-long",
@@ -496,7 +510,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Small っ and long vowels"
  },
  {
   "id": "l-saludos",
@@ -537,7 +552,8 @@
    "read-words",
    "listen",
    "dialogues"
-  ]
+  ],
+  "titleEn": "Greetings and basic expressions"
  },
  {
   "id": "l-numeros",
@@ -571,7 +587,8 @@
    "numbers",
    "listen",
    "read-words"
-  ]
+  ],
+  "titleEn": "Numbers from 0 to 10,000"
  },
  {
   "id": "l-desu",
@@ -626,7 +643,8 @@
    "syntax",
    "particles",
    "dialogues"
-  ]
+  ],
+  "titleEn": "X は Y です: introducing yourself (Genki 1)"
  },
  {
   "id": "l-hora",
@@ -658,7 +676,8 @@
    "clock",
    "numbers",
    "dialogues"
-  ]
+  ],
+  "titleEn": "Telling time: じ, はん, ふん"
  },
  {
   "id": "l-kore",
@@ -750,7 +769,8 @@
    "numbers",
    "particles",
    "dialogues"
-  ]
+  ],
+  "titleEn": "これ / それ / あれ, shopping and prices (Genki 2)"
  },
  {
   "id": "l-verbos-1",
@@ -809,7 +829,8 @@
    "conjugation",
    "read-words",
    "particles"
-  ]
+  ],
+  "titleEn": "ます verbs: わたしは X を V (teacher + Genki 3)"
  },
  {
   "id": "l-particulas",
@@ -850,7 +871,8 @@
    "syntax",
    "dialogues",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Particles で, に, と and the daily routine"
  },
  {
   "id": "l-invitar",
@@ -885,7 +907,8 @@
    "dialogues",
    "syntax",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Inviting: ませんか and ましょう, frequency"
  },
  {
   "id": "l-aru-iru",
@@ -956,7 +979,8 @@
    "particles",
    "dialogues",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "あります / います and location (Genki 4)"
  },
  {
   "id": "l-conj-masu",
@@ -1012,7 +1036,8 @@
    "conjugation",
    "read-words",
    "syntax"
-  ]
+  ],
+  "titleEn": "Verb table: ます, ました, ません, ませんでした"
  },
  {
   "id": "l-pasado",
@@ -1043,7 +1068,8 @@
    "conjugation",
    "syntax",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "The past of です and talking about yesterday"
  },
  {
   "id": "l-adjetivos-i",
@@ -1099,7 +1125,8 @@
    "conjugation",
    "read-words",
    "syntax"
-  ]
+  ],
+  "titleEn": "い-adjectives: conjugation table (Genki 5 + teacher)"
  },
  {
   "id": "l-adjetivos-na",
@@ -1135,7 +1162,8 @@
    "conjugation",
    "particles",
    "dialogues"
-  ]
+  ],
+  "titleEn": "な-adjectives, すき/きらい and じゃないです"
  },
  {
   "id": "l-vacaciones",
@@ -1177,7 +1205,8 @@
    "read-words",
    "dialogues",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Vacations and trips (Genki 5)"
  },
  {
   "id": "l-fechas",
@@ -1250,7 +1279,8 @@
    "calendar",
    "numbers",
    "dialogues"
-  ]
+  ],
+  "titleEn": "Calendar: months, days and the week"
  },
  {
   "id": "l-contadores",
@@ -1288,7 +1318,8 @@
    "numbers",
    "syntax",
    "read-words"
-  ]
+  ],
+  "titleEn": "Counters: つ, にん, かい, さい"
  },
  {
   "id": "l-transporte",
@@ -1339,7 +1370,8 @@
    "dialogues",
    "listen",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Transportation and directions"
  },
  {
   "id": "l-restaurante",
@@ -1370,7 +1402,8 @@
    "dialogues",
    "numbers",
    "listen"
-  ]
+  ],
+  "titleEn": "At the restaurant"
  },
  {
   "id": "l-te-kudasai",
@@ -1431,7 +1464,8 @@
    "conjugation",
    "syntax",
    "dialogues"
-  ]
+  ],
+  "titleEn": "The て-form: ください, sequences and offers (Genki 6)"
  },
  {
   "id": "l-permisos",
@@ -1461,7 +1495,8 @@
    "conjugation",
    "syntax",
    "dialogues"
-  ]
+  ],
+  "titleEn": "Permission and prohibition: てもいい, てはいけません"
  },
  {
   "id": "l-te-imasu-tai",
@@ -1489,7 +1524,8 @@
    "syntax",
    "dialogues",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "ています and たいです"
  },
  {
   "id": "k-a",
@@ -1519,7 +1555,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: ア イ ウ エ オ and the long vowel mark ー"
  },
  {
   "id": "k-ka",
@@ -1545,7 +1582,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the カ row"
  },
  {
   "id": "k-sa",
@@ -1571,7 +1609,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the サ row"
  },
  {
   "id": "k-ta",
@@ -1597,7 +1636,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the タ row"
  },
  {
   "id": "k-na",
@@ -1623,7 +1663,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the ナ row"
  },
  {
   "id": "k-ha",
@@ -1650,7 +1691,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the ハ row"
  },
  {
   "id": "k-ma",
@@ -1677,7 +1719,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the マ row"
  },
  {
   "id": "k-ya-ra",
@@ -1711,7 +1754,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the ヤ and ラ rows"
  },
  {
   "id": "k-wa-n",
@@ -1738,7 +1782,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: ワ, ヲ and ン"
  },
  {
   "id": "k-dakuten-1",
@@ -1774,7 +1819,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana with dakuten: the ガ and ザ rows"
  },
  {
   "id": "k-dakuten-2",
@@ -1810,7 +1856,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana with dakuten: the ダ and バ rows"
  },
  {
   "id": "k-handakuten",
@@ -1841,7 +1888,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana with handakuten: the パ row"
  },
  {
   "id": "k-small-tsu",
@@ -1873,7 +1921,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: the small ッ (double consonant)"
  },
  {
   "id": "k-yoon",
@@ -1932,7 +1981,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Katakana: yōon (キャ シャ チャ ジャ ...)"
  },
  {
   "id": "k-extended",
@@ -1995,7 +2045,8 @@
    "kana-write",
    "read-words",
    "listen"
-  ]
+  ],
+  "titleEn": "Extended katakana: ファ ティ ウィ ヴ ジェ ..."
  },
  {
   "id": "k-prestamos-comida",
@@ -2051,7 +2102,8 @@
    "read-words",
    "listen",
    "syntax"
-  ]
+  ],
+  "titleEn": "Loanwords: food and drink"
  },
  {
   "id": "k-prestamos-lugares",
@@ -2089,7 +2141,8 @@
    "read-words",
    "listen",
    "dialogues"
-  ]
+  ],
+  "titleEn": "Loanwords: places and transportation"
  },
  {
   "id": "k-prestamos-cosas",
@@ -2150,7 +2203,8 @@
    "read-words",
    "listen",
    "particles"
-  ]
+  ],
+  "titleEn": "Loanwords: things, clothes and home"
  },
  {
   "id": "k-prestamos-ocio",
@@ -2201,7 +2255,8 @@
    "read-words",
    "listen",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Loanwords: leisure, sports and school"
  },
  {
   "id": "k-repaso",
@@ -2229,7 +2284,8 @@
    "dialogues",
    "mini-reading",
    "syntax"
-  ]
+  ],
+  "titleEn": "Review: dialogues and readings with katakana"
  },
  {
   "id": "kanji-3",
@@ -2298,7 +2354,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 3"
  },
  {
   "id": "kanji-4",
@@ -2385,7 +2442,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 4"
  },
  {
   "id": "kanji-5",
@@ -2437,7 +2495,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 5"
  },
  {
   "id": "kanji-6",
@@ -2497,7 +2556,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 6"
  },
  {
   "id": "kanji-7",
@@ -2556,7 +2616,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 7"
  },
  {
   "id": "kanji-8",
@@ -2618,7 +2679,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 8"
  },
  {
   "id": "kanji-9",
@@ -2681,7 +2743,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 9"
  },
  {
   "id": "kanji-10",
@@ -2745,7 +2808,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 10"
  },
  {
   "id": "kanji-11",
@@ -2812,7 +2876,8 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 11"
  },
  {
   "id": "kanji-12",
@@ -2870,6 +2935,1691 @@
    "kanji",
    "read-words",
    "mini-reading"
-  ]
+  ],
+  "titleEn": "Genki kanji, lesson 12"
+ },
+ {
+  "id": "c-01",
+  "stage": 5,
+  "title": "Vocabulario esencial 1–25",
+  "requires": [
+   "h-na"
+  ],
+  "words": [
+   "hai",
+   "iie",
+   "un",
+   "ee",
+   "iya",
+   "watashi",
+   "sou",
+   "naru",
+   "iu",
+   "arigatou",
+   "sumimasen",
+   "ohayou",
+   "konnichiwa",
+   "konbanwa",
+   "sayounara",
+   "oyasuminasai",
+   "itadakimasu",
+   "gochisousama",
+   "hajimemashite",
+   "onegaishimasu",
+   "jaane",
+   "matane",
+   "shitsureishimasu",
+   "nani",
+   "iku"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 1–25"
+ },
+ {
+  "id": "c-02",
+  "stage": 5,
+  "title": "Vocabulario esencial 26–50",
+  "requires": [
+   "c-01",
+   "h-ma"
+  ],
+  "words": [
+   "wakaru",
+   "ki-espiritu",
+   "ii",
+   "miru",
+   "kore",
+   "sore",
+   "are",
+   "omou",
+   "mou",
+   "hito",
+   "dou",
+   "ima",
+   "hi-dia",
+   "shiru",
+   "kuru",
+   "dare",
+   "kiku",
+   "deru",
+   "doko",
+   "itsu",
+   "naze",
+   "doushite",
+   "dore",
+   "dono",
+   "dochira"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 26–50"
+ },
+ {
+  "id": "c-03",
+  "stage": 5,
+  "title": "Vocabulario esencial 51–75",
+  "requires": [
+   "c-02"
+  ],
+  "words": [
+   "ikutsu",
+   "ikura",
+   "donna",
+   "kono",
+   "sono",
+   "ano",
+   "koko",
+   "soko",
+   "asoko",
+   "kochira",
+   "sochira",
+   "achira",
+   "toshi",
+   "matsu",
+   "kanojo",
+   "boku",
+   "shinu",
+   "jikan",
+   "hayai",
+   "hanasu",
+   "ichi",
+   "ni-numero",
+   "san",
+   "yon",
+   "go"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 51–75"
+ },
+ {
+  "id": "c-04",
+  "stage": 5,
+  "title": "Vocabulario esencial 76–100",
+  "requires": [
+   "c-03"
+  ],
+  "words": [
+   "roku",
+   "shichi",
+   "hachi",
+   "kyuu",
+   "juu",
+   "hyaku",
+   "sen",
+   "man",
+   "motsu",
+   "kaeru",
+   "kyou",
+   "kare",
+   "mae",
+   "shigoto",
+   "suki",
+   "au",
+   "taberu",
+   "chigau",
+   "onaji",
+   "tsukau",
+   "daijoubu",
+   "tsukuru",
+   "sensei",
+   "tsugi",
+   "hanashi"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 76–100"
+ },
+ {
+  "id": "c-05",
+  "stage": 5,
+  "title": "Vocabulario esencial 101–125",
+  "requires": [
+   "c-04"
+  ],
+  "words": [
+   "ireru",
+   "hairu",
+   "kuruma",
+   "haru",
+   "natsu",
+   "aki",
+   "fuyu",
+   "jibun",
+   "modoru",
+   "kodomo",
+   "tomodachi",
+   "yobu",
+   "kao",
+   "toru-tomar",
+   "sukoshi",
+   "nomu",
+   "namae",
+   "oshieru",
+   "musume",
+   "owaru",
+   "miseru",
+   "karada",
+   "kau",
+   "heya",
+   "neru"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 101–125"
+ },
+ {
+  "id": "c-06",
+  "stage": 5,
+  "title": "Vocabulario esencial 126–150",
+  "requires": [
+   "c-05"
+  ],
+  "words": [
+   "zenbu",
+   "musuko",
+   "hajimeru",
+   "kekkon",
+   "genki",
+   "mitsukeru",
+   "okiru",
+   "oboeru",
+   "kotoba",
+   "noru",
+   "kimochi",
+   "minna",
+   "kazu",
+   "ichiban",
+   "okuru",
+   "sagasu",
+   "kuni",
+   "gakkou",
+   "atarashii",
+   "takai",
+   "ooi",
+   "otto",
+   "suwaru",
+   "yomu",
+   "ochiru"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 126–150"
+ },
+ {
+  "id": "c-07",
+  "stage": 5,
+  "title": "Vocabulario esencial 151–175",
+  "requires": [
+   "c-06"
+  ],
+  "words": [
+   "tatsu",
+   "shitsumon",
+   "sake",
+   "nagai",
+   "osoi",
+   "uru",
+   "ashi",
+   "tanoshimu",
+   "ki",
+   "muzukashii",
+   "warau",
+   "hashiru",
+   "harau",
+   "iru",
+   "kiru",
+   "utsukushii",
+   "sumu",
+   "ageru",
+   "ageru-subir",
+   "oya",
+   "daisuki",
+   "daigaku",
+   "onnanoko",
+   "wakai",
+   "ude"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 151–175"
+ },
+ {
+  "id": "c-08",
+  "stage": 5,
+  "title": "Vocabulario esencial 176–200",
+  "requires": [
+   "c-07"
+  ],
+  "words": [
+   "utau",
+   "ani",
+   "asobu",
+   "iro",
+   "mune",
+   "kesu",
+   "benkyou",
+   "byouki",
+   "okosu",
+   "kubi",
+   "ane",
+   "okoru-ocurrir",
+   "mimi",
+   "chikai",
+   "omoi",
+   "furui",
+   "migi",
+   "en-yen",
+   "tooi",
+   "sukunai",
+   "watashitachi",
+   "isshoni",
+   "wasureru",
+   "motto",
+   "atsui-cosa"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 176–200"
+ },
+ {
+  "id": "c-09",
+  "stage": 5,
+  "title": "Vocabulario esencial 201–225",
+  "requires": [
+   "c-08"
+  ],
+  "words": [
+   "kotoshi",
+   "atama",
+   "hikouki",
+   "douzo",
+   "gogo",
+   "karui",
+   "hon",
+   "kaku",
+   "tokoro",
+   "betsu",
+   "hiroi",
+   "akeru",
+   "doa",
+   "otokonoko",
+   "jugyou",
+   "gakusei",
+   "hataraku",
+   "oku",
+   "hikui",
+   "aruku",
+   "tsuduku",
+   "tobu",
+   "chikaku",
+   "kami",
+   "yasui"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 201–225"
+ },
+ {
+  "id": "c-10",
+  "stage": 5,
+  "title": "Vocabulario esencial 226–250",
+  "requires": [
+   "c-09"
+  ],
+  "words": [
+   "hiku",
+   "shimeru",
+   "kyonen",
+   "mijikai",
+   "jitensha",
+   "semai",
+   "gozen",
+   "densha",
+   "toshokan",
+   "kongetsu",
+   "dekiru",
+   "kata",
+   "yowai",
+   "abiru",
+   "ato",
+   "sugu",
+   "mada",
+   "itsumo",
+   "morau",
+   "toki",
+   "kome",
+   "kiru-cortar",
+   "tanoshii",
+   "fuku",
+   "tame"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 226–250"
+ },
+ {
+  "id": "c-11",
+  "stage": 5,
+  "title": "Vocabulario esencial 251–275",
+  "requires": [
+   "c-10"
+  ],
+  "words": [
+   "otoko",
+   "ushiro",
+   "ureshii",
+   "hiru",
+   "warui",
+   "kangaeru",
+   "okaasan",
+   "te",
+   "kimi",
+   "daigakusei",
+   "ningen",
+   "owari",
+   "tetsudau",
+   "me",
+   "hana-nariz",
+   "kuchi",
+   "kami-pelo",
+   "ha",
+   "onaka",
+   "se",
+   "noseru",
+   "kanashii",
+   "amai",
+   "demo",
+   "teeburu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 251–275"
+ },
+ {
+  "id": "c-12",
+  "stage": 5,
+  "title": "Vocabulario esencial 276–300",
+  "requires": [
+   "c-11"
+  ],
+  "words": [
+   "kureru",
+   "yoku",
+   "totemo",
+   "tabemono",
+   "saikou",
+   "hajimaru",
+   "geemu",
+   "tenki",
+   "atsui",
+   "futoi",
+   "ie",
+   "kedo",
+   "ban",
+   "itai",
+   "otousan",
+   "tabun",
+   "tokei",
+   "tomaru",
+   "kakeru",
+   "magaru",
+   "kirai",
+   "oto",
+   "hitsuyou",
+   "kaze",
+   "yasashii"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 276–300"
+ },
+ {
+  "id": "c-13",
+  "stage": 5,
+  "title": "Vocabulario esencial 301–325",
+  "requires": [
+   "c-12",
+   "h-ya-ra"
+  ],
+  "words": [
+   "onna",
+   "hareru",
+   "kitanai",
+   "sonna",
+   "hontouni",
+   "noboru",
+   "dasu",
+   "getsuyoubi",
+   "kayoubi",
+   "suiyoubi",
+   "mokuyoubi",
+   "kinyoubi",
+   "doyoubi",
+   "nichiyoubi",
+   "hoka",
+   "konshuu",
+   "mizu",
+   "shimeru-apretar",
+   "mondai",
+   "sawaru",
+   "nomimono",
+   "naka",
+   "mieru",
+   "soba",
+   "konban"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 301–325"
+ },
+ {
+  "id": "c-14",
+  "stage": 5,
+  "title": "Vocabulario esencial 326–350",
+  "requires": [
+   "c-13"
+  ],
+  "words": [
+   "mono",
+   "oneesan",
+   "naoru",
+   "hou",
+   "dakara",
+   "asa",
+   "konna",
+   "denwa",
+   "ganbaru",
+   "ame",
+   "chichi",
+   "haha",
+   "otouto",
+   "imouto",
+   "ryoushin",
+   "kazoku",
+   "tsuma",
+   "oniisan",
+   "ojiisan",
+   "obaasan",
+   "chan",
+   "ookii",
+   "koe",
+   "chiisai",
+   "karai"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 326–350"
+ },
+ {
+  "id": "c-15",
+  "stage": 5,
+  "title": "Vocabulario esencial 351–375",
+  "requires": [
+   "c-14"
+  ],
+  "words": [
+   "jaa",
+   "chikara",
+   "tsuyoi",
+   "ippai",
+   "ue",
+   "saki",
+   "hosoi",
+   "koukousei",
+   "shinpai",
+   "jouzu",
+   "chotto",
+   "sekai",
+   "hidari",
+   "kaeru-cambiar",
+   "atatakai",
+   "koto",
+   "eki",
+   "oishii",
+   "kinou",
+   "ashita",
+   "kesa",
+   "raishuu",
+   "senshuu",
+   "raigetsu",
+   "sengetsu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 351–375"
+ },
+ {
+  "id": "c-16",
+  "stage": 5,
+  "title": "Vocabulario esencial 376–400",
+  "requires": [
+   "c-15"
+  ],
+  "words": [
+   "rainen",
+   "mainichi",
+   "maiasa",
+   "maishuu",
+   "maitsuki",
+   "maitoshi",
+   "yoru",
+   "yuugata",
+   "shuumatsu",
+   "ore",
+   "jinsei",
+   "samui",
+   "shita",
+   "soto",
+   "tonari",
+   "higashi",
+   "nishi",
+   "minami",
+   "kita",
+   "otona",
+   "ijou",
+   "tsuki",
+   "ko",
+   "kawaru",
+   "tsumetai"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 376–400"
+ },
+ {
+  "id": "c-17",
+  "stage": 5,
+  "title": "Vocabulario esencial 401–425",
+  "requires": [
+   "c-16"
+  ],
+  "words": [
+   "kanji",
+   "anata",
+   "san-honorifico",
+   "tokidoki",
+   "tasukeru",
+   "aite",
+   "hitori",
+   "doumo",
+   "hoshii",
+   "mise",
+   "michi",
+   "hajimete",
+   "hontou",
+   "yameru",
+   "imi",
+   "dansei",
+   "tsudukeru",
+   "kotaeru",
+   "nakama",
+   "mitsukaru",
+   "yasumu",
+   "mukashi",
+   "yukkuri",
+   "ikiru",
+   "hana"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 401–425"
+ },
+ {
+  "id": "c-18",
+  "stage": 5,
+  "title": "Vocabulario esencial 426–450",
+  "requires": [
+   "c-17",
+   "h-wa-n"
+  ],
+  "words": [
+   "ugoku",
+   "kou",
+   "suru",
+   "sen-linea",
+   "igai",
+   "hen",
+   "shimaru",
+   "tanomu",
+   "shinjiru",
+   "saigo",
+   "saikin",
+   "konpyuuta",
+   "fueru",
+   "basho",
+   "erabu",
+   "seikatsu",
+   "mazui",
+   "kumoru",
+   "shashin",
+   "kaisha",
+   "agaru",
+   "datte",
+   "atsumeru",
+   "kokoro",
+   "kieru"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 426–450"
+ },
+ {
+  "id": "c-19",
+  "stage": 5,
+  "title": "Vocabulario esencial 451–475",
+  "requires": [
+   "c-18"
+  ],
+  "words": [
+   "shakai",
+   "konkai",
+   "karera",
+   "yotei",
+   "terebi",
+   "heru",
+   "kuraberu",
+   "umareru",
+   "zenin",
+   "kanji-sentimiento",
+   "nihon",
+   "nihonjin",
+   "nihongo",
+   "eigo",
+   "gaikoku",
+   "gaikokujin",
+   "okonau",
+   "shiraberu",
+   "mamoru",
+   "taihen",
+   "jiko",
+   "ginkou",
+   "aku",
+   "juubun",
+   "amari"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 451–475"
+ },
+ {
+  "id": "c-20",
+  "stage": 5,
+  "title": "Vocabulario esencial 476–500",
+  "requires": [
+   "c-19"
+  ],
+  "words": [
+   "kowai",
+   "yasashii-facil",
+   "kimeru",
+   "iken",
+   "shinbun",
+   "bunshou",
+   "byouin",
+   "atsui-grueso",
+   "isogashii",
+   "usui",
+   "kawa",
+   "kurai",
+   "kurasu",
+   "basu",
+   "kanjiru",
+   "chichioya",
+   "aka",
+   "ao",
+   "shiro",
+   "kuro",
+   "kiiro",
+   "midori",
+   "chairo",
+   "akai",
+   "aoi"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 476–500"
+ },
+ {
+  "id": "c-21",
+  "stage": 5,
+  "title": "Vocabulario esencial 501–525",
+  "requires": [
+   "c-20"
+  ],
+  "words": [
+   "shiroi",
+   "kuroi",
+   "kiiroi",
+   "kaimono",
+   "kusuri",
+   "satou",
+   "yasumi",
+   "juusho",
+   "saifu",
+   "hahaoya",
+   "isu",
+   "deha",
+   "kawaii",
+   "jiken",
+   "sora",
+   "sama",
+   "josei",
+   "jouhou",
+   "katsu",
+   "hitotsu",
+   "futatsu",
+   "mittsu",
+   "yottsu",
+   "itsutsu",
+   "muttsu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 501–525"
+ },
+ {
+  "id": "c-22",
+  "stage": 5,
+  "title": "Vocabulario esencial 526–550",
+  "requires": [
+   "c-21"
+  ],
+  "words": [
+   "nanatsu",
+   "yattsu",
+   "kokonotsu",
+   "nigeru",
+   "keisatsu",
+   "denki",
+   "saisho",
+   "makeru",
+   "zutto",
+   "korekara",
+   "tateru",
+   "nikki",
+   "junbi",
+   "oriru",
+   "arau",
+   "paato",
+   "muri",
+   "konya",
+   "dareka",
+   "haku",
+   "ukeru",
+   "kiken",
+   "houhou",
+   "mama",
+   "niwa"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 526–550"
+ },
+ {
+  "id": "c-23",
+  "stage": 5,
+  "title": "Vocabulario esencial 551–575",
+  "requires": [
+   "c-22"
+  ],
+  "words": [
+   "umi",
+   "kondo",
+   "yubi",
+   "megane",
+   "hen-extrano",
+   "joukyou",
+   "heta",
+   "otearai",
+   "kibishii",
+   "aru",
+   "kotae",
+   "fun",
+   "zannen",
+   "kibun",
+   "kirei",
+   "taisetsu",
+   "odoroku",
+   "zettai",
+   "inu",
+   "okoru",
+   "tsutomeru",
+   "joubu",
+   "isogu",
+   "nemui",
+   "yurusu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 551–575"
+ },
+ {
+  "id": "c-24",
+  "stage": 5,
+  "title": "Vocabulario esencial 576–600",
+  "requires": [
+   "c-23"
+  ],
+  "words": [
+   "yama",
+   "hashi-puente",
+   "tomaru-detenerse",
+   "furu",
+   "machi",
+   "okashi",
+   "yume",
+   "tsutaeru",
+   "sai-edad",
+   "jitsuha",
+   "tsukeru",
+   "au-coincidir",
+   "daiji",
+   "iya-desagrado",
+   "omoshiroi",
+   "fooku",
+   "supuun",
+   "kantan",
+   "papa",
+   "kankei",
+   "hotondo",
+   "ugokasu",
+   "kowareru",
+   "tomeru",
+   "kyaku"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 576–600"
+ },
+ {
+  "id": "c-25",
+  "stage": 5,
+  "title": "Vocabulario esencial 601–625",
+  "requires": [
+   "c-24"
+  ],
+  "words": [
+   "tsukue",
+   "furo",
+   "yu",
+   "kutsushita",
+   "riyuu",
+   "niku",
+   "kekka",
+   "kumo",
+   "moshi",
+   "ninki",
+   "futsuu",
+   "kakunin",
+   "hakkiri",
+   "eiga",
+   "niru-parecerse",
+   "kai",
+   "aida",
+   "kenka",
+   "yuubinkyoku",
+   "okureru",
+   "seito",
+   "yakusoku",
+   "kitte",
+   "suzushii",
+   "hanashiau"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 601–625"
+ },
+ {
+  "id": "c-26",
+  "stage": 5,
+  "title": "Vocabulario esencial 626–650",
+  "requires": [
+   "c-25"
+  ],
+  "words": [
+   "yuki",
+   "kaze-viento",
+   "hare",
+   "kumori",
+   "nokosu",
+   "tegami",
+   "doubutsu",
+   "ataru",
+   "hoshi",
+   "atsumaru",
+   "fune",
+   "shounen",
+   "mago",
+   "narabu",
+   "koukou",
+   "tsuku",
+   "sotsugyou",
+   "shachou",
+   "senshu",
+   "jisho",
+   "tatemono",
+   "ryouri",
+   "ototoi",
+   "asatte",
+   "renraku"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 626–650"
+ },
+ {
+  "id": "c-27",
+  "stage": 5,
+  "title": "Vocabulario esencial 651–675",
+  "requires": [
+   "c-26"
+  ],
+  "words": [
+   "mura",
+   "supootsu",
+   "kaban",
+   "nokoru",
+   "touzen",
+   "katei",
+   "kaesu",
+   "kikai",
+   "choudo",
+   "kikoeru",
+   "nigiyaka",
+   "komaru",
+   "susumu",
+   "seikou",
+   "chokusetsu",
+   "minasan",
+   "tokuni",
+   "setsumei",
+   "hakobu",
+   "hanbun",
+   "naosu",
+   "ai",
+   "hantai",
+   "shouyu",
+   "rikai"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 651–675"
+ },
+ {
+  "id": "c-28",
+  "stage": 5,
+  "title": "Vocabulario esencial 676–700",
+  "requires": [
+   "c-27"
+  ],
+  "words": [
+   "baai",
+   "anna",
+   "okane",
+   "oiwai",
+   "apaato",
+   "hoteru",
+   "kanarazu",
+   "akarui",
+   "nurui",
+   "suteru",
+   "watasu",
+   "uta",
+   "tesuto",
+   "posuto",
+   "shiai",
+   "boushi",
+   "moto",
+   "shukudai",
+   "kagi",
+   "kasa",
+   "kuuki",
+   "ocha",
+   "chansu",
+   "takusan",
+   "shio"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 676–700"
+ },
+ {
+  "id": "c-29",
+  "stage": 5,
+  "title": "Vocabulario esencial 701–725",
+  "requires": [
+   "c-28",
+   "h-dakuten-1"
+  ],
+  "words": [
+   "sakana",
+   "shiawase",
+   "koohii",
+   "keiken",
+   "futari",
+   "anzen",
+   "konogoro",
+   "kekkou",
+   "chuui",
+   "doryoku",
+   "tori",
+   "jishin",
+   "mata",
+   "shujutsu",
+   "mukau",
+   "toru",
+   "ongaku",
+   "jissai",
+   "kariru",
+   "paatii",
+   "inochi",
+   "kaigi",
+   "teian",
+   "jimusho",
+   "kyouju"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 701–725"
+ },
+ {
+  "id": "c-30",
+  "stage": 5,
+  "title": "Vocabulario esencial 726–750",
+  "requires": [
+   "c-29"
+  ],
+  "words": [
+   "chizu",
+   "kamera",
+   "kyouryoku",
+   "shizuka",
+   "katai",
+   "fukai",
+   "gochisou",
+   "kouen",
+   "kyoushitsu",
+   "bunka",
+   "urusai",
+   "mochiron",
+   "kasu",
+   "takushii",
+   "tsuku-llegar",
+   "gohan",
+   "asagohan",
+   "hirugohan",
+   "bangohan",
+   "nande",
+   "kyoudai",
+   "shizen",
+   "kiro",
+   "genkan",
+   "pasokon"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 726–750"
+ },
+ {
+  "id": "c-31",
+  "stage": 5,
+  "title": "Vocabulario esencial 751–775",
+  "requires": [
+   "c-30"
+  ],
+  "words": [
+   "chawan",
+   "hankachi",
+   "aji",
+   "gyuuniku",
+   "nandemo",
+   "zasshi",
+   "taishikan",
+   "shokuji",
+   "mukou",
+   "uma",
+   "yuujin",
+   "yoko",
+   "nakusu",
+   "jidousha",
+   "naraberu",
+   "rajio",
+   "nyuusu",
+   "ryokou",
+   "renshuu",
+   "makaseru",
+   "abunai",
+   "chanto",
+   "tsukareru",
+   "yuumei",
+   "yasai"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 751–775"
+ },
+ {
+  "id": "c-32",
+  "stage": 5,
+  "title": "Vocabulario esencial 776–800",
+  "requires": [
+   "c-31"
+  ],
+  "words": [
+   "ban-numero",
+   "do",
+   "koppu",
+   "senpai",
+   "kimaru",
+   "kako",
+   "seetaa",
+   "ookina",
+   "sentaku",
+   "shatsu",
+   "kyoku",
+   "iroiro",
+   "hikari",
+   "hajime",
+   "erebeetaa",
+   "omoidasu",
+   "osu",
+   "mado",
+   "zenzen",
+   "hiruma",
+   "isha",
+   "shima",
+   "toire",
+   "ototoshi",
+   "chiimu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 776–800"
+ },
+ {
+  "id": "c-33",
+  "stage": 5,
+  "title": "Vocabulario esencial 801–825",
+  "requires": [
+   "c-32"
+  ],
+  "words": [
+   "natsuyasumi",
+   "sofu",
+   "youi",
+   "okusan",
+   "sobo",
+   "shippai",
+   "kutsu",
+   "ushinau",
+   "henji",
+   "oyogu",
+   "kooto",
+   "nenkan",
+   "subete",
+   "sanpo",
+   "naku",
+   "kopii",
+   "hijouni",
+   "fukuzatsu",
+   "kangae",
+   "heiwa",
+   "kaidan",
+   "mawaru",
+   "tsumaranai",
+   "wakamono",
+   "shitsurei"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 801–825"
+ },
+ {
+  "id": "c-34",
+  "stage": 5,
+  "title": "Vocabulario esencial 826–850",
+  "requires": [
+   "c-33"
+  ],
+  "words": [
+   "suu",
+   "tamago",
+   "toori",
+   "tsureru",
+   "saku",
+   "uketoru",
+   "ike",
+   "hi",
+   "daidokoro",
+   "asobi",
+   "himitsu",
+   "shokudou",
+   "kuukou",
+   "shuppatsu",
+   "benri",
+   "mokuteki",
+   "unten",
+   "tokubetsu",
+   "neko",
+   "depaato",
+   "sekken",
+   "chikatetsu",
+   "beddo",
+   "resutoran",
+   "kayou"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 826–850"
+ },
+ {
+  "id": "c-35",
+  "stage": 5,
+  "title": "Vocabulario esencial 851–875",
+  "requires": [
+   "c-34"
+  ],
+  "words": [
+   "bangou",
+   "pan",
+   "e",
+   "koudou",
+   "butaniku",
+   "tadashii",
+   "narau",
+   "peeji",
+   "komakai",
+   "kansha",
+   "hako",
+   "puuru",
+   "nooto",
+   "rippa",
+   "tatoeba",
+   "wataru",
+   "shoukai",
+   "nimotsu",
+   "shougakkou",
+   "joudan",
+   "rouka",
+   "keikaku",
+   "seki",
+   "ten",
+   "sensou"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 851–875"
+ },
+ {
+  "id": "c-36",
+  "stage": 5,
+  "title": "Vocabulario esencial 876–900",
+  "requires": [
+   "c-35"
+  ],
+  "words": [
+   "kyoushi",
+   "sekinin",
+   "shiken",
+   "suugaku",
+   "mouichido",
+   "kabe",
+   "ryuugakusei",
+   "sodateru",
+   "tashika",
+   "taoreru",
+   "otosu",
+   "joutai",
+   "ochitsuku",
+   "tanjoubi",
+   "hanareru",
+   "tateru-poner-de",
+   "houkoku",
+   "juuyou",
+   "kakusu",
+   "kazaru",
+   "sageru",
+   "utsu",
+   "koro",
+   "tazuneru",
+   "bangumi"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 876–900"
+ },
+ {
+  "id": "c-37",
+  "stage": 5,
+  "title": "Vocabulario esencial 901–925",
+  "requires": [
+   "c-36"
+  ],
+  "words": [
+   "soudan",
+   "jidai",
+   "ichi-posicion",
+   "soredeha",
+   "kisetsu",
+   "chuugakkou",
+   "yousu",
+   "ana",
+   "kaigan",
+   "kagaku",
+   "taiyou",
+   "heiki",
+   "kitai",
+   "saraishuu",
+   "shousetsu",
+   "norikaeru",
+   "mitomeru",
+   "koshou",
+   "anshin",
+   "mannaka",
+   "tooku",
+   "subarashii",
+   "jiyuu",
+   "ryoukai",
+   "tooru"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 901–925"
+ },
+ {
+  "id": "c-38",
+  "stage": 5,
+  "title": "Vocabulario esencial 926–950",
+  "requires": [
+   "c-37"
+  ],
+  "words": [
+   "nareru",
+   "dondon",
+   "honki",
+   "yamu",
+   "shuukan",
+   "nedan",
+   "ryouhou",
+   "ichibu",
+   "otsuri",
+   "nyuuin",
+   "chikyuu",
+   "kaiketsu",
+   "mukaeru",
+   "machi-ciudad",
+   "kiroku",
+   "furu-agitar",
+   "nusumu",
+   "mezurashii",
+   "yorokobu",
+   "guramu",
+   "sumu-terminar",
+   "kyuu-repentino",
+   "biru",
+   "nagareru",
+   "imamade"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 926–950"
+ },
+ {
+  "id": "c-39",
+  "stage": 5,
+  "title": "Vocabulario esencial 951–975",
+  "requires": [
+   "c-38"
+  ],
+  "words": [
+   "ayamaru",
+   "machigaeru",
+   "kawaku",
+   "sonnani",
+   "betsuni",
+   "genin",
+   "nemuru",
+   "jijitsu",
+   "kotowaru",
+   "nokori",
+   "namida",
+   "chiisana",
+   "tanoshimi",
+   "ura",
+   "sakuhin",
+   "jama",
+   "nyuugaku",
+   "honmono",
+   "shibaraku",
+   "nakunaru",
+   "fuufu",
+   "tasukaru",
+   "netsu",
+   "choushi",
+   "akachan"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 951–975"
+ },
+ {
+  "id": "c-40",
+  "stage": 5,
+  "title": "Vocabulario esencial 976–1000",
+  "requires": [
+   "c-39"
+  ],
+  "words": [
+   "hima",
+   "souji",
+   "moshimoshi",
+   "untenshu",
+   "kiniiru",
+   "nugu",
+   "hisashiburi",
+   "dekakeru",
+   "ichinichi",
+   "uchi",
+   "biiru",
+   "eikyou",
+   "yoyaku",
+   "bubun",
+   "katachi",
+   "rekishi",
+   "gijutsu",
+   "naiyou",
+   "shourai",
+   "henka",
+   "kaiwa",
+   "kanou",
+   "gyuunyuu",
+   "kudamono",
+   "kippu"
+  ],
+  "games": [
+   "flashcards",
+   "read-words",
+   "listen",
+   "kana-write"
+  ],
+  "titleEn": "Essential vocabulary 976–1000"
  }
 ]

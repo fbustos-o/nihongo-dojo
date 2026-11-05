@@ -1,0 +1,23 @@
+# Kanjikana Core 1000 -> vocab.json. One decision per line: `rank | existing-id`  or  `rank | NEW [| new-id]`.
+# Lines here override the automatic rule (reading == kana AND (same kanji OR Core is kana-only OR the existing word has
+# no kanji and a Spanish gloss lemma coincides)). Ambiguous automatic matches (homophones) MUST be decided here.
+
+## Homofonos y casos ambiguos
+164 | iru                    # いる estar/haber (seres vivos); iru-necesitar es 要る
+403 | san-honorifico         # さん señor/a; san es 三
+168 | ageru                  # あげる dar (a otra persona)
+169 | NEW | ageru-subir      # 上げる subir/levantar
+227 | shimeru                # 閉める cerrar
+318 | NEW | shimeru-apretar  # 締める apretar/abrochar
+300 | yasashii               # 優しい amable (el yasashii actual cubre fácil y amable)
+477 | NEW | yasashii-facil   # 易しい fácil
+716 | toru                   # 撮る sacar una foto (el toru actual significa tomar una foto)
+114 | NEW | toru-tomar        # 取る tomar/recoger
+
+## Coincidencias que la regla automatica no ve (grafia o glosa distintas)
+111 | tomodachi              # 友達 / 友だち
+41 | dare                    # 誰 / ¿quién?
+794 | zenzen
+882 | ryuugakusei
+776 | ban-numero             # 番 número, turno
+584 | sai-edad               # 歳 edad
