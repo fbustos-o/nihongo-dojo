@@ -1,6 +1,7 @@
 import { content } from '../domain/contentLoader';
 import type { KanaEntry } from '../domain/schema';
 import { toKatakana } from 'wanakana';
+import { t } from '../i18n';
 import { levenshtein, splitKanaUnits } from '../engine';
 
 /** Romaji accepted for a kana: `romaji` + `alt`, plus the usual IME spellings of the small っ. */
@@ -78,21 +79,21 @@ export const kanaByChar = (chars: Iterable<string>, all: readonly KanaEntry[] = 
 
 /** Text shown for the romaji of a kana in multiple choice (ー and ッ have no plain romaji). */
 export function romajiLabel(entry: KanaEntry): string {
-  if (entry.char === 'ー') return '- (vocal larga)';
-  if (entry.char === 'ッ' || entry.char === 'っ') return 'xtsu (pausa)';
+  if (entry.char === 'ー') return t('games.romajiLong');
+  if (entry.char === 'ッ' || entry.char === 'っ') return t('games.romajiPause');
   return entry.romaji;
 }
 
-/** Spanish hint for the kana that are not read as a plain syllable. */
+/** Hint (in the interface language) for the kana that are not read as a plain syllable. */
 export function kanaHint(entry: KanaEntry): string | null {
   switch (entry.char) {
     case 'ー':
-      return 'Marca de vocal larga: escribe «-» (guion).';
+      return t('games.hintLong');
     case 'ッ':
     case 'っ':
-      return 'Pausa que duplica la consonante siguiente: escribe «xtsu» (o «ltsu»).';
+      return t('games.hintPause');
     case 'ヴ':
-      return 'Suena «vu» (v inglesa).';
+      return t('games.hintVu');
     default:
       return null;
   }
@@ -122,21 +123,21 @@ export function typingHints(text: string, all: readonly KanaEntry[] = content.ka
 /**
  * Kana that share their plain romaji with another kana of the same script (を/お, ぢ/じ, づ/ず and the katakana
  * twins): a blind «o» / «ji» / «zu» prompt cannot be answered fairly. They are asked with the IME spelling
- * (wo, di, du) plus a Spanish note.
+ * (wo, di, du) plus a note in the interface language.
  */
 const AMBIGUOUS: Record<string, { typing: string; note: string }> = {
-  を: { typing: 'wo', note: 'la «o» de la partícula を' },
-  ヲ: { typing: 'wo', note: 'la «o» de la partícula ヲ' },
-  ぢ: { typing: 'di', note: '«ji» de ぢ (ち con dakuten)' },
-  ヂ: { typing: 'di', note: '«ji» de ヂ (チ con dakuten)' },
-  づ: { typing: 'du', note: '«zu» de づ (つ con dakuten)' },
-  ヅ: { typing: 'du', note: '«zu» de ヅ (ツ con dakuten)' },
+  を: { typing: 'wo', note: 'wo' },
+  ヲ: { typing: 'wo', note: 'wo.kata' },
+  ぢ: { typing: 'di', note: 'di' },
+  ヂ: { typing: 'di', note: 'di.kata' },
+  づ: { typing: 'du', note: 'du' },
+  ヅ: { typing: 'du', note: 'du.kata' },
 };
 
-/** Romaji to show when asking for `entry` blind, with an optional Spanish note for the ambiguous ones. */
+/** Romaji to show when asking for `entry` blind, with an optional note for the ambiguous ones. */
 export function writePrompt(entry: KanaEntry): { romaji: string; note?: string } {
   const a = AMBIGUOUS[entry.char];
-  return a ? { romaji: a.typing, note: `Es ${a.note}` } : { romaji: entry.romaji };
+  return a ? { romaji: a.typing, note: t(`games.ambiguous.${a.note}`) } : { romaji: entry.romaji };
 }
 
 /** Kana the learner may see as options: the known ones plus the lesson's. */
@@ -150,5 +151,5 @@ export function kanaReinforcement(entry: KanaEntry, all: readonly KanaEntry[] = 
   const base = `${entry.char} = ${entry.char === 'ー' || entry.char === 'ッ' || entry.char === 'っ' ? romajiLabel(entry) : entry.romaji}`;
   if (entry.row === 'special' || entry.row === 'ext') return base;
   const head = all.find((k) => k.script === entry.script && k.group === entry.group && k.row === entry.row);
-  return head ? `${base} · fila ${head.char}` : base;
+  return head ? `${base} · ${t('games.row', { char: head.char })}` : base;
 }

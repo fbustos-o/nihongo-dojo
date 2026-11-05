@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { t } from '../i18n';
 
 interface Props {
   children: ReactNode;
@@ -31,16 +32,16 @@ export class ErrorBoundary extends Component<Props, State> {
     if (!this.state.error) return this.props.children;
     return (
       <section className="card" role="alert" data-testid="error-boundary">
-        <h2>Algo salió mal</h2>
+        <h2>{t('lesson.errorTitle')}</h2>
         <p className="muted">
-          No se pudo mostrar esta pantalla. Tu progreso está a salvo en este navegador. Puedes recargar la página o volver al inicio.
+          {t('lesson.errorBody')}
         </p>
         <div className="row">
           <button type="button" className="btn btn-primary" onClick={() => window.location.reload()}>
-            Recargar
+            {t('lesson.reload')}
           </button>
           <a className="btn" href="/" style={{ textDecoration: 'none' }}>
-            Ir al inicio
+            {t('lesson.goHome')}
           </a>
         </div>
       </section>

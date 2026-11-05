@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { KanaInput } from '../../components/KanaInput';
+import { useT } from '../../i18n';
 import { Feedback, type FeedbackMessage } from './Feedback';
 import { playSfx } from './sfx';
 import { useKeepInView } from './useKeepInView';
@@ -27,6 +28,7 @@ interface TypingRoundProps {
  * show the answer and require typing it correctly before continuing (brute-force style).
  */
 export function TypingRound({ prompt, answer, evaluate, inputMode, ariaLabel, placeholder, onReport, onDone }: TypingRoundProps) {
+  const t = useT();
   const [value, setValue] = useState('');
   const [attempt, setAttempt] = useState(0);
   const [retype, setRetype] = useState(false);
@@ -54,14 +56,14 @@ export function TypingRound({ prompt, answer, evaluate, inputMode, ariaLabel, pl
       setRetype(true);
     }
     playSfx('bad');
-    say(verdict === 'near' ? 'near' : 'bad', verdict === 'near' ? 'Casi. Escribe la respuesta correcta para continuar:' : 'Incorrecto. Escribe la respuesta correcta para continuar:');
+    say(verdict === 'near' ? 'near' : 'bad', t(verdict === 'near' ? 'games.nearType' : 'games.wrongType'));
     setValue('');
     setAttempt((a) => a + 1);
   };
 
   const inputProps = {
     'aria-label': ariaLabel,
-    placeholder: retype ? 'Escribe la respuesta' : placeholder,
+    placeholder: retype ? t('games.typeAnswer') : placeholder,
     className: styles.input,
     autoFocus: true,
     enterKeyHint: 'done' as const,
@@ -83,7 +85,7 @@ export function TypingRound({ prompt, answer, evaluate, inputMode, ariaLabel, pl
           <KanaInput key={attempt} {...inputProps} mode={inputMode} onChange={setValue} />
         )}
         <button type="submit" className="btn btn-primary">
-          Comprobar
+          {t('common.check')}
         </button>
       </form>
     </div>

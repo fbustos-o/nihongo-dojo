@@ -2,11 +2,12 @@ import { Suspense, useMemo, useState } from 'react';
 import { Loading } from '../components/Loading';
 import { Link, useSearchParams } from 'react-router-dom';
 import { content } from '../domain/contentLoader';
-import { GAME_REGISTRY } from '../games/registry';
+import { useT } from '../i18n';
+import { gameName, getGame } from '../games/registry';
 import type { GameStats } from '../games/types';
 import { accuracyOf, mergeStats, weakestItems, xpEarned } from '../lesson/lessonLogic';
 import { useProgress } from '../state/progressStore';
-import { BATCH_UNIT, REVIEW_GROUP_LABELS, batchProps, dueCountsByGroup, planReview, type BatchProps, type ReviewBatch, type ReviewGroupId } from './reviewLogic';
+import { batchUnit, reviewGroupLabel, batchProps, dueCountsByGroup, planReview, type BatchProps, type ReviewBatch, type ReviewGroupId } from './reviewLogic';
 import styles from './review.module.css';
 
 /** `?grupo=` values (Spanish, for readable links) -> dashboard group. */
@@ -22,6 +23,7 @@ type Phase = { name: 'intro' } | { name: 'running'; batches: RunBatch[]; index: 
 
 /** Route /repaso: the unified SRS review (every due item, up to 50), one game after another. */
 export function ReviewPage() {
+  const t = useT();
   const [params] = useSearchParams();
   const group = GROUP_PARAM[params.get('grupo') ?? ''];
   const items = useProgress((s) => s.items);
@@ -45,8 +47,7 @@ export function ReviewPage() {
   if (phase.name === 'running') {
     const { batches, index, results } = phase;
     const current = batches[index]!;
-    const meta = GAME_REGISTRY[current.batch.game];
-    const Game = meta.component!;
+    const Game = getGame(current.batch.game).component!;
     const finish = (stats: GameStats) => {
       const all = [...results, stats];
       if (index + 1 < batches.length) setPhase({ name: 'running', batches, index: index + 1, results: all });
@@ -55,13 +56,13 @@ export function ReviewPage() {
     return (
       <>
         <div className={styles.head}>
-          <h1>Repaso</h1>
-          <Link to="/">Salir</Link>
+          <h1>{t('review.title')}</h1>
+          <Link to="/">{t('review.exit')}</Link>
         </div>
         <p className="muted" data-testid="review-step">
-          Parte {index + 1} de {batches.length}: <strong>{meta.name}</strong> · {current.props.rounds} {BATCH_UNIT[current.batch.game] ?? 'ítems'}
+          {t('review.part', { i: index + 1, n: batches.length })} <strong>{gameName(current.batch.game)}</strong> · {current.props.rounds} {batchUnit(current.batch.game)}
         </p>
-        <Suspense fallback={<Loading label="Cargando juego…" />}>
+        <Suspense fallback={<Loading label={t('games.loading')} />}>
         <Game
           key={`${index}-${current.batch.game}`}
           kana={current.props.kana}
@@ -86,16 +87,16 @@ export function ReviewPage() {
     const { stillDue } = phase;
     return (
       <>
-        <h1>Repaso terminado</h1>
+        <h1>{t('review.done')}</h1>
         <section className={`card ${styles.summary}`} aria-labelledby="review-summary">
-          <h2 id="review-summary">{accuracy >= 80 ? '¡Buen repaso!' : 'Sigue repasando'}</h2>
+          <h2 id="review-summary">{accuracy >= 80 ? t('review.good') : t('review.keepGoing')}</h2>
           <p className={styles.score}>{accuracy}%</p>
           <p>
-            Aciertos: {stats.correct} de {stats.total} · XP ganado: <strong>+{xpEarned(stats)}</strong> · Mejor racha: {stats.bestStreak}
+            {t('games.hits', { correct: stats.correct, total: stats.total })}{t('games.xpEarned')}<strong>+{xpEarned(stats)}</strong>{t('games.bestStreak', { n: stats.bestStreak })}
           </p>
           {weak.length > 0 && (
             <>
-              <h3>Para reforzar</h3>
+              <h3>{t('review.reinforce')}</h3>
               <ul className={styles.weak}>
                 {weak.map((w) => (
                   <li key={w.key}>
@@ -116,11 +117,11 @@ export function ReviewPage() {
                   setPhase({ name: 'intro' });
                 }}
               >
-                Seguir repasando ({stillDue} pendientes)
+                {t('review.continue', { n: stillDue })}
               </button>
             )}
             <Link className="btn" to="/">
-              Volver al inicio
+              {t('review.backHome')}
             </Link>
           </div>
         </section>
@@ -128,42 +129,42 @@ export function ReviewPage() {
     );
   }
 
-  const scope = group ? ` de ${REVIEW_GROUP_LABELS[group].toLowerCase()}` : '';
+  const scope = group ? t('review.scope', { group: reviewGroupLabel(group).toLowerCase() }) : '';
   return (
     <>
-      <h1>Repaso</h1>
+      <h1>{t('review.title')}</h1>
       {plan.total === 0 ? (
         <section className="card" data-testid="review-empty">
-          <h2>No tienes repasos pendientes{scope}</h2>
-          <p className="muted">Los ítems que aprendes vuelven a aparecer aquí cuando toca repasarlos.</p>
+          <h2>{t('review.emptyTitle', { scope })}</h2>
+          <p className="muted">{t('review.emptyNote')}</p>
           <div className={styles.actions}>
             <Link className="btn btn-primary" to="/camino">
-              Ir al camino
+              {t('review.toPath')}
             </Link>
             <Link className="btn" to="/practica">
-              Práctica libre
+              {t('home.freePractice')}
             </Link>
           </div>
         </section>
       ) : (
         <section className="card" aria-labelledby="review-plan">
           <h2 id="review-plan">
-            {plan.total} {plan.total === 1 ? 'ítem' : 'ítems'} por repasar{scope}
+            {t(plan.total === 1 ? 'review.planOne' : 'review.planMany', { n: plan.total, scope })}
           </h2>
-          {counts.total > plan.total && <p className="muted">Cada sesión tiene un máximo de 50; te quedarán {counts.total - plan.total} para la siguiente.</p>}
+          {counts.total > plan.total && <p className="muted">{t('review.maxNote', { n: counts.total - plan.total })}</p>}
           <ul className={styles.plan}>
             {plan.batches.map((b) => (
               <li key={b.game}>
-                <strong>{GAME_REGISTRY[b.game].name}</strong> <span className="muted">· {b.itemIds.length} {BATCH_UNIT[b.game] ?? 'ítems'}</span>
+                <strong>{gameName(b.game)}</strong> <span className="muted">· {b.itemIds.length} {batchUnit(b.game)}</span>
               </li>
             ))}
           </ul>
           <div className={styles.actions}>
             <button type="button" className="btn btn-primary" autoFocus onClick={start}>
-              Empezar repaso
+              {t('review.start')}
             </button>
             <Link className="btn" to="/">
-              Volver
+              {t('common.back')}
             </Link>
           </div>
         </section>

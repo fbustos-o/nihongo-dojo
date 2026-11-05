@@ -2,6 +2,7 @@ import { useContext, useMemo, useState } from 'react';
 import { JaText } from '../../components/JaText';
 import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
+import { useMeaningLang, useT } from '../../i18n';
 import { ExtraKanjiContext } from '../../state/extraKana';
 import { useProgress } from '../../state/progressStore';
 import { scopedPatterns } from '../lessonScope';
@@ -19,11 +20,13 @@ const QUESTIONS_PER_TEXT = 3;
  * unlocked kana appear as kana) followed by three multiple-choice questions in Spanish.
  */
 export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   // own patterns, else those of the lessons it builds on (never the whole corpus: QA-015)
   const source = useMemo(() => scopedPatterns(patterns, lessonId, content.curriculum, content.patterns), [patterns, lessonId]);
-  const pool = useMemo(() => sentencesOf(content.patterns), []);
+  const pool = useMemo(() => sentencesOf(content.patterns, meaningLang), [meaningLang]);
   const make = (): ReadingText | null => makeReadingText(source, pool);
 
   // Words with unlocked kanji (or the lesson's new ones) are shown in kanji; JaText adds the furigana.
@@ -33,7 +36,7 @@ export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps)
 
   const [text, setText] = useState<ReadingText | null>(make);
   const [qi, setQi] = useState(0);
-  if (!text) return <p className="muted">No hay textos de lectura para esta lección todavía.</p>;
+  if (!text) return <p className="muted">{t('games.noReading')}</p>;
 
   const question = text.questions[qi]!;
   const onDone = () => {
@@ -46,23 +49,23 @@ export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps)
 
   return (
     <GameFrame session={session}>
-      <h2>Lee el texto</h2>
+      <h2>{t('games.readText')}</h2>
       <ol className={styles.text} data-testid="reading-text">
         {text.sentences.map((s, i) => (
           <li key={s.id} className={styles.line}>
-            <span className={styles.num} aria-label={`Frase ${i + 1}`}>
+            <span className={styles.num} aria-label={t('games.sentenceN', { n: i + 1 })}>
               {i + 1}.
             </span>
             <span className={styles.ja}>
-              {tokensWithKanji(s.tokens, byKana).map((t, j) => (
+              {tokensWithKanji(s.tokens, byKana).map((tok, j) => (
                 <span key={j}>
                   {j > 0 && ' '}
-                  <JaText word={t.word ?? { kana: t.kana }} />
+                  <JaText word={tok.word ?? { kana: tok.kana }} />
                 </span>
               ))}
               。
             </span>
-            <SpeakButton text={s.ja.replace(/\s+/gu, '')} label={`Escuchar frase ${i + 1}`} />
+            <SpeakButton text={s.ja.replace(/\s+/gu, '')} label={t('games.listenSentenceN', { n: i + 1 })} />
             {showRomaji && <p className={styles.romaji}>{s.romaji}</p>}
           </li>
         ))}
@@ -81,7 +84,7 @@ export function MiniReading({ patterns, rounds, lessonId, onFinish }: GameProps)
         onDone={onDone}
       />
       <p className={`muted ${shared.hint}`}>
-        Pregunta {qi + 1} de {QUESTIONS_PER_TEXT}
+        {t('games.questionOf', { i: qi + 1, n: QUESTIONS_PER_TEXT })}
       </p>
     </GameFrame>
   );

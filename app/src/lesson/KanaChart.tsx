@@ -1,5 +1,6 @@
 import { content } from '../domain/contentLoader';
 import type { KanaEntry } from '../domain/schema';
+import { useT } from '../i18n';
 import styles from './lesson.module.css';
 
 interface KanaChartProps {
@@ -12,6 +13,7 @@ interface KanaChartProps {
 
 /** "Fila" chart: the table rows around the lesson's kana, with the new ones highlighted. */
 export function KanaChart({ highlight, known, all = content.kana }: KanaChartProps) {
+  const t = useT();
   const marked = new Set(highlight);
   const involved = all.filter((k) => marked.has(k.char));
   const groups = new Set(involved.map((k) => `${k.script}:${k.group}`));
@@ -23,7 +25,7 @@ export function KanaChart({ highlight, known, all = content.kana }: KanaChartPro
   }
   if (involved.length === 0) return null;
   return (
-    <div className={styles.chartScroll} role="group" aria-label="Tabla de filas">
+    <div className={styles.chartScroll} role="group" aria-label={t('lesson.chartAria')}>
       {[...rows.entries()].map(([key, cells]) => (
         <div key={key} className={styles.chartRow}>
           <span className={styles.chartLabel}>{cells[0]!.romaji.replace(/[aiueo]$/, '')}-</span>
@@ -33,7 +35,7 @@ export function KanaChart({ highlight, known, all = content.kana }: KanaChartPro
               <span
                 key={k.char}
                 lang="ja"
-                title={isNew ? `${k.char} (${k.romaji}) — nuevo` : k.romaji}
+                title={isNew ? t('lesson.chartNew', { char: k.char, romaji: k.romaji }) : k.romaji}
                 className={`${styles.cell} ${isNew ? styles.cellNew : known.has(k.char) ? styles.cellKnown : ''}`}
               >
                 {k.char}

@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import { JaText } from '../components/JaText';
 import { SpeakButton } from '../components/SpeakButton';
 import { content } from '../domain/contentLoader';
+import { glosses } from '../domain/glosses';
+import { useMeaningLang, useT } from '../i18n';
 import type { Kanji, Word } from '../domain/schema';
 import { kanjiWordsFor, meaningText } from '../games/kanji/kanjiLogic';
 import { useProgress } from '../state/progressStore';
@@ -44,31 +46,30 @@ function Readings({ kanji }: { kanji: Kanji }) {
 
 /** Intro of a kanji lesson: every new kanji big, with its meaning, readings (Genki's highlighted), strokes and example words. */
 export function KanjiIntro({ kanji, onStart }: { kanji: readonly Kanji[]; onStart: () => void }) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const unlocked = useProgress((s) => s.unlockedKanji);
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const allowed = useMemo(() => new Set([...unlocked, ...kanji.map((k) => k.char)]), [unlocked, kanji]);
   return (
     <section className="card">
-      <h2>Kanji nuevos</h2>
-      <p className="muted">
-        En negrita, las lecturas que enseña Genki. Al completar la lección estos kanji se desbloquean y aparecen con furigana en todas partes; el
-        furigana desaparece cuando llegas a Guru con cada uno.
-      </p>
+      <h2>{t('lesson.newKanji')}</h2>
+      <p className="muted">{t('lesson.kanjiIntroNote')}</p>
       <ul className={styles.kanjiGrid}>
         {kanji.map((k) => (
           <li key={k.char} className={styles.kanjiCard} data-testid={`kanji-card-${k.char}`}>
             <div className={styles.bigKanji} lang="ja">
               {k.char}
             </div>
-            <div className={styles.romaji}>{meaningText(k)}</div>
+            <div className={styles.romaji}>{meaningText(k, meaningLang)}</div>
             <Readings kanji={k} />
-            {k.strokes !== undefined && <div className="muted">{k.strokes} trazos</div>}
+            {k.strokes !== undefined && <div className="muted">{t('lesson.strokes', { n: k.strokes })}</div>}
             <ul className={styles.examples}>
               {exampleWords(k, allowed).map((w) => (
                 <li key={w.id}>
-                  <JaText word={w} /> <span lang="ja">({w.kana})</span> <span className="muted">{w.es[0]}</span>
+                  <JaText word={w} /> <span lang="ja">({w.kana})</span> <span className="muted">{glosses(w, meaningLang)[0]}</span>
                   {showRomaji && <span className="muted"> · {w.romaji}</span>}{' '}
-                  <SpeakButton text={w.kana} label="Escuchar" />
+                  <SpeakButton text={w.kana} label={t('common.listen')} />
                 </li>
               ))}
             </ul>
@@ -77,7 +78,7 @@ export function KanjiIntro({ kanji, onStart }: { kanji: readonly Kanji[]; onStar
       </ul>
       <div className={styles.actions}>
         <button type="button" className="btn btn-primary" autoFocus onClick={onStart}>
-          Empezar práctica
+          {t('lesson.startPractice')}
         </button>
       </div>
     </section>

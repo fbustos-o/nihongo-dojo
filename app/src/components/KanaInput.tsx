@@ -1,6 +1,7 @@
 import { useEffect, useEffectEvent, useRef, useState, type ComponentProps, type KeyboardEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { bind, toHiragana, toKatakana, unbind } from 'wanakana';
+import { useT } from '../i18n';
 import { useProgress } from '../state/progressStore';
 import { KanaKeyboard } from './KanaKeyboard';
 import { backspace, type KanaScript } from './kanaKeyboardLogic';
@@ -25,6 +26,7 @@ export function useKanaInputMode(): { mode: ResolvedKanaInput; toggle: () => voi
 
 /** Quick switch between the on-screen kana keyboard and romaji typing (stored in the settings). */
 export function KanaModeToggle() {
+  const t = useT();
   const { mode, toggle } = useKanaInputMode();
   const teclado = mode === 'teclado';
   return (
@@ -33,8 +35,8 @@ export function KanaModeToggle() {
       className={styles.toggle}
       onMouseDown={(e) => e.preventDefault()}
       onClick={toggle}
-      aria-label={teclado ? 'Cambiar a escribir en romaji' : 'Cambiar al teclado de kana'}
-      title={teclado ? 'Escribir en romaji' : 'Teclado de kana'}
+      aria-label={t(teclado ? 'games.kbToRomaji' : 'games.kbToKeyboard')}
+      title={t(teclado ? 'games.kbRomajiTitle' : 'games.kbKeyboardTitle')}
     >
       <span aria-hidden="true">{teclado ? 'abc' : 'あ'}</span>
     </button>

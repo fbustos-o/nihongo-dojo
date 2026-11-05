@@ -3,7 +3,9 @@ import { JaText } from '../../components/JaText';
 import { content } from '../../domain/contentLoader';
 import type { Kanji, Word } from '../../domain/schema';
 import { checkAnswer } from '../../engine';
+import { useMeaningLang, useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
+import { meaningOf } from '../wordUtils';
 import { ChoiceRound, Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
@@ -40,6 +42,8 @@ const wordItemId = (word: Word): string => `${word.id}:kanji`;
  * `word:<id>:kanji`. With `sequential` (review queue) it walks through the due kanji and then the due words.
  */
 export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const unlocked = useProgress((s) => s.unlockedKanji);
   const [credited] = useState(() => new Set<string>());
@@ -54,7 +58,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
   // In a review of due words there may be no kanji to practise: any allowed word is fine then.
   const typable = kanjiWordsFor(words, allowed, sequential ? new Set() : practice);
   const wordPool = typable.map((word) => ({ id: wordItemId(word), word }));
-  const sentences = transformSentences(content.patterns, content.vocab, allowed, sequential && kanji.length === 0 ? new Set(typable.flatMap((w) => [...(w.kanji ?? '')])) : practice);
+  const sentences = transformSentences(content.patterns, content.vocab, allowed, sequential && kanji.length === 0 ? new Set(typable.flatMap((w) => [...(w.kanji ?? '')])) : practice, meaningLang);
   const sentencesByWord = new Map<string, TransformSentence[]>();
   for (const s of sentences) sentencesByWord.set(s.target.id, [...(sentencesByWord.get(s.target.id) ?? []), s]);
   const sentenceWords = typable.filter((w) => sentencesByWord.has(w.id));
@@ -88,7 +92,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
     switch (type) {
       case 'meaning': {
         const k = seqKanji ?? pickKanji(kanjiPool).kanji;
-        return { type, kanji: k, options: meaningOptions(k, known.length > 1 ? known : content.kanji) };
+        return { type, kanji: k, options: meaningOptions(k, known.length > 1 ? known : content.kanji, 4, Math.random, meaningLang) };
       }
       case 'pick': {
         const k = seqKanji ?? pickKanji(kanjiPool).kanji;
@@ -109,7 +113,7 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
 
   const [round, setRound] = useState<Round | null>(() => make(0));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
-  if (!round) return <p className="muted">No hay kanji para practicar todavía.</p>;
+  if (!round) return <p className="muted">{t('games.noKanji')}</p>;
 
   const advance = (ok: boolean, text: string) => {
     setLast(ok ? { tone: 'ok', text, id: session.round } : null);
@@ -140,13 +144,13 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
           prompt={
             <>
               <span lang="ja">{k.char}</span>
-              <div className="muted">¿Qué significa?</div>
+              <div className="muted">{t('games.whatMeans')}</div>
             </>
           }
           small
           options={round.options.map((o) => ({ key: o.text, content: o.text, correct: o.correct }))}
           onReport={report(k.char, 'kanji', k.char)}
-          onDone={(firstTry) => advance(firstTry, `¡Correcto! ${k.char} = ${meaningText(k)} (${readingLabel(k)})`)}
+          onDone={(firstTry) => advance(firstTry, t('games.correctMsg', { text: `${k.char} = ${meaningText(k, meaningLang)} (${readingLabel(k)})` }))}
         />
       );
       break;
@@ -161,13 +165,13 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
               <div className={local.readings} data-testid="kanji-clue">
                 {readingLabel(k)}
               </div>
-              <div className={styles.promptText}>{meaningText(k)}</div>
-              <div className="muted">¿Qué kanji es?</div>
+              <div className={styles.promptText}>{meaningText(k, meaningLang)}</div>
+              <div className="muted">{t('games.whichKanji')}</div>
             </>
           }
           options={round.options.map((o) => ({ key: o.char, content: <span className={local.kanjiChoice} lang="ja">{o.char}</span>, label: o.char, correct: o.char === k.char }))}
           onReport={report(k.char, 'kanji', k.char)}
-          onDone={(firstTry) => advance(firstTry, `¡Correcto! ${k.char} = ${meaningText(k)}`)}
+          onDone={(firstTry) => advance(firstTry, t('games.correctMsg', { text: `${k.char} = ${meaningText(k, meaningLang)}` }))}
         />
       );
       break;
@@ -182,8 +186,8 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
               <span className={styles.promptText} lang="ja" data-testid="kanji-word" data-word={w.id}>
                 {w.kanji}
               </span>
-              <div className={styles.hint}>{w.es[0]}</div>
-              <div className={styles.hint}>Escribe cómo se lee (en kana)</div>
+              <div className={styles.hint}>{meaningOf(w, meaningLang)}</div>
+              <div className={styles.hint}>{t('games.typeReadingKana')}</div>
               <TypingHint text={w.kana} />
             </>
           }
@@ -197,10 +201,10 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
             return result.correct ? 'correct' : result.nearMiss ? 'near' : 'wrong';
           }}
           inputMode="hiragana"
-          ariaLabel="Lectura en kana"
+          ariaLabel={t('games.readingKanaAria')}
           placeholder="かな"
           onReport={report(wordItemId(w), 'word', w.kanji ?? w.kana, w)}
-          onDone={(firstTry) => advance(firstTry, `¡Correcto! ${w.kanji} = ${w.kana} (${w.es[0]})`)}
+          onDone={(firstTry) => advance(firstTry, t('games.correctMsg', { text: `${w.kanji} = ${w.kana} (${meaningOf(w, meaningLang)})` }))}
         />
       );
       break;
@@ -212,22 +216,22 @@ export function KanjiGame({ kanji = [], words = [], rounds, sequential, onFinish
           key={session.round}
           prompt={
             <>
-              <p className={local.note}>Ya conoces esta frase. Mira cómo se transforman sus palabras con kanji:</p>
+              <p className={local.note}>{t('games.transformNote')}</p>
               <div className={local.sentence} data-testid="transform-sentence" data-sentence={sentence.id}>
-                {sentence.tokens.map((t, i) => (
-                  <span key={i} className={t.word && t.word.id === sentence.target.id ? local.target : undefined}>
-                    <JaText word={t.word ?? { kana: t.kana }} />
+                {sentence.tokens.map((tok, i) => (
+                  <span key={i} className={tok.word && tok.word.id === sentence.target.id ? local.target : undefined}>
+                    <JaText word={tok.word ?? { kana: tok.kana }} />
                   </span>
                 ))}
               </div>
-              <div className="muted">¿Qué significa la frase?</div>
+              <div className="muted">{t('games.whatSentenceMeans')}</div>
             </>
           }
           small
           options={round.options.map((o) => ({ key: o.text, content: o.text, correct: o.correct }))}
           onReport={report(wordItemId(sentence.target), 'word', sentence.target.kanji ?? sentence.target.kana, sentence.target)}
           onDone={(firstTry) =>
-            advance(firstTry, `¡Correcto! ${sentence.target.kana} ahora se escribe ${sentence.target.kanji}. ${sentence.es}`)
+            advance(firstTry, t('games.transformOk', { kana: sentence.target.kana, kanji: sentence.target.kanji ?? '', tr: sentence.es }))
           }
         />
       );

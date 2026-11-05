@@ -1,3 +1,5 @@
+import { getLang } from '../i18n';
+import type { Lang } from '../state/progressSchema';
 import { makeReading, type Reading } from './reading';
 
 export type VerbGroup = 'u' | 'ru' | 'irregular';
@@ -53,6 +55,30 @@ export const FORM_LABELS_ES: Record<VerbFormId, FormLabel> = {
   ta: { label: 'Forma た (pasado, plano)', explanation: 'Pasado afirmativo en estilo plano (たべた).' },
   nakatta: { label: 'Forma なかった (pasado negativo, plano)', explanation: 'Pasado negativo en estilo plano (たべなかった).' },
 };
+
+export const FORM_LABELS_EN: Record<VerbFormId, FormLabel> = {
+  dictionary: { label: 'Dictionary form', explanation: 'The basic form of the verb, the one listed in the dictionary (たべる).' },
+  masu: { label: 'ます (present / future, polite)', explanation: 'Affirmative present and future in polite style (たべます).' },
+  masen: { label: 'ません (negative, polite)', explanation: 'Negative present and future in polite style (たべません).' },
+  mashita: { label: 'ました (past, polite)', explanation: 'Affirmative past in polite style (たべました).' },
+  masendeshita: { label: 'ませんでした (negative past, polite)', explanation: 'Negative past in polite style (たべませんでした).' },
+  mashou: { label: 'ましょう (invitation)', explanation: 'Suggestion: "let\'s…" (たべましょう).' },
+  mashouka: { label: 'ましょうか (shall we? / shall I…?)', explanation: 'An offer or suggestion as a question (たべましょうか).' },
+  masenka: { label: 'ませんか (won\'t you…?)', explanation: 'A friendly invitation as a negative question (たべませんか).' },
+  taidesu: { label: 'たいです (I want to…)', explanation: 'Wanting to do the action: ます stem + たいです (たべたいです).' },
+  takunaidesu: { label: 'たくないです (I don\'t want to…)', explanation: 'Negative of たい: ます stem + たくないです (たべたくないです).' },
+  te: { label: 'て form', explanation: 'The linking form; the base of many constructions (たべて).' },
+  tekudasai: { label: 'てください (please…)', explanation: 'Polite request: て form + ください (たべてください).' },
+  teimasu: { label: 'ています (is …ing / state)', explanation: 'Ongoing action or resulting state: て form + います (たべています).' },
+  temoiidesu: { label: 'てもいいです (you may…)', explanation: 'Permission: て form + もいいです (たべてもいいです).' },
+  tehaikemasen: { label: 'てはいけません (you must not…)', explanation: 'Prohibition: て form + はいけません (たべてはいけません).' },
+  nai: { label: 'ない form (negative, plain)', explanation: 'Negative in plain or casual style (たべない).' },
+  ta: { label: 'た form (past, plain)', explanation: 'Affirmative past in plain style (たべた).' },
+  nakatta: { label: 'なかった form (negative past, plain)', explanation: 'Negative past in plain style (たべなかった).' },
+};
+
+/** Label and explanation of a verb form in `lang` (the interface language by default). */
+export const verbFormLabel = (id: VerbFormId, lang: Lang = getLang()): FormLabel => (lang === 'en' ? FORM_LABELS_EN : FORM_LABELS_ES)[id];
 
 /** Row mapping of u-verb endings: dictionary ending -> [a-row, i-row]. */
 const U_ENDINGS: Record<string, { a: string; i: string }> = {

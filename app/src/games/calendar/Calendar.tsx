@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { JaText } from '../../components/JaText';
 import { readDate, readDayOfWeek } from '../../engine';
+import { useT } from '../../i18n';
+import { formatMonthDay, weekdayName } from '../../i18n/dates';
 import { Feedback, GameFrame, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import { ModeChips, ReadingRound } from '../numbers/ReadingRound';
 import { pickWeighted, uniqueById, type Rng } from '../numbers/random';
 import numberStyles from '../numbers/numbers.module.css';
 import type { GameProps } from '../types';
 import styles from './calendar.module.css';
-import { CALENDAR_ITEM_KIND, KIND_LABELS, SPANISH_MONTHS, SPANISH_WEEKDAYS, makeCalendarQuestion, parseDateItemId, weekdayOf, type CalendarKind, type CalendarQuestion } from './calendarLogic';
+import { CALENDAR_ITEM_KIND, kindLabel, makeCalendarQuestion, parseDateItemId, weekdayOf, type CalendarKind, type CalendarQuestion } from './calendarLogic';
 import { MonthGrid } from './MonthGrid';
 
 type ModeChoice = 'mix' | CalendarKind;
@@ -22,38 +24,40 @@ interface ViewProps {
 }
 
 export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewProps) {
+  const t = useT();
   const { kind, today, direction } = question;
   const dayWord = direction > 0 ? 'あした' : 'きのう';
-  const dayEs = direction > 0 ? 'mañana' : 'ayer';
+  const dayRel = t(direction > 0 ? 'games.tomorrow' : 'games.yesterday');
+  const date = formatMonthDay(today.month, today.day);
   let prompt;
-  let ariaLabel = 'Lectura en hiragana';
+  let ariaLabel = t('games.hiraReadingAria');
   if (kind === 'date') {
     prompt = (
       <>
         <MonthGrid month={today.month} day={today.day} />
         <p className={numberStyles.question}>
-          ¿Cómo se lee la fecha marcada ({today.day} de {SPANISH_MONTHS[today.month - 1]})?
+          {t('games.calDate', { date })}
         </p>
       </>
     );
   } else if (kind === 'weekday') {
-    ariaLabel = 'Día de la semana en hiragana';
+    ariaLabel = t('games.weekdayAria');
     prompt = (
       <>
         <MonthGrid month={today.month} day={today.day} />
         <p className={numberStyles.question}>
-          ¿Qué día de la semana es el {today.day} de {SPANISH_MONTHS[today.month - 1]}?
+          {t('games.calWeekday', { date })}
         </p>
       </>
     );
   } else if (kind === 'relWeekday') {
-    ariaLabel = 'Día de la semana en hiragana';
+    ariaLabel = t('games.weekdayAria');
     prompt = (
       <>
         <p className={styles.kana}>
           <JaText word={{ kana: `きょうは ${readDayOfWeek(weekdayOf(today)).kana}です。${dayWord}は？` }} />
         </p>
-        <p className={numberStyles.question}>Hoy es {readDayOfWeekEs(today)}. ¿Qué día es {dayEs}?</p>
+        <p className={numberStyles.question}>{t('games.calRelWeekday', { weekday: weekdayName(weekdayOf(today)), rel: dayRel })}</p>
       </>
     );
   } else {
@@ -64,7 +68,7 @@ export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewPr
           <JaText word={{ kana: `きょうは ${readDate(today.month, today.day).kana}です。${dayWord}は？` }} />
         </p>
         <p className={numberStyles.question}>
-          Hoy es el {today.day} de {SPANISH_MONTHS[today.month - 1]}. ¿Qué fecha es {dayEs}?
+          {t('games.calRelDate', { date, rel: dayRel })}
         </p>
       </>
     );
@@ -83,9 +87,8 @@ export function CalendarQuestionView({ question, rng, onReport, onDone }: ViewPr
   );
 }
 
-const readDayOfWeekEs = (d: { month: number; day: number }) => SPANISH_WEEKDAYS[weekdayOf(d)];
-
 export function Calendar({ rounds, sequential, onlyItems, onFinish }: GameProps) {
+  const t = useT();
   const session = useGameSession({ rounds, onFinish });
   const pick = useQuestionPicker(CALENDAR_ITEM_KIND, sequential);
   const [mode, setMode] = useState<ModeChoice>('mix');
@@ -105,13 +108,13 @@ export function Calendar({ rounds, sequential, onlyItems, onFinish }: GameProps)
     <GameFrame session={session}>
       {rounds === undefined && (
         <ModeChips
-          label="Modo"
+          label={t('games.mode')}
           value={mode}
           onChange={(next) => {
             setMode(next);
             setQuestion(make(next, session.round));
           }}
-          options={[{ value: 'mix', label: 'Mezcla' }, ...KINDS.map((k) => ({ value: k, label: KIND_LABELS[k] }))]}
+          options={[{ value: 'mix', label: t('games.mix') }, ...KINDS.map((k) => ({ value: k, label: kindLabel(k) }))]}
         />
       )}
       <Feedback message={last} />
@@ -123,7 +126,7 @@ export function Calendar({ rounds, sequential, onlyItems, onFinish }: GameProps)
           session.report(question.itemId, CALENDAR_ITEM_KIND, question.label, ok);
         }}
         onDone={(firstTry) => {
-          setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${question.reading.kana} (${question.reading.romaji})`, id: session.round } : null);
+          setLast(firstTry ? { tone: 'ok', text: t('games.correctMsg', { text: `${question.reading.kana} (${question.reading.romaji})` }), id: session.round } : null);
           session.next();
           setQuestion(make(mode, session.round + 1));
         }}

@@ -1,25 +1,28 @@
+import { useT } from '../i18n';
+
 export function AboutPage() {
+  const t = useT();
   return (
     <>
       <h1>
-        Acerca de <span lang="ja">日本語道場</span>
+        {t('about.title')} <span lang="ja">日本語道場</span>
       </h1>
       <section className="card">
-        <p>Nihongo Dojo es una aplicación personal para aprender japonés paso a paso, de hiragana a kanji.</p>
+        <p>{t('about.intro')}</p>
       </section>
       <section className="card">
-        <h2>Atribuciones</h2>
+        <h2>{t('about.attributions')}</h2>
         <ul>
           <li>
-            Datos de vocabulario y kanji derivados de <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a>{' '}
-            y KANJIDIC (EDRDG), bajo licencia CC BY-SA 4.0; parecidos de kanji de Kanjium.
+            {t('about.jmdictPre')}<a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a>
+            {t('about.jmdictPost')}
           </li>
           <li>
-            Ideas y datos de kana de <a href="https://github.com/vedxyz/kana">vedxyz/kana</a> (licencia MIT).
+            {t('about.kanaPre')}<a href="https://github.com/vedxyz/kana">vedxyz/kana</a>{t('about.kanaPost')}
           </li>
-          <li>Conversión romaji/kana: WanaKana (MIT).</li>
-          <li>Genki (3.ª ed.) se usa únicamente como referencia personal de estudio.</li>
-          <li>Tipografía: Noto Sans JP (SIL Open Font License).</li>
+          <li>{t('about.wanakana')}</li>
+          <li>{t('about.genki')}</li>
+          <li>{t('about.font')}</li>
         </ul>
       </section>
     </>

@@ -3,6 +3,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { syncHtmlLang } from './i18n/htmlLang';
 import './styles/index.css';
 
 /**
@@ -16,6 +17,8 @@ if (restore !== null) {
   const clean = restore.replace(/^\/+/, '');
   window.history.replaceState(null, '', base + clean);
 }
+
+syncHtmlLang();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

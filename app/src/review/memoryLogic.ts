@@ -1,7 +1,10 @@
 import type { Content } from '../domain/contentLoader';
+import { glosses, lineTranslation, exampleTranslation, patternTitle, dialogueTitle } from '../domain/glosses';
+import { getLang, getMeaningLang, localeOf, t } from '../i18n';
+import { monthName, weekdayName } from '../i18n/dates';
 import type { RenderableWord } from '../domain/renderPlan';
 import {
-  ADJ_FORM_LABELS_ES,
+  adjFormLabel,
   conjugateIAdjective,
   conjugateNaAdjective,
   conjugateNoun,
@@ -9,7 +12,7 @@ import {
   type NaAdjFormId,
   type NounFormId,
 } from '../engine/adjectives';
-import { conjugateVerb, FORM_LABELS_ES, type VerbFormId, type VerbGroup } from '../engine/conjugate';
+import { conjugateVerb, verbFormLabel, type VerbFormId, type VerbGroup } from '../engine/conjugate';
 import { readCounter, readDate, readNumber, readTime, type Counter } from '../engine/numbers';
 import { isBurned, NEVER_DUE, STAGE_INTERVAL_MS, stageGroupName, stageName } from '../engine/srs';
 import type { ItemState } from '../state/progressSchema';
@@ -28,20 +31,10 @@ export function srsGroupOfStage(stage: number): SrsGroup {
   return (name === 'Nuevo' ? 'Aprendiz' : name) as SrsGroup;
 }
 
-export const CATEGORY_LABELS: Record<ReviewCategory, string> = {
-  kana: 'Kana',
-  kanji: 'Kanji',
-  word: 'Palabra',
-  conjugation: 'Conjugación',
-  number: 'Número',
-  clock: 'Hora',
-  calendar: 'Fecha',
-  syntax: 'Frase',
-  particle: 'Partícula',
-  dialogue: 'Diálogo',
-};
+export const CATEGORY_ORDER: ReviewCategory[] = ['kana', 'kanji', 'word', 'conjugation', 'number', 'clock', 'calendar', 'syntax', 'particle', 'dialogue'];
 
-export const CATEGORY_ORDER = Object.keys(CATEGORY_LABELS) as ReviewCategory[];
+/** Display name of an item type in the interface language. */
+export const categoryLabel = (category: ReviewCategory): string => t(`memory.cat.${category}`);
 
 /** How an item is shown in the memory list. */
 export interface ItemLabel {
@@ -51,7 +44,7 @@ export interface ItemLabel {
   ja?: RenderableWord;
   /** `text` itself is Japanese (kanji characters, sentences). */
   textIsJa?: boolean;
-  /** Spanish meaning / form / context. */
+  /** Meaning / form / context, in the meaning language. */
   detail?: string;
   /** Kana reading shown next to a number, time or date. */
   reading?: string;
@@ -71,18 +64,10 @@ export function buildLookup(c: Pick<Content, 'vocab' | 'patterns' | 'dialogues'>
   };
 }
 
-const MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-const WEEKDAYS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-const COUNTER_NAMES: Record<string, string> = {
-  tsu: 'cosas (つ)',
-  nin: 'personas',
-  kai: 'pisos',
-  times: 'veces',
-  sai: 'años de edad',
-  hon: 'objetos largos',
-  mai: 'objetos planos',
-  fun: 'minutos',
-  ji: 'horas',
+const counterName = (counter: string | undefined): string => {
+  const key = `memory.counter.${counter}`;
+  const text = t(key);
+  return text === key ? String(counter) : text;
 };
 
 const unknown = (id: string): ItemLabel => ({ text: id });
@@ -96,7 +81,7 @@ function conjugationLabel(id: string, lookup: Lookup): ItemLabel {
     let label: string;
     if (category === 'verb') {
       kana = conjugateVerb(word.kana, (word.verbGroup ?? 'u') as VerbGroup)[form as VerbFormId].kana;
-      label = FORM_LABELS_ES[form as VerbFormId].label;
+      label = verbFormLabel(form as VerbFormId).label;
     } else {
       kana =
         category === 'iadj'
@@ -104,9 +89,9 @@ function conjugationLabel(id: string, lookup: Lookup): ItemLabel {
           : category === 'naadj'
             ? conjugateNaAdjective(word.kana)[form as NaAdjFormId].kana
             : conjugateNoun(word.kana)[form as NounFormId].kana;
-      label = ADJ_FORM_LABELS_ES[form as IAdjFormId].label;
+      label = adjFormLabel(form as IAdjFormId).label;
     }
-    return { text: kana, ja: { kana }, detail: `${word.es[0] ?? word.kana} · ${label}` };
+    return { text: kana, ja: { kana }, detail: `${glosses(word, getMeaningLang())[0] ?? word.kana} · ${label}` };
   } catch {
     return unknown(id);
   }
@@ -116,8 +101,8 @@ function wordLabel(id: string, lookup: Lookup): ItemLabel {
   const kanjiGame = id.endsWith(':kanji');
   const word = lookup.vocab.get(kanjiGame ? id.slice(0, -':kanji'.length) : id);
   if (!word) return unknown(id);
-  const meaning = word.es.join(', ');
-  return { text: word.kanji ?? word.kana, ja: word, detail: kanjiGame ? `${meaning} (en el juego de kanji)` : meaning };
+  const meaning = glosses(word, getMeaningLang()).join(', ');
+  return { text: word.kanji ?? word.kana, ja: word, detail: kanjiGame ? t('memory.inKanjiGame', { meaning }) : meaning };
 }
 
 function numberLabel(id: string): ItemLabel {
@@ -128,7 +113,7 @@ function numberLabel(id: string): ItemLabel {
     }
     const [, counter, n] = id.split(':');
     const count = Number(n);
-    return { text: `${count} (${COUNTER_NAMES[counter ?? ''] ?? counter})`, reading: readCounter(count, counter as Counter).kana };
+    return { text: `${count} (${counterName(counter)})`, reading: readCounter(count, counter as Counter).kana };
   } catch {
     return unknown(id);
   }
@@ -147,13 +132,13 @@ function dateLabel(id: string): ItemLabel {
   const parts = id.split(':');
   try {
     if (parts[1] === 'wd') {
-      const wd = WEEKDAYS[Number(parts[2])] ?? '?';
-      return { text: `${parts[3] === 'prev' ? 'Ayer' : 'Mañana'} de ${wd}`, detail: 'Día de la semana' };
+      const weekday = weekdayName(Number(parts[2]));
+      return { text: t(parts[3] === 'prev' ? 'memory.dayBefore' : 'memory.dayAfter', { weekday }), detail: t('memory.weekdayDetail') };
     }
     const month = Number(parts[1]);
     const day = Number(parts[2]);
-    const text = `${day} de ${MONTHS[month - 1]}`;
-    if (parts[3] === 'wd') return { text, detail: 'Día de la semana de esa fecha' };
+    const text = t('memory.dateLabel', { day, month: monthName(month) });
+    if (parts[3] === 'wd') return { text, detail: t('memory.weekdayOfDate') };
     return { text, reading: readDate(month, day).kana };
   } catch {
     return unknown(id);
@@ -164,15 +149,15 @@ function patternLabel(id: string, lookup: Lookup): ItemLabel {
   const pattern = lookup.patterns.get(patternIdOf(id));
   const example = pattern?.examples?.[Number(id.slice(id.lastIndexOf(':') + 1))];
   if (!pattern) return unknown(id);
-  if (!example) return { text: pattern.title, detail: 'Patrón de frase' };
-  return { text: example.ja, textIsJa: true, detail: `${example.es} · ${pattern.title}` };
+  if (!example) return { text: patternTitle(pattern, getLang()), detail: t('memory.patternDetail') };
+  return { text: example.ja, textIsJa: true, detail: `${exampleTranslation(example, getMeaningLang())} · ${patternTitle(pattern, getLang())}` };
 }
 
 function dialogueLabel(id: string, lookup: Lookup): ItemLabel {
   const dialogue = lookup.dialogues.get(dialogueIdOf(id));
   const line = dialogue?.lines[Number(id.slice(id.lastIndexOf(':') + 1))];
   if (!dialogue || !line) return unknown(id);
-  return { text: line.ja, textIsJa: true, detail: `${line.es} · ${dialogue.title}` };
+  return { text: line.ja, textIsJa: true, detail: `${lineTranslation(line, getMeaningLang())} · ${dialogueTitle(dialogue, getLang())}` };
 }
 
 /** Readable label of any progress item (every id convention of `reviewLogic.classifyItem`). */
@@ -205,31 +190,31 @@ const MINUTE = 60_000;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
 
-const plural = (n: number, one: string, many: string): string => `${n} ${n === 1 ? one : many}`;
+const plural = (n: number, unit: 'hour' | 'day' | 'week' | 'month' | 'year'): string => t(n === 1 ? `memory.${unit}1` : `memory.${unit}N`, { n });
 
 const startOfDay = (ms: number): number => {
   const d = new Date(ms);
   return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
 };
 
-/** Spanish relative time of the next review: "vencido", "en 3 h", "mañana", "en 5 días", "nunca". */
+/** Relative time of the next review: "vencido", "en 3 h", "mañana", "en 5 días", "nunca" (or the English equivalents). */
 export function relativeTime(nextDue: number, now: number, burned = false): string {
-  if (burned || nextDue >= NEVER_DUE) return 'nunca';
-  if (nextDue <= now) return 'vencido';
+  if (burned || nextDue >= NEVER_DUE) return t('memory.never');
+  if (nextDue <= now) return t('memory.overdue');
   const diff = nextDue - now;
-  if (diff < HOUR) return `en ${Math.max(1, Math.round(diff / MINUTE))} min`;
-  if (diff < DAY) return `en ${Math.round(diff / HOUR)} h`;
+  if (diff < HOUR) return t('memory.inMin', { n: Math.max(1, Math.round(diff / MINUTE)) });
+  if (diff < DAY) return t('memory.inHours', { n: Math.round(diff / HOUR) });
   const days = Math.round((startOfDay(nextDue) - startOfDay(now)) / DAY);
-  if (days <= 1) return 'mañana';
-  if (days < 60) return `en ${days} días`;
-  if (days < 365) return `en ${plural(Math.round(days / 30), 'mes', 'meses')}`;
-  return `en ${plural(Math.round(days / 365), 'año', 'años')}`;
+  if (days <= 1) return t('memory.tomorrow');
+  if (days < 60) return t('memory.inDays', { n: days });
+  if (days < 365) return t('memory.in', { text: plural(Math.round(days / 30), 'month') });
+  return t('memory.in', { text: plural(Math.round(days / 365), 'year') });
 }
 
 /** Absolute date of the next review for hover / tap. */
 export function absoluteDate(nextDue: number, burned = false): string {
-  if (burned || nextDue >= NEVER_DUE) return 'No se vuelve a repasar';
-  return new Date(nextDue).toLocaleString('es', { dateStyle: 'full', timeStyle: 'short' });
+  if (burned || nextDue >= NEVER_DUE) return t('memory.noMore');
+  return new Date(nextDue).toLocaleString(localeOf(getLang()), { dateStyle: 'full', timeStyle: 'short' });
 }
 
 /** Correct answers over all answers, as a whole percent; null when never answered. */
@@ -241,11 +226,11 @@ export function accuracyPct(item: Pick<ItemState, 'correct' | 'wrong'>): number 
 /** Human interval for the help text: "4 horas", "1 día", "2 semanas", "4 meses". */
 export function formatInterval(ms: number): string {
   const hours = ms / HOUR;
-  if (hours < 24) return plural(hours, 'hora', 'horas');
+  if (hours < 24) return plural(hours, 'hour');
   const days = hours / 24;
-  if (days < 7) return plural(days, 'día', 'días');
-  if (days < 30) return plural(Math.round(days / 7), 'semana', 'semanas');
-  return plural(Math.round(days / 30), 'mes', 'meses');
+  if (days < 7) return plural(days, 'day');
+  if (days < 30) return plural(Math.round(days / 7), 'week');
+  return plural(Math.round(days / 30), 'month');
 }
 
 export interface StageHelpRow {
@@ -284,11 +269,8 @@ export function memoryRows(items: Readonly<Record<string, ItemState>>, group: Sr
 }
 
 export type MemorySort = 'next' | 'accuracy' | 'name';
-export const SORT_LABELS: Record<MemorySort, string> = {
-  next: 'Próximo repaso',
-  accuracy: 'Precisión (menor primero)',
-  name: 'Nombre',
-};
+export const SORT_ORDER: MemorySort[] = ['next', 'accuracy', 'name'];
+export const sortLabel = (sort: MemorySort): string => t(`memory.sort.${sort}`);
 
 export type MemoryFilter = ReviewCategory | 'all';
 

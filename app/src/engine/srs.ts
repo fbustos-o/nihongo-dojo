@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import { MAX_SRS_STAGE, type ItemState } from '../state/progressSchema';
 
 /**
@@ -44,15 +45,16 @@ const STAGE_NAMES_ES = [
   'Quemado',
 ] as const;
 
-/** Spanish name of an SRS stage ("Aprendiz 1", "Guru 2", "Quemado"…). Out-of-range stages are clamped. */
+const stageIndex = (stage: number): number => Math.max(0, Math.min(MAX_SRS_STAGE, Math.trunc(stage)));
+
+/** Display name of an SRS stage in the interface language ("Aprendiz 1" / "Apprentice 1", "Guru 2"…). Out-of-range stages are clamped. */
 export function stageName(stage: number): string {
-  const i = Math.max(0, Math.min(MAX_SRS_STAGE, Math.trunc(stage)));
-  return STAGE_NAMES_ES[i]!;
+  return t(`memory.stage.${stageIndex(stage)}`);
 }
 
-/** Coarse Spanish group name: Nuevo, Aprendiz, Guru, Maestro, Iluminado, Quemado. */
+/** Coarse group id (stays Spanish, it is an identity and a URL slug): Nuevo, Aprendiz, Guru, Maestro, Iluminado, Quemado. */
 export function stageGroupName(stage: number): string {
-  return stageName(stage).replace(/ \d$/, '');
+  return STAGE_NAMES_ES[stageIndex(stage)]!.replace(/ \d$/, '');
 }
 
 /** True from Guru on: the learner "knows" the item (kanji lose furigana here). */

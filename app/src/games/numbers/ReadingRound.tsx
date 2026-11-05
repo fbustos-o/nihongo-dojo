@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { checkAnswer, allReadings, type Reading } from '../../engine';
 import { useSpeech } from '../../hooks/useSpeech';
 import { JaText } from '../../components/JaText';
+import { useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
 import { ChoiceRound, TypingRound, type Verdict } from '../shared';
 import { buildChoices } from './confusions';
@@ -45,7 +46,8 @@ interface ReadingRoundProps {
 }
 
 /** Asks for a reading in kana: typed (KanaInput) or 4 options. */
-export function ReadingRound({ prompt, reading, format, related, rng = Math.random, ariaLabel = 'Lectura en hiragana', onReport, onDone }: ReadingRoundProps) {
+export function ReadingRound({ prompt, reading, format, related, rng = Math.random, ariaLabel, onReport, onDone }: ReadingRoundProps) {
+  const t = useT();
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const [options] = useState(() => buildChoices(reading, related, rng));
   if (format === 'choice' && options.length >= 2) {
@@ -74,8 +76,8 @@ export function ReadingRound({ prompt, reading, format, related, rng = Math.rand
       prompt={prompt}
       answer={<KanaWithRomaji reading={reading} />}
       inputMode="hiragana"
-      ariaLabel={ariaLabel}
-      placeholder={showRomaji ? 'Escribe en romaji o kana' : 'Escribe en hiragana'}
+      ariaLabel={ariaLabel ?? t('games.hiraReadingAria')}
+      placeholder={showRomaji ? t('games.placeholderRomajiKana') : t('games.placeholderHira')}
       evaluate={(input) => readingVerdict(input, reading)}
       onReport={onReport}
       onDone={onDone}

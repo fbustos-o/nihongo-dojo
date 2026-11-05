@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { JaText } from '../../components/JaText';
 import { checkAnswer } from '../../engine';
 import type { Word } from '../../domain/schema';
+import { useMeaningLang, useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
 import { ChoiceRound, Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
-import { meaningChoices, meaningOf } from '../wordUtils';
+import { meaningChoices, meaningOf, originText } from '../wordUtils';
 
 interface Question {
   word: Word;
@@ -20,6 +21,8 @@ interface Question {
  * and is never shown when the romaji is the answer.
  */
 export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const showRomaji = useProgress((s) => s.settings.showRomaji);
   const pool = words.map((word) => ({ id: word.id, word }));
@@ -28,14 +31,14 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
   const make = (round: number): Question => {
     const { word } = pick(pool);
     const mode = round % 2 === 0 ? 'meaning' : 'type';
-    return { word, mode, choices: mode === 'meaning' ? meaningChoices(word) : [] };
+    return { word, mode, choices: mode === 'meaning' ? meaningChoices(word, 4, undefined, undefined, meaningLang) : [] };
   };
 
   const [question, setQuestion] = useState<Question | null>(() => (pool.length ? make(0) : null));
   const [last, setLast] = useState<FeedbackMessage | null>(null);
   /** Loanword just answered: its original word is shown only now, not before answering. */
   const [answered, setAnswered] = useState<Word | null>(null);
-  if (!question) return <p className="muted">No hay palabras legibles todavía.</p>;
+  if (!question) return <p className="muted">{t('games.noWords')}</p>;
 
   const { word } = question;
   const onReport = (ok: boolean) => {
@@ -46,11 +49,11 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
     // The previous word's feedback stays in the fixed slot above the new question; kana go through JaText (unlock rules).
     setLast({
       tone: firstTry ? 'ok' : 'near',
-      text: `${firstTry ? '¡Correcto!' : 'Era'} ${word.romaji} = ${meaningOf(word)}`,
+      text: `${t(firstTry ? 'games.correct' : 'games.was')} ${word.romaji} = ${meaningOf(word, meaningLang)}`,
       node: (
         <>
-          {firstTry ? '¡Correcto! ' : 'Era '}
-          <JaText word={word} /> = {meaningOf(word)}
+          {t(firstTry ? 'games.correct' : 'games.was')}{' '}
+          <JaText word={word} /> = {meaningOf(word, meaningLang)}
         </>
       ),
       id: session.round,
@@ -70,7 +73,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
       <Feedback message={last} />
       {answered?.origin && (
         <p className={`muted ${styles.hint}`} data-testid="origin" role="note">
-          Pronunciación original: <JaText word={answered} /> ← {answered.origin}
+          {t('games.origin')}<JaText word={answered} /> ← {originText(answered.origin, meaningLang)}
         </p>
       )}
       {question.mode === 'meaning' ? (
@@ -79,7 +82,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
           prompt={
             <>
               {shown}
-              <div className="muted">¿Qué significa?</div>
+              <div className="muted">{t('games.whatMeans')}</div>
               {showRomaji && <div className={styles.hint}>{word.romaji}</div>}
             </>
           }
@@ -94,14 +97,14 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
           prompt={
             <>
               {shown}
-              <div className={styles.hint} data-testid="word-meaning">Significa: {meaningOf(word)}</div>
-              <div className={styles.hint}>Escribe cómo se lee (romaji)</div>
+              <div className={styles.hint} data-testid="word-meaning">{t('games.means')} {meaningOf(word, meaningLang)}</div>
+              <div className={styles.hint}>{t('games.typeReading')}</div>
               <TypingHint text={word.kana} />
             </>
           }
           answer={
             <>
-              <JaText word={word} /> ({word.romaji}) = {meaningOf(word)}
+              <JaText word={word} /> ({word.romaji}) = {meaningOf(word, meaningLang)}
             </>
           }
           evaluate={(input) => {
@@ -109,8 +112,8 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
             return result.correct ? 'correct' : result.nearMiss ? 'near' : 'wrong';
           }}
           inputMode="plain"
-          ariaLabel="Lectura en romaji"
-          placeholder="romaji"
+          ariaLabel={t('games.readingRomaji')}
+          placeholder={t('games.romajiPlaceholder')}
           onReport={onReport}
           onDone={onDone}
         />

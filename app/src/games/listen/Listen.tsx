@@ -4,6 +4,7 @@ import { SpeakButton } from '../../components/SpeakButton';
 import { content } from '../../domain/contentLoader';
 import type { KanaEntry, Word } from '../../domain/schema';
 import { useCanHear, useSpeech } from '../../hooks/useSpeech';
+import { useMeaningLang, useT } from '../../i18n';
 import { useProgress } from '../../state/progressStore';
 import { kanaChoices, knownKanaPool } from '../kanaUtils';
 import { ChoiceRound, Feedback, GameFrame, useGameSession, useQuestionPicker, type ChoiceOption, type FeedbackMessage } from '../shared';
@@ -17,6 +18,8 @@ type Question =
 
 /** Plays a kana or word with TTS; the learner picks what they heard among 4 options. */
 export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: GameProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const session = useGameSession({ rounds, onFinish });
   const { speak } = useSpeech();
   const kanaPool = kana.map((entry) => ({ id: entry.char, entry }));
@@ -51,7 +54,7 @@ export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: G
     if (available && spoken) speak(spoken);
   }, [available, speak, spoken, session.round]);
 
-  if (!question) return <p className="muted">No hay contenido para practicar.</p>;
+  if (!question) return <p className="muted">{t('games.noContent')}</p>;
 
   const isWord = question.type === 'word';
   const options: ChoiceOption[] = isWord
@@ -59,21 +62,21 @@ export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: G
     : question.choices.map((k) => ({ key: k.char, content: k.char, correct: k.char === question.id }));
   const romaji = isWord ? question.word.romaji : question.entry.romaji;
 
-  /** «Kana: mi» for a single kana; «おなか (onaka) = estómago» for a word (kana through JaText, first meaning). */
+  /** «Kana: mi» for a single kana; «おなか (onaka) = stomach» for a word (kana through JaText, first meaning). */
   const describe = (q: Question): { text: string; node: ReactNode } =>
     q.type === 'kana'
       ? { text: `Kana: ${q.entry.romaji}`, node: <>Kana: {q.entry.romaji}</> }
       : {
-          text: `${q.word.romaji} = ${meaningOf(q.word)}`,
+          text: `${q.word.romaji} = ${meaningOf(q.word, meaningLang)}`,
           node: (
             <>
-              <JaText word={q.word} /> ({q.word.romaji}) = {meaningOf(q.word)}
+              <JaText word={q.word} /> ({q.word.romaji}) = {meaningOf(q.word, meaningLang)}
             </>
           ),
         };
 
   const prompt: ReactNode = available ? (
-    <SpeakButton text={spoken} label="Escuchar otra vez" />
+    <SpeakButton text={spoken} label={t('games.listenAgain')} />
   ) : (
     <span className={styles.promptText} data-testid="romaji">{romaji}</span>
   );
@@ -82,7 +85,7 @@ export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: G
     <GameFrame session={session}>
       {!available && (
         <p className={styles.notice} role="note">
-          Tu navegador no tiene una voz en japonés: sin audio, se muestra el romaji en su lugar y eliges el kana que corresponde.
+          {t('games.noVoiceListen')}
         </p>
       )}
       <Feedback message={last} />
@@ -96,10 +99,10 @@ export function Listen({ kana, newKana, words, rounds, sequential, onFinish }: G
           const picked = isWord ? question.choices.find((w) => w.id === option.key) : question.choices.find((k) => k.char === option.key);
           const pickedNode = picked && 'kana' in picked ? <JaText word={picked} /> : <span lang="ja">{option.key}</span>;
           return {
-            text: `Sonó: ${said.text}`,
+            text: `${t('games.sounded')} ${said.text}`,
             node: (
               <>
-                Sonó: {said.node} · elegiste {pickedNode}
+                {t('games.sounded')} {said.node} {t('games.youPicked')} {pickedNode}
               </>
             ),
           };

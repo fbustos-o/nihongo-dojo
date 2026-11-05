@@ -1,15 +1,16 @@
 import { Suspense, useMemo, useState } from 'react';
 import { useNow } from '../hooks/useNow';
 import { Link } from 'react-router-dom';
+import { useT } from '../i18n';
 import { Loading } from '../components/Loading';
 import { groupParam } from '../review/ReviewPage';
-import { REVIEW_GROUP_IDS, REVIEW_GROUP_LABELS, dueCountsByGroup } from '../review/reviewLogic';
+import { REVIEW_GROUP_IDS, reviewGroupLabel, dueCountsByGroup } from '../review/reviewLogic';
 import { content } from '../domain/contentLoader';
 import type { Dialogue, GameId, KanaEntry, Kanji, SentencePattern, Word } from '../domain/schema';
 import { filterReadable } from '../engine';
 import { kanjiWordsFor } from '../games/kanji/kanjiLogic';
 import { ancestorLessons } from '../games/lessonScope';
-import { GAME_REGISTRY } from '../games/registry';
+import { GAME_REGISTRY, gameDescription, gameName } from '../games/registry';
 import type { GameStats } from '../games/types';
 import { accuracyOf } from '../lesson/lessonLogic';
 import styles from '../lesson/lesson.module.css';
@@ -20,12 +21,7 @@ const PRACTICE_GAMES: GameId[] = ['kana-recognize', 'kana-write', 'listen', 'rea
 /** Stage-2 games, practised with everything taught so far (QA-007). */
 const GRAMMAR_GAMES: GameId[] = ['syntax', 'particles', 'conjugation', 'dialogues', 'mini-reading', 'numbers', 'clock', 'calendar'];
 const SCRIPT_LABEL = { hiragana: 'Hiragana', katakana: 'Katakana' } as const;
-const GROUP_LABEL: Record<string, string> = {
-  gojuon: 'Básicos',
-  dakuten: 'Dakuten y handakuten',
-  yoon: 'Yōon',
-  extended: 'Especiales',
-};
+const KANA_GROUPS = ['gojuon', 'dakuten', 'yoon', 'extended'] as const;
 /** handakuten is practised together with dakuten. */
 const groupOf = (k: KanaEntry): string => (k.group === 'handakuten' ? 'dakuten' : k.group);
 const rowKey = (k: KanaEntry): string => `${k.script}:${groupOf(k)}:${k.row}`;
@@ -45,6 +41,7 @@ type Session = FreeSession | { kind: 'summary'; stats: GameStats };
 const KANJI_LESSONS = [...new Set(content.kanji.map((k) => k.genkiLesson))].sort((a, b) => a - b);
 
 export function PracticePage() {
+  const t = useT();
   const items = useProgress((s) => s.items);
   const knownKana = useProgress((s) => s.knownKana);
   const [selected, setSelected] = useState<Set<string>>(
@@ -109,11 +106,11 @@ export function PracticePage() {
     const Game = GAME_REGISTRY[session.game].component!;
     return (
       <>
-        <h1>Práctica libre</h1>
+        <h1>{t('practice.freeTitle')}</h1>
         <p className="muted">
-          {GAME_REGISTRY[session.game].name} · {session.kanji ? `${session.kanji.length} kanji` : session.kana.length > 0 ? `${session.kana.length} kana` : 'lo aprendido hasta ahora'}
+          {gameName(session.game)} · {session.kanji ? t('practice.nKanji', { n: session.kanji.length }) : session.kana.length > 0 ? t('practice.nKana', { n: session.kana.length }) : t('practice.learned')}
         </p>
-        <Suspense fallback={<Loading label="Cargando juego…" />}>
+        <Suspense fallback={<Loading label={t('games.loading')} />}>
           {/* the selected rows count as known kana while practising (QA-016) */}
           <ExtraKanaContext.Provider value={session.kana.map((k) => k.char)}>
             <Game
@@ -135,13 +132,13 @@ export function PracticePage() {
     const { stats } = session;
     return (
       <>
-        <h1>Resumen</h1>
+        <h1>{t('practice.summary')}</h1>
         <section className="card">
           <p>
-            Aciertos: <strong>{stats.correct}</strong> de {stats.total} ({Math.round(accuracyOf(stats) * 100)}%) · Mejor racha: {stats.bestStreak}
+            {t('games.hitsPre')}<strong>{stats.correct}</strong>{t('games.hitsOf', { total: stats.total })} ({Math.round(accuracyOf(stats) * 100)}%){t('games.bestStreak', { n: stats.bestStreak })}
           </p>
           <button type="button" className="btn btn-primary" autoFocus onClick={() => setSession(null)}>
-            Volver a la práctica
+            {t('practice.backToPractice')}
           </button>
         </section>
       </>
@@ -151,32 +148,32 @@ export function PracticePage() {
   const canStart = selectedKana.length > 0;
   return (
     <>
-      <h1>Práctica</h1>
+      <h1>{t('practice.title')}</h1>
 
       <section className="card" aria-labelledby="review-card">
-        <h2 id="review-card">Repasos pendientes</h2>
+        <h2 id="review-card">{t('practice.dueCard')}</h2>
         <p data-testid="due-summary">
-          {counts.total === 0 ? 'No tienes repasos pendientes ahora mismo.' : <>Tienes <strong>{counts.total}</strong> ítems por repasar.</>}
+          {counts.total === 0 ? t('practice.dueNone') : <>{t('practice.duePre')}<strong>{counts.total}</strong>{t('practice.duePost')}</>}
         </p>
         <div className="row">
           <Link className="btn btn-primary" to="/repaso">
-            Repasar todo ({counts.total})
+            {t('practice.reviewAll', { n: counts.total })}
           </Link>
           {REVIEW_GROUP_IDS.map((g) => (
             <Link key={g} className="btn" to={`/repaso?grupo=${groupParam(g)}`} aria-disabled={counts[g] === 0}>
-              {REVIEW_GROUP_LABELS[g]} ({counts[g]})
+              {reviewGroupLabel(g)} ({counts[g]})
             </Link>
           ))}
         </div>
       </section>
 
       <section className="card" aria-labelledby="kanji-free">
-        <h2 id="kanji-free">Práctica libre de kanji</h2>
-        <p className="muted">Elige un rango de lecciones de Genki; solo se practican los kanji ya desbloqueados.</p>
+        <h2 id="kanji-free">{t('practice.kanjiFree')}</h2>
+        <p className="muted">{t('practice.kanjiRange')}</p>
         <div className="row">
           <label className="row">
-            Desde la lección
-            <select aria-label="Desde la lección" value={fromLesson} onChange={(e) => setFromLesson(Number(e.target.value))}>
+            {t('practice.fromLesson')}
+            <select aria-label={t('practice.fromLesson')} value={fromLesson} onChange={(e) => setFromLesson(Number(e.target.value))}>
               {KANJI_LESSONS.map((n) => (
                 <option key={n} value={n}>
                   {n}
@@ -185,8 +182,8 @@ export function PracticePage() {
             </select>
           </label>
           <label className="row">
-            hasta la
-            <select aria-label="Hasta la lección" value={toLesson} onChange={(e) => setToLesson(Number(e.target.value))}>
+            {t('practice.toLesson')}
+            <select aria-label={t('practice.toLessonAria')} value={toLesson} onChange={(e) => setToLesson(Number(e.target.value))}>
               {KANJI_LESSONS.map((n) => (
                 <option key={n} value={n}>
                   {n}
@@ -194,7 +191,7 @@ export function PracticePage() {
               ))}
             </select>
           </label>
-          <span className="muted">{rangeKanji.length} kanji desbloqueados en el rango</span>
+          <span className="muted">{t('practice.rangeCount', { n: rangeKanji.length })}</span>
         </div>
         <button
           type="button"
@@ -202,44 +199,44 @@ export function PracticePage() {
           disabled={rangeKanji.length === 0}
           onClick={() => run({ kind: 'free', game: 'kanji', kana: [], kanji: rangeKanji, words: kanjiWords(rangeKanji) })}
         >
-          Practicar kanji
+          {t('practice.practiceKanji')}
         </button>
-        {rangeKanji.length === 0 && <span className="muted"> Completa una lección de kanji para desbloquearlos.</span>}
+        {rangeKanji.length === 0 && <span className="muted">{t('practice.needKanji')}</span>}
       </section>
 
       <section className="card" aria-labelledby="grammar-free">
-        <h2 id="grammar-free">Práctica libre de gramática</h2>
-        <p className="muted">Juegos de la etapa 2 con todo lo que ya has aprendido (lecciones completadas). Sin límite de rondas.</p>
+        <h2 id="grammar-free">{t('practice.grammarFree')}</h2>
+        <p className="muted">{t('practice.grammarNote')}</p>
         <div className="row">
           <label className="row">
-            Juego de gramática:
+            {t('practice.grammarGame')}
             <select value={grammarGame} onChange={(e) => setGrammarGame(e.target.value as GameId)}>
               {GRAMMAR_GAMES.map((id) => (
                 <option key={id} value={id}>
-                  {GAME_REGISTRY[id].name}
+                  {gameName(id)}
                 </option>
               ))}
             </select>
           </label>
         </div>
-        <p className="muted">{GAME_REGISTRY[grammarGame].description}</p>
+        <p className="muted">{gameDescription(grammarGame)}</p>
         <button
           type="button"
           className="btn btn-primary"
           disabled={grammarMissing}
           onClick={() => run({ kind: 'free', game: grammarGame, kana: [], words: taught.words, patterns: taught.patterns, dialogueIds: taught.dialogues })}
         >
-          Practicar gramática
+          {t('practice.practiceGrammar')}
         </button>
-        {grammarMissing && <span className="muted"> Completa antes una lección con este contenido.</span>}
+        {grammarMissing && <span className="muted">{t('practice.needLesson')}</span>}
       </section>
 
       <section className="card">
-        <h2>Práctica libre</h2>
+        <h2>{t('practice.kanaFree')}</h2>
         {(['hiragana', 'katakana'] as const).map((script) => (
           <fieldset key={script} className={styles.fieldset}>
             <legend>{SCRIPT_LABEL[script]}</legend>
-            {Object.keys(GROUP_LABEL).map((group) => {
+            {KANA_GROUPS.map((group) => {
               const groupRows = [...rows.entries()].filter(([, r]) => r.script === script && r.group === group);
               if (groupRows.length === 0) return null;
               const keys = groupRows.map(([key]) => key);
@@ -248,7 +245,7 @@ export function PracticePage() {
                 <div key={group}>
                   <label className="row">
                     <input type="checkbox" checked={all} onChange={(e) => toggle(keys, e.target.checked)} />
-                    {GROUP_LABEL[group]} ({SCRIPT_LABEL[script].toLowerCase()})
+                    {t(`practice.group.${group}`)} ({SCRIPT_LABEL[script].toLowerCase()})
                   </label>
                   <div className={styles.chips}>
                     {groupRows.map(([key, r]) => {
@@ -274,22 +271,22 @@ export function PracticePage() {
         ))}
         <div className="row">
           <label className="row">
-            Juego:
+            {t('practice.game')}
             <select value={game} onChange={(e) => setGame(e.target.value as GameId)}>
               {PRACTICE_GAMES.map((id) => (
                 <option key={id} value={id}>
-                  {GAME_REGISTRY[id].name}
+                  {gameName(id)}
                 </option>
               ))}
             </select>
           </label>
-          <span className="muted">{selectedKana.length} kana seleccionados</span>
+          <span className="muted">{t('practice.kanaSelected', { n: selectedKana.length })}</span>
         </div>
-        <p className="muted">{GAME_REGISTRY[game].description} Sin límite de rondas: pulsa «Terminar» cuando quieras.</p>
+        <p className="muted">{gameDescription(game)} {t('practice.noLimit')}</p>
         <button type="button" className="btn btn-primary" disabled={!canStart} onClick={() => run({ kind: 'free', game, kana: selectedKana })}>
-          Empezar
+          {t('practice.start')}
         </button>
-        {!canStart && <span className="muted"> Elige al menos una fila.</span>}
+        {!canStart && <span className="muted">{t('practice.pickRow')}</span>}
       </section>
     </>
   );

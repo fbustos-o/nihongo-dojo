@@ -4,6 +4,7 @@ import { KanaInput, KanaModeToggle } from '../../components/KanaInput';
 import { content } from '../../domain/contentLoader';
 import type { Word } from '../../domain/schema';
 import { checkAnswer } from '../../engine';
+import { useMeaningLang, useT } from '../../i18n';
 import { Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage, type GameSession } from '../shared';
 import shared from '../shared/games.module.css';
 import { shuffle } from '../kanaUtils';
@@ -12,7 +13,7 @@ import { meaningOf } from '../wordUtils';
 import {
   ALL_FORMS,
   CATEGORIES,
-  CATEGORY_LABELS,
+  categoryLabel,
   acceptedFor,
   conjEntries,
   entriesFromIds,
@@ -39,6 +40,7 @@ const TABLE_ROWS = 4;
  * in free practice the learner picks them.
  */
 export function Conjugation({ words, rounds, sequential, lessonId, patterns, onlyItems, onFinish }: GameProps) {
+  const t = useT();
   const session = useGameSession({ rounds, onFinish });
   // Review of due items: a fixed pool, no toolbar.
   const reviewPool = useMemo(() => (onlyItems ? entriesFromIds(onlyItems, content.vocab) : []), [onlyItems]);
@@ -65,7 +67,7 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onl
       </GameFrame>
     );
   }
-  if (categories.length === 0) return <p className="muted">No hay palabras para conjugar todavía.</p>;
+  if (categories.length === 0) return <p className="muted">{t('games.noConj')}</p>;
   const category = chosen && categories.includes(chosen) ? chosen : categories[0]!;
   const forms: AnyForm[] = free ? selected[category] : config[category];
 
@@ -79,19 +81,19 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onl
   return (
     <GameFrame session={session}>
       <div className={styles.toolbar}>
-        <div className={styles.seg} role="group" aria-label="Modo">
+        <div className={styles.seg} role="group" aria-label={t('games.mode')}>
           <button type="button" className={styles.segBtn} aria-pressed={mode === 'quiz'} onClick={() => setMode('quiz')}>
-            Preguntas
+            {t('games.questions')}
           </button>
           <button type="button" className={styles.segBtn} aria-pressed={mode === 'table'} onClick={() => setMode('table')}>
-            Tabla
+            {t('games.table')}
           </button>
         </div>
         {categories.length > 1 && (
-          <div className={styles.seg} role="group" aria-label="Tipo de palabra">
+          <div className={styles.seg} role="group" aria-label={t('games.wordType')}>
             {categories.map((c) => (
               <button key={c} type="button" className={styles.segBtn} aria-pressed={c === category} onClick={() => setChosen(c)}>
-                {CATEGORY_LABELS[c]}
+                {categoryLabel(c)}
               </button>
             ))}
           </div>
@@ -99,7 +101,7 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onl
       </div>
       {free && (
         <fieldset className={styles.forms}>
-          <legend>Formas a practicar</legend>
+          <legend>{t('games.formsToPractise')}</legend>
           {ALL_FORMS[category].map((form) => (
             <label key={form}>
               <input type="checkbox" checked={forms.includes(form)} onChange={() => toggleForm(form)} />
@@ -125,6 +127,8 @@ interface PaneProps {
 }
 
 function QuizPane({ words, forms, session, sequential, fixedPool, ...rest }: PaneProps & { sequential?: boolean; fixedPool?: ConjEntry[] }) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const pool = useMemo(() => fixedPool ?? conjEntries(words, rest.category, forms), [fixedPool, words, rest.category, forms]);
   const pick = useQuestionPicker('word', sequential);
   const [entry, setEntry] = useState<ConjEntry>(() => pick(pool));
@@ -146,7 +150,7 @@ function QuizPane({ words, forms, session, sequential, fixedPool, ...rest }: Pan
             <span className={styles.word} data-testid="word-prompt">
               <JaText word={word} />
             </span>
-            <p className={styles.target}>{meaningOf(word)}</p>
+            <p className={styles.target}>{meaningOf(word, meaningLang)}</p>
             <p className={styles.formName} data-testid="form-label">
               {formLabel(category, form)}
             </p>
@@ -164,14 +168,14 @@ function QuizPane({ words, forms, session, sequential, fixedPool, ...rest }: Pan
           return result.correct ? 'correct' : result.nearMiss ? 'near' : 'wrong';
         }}
         inputMode="hiragana"
-        ariaLabel="Conjugación en kana"
-        placeholder="escribe en kana"
+        ariaLabel={t('games.conjAria')}
+        placeholder={t('games.placeholderKana')}
         onReport={(ok) => {
           setLast(null);
           session.report(entry.id, 'word', `${word.kana} → ${primary}`, ok);
         }}
         onDone={(firstTry) => {
-          setLast(firstTry ? { tone: 'ok', text: `¡Correcto! ${primary} · ${hint}`, id: session.round } : null);
+          setLast(firstTry ? { tone: 'ok', text: t('games.correctMsg', { text: `${primary} · ${hint}` }), id: session.round } : null);
           session.next();
           setEntry(pick(pool));
         }}
@@ -185,6 +189,8 @@ interface RowResult {
 }
 
 function TablePane({ category, words, forms, session }: PaneProps) {
+  const t = useT();
+  const meaningLang = useMeaningLang();
   const [tableId, setTableId] = useState(0);
   const [rows, setRows] = useState<Word[]>(() => shuffle(words).slice(0, TABLE_ROWS));
   const [values, setValues] = useState<Record<string, string>>({});
@@ -212,21 +218,21 @@ function TablePane({ category, words, forms, session }: PaneProps) {
 
   return (
     <div className={shared.round}>
-      <p className="muted">Completa cada fila con la conjugación en kana y pulsa «Comprobar fila».</p>
+      <p className="muted">{t('games.tableIntro')}</p>
       <div className={styles.kanaToggleRow}>
-        <span className="muted">Escritura de kana:</span> <KanaModeToggle />
+        <span className="muted">{t('games.kanaWriting')}</span> <KanaModeToggle />
       </div>
       <div className={styles.tableWrap}>
         <table className={styles.grid} data-testid="conjugation-table">
           <thead>
             <tr>
-              <th scope="col">Diccionario</th>
+              <th scope="col">{t('games.dictionary')}</th>
               {forms.map((form) => (
                 <th key={form} scope="col">
                   {formLabel(category, form)}
                 </th>
               ))}
-              <th scope="col" aria-label="Comprobar" />
+              <th scope="col" aria-label={t('common.check')} />
             </tr>
           </thead>
           <tbody>
@@ -237,7 +243,7 @@ function TablePane({ category, words, forms, session }: PaneProps) {
                   <th scope="row">
                     <JaText word={word} />
                     <span className={styles.rowInfo}>
-                      {meaningOf(word)}
+                      {meaningOf(word, meaningLang)}
                       {result && category === 'verb' ? ` · ${ruleHint(word, category, forms[0]!).split(':')[0]}` : ''}
                     </span>
                   </th>
@@ -263,7 +269,7 @@ function TablePane({ category, words, forms, session }: PaneProps) {
                   })}
                   <td>
                     <button type="button" className="btn" disabled={result !== undefined} onClick={() => checkRow(word)}>
-                      Comprobar fila
+                      {t('games.checkRow')}
                     </button>
                   </td>
                 </tr>
@@ -274,7 +280,7 @@ function TablePane({ category, words, forms, session }: PaneProps) {
       </div>
       {allChecked && (
         <button type="button" className="btn btn-primary" autoFocus onClick={again}>
-          Nueva tabla
+          {t('games.newTable')}
         </button>
       )}
     </div>
