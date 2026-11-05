@@ -3,21 +3,24 @@
 Aplicación web personal para aprender japonés paso a paso, de hiragana a kanji, siguiendo el orden de **Genki I** y los apuntes
 de sintaxis, conjugación, números, hora y fechas de un profesor. Vite + React + TypeScript, sin backend: el progreso se guarda en
 el `localStorage` del navegador (con exportar / importar a JSON). Interfaz y significados en español; el romaji es un andamiaje
-que se puede desactivar. El plan completo está en `PLAN.md`.
+que se puede desactivar. El plan completo está en `PLAN.md`; la rama `v2` (Core 1000, inglés, estética) en `PLAN_RAMA_V2.md`.
 
-## Las 4 etapas
+## Las 5 etapas
 
 1. **Hiragana**: filas あ→ん, dakuten, yōon, っ y vocales largas, con palabras que solo usan los kana ya vistos.
 2. **Gramática en hiragana**: です, これ/それ/あれ, verbos en ます y sus formas, partículas, あります/います, adjetivos い/な, て, たい, ています; números, contadores, hora, fechas y diálogos.
 3. **Katakana**: filas katakana, parecidos clásicos (シ/ツ, ソ/ン…), préstamos y el contenido de la etapa 2 con katakana real.
 4. **Kanji**: los 144 kanji de Genki en orden, con furigana progresivo (se retira al llegar a Guru) y palabras conocidas que «se transforman».
+5. **Vocabulario esencial** (rama `v2`): las 1000 palabras más frecuentes de la lista [Kanjikana Core 1000](https://kanjikana.com/en/words/core-1000) en 40 paquetes de 25, en orden de frecuencia; cada paquete se abre con el hito de hiragana que lo hace legible (tarjetas → leer → escuchar → dictado). Además, la página **Vocabulario** permite buscar, filtrar y marcar «ya la sé», y el plan diario de Inicio propone repasos + N palabras nuevas (`/aprender`) + la siguiente lección.
+
+Interfaz y significados en **español o inglés** (ajustes independientes en Ajustes); el contenido se traduce por capas (`en`, `titleEn`, `explanationEn`…) con fallback al español.
 
 Regla de la app: **nunca se muestra un kana o kanji que todavía no se ha desbloqueado** (`<JaText>` usa romaji, hiragana o furigana según el progreso).
 
-## Juegos (13)
+## Juegos (14)
 
 Reconocer kana · Escribir kana · Leer palabras · Escuchar · Sintaxis (tablas del profesor: S‑V‑O → S‑O‑V con fichas) · Partículas ·
-Conjugación (preguntas y tabla) · Números y precios · Reloj · Calendario · Diálogos · Mini‑lectura · Kanji.
+Conjugación (preguntas y tabla) · Números y precios · Reloj · Calendario · Diálogos · Mini‑lectura · Kanji · Tarjetas.
 
 ## Progreso y gamificación
 
@@ -79,7 +82,7 @@ La app es 100 % cliente: todo el estado vive en `localStorage` (clave `nihongo-d
 
 - **Build para un sub-ruta:** `cd app && VITE_BASE=/nihongo-dojo/ npm run build`. Sin `VITE_BASE` la base es `/` (Docker). El router usa `import.meta.env.BASE_URL` como `basename`. El build genera `dist/404.html` (copia de `index.html`, fallback SPA para enlaces profundos) y `dist/.nojekyll`.
 - **Vista previa local (imita Pages):** `node scripts/serve-pages.mjs /nihongo-dojo/ 4173` desde `app/` tras el build, y abrir `http://localhost:4173/nihongo-dojo/`. Las rutas desconocidas devuelven `404.html`, como en Pages.
-- **Activar el workflow:** en GitHub, Settings > Pages > Source = "GitHub Actions"; luego Actions > "Deploy to GitHub Pages" > Run workflow. Compila con `VITE_BASE=/<nombre-del-repo>/`, ejecuta los tests y despliega.
+- **Activar el workflow:** en GitHub, Settings > Pages > Source = "GitHub Actions"; luego Actions > "Deploy to GitHub Pages" > Run workflow. Publica `main_ref` (por defecto `main`) en la raíz y `v2_ref` (por defecto `v2`) bajo `/v2/`, cada una compilada con su `VITE_BASE`, con tests. Los enlaces profundos de `/v2/` pasan por el `404.html` de la raíz, que redirige a `/v2/?r=<ruta>`; `main.tsx` restaura la ruta.
 - **Copias de seguridad:** Ajustes exporta `nihongo_dojo_backup_AAAA-MM-DD.json` e importa desde un selector de archivos (`.json`). Al guardar se pide `navigator.storage.persist()` (mejor esfuerzo).
 
 ### Audio
@@ -97,7 +100,8 @@ La voz principal es la Web Speech API (`speechSynthesis`, voz `ja`). Si no hay v
 ## Atribuciones
 
 - Vocabulario y kanji derivados de [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) y KANJIDIC (EDRDG), licencia CC BY‑SA 4.0; parecidos de kanji de Kanjium.
-- Ideas y datos de kana de [vedxyz/kana](https://github.com/vedxyz/kana) (MIT). Conversión romaji/kana: WanaKana (MIT).
+- Word list: [Kanjikana Core 1000](https://kanjikana.com/en/words/core-1000) by Kanjikana, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (copia en `tools/content/gen/core1000/`).
+- Ideas y datos de kana de [vedxyz/kana](https://github.com/vedxyz/kana) (MIT). Conversión romaji/kana: WanaKana (MIT). Iconos: [Lucide](https://lucide.dev) (ISC/MIT).
 - **Genki** (3.ª ed.) se usa solo como referencia personal de estudio: el contenido del libro no se distribuye (las frases de ejercicio son nuevas y el repo es privado).
 - Tipografía: Noto Sans JP (SIL Open Font License).
 - LightKanji se conserva únicamente como referencia (`LightKanji/`, fuera del repositorio).
