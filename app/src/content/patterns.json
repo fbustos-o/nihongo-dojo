@@ -1135,7 +1135,7 @@
    },
    {
     "es": "Disculpe, deme esto.",
-    "en": "Excuse me, I will take this.",
+    "en": "Excuse me, this one, please.",
     "ja": "すみません 、 これ を ください。",
     "romaji": "sumimasen, kore o kudasai."
    }
@@ -1691,7 +1691,7 @@
    },
    {
     "es": "Casi no tomo alcohol.",
-    "en": "I hardly ever drink alcohol.",
+    "en": "I don't drink much alcohol.",
     "ja": "わたし は あまり おさけ を のみません。",
     "romaji": "watashi wa amari osake o nomimasen."
    },
@@ -3059,7 +3059,7 @@
    }
   ],
   "explanationEs": "La forma て une acciones en orden. Solo el último verbo lleva el tiempo (ます/ました): おきて、あびて、いきます.",
-  "explanationEn": "The て form links actions in order. Only the last verb carries the tense (ます/ました): おきて、あびて、いきます.",
+  "explanationEn": "The て form links actions in order. Only the last verb carries the tense (ます/ました): おきて、シャワー を あびて、がっこう に いきます.",
   "examples": [
    {
     "es": "Me levanto, me ducho y voy a la escuela.",

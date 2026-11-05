@@ -768,3 +768,19 @@ koohii-wo-nomu | to drink coffee
 tenisu-wo-suru | to play tennis
 sakkaa-wo-suru | to play soccer
 geemu-wo-suru | to play video games
+# Core 1000: correcciones del inglés de Kanjikana (verbos sin "to", sentidos secundarios que confunden)
+noboru | to go up;to climb;to rise
+heru | to decrease;to diminish;to dwindle
+hanashiau | to discuss;to talk over
+nokoru | to remain;to stay;to be left
+uketoru | to receive;to accept;to interpret
+yamu | to stop (rain, wind);to cease;to let up
+sora | sky
+kekkou | quite;fine;no, thank you (declining)
+ore | I (male, casual and rough)
+me | eye;sight
+ageru-subir | to raise;to lift;to increase
+abiru | to take (a shower);to bathe in;to receive (light, criticism)
+shimeru-apretar | to tighten;to fasten (a seatbelt);to tie
+hisashiburi | long time no see;it's been a while
+mise | shop;store

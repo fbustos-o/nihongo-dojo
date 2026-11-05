@@ -15610,7 +15610,7 @@
    "identical",
    "equal"
   ],
-  "pos": "na-adj",
+  "pos": "noun",
   "lesson": "C4",
   "tags": [
    "adjetivo"
@@ -16268,13 +16268,11 @@
   "es": [
    "subir",
    "levantar",
-   "dar",
    "aumentar"
   ],
   "en": [
    "to raise",
    "to lift",
-   "to give",
    "to increase"
   ],
   "pos": "verb",
@@ -16876,14 +16874,14 @@
   "written": "浴びる",
   "romaji": "abiru",
   "es": [
+   "darse (una ducha)",
    "bañarse en",
-   "recibir una lluvia de",
-   "disfrutar de"
+   "recibir (luz, críticas)"
   ],
   "en": [
+   "to take (a shower)",
    "to bathe in",
-   "to be showered with",
-   "to bask in"
+   "to receive (light, criticism)"
   ],
   "pos": "verb",
   "verbGroup": "ru",
@@ -17203,15 +17201,11 @@
   "romaji": "me",
   "es": [
    "ojo",
-   "vista",
-   "propósito",
-   "orden (ordinal)"
+   "vista"
   ],
   "en": [
    "eye",
-   "sight",
-   "purpose",
-   "order (ordinal)"
+   "sight"
   ],
   "pos": "noun",
   "lesson": "C11",
@@ -17738,9 +17732,9 @@
    "elevarse"
   ],
   "en": [
-   "go up",
-   "ascend",
-   "rise"
+   "to go up",
+   "to climb",
+   "to rise"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -17781,13 +17775,13 @@
   "romaji": "shimeru",
   "es": [
    "apretar",
-   "abrochar",
-   "cerrar"
+   "abrochar (cinturón)",
+   "atar"
   ],
   "en": [
    "to tighten",
-   "to fasten",
-   "to close"
+   "to fasten (a seatbelt)",
+   "to tie"
   ],
   "pos": "verb",
   "verbGroup": "ru",
@@ -18505,12 +18499,10 @@
   "written": "俺",
   "romaji": "ore",
   "es": [
-   "yo",
-   "me (masculino, brusco o arrogante)"
+   "yo (masculino, informal y brusco)"
   ],
   "en": [
-   "I",
-   "me (male, rough or arrogant)"
+   "I (male, casual and rough)"
   ],
   "pos": "pronoun",
   "lesson": "C16",
@@ -18735,13 +18727,11 @@
   "romaji": "mise",
   "es": [
    "tienda",
-   "establecimiento",
-   "posada"
+   "establecimiento"
   ],
   "en": [
    "shop",
-   "store",
-   "inn"
+   "store"
   ],
   "pos": "noun",
   "lesson": "C17",
@@ -19542,9 +19532,9 @@
    "menguar"
   ],
   "en": [
-   "decrease",
-   "diminish",
-   "dwindle"
+   "to decrease",
+   "to diminish",
+   "to dwindle"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -20225,17 +20215,10 @@
   "written": "空",
   "romaji": "sora",
   "es": [
-   "vacío",
-   "cielo",
-   "desocupado",
-   "hueco"
+   "cielo"
   ],
   "en": [
-   "empty",
-   "sky",
-   "vacant",
-   "void",
-   "hollow"
+   "sky"
   ],
   "pos": "noun",
   "lesson": "C21",
@@ -21905,8 +21888,8 @@
    "hablar"
   ],
   "en": [
-   "discuss",
-   "talk over"
+   "to discuss",
+   "to talk over"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -22358,9 +22341,9 @@
    "sobrar"
   ],
   "en": [
-   "remain",
-   "stay",
-   "be left"
+   "to remain",
+   "to stay",
+   "to be left"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -23125,14 +23108,12 @@
   "es": [
    "bastante",
    "bien",
-   "no",
-   "gracias"
+   "no, gracias (al rechazar algo)"
   ],
   "en": [
    "quite",
-   "fairly",
    "fine",
-   "no thank you"
+   "no, thank you (declining)"
   ],
   "pos": "adverb",
   "lesson": "C29",
@@ -25011,9 +24992,9 @@
    "interpretar"
   ],
   "en": [
-   "receive",
-   "accept",
-   "interpret"
+   "to receive",
+   "to accept",
+   "to interpret"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -26870,9 +26851,9 @@
    "amainar"
   ],
   "en": [
-   "stop",
-   "cease",
-   "let up"
+   "to stop (rain, wind)",
+   "to cease",
+   "to let up"
   ],
   "pos": "verb",
   "verbGroup": "u",
@@ -27958,8 +27939,8 @@
    "hace tiempo"
   ],
   "en": [
-   "Long time no see",
-   "It's been a while"
+   "long time no see",
+   "it's been a while"
   ],
   "pos": "expression",
   "lesson": "C40",

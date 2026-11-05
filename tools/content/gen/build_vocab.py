@@ -93,11 +93,12 @@ def load_matches():
         out[int(r[0])]=(r[1],r[2] if len(r)>2 and r[2] else None)
     return out
 def load_pos():
-    """core1000_pos.txt: `rank | pos | verbGroup | tags` for every NEW Core word"""
+    """core1000_pos.txt: `rank | pos | verbGroup | tags [| es]` for every NEW Core word. The optional 5th column
+    replaces the Core Spanish glosses (separated by ;) when they are wrong or too technical for a beginner."""
     out={}
     for r in table('core1000_pos.txt'):
-        r+=['']*(4-len(r))
-        out[int(r[0])]=(r[1],r[2],[t for t in r[3].split(',') if t])
+        r+=['']*(5-len(r))
+        out[int(r[0])]=(r[1],r[2],[t for t in r[3].split(',') if t],split_gloss(r[4]) if r[4] else None)
     return out
 def load_en():
     """vocab_en.txt (from the English agent): `id | en (;) | noteEn`; takes priority over the Core English"""
@@ -149,10 +150,10 @@ def merge_core(words):
                 w['written']=word; stats['written']+=1
             continue
         if r not in posf: raise SystemExit('rank %d (%s) is NEW but missing in core1000_pos.txt'%(r,word))
-        pos,grp,tags=posf[r]
+        pos,grp,tags,es_fix=posf[r]
         if pos not in set(POS.values()): raise SystemExit('rank %d: bad pos %s'%(r,pos))
         rom=to_romaji(c['reading'])
-        es=split_commas(c['meanings']['es'])[:5]
+        es=es_fix or split_commas(c['meanings']['es'])[:5]
         if not nid:
             nid=slug(rom)
             if nid in ids or nid in enf and False:
