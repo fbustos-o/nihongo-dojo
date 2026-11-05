@@ -7,7 +7,7 @@
 .sub { display: block; font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 .toolbar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
 .options { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
-.option { text-align: left; font: inherit; font-size: 1.15rem; padding: 0.6rem 0.75rem; min-height: 3rem; border: 2px solid var(--border); border-radius: 0.6rem; background: var(--surface); color: var(--text); cursor: pointer; }
+.option { text-align: left; font: inherit; font-size: 1.15rem; padding: 0.6rem 0.75rem; min-height: 3rem; border: 2px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); cursor: pointer; }
 .option:hover:not(:disabled) { border-color: var(--accent); }
 .option:disabled { opacity: 0.55; text-decoration: line-through; cursor: not-allowed; }
 .title { margin: 0 0 0.5rem; font-size: 1.05rem; }

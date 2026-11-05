@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
+import { Icon, type IconName } from '../../components/Icon';
 import styles from './games.module.css';
 
 export type FeedbackTone = 'ok' | 'bad' | 'near';
 
-const ICON: Record<FeedbackTone, string> = { ok: '✓', bad: '✗', near: '≈' };
+const ICON: Record<FeedbackTone, IconName> = { ok: 'check', bad: 'x', near: 'alert' };
 
 export interface FeedbackMessage {
   tone: FeedbackTone;
@@ -21,7 +22,7 @@ export function Feedback({ message }: { message: FeedbackMessage | null }) {
       {message && (
         <p key={message.id} className={`${styles.feedback} ${styles[message.tone]}`}>
           <span aria-hidden="true" className={styles.icon}>
-            {ICON[message.tone]}
+            <Icon name={ICON[message.tone]} size={18} strokeWidth={3} />
           </span>
           <span>{message.node ?? message.text}</span>
         </p>

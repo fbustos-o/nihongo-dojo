@@ -53,7 +53,7 @@
   text-align: center;
   padding: 0.75rem 0.5rem;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius);
   background: var(--surface);
 }
 
@@ -142,39 +142,111 @@
 .weak li {
   padding: 0.25rem 0.6rem;
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   font-family: var(--font-ja);
 }
 
-/* Path */
+/* Path: one section per stage, coloured with --stage (data-stage on the section). */
 .stage {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .stageHead {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'num title fold'
+    'bar bar bar';
   align-items: center;
-  gap: 0.5rem 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.35rem 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-.stageHead h2 {
+.numeral {
+  grid-area: num;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--stage-soft);
+  color: var(--stage);
+  border: 1.5px solid var(--stage);
+  font-family: var(--font-ja);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stageTitle {
+  grid-area: title;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.75rem;
+  min-width: 0;
+}
+
+.stageTitle h2 {
   margin: 0;
+  font-size: 1.25rem;
+  color: var(--stage);
+}
+
+.stageCount {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.fold {
+  grid-area: fold;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--field-border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.fold:hover {
+  border-color: var(--stage);
+  background: var(--stage-soft);
+}
+
+.fold:active {
+  background: var(--stage-soft);
+  transform: translateY(1px);
+}
+
+.foldIcon {
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+
+.foldOpen {
+  transform: none;
 }
 
 .stageBar {
-  flex: 1 1 8rem;
-  max-width: 16rem;
+  grid-area: bar;
   height: 0.5rem;
   border-radius: 999px;
-  background: var(--border);
+  background: var(--stage-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--stage) 25%, transparent);
   overflow: hidden;
 }
 
 .stageBarFill {
   height: 100%;
-  background: var(--ok);
+  background: var(--stage);
+  border-radius: inherit;
+  transition: width 0.3s ease;
 }
 
 .nodes {
@@ -183,32 +255,34 @@
   padding: 0;
 }
 
-/* The path: a vertical rail connects the nodes of a stage; completed stretches are green. */
+/* The trail: circular markers on a vertical connector; the connector is filled (stage colour)
+   below every completed lesson, so it ends at the current one. */
 .pathStep {
   position: relative;
-  padding: 0 0 0.6rem 2.4rem;
+  padding: 0 0 0.7rem 3.1rem;
 }
 
 .pathStep::before {
   content: '';
   position: absolute;
-  left: 0.95rem;
+  left: 1.2rem;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
+  border-radius: 2px;
   background: var(--border);
 }
 
 .pathStep:first-child::before {
-  top: 1.6rem;
+  top: 1.7rem;
 }
 
 .pathStep:last-child::before {
-  bottom: calc(100% - 1.6rem);
+  bottom: calc(100% - 1.7rem);
 }
 
 .pathStepDone::before {
-  background: var(--ok);
+  background: var(--stage);
 }
 
 .node {
@@ -217,67 +291,85 @@
   gap: 0.6rem;
   padding: 0.6rem 0.8rem;
   border: 1px solid var(--border);
-  border-radius: 0.6rem;
+  border-radius: var(--radius);
   background: var(--surface);
+  box-shadow: var(--shadow-sm);
   color: var(--text);
   text-decoration: none;
-  min-height: 3.2rem;
+  min-height: 3.4rem;
   position: relative;
-}
-
-/* round marker sitting on the rail */
-.node::before {
-  content: '';
-  position: absolute;
-  left: -1.95rem;
-  top: 50%;
-  width: 1.1rem;
-  height: 1.1rem;
-  margin-top: -0.55rem;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 3px solid var(--border);
-}
-
-.nodeDone::before {
-  background: var(--ok);
-  border-color: var(--ok);
-}
-
-.nodeCurrent {
-  border: 2px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
-}
-
-.nodeCurrent::before {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 a.node:hover {
-  border-color: var(--accent);
+  border-color: var(--stage);
+  box-shadow: var(--shadow);
 }
 
-.nodeLocked {
-  opacity: 0.55;
+a.node:active {
+  background: var(--stage-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+/* circular marker sitting on the connector */
+.nodeIcon {
+  position: absolute;
+  left: -3.1rem;
+  top: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 3px solid var(--stage);
+  color: var(--stage);
+}
+
+.nodeDone .nodeIcon {
+  background: var(--stage);
+  color: var(--on-stage);
 }
 
 .nodeDone {
-  border-color: var(--ok);
+  border-color: color-mix(in srgb, var(--stage) 45%, var(--border));
 }
 
-.nodeIcon {
-  font-size: 1.3rem;
-  flex: none;
-  width: 1.6rem;
-  text-align: center;
+.nodeCurrent {
+  border: 2px solid var(--stage);
+  padding: calc(0.6rem - 1px) calc(0.8rem - 1px);
+  background: var(--stage-soft);
+}
+
+.nodeCurrent .nodeIcon {
+  background: var(--stage);
+  color: var(--on-stage);
+  box-shadow: 0 0 0 4px var(--stage-soft), 0 0 0 6px var(--stage);
+  animation: halo 2s ease-in-out infinite;
+}
+
+.nodeLocked {
+  background: transparent;
+  border-style: dashed;
+  box-shadow: none;
+  color: var(--text-muted);
+}
+
+.nodeLocked .nodeIcon {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.nodeLocked strong {
+  font-weight: 600;
 }
 
 .nodeBody {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  flex: 1;
 }
 
 .nodeState {
@@ -285,10 +377,50 @@ a.node:hover {
   color: var(--text-muted);
 }
 
+.nodeCurrent .nodeState {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.nodeGo {
+  flex: none;
+  color: var(--text-muted);
+}
+
+a.node:hover .nodeGo {
+  color: var(--stage);
+}
+
+@keyframes halo {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px var(--stage-soft), 0 0 0 6px var(--stage);
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--stage-soft), 0 0 0 9px color-mix(in srgb, var(--stage) 35%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nodeCurrent .nodeIcon,
+  .foldIcon,
+  .stageBarFill {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .stageHead {
+    grid-template-columns: auto minmax(0, 1fr) minmax(8rem, 14rem) auto;
+    grid-template-areas: 'num title bar fold';
+  }
+}
+
 /* Practice page */
 .fieldset {
   border: 1px solid var(--border);
-  border-radius: 0.6rem;
+  border-radius: var(--radius-sm);
   margin: 0 0 0.75rem;
   padding: 0.5rem 0.75rem;
 }
@@ -331,7 +463,7 @@ a.node:hover {
 .kanjiCard {
   padding: 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius);
   background: var(--surface);
   text-align: center;
 }
