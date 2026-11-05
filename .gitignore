@@ -12,3 +12,4 @@ test-results/
 .claude/
 qa-shots/
 __pycache__/
+test-results-*/
