@@ -7,3 +7,4 @@ export { useQuestionPicker } from './useQuestionPicker';
 export { TypingHint } from './TypingHint';
 export { useKeepInView } from './useKeepInView';
 export { useFirstAttempt } from './useFirstAttempt';
+export { StageContext, useStage, type StageNumber } from './StageContext';

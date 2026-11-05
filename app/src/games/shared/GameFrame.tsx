@@ -2,14 +2,18 @@ import type { ReactNode } from 'react';
 import { Icon } from '../../components/Icon';
 import { useT } from '../../i18n';
 import type { GameSession } from './useGameSession';
+import { useStage, type StageNumber } from './StageContext';
 import styles from './games.module.css';
 
 /**
  * Progress bar, streak counter and (endless mode) the "Terminar" button around a game.
- * `stage` (1-5) tints the progress bar with the stage colour; without it the accent colour is used.
+ * `stage` (1-5) tints the progress bar with the stage colour; without it the lesson's `StageContext` is used, and
+ * without that the accent colour.
  */
-export function GameFrame({ session, stage, children }: { session: GameSession; stage?: 1 | 2 | 3 | 4 | 5; children: ReactNode }) {
+export function GameFrame({ session, stage: stageProp, children }: { session: GameSession; stage?: StageNumber; children: ReactNode }) {
   const t = useT();
+  const contextStage = useStage();
+  const stage = stageProp ?? contextStage;
   const { rounds, stats, streak, finish } = session;
   const done = stats.total;
   return (
