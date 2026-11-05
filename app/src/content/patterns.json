@@ -2,6 +2,7 @@
  {
   "id": "svo-masu",
   "title": "わたし は X を Vます",
+  "titleEn": "わたし は X を Vます",
   "lesson": "P1",
   "english": [
    {
@@ -34,34 +35,41 @@
    }
   ],
   "explanationEs": "En español y en inglés el orden es Sujeto – Verbo – Objeto (S-V-O). En japonés el verbo va SIEMPRE al final: Sujeto – Objeto – Verbo (S-O-V). La partícula は marca el tema (de quién hablo) y を marca el objeto directo (lo que recibe la acción). El verbo en forma ます es la forma cortés del presente/futuro.",
+  "explanationEn": "As in English, the usual sentence order is Subject – Verb – Object (S-V-O). Japanese always puts the verb LAST: Subject – Object – Verb (S-O-V). The particle は marks the topic (who or what I am talking about) and を marks the direct object (what receives the action). A verb in its ます form is the polite present/future.",
   "examples": [
    {
     "es": "Yo bebo agua.",
+    "en": "I drink water.",
     "ja": "わたし は みず を のみます。",
     "romaji": "watashi wa mizu o nomimasu."
    },
    {
     "es": "Yo leo el periódico.",
+    "en": "I read the newspaper.",
     "ja": "わたし は しんぶん を よみます。",
     "romaji": "watashi wa shinbun o yomimasu."
    },
    {
     "es": "Yo compro un paraguas.",
+    "en": "I buy an umbrella.",
     "ja": "わたし は かさ を かいます。",
     "romaji": "watashi wa kasa o kaimasu."
    },
    {
     "es": "Yo veo televisión.",
+    "en": "I watch TV.",
     "ja": "わたし は テレビ を みます。",
     "romaji": "watashi wa terebi o mimasu."
    },
    {
     "es": "Yo hablo japonés.",
+    "en": "I speak Japanese.",
     "ja": "わたし は にほんご を はなします。",
     "romaji": "watashi wa nihongo o hanashimasu."
    },
    {
     "es": "Yo escribo una carta.",
+    "en": "I write a letter.",
     "ja": "わたし は てがみ を かきます。",
     "romaji": "watashi wa tegami o kakimasu."
    }
@@ -70,6 +78,7 @@
  {
   "id": "svo-shimasu",
   "title": "わたし は X を します",
+  "titleEn": "わたし は X を します",
   "lesson": "P1",
   "english": [
    {
@@ -102,34 +111,41 @@
    }
   ],
   "explanationEs": "する (hacer) se usa con muchos sustantivos: べんきょう を します (estudio), しごと を します (trabajo), よやく を します (hago una reserva). También sirve con deportes: テニス を します (juego tenis). Con sustantivos de acción se puede decir también べんきょうします (verbo compuesto).",
+  "explanationEn": "する (to do) is used with many nouns: べんきょう を します (I study), しごと を します (I work), よやく を します (I make a reservation). It also works with sports: テニス を します (I play tennis). With action nouns you can also say べんきょうします (compound verb).",
   "examples": [
    {
     "es": "Yo estudio.",
+    "en": "I study.",
     "ja": "わたし は べんきょう を します。",
     "romaji": "watashi wa benkyou o shimasu."
    },
    {
     "es": "Yo trabajo.",
+    "en": "I work.",
     "ja": "わたし は しごと を します。",
     "romaji": "watashi wa shigoto o shimasu."
    },
    {
     "es": "Yo juego al tenis.",
+    "en": "I play tennis.",
     "ja": "わたし は テニス を します。",
     "romaji": "watashi wa tenisu o shimasu."
    },
    {
     "es": "Yo hago las compras.",
+    "en": "I go shopping.",
     "ja": "わたし は かいもの を します。",
     "romaji": "watashi wa kaimono o shimasu."
    },
    {
     "es": "Yo hago una reserva.",
+    "en": "I make a reservation.",
     "ja": "わたし は よやく を します。",
     "romaji": "watashi wa yoyaku o shimasu."
    },
    {
     "es": "Yo doy un paseo.",
+    "en": "I take a walk.",
     "ja": "わたし は さんぽ を します。",
     "romaji": "watashi wa sanpo o shimasu."
    }
@@ -138,6 +154,7 @@
  {
   "id": "go-ni-ikimasu",
   "title": "わたし は LUGAR に いきます",
+  "titleEn": "わたし は PLACE に いきます",
   "lesson": "P1",
   "english": [
    {
@@ -170,29 +187,35 @@
    }
   ],
   "explanationEs": "Con verbos de movimiento (いきます ir, きます venir, かえります volver) el destino se marca con に (o へ, que se lee \"e\"). Orden: Sujeto – Destino – Verbo. La dirección va antes del verbo, igual que el objeto.",
+  "explanationEn": "With verbs of movement (いきます to go, きます to come, かえります to return) the destination is marked with に (or へ, which is read \"e\"). Order: Subject – Destination – Verb. The destination goes before the verb, just like the object.",
   "examples": [
    {
     "es": "Yo voy a la estación.",
+    "en": "I'm going to the station.",
     "ja": "わたし は えき に いきます。",
     "romaji": "watashi wa eki ni ikimasu."
    },
    {
     "es": "Yo voy a Kioto.",
+    "en": "I'm going to Kyoto.",
     "ja": "わたし は きょうと に いきます。",
     "romaji": "watashi wa kyouto ni ikimasu."
    },
    {
     "es": "Yo voy al restaurante.",
+    "en": "I'm going to the restaurant.",
     "ja": "わたし は レストラン に いきます。",
     "romaji": "watashi wa resutoran ni ikimasu."
    },
    {
     "es": "Yo voy al gimnasio.",
+    "en": "I'm going to the gym.",
     "ja": "わたし は ジム に いきます。",
     "romaji": "watashi wa jimu ni ikimasu."
    },
    {
     "es": "Yo voy al banco.",
+    "en": "I'm going to the bank.",
     "ja": "わたし は ぎんこう に いきます。",
     "romaji": "watashi wa ginkou ni ikimasu."
    }
@@ -201,6 +224,7 @@
  {
   "id": "noun-desu",
   "title": "X は Y です",
+  "titleEn": "X は Y です",
   "lesson": "P2",
   "english": [
    {
@@ -232,29 +256,35 @@
    }
   ],
   "explanationEs": "です equivale a \"ser/estar\" en frases con sustantivos y va al final: Sujeto – Sustantivo – です. No cambia según la persona (yo soy / tú eres / él es = です). は marca el tema.",
+  "explanationEn": "です is like \"to be\" in sentences with nouns and goes at the end: Subject – Noun – です. It does not change with the person (I am / you are / he is = です). は marks the topic.",
   "examples": [
    {
     "es": "Yo soy estudiante.",
+    "en": "I am a student.",
     "ja": "わたし は がくせい です。",
     "romaji": "watashi wa gakusei desu."
    },
    {
     "es": "Esto es agua.",
+    "en": "This is water.",
     "ja": "これ は みず です。",
     "romaji": "kore wa mizu desu."
    },
    {
     "es": "Aquella persona es profesor.",
+    "en": "That person is a teacher.",
     "ja": "あの ひと は せんせい です。",
     "romaji": "ano hito wa sensei desu."
    },
    {
     "es": "Hoy es sábado.",
+    "en": "Today is Saturday.",
     "ja": "きょう は どようび です。",
     "romaji": "kyou wa doyoubi desu."
    },
    {
     "es": "La señora Tanaka es japonesa.",
+    "en": "Ms. Tanaka is Japanese.",
     "ja": "たなか さん は にほんじん です。",
     "romaji": "tanaka san wa nihonjin desu."
    }
@@ -263,6 +293,7 @@
  {
   "id": "adj-desu",
   "title": "X は ADJ です",
+  "titleEn": "X は ADJ です",
   "lesson": "P2",
   "english": [
    {
@@ -294,29 +325,35 @@
    }
   ],
   "explanationEs": "Con adjetivos el orden también es Sujeto – Adjetivo – です. Adjetivos い (おいしい, いそがしい, おおきい) terminan en い; adjetivos な (げんき, きれい, しずか) se usan igual delante de です. です aquí solo añade cortesía.",
+  "explanationEn": "With adjectives the order is also Subject – Adjective – です. い-adjectives (おいしい, いそがしい, おおきい) end in い; な-adjectives (げんき, きれい, しずか) are used the same way before です. です here only adds politeness.",
   "examples": [
    {
     "es": "Mamá está bien (sana).",
+    "en": "Mom is well (healthy).",
     "ja": "おかあさん は げんき です。",
     "romaji": "okaasan wa genki desu."
    },
    {
     "es": "Hoy hace calor.",
+    "en": "It is hot today.",
     "ja": "きょう は あつい です。",
     "romaji": "kyou wa atsui desu."
    },
    {
     "es": "Este libro es interesante.",
+    "en": "This book is interesting.",
     "ja": "この ほん は おもしろい です。",
     "romaji": "kono hon wa omoshiroi desu."
    },
    {
     "es": "Mañana estoy ocupado.",
+    "en": "I'm busy tomorrow.",
     "ja": "あした は いそがしい です。",
     "romaji": "ashita wa isogashii desu."
    },
    {
     "es": "Tokio es animado.",
+    "en": "Tokyo is lively.",
     "ja": "とうきょう は にぎやか です。",
     "romaji": "toukyou wa nigiyaka desu."
    }
@@ -325,6 +362,7 @@
  {
   "id": "noun-janai",
   "title": "X は Y じゃないです",
+  "titleEn": "X は Y じゃないです",
   "lesson": "P2",
   "english": [
    {
@@ -356,29 +394,35 @@
    }
   ],
   "explanationEs": "Negación de です con sustantivos y adjetivos な: じゃないです (más formal: ではありません). El orden no cambia: Sujeto – Sustantivo – じゃないです.",
+  "explanationEn": "Negative of です with nouns and な-adjectives: じゃないです (more formal: ではありません). The order does not change: Subject – Noun – じゃないです.",
   "examples": [
    {
     "es": "Esto no es agua.",
+    "en": "This is not water.",
     "ja": "これ は みず じゃ ないです。",
     "romaji": "kore wa mizu ja naidesu."
    },
    {
     "es": "Yo no soy profesor.",
+    "en": "I'm not a teacher.",
     "ja": "わたし は せんせい じゃ ないです。",
     "romaji": "watashi wa sensei ja naidesu."
    },
    {
     "es": "Aquello no es un reloj.",
+    "en": "That is not a clock.",
     "ja": "あれ は とけい じゃ ないです。",
     "romaji": "are wa tokei ja naidesu."
    },
    {
     "es": "Mañana no es domingo.",
+    "en": "Tomorrow is not Sunday.",
     "ja": "あした は にちようび じゃ ないです。",
     "romaji": "ashita wa nichiyoubi ja naidesu."
    },
    {
     "es": "Mamá no está bien.",
+    "en": "Mom is not well.",
     "ja": "おかあさん は げんき じゃ ないです。",
     "romaji": "okaasan wa genki ja naidesu."
    }
@@ -387,6 +431,7 @@
  {
   "id": "adj-kunai",
   "title": "X は ADJ くないです",
+  "titleEn": "X は ADJ くないです",
   "lesson": "P2",
   "english": [
    {
@@ -418,29 +463,35 @@
    }
   ],
   "explanationEs": "SOLO para adjetivos い: se quita い y se agrega くないです (おいしい → おいしくないです). Los adjetivos な usan じゃないです. Excepción: いい → よくないです.",
+  "explanationEn": "ONLY for い-adjectives: drop い and add くないです (おいしい → おいしくないです). な-adjectives use じゃないです. Exception: いい → よくないです.",
   "examples": [
    {
     "es": "Mañana no estoy ocupado.",
+    "en": "I'm not busy tomorrow.",
     "ja": "あした は いそがしく ないです。",
     "romaji": "ashita wa isogashiku naidesu."
    },
    {
     "es": "Esta comida no es picante.",
+    "en": "This food is not spicy.",
     "ja": "この りょうり は からく ないです。",
     "romaji": "kono ryouri wa karaku naidesu."
    },
    {
     "es": "Hoy no hace frío.",
+    "en": "It is not cold today.",
     "ja": "きょう は さむく ないです。",
     "romaji": "kyou wa samuku naidesu."
    },
    {
     "es": "Este libro no es bueno.",
+    "en": "This book is not good.",
     "ja": "この ほん は よく ないです。",
     "romaji": "kono hon wa yoku naidesu."
    },
    {
     "es": "Esta bolsa no es cara.",
+    "en": "This bag is not expensive.",
     "ja": "この かばん は たかく ないです。",
     "romaji": "kono kaban wa takaku naidesu."
    }
@@ -449,6 +500,7 @@
  {
   "id": "ka-question",
   "title": "〜ですか (preguntas)",
+  "titleEn": "〜ですか (questions)",
   "lesson": "G1",
   "english": [
    {
@@ -480,34 +532,41 @@
    }
   ],
   "explanationEs": "Para hacer una pregunta se agrega か al final; no hace falta cambiar el orden ni usar signos de interrogación. Respuestas: はい (sí) / いいえ (no). Palabras interrogativas: なに/なん (qué), だれ (quién), どこ (dónde), いつ (cuándo), いくら (cuánto cuesta).",
+  "explanationEn": "To ask a question, add か at the end; there is no need to change the word order or use a question mark. Answers: はい (yes) / いいえ (no). Question words: なに/なん (what), だれ (who), どこ (where), いつ (when), いくら (how much).",
   "examples": [
    {
     "es": "¿Eres estudiante?",
+    "en": "Are you a student?",
     "ja": "あなた は がくせい ですか。",
     "romaji": "anata wa gakusei desuka."
    },
    {
     "es": "Sí, soy estudiante.",
+    "en": "Yes, I am a student.",
     "ja": "はい 、 がくせい です。",
     "romaji": "hai, gakusei desu."
    },
    {
     "es": "¿Esto es agua?",
+    "en": "Is this water?",
     "ja": "これ は みず ですか。",
     "romaji": "kore wa mizu desuka."
    },
    {
     "es": "No, no es agua.",
+    "en": "No, it isn't water.",
     "ja": "いいえ 、 みず じゃ ないです。",
     "romaji": "iie, mizu ja naidesu."
    },
    {
     "es": "¿Qué hora es?",
+    "en": "What time is it?",
     "ja": "いま なんじ ですか。",
     "romaji": "ima nanji desuka."
    },
    {
     "es": "Son las dos y media.",
+    "en": "It's half past two.",
     "ja": "にじはん です。",
     "romaji": "nijihan desu."
    }
@@ -516,6 +575,7 @@
  {
   "id": "no-possession",
   "title": "N1 の N2",
+  "titleEn": "N1 の N2",
   "lesson": "G1",
   "english": [
    {
@@ -539,29 +599,35 @@
    }
   ],
   "explanationEs": "の une dos sustantivos: N1 の N2 = \"N2 de N1\" (posesión, pertenencia, tema). El orden es inverso al español: se dice primero el poseedor. にほんご の せんせい = profesor de japonés. Al final de frase, の puede reemplazar al sustantivo: わたし の (el mío).",
+  "explanationEn": "の links two nouns: N1 の N2 = \"N2 of N1\" (possession, belonging, topic). The order is the reverse of the English \"of\" phrase: you say the possessor first. にほんご の せんせい = Japanese teacher. At the end of a sentence, の can replace the noun: わたし の (mine).",
   "examples": [
    {
     "es": "Mi amigo.",
+    "en": "My friend.",
     "ja": "わたし の ともだち",
     "romaji": "watashi no tomodachi"
    },
    {
     "es": "El profesor de japonés.",
+    "en": "The Japanese teacher.",
     "ja": "にほんご の せんせい",
     "romaji": "nihongo no sensei"
    },
    {
     "es": "Este es el libro de Mary.",
+    "en": "This is Mary's book.",
     "ja": "これ は メアリーさん の ほん です。",
     "romaji": "kore wa meariisan no hon desu."
    },
    {
     "es": "Aquel paraguas es de la señora Tanaka.",
+    "en": "That umbrella is Ms. Tanaka's.",
     "ja": "あの かさ は たなか さん の です。",
     "romaji": "ano kasa wa tanaka san no desu."
    },
    {
     "es": "El estudiante de la universidad.",
+    "en": "The university student.",
     "ja": "だいがく の がくせい",
     "romaji": "daigaku no gakusei"
    }
@@ -570,6 +636,7 @@
  {
   "id": "kore-sore-are",
   "title": "これ / それ / あれ / どれ",
+  "titleEn": "これ / それ / あれ / どれ",
   "lesson": "G2",
   "english": [
    {
@@ -601,29 +668,35 @@
    }
   ],
   "explanationEs": "Pronombres demostrativos (sin sustantivo detrás): これ = esto (cerca de mí), それ = eso (cerca de ti), あれ = aquello (lejos de ambos), どれ = ¿cuál? (entre 3 o más).",
+  "explanationEn": "Demonstrative pronouns (with no noun after them): これ = this (near me), それ = that (near you), あれ = that over there (far from both), どれ = which one? (among three or more).",
   "examples": [
    {
     "es": "¿Qué es esto?",
+    "en": "What is this?",
     "ja": "これ は なん ですか。",
     "romaji": "kore wa nan desuka."
    },
    {
     "es": "Eso (cerca de ti) es un paraguas.",
+    "en": "That (near you) is an umbrella.",
     "ja": "それ は かさ です。",
     "romaji": "sore wa kasa desu."
    },
    {
     "es": "Aquello (allá) es un banco.",
+    "en": "That (over there) is a bank.",
     "ja": "あれ は ぎんこう です。",
     "romaji": "are wa ginkou desu."
    },
    {
     "es": "¿Cuál es tu reloj?",
+    "en": "Which one is your watch?",
     "ja": "どれ が あなた の とけい ですか。",
     "romaji": "dore ga anata no tokei desuka."
    },
    {
     "es": "Esto es mío.",
+    "en": "This is mine.",
     "ja": "これ は わたし の です。",
     "romaji": "kore wa watashi no desu."
    }
@@ -632,6 +705,7 @@
  {
   "id": "kono-sono-ano",
   "title": "この / その / あの / どの + N",
+  "titleEn": "この / その / あの / どの + N",
   "lesson": "G2",
   "english": [
    {
@@ -663,29 +737,35 @@
    }
   ],
   "explanationEs": "この, その, あの, どの SIEMPRE van seguidos de un sustantivo (este ..., ese ..., aquel ..., ¿cuál ...?). No se pueden usar solos: これ (solo) vs この ほん (con sustantivo).",
+  "explanationEn": "この, その, あの, どの are ALWAYS followed by a noun (this ..., that ..., that ... over there, which ...?). They cannot be used alone: これ (alone) vs この ほん (with a noun).",
   "examples": [
    {
     "es": "Este bolso es caro.",
+    "en": "This bag is expensive.",
     "ja": "この かばん は たかい です。",
     "romaji": "kono kaban wa takai desu."
    },
    {
     "es": "¿Cuánto cuestan esos zapatos?",
+    "en": "How much are those shoes?",
     "ja": "その くつ は いくら ですか。",
     "romaji": "sono kutsu wa ikura desuka."
    },
    {
     "es": "¿Quién es aquella persona?",
+    "en": "Who is that person over there?",
     "ja": "あの ひと は だれ ですか。",
     "romaji": "ano hito wa dare desuka."
    },
    {
     "es": "¿Qué libro es interesante?",
+    "en": "Which book is interesting?",
     "ja": "どの ほん が おもしろい ですか。",
     "romaji": "dono hon ga omoshiroi desuka."
    },
    {
     "es": "Este reloj es nuevo.",
+    "en": "This watch is new.",
     "ja": "この とけい は あたらしい です。",
     "romaji": "kono tokei wa atarashii desu."
    }
@@ -694,6 +774,7 @@
  {
   "id": "koko-soko-asoko",
   "title": "ここ / そこ / あそこ / どこ",
+  "titleEn": "ここ / そこ / あそこ / どこ",
   "lesson": "G2",
   "english": [
    {
@@ -725,29 +806,35 @@
    }
   ],
   "explanationEs": "Lugares: ここ = aquí (cerca de mí), そこ = ahí (cerca de ti), あそこ = allí (lejos de ambos), どこ = ¿dónde? Con です funcionan como \"estar en\".",
+  "explanationEn": "Places: ここ = here (near me), そこ = there (near you), あそこ = over there (far from both), どこ = where? With です they work like \"to be at\".",
   "examples": [
    {
     "es": "Aquí es la escuela.",
+    "en": "This is the school.",
     "ja": "ここ は がっこう です。",
     "romaji": "koko wa gakkou desu."
    },
    {
     "es": "¿Dónde está el baño?",
+    "en": "Where is the restroom?",
     "ja": "トイレ は どこ ですか。",
     "romaji": "toire wa doko desuka."
    },
    {
     "es": "El banco está allí.",
+    "en": "The bank is over there.",
     "ja": "ぎんこう は あそこ です。",
     "romaji": "ginkou wa asoko desu."
    },
    {
     "es": "Eso de ahí es un restaurante.",
+    "en": "That place there is a restaurant.",
     "ja": "そこ は レストラン です。",
     "romaji": "soko wa resutoran desu."
    },
    {
     "es": "¿Dónde está la estación?",
+    "en": "Where is the station?",
     "ja": "えき は どこ ですか。",
     "romaji": "eki wa doko desuka."
    }
@@ -756,6 +843,7 @@
  {
   "id": "dare-no",
   "title": "だれの N / N の です",
+  "titleEn": "だれの N / N の です",
   "lesson": "G2",
   "english": [
    {
@@ -792,24 +880,29 @@
    }
   ],
   "explanationEs": "だれの = ¿de quién? Se usa como \"N1 の N2\". En la respuesta se puede omitir el segundo sustantivo: それ は たなかさん の です (es de Tanaka).",
+  "explanationEn": "だれの = whose? It is used like \"N1 の N2\". In the answer the second noun can be left out: それ は たなかさん の です (it is Ms. Tanaka's).",
   "examples": [
    {
     "es": "¿De quién es este bolso?",
+    "en": "Whose bag is this?",
     "ja": "これ は だれ の かばん ですか。",
     "romaji": "kore wa dare no kaban desuka."
    },
    {
     "es": "Es de la señora Tanaka.",
+    "en": "It is Ms. Tanaka's.",
     "ja": "たなか さん の です。",
     "romaji": "tanaka san no desu."
    },
    {
     "es": "¿De quién es ese cuaderno?",
+    "en": "Whose notebook is that?",
     "ja": "その ノート は だれ の ですか。",
     "romaji": "sono nooto wa dare no desuka."
    },
    {
     "es": "Es mío.",
+    "en": "It is mine.",
     "ja": "わたし の です。",
     "romaji": "watashi no desu."
    }
@@ -818,6 +911,7 @@
  {
   "id": "mo-too",
   "title": "X も (también)",
+  "titleEn": "X も (also, too)",
   "lesson": "G2",
   "english": [
    {
@@ -849,24 +943,29 @@
    }
   ],
   "explanationEs": "も = \"también\". Reemplaza a は, が y を (no se escribe junto a ellos): わたし は → わたし も. Con otras partículas se suma: に も, で も.",
+  "explanationEn": "も = \"also, too\". It replaces は, が and を (it is never written together with them): わたし は → わたし も. With other particles it is added: に も, で も.",
   "examples": [
    {
     "es": "Yo también soy estudiante.",
+    "en": "I am a student too.",
     "ja": "わたし も がくせい です。",
     "romaji": "watashi mo gakusei desu."
    },
    {
     "es": "¿Tú también eres estudiante?",
+    "en": "Are you a student too?",
     "ja": "あなた も がくせい ですか。",
     "romaji": "anata mo gakusei desuka."
    },
    {
     "es": "Esto también es un libro.",
+    "en": "This is a book too.",
     "ja": "これ も ほん です。",
     "romaji": "kore mo hon desu."
    },
    {
     "es": "Yo también bebo café.",
+    "en": "I drink coffee too.",
     "ja": "わたし も コーヒー を のみます。",
     "romaji": "watashi mo koohii o nomimasu."
    }
@@ -875,6 +974,7 @@
  {
   "id": "ikura-desu-ka",
   "title": "N は いくら ですか (precios)",
+  "titleEn": "N は いくら ですか (prices)",
   "lesson": "G2",
   "english": [
    {
@@ -906,29 +1006,35 @@
    }
   ],
   "explanationEs": "いくら = ¿cuánto cuesta? Respuesta: número + えん + です. Lectura de precios: ひゃくえん (100), せんえん (1000), いちまんえん (10 000). Ver numbers.json para las lecturas irregulares (さんびゃく, ろっぴゃく, はっぴゃく, さんぜん, はっせん).",
+  "explanationEn": "いくら = how much does it cost? Answer: number + えん + です. Reading prices: ひゃくえん (100), せんえん (1000), いちまんえん (10,000). See numbers.json for the irregular readings (さんびゃく, ろっぴゃく, はっぴゃく, さんぜん, はっせん).",
   "examples": [
    {
     "es": "¿Cuánto cuesta el lápiz?",
+    "en": "How much is the pencil?",
     "ja": "えんぴつ は いくら ですか。",
     "romaji": "enpitsu wa ikura desuka."
    },
    {
     "es": "Cuesta cincuenta yenes.",
+    "en": "It is fifty yen.",
     "ja": "ごじゅうえん です。",
     "romaji": "gojuuen desu."
    },
    {
     "es": "¿Cuánto cuesta este reloj?",
+    "en": "How much is this watch?",
     "ja": "この とけい は いくら ですか。",
     "romaji": "kono tokei wa ikura desuka."
    },
    {
     "es": "Cuesta diez mil yenes.",
+    "en": "It is ten thousand yen.",
     "ja": "いちまんえん です。",
     "romaji": "ichiman'en desu."
    },
    {
     "es": "El diccionario cuesta ocho mil yenes.",
+    "en": "The dictionary is eight thousand yen.",
     "ja": "じしょ は はっせんえん です。",
     "romaji": "jisho wa hassen'en desu."
    }
@@ -937,6 +1043,7 @@
  {
   "id": "kudasai",
   "title": "X を ください",
+  "titleEn": "X を ください",
   "lesson": "G2",
   "english": [
    {
@@ -960,24 +1067,29 @@
    }
   ],
   "explanationEs": "ください = \"deme, por favor\" al pedir algo. Para pedir con cantidad: X を 数 ください (コーヒー を ふたつ ください). Más cortés: おねがいします.",
+  "explanationEn": "ください = \"please give me\" when asking for something. To ask for a quantity: X を NUMBER ください (コーヒー を ふたつ ください). More polite: おねがいします.",
   "examples": [
    {
     "es": "Deme esto, por favor.",
+    "en": "Please give me this.",
     "ja": "これ を ください。",
     "romaji": "kore o kudasai."
    },
    {
     "es": "Deme un café, por favor.",
+    "en": "A coffee, please.",
     "ja": "コーヒー を ください。",
     "romaji": "koohii o kudasai."
    },
    {
     "es": "Deme el menú, por favor.",
+    "en": "The menu, please.",
     "ja": "メニュー を おねがいします。",
     "romaji": "menyuu o onegaishimasu."
    },
    {
     "es": "Disculpe, deme esto.",
+    "en": "Excuse me, I will take this.",
     "ja": "すみません 、 これ を ください。",
     "romaji": "sumimasen, kore o kudasai."
    }
@@ -986,6 +1098,7 @@
  {
   "id": "masu-4-tenses",
   "title": "Vます / Vました / Vません / Vませんでした",
+  "titleEn": "Vます / Vました / Vません / Vませんでした",
   "lesson": "P8",
   "english": [
    {
@@ -1009,24 +1122,29 @@
    }
   ],
   "explanationEs": "Las cuatro formas corteses del verbo: ます (presente/futuro afirmativo), ました (pasado afirmativo), ません (presente/futuro negativo), ませんでした (pasado negativo). Se obtienen quitando ます de la forma ます y agregando la terminación; ver las tablas de conjugación.",
+  "explanationEn": "The four polite verb forms: ます (affirmative present/future), ました (affirmative past), ません (negative present/future), ませんでした (negative past). You get them by dropping ます from the ます form and adding the ending; see the conjugation tables.",
   "examples": [
    {
     "es": "Yo como pan.",
+    "en": "I eat bread.",
     "ja": "わたし は パン を たべます。",
     "romaji": "watashi wa pan o tabemasu."
    },
    {
     "es": "Yo comí pan.",
+    "en": "I ate bread.",
     "ja": "わたし は パン を たべました。",
     "romaji": "watashi wa pan o tabemashita."
    },
    {
     "es": "Yo no como pan.",
+    "en": "I don't eat bread.",
     "ja": "わたし は パン を たべません。",
     "romaji": "watashi wa pan o tabemasen."
    },
    {
     "es": "Yo no comí pan.",
+    "en": "I didn't eat bread.",
     "ja": "わたし は パン を たべませんでした。",
     "romaji": "watashi wa pan o tabemasendeshita."
    }
@@ -1035,6 +1153,7 @@
  {
   "id": "question-words",
   "title": "なに / だれ / どこ / いつ + Vますか",
+  "titleEn": "なに / だれ / どこ / いつ + Vますか",
   "lesson": "G3",
   "english": [
    {
@@ -1067,29 +1186,35 @@
    }
   ],
   "explanationEs": "Las palabras interrogativas ocupan el lugar de la respuesta, sin cambiar el orden: なに を (qué), どこ に/で (adónde/dónde), だれ と (con quién), いつ (cuándo), なんじ に (a qué hora).",
+  "explanationEn": "Question words take the place of the answer without changing the word order: なに を (what), どこ に/で (where to / where), だれ と (with whom), いつ (when), なんじ に (at what time).",
   "examples": [
    {
     "es": "¿Qué tomas?",
+    "en": "What do you drink?",
     "ja": "なに を のみますか。",
     "romaji": "nani o nomimasuka."
    },
    {
     "es": "¿Adónde vas?",
+    "en": "Where are you going?",
     "ja": "どこ に いきますか。",
     "romaji": "doko ni ikimasuka."
    },
    {
     "es": "¿Con quién vas?",
+    "en": "Who are you going with?",
     "ja": "だれ と いきますか。",
     "romaji": "dare to ikimasuka."
    },
    {
     "es": "¿Cuándo vuelves?",
+    "en": "When are you coming back?",
     "ja": "いつ かえりますか。",
     "romaji": "itsu kaerimasuka."
    },
    {
     "es": "¿A qué hora te levantas?",
+    "en": "What time do you get up?",
     "ja": "なんじ に おきますか。",
     "romaji": "nanji ni okimasuka."
    }
@@ -1098,6 +1223,7 @@
  {
   "id": "masu-masen",
   "title": "Vます / Vません (presente y futuro)",
+  "titleEn": "Vます / Vません (present and future)",
   "lesson": "G3",
   "english": [
    {
@@ -1130,24 +1256,29 @@
    }
   ],
   "explanationEs": "La forma ます sirve para hábitos y para el futuro (no hay un futuro separado): まいにち コーヒー を のみます (tomo café todos los días), あした のみます (mañana tomaré). La negación es ません.",
+  "explanationEn": "The ます form is used for habits and for the future (there is no separate future tense): まいにち コーヒー を のみます (I drink coffee every day), あした のみます (I will drink it tomorrow). The negative is ません.",
   "examples": [
    {
     "es": "Yo no tomo café.",
+    "en": "I don't drink coffee.",
     "ja": "わたし は コーヒー を のみません。",
     "romaji": "watashi wa koohii o nomimasen."
    },
    {
     "es": "Yo me levanto a las siete todos los días.",
+    "en": "I get up at seven every day.",
     "ja": "わたし は まいにち しちじ に おきます。",
     "romaji": "watashi wa mainichi shichiji ni okimasu."
    },
    {
     "es": "Mañana no voy a la escuela.",
+    "en": "I'm not going to school tomorrow.",
     "ja": "あした がっこう に いきません。",
     "romaji": "ashita gakkou ni ikimasen."
    },
    {
     "es": "Esta noche veo una película.",
+    "en": "I'm watching a movie tonight.",
     "ja": "こんばん えいが を みます。",
     "romaji": "konban eiga o mimasu."
    }
@@ -1156,6 +1287,7 @@
  {
   "id": "ni-he-direction",
   "title": "に / へ (destino)",
+  "titleEn": "に / へ (destination)",
   "lesson": "G3",
   "english": [
    {
@@ -1188,24 +1320,29 @@
    }
   ],
   "explanationEs": "Destino de un movimiento: に o へ (へ se lee \"e\"). Verbos: いきます, きます, かえります. Con へ se enfatiza la dirección; con に el punto de llegada.",
+  "explanationEn": "Destination of a movement: に or へ (へ is read \"e\"). Verbs: いきます, きます, かえります. With へ the direction is emphasized; with に, the point of arrival.",
   "examples": [
    {
     "es": "Yo vuelvo a casa.",
+    "en": "I'm going home.",
     "ja": "わたし は いえ に かえります。",
     "romaji": "watashi wa ie ni kaerimasu."
    },
    {
     "es": "Yo voy a la escuela.",
+    "en": "I'm going to school.",
     "ja": "わたし は がっこう へ いきます。",
     "romaji": "watashi wa gakkou e ikimasu."
    },
    {
     "es": "Yo vengo a Japón.",
+    "en": "I'm coming to Japan.",
     "ja": "わたし は にほん に きます。",
     "romaji": "watashi wa nihon ni kimasu."
    },
    {
     "es": "Voy a la casa de un amigo.",
+    "en": "I'm going to a friend's house.",
     "ja": "ともだち の うち へ いきます。",
     "romaji": "tomodachi no uchi e ikimasu."
    }
@@ -1214,6 +1351,7 @@
  {
   "id": "de-place-action",
   "title": "LUGAR で X を Vます",
+  "titleEn": "PLACE で X を Vます",
   "lesson": "G3",
   "english": [
    {
@@ -1255,29 +1393,35 @@
    }
   ],
   "explanationEs": "で marca el lugar donde se realiza una acción (≠ に, que marca existencia o destino). Orden habitual: Tema – Lugar で – Objeto を – Verbo.",
+  "explanationEn": "で marks the place where an action takes place (≠ に, which marks existence or destination). Usual order: Topic – Place で – Object を – Verb.",
   "examples": [
    {
     "es": "Yo leo un libro en la biblioteca.",
+    "en": "I read a book in the library.",
     "ja": "わたし は としょかん で ほん を よみます。",
     "romaji": "watashi wa toshokan de hon o yomimasu."
    },
    {
     "es": "Tomo café en la cafetería.",
+    "en": "I drink coffee at the cafe.",
     "ja": "カフェ で コーヒー を のみます。",
     "romaji": "kafe de koohii o nomimasu."
    },
    {
     "es": "Veo televisión en casa.",
+    "en": "I watch TV at home.",
     "ja": "うち で テレビ を みます。",
     "romaji": "uchi de terebi o mimasu."
    },
    {
     "es": "Ceno en el restaurante.",
+    "en": "I have dinner at the restaurant.",
     "ja": "レストラン で ばんごはん を たべます。",
     "romaji": "resutoran de bangohan o tabemasu."
    },
    {
     "es": "Estudio japonés en la universidad.",
+    "en": "I study Japanese at the university.",
     "ja": "だいがく で にほんご を べんきょう します。",
     "romaji": "daigaku de nihongo o benkyou shimasu."
    }
@@ -1286,6 +1430,7 @@
  {
   "id": "ni-time",
   "title": "TIEMPO に Vます",
+  "titleEn": "TIME に Vます",
   "lesson": "G3",
   "english": [
    {
@@ -1318,29 +1463,35 @@
    }
   ],
   "explanationEs": "Las horas, días de la semana, fechas y años exactos llevan に: しちじ に, にちようび に, ごがつ ついたち に. Las expresiones relativas (きょう, あした, きのう, まいにち, いま, こんばん) NO llevan に.",
+  "explanationEn": "Exact times, days of the week, dates and years take に: しちじ に, にちようび に, ごがつ ついたち に. Relative time expressions (きょう, あした, きのう, まいにち, いま, こんばん) do NOT take に.",
   "examples": [
    {
     "es": "Me levanto a las siete.",
+    "en": "I get up at seven.",
     "ja": "しちじ に おきます。",
     "romaji": "shichiji ni okimasu."
    },
    {
     "es": "Me acuesto a las diez.",
+    "en": "I go to bed at ten.",
     "ja": "じゅうじ に ねます。",
     "romaji": "juuji ni nemasu."
    },
    {
     "es": "El domingo veo a mi amigo.",
+    "en": "I see my friend on Sunday.",
     "ja": "にちようび に ともだち に あいます。",
     "romaji": "nichiyoubi ni tomodachi ni aimasu."
    },
    {
     "es": "El sábado veo una película.",
+    "en": "I watch a movie on Saturday.",
     "ja": "どようび に えいが を みます。",
     "romaji": "doyoubi ni eiga o mimasu."
    },
    {
     "es": "Mañana voy a la escuela.",
+    "en": "I'm going to school tomorrow.",
     "ja": "あした がっこう に いきます。",
     "romaji": "ashita gakkou ni ikimasu."
    }
@@ -1349,6 +1500,7 @@
  {
   "id": "masen-ka",
   "title": "Vませんか (invitación)",
+  "titleEn": "Vませんか (invitation)",
   "lesson": "G3",
   "english": [
    {
@@ -1380,29 +1532,35 @@
    }
   ],
   "explanationEs": "Vませんか es una invitación suave (\"¿no quieres...?\"). Respuestas: ええ、Vましょう / いいですね (sí, buena idea) o すみません、ちょっと… (lo siento, es que...).",
+  "explanationEn": "Vませんか is a soft invitation (\"won't you...?\"). Answers: ええ、Vましょう / いいですね (yes, good idea) or すみません、ちょっと… (sorry, it's just that...).",
   "examples": [
    {
     "es": "¿No quieres tomar café conmigo?",
+    "en": "Won't you have coffee with me?",
     "ja": "いっしょに コーヒー を のみませんか。",
     "romaji": "isshoni koohii o nomimasenka."
    },
    {
     "es": "Sí, tomemos.",
+    "en": "Yes, let's.",
     "ja": "ええ 、 のみましょう。",
     "romaji": "ee, nomimashou."
    },
    {
     "es": "¿No quieres ver una película?",
+    "en": "Won't you watch a movie?",
     "ja": "えいが を みませんか。",
     "romaji": "eiga o mimasenka."
    },
    {
     "es": "Lo siento, es que un poco...",
+    "en": "Sorry, it's a bit...",
     "ja": "すみません 、 ちょっと…。",
     "romaji": "sumimasen, chotto…."
    },
    {
     "es": "¿No quieres ir al parque mañana?",
+    "en": "Won't you go to the park tomorrow?",
     "ja": "あした こうえん に いきませんか。",
     "romaji": "ashita kouen ni ikimasenka."
    }
@@ -1411,6 +1569,7 @@
  {
   "id": "frequency",
   "title": "よく / ときどき / あまり〜ません",
+  "titleEn": "よく / ときどき / あまり〜ません",
   "lesson": "G3",
   "english": [
    {
@@ -1451,24 +1610,29 @@
    }
   ],
   "explanationEs": "Adverbios de frecuencia van antes del verbo: よく (a menudo), たいてい (normalmente), ときどき (a veces); con negación: あまり〜ません (no mucho), ぜんぜん〜ません (nunca / para nada).",
+  "explanationEn": "Frequency adverbs go before the verb: よく (often), たいてい (usually), ときどき (sometimes); with a negative: あまり〜ません (not much), ぜんぜん〜ません (never / not at all).",
   "examples": [
    {
     "es": "Yo veo televisión a menudo.",
+    "en": "I often watch TV.",
     "ja": "わたし は よく テレビ を みます。",
     "romaji": "watashi wa yoku terebi o mimasu."
    },
    {
     "es": "Casi no tomo alcohol.",
+    "en": "I hardly ever drink alcohol.",
     "ja": "わたし は あまり おさけ を のみません。",
     "romaji": "watashi wa amari osake o nomimasen."
    },
    {
     "es": "No juego tenis nunca.",
+    "en": "I never play tennis.",
     "ja": "わたし は ぜんぜん テニス を しません。",
     "romaji": "watashi wa zenzen tenisu o shimasen."
    },
    {
     "es": "Normalmente me levanto a las siete.",
+    "en": "I usually get up at seven.",
     "ja": "たいてい しちじ に おきます。",
     "romaji": "taitei shichiji ni okimasu."
    }
@@ -1477,6 +1641,7 @@
  {
   "id": "aru-iru-ni",
   "title": "LUGAR に N が あります / います",
+  "titleEn": "PLACE に N が あります / います",
   "lesson": "G4",
   "english": [
    {
@@ -1509,29 +1674,35 @@
    }
   ],
   "explanationEs": "Existencia: LUGAR に COSA が あります (cosas, plantas, edificios) / LUGAR に PERSONA・ANIMAL が います. Orden japonés: primero el lugar, luego lo que existe, al final el verbo. Negativo: ありません / いません; pasado: ありました / いました.",
+  "explanationEn": "Existence: PLACE に THING が あります (things, plants, buildings) / PLACE に PERSON・ANIMAL が います. Japanese order: first the place, then what exists, and the verb last. Negative: ありません / いません; past: ありました / いました.",
   "examples": [
    {
     "es": "Hay un libro sobre el escritorio.",
+    "en": "There is a book on the desk.",
     "ja": "つくえ の うえ に ほん が あります。",
     "romaji": "tsukue no ue ni hon ga arimasu."
    },
    {
     "es": "Hay un gato en la habitación.",
+    "en": "There is a cat in the room.",
     "ja": "へや に ねこ が います。",
     "romaji": "heya ni neko ga imasu."
    },
    {
     "es": "Hay mucha gente en la librería.",
+    "en": "There are a lot of people in the bookstore.",
     "ja": "ほんや に ひと が たくさん います。",
     "romaji": "hon'ya ni hito ga takusan imasu."
    },
    {
     "es": "Hay una billetera dentro del bolso.",
+    "en": "There is a wallet in the bag.",
     "ja": "かばん の なか に さいふ が あります。",
     "romaji": "kaban no naka ni saifu ga arimasu."
    },
    {
     "es": "Hay un banco cerca de la estación.",
+    "en": "There is a bank near the station.",
     "ja": "えき の ちかく に ぎんこう が あります。",
     "romaji": "eki no chikaku ni ginkou ga arimasu."
    }
@@ -1540,6 +1711,7 @@
  {
   "id": "position-words",
   "title": "N の うえ / した / なか / まえ / うしろ",
+  "titleEn": "N の うえ / した / なか / まえ / うしろ",
   "lesson": "G4",
   "english": [
    {
@@ -1559,24 +1731,29 @@
    }
   ],
   "explanationEs": "Posiciones relativas: N の うえ (encima), した (debajo), なか (dentro), まえ (delante), うしろ (detrás), となり (al lado). Como en の: primero el punto de referencia, luego la posición.",
+  "explanationEn": "Relative positions: N の うえ (on top of), した (under), なか (inside), まえ (in front of), うしろ (behind), となり (next to). As with の: first the reference point, then the position.",
   "examples": [
    {
     "es": "Hay un periódico sobre la mesa.",
+    "en": "There is a newspaper on the table.",
     "ja": "テーブル の うえ に しんぶん が あります。",
     "romaji": "teeburu no ue ni shinbun ga arimasu."
    },
    {
     "es": "Hay un gato debajo de la silla.",
+    "en": "There is a cat under the chair.",
     "ja": "いす の した に ねこ が います。",
     "romaji": "isu no shita ni neko ga imasu."
    },
    {
     "es": "Hay un supermercado delante de la estación.",
+    "en": "There is a supermarket in front of the station.",
     "ja": "えき の まえ に スーパー が あります。",
     "romaji": "eki no mae ni suupaa ga arimasu."
    },
    {
     "es": "Hay un parque detrás del hotel.",
+    "en": "There is a park behind the hotel.",
     "ja": "ホテル の うしろ に こうえん が あります。",
     "romaji": "hoteru no ushiro ni kouen ga arimasu."
    }
@@ -1585,6 +1762,7 @@
  {
   "id": "nanimo-daremo",
   "title": "なにも ありません / だれも いません",
+  "titleEn": "なにも ありません / だれも いません",
   "lesson": "P5",
   "english": [
    {
@@ -1612,24 +1790,29 @@
    }
   ],
   "explanationEs": "なにも (nada) y だれも (nadie) se combinan siempre con un verbo negativo: なにも ありません (no hay nada), だれも いません (no hay nadie).",
+  "explanationEn": "なにも (nothing) and だれも (no one) are always combined with a negative verb: なにも ありません (there is nothing), だれも いません (there is no one).",
   "examples": [
    {
     "es": "No hay nadie en la habitación.",
+    "en": "There is no one in the room.",
     "ja": "へや に だれも いません。",
     "romaji": "heya ni daremo imasen."
    },
    {
     "es": "No hay nada en el bolso.",
+    "en": "There is nothing in the bag.",
     "ja": "かばん の なか に なにも ありません。",
     "romaji": "kaban no naka ni nanimo arimasen."
    },
    {
     "es": "No hay nada sobre la mesa.",
+    "en": "There is nothing on the table.",
     "ja": "テーブル の うえ に なにも ありません。",
     "romaji": "teeburu no ue ni nanimo arimasen."
    },
    {
     "es": "No hay nadie en el segundo piso.",
+    "en": "There is no one on the second floor.",
     "ja": "にかい に だれも いません。",
     "romaji": "nikai ni daremo imasen."
    }
@@ -1638,6 +1821,7 @@
  {
   "id": "deshita",
   "title": "でした / じゃなかったです (pasado de です)",
+  "titleEn": "でした / じゃなかったです (past of です)",
   "lesson": "G4",
   "english": [
    {
@@ -1669,24 +1853,29 @@
    }
   ],
   "explanationEs": "Pasado de です: でした. Negativo pasado: じゃなかったです (o ではありませんでした).",
+  "explanationEn": "Past of です: でした. Negative past: じゃなかったです (or ではありませんでした).",
   "examples": [
    {
     "es": "Ayer llovió (fue un día lluvioso).",
+    "en": "Yesterday it rained (it was a rainy day).",
     "ja": "きのう は あめ でした。",
     "romaji": "kinou wa ame deshita."
    },
    {
     "es": "Ayer no fue domingo.",
+    "en": "Yesterday was not Sunday.",
     "ja": "きのう は にちようび じゃ なかったです。",
     "romaji": "kinou wa nichiyoubi ja nakattadesu."
    },
    {
     "es": "El examen fue difícil.",
+    "en": "The test was difficult.",
     "ja": "テスト は たいへん でした。",
     "romaji": "tesuto wa taihen deshita."
    },
    {
     "es": "El fin de semana fue animado.",
+    "en": "The weekend was lively.",
     "ja": "しゅうまつ は にぎやか でした。",
     "romaji": "shuumatsu wa nigiyaka deshita."
    }
@@ -1695,6 +1884,7 @@
  {
   "id": "mashita-masendeshita",
   "title": "Vました / Vませんでした",
+  "titleEn": "Vました / Vませんでした",
   "lesson": "G4",
   "english": [
    {
@@ -1735,24 +1925,29 @@
    }
   ],
   "explanationEs": "Pasado cortés: ました (afirmativo) / ませんでした (negativo). Las expresiones de tiempo pasado (きのう, せんしゅう) van sin に. あう (ver/encontrarse con una persona) usa に para la persona.",
+  "explanationEn": "Polite past: ました (affirmative) / ませんでした (negative). Past time expressions (きのう, せんしゅう) take no に. あう (to meet / see a person) uses に for the person.",
   "examples": [
    {
     "es": "Ayer me encontré con un amigo.",
+    "en": "Yesterday I met a friend.",
     "ja": "きのう ともだち に あいました。",
     "romaji": "kinou tomodachi ni aimashita."
    },
    {
     "es": "Esta mañana no comí nada.",
+    "en": "This morning I didn't eat anything.",
     "ja": "けさ なにも たべませんでした。",
     "romaji": "kesa nanimo tabemasendeshita."
    },
    {
     "es": "La semana pasada vi una película.",
+    "en": "Last week I watched a movie.",
     "ja": "せんしゅう えいが を みました。",
     "romaji": "senshuu eiga o mimashita."
    },
    {
     "es": "Ayer no estudié.",
+    "en": "I didn't study yesterday.",
     "ja": "きのう べんきょう しませんでした。",
     "romaji": "kinou benkyou shimasendeshita."
    }
@@ -1761,6 +1956,7 @@
  {
   "id": "to-with",
   "title": "と (con / y)",
+  "titleEn": "と (with / and)",
   "lesson": "G4",
   "english": [
    {
@@ -1802,24 +1998,29 @@
    }
   ],
   "explanationEs": "と tiene dos usos: \"con (alguien)\": ともだち と いきます; y \"y\" entre sustantivos: パン と コーヒー. No une verbos ni oraciones.",
+  "explanationEn": "と has two uses: \"with (someone)\": ともだち と いきます; and \"and\" between nouns: パン と コーヒー. It does not join verbs or sentences.",
   "examples": [
    {
     "es": "Veo una película con un amigo.",
+    "en": "I watch a movie with a friend.",
     "ja": "ともだち と えいが を みます。",
     "romaji": "tomodachi to eiga o mimasu."
    },
    {
     "es": "Deme pan y café.",
+    "en": "Bread and coffee, please.",
     "ja": "パン と コーヒー を ください。",
     "romaji": "pan to koohii o kudasai."
    },
    {
     "es": "Hay un perro y un gato.",
+    "en": "There is a dog and a cat.",
     "ja": "いぬ と ねこ が います。",
     "romaji": "inu to neko ga imasu."
    },
    {
     "es": "Voy de compras con mamá.",
+    "en": "I go shopping with Mom.",
     "ja": "おかあさん と かいもの に いきます。",
     "romaji": "okaasan to kaimono ni ikimasu."
    }
@@ -1828,6 +2029,7 @@
  {
   "id": "ya-etc",
   "title": "N や N (y otros)",
+  "titleEn": "N や N (and others)",
   "lesson": "P5",
   "english": [
    {
@@ -1860,19 +2062,23 @@
    }
   ],
   "explanationEs": "や lista algunos elementos dejando entender que hay más (\"y cosas así\"); と lista TODOS los elementos. Solo une sustantivos.",
+  "explanationEn": "や lists some items while implying there are more (\"and things like that\"); と lists ALL the items. It only joins nouns.",
   "examples": [
    {
     "es": "Sobre la mesa hay un periódico, flores y otras cosas.",
+    "en": "On the table there are a newspaper, flowers and other things.",
     "ja": "テーブル の うえ に しんぶん や はな が あります。",
     "romaji": "teeburu no ue ni shinbun ya hana ga arimasu."
    },
    {
     "es": "En el bolso hay llaves, libros y más.",
+    "en": "In the bag there are keys, books and more.",
     "ja": "かばん の なか に かぎ や ほん が あります。",
     "romaji": "kaban no naka ni kagi ya hon ga arimasu."
    },
    {
     "es": "Compro pan, fruta y otras cosas.",
+    "en": "I buy bread, fruit and other things.",
     "ja": "パン や くだもの を かいます。",
     "romaji": "pan ya kudamono o kaimasu."
    }
@@ -1881,6 +2087,7 @@
  {
   "id": "kara-made",
   "title": "N1 から N2 まで",
+  "titleEn": "N1 から N2 まで",
   "lesson": "P6",
   "english": [
    {
@@ -1912,29 +2119,35 @@
    }
   ],
   "explanationEs": "から = desde (origen / inicio), まで = hasta (límite). Funcionan con horas, fechas y lugares: じゅうじ から じゅういちじ まで; ここ から えき まで. Con から se indica también el origen de una persona: チリ から きました.",
+  "explanationEn": "から = from (origin / start), まで = until (limit). They work with times, dates and places: じゅうじ から じゅういちじ まで; ここ から えき まで. With から you also give a person's origin: チリ から きました.",
   "examples": [
    {
     "es": "Estudio de las diez a las once.",
+    "en": "I study from ten to eleven.",
     "ja": "じゅうじ から じゅういちじ まで べんきょう します。",
     "romaji": "juuji kara juuichiji made benkyou shimasu."
    },
    {
     "es": "Voy a la escuela de lunes a viernes.",
+    "en": "I go to school from Monday to Friday.",
     "ja": "げつようび から きんようび まで がっこう に いきます。",
     "romaji": "getsuyoubi kara kin'youbi made gakkou ni ikimasu."
    },
    {
     "es": "Vine de Chile.",
+    "en": "I came from Chile.",
     "ja": "チリ から きました。",
     "romaji": "chiri kara kimashita."
    },
    {
     "es": "Las vacaciones son desde el cinco hasta el veinte.",
+    "en": "The vacation is from the fifth to the twentieth.",
     "ja": "やすみ は いつか から はつか まで です。",
     "romaji": "yasumi wa itsuka kara hatsuka made desu."
    },
    {
     "es": "¿Desde cuándo hasta cuándo son las vacaciones de verano?",
+    "en": "From when to when is the summer vacation?",
     "ja": "なつやすみ は いつ から いつ まで ですか。",
     "romaji": "natsuyasumi wa itsu kara itsu made desuka."
    }
@@ -1943,6 +2156,7 @@
  {
   "id": "adj-past",
   "title": "ADJ かったです / くなかったです",
+  "titleEn": "ADJ かったです / くなかったです",
   "lesson": "G5",
   "english": [
    {
@@ -1974,29 +2188,35 @@
    }
   ],
   "explanationEs": "Adjetivos い en pasado: quita い y agrega かったです (afirmativo) / くなかったです (negativo). いい → よかったです. Adjetivos な usan でした / じゃなかったです.",
+  "explanationEn": "い-adjectives in the past: drop い and add かったです (affirmative) / くなかったです (negative). いい → よかったです. な-adjectives use でした / じゃなかったです.",
   "examples": [
    {
     "es": "Ayer hizo calor.",
+    "en": "Yesterday it was hot.",
     "ja": "きのう は あつかったです。",
     "romaji": "kinou wa atsukattadesu."
    },
    {
     "es": "La película no fue interesante.",
+    "en": "The movie was not interesting.",
     "ja": "えいが は おもしろく なかったです。",
     "romaji": "eiga wa omoshiroku nakattadesu."
    },
    {
     "es": "La cena estuvo rica.",
+    "en": "Dinner was delicious.",
     "ja": "ばんごはん は おいしかったです。",
     "romaji": "bangohan wa oishikattadesu."
    },
    {
     "es": "El examen fue difícil.",
+    "en": "The test was difficult.",
     "ja": "テスト は むずかしかったです。",
     "romaji": "tesuto wa muzukashikattadesu."
    },
    {
     "es": "El viaje fue bueno.",
+    "en": "The trip was good.",
     "ja": "りょこう は よかったです。",
     "romaji": "ryokou wa yokattadesu."
    }
@@ -2005,6 +2225,7 @@
  {
   "id": "adj-modifying",
   "title": "ADJ + N (adjetivo delante del sustantivo)",
+  "titleEn": "ADJ + N (adjective before a noun)",
   "lesson": "G5",
   "english": [
    {
@@ -2027,29 +2248,35 @@
    }
   ],
   "explanationEs": "El adjetivo va ANTES del sustantivo, sin partículas: おおきい いぬ (perro grande). Adjetivos な usan な: きれいな へや (habitación limpia / bonita), しずかな まち (ciudad tranquila).",
+  "explanationEn": "The adjective goes BEFORE the noun, with no particles: おおきい いぬ (a big dog). な-adjectives take な: きれいな へや (a clean / pretty room), しずかな まち (a quiet town).",
   "examples": [
    {
     "es": "Es un perro grande.",
+    "en": "It's a big dog.",
     "ja": "おおきい いぬ です。",
     "romaji": "ookii inu desu."
    },
    {
     "es": "Compré un bolso nuevo.",
+    "en": "I bought a new bag.",
     "ja": "あたらしい かばん を かいました。",
     "romaji": "atarashii kaban o kaimashita."
    },
    {
     "es": "Esta es una habitación bonita.",
+    "en": "This is a nice room.",
     "ja": "きれいな へや です。",
     "romaji": "kireina heya desu."
    },
    {
     "es": "Kioto es una ciudad tranquila.",
+    "en": "Kyoto is a quiet town.",
     "ja": "きょうと は しずかな まち です。",
     "romaji": "kyouto wa shizukana machi desu."
    },
    {
     "es": "Es un reloj viejo.",
+    "en": "It's an old watch.",
     "ja": "ふるい とけい です。",
     "romaji": "furui tokei desu."
    }
@@ -2058,6 +2285,7 @@
  {
   "id": "suki-kirai",
   "title": "N が すき / きらい です",
+  "titleEn": "N が すき / きらい です",
   "lesson": "G5",
   "english": [
    {
@@ -2094,24 +2322,29 @@
    }
   ],
   "explanationEs": "すき (gustar) y きらい (no gustar) son adjetivos な: lo que gusta se marca con が (NO con を). だいすき = me encanta, だいきらい = lo odio.",
+  "explanationEn": "すき (to like) and きらい (to dislike) are な-adjectives: what you like is marked with が (NOT with を). だいすき = I love it, だいきらい = I hate it.",
   "examples": [
    {
     "es": "Me gustan los gatos.",
+    "en": "I like cats.",
     "ja": "わたし は ねこ が すき です。",
     "romaji": "watashi wa neko ga suki desu."
    },
    {
     "es": "No me gusta el pescado.",
+    "en": "I don't like fish.",
     "ja": "わたし は さかな が きらい です。",
     "romaji": "watashi wa sakana ga kirai desu."
    },
    {
     "es": "Me encanta la carne.",
+    "en": "I love meat.",
     "ja": "にく が だいすき です。",
     "romaji": "niku ga daisuki desu."
    },
    {
     "es": "No me gusta el café.",
+    "en": "I don't like coffee.",
     "ja": "コーヒー は すき じゃ ないです。",
     "romaji": "koohii wa suki ja naidesu."
    }
@@ -2120,6 +2353,7 @@
  {
   "id": "mashou",
   "title": "Vましょう / Vましょうか",
+  "titleEn": "Vましょう / Vましょうか",
   "lesson": "G3",
   "english": [
    {
@@ -2142,29 +2376,35 @@
    }
   ],
   "explanationEs": "Vましょう = \"hagamos V\" (propuesta / aceptar una invitación). Vましょうか = \"¿hacemos V?\" (proponer). Es la respuesta natural a Vませんか.",
+  "explanationEn": "Vましょう = \"let's V\" (a proposal / accepting an invitation). Vましょうか = \"shall we V?\" (making a proposal). It is the natural answer to Vませんか.",
   "examples": [
    {
     "es": "Volvamos juntos.",
+    "en": "Let's go back together.",
     "ja": "いっしょに かえりましょう。",
     "romaji": "isshoni kaerimashou."
    },
    {
     "es": "¿Qué comemos?",
+    "en": "What shall we eat?",
     "ja": "なに を たべましょうか。",
     "romaji": "nani o tabemashouka."
    },
    {
     "es": "Comamos sushi.",
+    "en": "Let's eat sushi.",
     "ja": "すし を たべましょう。",
     "romaji": "sushi o tabemashou."
    },
    {
     "es": "¿Dónde nos encontramos?",
+    "en": "Where shall we meet?",
     "ja": "どこ で あいましょうか。",
     "romaji": "doko de aimashouka."
    },
    {
     "es": "Encontrémonos a las siete.",
+    "en": "Let's meet at seven.",
     "ja": "しちじ に あいましょう。",
     "romaji": "shichiji ni aimashou."
    }
@@ -2173,6 +2413,7 @@
  {
   "id": "de-means",
   "title": "MEDIO で Vます",
+  "titleEn": "MEANS で Vます",
   "lesson": "P6",
   "english": [
    {
@@ -2205,29 +2446,35 @@
    }
   ],
   "explanationEs": "で marca el medio o instrumento: でんしゃ で (en tren), バス で (en bus), タクシー で (en taxi). A pie se dice あるいて いきます. Para preguntar: なん で いきますか.",
+  "explanationEn": "で marks the means or instrument: でんしゃ で (by train), バス で (by bus), タクシー で (by taxi). On foot is あるいて いきます. To ask: なん で いきますか.",
   "examples": [
    {
     "es": "Voy en tren.",
+    "en": "I go by train.",
     "ja": "でんしゃ で いきます。",
     "romaji": "densha de ikimasu."
    },
    {
     "es": "Voy a la escuela en autobús.",
+    "en": "I go to school by bus.",
     "ja": "バス で がっこう に いきます。",
     "romaji": "basu de gakkou ni ikimasu."
    },
    {
     "es": "Voy a Osaka en el tren bala.",
+    "en": "I go to Osaka by bullet train.",
     "ja": "しんかんせん で おおさか に いきます。",
     "romaji": "shinkansen de oosaka ni ikimasu."
    },
    {
     "es": "Vuelvo en taxi.",
+    "en": "I go back by taxi.",
     "ja": "タクシー で かえります。",
     "romaji": "takushii de kaerimasu."
    },
    {
     "es": "¿En qué vas?",
+    "en": "How are you going?",
     "ja": "なん で いきますか。",
     "romaji": "nan de ikimasuka."
    }
@@ -2236,6 +2483,7 @@
  {
   "id": "date-desu",
   "title": "きょう は X がつ Y にち です",
+  "titleEn": "きょう は X がつ Y にち です",
   "lesson": "P6",
   "english": [
    {
@@ -2267,29 +2515,35 @@
    }
   ],
   "explanationEs": "Fechas: mes (がつ) + día (にち / ついたち, ふつか, みっか… はつか), de lo grande a lo pequeño. Días de la semana: ～ようび. Preguntas: なんがつ, なんにち, なんようび, いつ.",
+  "explanationEn": "Dates: month (がつ) + day (にち / ついたち, ふつか, みっか… はつか), from larger to smaller. Days of the week: ～ようび. Questions: なんがつ, なんにち, なんようび, いつ.",
   "examples": [
    {
     "es": "Hoy es 5 de mayo.",
+    "en": "Today is May 5th.",
     "ja": "きょう は ごがつ いつか です。",
     "romaji": "kyou wa gogatsu itsuka desu."
    },
    {
     "es": "Mi cumpleaños es el 20 de julio.",
+    "en": "My birthday is July 20th.",
     "ja": "たんじょうび は しちがつ はつか です。",
     "romaji": "tanjoubi wa shichigatsu hatsuka desu."
    },
    {
     "es": "Mañana es miércoles.",
+    "en": "Tomorrow is Wednesday.",
     "ja": "あした は すいようび です。",
     "romaji": "ashita wa suiyoubi desu."
    },
    {
     "es": "La reunión es el lunes.",
+    "en": "The meeting is on Monday.",
     "ja": "かいぎ は げつようび です。",
     "romaji": "kaigi wa getsuyoubi desu."
    },
    {
     "es": "¿Qué día es el festival?",
+    "en": "What day is the festival?",
     "ja": "おまつり は なんにち ですか。",
     "romaji": "omatsuri wa nannichi desuka."
    }
@@ -2298,6 +2552,7 @@
  {
   "id": "nanji-desu-ka",
   "title": "いま なんじ ですか (la hora)",
+  "titleEn": "いま なんじ ですか (telling time)",
   "lesson": "P6",
   "english": [
    {
@@ -2328,29 +2583,35 @@
    }
   ],
   "explanationEs": "La hora: número + じ (en punto) y はん (y media). Irregulares: よじ (4), しちじ (7), くじ (9). ごぜん = a.m., ごご = p.m. Minutos: ふん / ぷん (ver numbers.json).",
+  "explanationEn": "Telling time: number + じ (o'clock) and はん (half past). Irregular: よじ (4), しちじ (7), くじ (9). ごぜん = a.m., ごご = p.m. Minutes: ふん / ぷん (see numbers.json).",
   "examples": [
    {
     "es": "Son las cinco y media.",
+    "en": "It's half past five.",
     "ja": "いま ごじはん です。",
     "romaji": "ima gojihan desu."
    },
    {
     "es": "Son las doce.",
+    "en": "It's twelve o'clock.",
     "ja": "いま じゅうにじ です。",
     "romaji": "ima juuniji desu."
    },
    {
     "es": "Son las cuatro de la tarde.",
+    "en": "It's four in the afternoon.",
     "ja": "ごご よじ です。",
     "romaji": "gogo yoji desu."
    },
    {
     "es": "Son las nueve de la mañana.",
+    "en": "It's nine in the morning.",
     "ja": "ごぜん くじ です。",
     "romaji": "gozen kuji desu."
    },
    {
     "es": "Son las siete.",
+    "en": "It's seven o'clock.",
     "ja": "いま しちじ です。",
     "romaji": "ima shichiji desu."
    }
@@ -2359,6 +2620,7 @@
  {
   "id": "counters",
   "title": "Contadores: つ / にん / かい / さい",
+  "titleEn": "Counters: つ / にん / かい / さい",
   "lesson": "P6",
   "english": [
    {
@@ -2390,29 +2652,35 @@
    }
   ],
   "explanationEs": "Los contadores van DESPUÉS del sustantivo y de la partícula: コーヒー を ふたつ ください. Objetos: ひとつ…とお; personas: ひとり, ふたり, さんにん…; pisos: いっかい, にかい, さんがい; edad: いっさい… ¿Cuántos?: いくつ / なんにん / なんがい / なんさい.",
+  "explanationEn": "Counters go AFTER the noun and the particle: コーヒー を ふたつ ください. Objects: ひとつ…とお; people: ひとり, ふたり, さんにん…; floors: いっかい, にかい, さんがい; age: いっさい… How many?: いくつ / なんにん / なんがい / なんさい.",
   "examples": [
    {
     "es": "Deme dos cafés.",
+    "en": "Two coffees, please.",
     "ja": "コーヒー を ふたつ ください。",
     "romaji": "koohii o futatsu kudasai."
    },
    {
     "es": "Somos dos.",
+    "en": "There are two of us.",
     "ja": "ふたり です。",
     "romaji": "futari desu."
    },
    {
     "es": "Tengo tres amigos (hay tres amigos).",
+    "en": "I have three friends (there are three friends).",
     "ja": "ともだち が さんにん います。",
     "romaji": "tomodachi ga sannin imasu."
    },
    {
     "es": "El baño está en el segundo piso.",
+    "en": "The restroom is on the second floor.",
     "ja": "トイレ は にかい です。",
     "romaji": "toire wa nikai desu."
    },
    {
     "es": "Dos currys, por favor.",
+    "en": "Two curries, please.",
     "ja": "カレーライス 、 ふたつ 、 おねがいします。",
     "romaji": "kareeraisu, futatsu, onegaishimasu."
    }
@@ -2421,6 +2689,7 @@
  {
   "id": "doko-desu-ka",
   "title": "N は どこ ですか (¿dónde está?)",
+  "titleEn": "N は どこ ですか (where is it?)",
   "lesson": "P7",
   "english": [
    {
@@ -2452,24 +2721,29 @@
    }
   ],
   "explanationEs": "Preguntar la ubicación: N は どこ ですか. Responder con ここ / そこ / あそこ o con direcciones: ひだり (izquierda), みぎ (derecha), まっすぐ (recto).",
+  "explanationEn": "Asking for a location: N は どこ ですか. Answer with ここ / そこ / あそこ or with directions: ひだり (left), みぎ (right), まっすぐ (straight).",
   "examples": [
    {
     "es": "¿Dónde está el boleto (la taquilla)?",
+    "en": "Where is the ticket (office)?",
     "ja": "きっぷ は どこ ですか。",
     "romaji": "kippu wa doko desuka."
    },
    {
     "es": "¿Dónde está la estación?",
+    "en": "Where is the station?",
     "ja": "えき は どこ ですか。",
     "romaji": "eki wa doko desuka."
    },
    {
     "es": "Está a la izquierda.",
+    "en": "It's on the left.",
     "ja": "ひだり です。",
     "romaji": "hidari desu."
    },
    {
     "es": "Está allí, a la derecha.",
+    "en": "It's over there, on the right.",
     "ja": "あそこ の みぎ です。",
     "romaji": "asoko no migi desu."
    }
@@ -2478,6 +2752,7 @@
  {
   "id": "dono-gurai",
   "title": "どのぐらい かかりますか",
+  "titleEn": "どのぐらい かかりますか",
   "lesson": "P7",
   "english": [
    {
@@ -2508,24 +2783,29 @@
    }
   ],
   "explanationEs": "かかります = tarda / cuesta (tiempo o dinero). どのぐらい (o どのくらい) = ¿cuánto (aprox.)? Respuesta: tiempo + かかります: じゅうごふん かかります (tarda 15 minutos).",
+  "explanationEn": "かかります = it takes / it costs (time or money). どのぐらい (or どのくらい) = about how much? Answer: time + かかります: じゅうごふん かかります (it takes 15 minutes).",
   "examples": [
    {
     "es": "¿Cuánto se tarda hasta la estación?",
+    "en": "How long does it take to get to the station?",
     "ja": "えき まで どのぐらい かかりますか。",
     "romaji": "eki made donogurai kakarimasuka."
    },
    {
     "es": "Se tarda quince minutos.",
+    "en": "It takes fifteen minutes.",
     "ja": "じゅうごふん かかります。",
     "romaji": "juugofun kakarimasu."
    },
    {
     "es": "¿Cuánto se tarda en tren?",
+    "en": "How long does it take by train?",
     "ja": "でんしゃ で どのぐらい かかりますか。",
     "romaji": "densha de donogurai kakarimasuka."
    },
    {
     "es": "Se tarda una hora.",
+    "en": "It takes one hour.",
     "ja": "いちじかん かかります。",
     "romaji": "ichijikan kakarimasu."
    }
@@ -2534,6 +2814,7 @@
  {
   "id": "te-kudasai",
   "title": "Vて ください",
+  "titleEn": "Vて ください",
   "lesson": "G6",
   "english": [
    {
@@ -2557,34 +2838,41 @@
    }
   ],
   "explanationEs": "Vて ください = \"por favor, haga V\" (petición cortés). Forma て: grupo I: う/つ/る→って, む/ぶ/ぬ→んで, く→いて, ぐ→いで, す→して (いく→いって es excepción). Grupo II: る→て. する→して, くる→きて.",
+  "explanationEn": "Vて ください = \"please do V\" (polite request). て form: group I: う/つ/る→って, む/ぶ/ぬ→んで, く→いて, ぐ→いで, す→して (いく→いって is an exception). Group II: る→て. する→して, くる→きて.",
   "examples": [
    {
     "es": "Abra la ventana, por favor.",
+    "en": "Please open the window.",
     "ja": "まど を あけて ください。",
     "romaji": "mado o akete kudasai."
    },
    {
     "es": "Siéntese aquí, por favor.",
+    "en": "Please sit here.",
     "ja": "ここ に すわって ください。",
     "romaji": "koko ni suwatte kudasai."
    },
    {
     "es": "Hable despacio, por favor.",
+    "en": "Please speak slowly.",
     "ja": "ゆっくり はなして ください。",
     "romaji": "yukkuri hanashite kudasai."
    },
    {
     "es": "Espere, por favor.",
+    "en": "Please wait.",
     "ja": "まって ください。",
     "romaji": "matte kudasai."
    },
    {
     "es": "Gire a la izquierda, por favor.",
+    "en": "Please turn left.",
     "ja": "ひだり に まがって ください。",
     "romaji": "hidari ni magatte kudasai."
    },
    {
     "es": "Súbase a la línea Ginza, por favor.",
+    "en": "Please take the Ginza line.",
     "ja": "ぎんざせん に のって ください。",
     "romaji": "ginzasen ni notte kudasai."
    }
@@ -2593,6 +2881,7 @@
  {
   "id": "te-form-connect",
   "title": "Vて、V (acciones en secuencia)",
+  "titleEn": "Vて、V (actions in sequence)",
   "lesson": "G6",
   "english": [
    {
@@ -2641,19 +2930,23 @@
    }
   ],
   "explanationEs": "La forma て une acciones en orden. Solo el último verbo lleva el tiempo (ます/ました): おきて、あびて、いきます.",
+  "explanationEn": "The て form links actions in order. Only the last verb carries the tense (ます/ました): おきて、あびて、いきます.",
   "examples": [
    {
     "es": "Me levanto, me ducho y voy a la escuela.",
+    "en": "I get up, take a shower and go to school.",
     "ja": "おきて 、 シャワー を あびて 、 がっこう に いきます。",
     "romaji": "okite, shawaa o abite, gakkou ni ikimasu."
    },
    {
     "es": "Voy a la tienda y compro pan.",
+    "en": "I go to the store and buy bread.",
     "ja": "みせ に いって 、 パン を かいます。",
     "romaji": "mise ni itte, pan o kaimasu."
    },
    {
     "es": "Tomo café y leo el periódico.",
+    "en": "I drink coffee and read the newspaper.",
     "ja": "コーヒー を のんで 、 しんぶん を よみます。",
     "romaji": "koohii o nonde, shinbun o yomimasu."
    }
@@ -2662,6 +2955,7 @@
  {
   "id": "te-mo-ii",
   "title": "Vても いいです",
+  "titleEn": "Vても いいです",
   "lesson": "G6",
   "english": [
    {
@@ -2685,24 +2979,29 @@
    }
   ],
   "explanationEs": "Vても いいです = \"se puede / está permitido V\". Con か, pide permiso: Vても いいですか. Afirmativo: はい、いいです; negativo: いいえ、いけません.",
+  "explanationEn": "Vても いいです = \"it is OK to V / you may V\". With か it asks for permission: Vても いいですか. Affirmative: はい、いいです; negative: いいえ、いけません.",
   "examples": [
    {
     "es": "¿Puedo comer aquí?",
+    "en": "May I eat here?",
     "ja": "ここ で たべても いい です か。",
     "romaji": "koko de tabetemo ii desu ka."
    },
    {
     "es": "Sí, puede.",
+    "en": "Yes, you may.",
     "ja": "はい 、 いい です よ。",
     "romaji": "hai, ii desu yo."
    },
    {
     "es": "¿Puedo sacar fotos?",
+    "en": "May I take photos?",
     "ja": "しゃしん を とっても いい です か。",
     "romaji": "shashin o tottemo ii desu ka."
    },
    {
     "es": "¿Puedo usar el teléfono?",
+    "en": "May I use the phone?",
     "ja": "でんわ を つかっても いい です か。",
     "romaji": "denwa o tsukattemo ii desu ka."
    }
@@ -2711,6 +3010,7 @@
  {
   "id": "te-wa-ikemasen",
   "title": "Vては いけません",
+  "titleEn": "Vては いけません",
   "lesson": "G6",
   "english": [
    {
@@ -2739,24 +3039,29 @@
    }
   ],
   "explanationEs": "Vては いけません = \"está prohibido / no se debe V\". Es la negación del permiso. Se usa para reglas y prohibiciones.",
+  "explanationEn": "Vては いけません = \"you must not V / it is forbidden to V\". It is the negation of permission. Used for rules and prohibitions.",
   "examples": [
    {
     "es": "No se puede sacar fotos aquí.",
+    "en": "You may not take photos here.",
     "ja": "ここ で しゃしん を とっては いけません。",
     "romaji": "koko de shashin o tottewa ikemasen."
    },
    {
     "es": "No se puede comer en la habitación.",
+    "en": "You may not eat in the room.",
     "ja": "へや で たべては いけません。",
     "romaji": "heya de tabetewa ikemasen."
    },
    {
     "es": "No se puede entrar aquí.",
+    "en": "You may not enter here.",
     "ja": "ここ に はいっては いけません。",
     "romaji": "koko ni haittewa ikemasen."
    },
    {
     "es": "No se puede fumar aquí.",
+    "en": "You may not smoke here.",
     "ja": "ここ で たばこ を すっては いけません。",
     "romaji": "koko de tabako o suttewa ikemasen."
    }
@@ -2765,6 +3070,7 @@
  {
   "id": "kara-because",
   "title": "S1 から、S2 (porque)",
+  "titleEn": "S1 から、S2 (because)",
   "lesson": "G6",
   "english": [
    {
@@ -2796,19 +3102,23 @@
    }
   ],
   "explanationEs": "から después de una oración da la razón: \"S1 から、S2\" = \"porque S1, S2\" (la razón va primero y から se pega al final de esa oración). あつい から みず を のみます.",
+  "explanationEn": "から after a sentence gives the reason: \"S1 から、S2\" = \"because S1, S2\" (the reason comes first and から attaches to the end of that sentence). あつい から みず を のみます.",
   "examples": [
    {
     "es": "Como hace calor, bebo agua.",
+    "en": "Because it's hot, I drink water.",
     "ja": "あつい から 、 みず を のみます。",
     "romaji": "atsui kara, mizu o nomimasu."
    },
    {
     "es": "Como mañana hay un examen, estudio.",
+    "en": "Because there is a test tomorrow, I study.",
     "ja": "あした テスト が あります から 、 べんきょう します。",
     "romaji": "ashita tesuto ga arimasu kara, benkyou shimasu."
    },
    {
     "es": "Como estoy ocupado, no voy.",
+    "en": "Because I'm busy, I'm not going.",
     "ja": "いそがしい から 、 いきません。",
     "romaji": "isogashii kara, ikimasen."
    }
@@ -2817,6 +3127,7 @@
  {
   "id": "mashou-ka-offer",
   "title": "Vましょうか (ofrecer ayuda)",
+  "titleEn": "Vましょうか (offering help)",
   "lesson": "G6",
   "english": [
    {
@@ -2840,24 +3151,29 @@
    }
   ],
   "explanationEs": "Vましょうか también ofrece ayuda: \"¿lo hago por usted?\". Respuestas: おねがいします (sí, por favor) / だいじょうぶです (no hace falta).",
+  "explanationEn": "Vましょうか also offers help: \"shall I do it for you?\". Answers: おねがいします (yes, please) / だいじょうぶです (no need).",
   "examples": [
    {
     "es": "¿Le abro la ventana?",
+    "en": "Shall I open the window for you?",
     "ja": "まど を あけましょうか。",
     "romaji": "mado o akemashouka."
    },
    {
     "es": "Sí, por favor.",
+    "en": "Yes, please.",
     "ja": "はい 、 おねがいします。",
     "romaji": "hai, onegaishimasu."
    },
    {
     "es": "¿Le llevo el equipaje?",
+    "en": "Shall I carry your luggage?",
     "ja": "にもつ を もちましょうか。",
     "romaji": "nimotsu o mochimashouka."
    },
    {
     "es": "¿Enciendo la luz?",
+    "en": "Shall I turn on the light?",
     "ja": "でんき を つけましょうか。",
     "romaji": "denki o tsukemashouka."
    }
@@ -2866,6 +3182,7 @@
  {
   "id": "te-imasu",
   "title": "Vて います (acción en curso)",
+  "titleEn": "Vて います (action in progress)",
   "lesson": "G7",
   "english": [
    {
@@ -2898,24 +3215,29 @@
    }
   ],
   "explanationEs": "Vて います = acción en curso (\"estar haciendo\") o estado resultante (すんで います = vivo en, しって います = lo sé).",
+  "explanationEn": "Vて います = action in progress (\"is doing\") or resulting state (すんで います = I live in, しって います = I know).",
   "examples": [
    {
     "es": "Estoy leyendo un libro.",
+    "en": "I'm reading a book.",
     "ja": "わたし は ほん を よんで います。",
     "romaji": "watashi wa hon o yonde imasu."
    },
    {
     "es": "Vivo en Tokio.",
+    "en": "I live in Tokyo.",
     "ja": "わたし は とうきょう に すんで います。",
     "romaji": "watashi wa toukyou ni sunde imasu."
    },
    {
     "es": "Mi amigo está estudiando en la escuela.",
+    "en": "My friend is studying at school.",
     "ja": "ともだち は がっこう で べんきょう して います。",
     "romaji": "tomodachi wa gakkou de benkyou shite imasu."
    },
    {
     "es": "Estoy esperando en la estación.",
+    "en": "I'm waiting at the station.",
     "ja": "えき で まって います。",
     "romaji": "eki de matte imasu."
    }
@@ -2924,6 +3246,7 @@
  {
   "id": "tai-desu",
   "title": "Vたいです (querer hacer)",
+  "titleEn": "Vたいです (wanting to do)",
   "lesson": "P9",
   "english": [
    {
@@ -2956,29 +3279,35 @@
    }
   ],
   "explanationEs": "Vたい = \"querer hacer V\" (se quita ます de la forma ます y se agrega たい). たい se conjuga como adjetivo い: たいです (quiero), たくないです (no quiero), たかったです (quería). El objeto puede marcarse con を o が.",
+  "explanationEn": "Vたい = \"to want to V\" (drop ます from the ます form and add たい). たい conjugates like an い-adjective: たいです (I want to), たくないです (I don't want to), たかったです (I wanted to). The object can be marked with を or が.",
   "examples": [
    {
     "es": "Quiero ir a Japón.",
+    "en": "I want to go to Japan.",
     "ja": "わたし は にほん に いきたい です。",
     "romaji": "watashi wa nihon ni ikitai desu."
    },
    {
     "es": "Quiero tomar café.",
+    "en": "I want to drink coffee.",
     "ja": "コーヒー が のみたい です。",
     "romaji": "koohii ga nomitai desu."
    },
    {
     "es": "Quiero ver una película.",
+    "en": "I want to watch a movie.",
     "ja": "えいが を みたい です。",
     "romaji": "eiga o mitai desu."
    },
    {
     "es": "Quiero ver a mis amigos.",
+    "en": "I want to see my friends.",
     "ja": "ともだち に あいたい です。",
     "romaji": "tomodachi ni aitai desu."
    },
    {
     "es": "Hoy no quiero comer.",
+    "en": "I don't want to eat today.",
     "ja": "きょう は たべたく ないです。",
     "romaji": "kyou wa tabetaku naidesu."
    }

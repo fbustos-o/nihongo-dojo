@@ -217,7 +217,8 @@
   "tenThousand": {
    "unit": "まん",
    "kanji": "万",
-   "note": "1万 se lee いちまん (el いち NO se omite, a diferencia de 100 = ひゃく y 1000 = せん). 10 000 = いちまん, 100 000 = じゅうまん, 1 000 000 = ひゃくまん."
+   "note": "1万 se lee いちまん (el いち NO se omite, a diferencia de 100 = ひゃく y 1000 = せん). 10 000 = いちまん, 100 000 = じゅうまん, 1 000 000 = ひゃくまん.",
+   "noteEn": "1万 is read いちまん (the いち is NOT dropped, unlike 100 = ひゃく and 1000 = せん). 10,000 = いちまん, 100,000 = じゅうまん, 1,000,000 = ひゃくまん."
   }
  },
  "rules": [
@@ -300,20 +301,24 @@
    {
     "reading": "ごぜん",
     "kanji": "午前",
-    "es": "a.m."
+    "es": "a.m.",
+    "en": "a.m."
    },
    {
     "reading": "ごご",
     "kanji": "午後",
-    "es": "p.m."
+    "es": "p.m.",
+    "en": "p.m."
    }
   ],
   "ask": {
    "reading": "なんじ",
    "kanji": "何時",
-   "es": "¿qué hora?"
+   "es": "¿qué hora?",
+   "en": "what time?"
   },
-  "note": "Irregulares: よじ (4), しちじ (7), くじ (9). 4:30 = よじはん. Pregunta: いま なんじ ですか."
+  "note": "Irregulares: よじ (4), しちじ (7), くじ (9). 4:30 = よじはん. Pregunta: いま なんじ ですか.",
+  "noteEn": "Irregular: よじ (4), しちじ (7), くじ (9). 4:30 = よじはん. Question: いま なんじ ですか."
  },
  "minutes": {
   "items": [
@@ -588,7 +593,8 @@
    }
   ],
   "rules": "ふん/ぷん: 1 いっぷん, 2 にふん, 3 さんぷん, 4 よんぷん, 5 ごふん, 6 ろっぷん, 7 ななふん, 8 はっぷん, 9 きゅうふん, 10 じゅっぷん (じっぷん también). 15 = じゅうごふん, 30 = さんじゅっぷん / はん.",
-  "ask": "なんぷん"
+  "ask": "なんぷん",
+  "rulesEn": "ふん/ぷん: 1 いっぷん, 2 にふん, 3 さんぷん, 4 よんぷん, 5 ごふん, 6 ろっぷん, 7 ななふん, 8 はっぷん, 9 きゅうふん, 10 じゅっぷん (also じっぷん). 15 = じゅうごふん, 30 = さんじゅっぷん / はん."
  },
  "days": {
   "items": [
@@ -750,9 +756,11 @@
   ],
   "ask": {
    "reading": "なんにち",
-   "es": "¿qué día del mes?"
+   "es": "¿qué día del mes?",
+   "en": "what day of the month?"
   },
-  "note": "1–10 y 14, 20, 24 son irregulares (ついたち … とおか, じゅうよっか, はつか, にじゅうよっか). Del resto: número + にち; 17 y 27 = しちにち, 19 y 29 = くにち."
+  "note": "1–10 y 14, 20, 24 son irregulares (ついたち … とおか, じゅうよっか, はつか, にじゅうよっか). Del resto: número + にち; 17 y 27 = しちにち, 19 y 29 = くにち.",
+  "noteEn": "1–10 and 14, 20, 24 are irregular (ついたち … とおか, じゅうよっか, はつか, にじゅうよっか). The rest: number + にち; 17 and 27 = しちにち, 19 and 29 = くにち."
  },
  "months": {
   "items": [
@@ -819,9 +827,11 @@
   ],
   "ask": {
    "reading": "なんがつ",
-   "es": "¿qué mes?"
+   "es": "¿qué mes?",
+   "en": "what month?"
   },
-  "note": "Irregulares: しがつ (4), しちがつ (7), くがつ (9)."
+  "note": "Irregulares: しがつ (4), しちがつ (7), くがつ (9).",
+  "noteEn": "Irregular: しがつ (4), しちがつ (7), くがつ (9)."
  },
  "weekdays": {
   "items": [
@@ -830,56 +840,72 @@
     "reading": "にちようび",
     "kanji": "日曜日",
     "es": "domingo",
-    "element": "sol"
+    "element": "sol",
+    "en": "Sunday",
+    "elementEn": "sun"
    },
    {
     "index": 1,
     "reading": "げつようび",
     "kanji": "月曜日",
     "es": "lunes",
-    "element": "luna"
+    "element": "luna",
+    "en": "Monday",
+    "elementEn": "moon"
    },
    {
     "index": 2,
     "reading": "かようび",
     "kanji": "火曜日",
     "es": "martes",
-    "element": "fuego"
+    "element": "fuego",
+    "en": "Tuesday",
+    "elementEn": "fire"
    },
    {
     "index": 3,
     "reading": "すいようび",
     "kanji": "水曜日",
     "es": "miércoles",
-    "element": "agua"
+    "element": "agua",
+    "en": "Wednesday",
+    "elementEn": "water"
    },
    {
     "index": 4,
     "reading": "もくようび",
     "kanji": "木曜日",
     "es": "jueves",
-    "element": "madera"
+    "element": "madera",
+    "en": "Thursday",
+    "elementEn": "wood"
    },
    {
     "index": 5,
     "reading": "きんようび",
     "kanji": "金曜日",
     "es": "viernes",
-    "element": "oro/metal"
+    "element": "oro/metal",
+    "en": "Friday",
+    "elementEn": "gold/metal"
    },
    {
     "index": 6,
     "reading": "どようび",
     "kanji": "土曜日",
     "es": "sábado",
-    "element": "tierra"
+    "element": "tierra",
+    "en": "Saturday",
+    "elementEn": "earth"
    }
   ],
   "ask": {
    "reading": "なんようび",
-   "es": "¿qué día de la semana?"
+   "es": "¿qué día de la semana?",
+   "en": "what day of the week?"
   },
-  "note": "index 0 = domingo (como en la hoja del profesor). La palabra ようび se puede omitir en la escritura abreviada: 日, 月, 火…"
+  "note": "index 0 = domingo (como en la hoja del profesor). La palabra ようび se puede omitir en la escritura abreviada: 日, 月, 火…",
+  "noteEn": "index 0 = Sunday (as on the teacher's sheet). The word ようび can be left out in abbreviated writing: 日, 月, 火…"
  },
  "years": {
   "suffix": {
@@ -923,7 +949,8 @@
     "reading": "にせんにじゅうろくねん"
    }
   ],
-  "note": "Año = número completo + ねん. La hoja del profesor lee 1998 como せん きゅうひゃく きゅうじゅう はち ねん."
+  "note": "Año = número completo + ねん. La hoja del profesor lee 1998 como せん きゅうひゃく きゅうじゅう はち ねん.",
+  "noteEn": "Year = the full number + ねん. The teacher's sheet reads 1998 as せん きゅうひゃく きゅうじゅう はち ねん."
  },
  "counters": {
   "tsu": {
@@ -972,7 +999,9 @@
     }
    ],
    "ask": "いくつ",
-   "note": "No existe forma en つ para 11 o más: じゅういち, じゅうに… (sin contador)."
+   "note": "No existe forma en つ para 11 o más: じゅういち, じゅうに… (sin contador).",
+   "useEn": "objects in general (up to 10; from 11 on the normal numbers are used)",
+   "noteEn": "There is no つ form for 11 or more: じゅういち, じゅうに… (no counter)."
   },
   "nin": {
    "kanji": "人",
@@ -1023,7 +1052,9 @@
     }
    ],
    "ask": "なんにん",
-   "note": "1 = ひとり y 2 = ふたり son irregulares; 4 = よにん (NO よんにん). Desde 3 se usa el número + にん."
+   "note": "1 = ひとり y 2 = ふたり son irregulares; 4 = よにん (NO よんにん). Desde 3 se usa el número + にん.",
+   "useEn": "people",
+   "noteEn": "1 = ひとり and 2 = ふたり are irregular; 4 = よにん (NOT よんにん). From 3 on: number + にん."
   },
   "kai": {
    "kanji": "階",
@@ -1080,7 +1111,9 @@
     }
    ],
    "ask": "なんがい",
-   "note": "3 = さんがい (kai→gai), 6 = ろっかい, 8 = はっかい (también はちかい), 10 = じゅっかい (también じっかい). Sótano: ちか いっかい (B1)."
+   "note": "3 = さんがい (kai→gai), 6 = ろっかい, 8 = はっかい (también はちかい), 10 = じゅっかい (también じっかい). Sótano: ちか いっかい (B1).",
+   "useEn": "floors of a building",
+   "noteEn": "3 = さんがい (kai→gai), 6 = ろっかい, 8 = はっかい (also はちかい), 10 = じゅっかい (also じっかい). Basement: ちか いっかい (B1)."
   },
   "sai": {
    "kanji": "歳",
@@ -1141,10 +1174,13 @@
     {
      "value": 20,
      "reading": "はたち",
-     "note": "20 años se dice はたち (también にじゅっさい)"
+     "note": "20 años se dice はたち (también にじゅっさい)",
+     "noteEn": "Twenty years old is はたち (also にじゅっさい)"
     }
    ],
-   "note": "1 = いっさい, 8 = はっさい, 10 = じゅっさい (también じっさい). Más de 10: decenas + unidad + さい (じゅういっさい, じゅうにさい, にじゅういっさい…). 20 = はたち."
+   "note": "1 = いっさい, 8 = はっさい, 10 = じゅっさい (también じっさい). Más de 10: decenas + unidad + さい (じゅういっさい, じゅうにさい, にじゅういっさい…). 20 = はたち.",
+   "useEn": "age",
+   "noteEn": "1 = いっさい, 8 = はっさい, 10 = じゅっさい (also じっさい). Above 10: tens + unit + さい (じゅういっさい, じゅうにさい, にじゅういっさい…). 20 = はたち."
   }
  },
  "samples": [
@@ -1244,5 +1280,13 @@
    "value": 618905,
    "reading": "ろくじゅういちまんはっせんきゅうひゃくご"
   }
+ ],
+ "rulesEn": [
+  "11 to 19: じゅう + digit (じゅういち … じゅうきゅう). Tens: 20 にじゅう … 90 きゅうじゅう; 10 = じゅう (no いち).",
+  "Hundreds: 100 ひゃく (no いち), 300 さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, the rest: digit + ひゃく (4 = よん, 7 = なな, 9 = きゅう).",
+  "Thousands: 1000 せん (no いち), 3000 さんぜん, 8000 はっせん, the rest: digit + せん.",
+  "Ten-thousands: a group of up to 4 digits + まん (いちまん is required). 72,341 = ななまん にせん さんびゃく よんじゅういち.",
+  "Prices: number + えん. 4 yen = よえん; 14 yen = じゅうよえん; 40 yen = よんじゅうえん.",
+  "Years: number + ねん (にせんにじゅうろくねん = 2026). Year 4 = よねん; 7 = ななねん/しちねん; 9 = きゅうねん/くねん."
  ]
 }

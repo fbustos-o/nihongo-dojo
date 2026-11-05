@@ -16,6 +16,9 @@
    "いち",
    "ひと(つ)"
   ],
+  "en": [
+   "one"
+  ],
   "words": [
    "ichi",
    "ichiji",
@@ -46,6 +49,9 @@
    "に",
    "ふた(つ)"
   ],
+  "en": [
+   "two"
+  ],
   "words": [
    "ni-numero",
    "futari",
@@ -72,6 +78,9 @@
   "teach": [
    "さん",
    "み(つ)"
+  ],
+  "en": [
+   "three"
   ],
   "words": [
    "san",
@@ -105,6 +114,9 @@
    "よん",
    "よ(つ)"
   ],
+  "en": [
+   "four"
+  ],
   "words": [
    "shi-4",
    "yon",
@@ -131,6 +143,9 @@
   "teach": [
    "ご",
    "いつ(つ)"
+  ],
+  "en": [
+   "five"
   ],
   "words": [
    "go",
@@ -159,6 +174,9 @@
    "ろく",
    "む(つ)"
   ],
+  "en": [
+   "six"
+  ],
   "words": [
    "roku",
    "muika",
@@ -185,6 +203,9 @@
   "teach": [
    "しち",
    "なな(つ)"
+  ],
+  "en": [
+   "seven"
   ],
   "words": [
    "nana",
@@ -215,6 +236,9 @@
   "teach": [
    "はち",
    "や(つ)"
+  ],
+  "en": [
+   "eight"
   ],
   "words": [
    "hachi",
@@ -247,6 +271,9 @@
    "く",
    "ここの(つ)"
   ],
+  "en": [
+   "nine"
+  ],
   "words": [
    "ku-9",
    "kyuu",
@@ -270,6 +297,9 @@
   "teach": [
    "じゅう",
    "とお"
+  ],
+  "en": [
+   "ten"
   ],
   "words": [
    "juu",
@@ -298,6 +328,9 @@
   "teach": [
    "ひゃく"
   ],
+  "en": [
+   "hundred"
+  ],
   "words": [
    "hyaku",
    "hyakuen",
@@ -323,6 +356,9 @@
   "teach": [
    "せん"
   ],
+  "en": [
+   "thousand"
+  ],
   "words": [
    "sen",
    "sanzen"
@@ -347,6 +383,9 @@
   "genkiLesson": 3,
   "teach": [
    "まん"
+  ],
+  "en": [
+   "ten thousand"
   ],
   "words": [
    "man",
@@ -378,6 +417,10 @@
    "えん",
    "まる(い)"
   ],
+  "en": [
+   "yen",
+   "circle"
+  ],
   "words": [
    "en-yen",
    "hyakuen",
@@ -401,6 +444,10 @@
   "teach": [
    "じ",
    "とき"
+  ],
+  "en": [
+   "time",
+   "hour"
   ],
   "words": [
    "ichiji",
@@ -438,6 +485,10 @@
    "ひ",
    "か"
   ],
+  "en": [
+   "day",
+   "sun"
+  ],
   "words": [
    "nihon",
    "ashita",
@@ -468,6 +519,10 @@
   "teach": [
    "ほん",
    "もと"
+  ],
+  "en": [
+   "book",
+   "origin"
   ],
   "words": [
    "nihon",
@@ -500,6 +555,9 @@
    "じん",
    "にん",
    "ひと"
+  ],
+  "en": [
+   "person"
   ],
   "words": [
    "jin",
@@ -534,6 +592,10 @@
    "がつ",
    "つき"
   ],
+  "en": [
+   "month",
+   "moon"
+  ],
   "words": [
    "gatsu",
    "gogatsu",
@@ -561,6 +623,9 @@
    "か",
    "ひ"
   ],
+  "en": [
+   "fire"
+  ],
   "words": [
    "kayoubi",
    "hi",
@@ -583,6 +648,9 @@
   "teach": [
    "すい",
    "みず"
+  ],
+  "en": [
+   "water"
   ],
   "words": [
    "mizu",
@@ -607,6 +675,10 @@
   "teach": [
    "もく",
    "き"
+  ],
+  "en": [
+   "tree",
+   "wood"
   ],
   "words": [
    "mokuyoubi",
@@ -638,6 +710,11 @@
    "きん",
    "かね"
   ],
+  "en": [
+   "gold",
+   "money",
+   "metal"
+  ],
   "words": [
    "okane",
    "kinyoubi"
@@ -663,6 +740,11 @@
    "と",
    "つち"
   ],
+  "en": [
+   "soil",
+   "earth",
+   "ground"
+  ],
   "words": [
    "doyoubi",
    "tsuchi"
@@ -681,6 +763,9 @@
   "genkiLesson": 4,
   "teach": [
    "よう"
+  ],
+  "en": [
+   "day of the week"
   ],
   "words": [
    "youbi",
@@ -716,6 +801,10 @@
    "うえ",
    "のぼ(る)"
   ],
+  "en": [
+   "above",
+   "up"
+  ],
   "words": [
    "ue",
    "jouzu"
@@ -749,6 +838,10 @@
    "した",
    "くだ(さる)"
   ],
+  "en": [
+   "below",
+   "down"
+  ],
   "words": [
    "heta",
    "shita"
@@ -781,6 +874,11 @@
    "じゅう",
    "なか"
   ],
+  "en": [
+   "inside",
+   "middle",
+   "center"
+  ],
   "words": [
    "chuugoku",
    "naka",
@@ -804,6 +902,10 @@
   "genkiLesson": 4,
   "teach": [
    "はん"
+  ],
+  "en": [
+   "half",
+   "middle"
   ],
   "words": [
    "han",
@@ -833,6 +935,9 @@
    "さん",
    "やま"
   ],
+  "en": [
+   "mountain"
+  ],
   "words": [
    "yama",
    "yamada"
@@ -855,6 +960,10 @@
   "teach": [
    "かわ",
    "がわ"
+  ],
+  "en": [
+   "river",
+   "stream"
   ],
   "words": [
    "kawa",
@@ -882,6 +991,10 @@
    "がん",
    "もと"
   ],
+  "en": [
+   "origin",
+   "beginning"
+  ],
   "words": [
    "genki",
    "moto"
@@ -907,6 +1020,11 @@
   "teach": [
    "き"
   ],
+  "en": [
+   "spirit",
+   "mind",
+   "air"
+  ],
   "words": [
    "genki",
    "tenki",
@@ -930,6 +1048,10 @@
   "genkiLesson": 5,
   "teach": [
    "てん"
+  ],
+  "en": [
+   "heavens",
+   "sky"
   ],
   "words": [
    "tenki",
@@ -958,6 +1080,11 @@
    "し",
    "わたし"
   ],
+  "en": [
+   "I",
+   "me",
+   "private"
+  ],
   "words": [
    "watashi",
    "shiritsu"
@@ -980,6 +1107,10 @@
   "teach": [
    "こん",
    "いま"
+  ],
+  "en": [
+   "now",
+   "present"
   ],
   "words": [
    "ima",
@@ -1012,6 +1143,9 @@
    "た",
    "だ"
   ],
+  "en": [
+   "rice field"
+  ],
   "words": [
    "tanaka",
    "tanbo",
@@ -1040,6 +1174,10 @@
    "じょ",
    "おんな"
   ],
+  "en": [
+   "woman",
+   "female"
+  ],
   "words": [
    "onnanohito",
    "onna",
@@ -1065,6 +1203,10 @@
   "teach": [
    "だん",
    "おとこ"
+  ],
+  "en": [
+   "man",
+   "male"
   ],
   "words": [
    "otokonohito",
@@ -1095,6 +1237,10 @@
    "けん",
    "み(る)"
   ],
+  "en": [
+   "see",
+   "look at"
+  ],
   "words": [
    "miru",
    "miseru"
@@ -1120,6 +1266,10 @@
    "ぎょう",
    "い(く)"
   ],
+  "en": [
+   "go",
+   "going"
+  ],
   "words": [
    "iku",
    "ryokou"
@@ -1143,6 +1293,11 @@
   "teach": [
    "しょく",
    "た(べる)"
+  ],
+  "en": [
+   "eat",
+   "food",
+   "meal"
   ],
   "words": [
    "taberu",
@@ -1169,6 +1324,9 @@
    "いん",
    "の(む)"
   ],
+  "en": [
+   "drink"
+  ],
   "words": [
    "nomu",
    "nomikai"
@@ -1193,6 +1351,9 @@
   "teach": [
    "とう",
    "ひがし"
+  ],
+  "en": [
+   "east"
   ],
   "words": [
    "higashi",
@@ -1224,6 +1385,9 @@
    "さい",
    "にし"
   ],
+  "en": [
+   "west"
+  ],
   "words": [
    "nishi",
    "nishiguchi"
@@ -1245,6 +1409,9 @@
   "teach": [
    "なん",
    "みなみ"
+  ],
+  "en": [
+   "south"
   ],
   "words": [
    "minami",
@@ -1274,6 +1441,9 @@
    "ほく",
    "きた"
   ],
+  "en": [
+   "north"
+  ],
   "words": [
    "kita",
    "kitaguchi"
@@ -1299,6 +1469,9 @@
    "こう",
    "くち",
    "ぐち"
+  ],
+  "en": [
+   "mouth"
   ],
   "words": [
    "kuchi",
@@ -1333,6 +1506,11 @@
    "で(る)",
    "だ(す)"
   ],
+  "en": [
+   "go out",
+   "leave",
+   "put out"
+  ],
   "words": [
    "dekakeru",
    "dasu",
@@ -1358,6 +1536,9 @@
    "う",
    "ゆう",
    "みぎ"
+  ],
+  "en": [
+   "right"
   ],
   "words": [
    "migi",
@@ -1387,6 +1568,9 @@
    "さ",
    "ひだり"
   ],
+  "en": [
+   "left"
+  ],
   "words": [
    "hidari",
    "hidarite"
@@ -1413,6 +1597,11 @@
    "ふん",
    "ぶん",
    "わ(ける)"
+  ],
+  "en": [
+   "minute of time",
+   "part",
+   "understand"
   ],
   "words": [
    "wakaru",
@@ -1445,6 +1634,11 @@
    "せん",
    "さき"
   ],
+  "en": [
+   "before",
+   "ahead",
+   "previous"
+  ],
   "words": [
    "sensei",
    "saki"
@@ -1476,6 +1670,11 @@
    "しょう",
    "う(まれる)"
   ],
+  "en": [
+   "life",
+   "be born",
+   "student"
+  ],
   "words": [
    "gakusei",
    "nensei",
@@ -1501,6 +1700,10 @@
    "だい",
    "たい",
    "おお(きい)"
+  ],
+  "en": [
+   "big",
+   "large"
   ],
   "words": [
    "daigaku",
@@ -1529,6 +1732,10 @@
   "teach": [
    "がく",
    "まな(ぶ)"
+  ],
+  "en": [
+   "study",
+   "learning"
   ],
   "words": [
    "daigaku",
@@ -1560,6 +1767,9 @@
    "がい",
    "そと"
   ],
+  "en": [
+   "outside"
+  ],
   "words": [
    "gaikoku",
    "soto",
@@ -1587,6 +1797,9 @@
    "こく",
    "くに"
   ],
+  "en": [
+   "country"
+  ],
   "words": [
    "chuugoku",
    "kuni",
@@ -1612,6 +1825,9 @@
   "teach": [
    "きょう"
   ],
+  "en": [
+   "capital"
+  ],
   "words": [
    "kyouko",
    "toukyou"
@@ -1635,6 +1851,9 @@
   "teach": [
    "し",
    "こ"
+  ],
+  "en": [
+   "child"
   ],
   "words": [
    "kyouko",
@@ -1665,6 +1884,10 @@
    "しょう",
    "ちい(さい)"
   ],
+  "en": [
+   "small",
+   "little"
+  ],
   "words": [
    "chiisai",
    "ogawa",
@@ -1692,6 +1915,10 @@
   "teach": [
    "かい",
    "あ(う)"
+  ],
+  "en": [
+   "meet",
+   "meeting"
   ],
   "words": [
    "au",
@@ -1725,6 +1952,10 @@
    "しゃ",
    "じゃ"
   ],
+  "en": [
+   "company",
+   "shrine"
+  ],
   "words": [
    "jinja",
    "kaisha",
@@ -1754,6 +1985,9 @@
    "ちち",
    "とう"
   ],
+  "en": [
+   "father"
+  ],
   "words": [
    "otousan",
    "chichi"
@@ -1777,6 +2011,9 @@
    "ぼ",
    "はは",
    "かあ"
+  ],
+  "en": [
+   "mother"
   ],
   "words": [
    "okaasan",
@@ -1804,6 +2041,11 @@
    "こう",
    "たか(い)"
   ],
+  "en": [
+   "tall",
+   "high",
+   "expensive"
+  ],
   "words": [
    "koukou",
    "takai"
@@ -1822,6 +2064,9 @@
   "genkiLesson": 7,
   "teach": [
    "こう"
+  ],
+  "en": [
+   "school"
   ],
   "words": [
    "koukou",
@@ -1850,6 +2095,9 @@
   "teach": [
    "まい"
   ],
+  "en": [
+   "every"
+  ],
   "words": [
    "mainichi",
    "maiasa",
@@ -1875,6 +2123,10 @@
   "genkiLesson": 7,
   "teach": [
    "ご"
+  ],
+  "en": [
+   "language",
+   "word"
   ],
   "words": [
    "go-idioma",
@@ -1907,6 +2159,11 @@
   "teach": [
    "ぶん"
   ],
+  "en": [
+   "sentence",
+   "writing",
+   "letter"
+  ],
   "words": [
    "bun",
    "sakubun"
@@ -1928,6 +2185,10 @@
   "teach": [
    "き",
    "かえ(る)"
+  ],
+  "en": [
+   "return",
+   "returning home"
   ],
   "words": [
    "kaeru",
@@ -1959,6 +2220,10 @@
    "はい(る)",
    "い(れる)"
   ],
+  "en": [
+   "enter",
+   "put in"
+  ],
   "words": [
    "hairu",
    "ireru",
@@ -1983,6 +2248,10 @@
   "genkiLesson": 8,
   "teach": [
    "いん"
+  ],
+  "en": [
+   "member",
+   "employee"
   ],
   "words": [
    "kaiin",
@@ -2013,6 +2282,9 @@
    "しん",
    "あたら(しい)"
   ],
+  "en": [
+   "new"
+  ],
   "words": [
    "shinbun",
    "atarashii"
@@ -2038,6 +2310,11 @@
    "ぶん",
    "き(く)"
   ],
+  "en": [
+   "hear",
+   "ask",
+   "listen"
+  ],
   "words": [
    "shinbun",
    "kiku"
@@ -2061,6 +2338,10 @@
   "teach": [
    "さく",
    "つく(る)"
+  ],
+  "en": [
+   "make",
+   "prepare"
   ],
   "words": [
    "tsukuru",
@@ -2091,6 +2372,11 @@
   "teach": [
    "し",
    "つか(える)"
+  ],
+  "en": [
+   "serve",
+   "do",
+   "attend"
   ],
   "words": [
    "shigoto",
@@ -2124,6 +2410,11 @@
    "こと",
    "ごと"
   ],
+  "en": [
+   "matter",
+   "thing",
+   "business"
+  ],
   "words": [
    "shigoto",
    "kaji",
@@ -2144,6 +2435,9 @@
   "genkiLesson": 8,
   "teach": [
    "でん"
+  ],
+  "en": [
+   "electricity"
   ],
   "words": [
    "denwa",
@@ -2174,6 +2468,10 @@
    "しゃ",
    "くるま"
   ],
+  "en": [
+   "car",
+   "vehicle"
+  ],
   "words": [
    "densha",
    "kuruma"
@@ -2195,6 +2493,10 @@
   "teach": [
    "きゅう",
    "やす(む)"
+  ],
+  "en": [
+   "rest",
+   "day off"
   ],
   "words": [
    "yasumi",
@@ -2229,6 +2531,10 @@
    "い(う)",
    "こと"
   ],
+  "en": [
+   "say",
+   "speech"
+  ],
   "words": [
    "iu",
    "gengo"
@@ -2255,6 +2561,9 @@
   "teach": [
    "どく",
    "よ(む)"
+  ],
+  "en": [
+   "read"
   ],
   "words": [
    "yomu",
@@ -2283,6 +2592,9 @@
    "し",
    "おも(う)"
   ],
+  "en": [
+   "think"
+  ],
   "words": [
    "omoide",
    "omou"
@@ -2307,6 +2619,9 @@
   "teach": [
    "じ",
    "つぎ"
+  ],
+  "en": [
+   "next"
   ],
   "words": [
    "tsugi",
@@ -2334,6 +2649,10 @@
    "なに",
    "なん"
   ],
+  "en": [
+   "what",
+   "how many"
+  ],
   "words": [
    "nan",
    "nani",
@@ -2360,6 +2679,9 @@
   "genkiLesson": 9,
   "teach": [
    "ご"
+  ],
+  "en": [
+   "noon"
   ],
   "words": [
    "gogo",
@@ -2394,6 +2716,11 @@
    "あと",
    "うし(ろ)"
   ],
+  "en": [
+   "after",
+   "behind",
+   "later"
+  ],
   "words": [
    "gogo",
    "atode",
@@ -2417,6 +2744,10 @@
   "teach": [
    "ぜん",
    "まえ"
+  ],
+  "en": [
+   "before",
+   "in front"
   ],
   "words": [
    "gozen",
@@ -2448,6 +2779,9 @@
    "みょう",
    "な"
   ],
+  "en": [
+   "name"
+  ],
   "words": [
    "namae",
    "yuumei",
@@ -2478,6 +2812,9 @@
    "はく",
    "しろ(い)"
   ],
+  "en": [
+   "white"
+  ],
   "words": [
    "shiro",
    "shiroi"
@@ -2502,6 +2839,9 @@
   "teach": [
    "う",
    "あめ"
+  ],
+  "en": [
+   "rain"
   ],
   "words": [
    "ame",
@@ -2529,6 +2869,10 @@
    "しょ",
    "か(く)"
   ],
+  "en": [
+   "write",
+   "book"
+  ],
   "words": [
    "kaku",
    "dokusho",
@@ -2551,6 +2895,9 @@
   "teach": [
    "ゆう",
    "とも"
+  ],
+  "en": [
+   "friend"
   ],
   "words": [
    "tomodachi",
@@ -2578,6 +2925,11 @@
    "かん",
    "げん",
    "あいだ"
+  ],
+  "en": [
+   "interval",
+   "between",
+   "space"
   ],
   "words": [
    "jikan",
@@ -2607,6 +2959,11 @@
    "いえ",
    "や"
   ],
+  "en": [
+   "house",
+   "home",
+   "family"
+  ],
   "words": [
    "ie",
    "sakka",
@@ -2632,6 +2989,11 @@
    "わ",
    "はな(す)",
    "はなし"
+  ],
+  "en": [
+   "talk",
+   "speak",
+   "tale"
   ],
   "words": [
    "denwa",
@@ -2664,6 +3026,10 @@
    "すこ(し)",
    "すく(ない)"
   ],
+  "en": [
+   "few",
+   "little"
+  ],
   "words": [
    "sukoshi",
    "sukunai"
@@ -2689,6 +3055,9 @@
   "teach": [
    "こ",
    "ふる(い)"
+  ],
+  "en": [
+   "old"
   ],
   "words": [
    "furui",
@@ -2719,6 +3088,9 @@
    "ち",
    "し(る)"
   ],
+  "en": [
+   "know"
+  ],
   "words": [
    "chijin",
    "shiru"
@@ -2744,6 +3116,9 @@
    "く(る)",
    "き",
    "こ"
+  ],
+  "en": [
+   "come"
   ],
   "words": [
    "kuru",
@@ -2773,6 +3148,11 @@
   "teach": [
    "じゅう",
    "す(む)"
+  ],
+  "en": [
+   "live",
+   "reside",
+   "dwell"
   ],
   "words": [
    "sumu",
@@ -2805,6 +3185,10 @@
    "せい",
    "ただ(しい)"
   ],
+  "en": [
+   "correct",
+   "right"
+  ],
   "words": [
    "shougatsu",
    "tadashii"
@@ -2826,6 +3210,9 @@
   "teach": [
    "ねん",
    "とし"
+  ],
+  "en": [
+   "year"
   ],
   "words": [
    "nensei",
@@ -2851,6 +3238,9 @@
    "ばい",
    "う(る)"
   ],
+  "en": [
+   "sell"
+  ],
   "words": [
    "ureru",
    "uru"
@@ -2872,6 +3262,9 @@
   "teach": [
    "ばい",
    "か(う)"
+  ],
+  "en": [
+   "buy"
   ],
   "words": [
    "kau",
@@ -2896,6 +3289,10 @@
   "teach": [
    "ちょう",
    "まち"
+  ],
+  "en": [
+   "town",
+   "village"
   ],
   "words": [
    "machi",
@@ -2925,6 +3322,10 @@
    "ちょう",
    "なが(い)"
   ],
+  "en": [
+   "long",
+   "chief"
+  ],
   "words": [
    "nagai",
    "shachou",
@@ -2948,6 +3349,11 @@
   "teach": [
    "どう",
    "みち"
+  ],
+  "en": [
+   "road",
+   "way",
+   "street"
   ],
   "words": [
    "michi",
@@ -2975,6 +3381,9 @@
   "teach": [
    "せつ",
    "ゆき"
+  ],
+  "en": [
+   "snow"
   ],
   "words": [
    "yuki",
@@ -3004,6 +3413,11 @@
    "りつ",
    "た(つ)"
   ],
+  "en": [
+   "stand up",
+   "stand",
+   "establish"
+  ],
   "words": [
    "tatsu",
    "kokuritsu",
@@ -3027,6 +3441,10 @@
   "genkiLesson": 10,
   "teach": [
    "じ"
+  ],
+  "en": [
+   "oneself",
+   "self"
   ],
   "words": [
    "jibun",
@@ -3052,6 +3470,10 @@
    "よる",
    "よ"
   ],
+  "en": [
+   "night",
+   "evening"
+  ],
   "words": [
    "yoru",
    "konya"
@@ -3076,6 +3498,9 @@
   "teach": [
    "ちょう",
    "あさ"
+  ],
+  "en": [
+   "morning"
   ],
   "words": [
    "asa",
@@ -3104,6 +3529,10 @@
    "じ",
    "も(つ)"
   ],
+  "en": [
+   "hold",
+   "have"
+  ],
   "words": [
    "motsu",
    "mottekuru"
@@ -3128,6 +3557,9 @@
   "teach": [
    "しゅ",
    "て"
+  ],
+  "en": [
+   "hand"
   ],
   "words": [
    "heta",
@@ -3158,6 +3590,9 @@
    "かみ",
    "がみ"
   ],
+  "en": [
+   "paper"
+  ],
   "words": [
    "kami",
    "tegami"
@@ -3181,6 +3616,10 @@
    "こう",
    "す(き)",
    "この(む)"
+  ],
+  "en": [
+   "like",
+   "fond"
   ],
   "words": [
    "daisuki",
@@ -3206,6 +3645,10 @@
   "teach": [
    "きん",
    "ちか(い)"
+  ],
+  "en": [
+   "near",
+   "recent"
   ],
   "words": [
    "chikai",
@@ -3236,6 +3679,11 @@
    "めい",
    "あか(るい)"
   ],
+  "en": [
+   "bright",
+   "clear",
+   "light"
+  ],
   "words": [
    "ashita",
    "akarui"
@@ -3264,6 +3712,11 @@
   "teach": [
    "びょう"
   ],
+  "en": [
+   "ill",
+   "sick",
+   "illness"
+  ],
   "words": [
    "byouin",
    "byouki"
@@ -3283,6 +3736,10 @@
   "genkiLesson": 11,
   "teach": [
    "いん"
+  ],
+  "en": [
+   "institution",
+   "temple"
   ],
   "words": [
    "byouin",
@@ -3307,6 +3764,11 @@
   "teach": [
    "えい",
    "うつ(る)"
+  ],
+  "en": [
+   "reflect",
+   "project",
+   "reflection"
   ],
   "words": [
    "eiga",
@@ -3335,6 +3797,10 @@
   "teach": [
    "が",
    "かく"
+  ],
+  "en": [
+   "picture",
+   "brush-stroke"
   ],
   "words": [
    "eiga",
@@ -3365,6 +3831,10 @@
    "か",
    "うた"
   ],
+  "en": [
+   "song",
+   "sing"
+  ],
   "words": [
    "utau",
    "kashu",
@@ -3392,6 +3862,11 @@
    "し",
    "いち"
   ],
+  "en": [
+   "city",
+   "market",
+   "town"
+  ],
   "words": [
    "shi-ciudad",
    "shichou"
@@ -3416,6 +3891,9 @@
    "しょ",
    "ところ"
   ],
+  "en": [
+   "place"
+  ],
   "words": [
    "juusho",
    "tokoro"
@@ -3437,6 +3915,11 @@
   "teach": [
    "べん",
    "つと(める)"
+  ],
+  "en": [
+   "strive",
+   "make effort",
+   "diligent"
   ],
   "words": [
    "benkyousuru",
@@ -3461,6 +3944,9 @@
    "きょう",
    "ごう",
    "つよ(い)"
+  ],
+  "en": [
+   "strong"
   ],
   "words": [
    "benkyousuru",
@@ -3487,6 +3973,11 @@
    "ゆう",
    "あ(る)"
   ],
+  "en": [
+   "have",
+   "possess",
+   "exist"
+  ],
   "words": [
    "yuumei",
    "yuumeijin"
@@ -3508,6 +3999,10 @@
   "teach": [
    "りょ",
    "たび"
+  ],
+  "en": [
+   "trip",
+   "travel"
   ],
   "words": [
    "ryokou",
@@ -3531,6 +4026,11 @@
   "genkiLesson": 12,
   "teach": [
    "むかし"
+  ],
+  "en": [
+   "long ago",
+   "once upon a time",
+   "old times"
   ],
   "words": [
    "mukashi",
@@ -3565,6 +4065,11 @@
    "こう",
    "かみ"
   ],
+  "en": [
+   "gods",
+   "mind",
+   "soul"
+  ],
   "words": [
    "jinja",
    "kami-dios"
@@ -3590,6 +4095,11 @@
   "teach": [
    "そう",
    "はや(い)"
+  ],
+  "en": [
+   "early",
+   "fast",
+   "quick"
   ],
   "words": [
    "hayai",
@@ -3621,6 +4131,11 @@
    "き",
    "お(きる)"
   ],
+  "en": [
+   "get up",
+   "wake up",
+   "rouse"
+  ],
   "words": [
    "okiru",
    "okosu"
@@ -3642,6 +4157,10 @@
   "teach": [
    "ぎゅう",
    "うし"
+  ],
+  "en": [
+   "cow",
+   "cattle"
   ],
   "words": [
    "koushi",
@@ -3668,6 +4187,10 @@
   "teach": [
    "し",
    "つか(う)"
+  ],
+  "en": [
+   "use",
+   "messenger"
   ],
   "words": [
    "tsukau",
@@ -3696,6 +4219,9 @@
   "teach": [
    "どう",
    "はたら(く)"
+  ],
+  "en": [
+   "work"
   ],
   "words": [
    "hatarakite",
@@ -3726,6 +4252,11 @@
    "れん",
    "つ(れる)"
   ],
+  "en": [
+   "take along",
+   "connect",
+   "link"
+  ],
   "words": [
    "tsuretekuru",
    "renkyuu",
@@ -3753,6 +4284,11 @@
   "teach": [
    "べつ",
    "わか(れる)"
+  ],
+  "en": [
+   "separate",
+   "another",
+   "extra"
   ],
   "words": [
    "betsubetsu",
@@ -3782,6 +4318,11 @@
   "teach": [
    "ど"
   ],
+  "en": [
+   "time",
+   "occurrence",
+   "degrees"
+  ],
   "words": [
    "ichido",
    "kondo"
@@ -3804,6 +4345,9 @@
    "せき",
    "あか(い)"
   ],
+  "en": [
+   "red"
+  ],
   "words": [
    "akai",
    "aka"
@@ -3825,6 +4369,10 @@
   "teach": [
    "せい",
    "あお(い)"
+  ],
+  "en": [
+   "blue",
+   "green"
   ],
   "words": [
    "ao",
@@ -3849,6 +4397,9 @@
    "しき",
    "しょく",
    "いろ"
+  ],
+  "en": [
+   "color"
   ],
   "words": [
    "iro",
