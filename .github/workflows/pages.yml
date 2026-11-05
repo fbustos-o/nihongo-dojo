@@ -1,13 +1,28 @@
-# Publicación MANUAL en GitHub Pages.
+# Publicación MANUAL en GitHub Pages (workflow_dispatch, sin disparadores automáticos).
 #
-# ATENCIÓN: ejecutar este workflow publica el sitio en una URL pública, aunque el repositorio sea privado
-# (el contenido incluye datos derivados de Genki, sujetos a copyright). Pages en repos privados requiere
-# GitHub Pro/Team. Antes de ejecutarlo: Settings > Pages > Source = "GitHub Actions".
-# Solo se dispara a mano (workflow_dispatch); no hay triggers automáticos a propósito.
+# Publica DOS versiones en el mismo sitio:
+#   - `main_ref` (por defecto `main`) en https://<usuario>.github.io/<repo>/
+#   - `v2_ref`   (por defecto `v2`)   en https://<usuario>.github.io/<repo>/v2/
+# Así la rama v2 se prueba junto a la versión actual hasta que el usuario apruebe fusionarla.
+#
+# Enlaces profundos: Pages solo usa el 404.html de la raíz. Ese archivo es el de `main` (copia de su index.html,
+# fallback SPA) con un script delante que, si la ruta cae bajo /v2/, redirige a /v2/?r=<ruta> y la app v2 la
+# restaura (ver app/src/main.tsx).
+#
+# ATENCIÓN: el sitio es público aunque el repo sea privado; Pages en repos privados requiere GitHub Pro/Team.
 name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      main_ref:
+        description: 'Rama/tag publicada en la raíz del sitio'
+        default: 'main'
+        required: true
+      v2_ref:
+        description: 'Rama/tag publicada bajo /v2/ (vacío = no publicar v2)'
+        default: 'v2'
+        required: false
 
 permissions:
   contents: read
@@ -21,25 +36,65 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: app
+    env:
+      REPO_NAME: ${{ github.event.repository.name }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.main_ref }}
+          path: main
+      - uses: actions/checkout@v4
+        if: ${{ inputs.v2_ref != '' }}
+        with:
+          ref: ${{ inputs.v2_ref }}
+          path: v2
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: app/package-lock.json
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-        env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+          cache-dependency-path: |
+            main/app/package-lock.json
+            v2/app/package-lock.json
+
+      - name: Build main (raíz)
+        working-directory: main/app
+        run: |
+          npm ci
+          npm test
+          VITE_BASE="/${REPO_NAME}/" npm run build
+
+      - name: Build v2 (/v2/)
+        if: ${{ inputs.v2_ref != '' }}
+        working-directory: v2/app
+        run: |
+          npm ci
+          npm test
+          VITE_BASE="/${REPO_NAME}/v2/" VITE_CHANNEL=v2 npm run build
+
+      - name: Ensamblar el sitio
+        run: |
+          set -eu
+          mkdir -p site
+          cp -r main/app/dist/. site/
+          touch site/.nojekyll
+          if [ -d v2/app/dist ]; then
+            mkdir -p site/v2
+            cp -r v2/app/dist/. site/v2/
+            # 404 de la raíz: redirige los enlaces profundos de /v2/ a la app v2 conservando la ruta.
+            node -e '
+              const fs = require("fs");
+              const repo = process.env.REPO_NAME;
+              const script = `<script>(function(){var b="/${repo}/v2/";var p=location.pathname;if(p.indexOf(b)===0&&p!==b){location.replace(b+"?r="+encodeURIComponent(p.slice(b.length)+location.search+location.hash));}})();</script>`;
+              const f = "site/404.html";
+              fs.writeFileSync(f, fs.readFileSync(f, "utf8").replace("<head>", "<head>" + script));
+            '
+          fi
+          find site -maxdepth 2 -name '*.html' | sort
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: app/dist
+          path: site
 
   deploy:
     needs: build
