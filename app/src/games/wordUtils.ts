@@ -1,7 +1,7 @@
 import { content } from '../domain/contentLoader';
 import { glosses } from '../domain/glosses';
 import type { Word } from '../domain/schema';
-import { getMeaningLang } from '../i18n';
+import { getMeaningLang, translate } from '../i18n';
 import type { Lang } from '../state/progressSchema';
 import { shuffle } from './kanaUtils';
 
@@ -57,4 +57,19 @@ export function wordChoices(target: Word, pool: readonly Word[], count = 4, rng:
     if (distractors.length === count - 1) break;
   }
   return shuffle([target, ...distractors], rng);
+}
+
+/**
+ * Loanword origin as stored («inglés: television», «inglés: smartphone (abreviado)») shown in `lang`: the language name
+ * and the Spanish parenthetical hint are translated; the foreign word itself stays as is.
+ */
+export function originText(origin: string, lang: Lang = getMeaningLang()): string {
+  const word = (kind: 'originLang' | 'originNote', key: string) => {
+    const full = `games.${kind}.${key}`;
+    const text = translate(lang, full);
+    return text === full ? key : text;
+  };
+  const [name, ...rest] = origin.split(': ');
+  const tail = rest.join(': ').replace(/\(([^)]*)\)/g, (_m, note: string) => `(${word('originNote', note)})`);
+  return rest.length > 0 ? `${word('originLang', name!)}: ${tail}` : origin;
 }

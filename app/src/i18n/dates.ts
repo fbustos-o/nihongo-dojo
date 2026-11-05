@@ -1,5 +1,5 @@
 import type { Lang } from '../state/progressSchema';
-import { getLang, localeOf, t } from './index';
+import { getLang, localeOf, translate } from './index';
 
 /** Month name (1-12) in `lang`, from Intl (`marzo`, `March`). Independent of the time zone. */
 export function monthName(month: number, lang: Lang = getLang()): string {
@@ -29,4 +29,4 @@ export const weekdayInitial = (weekday: number, lang: Lang = getLang()): string 
 
 /** «14 de marzo» / «March 14». */
 export const formatMonthDay = (month: number, day: number, lang: Lang = getLang()): string =>
-  t('memory.dateLabel', { day, month: monthName(month, lang) });
+  translate(lang, 'memory.dateLabel', { day, month: monthName(month, lang) });

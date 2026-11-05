@@ -40,7 +40,10 @@ export function readingLabel(k: Kanji): string {
 export function meaningOptions(target: Kanji, pool: readonly Kanji[], count = 4, rng: () => number = Math.random, lang: Lang = getMeaningLang()): { text: string; correct: boolean }[] {
   const taken = new Set(kanjiMeanings(target, lang));
   const texts: string[] = [];
-  for (const k of shuffle(pool, rng)) {
+  // with English, prefer kanji that have an English meaning so the options never mix languages
+  const sameLang = lang === 'en' ? pool.filter((k) => k.en && k.en.length > 0) : pool;
+  const candidates = lang === 'en' && target.en && target.en.length > 0 && sameLang.length >= count + 2 ? sameLang : pool;
+  for (const k of shuffle(candidates, rng)) {
     const text = meaningText(k, lang);
     if (k.char !== target.char && !kanjiMeanings(k, lang).some((m) => taken.has(m)) && !texts.includes(text)) texts.push(text);
     if (texts.length === count - 1) break;

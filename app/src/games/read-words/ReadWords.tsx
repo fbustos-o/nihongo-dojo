@@ -7,7 +7,7 @@ import { useProgress } from '../../state/progressStore';
 import { ChoiceRound, Feedback, GameFrame, TypingHint, TypingRound, useGameSession, useQuestionPicker, type FeedbackMessage } from '../shared';
 import styles from '../shared/games.module.css';
 import type { GameProps } from '../types';
-import { meaningChoices, meaningOf } from '../wordUtils';
+import { meaningChoices, meaningOf, originText } from '../wordUtils';
 
 interface Question {
   word: Word;
@@ -73,7 +73,7 @@ export function ReadWords({ words, rounds, sequential, onFinish }: GameProps) {
       <Feedback message={last} />
       {answered?.origin && (
         <p className={`muted ${styles.hint}`} data-testid="origin" role="note">
-          {t('games.origin')}<JaText word={answered} /> ← {answered.origin}
+          {t('games.origin')}<JaText word={answered} /> ← {originText(answered.origin, meaningLang)}
         </p>
       )}
       {question.mode === 'meaning' ? (
