@@ -1,7 +1,6 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { curriculum } from '../../domain/curriculumContent';
-import { content } from '../../domain/contentLoader';
 import type { Word } from '../../domain/schema';
 import { lessonTitle } from '../../domain/glosses';
 import { useLang, useT } from '../../i18n';
@@ -14,13 +13,27 @@ import { useProgress } from '../../state/progressStore';
 import styles from './today.module.css';
 
 type Action = { to: string; label: string };
+const EMPTY: readonly Word[] = [];
 
 /**
  * «Hoy» card: due reviews, today's new words and the next lesson, with ONE primary action
  * (reviews if any are due, else pending new words, else the next lesson) and the other two as secondary links.
  */
-export function TodayCard({ vocab = content.vocab }: { vocab?: readonly Word[] }) {
+export function TodayCard({ vocab: vocabProp }: { vocab?: readonly Word[] }) {
   const t = useT();
+  // The vocabulary file is big: load it lazily so the home page stays out of the heavy content chunk.
+  const [loaded, setLoaded] = useState<readonly Word[] | null>(null);
+  useEffect(() => {
+    if (vocabProp) return;
+    let active = true;
+    import('../../domain/contentLoader').then((m) => {
+      if (active) setLoaded(m.content.vocab);
+    });
+    return () => {
+      active = false;
+    };
+  }, [vocabProp]);
+  const vocab = vocabProp ?? loaded ?? EMPTY;
   const lang = useLang();
   const items = useProgress((s) => s.items);
   const daily = useProgress((s) => s.daily);

@@ -13,6 +13,7 @@ import { dailyAccuracy, emptyDaily, lastSevenDays } from '../state/daily';
 import { localDateString } from '../state/streak';
 import { useProgress } from '../state/progressStore';
 import { SrsHelp } from './SrsHelp';
+import { TodayCard } from './home/TodayCard';
 import styles from './home.module.css';
 
 const pct = (n: number, total: number): string => (total ? `${Math.round((n / total) * 100)}%` : '0%');
@@ -52,6 +53,8 @@ export function HomePage() {
       <h1>
         ようこそ <span className="muted">· {t('home.welcome')}</span>
       </h1>
+
+      <TodayCard />
 
       <section className={`card ${styles.level}`} aria-labelledby="home-level">
         <div className={styles.levelHead}>
@@ -102,11 +105,8 @@ export function HomePage() {
         ) : (
           <p className="muted">{t('home.dueNone')}</p>
         )}
-        {due.total > 0 ? (
-          <Link className={`btn btn-primary ${styles.cta}`} to="/repaso">
-            {t('home.reviewNow', { n: Math.min(due.total, 50) })}
-          </Link>
-        ) : (
+        {/* The primary "review now" action lives in <TodayCard>; here only the free-practice shortcut remains. */}
+        {due.total === 0 && (
           <Link className={`btn ${styles.cta}`} to="/practica">
             {t('home.freePractice')}
           </Link>

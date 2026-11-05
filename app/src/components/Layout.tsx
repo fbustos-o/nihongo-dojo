@@ -35,6 +35,7 @@ export function Layout() {
           </span>
           <span className={styles.brandText}>
             {t('app.name')} <span lang="ja">日本語道場</span>
+            {import.meta.env.VITE_CHANNEL && <span className={styles.channel}>{import.meta.env.VITE_CHANNEL} beta</span>}
           </span>
         </span>
         <NavLink to="/acerca-de" className={styles.about}>

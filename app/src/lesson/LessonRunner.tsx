@@ -14,6 +14,7 @@ import { Loading } from '../components/Loading';
 import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, sampleWords, weakestItems, wordGameRounds, wordsForGame, xpEarned, MAX_ESSENTIAL_GAME_WORDS, PASS_ACCURACY } from './lessonLogic';
 import type { GameStats } from '../games/types';
 import { ExtraKanaContext, ExtraKanjiContext } from '../state/extraKana';
+import { StageContext } from '../games/shared/StageContext';
 import { KanjiIntro } from './KanjiIntro';
 import { useProgress } from '../state/progressStore';
 import { KanaChart } from './KanaChart';
@@ -145,6 +146,7 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
               {t('lesson.gameOf', { i: gameIndex + 1, n: games.length })} <strong>{gameName(game.id)}</strong> — {gameDescription(game.id)}
             </p>
             <Suspense fallback={<Loading label={t('games.loading')} />}>
+            <StageContext.Provider value={lesson.stage}>
             <Game
               key={`${run}-${gameId}`}
               kana={data.kana}
@@ -158,6 +160,7 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
               rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : gameId === 'kana-recognize' || gameId === 'kana-write' ? roundsFor(data.kana.length) : wordGameRounds(gameId!, wordsForGame(gameId!, lesson, data.words, sample).length)}
               onFinish={onGameFinish}
             />
+            </StageContext.Provider>
             </Suspense>
           </>
         )}

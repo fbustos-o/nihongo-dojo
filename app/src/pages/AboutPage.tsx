@@ -20,7 +20,15 @@ export function AboutPage() {
           <li>
             {t('about.kanaPre')}<a href="https://github.com/vedxyz/kana">vedxyz/kana</a>{t('about.kanaPost')}
           </li>
+          <li>
+            {t('about.corePre')}
+            <a href="https://kanjikana.com/en/words/core-1000">Kanjikana Core 1000</a>
+            {t('about.coreMid')}
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            {t('about.corePost')}
+          </li>
           <li>{t('about.wanakana')}</li>
+          <li>{t('about.icons')}</li>
           <li>{t('about.genki')}</li>
           <li>{t('about.font')}</li>
         </ul>
