@@ -65,3 +65,85 @@ describe('grammar is interleaved with hiragana', () => {
     expect(unmetRequirements(l, new Set(['h-na']), curriculum)).toEqual([]);
   });
 });
+
+describe('stage 5: Kanjikana Core 1000 packages', () => {
+  const CORE = curriculum.filter((l) => l.stage === 5);
+  const kanjiSet = new Set(content.kanji.map((k) => k.char));
+  const isHan = (ch: string) => /[一-鿿]/.test(ch);
+
+  it('has the 40 packages c-01..c-40 with Spanish and English titles', () => {
+    expect(CORE.map((l) => l.id)).toEqual(Array.from({ length: 40 }, (_, i) => `c-${String(i + 1).padStart(2, '0')}`));
+    expect(CORE[0]!.title).toBe('Vocabulario esencial 1–25');
+    expect(CORE[0]!.titleEn).toBe('Essential vocabulary 1–25');
+    expect(CORE[39]!.titleEn).toBe('Essential vocabulary 976–1000');
+    for (const l of CORE) expect(l.games).toEqual(['flashcards', 'read-words', 'listen', 'kana-write']);
+  });
+
+  it('every lesson has an English title', () => {
+    for (const l of curriculum) expect(l.titleEn, l.id).toBeTruthy();
+  });
+
+  it('packages hold the 25 words of their rank range, all 1000 exactly once', () => {
+    const byId = new Map(content.vocab.map((w) => [w.id, w]));
+    const ranks: number[] = [];
+    CORE.forEach((l, i) => {
+      expect(l.words).toHaveLength(25);
+      for (const id of l.words ?? []) {
+        const r = byId.get(id)!.rank!;
+        expect(r, id).toBeGreaterThan(25 * i);
+        expect(r, id).toBeLessThanOrEqual(25 * i + 25);
+        ranks.push(r);
+      }
+    });
+    expect([...ranks].sort((a, b) => a - b)).toEqual(Array.from({ length: 1000 }, (_, i) => i + 1));
+  });
+
+  it('chains: each package requires the previous one and otherwise only hiragana', () => {
+    CORE.forEach((l, i) => {
+      if (i) expect(l.requires).toContain(CORE[i - 1]!.id);
+      for (const r of l.requires) {
+        if (i && r === CORE[i - 1]!.id) continue;
+        expect(curriculum.find((x) => x.id === r)!.stage, `${l.id} -> ${r}`).toBe(1);
+      }
+      expect(l.patterns ?? []).toEqual([]);
+      expect(l.dialogues ?? []).toEqual([]);
+    });
+  });
+
+  it('the first package opens early (after a few hiragana rows) and the gate never goes down', () => {
+    expect(hiraGate('c-01')).toBeLessThanOrEqual(HIRA.indexOf('h-na'));
+    expect(status(upTo('h-na'), 'c-01')).toBe('available');
+    expect(status(upTo('h-ta'), 'c-01')).toBe('locked');
+    let prev = -1;
+    for (const l of CORE) {
+      const g = hiraGate(l.id);
+      expect(g, l.id).toBeGreaterThanOrEqual(prev);
+      prev = g;
+    }
+    expect(prev).toBeLessThan(HIRA.length - 1); // never needs the whole of hiragana
+  });
+
+  it('a package needs no grammar, katakana or kanji lesson, directly or transitively', () => {
+    const seen = new Set<string>();
+    const walk = (id: string) => {
+      if (seen.has(id)) return;
+      seen.add(id);
+      for (const r of curriculum.find((x) => x.id === id)!.requires) walk(r);
+    };
+    walk('c-40');
+    for (const id of seen) expect([1, 5], id).toContain(curriculum.find((x) => x.id === id)!.stage);
+  });
+
+  it('core1000 words never carry kanji outside the Genki set (those live in `written`)', () => {
+    const core = content.vocab.filter((w) => w.source === 'core1000');
+    expect(core.length).toBeGreaterThan(500);
+    for (const w of core) {
+      for (const ch of w.kanji ?? '') if (isHan(ch)) expect(kanjiSet.has(ch), `${w.id} ${w.kanji}`).toBe(true);
+      expect(w.lesson).toMatch(/^C\d+$/);
+      expect(w.en?.length, w.id).toBeGreaterThan(0);
+    }
+    // the same holds for the Genki words that received a `rank`
+    for (const w of content.vocab.filter((x) => x.rank !== undefined))
+      for (const ch of w.kanji ?? '') if (isHan(ch)) expect(kanjiSet.has(ch) || ch === '々', `${w.id} ${w.kanji}`).toBe(true);
+  });
+});

@@ -20,8 +20,9 @@ for n, line in enumerate(open(os.path.join(HERE, 'vocab_en.txt'), encoding='utf-
         errs.append(f'{n}: {id_} has a Spanish note but no noteEn')
     if '-v' in sys.argv and id_ in words and len(parts[1].split(';')) != len(words[id_]['es']):
         print(f'  note: {id_} gloss count differs (es {len(words[id_]["es"])}, en {len(parts[1].split(";"))})')
-for id_ in words:
-    if id_ not in seen: errs.append(f'missing id {id_}')
+for id_, w in words.items():
+    # Core 1000 words bring their own English; vocab_en.txt covers the original (Genki / teacher) vocabulary
+    if id_ not in seen and w.get('source') != 'core1000': errs.append(f'missing id {id_}')
 print(f'{len(seen)} entries, {len(words)} words, {len(errs)} errors')
 for e in errs: print(' ', e)
 sys.exit(1 if errs else 0)

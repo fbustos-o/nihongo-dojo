@@ -527,8 +527,8 @@
   "words": [
    "nihon",
    "hon",
-   "nihongo",
-   "nihonjin"
+   "honki",
+   "nihongo"
   ],
   "strokes": 5,
   "similar": [
@@ -807,7 +807,9 @@
   ],
   "words": [
    "ue",
-   "jouzu"
+   "ageru-subir",
+   "noboru",
+   "agaru"
   ],
   "strokes": 3,
   "similar": [
@@ -843,6 +845,7 @@
    "down"
   ],
   "words": [
+   "sageru",
    "heta",
    "shita"
   ],
@@ -882,8 +885,8 @@
   "words": [
    "chuugoku",
    "naka",
-   "tanaka",
-   "chuuko"
+   "chuugakkou",
+   "tanaka"
   ],
   "strokes": 4
  },
@@ -909,6 +912,7 @@
   ],
   "words": [
    "han",
+   "hanbun",
    "nijihan"
   ],
   "strokes": 5,
@@ -1029,7 +1033,7 @@
    "genki",
    "tenki",
    "denki",
-   "byouki"
+   "ki-espiritu"
   ],
   "strokes": 6
  },
@@ -1087,6 +1091,7 @@
   ],
   "words": [
    "watashi",
+   "watashitachi",
    "shiritsu"
   ],
   "strokes": 7
@@ -1115,8 +1120,8 @@
   "words": [
    "ima",
    "kyou",
-   "kesa",
-   "konya"
+   "kongetsu",
+   "imamade"
   ],
   "strokes": 4,
   "similar": [
@@ -1243,7 +1248,9 @@
   ],
   "words": [
    "miru",
-   "miseru"
+   "mitsukeru",
+   "miseru",
+   "mieru"
   ],
   "strokes": 7
  },
@@ -1272,7 +1279,8 @@
   ],
   "words": [
    "iku",
-   "ryokou"
+   "ryokou",
+   "okonau"
   ],
   "strokes": 6
  },
@@ -1514,8 +1522,8 @@
   "words": [
    "dekakeru",
    "dasu",
-   "deguchi",
-   "deru"
+   "omoidasu",
+   "deguchi"
   ],
   "strokes": 5
  },
@@ -1606,8 +1614,8 @@
   "words": [
    "wakaru",
    "fun",
-   "jibun",
-   "jibunde"
+   "juubun",
+   "kibun"
   ],
   "strokes": 4,
   "similar": [
@@ -1641,6 +1649,7 @@
   ],
   "words": [
    "sensei",
+   "sengetsu",
    "saki"
   ],
   "strokes": 6,
@@ -1679,7 +1688,7 @@
    "gakusei",
    "nensei",
    "sensei",
-   "daigakusei"
+   "jinsei"
   ],
   "strokes": 5
  },
@@ -1709,7 +1718,7 @@
    "daigaku",
    "daisuki",
    "ookii",
-   "daigakusei"
+   "otona"
   ],
   "strokes": 3,
   "similar": [
@@ -1741,7 +1750,7 @@
    "daigaku",
    "gakusei",
    "gakkou",
-   "daigakusei"
+   "nyuugaku"
   ],
   "strokes": 8,
   "similar": [
@@ -1856,10 +1865,10 @@
    "child"
   ],
   "words": [
+   "ko",
    "kyouko",
    "onnanoko",
-   "otokonoko",
-   "koushi"
+   "otokonoko"
   ],
   "strokes": 3,
   "similar": [
@@ -1890,6 +1899,7 @@
   ],
   "words": [
    "chiisai",
+   "chiisana",
    "ogawa",
    "shougakkou"
   ],
@@ -1922,9 +1932,9 @@
   ],
   "words": [
    "au",
+   "shakai",
    "kaisha",
-   "nomikai",
-   "kaiin"
+   "nomikai"
   ],
   "strokes": 6,
   "similar": [
@@ -1958,9 +1968,9 @@
   ],
   "words": [
    "jinja",
+   "shakai",
    "kaisha",
-   "shachou",
-   "kaishain"
+   "shachou"
   ],
   "strokes": 7,
   "similar": [
@@ -2048,7 +2058,8 @@
   ],
   "words": [
    "koukou",
-   "takai"
+   "takai",
+   "koukousei"
   ],
   "strokes": 10
  },
@@ -2071,7 +2082,8 @@
   "words": [
    "koukou",
    "gakkou",
-   "shougakkou"
+   "koukousei",
+   "chuugakkou"
   ],
   "strokes": 10,
   "similar": [
@@ -2100,6 +2112,7 @@
   ],
   "words": [
    "mainichi",
+   "maitsuki",
    "maiasa",
    "maitoshi"
   ],
@@ -2227,7 +2240,8 @@
   "words": [
    "hairu",
    "ireru",
-   "iriguchi"
+   "nyuuin",
+   "nyuugaku"
   ],
   "strokes": 2,
   "similar": [
@@ -2317,7 +2331,8 @@
   ],
   "words": [
    "shinbun",
-   "kiku"
+   "kiku",
+   "kikoeru"
   ],
   "strokes": 14
  },
@@ -2417,9 +2432,9 @@
   ],
   "words": [
    "shigoto",
+   "daiji",
    "kaji",
-   "shokuji",
-   "shigotochuu"
+   "shokuji"
   ],
   "strokes": 8
  },
@@ -2596,6 +2611,7 @@
    "think"
   ],
   "words": [
+   "omoidasu",
    "omoide",
    "omou"
   ],
@@ -2724,7 +2740,8 @@
   "words": [
    "gogo",
    "atode",
-   "ushiro"
+   "ato",
+   "asatte"
   ],
   "strokes": 9
  },
@@ -2933,8 +2950,9 @@
   ],
   "words": [
    "jikan",
-   "ichijikan",
-   "nanjikan"
+   "ningen",
+   "aida",
+   "nenkan"
   ],
   "strokes": 12
  },
@@ -3031,6 +3049,7 @@
    "little"
   ],
   "words": [
+   "shounen",
    "sukoshi",
    "sukunai"
   ],
@@ -3122,7 +3141,8 @@
   ],
   "words": [
    "kuru",
-   "rainen"
+   "rainen",
+   "raigetsu"
   ],
   "strokes": 7,
   "similar": [
@@ -3217,8 +3237,8 @@
   "words": [
    "nensei",
    "rainen",
-   "nannen",
-   "nen"
+   "toshi",
+   "nannen"
   ],
   "strokes": 6
  },
@@ -3420,6 +3440,7 @@
   ],
   "words": [
    "tatsu",
+   "tateru-poner-de",
    "kokuritsu",
    "shiritsu"
   ],
@@ -3535,7 +3556,8 @@
   ],
   "words": [
    "motsu",
-   "mottekuru"
+   "mottekuru",
+   "kimochi"
   ],
   "strokes": 9,
   "similar": [
@@ -3686,6 +3708,7 @@
   ],
   "words": [
    "ashita",
+   "asatte",
    "akarui"
   ],
   "strokes": 8,
@@ -3743,6 +3766,7 @@
   ],
   "words": [
    "byouin",
+   "nyuuin",
    "daigakuin"
   ],
   "strokes": 10
@@ -4138,6 +4162,7 @@
   ],
   "words": [
    "okiru",
+   "okoru-ocurrir",
    "okosu"
   ],
   "strokes": 10
@@ -4292,6 +4317,7 @@
   ],
   "words": [
    "betsubetsu",
+   "betsuni",
    "betsu",
    "wakareru"
   ],
@@ -4324,6 +4350,8 @@
    "degrees"
   ],
   "words": [
+   "do",
+   "mouichido",
    "ichido",
    "kondo"
   ],
@@ -4349,6 +4377,7 @@
    "red"
   ],
   "words": [
+   "akachan",
    "akai",
    "aka"
   ],

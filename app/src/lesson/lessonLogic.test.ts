@@ -58,7 +58,7 @@ describe('path state against the real curriculum', () => {
 
   it('computes progress per stage and the next lesson', () => {
     const progress = stageProgress(curriculum, ['h-a', 'h-ka']);
-    expect(progress.map((p) => p.stage)).toEqual([1, 2, 3, 4]);
+    expect(progress.map((p) => p.stage)).toEqual([1, 2, 3, 4, 5]);
     expect(progress[0]).toMatchObject({ stage: 1, done: 2, total: 15 });
     expect(progress.reduce((n, p) => n + p.total, 0)).toBe(curriculum.length);
     expect(nextLesson(computePathNodes(curriculum, ['h-a']))?.id).toBe('h-ka');

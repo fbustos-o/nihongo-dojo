@@ -1,0 +1,601 @@
+# Palabras NUEVAS de Kanjikana Core 1000: tipo gramatical revisado a mano (Core no trae pos).
+# rank | pos | verbGroup | tags        (pos: noun verb i-adj na-adj adverb expression counter particle pronoun)
+# verbGroup: u | ru | irregular (solo verbos). Los verbos -u que terminan en いる/える estan en la lista blanca de validate.py.
+# Notas: おなじ, さいこう, だいじ... son na-adj; きれい/きらい/ゆうめい tambien. おおきな/ちいさな/こんな/そんな/あんな son
+# prenominales (sin conjugacion): expression con tag adjetivo/demostrativo para que no entren en juegos de conjugacion.
+# El tag `suru` marca sustantivos que admiten する.
+
+## 1-100
+3 | expression | | conversacion
+5 | expression | | conversacion
+7 | adverb | | conversacion
+21 | expression | | saludo,conversacion
+22 | expression | | saludo,conversacion
+23 | expression | | saludo,cortesia
+27 | noun | | cosa,emocion
+34 | adverb | | tiempo
+36 | adverb | | pregunta
+38 | noun | | tiempo,fecha
+46 | adverb | | pregunta
+50 | pronoun | | pregunta,direccion
+60 | pronoun | | demostrativo,direccion
+61 | pronoun | | demostrativo,direccion
+62 | pronoun | | demostrativo,direccion
+63 | noun | | tiempo,persona
+65 | pronoun | | persona
+87 | pronoun | | persona
+93 | verb | u | verbo
+94 | na-adj | | adjetivo
+104 | noun | | tiempo,naturaleza
+106 | noun | | tiempo,naturaleza
+107 | noun | | tiempo,naturaleza
+
+## 101-200
+109 | verb | u | verbo,movimiento
+112 | verb | u | verbo
+114 | verb | u | verbo
+119 | noun | | persona,familia
+126 | noun | | cantidad
+127 | noun | | persona,familia
+129 | noun | | persona,suru
+131 | verb | ru | verbo
+134 | noun | | idioma
+136 | noun | | emocion
+137 | pronoun | | persona
+138 | noun | | cantidad,numero
+139 | adverb | | cantidad
+141 | verb | u | verbo
+146 | i-adj | | adjetivo,cantidad
+147 | noun | | persona,familia
+150 | verb | ru | verbo
+152 | noun | | escuela,suru
+153 | noun | | bebida
+158 | verb | u | verbo,emocion
+161 | verb | u | verbo,emocion
+162 | verb | u | verbo,movimiento
+163 | verb | u | verbo,dinero
+165 | verb | ru | verbo,ropa
+166 | i-adj | | adjetivo
+169 | verb | ru | verbo
+170 | noun | | persona,familia
+174 | i-adj | | adjetivo,persona
+175 | noun | | cuerpo
+177 | noun | | persona,familia
+180 | noun | | cuerpo
+185 | noun | | cuerpo
+186 | noun | | persona,familia
+187 | verb | u | verbo
+190 | i-adj | | adjetivo
+196 | pronoun | | persona
+199 | adverb | | cantidad
+
+## 201-300
+202 | noun | | cuerpo
+206 | i-adj | | adjetivo
+211 | i-adj | | adjetivo
+215 | noun | | escuela
+218 | verb | u | verbo
+219 | i-adj | | adjetivo
+221 | verb | u | verbo
+222 | verb | u | verbo,movimiento
+226 | verb | u | verbo
+228 | noun | | tiempo,fecha
+229 | i-adj | | adjetivo
+231 | i-adj | | adjetivo
+235 | noun | | tiempo,fecha
+236 | verb | ru | verbo
+237 | noun | | cuerpo
+238 | i-adj | | adjetivo
+239 | verb | ru | verbo
+240 | noun | | tiempo
+242 | adverb | | tiempo
+243 | adverb | | frecuencia
+244 | verb | u | verbo
+246 | noun | | comida
+247 | verb | u | verbo
+249 | noun | | ropa
+250 | noun | | conversacion
+253 | i-adj | | adjetivo,emocion
+254 | noun | | tiempo
+256 | verb | ru | verbo
+259 | pronoun | | persona
+261 | noun | | persona
+262 | noun | | tiempo
+264 | noun | | cuerpo
+265 | noun | | cuerpo
+267 | noun | | cuerpo
+268 | noun | | cuerpo
+270 | noun | | cuerpo
+271 | verb | ru | verbo
+272 | i-adj | | adjetivo,emocion
+276 | verb | ru | verbo
+280 | na-adj | | adjetivo
+281 | verb | u | verbo
+285 | i-adj | | adjetivo
+287 | particle | | particula,conversacion
+288 | noun | | tiempo
+289 | i-adj | | adjetivo,salud
+291 | adverb | | conversacion
+293 | verb | u | verbo,viaje
+294 | verb | ru | verbo
+297 | noun | | cosa
+298 | na-adj | | adjetivo
+299 | noun | | salud
+
+## 301-400
+302 | verb | ru | verbo,clima
+303 | i-adj | | adjetivo
+304 | expression | | demostrativo
+305 | adverb | | conversacion
+306 | verb | u | verbo,movimiento
+315 | noun | | cosa
+318 | verb | ru | verbo
+319 | noun | | escuela
+320 | verb | u | verbo
+323 | verb | ru | verbo
+324 | noun | | posicion
+326 | noun | | cosa
+327 | noun | | persona,familia
+328 | verb | u | verbo,salud
+329 | noun | | direccion
+332 | expression | | demostrativo
+334 | verb | u | verbo,trabajo
+338 | noun | | persona,familia
+339 | noun | | persona,familia
+340 | noun | | persona,familia
+341 | noun | | persona,familia
+342 | noun | | persona,familia
+343 | noun | | persona,familia
+344 | noun | | persona,familia
+345 | noun | | persona,familia
+346 | noun | | persona,sufijo
+352 | noun | | cuerpo
+354 | adverb | | cantidad
+357 | i-adj | | adjetivo
+358 | noun | | escuela,persona
+359 | noun | | emocion,suru
+362 | noun | | lugar
+364 | verb | ru | verbo
+366 | noun | | cosa
+374 | noun | | tiempo,fecha
+375 | noun | | tiempo,fecha
+379 | noun | | tiempo,frecuencia
+380 | noun | | tiempo,frecuencia
+383 | noun | | tiempo
+385 | pronoun | | persona
+386 | noun | | persona
+390 | noun | | posicion
+395 | noun | | persona
+396 | noun | | cantidad
+
+## 401-500
+397 | noun | | tiempo,naturaleza
+398 | noun | | persona
+399 | verb | u | verbo
+405 | verb | ru | verbo
+406 | noun | | persona
+410 | noun | | tienda,lugar
+412 | adverb | | tiempo
+413 | noun | | conversacion
+415 | noun | | idioma
+416 | noun | | persona
+417 | verb | ru | verbo
+418 | verb | ru | verbo,escuela
+419 | noun | | persona
+420 | verb | u | verbo
+424 | verb | ru | verbo
+426 | verb | u | verbo,movimiento
+427 | adverb | | demostrativo
+430 | noun | | cantidad
+431 | noun | | lugar
+432 | verb | u | verbo
+433 | verb | u | verbo
+434 | verb | ru | verbo,emocion
+435 | noun | | tiempo
+436 | noun | | tiempo
+437 | noun | | cosa,escuela
+438 | verb | ru | verbo,cantidad
+439 | noun | | lugar
+441 | noun | | persona
+442 | i-adj | | adjetivo,comida
+443 | verb | u | verbo,clima
+446 | verb | u | verbo,movimiento
+447 | expression | | conversacion
+448 | verb | ru | verbo
+449 | noun | | emocion
+450 | verb | ru | verbo
+451 | noun | | persona
+452 | noun | | tiempo
+453 | pronoun | | persona
+454 | noun | | tiempo,suru
+456 | verb | u | verbo,cantidad
+457 | verb | ru | verbo
+458 | verb | ru | verbo,persona
+459 | noun | | persona
+460 | noun | | emocion
+467 | verb | u | verbo
+468 | verb | ru | verbo,escuela
+469 | verb | u | verbo
+471 | noun | | cosa
+473 | verb | u | verbo
+474 | na-adj | | adjetivo,cantidad
+477 | i-adj | | adjetivo,escuela
+478 | verb | ru | verbo
+479 | noun | | conversacion
+481 | noun | | escuela,idioma
+483 | i-adj | | adjetivo
+485 | i-adj | | adjetivo
+487 | i-adj | | adjetivo
+490 | verb | ru | verbo,emocion
+491 | noun | | persona,familia
+495 | noun | | color
+496 | noun | | color
+497 | noun | | color
+498 | noun | | color
+
+## 501-600
+502 | i-adj | | adjetivo,color
+503 | i-adj | | adjetivo,color
+506 | noun | | comida
+510 | noun | | persona,familia
+512 | expression | | conversacion
+514 | noun | | cosa
+515 | noun | | naturaleza
+516 | noun | | persona,sufijo,cortesia
+517 | noun | | persona
+518 | noun | | cosa
+519 | verb | u | verbo,deporte
+529 | verb | ru | verbo,movimiento
+530 | noun | | persona,trabajo
+532 | noun | | tiempo
+533 | verb | ru | verbo,deporte
+534 | adverb | | tiempo
+535 | adverb | | tiempo
+536 | verb | ru | verbo
+537 | noun | | escuela,rutina
+538 | noun | | rutina,suru
+541 | noun | | trabajo
+542 | na-adj | | adjetivo
+544 | pronoun | | persona,pregunta
+545 | verb | u | verbo,ropa
+546 | verb | ru | verbo
+547 | na-adj | | adjetivo
+548 | noun | | cosa
+549 | noun | | persona,familia
+550 | noun | | casa,lugar
+553 | noun | | cuerpo
+554 | noun | | ropa,cosa
+555 | na-adj | | adjetivo
+556 | noun | | cosa
+559 | i-adj | | adjetivo,persona
+561 | noun | | escuela
+563 | na-adj | | adjetivo,emocion
+564 | noun | | emocion
+566 | na-adj | | adjetivo
+567 | verb | u | verbo,emocion
+568 | adverb | | conversacion
+571 | verb | ru | verbo,trabajo
+572 | na-adj | | adjetivo,salud
+574 | i-adj | | adjetivo,salud
+575 | verb | u | verbo
+577 | noun | | lugar
+578 | verb | u | verbo
+579 | verb | u | verbo,clima
+581 | noun | | comida
+582 | noun | | cosa
+583 | verb | ru | verbo,conversacion
+585 | adverb | | conversacion
+587 | verb | u | verbo
+588 | na-adj | | adjetivo
+589 | na-adj | | adjetivo,emocion
+593 | na-adj | | adjetivo
+594 | noun | | persona,familia
+595 | noun | | persona
+596 | adverb | | cantidad
+597 | verb | u | verbo
+598 | verb | ru | verbo,cosa
+600 | noun | | persona,tienda
+
+## 601-700
+603 | noun | | casa
+604 | noun | | ropa
+605 | noun | | conversacion
+607 | noun | | cosa
+608 | noun | | clima,naturaleza
+609 | adverb | | conversacion
+610 | noun | | persona
+611 | na-adj | | adjetivo
+612 | noun | | trabajo,suru
+613 | adverb | | conversacion
+615 | verb | ru | verbo
+616 | counter | | contador
+617 | noun | | posicion,tiempo
+618 | noun | | persona,suru
+620 | verb | ru | verbo,tiempo
+621 | noun | | escuela,persona
+622 | noun | | conversacion,suru
+623 | noun | | cosa
+625 | verb | u | verbo,conversacion
+627 | noun | | clima
+628 | noun | | clima
+629 | noun | | clima
+630 | verb | u | verbo
+632 | noun | | animal
+633 | verb | u | verbo
+634 | noun | | naturaleza
+635 | verb | u | verbo
+637 | noun | | persona
+638 | noun | | persona,familia
+641 | verb | u | verbo
+642 | noun | | escuela,suru
+644 | noun | | persona,deporte
+646 | noun | | lugar
+647 | noun | | comida,suru
+648 | noun | | tiempo,fecha
+649 | noun | | tiempo,fecha
+650 | noun | | trabajo,suru
+651 | noun | | lugar
+654 | verb | u | verbo
+655 | adverb | | conversacion
+656 | noun | | casa,persona
+658 | noun | | cosa
+659 | adverb | | cantidad
+660 | verb | ru | verbo
+662 | verb | u | verbo,emocion
+663 | verb | u | verbo,movimiento
+664 | noun | | trabajo,suru
+665 | adverb | | conversacion
+666 | pronoun | | persona,cortesia
+667 | adverb | | conversacion
+668 | noun | | escuela,suru
+669 | verb | u | verbo
+670 | noun | | cantidad
+671 | verb | u | verbo
+673 | noun | | conversacion,suru
+674 | noun | | comida
+675 | noun | | escuela,suru
+676 | noun | | cosa
+677 | expression | | demostrativo
+679 | noun | | conversacion
+680 | noun | | casa,lugar
+682 | adverb | | conversacion
+684 | i-adj | | adjetivo,comida
+685 | verb | ru | verbo
+686 | verb | u | verbo
+690 | noun | | deporte
+696 | noun | | naturaleza
+
+## 701-800
+702 | na-adj | | adjetivo,emocion
+704 | noun | | trabajo,suru
+706 | na-adj | | adjetivo
+707 | adverb | | tiempo
+708 | adverb | | conversacion
+709 | noun | | conversacion,suru
+710 | noun | | trabajo,suru
+711 | noun | | animal
+712 | noun | | naturaleza
+713 | adverb | | tiempo
+714 | noun | | salud,suru
+715 | verb | u | verbo,movimiento
+718 | adverb | | conversacion
+721 | noun | | persona
+723 | noun | | trabajo,suru
+724 | noun | | trabajo,lugar
+725 | noun | | persona,escuela
+726 | noun | | cosa
+728 | noun | | trabajo,suru
+730 | i-adj | | adjetivo
+731 | i-adj | | adjetivo
+732 | noun | | comida
+734 | noun | | escuela,lugar
+735 | noun | | cosa
+736 | i-adj | | adjetivo
+737 | adverb | | conversacion
+740 | verb | u | verbo,movimiento
+745 | adverb | | pregunta
+746 | noun | | persona,familia
+747 | noun | | naturaleza
+748 | counter | | contador
+749 | noun | | casa,lugar
+751 | noun | | casa,comida
+752 | noun | | ropa
+753 | noun | | comida
+755 | pronoun | | pregunta
+759 | noun | | posicion
+762 | noun | | posicion
+763 | verb | u | verbo
+764 | noun | | transporte
+765 | verb | ru | verbo
+769 | noun | | escuela,suru
+770 | verb | ru | verbo,trabajo
+771 | i-adj | | adjetivo
+772 | adverb | | conversacion
+773 | verb | ru | verbo,salud
+777 | counter | | contador
+778 | noun | | casa,bebida
+779 | noun | | persona,escuela
+780 | verb | u | verbo
+781 | noun | | tiempo
+782 | noun | | ropa
+783 | expression | | adjetivo
+784 | noun | | casa,suru
+786 | noun | | ocio
+788 | noun | | naturaleza
+789 | noun | | tiempo
+790 | noun | | cosa,lugar
+791 | verb | u | verbo
+792 | verb | u | verbo
+795 | noun | | tiempo
+796 | noun | | persona,trabajo
+797 | noun | | lugar,naturaleza
+799 | noun | | tiempo,fecha
+
+## 801-900
+800 | noun | | deporte,persona
+802 | noun | | persona,familia
+803 | noun | | rutina,suru
+804 | noun | | persona,familia
+805 | noun | | persona,familia
+806 | noun | | trabajo,suru
+808 | verb | u | verbo
+809 | noun | | conversacion,suru
+811 | noun | | ropa
+812 | counter | | contador,tiempo
+813 | noun | | cantidad
+815 | verb | u | verbo,emocion
+816 | noun | | trabajo,suru
+817 | adverb | | cantidad
+818 | na-adj | | adjetivo
+819 | noun | | conversacion
+820 | noun | | cosa
+821 | noun | | casa,lugar
+822 | verb | u | verbo,movimiento
+824 | noun | | persona
+825 | noun | | cortesia,conversacion
+826 | verb | u | verbo
+827 | noun | | comida
+828 | noun | | lugar,direccion
+830 | verb | u | verbo,naturaleza
+831 | verb | u | verbo
+832 | noun | | naturaleza,lugar
+834 | noun | | casa,lugar
+835 | noun | | ocio
+836 | noun | | conversacion
+837 | noun | | restaurante,lugar
+838 | noun | | transporte,lugar
+839 | noun | | transporte,suru
+840 | na-adj | | adjetivo
+841 | noun | | trabajo
+842 | noun | | transporte,suru
+843 | na-adj | | adjetivo
+846 | noun | | casa,cosa
+850 | verb | u | verbo,movimiento
+851 | noun | | numero
+854 | noun | | persona,suru
+855 | noun | | comida
+857 | verb | u | verbo,escuela
+859 | i-adj | | adjetivo
+860 | noun | | cortesia,suru
+861 | noun | | cosa
+864 | na-adj | | adjetivo
+865 | adverb | | conversacion
+866 | verb | u | verbo,movimiento
+867 | noun | | persona,suru
+870 | noun | | conversacion
+871 | noun | | casa,lugar
+872 | noun | | trabajo,suru
+873 | noun | | lugar
+874 | noun | | escuela,cantidad
+875 | noun | | cosa
+876 | noun | | persona,escuela
+877 | noun | | trabajo
+878 | noun | | escuela,suru
+879 | noun | | escuela
+880 | adverb | | frecuencia
+881 | noun | | casa,cosa
+883 | verb | ru | verbo
+884 | na-adj | | adjetivo
+885 | verb | ru | verbo
+886 | verb | u | verbo
+887 | noun | | cosa
+888 | verb | u | verbo,emocion
+890 | verb | ru | verbo
+891 | verb | ru | verbo
+892 | noun | | trabajo,suru
+893 | na-adj | | adjetivo
+894 | verb | u | verbo
+895 | verb | u | verbo
+896 | verb | ru | verbo
+897 | verb | u | verbo
+898 | noun | | tiempo
+899 | verb | ru | verbo,movimiento
+900 | noun | | ocio
+
+## 901-1000
+901 | noun | | conversacion,suru
+902 | noun | | tiempo
+903 | noun | | posicion
+904 | expression | | conversacion
+905 | noun | | tiempo,naturaleza
+906 | noun | | escuela,lugar
+907 | noun | | cosa
+908 | noun | | cosa
+909 | noun | | lugar,naturaleza
+910 | noun | | escuela
+911 | noun | | naturaleza
+912 | na-adj | | adjetivo,emocion
+913 | noun | | emocion,suru
+914 | noun | | tiempo,fecha
+915 | noun | | ocio,escuela
+916 | verb | ru | verbo,transporte
+917 | verb | ru | verbo
+918 | noun | | cosa,suru
+919 | noun | | emocion,suru
+920 | noun | | posicion
+921 | noun | | posicion,lugar
+923 | na-adj | | adjetivo
+924 | expression | | conversacion
+925 | verb | u | verbo,movimiento
+926 | verb | ru | verbo
+927 | adverb | | conversacion
+928 | noun | | emocion
+929 | verb | u | verbo,clima
+930 | counter | | contador,tiempo
+931 | noun | | dinero,tienda
+932 | noun | | cantidad
+933 | noun | | cantidad
+935 | noun | | salud,suru
+936 | noun | | naturaleza
+937 | noun | | trabajo,suru
+938 | verb | ru | verbo
+939 | noun | | lugar
+940 | noun | | trabajo,suru
+941 | verb | u | verbo
+942 | verb | u | verbo
+943 | i-adj | | adjetivo
+944 | verb | u | verbo,emocion
+945 | counter | | contador
+946 | verb | u | verbo
+947 | na-adj | | adjetivo
+948 | noun | | lugar
+949 | verb | ru | verbo
+950 | adverb | | tiempo
+951 | verb | u | verbo,conversacion
+952 | verb | ru | verbo,escuela
+954 | adverb | | cantidad
+955 | adverb | | conversacion
+956 | noun | | cosa
+957 | verb | u | verbo,rutina
+958 | noun | | cosa
+959 | verb | u | verbo,conversacion
+960 | noun | | cantidad
+961 | noun | | cuerpo,emocion
+962 | expression | | adjetivo
+963 | noun | | emocion
+964 | noun | | posicion
+965 | noun | | ocio
+966 | na-adj | | adjetivo
+967 | noun | | escuela,suru
+968 | noun | | cosa
+969 | adverb | | tiempo
+970 | verb | u | verbo,persona
+971 | noun | | persona,familia
+972 | verb | u | verbo
+973 | noun | | salud
+974 | noun | | salud
+975 | noun | | persona,familia
+977 | noun | | casa,suru
+979 | noun | | persona,trabajo
+980 | verb | u | verbo,emocion
+982 | expression | | saludo,conversacion
+984 | noun | | tiempo,fecha
+987 | noun | | cosa,suru
+989 | noun | | cantidad
+990 | noun | | cosa
+992 | noun | | trabajo
+993 | noun | | cosa
+994 | noun | | tiempo
+995 | noun | | cosa,suru
+997 | na-adj | | adjetivo
+998 | noun | | comida,bebida

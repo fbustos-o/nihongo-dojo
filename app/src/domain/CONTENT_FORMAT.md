@@ -38,3 +38,23 @@ Las formas completas están en `PLAN.md` ("Modelo de contenido"); los `GameId` v
 - Ítems de progreso: `kanji:<char>`; palabras preguntadas en el juego de kanji: `word:<id>:kanji`.
 
 `patterns.json`: cada patrón puede llevar `examples: [{ es, ja, romaji }]` (opcional, validado por `SentencePatternSchema`); `ja` va en kana con espacios entre partículas/bunsetsu.
+
+## Kanjikana Core 1000 y etapa 5
+
+Lista de frecuencia de 1000 palabras (Kanjikana Core 1000, CC BY 4.0: «Word list: Kanjikana Core 1000 by Kanjikana»;
+`tools/content/gen/core1000/`), fusionada en `vocab.json` por `build_vocab.py`. Campos nuevos de `Word`, todos opcionales:
+
+- `rank` (1..1000, único): posición en la lista. Lo llevan las ~425 palabras ya existentes que coinciden y las nuevas.
+- `en` (`string[]`): significados en inglés (mismos sentidos que `es`). Sin él se cae al español (`glosses(word, lang)`).
+- `noteEn`: versión inglesa de `note`.
+- `written`: grafía habitual con kanji **fuera** de los 144 de Genki, solo informativa. Debe contener kanji y diferir de `kana`.
+  `kanji` sigue siendo solo kanji de Genki, así los juegos nunca muestran kanji no enseñados.
+- `source: 'core1000'` y `lesson: 'C<n>'` (`n = ceil(rank/25)`) para las palabras nuevas; `tags` incluye al menos una etiqueta
+  temática (`suru` marca sustantivos que admiten する). `pos`/`verbGroup` salen de `tools/content/gen/core1000_pos.txt`.
+- Ids nuevos: `slug(romaji)`, o con sufijo de glosa si chocan (`toru-tomar`); nunca contienen `:`.
+
+`Lesson.stage = 5`: paquetes `c-01`…`c-40` («Vocabulario esencial 1–25»…, `titleEn` «Essential vocabulary 1–25»…), `words` = los 25
+rangos del paquete (incluidos los que ya están en lecciones de Genki), `games: ['flashcards','read-words','listen','kana-write']`.
+`requires` = paquete anterior + hito de hiragana (`h-na` para `c-01`, hasta `h-dakuten-1`); nunca gramática, katakana ni kanji.
+Todas las lecciones llevan `titleEn`. Detalles del generador y de `core1000_matches.txt` / `core1000_pos.txt` / `vocab_en.txt`:
+`tools/content/README.md`.

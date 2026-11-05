@@ -32,13 +32,30 @@ for w in vocab:
     if w['pos']=='verb' and w.get('verbGroup') not in('u','ru','irregular'): E(f"verb without verbGroup: {w['id']}")
     if w['pos']!='verb' and 'verbGroup' in w: E(f"non-verb with verbGroup: {w['id']}")
     if w['pos'] not in('noun','verb','i-adj','na-adj','adverb','expression','counter','particle','pronoun'): E(f"bad pos {w['id']}")
-    if not re.fullmatch(r'G(\d|1[0-2])|P[1-9]',w['lesson']): E(f"bad lesson {w['id']} {w['lesson']}")
-    if w['source'] not in('genki','profesor','propio'): E(f"bad source {w['id']}")
+    if not re.fullmatch(r'G(\d|1[0-2])|P[1-9]|C\d+',w['lesson']): E(f"bad lesson {w['id']} {w['lesson']}")
+    if w['source'] not in('genki','profesor','propio','core1000'): E(f"bad source {w['id']}")
+    if (w['source']=='core1000') != bool(re.fullmatch(r'C\d+',w['lesson'])): E(f"{w['id']}: lesson C<n> <=> source core1000")
+    if w['source']=='core1000':
+        if 'rank' not in w: E(f"{w['id']}: core1000 word without rank")
+        elif w['lesson']!='C%d'%((w['rank']+24)//25): E(f"{w['id']}: lesson {w['lesson']} does not match rank {w['rank']}")
+        if not w.get('en'): E(f"{w['id']}: core1000 word without en")
+    if 'rank' in w and not (isinstance(w['rank'],int) and 1<=w['rank']<=1000): E(f"{w['id']}: rank out of 1..1000")
+    if 'en' in w and (not w['en'] or any(not str(x).strip() for x in w['en'])): E(f"{w['id']}: empty en")
+    if 'written' in w:
+        if not HK.search(w['written']): E(f"{w['id']}: written has no kanji")
+        if w['written']==w['kana']: E(f"{w['id']}: written equals kana")
+        if w.get('kanji') and w['written']==w['kanji']: E(f"{w['id']}: written equals kanji")
+    if w.get('tags')==[]: E(f"{w['id']}: no tags")
     if not w['es'] or any(not s for s in w['es']): E(f"empty meaning {w['id']}")
     if HK.search(w['kana']): E(f"kanji in kana field: {w['id']}")
     if w['pos']=='i-adj' and not w['kana'].endswith('い'): E(f"i-adj not ending い: {w['id']}")
+_ranks=[w['rank'] for w in vocab if 'rank' in w]
+if len(_ranks)!=len(set(_ranks)): E('duplicate rank in vocab.json')
+if sorted(_ranks)!=list(range(1,1001)): E('Kanjikana Core 1000: ranks must be exactly 1..1000 (found %d)'%len(_ranks))
 IE='[いきしちにひみりぎじぢびぴえけせてねへめれげぜでべぺ]'
 WHITE_U_RU={'かえる','はいる','いる','きる','しる','はしる','かぎる','へる','しゃべる','ける','にぎる','ちる','まいる','ひねる'}
+# written forms of the u-verbs that look like ru-verbs (compounds such as 気に入る end in one of them)
+U_SPELL=('帰る','入る','要る','切る','知る','走る','限る','減る','滑る','喋る','蹴る','握る','散る','参る','捻る','焦る','照る')
 for w in vocab:
     if w['pos']!='verb': continue
     k=w['kana'];g=w['verbGroup']
@@ -46,10 +63,13 @@ for w in vocab:
         if not re.search(r'(する|くる)$',k): E(f"irregular verb odd: {w['id']}")
     elif g=='ru':
         if not re.search(IE+'る$',k): E(f"ru-verb must end in i-row/e-row + る: {w['id']} {k}")
-        if k in WHITE_U_RU and not (w['id'] in ('iru',)): E(f"known u-verb marked ru: {w['id']} {k}")
+        sp=w.get('kanji') or w.get('written') or ''
+        # homographs: 着る/変える/煮る... are ru; the kana-only or kanji-less form is the whitelisted u-verb
+        if k in WHITE_U_RU and not (w['id'] in ('iru',)) and (not sp or sp.endswith(U_SPELL)): E(f"known u-verb marked ru: {w['id']} {k}")
     else:
         base=k.split('を')[-1]
-        if re.search(IE+'る$',base) and base not in WHITE_U_RU: E(f"u-verb ends in iru/eru but not whitelisted: {w['id']} {k}")
+        sp=w.get('kanji') or w.get('written') or ''
+        if re.search(IE+'る$',base) and base not in WHITE_U_RU and not (sp and sp.endswith(U_SPELL)): E(f"u-verb ends in iru/eru but not whitelisted: {w['id']} {k}")
         if w['id']=='iru': E('iru (be) must be ru')
 # iru be=ru, iru-necesitar=u
 if V['iru']['verbGroup']!='ru' or V['iru-necesitar']['verbGroup']!='u': E('iru groups wrong')
@@ -99,10 +119,10 @@ for d in dial:
         if not (l['romaji'] and l['es']): E(f"dialogue {d['id']} empty")
 # ---- curriculum
 Lm=uniq(cur,lambda l:l['id'],'curriculum')
-GAMES={'kana-recognize','kana-write','read-words','listen','syntax','particles','conjugation','numbers','clock','calendar','dialogues','mini-reading','kanji'}
+GAMES={'flashcards','kana-recognize','kana-write','read-words','listen','syntax','particles','conjugation','numbers','clock','calendar','dialogues','mini-reading','kanji'}
 kanas={k['char'] for k in kana}
 for l in cur:
-    if l['stage'] not in(1,2,3,4): E(f"lesson {l['id']} stage")
+    if l['stage'] not in(1,2,3,4,5): E(f"lesson {l['id']} stage")
     for r in l['requires']:
         if r not in Lm: E(f"lesson {l['id']}: unknown requires {r}")
         elif Lm[r]['stage']>l['stage']: E(f"lesson {l['id']} requires later stage {r}")
@@ -118,6 +138,21 @@ for l in cur:
         if k not in kset: E(f"lesson {l['id']}: unknown kanji {k}")
     for k in l.get('kana',[]):
         if k not in kanas: E(f"lesson {l['id']}: unknown kana {k}")
+    if 'titleEn' in l and not str(l['titleEn']).strip(): E(f"lesson {l['id']}: empty titleEn")
+    if 'titleEn' not in l: E(f"lesson {l['id']}: missing titleEn")
+# stage 5 (Core 1000): 40 chained packages of 25 words, hiragana + previous package only
+c5=[l for l in cur if l['stage']==5]
+if [l['id'] for l in c5]!=['c-%02d'%i for i in range(1,41)]: E('stage 5 must be c-01..c-40 in order')
+_rk={w['id']:w['rank'] for w in vocab if 'rank' in w}
+for i,l in enumerate(c5):
+    exp=[w['id'] for w in sorted((w for w in vocab if 'rank' in w and 25*i<w['rank']<=25*i+25),key=lambda w:w['rank'])]
+    if l.get('words')!=exp: E(f"{l['id']}: words must be ranks {25*i+1}-{25*i+25}")
+    if l['title']!='Vocabulario esencial %d–%d'%(25*i+1,25*i+25): E(f"{l['id']}: title")
+    if l['games']!=['flashcards','read-words','listen','kana-write']: E(f"{l['id']}: games")
+    for r in l['requires']:
+        if r!=(c5[i-1]['id'] if i else None) and Lm[r]['stage']!=1: E(f"{l['id']}: stage-5 lessons only require the previous package and hiragana, not {r}")
+    if i and c5[i-1]['id'] not in l['requires']: E(f"{l['id']}: must require {c5[i-1]['id']}")
+    if l.get('patterns') or l.get('dialogues'): E(f"{l['id']}: stage 5 has no grammar")
 # DAG
 state={}
 def dfs(n,path):
