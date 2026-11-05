@@ -9,7 +9,7 @@ import { kanaHint, romajiLabel } from '../games/kanaUtils';
 import { gameHasMaterial } from '../games/lessonScope';
 import { getGame, preloadGame } from '../games/registry';
 import { Loading } from '../components/Loading';
-import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, sampleWords, weakestItems, xpEarned, PASS_ACCURACY } from './lessonLogic';
+import { kanjiRounds, mergeStats, accuracyOf, computePathNodes, finishLesson, lessonContent, nextLesson, playableGames, roundsFor, sampleWords, weakestItems, wordGameRounds, wordsForGame, xpEarned, MAX_ESSENTIAL_GAME_WORDS, PASS_ACCURACY } from './lessonLogic';
 import type { GameStats } from '../games/types';
 import { ExtraKanaContext, ExtraKanjiContext } from '../state/extraKana';
 import { KanjiIntro } from './KanjiIntro';
@@ -74,6 +74,8 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
     // loanword lessons gather 22-40 words: a weighted sample is practised per run
     return lesson.stage === 3 ? { ...full, words: sampleWords(full.words) } : full;
   });
+  // stage 5: flashcards get every word, the other games a fixed weighted sample (see wordsForGame)
+  const [sample] = useState(() => (lesson.stage === 5 ? sampleWords(data.words, MAX_ESSENTIAL_GAME_WORDS) : data.words));
   const lessonPatterns = useMemo(() => content.patterns.filter((p) => lesson.patterns?.includes(p.id)), [lesson]);
   const games = useMemo(
     () =>
@@ -146,12 +148,12 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
               kana={data.kana}
               kanji={data.kanji}
               newKanji={data.newKanji}
-              words={data.words}
+              words={wordsForGame(gameId!, lesson, data.words, sample)}
               newKana={data.newKana}
               dialogueIds={lesson.dialogues}
               lessonId={lesson.id}
               patterns={lessonPatterns}
-              rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : roundsFor(gameId === 'kana-recognize' || gameId === 'kana-write' ? data.kana.length : data.words.length)}
+              rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : gameId === 'kana-recognize' || gameId === 'kana-write' ? roundsFor(data.kana.length) : wordGameRounds(gameId!, wordsForGame(gameId!, lesson, data.words, sample).length)}
               onFinish={onGameFinish}
             />
             </Suspense>

@@ -16,10 +16,10 @@ describe('daily counters in the store', () => {
   it('counts correct and wrong answers; reviews only for items that were due', () => {
     const { recordAnswer } = useProgress.getState();
     recordAnswer('あ', 'kana', true); // brand new: not a review
-    expect(today()).toEqual({ reviews: 0, lessons: 0, correct: 1, wrong: 0 });
+    expect(today()).toEqual({ reviews: 0, lessons: 0, newWords: 0, correct: 1, wrong: 0 });
     recordAnswer('い', 'kana', false); // new, wrong -> stage 0, due at once
     recordAnswer('い', 'kana', true); // a review
-    expect(today()).toEqual({ reviews: 1, lessons: 0, correct: 2, wrong: 1 });
+    expect(today()).toEqual({ reviews: 1, lessons: 0, newWords: 0, correct: 2, wrong: 1 });
   });
   it('counts only the first completion as a lesson (QA-019) and gives the XP bonus only the first time', () => {
     const { completeLesson } = useProgress.getState();

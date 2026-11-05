@@ -16,6 +16,7 @@ const LOADERS: Partial<Record<GameId, () => Promise<{ default: ComponentType<Gam
   'dialogues': () => import('./dialogues').then((m) => ({ default: m.Dialogues })),
   'mini-reading': () => import('./mini-reading').then((m) => ({ default: m.MiniReading })),
   'kanji': () => import('./kanji').then((m) => ({ default: m.KanjiGame })),
+  flashcards: () => import('./flashcards').then((m) => ({ default: m.Flashcards })),
 };
 
 /** Lazy game component: each game is its own chunk, loaded when it is first played (render inside <Suspense>). */
@@ -48,7 +49,7 @@ export const GAME_REGISTRY: Record<GameId, GameMeta> = {
   dialogues: { id: 'dialogues', name: 'Diálogos', description: 'Elige la respuesta correcta en una conversación.', component: lazyGame(LOADERS['dialogues']!) },
   'mini-reading': { id: 'mini-reading', name: 'Mini-lectura', description: 'Lee un texto corto y responde.', component: lazyGame(LOADERS['mini-reading']!) },
   kanji: { id: 'kanji', name: 'Kanji', description: 'Kanji: significado, lectura en palabras reales y frases que se transforman.', component: lazyGame(LOADERS['kanji']!) },
-  flashcards: { id: 'flashcards', name: 'Tarjetas', description: 'Conoce palabras nuevas con tarjetas que se voltean y decide si ya las sabes.' },
+  flashcards: { id: 'flashcards', name: 'Tarjetas', description: 'Conoce palabras nuevas con tarjetas que se voltean y decide si ya las sabes.', component: lazyGame(LOADERS['flashcards']!) },
 };
 
 export const getGame = (id: GameId): GameMeta => GAME_REGISTRY[id];
