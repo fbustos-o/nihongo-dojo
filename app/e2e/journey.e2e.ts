@@ -49,7 +49,7 @@ test('primera visita: inicio vacío, camino y lección h-a completa desbloquea h
   await expect(page.getByTestId('today-lessons')).toHaveText('1');
   await expect(page.getByTestId('today-accuracy')).toHaveText('100%');
   await expect(page.getByTestId('level')).not.toHaveText('1'); // > 100 XP after one lesson
-  await expect(page.getByText('Hiragana: fila か (ka ki ku ke ko)')).toBeVisible(); // "Siguiente lección" card
+  await expect(page.getByText('Hiragana: fila か (ka ki ku ke ko)', { exact: true })).toBeVisible(); // "Siguiente lección" card (TodayCard also names it)
   await expect(page.getByTestId('srs-Aprendiz')).toBeVisible();
 });
 
