@@ -70,6 +70,8 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
   const [outcome, setOutcome] = useState<{ passed: boolean; accuracy: number } | null>(null);
   const [run, setRun] = useState(0);
   const knownKana = useProgress((s) => s.knownKana);
+  // kana known when the run started (stage 5 dictation only uses words written with them, see wordsForGame)
+  const [knownAtStart] = useState(() => new Set(useProgress.getState().knownKana));
 
   // Snapshot of the lesson's material, fixed for the whole run so unlocking at the end does not reshuffle it.
   const [data] = useState(() => {
@@ -86,10 +88,11 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
         if (id === 'kanji') return data.kanji.length > 0;
         // syntax / mini-reading / dialogues without any (own or inherited) material are skipped
         if (!gameHasMaterial(id, lesson, content)) return false;
+        if (id === 'kana-write' && lesson.stage === 5) return wordsForGame(id, lesson, data.words, sample, knownAtStart).length > 0;
         const needsKana = id === 'kana-recognize' || id === 'kana-write';
         return needsKana ? data.kana.length > 0 : data.words.length > 0 || data.kana.length > 0;
       }),
-    [lesson, data],
+    [lesson, data, sample, knownAtStart],
   );
 
   const restart = () => {
@@ -152,12 +155,12 @@ function LessonRun({ lesson }: { lesson: Lesson }) {
               kana={data.kana}
               kanji={data.kanji}
               newKanji={data.newKanji}
-              words={wordsForGame(gameId!, lesson, data.words, sample)}
+              words={wordsForGame(gameId!, lesson, data.words, sample, knownAtStart)}
               newKana={data.newKana}
               dialogueIds={lesson.dialogues}
               lessonId={lesson.id}
               patterns={lessonPatterns}
-              rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : gameId === 'kana-recognize' || gameId === 'kana-write' ? roundsFor(data.kana.length) : wordGameRounds(gameId!, wordsForGame(gameId!, lesson, data.words, sample).length)}
+              rounds={gameId === 'kanji' ? kanjiRounds(data.kanji.length) : gameId === 'kana-recognize' || (gameId === 'kana-write' && lesson.stage !== 5) ? roundsFor(data.kana.length) : wordGameRounds(gameId!, wordsForGame(gameId!, lesson, data.words, sample, knownAtStart).length)}
               onFinish={onGameFinish}
             />
             </StageContext.Provider>

@@ -10,6 +10,7 @@ vi.mock('../domain/contentLoader', () => {
     id,
     stage,
     title: `Lección ${id}`,
+    titleEn: `Lesson ${id}`,
     requires,
     games: ['kana-recognize'],
   });
@@ -61,5 +62,20 @@ describe('PathPage with five stages', () => {
     expect(screen.getByText('Lección a1')).toBeInTheDocument();
     expect(JSON.parse(localStorage.getItem('nihongo-dojo:path-collapsed') ?? '{}')).toEqual({ 1: false });
     expect(screen.getByRole('button', { name: 'Plegar Hiragana' })).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('«requires» uses the interface language (QA-104)', () => {
+    useProgress.setState((s) => ({ settings: { ...s.settings, uiLang: 'en' } }));
+    renderPath();
+    expect(screen.getByText('requires: Lesson e1')).toBeInTheDocument();
+  });
+
+  it('«Ir a la lección actual» unfolds the current stage and focuses the lesson (QA-110)', async () => {
+    useProgress.setState({ completedLessons: ['a1'] });
+    localStorage.setItem('nihongo-dojo:path-collapsed', JSON.stringify({ 1: true }));
+    renderPath();
+    expect(screen.queryByRole('link', { name: /Lección a2/ })).toBeNull();
+    await userEvent.click(screen.getByRole('button', { name: /Ir a la lección actual/ }));
+    expect(screen.getByRole('link', { name: /Lección a2/ })).toHaveFocus();
   });
 });

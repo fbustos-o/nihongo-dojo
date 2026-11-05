@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon, type IconName } from "../components/Icon";
 import { content } from "../domain/contentLoader";
@@ -142,8 +142,25 @@ function stagesOf(
   });
 }
 
+/** Scrolls the lesson `id` into view (after the render that unfolded its stage) and focuses its link. */
+function JumpTo({ id, onDone }: { id: string | undefined; onDone: () => void }) {
+  useEffect(() => {
+    if (!id) return;
+    const el = document.getElementById(`lesson-${id}`);
+    if (el) {
+      const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView?.({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      el.querySelector<HTMLElement>("a, button")?.focus({ preventScroll: true });
+    }
+    onDone();
+  }, [id, onDone]);
+  return null;
+}
+
 export function PathPage() {
   const t = useT();
+  const lang = useLang();
+  const [jump, setJump] = useState(false);
   const completed = useProgress((s) => s.completedLessons);
   const [manual, setManual] = useState(readCollapsed);
   const { curriculum } = content;
@@ -160,6 +177,17 @@ export function PathPage() {
     );
   }
 
+  const currentStage = curriculum.find((l) => l.id === currentId)?.stage;
+  // «Ir a la lección actual»: unfold its stage if needed, then scroll to it once it is rendered (QA-110).
+  const goToCurrent = () => {
+    if (currentStage !== undefined && manual[currentStage]) {
+      const next = { ...manual, [currentStage]: false };
+      setManual(next);
+      writeCollapsed(next);
+    }
+    setJump(true);
+  };
+
   const toggle = (stage: Stage, folded: boolean) => {
     const next = { ...manual, [stage]: !folded };
     setManual(next);
@@ -169,6 +197,14 @@ export function PathPage() {
   return (
     <>
       <h1>{t("path.title")}</h1>
+      {currentId && (
+        <p>
+          <button type="button" className="btn" onClick={goToCurrent} data-testid="path-jump">
+            <Icon name="chevron-down" size={18} /> {t("path.jump")}
+          </button>
+        </p>
+      )}
+      <JumpTo id={jump ? currentId : undefined} onDone={() => setJump(false)} />
       {stagesOf(curriculum, completedSet).map(({ stage, total, done }) => {
         const title = t(`stage.${stage}`);
         const folded = manual[stage] ?? (total > 0 && done === total);
@@ -234,6 +270,7 @@ export function PathPage() {
                   .map((n) => (
                     <li
                       key={n.lesson.id}
+                      id={`lesson-${n.lesson.id}`}
                       className={`${styles.pathStep} ${n.status === "completed" ? styles.pathStepDone : ""}`}
                     >
                       <Node
@@ -245,7 +282,7 @@ export function PathPage() {
                                 n.lesson,
                                 completedSet,
                                 curriculum,
-                              ).map(shortTitle)
+                              ).map((l) => shortTitle(l, lang))
                             : []
                         }
                       />

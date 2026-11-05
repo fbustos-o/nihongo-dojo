@@ -24,4 +24,12 @@ describe('stage 5 lessons', () => {
     expect(wordGameRounds('flashcards', 25)).toBe(25);
     expect(wordGameRounds('read-words', 12)).toBe(15);
   });
+
+  it('the dictation (kana-write) only gets words written with known kana (QA-102)', () => {
+    const words = [word('a', 'いぬ', 1), word('b', 'はな', 2), word('c', 'なに', 3)];
+    const got = wordsForGame('kana-write', { stage: 5 }, words, words.slice(0, 1), new Set(['い', 'ぬ', 'な', 'に']));
+    expect(got.map((w) => w.id)).toEqual(['a', 'c']);
+    expect(wordsForGame('kana-write', { stage: 5 }, words, words, new Set())).toEqual([]);
+  });
 });
+

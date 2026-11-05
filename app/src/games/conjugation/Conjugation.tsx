@@ -101,7 +101,7 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onl
       </div>
       {free && (
         <fieldset className={styles.forms}>
-          <legend>{t('games.formsToPractise')}</legend>
+          <legend>{t('games.formsToPractice')}</legend>
           {ALL_FORMS[category].map((form) => (
             <label key={form}>
               <input type="checkbox" checked={forms.includes(form)} onChange={() => toggleForm(form)} />

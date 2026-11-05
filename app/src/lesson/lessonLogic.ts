@@ -1,8 +1,9 @@
 import { curriculum as lightCurriculum } from '../domain/curriculumContent';
+import { lessonTitle } from '../domain/glosses';
 import type { GameId, KanaEntry, Kanji, Lesson, Word } from '../domain/schema';
 import { filterReadable, isReadableWith, unlockedKanaForLessons } from '../engine/kanaFilter';
 import { candidateFromItem, candidateWeight } from '../engine/picker';
-import { itemKey, type Progress } from '../state/progressSchema';
+import { itemKey, type Lang, type Progress } from '../state/progressSchema';
 import { isImplemented } from '../games/registry';
 import { emptyStats, type GameStats } from '../games/types';
 import { XP_PER_CORRECT, useProgress } from '../state/progressStore';
@@ -149,8 +150,9 @@ export function unmetRequirements(lesson: Lesson, completed: ReadonlySet<string>
 }
 
 /** Short name for a requirement hint: "Hiragana fila な" instead of the full lesson title. */
-export function shortTitle(lesson: Lesson): string {
-  return lesson.title.replace(/^Hiragana: /, 'Hiragana ').replace(/ \(.*\)$/, '');
+/** Short lesson title in the interface language (QA-104: the «requires» hint of the Path showed Spanish in English). */
+export function shortTitle(lesson: Lesson, lang: Lang = 'es'): string {
+  return lessonTitle(lesson, lang).replace(/^Hiragana: /, 'Hiragana ').replace(/ \(.*\)$/, '');
 }
 
 export const xpEarned =(stats: Pick<GameStats, 'correct'>): number => stats.correct * XP_PER_CORRECT;
@@ -291,9 +293,19 @@ export const MAX_ESSENTIAL_GAME_WORDS = 12;
  * Words a game receives in a lesson run. Stage 5 lessons give ALL their words to `flashcards` and a weighted sample
  * (`MAX_ESSENTIAL_GAME_WORDS`) to the other games; other stages are unchanged (the run's words).
  */
-export function wordsForGame(game: GameId, lesson: Pick<Lesson, 'stage'>, words: readonly Word[], sample: readonly Word[] = words): Word[] {
+export function wordsForGame(
+  game: GameId,
+  lesson: Pick<Lesson, 'stage'>,
+  words: readonly Word[],
+  sample: readonly Word[] = words,
+  knownKana?: ReadonlySet<string>,
+): Word[] {
   if (lesson.stage !== 5) return [...words];
-  return game === 'flashcards' ? [...words] : [...sample];
+  if (game === 'flashcards') return [...words];
+  // QA-102: the dictation (kana-write) makes the learner TYPE the kana, so in stage 5 it only gets the lesson's words
+  // written with kana already known (typing a locked kana would show it); the reading games rely on JaText instead.
+  if (game === 'kana-write' && knownKana) return filterReadable(words, knownKana).slice(0, MAX_ESSENTIAL_GAME_WORDS);
+  return [...sample];
 }
 
 /** Rounds of a word game in a lesson: flashcards always go through every card once; the others use `roundsFor`. */

@@ -58,6 +58,39 @@ describe('persistence', () => {
     expect(useProgress.getState().xp).toBe(10);
   });
 
+  it('imports a pre-v2 backup (no uiLang / meaningLang / newWordsPerDay / daily.newWords) with the defaults', () => {
+    const legacy = {
+      version: 1,
+      items: {},
+      knownKana: ['あ'],
+      unlockedKanji: [],
+      unlockedLessons: ['h-a'],
+      completedLessons: ['h-a'],
+      xp: 30,
+      streak: { lastStudyDate: '2026-10-01', count: 2 },
+      daily: { '2026-10-01': { reviews: 1, lessons: 1, correct: 3, wrong: 0 } },
+      settings: { showRomaji: true, ttsRate: 0.9, sound: false, theme: 'system', furigana: 'auto' },
+    };
+    expect(useProgress.getState().importProgress(JSON.stringify(legacy))).toBeNull();
+    const s = useProgress.getState();
+    expect(s.settings).toMatchObject({ uiLang: 'es', meaningLang: 'es', newWordsPerDay: 10 });
+    expect(s.daily['2026-10-01']!.newWords).toBe(0);
+    expect(s.xp).toBe(30);
+  });
+
+  it('export / import keeps the v2 settings and the new-word counter', () => {
+    const { updateSettings, countNewWord, importProgress } = useProgress.getState();
+    updateSettings({ uiLang: 'en', meaningLang: 'en', newWordsPerDay: 25 });
+    countNewWord();
+    const exported = serializeProgress(getProgressSnapshot());
+    useProgress.getState().resetProgress();
+    expect(useProgress.getState().settings.uiLang).toBe('es');
+    expect(importProgress(exported)).toBeNull();
+    const s = useProgress.getState();
+    expect(s.settings).toMatchObject({ uiLang: 'en', meaningLang: 'en', newWordsPerDay: 25 });
+    expect(Object.values(s.daily).map((d) => d.newWords)).toEqual([1]);
+  });
+
   it('rejects invalid imports without touching the state', () => {
     useProgress.getState().unlockKana(['あ']);
     expect(useProgress.getState().importProgress('not json')).toMatch(/JSON válido/);

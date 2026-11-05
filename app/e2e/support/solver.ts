@@ -9,7 +9,7 @@ import {
 
 export type GameName =
   | 'Reconocer kana' | 'Escribir kana' | 'Leer palabras' | 'Escuchar' | 'Sintaxis' | 'Partículas' | 'Conjugación'
-  | 'Números y precios' | 'Reloj' | 'Calendario' | 'Diálogos' | 'Mini-lectura' | 'Kanji';
+  | 'Números y precios' | 'Reloj' | 'Calendario' | 'Diálogos' | 'Mini-lectura' | 'Kanji' | 'Tarjetas';
 
 export interface SolveOptions {
   wrong?: boolean;
@@ -139,6 +139,13 @@ export async function answerRound(page: Page, game: GameName, o: SolveOptions = 
   const formInput = main.locator('form input');
 
   switch (game) {
+    case 'Tarjetas': {
+      // v2 flashcards: flip the card, then «Ya la sé» (or «Todavía no» for a wrong answer, which also moves on)
+      const card = main.getByTestId('flashcard');
+      if ((await card.getAttribute('aria-expanded')) !== 'true') await card.click();
+      await main.getByRole('button', { name: wrong ? 'Todavía no' : 'Ya la sé', exact: true }).click();
+      return true;
+    }
     case 'Reconocer kana': {
       const prompt = main.getByTestId('prompt');
       const shown = (await jaText(prompt.locator('span[lang="ja"]').first())).trim();

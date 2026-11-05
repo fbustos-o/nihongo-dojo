@@ -69,7 +69,7 @@ export const vocab = {
     'learn.quit': 'Salir',
   },
   en: {
-    'flashcards.empty': 'There are no words to practise yet.',
+    'flashcards.empty': 'There are no words to practice yet.',
     'flashcards.counter': 'Card {n} of {total}',
     'flashcards.flip': 'Tap to see the meaning',
     'flashcards.know': 'I know it',
