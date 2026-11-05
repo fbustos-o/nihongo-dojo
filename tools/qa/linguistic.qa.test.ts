@@ -82,14 +82,16 @@ describe('conjugateIAdjective vs the teacher table', () => {
 
 describe('verb groups in vocab.json (tricky ones)', () => {
   // group-I verbs that look like ru-verbs, and genuine ru-verbs
+  const RU_HOMOPHONES = ['iru', 'kiru', 'kaeru-cambiar'];
   const GODAN_ERU_IRU = ['かえる', 'はいる', 'はしる', 'しる', 'きる-cortar', 'いる-necesitar', 'しゃべる', 'へる', 'まいる', 'にぎる', 'ける', 'すべる', 'かぎる'];
   it('every verb has a group and plain-looking -eru/-iru verbs that are group I are tagged u', () => {
     for (const w of words.filter((x) => x.pos === 'verb')) {
       expect(w.verbGroup, w.id).toBeDefined();
       const base = w.kana.split('を').at(-1)!;
-      if (GODAN_ERU_IRU.some((g) => g.split('-')[0] === base) && w.id !== 'iru') expect(w.verbGroup, w.id).toBe('u');
+      if (GODAN_ERU_IRU.some((g) => g.split('-')[0] === base) && !RU_HOMOPHONES.includes(w.id)) expect(w.verbGroup, w.id).toBe('u');
     }
-    expect(words.find((w) => w.id === 'iru')!.verbGroup).toBe('ru');
+    // genuine ru-verbs that share the kana of a group-I verb (v2 / Core 1000: 着る, 変える)
+    for (const id of RU_HOMOPHONES) expect(words.find((w) => w.id === id)!.verbGroup, id).toBe('ru');
     expect(words.find((w) => w.id === 'iru-necesitar')!.verbGroup).toBe('u');
   });
   it('irregular verbs end in する / くる', () => {

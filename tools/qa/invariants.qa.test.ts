@@ -122,9 +122,9 @@ for (const l of curriculum) {
   }
 }
 
-describe('every lesson is playable (66 lessons)', () => {
-  it('66 lessons, each with at least one game and a non-empty pool for every game', () => {
-    expect(curriculum).toHaveLength(66);
+describe('every lesson is playable (106 lessons: 66 + 40 Core 1000)', () => {
+  it('106 lessons, each with at least one game and a non-empty pool for every game', () => {
+    expect(curriculum).toHaveLength(106);
     const empty = rows.filter((r) => r.pool === 0 && !r.note.startsWith('sin material'));
     expect(empty).toEqual([]);
   });

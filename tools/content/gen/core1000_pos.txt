@@ -354,7 +354,7 @@
 671 | verb | u | verbo
 673 | noun | | conversacion,suru
 674 | noun | | comida
-675 | noun | | escuela,suru
+675 | noun | | escuela,suru | comprensión;comprender
 676 | noun | | cosa
 677 | expression | | demostrativo
 679 | noun | | conversacion
@@ -435,7 +435,7 @@
 ## 801-900
 800 | noun | | deporte,persona
 802 | noun | | persona,familia
-803 | noun | | rutina,suru
+803 | noun | | rutina,suru | preparación;preparar
 804 | noun | | persona,familia
 805 | noun | | persona,familia
 806 | noun | | trabajo,suru

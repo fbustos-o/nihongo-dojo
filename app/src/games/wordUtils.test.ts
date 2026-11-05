@@ -25,4 +25,12 @@ describe('meaning distractors (QA-014)', () => {
       expect(texts).not.toContain('baño (bañera)');
     }
   });
+  it('never offers a meaning of a homophone through another word (QA-103: あつい 厚い «grueso» vs ふとい «grueso»)', () => {
+    const atsui3 = w('atsui3', 'あつい', ['grueso', 'abrigador (ropa)']);
+    const futoi = w('futoi', 'ふとい', ['grueso', 'gordo']);
+    for (let i = 0; i < 100; i++) {
+      const texts = meaningChoices(atsui1, 4, [atsui1, atsui3, futoi, ...others]).map((c) => c.text);
+      expect(texts).not.toContain('grueso');
+    }
+  });
 });

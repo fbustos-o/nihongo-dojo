@@ -34,6 +34,8 @@ export function meaningChoices(
   const taken = new Set(glosses(target, targetLang));
   const distractors: string[] = [];
   const heads = new Set<string>();
+  // QA-103: a distractor must not be a meaning of a homophone either (あつい 暑い «caluroso» vs ふとい «grueso» = 厚い あつい)
+  for (const w of all) if (w.kana === target.kana && w.id !== target.id) for (const g of glosses(w, targetLang)) heads.add(headword(g));
   const sameLang = targetLang === 'en' ? all.filter((w) => w.en && w.en.length > 0) : all;
   for (const word of shuffle(sameLang.length >= count + 2 ? sameLang : all, rng)) {
     const text = meaningOf(word, targetLang);
