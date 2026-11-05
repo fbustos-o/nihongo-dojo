@@ -1,0 +1,770 @@
+# id | en (glosses separated by ;) | noteEn (optional)
+# English translations of the `es` glosses of vocab.json (read by build_vocab.py).
+ohayou | good morning (casual)
+ohayougozaimasu | good morning (polite)
+konnichiwa | good afternoon;hello
+konbanwa | good evening (when meeting someone)
+sayounara | goodbye
+oyasuminasai | good night (before going to sleep)
+oyasumi | good night (casual)
+arigatou | thanks
+arigatougozaimasu | thank you very much (polite)
+sumimasen | excuse me;I'm sorry;thank you (for the trouble)
+iie | no;you're welcome
+ittekimasu | I'm off (said when leaving home; lit. I'll go and come back)
+itterasshai | take care (lit. go and come back)
+tadaima | I'm home
+okaerinasai | welcome home
+okaeri | welcome home (casual)
+itadakimasu | thanks for the meal (before eating)
+gochisousamadeshita | thanks for the meal (after eating)
+gochisousama | thanks for the meal (casual)
+hajimemashite | nice to meet you (on meeting someone)
+yoroshikuonegaishimasu | pleased to meet you;I'm counting on you
+zero | zero
+rei | zero (alternative reading)
+ichi | one
+ni-numero | two
+san | three
+yon | four
+shi-4 | four (alternative reading)
+go | five
+roku | six
+nana | seven
+shichi | seven (alternative reading)
+hachi | eight
+kyuu | nine
+ku-9 | nine (alternative reading)
+juu | ten
+hyaku | hundred
+daigaku | university;college
+koukou | high school
+gakusei | student
+daigakusei | university student
+ryuugakusei | international student
+sensei | teacher;professor
+nensei | ...-year student
+ichinensei | first-year student
+senkou | major (field of study)
+watashi | I;me
+tomodachi | friend
+san-honorifico | Mr./Ms. ... (polite suffix)
+jin | person from ... (nationality)
+nihonjin | Japanese people;Japanese person
+ima | now
+gozen | a.m.
+gogo | p.m.
+ji-hora | ... o'clock
+ichiji | one o'clock
+han | half past
+nijihan | half past two
+nihon | Japan
+amerika | USA;America
+go-idioma | ... language
+nihongo | Japanese (language)
+sai-edad | ... years old
+denwa | telephone
+ban-numero | number ...
+hai | yes
+soudesuka | I see;really?
+nan | what (short form) | short form of なに
+nani | what
+nanji | what time?
+nansai | how old?
+kore | this
+sore | that
+are | that over there
+dore | which one?
+kono | this ...
+sono | that ...
+ano | that ... over there
+dono | which ...?
+koko | here
+soko | there
+asoko | over there
+doko | where?
+dare | who?
+oishii | delicious;tasty
+sakana | fish
+tonkatsu | breaded pork cutlet
+niku | meat
+menyuu | menu
+yasai | vegetable
+kasa | umbrella
+kaban | bag;school bag
+kutsu | shoes
+saifu | wallet
+jiinzu | jeans
+jitensha | bicycle
+shinbun | newspaper
+sumaho | smartphone;cell phone
+tiishatsu | T-shirt
+tokei | watch;clock
+nooto | notebook
+pen | pen
+boushi | hat;cap
+hon | book
+ginkou | bank
+konbini | convenience store
+toire | restroom;toilet
+toshokan | library
+yuubinkyoku | post office
+igirisu | Great Britain;United Kingdom
+kankoku | (South) Korea
+chuugoku | China
+eigo | English (language)
+keizai | economics
+konpyuutaa | computer science;computer
+bijinesu | business
+rekishi | history
+okaasan | mother (someone else's, or one's own when addressing her)
+otousan | father (someone else's, or one's own when addressing him)
+ikura | how much? (price)
+en-yen | ... yen
+takai | expensive;tall
+irasshaimase | welcome (to our shop)
+onegaishimasu | please (when asking for something)
+kudasai | please give me ...
+jaa | then ...;in that case
+douzo | please;here you are
+doumo | thanks
+eiga | movie
+ongaku | music
+zasshi | magazine
+supootsu | sports
+deeto | date (romantic)
+tenisu | tennis
+terebi | TV;television
+aisukuriimu | ice cream
+hanbaagaa | hamburger
+osake | sake;alcoholic drink
+ocha | green tea
+koohii | coffee
+mizu | water
+asagohan | breakfast
+hirugohan | lunch
+bangohan | dinner
+ie | home;house
+uchi | home;my home
+gakkou | school
+kafe | cafe
+ashita | tomorrow
+kyou | today
+asa | morning
+konban | tonight
+mainichi | every day
+maiban | every night
+shuumatsu | weekend
+doyoubi | Saturday
+nichiyoubi | Sunday
+itsu | when?
+goro | around (a time)
+iku | to go | destination takes に/へ
+kaeru | to return;to go back | destination takes に/へ
+kiku | to listen;to hear;to ask (a person) | person takes に
+nomu | to drink;to take (medicine)
+hanasu | to speak;to talk
+yomu | to read
+okiru | to get up
+taberu | to eat
+neru | to sleep;to go to bed
+miru | to see;to look at;to watch
+kuru | to come
+suru | to do
+benkyousuru | to study
+ii | good
+hayai | early;fast | also written 速い (fast)
+amari | not very (with negative)
+zenzen | not at all (with negative)
+taitei | usually
+chotto | a little
+tokidoki | sometimes
+yoku | often;a lot
+soudesune | that's right;let me see...
+demo | but
+doudesuka | how about ...?;how is ...?
+ee | yes
+geemu | game
+arubaito | part-time job
+kaimono | shopping
+kurasu | class
+inu | dog
+neko | cat
+hito | person
+kodomo | child
+anata | you
+isu | chair
+tsukue | desk
+shashin | photo;photograph
+hana | flower
+repooto | report
+gohan | cooked rice;meal
+pan | bread
+otera | (Buddhist) temple
+kouen | park
+suupaa | supermarket
+basutei | bus stop
+byouin | hospital
+hoteru | hotel
+honya | bookstore
+machi | town;city
+resutoran | restaurant
+kinou | yesterday
+jikan | ... hours (duration)
+ichijikan | one hour (duration)
+senshuu | last week
+toki | when ...;during ...
+getsuyoubi | Monday
+kayoubi | Tuesday
+suiyoubi | Wednesday
+mokuyoubi | Thursday
+kinyoubi | Friday
+au | to meet;to see (someone) | person takes に
+aru | to exist;to be;to have (things) | place に thing が あります
+kau | to buy
+kaku | to write;to draw
+toru | to take (a photo);to pick up
+matsu | to wait
+wakaru | to understand
+iru | to be;to exist (people/animals) | place に person が います
+gurai | about;approximately (rough amount)
+gomennasai | I'm sorry;pardon me
+sorekara | and then;after that
+dakara | so;therefore
+takusan | many;a lot
+doushite | why?
+hitoride | alone;by oneself
+moshimoshi | hello? (on the phone)
+tabemono | food (things to eat)
+nomimono | drink;beverage
+kudamono | fruit
+yasumi | vacation;day off;absence
+ryokou | trip;travel
+umi | sea;ocean
+saafin | surfing
+omiyage | souvenir
+basu | bus
+tenki | weather
+shukudai | homework
+tesuto | test;exam
+tanjoubi | birthday
+heya | room
+boku | I (used by men)
+erusaizu | size L
+atarashii | new
+furui | old (things, not people)
+atsui | hot (weather)
+samui | cold (weather)
+atsui-cosa | hot (things)
+isogashii | busy (people/days)
+ookii | big
+chiisai | small
+omoshiroi | interesting;fun
+tsumaranai | boring
+yasashii | easy;kind
+muzukashii | difficult
+kakkoii | handsome;cool | conjugates like いい
+kowai | scary;frightening
+tanoshii | fun;enjoyable
+yasui | cheap
+suki | to like;pleasing | すきな
+kirai | to dislike;unpleasant
+daisuki | to like a lot;to love
+daikirai | to hate;to detest
+kirei | pretty;clean
+genki | healthy;energetic;well
+shizuka | quiet;calm
+nigiyaka | lively;bustling
+hima | free;not busy (time)
+oyogu | to swim
+noru | to ride;to board (transport) | vehicle takes に
+yaru | to do;to perform
+dekakeru | to go out (from home; to eat, to the movies)
+isshoni | together
+sugoku | extremely;very
+daijoubu | all right;no problem
+totemo | very
+donna | what kind of ...?
+mai | counter for flat objects
+kanji | kanji;Chinese character
+kyoukasho | textbook
+peeji | page
+tsugi | next
+okane | money
+nimotsu | luggage
+pasokon | personal computer
+shawaa | shower
+eakon | air conditioner
+denki | electricity;electric light
+mado | window
+densha | train
+kuni | country;home country
+konshuu | this week
+raishuu | next week
+rainen | next year
+yoru | night
+taihen | tough;hard (situation);a big problem
+asobu | to play;to hang out
+isogu | to hurry
+kaesu | to return (a thing)
+kesu | to turn off;to erase
+shinu | to die
+suwaru | to sit down
+tatsu | to stand up
+tabako-wo-suu | to smoke
+tsukau | to use
+tetsudau | to help
+hairu | to enter (a place) | place takes に
+motsu | to carry;to hold
+yasumu | to be absent;to rest
+akeru | to open (something)
+shimeru | to close (something)
+oshieru | to teach;to instruct
+wasureru | to forget;to leave behind
+oriru | to get off (a vehicle)
+kariru | to borrow
+shawaa-wo-abiru | to take a shower
+tsukeru | to turn on;to switch on
+denwasuru | to make a phone call
+tsuretekuru | to bring (a person)
+mottekuru | to bring (a thing)
+atode | later
+sugu | right away;immediately
+yukkuri | slowly;leisurely
+kekkoudesu | that's fine;no, thank you
+hontoudesuka | really?
+wa-tema | topic particle (pronounced "wa")
+ka | question particle
+no | particle of possession/relation between nouns
+mo | also;too (particle)
+ne | right? (sentence-final particle seeking confirmation)
+yo | (sentence-final particle: tells something the other person doesn't know)
+o-objeto | direct object particle (pronounced "o")
+ni | particle for destination / place of existence / specific time
+e-direccion | direction particle (pronounced "e")
+de | particle for place of action / means
+to | and (between nouns);with (a person)
+ga | subject particle;existence with verbs of being | あります/います
+kara | from (origin/start);because
+ya | and (non-exhaustive list: ... and other things)
+made | until;up to
+kippu | ticket (train)
+benkyou | study
+shigoto | work;job
+yoyaku | reservation
+eki | (train) station
+kyouto | Kyoto
+jimu | gym
+chiri | Chile
+chirijin | Chilean
+amerikajin | American
+kawaii | cute;pretty (in an adorable way)
+chikai | near;close
+tooi | far;distant
+tsuyoi | strong
+sugoi | amazing;awesome;terrific
+amai | sweet
+karai | spicy
+subarashii | wonderful;splendid
+tsumetai | cold (to the touch; drinks, things)
+suzushii | cool (weather)
+atatakai | warm
+osoi | slow;late
+umai | delicious (casual);skillful
+yoroshii | good (formal form) | formal form of いい
+warui | bad
+nai | not to exist;not to have
+hoshii | to want (a thing)
+enpitsu | pencil
+jisho | dictionary
+sen | thousand
+man | ten thousand
+jinja | Shinto shrine
+mizuumi | lake
+uketsuke | reception desk
+otokonohito | man
+onnanohito | woman
+teeburu | table
+ue | above;on top
+shita | below;under
+naka | inside
+mae | in front;before
+kagi | key
+nanimo | nothing (with negative)
+daremo | no one (with negative)
+otearai | restroom;toilet
+chuushajou | parking lot
+chika | basement
+taishikan | embassy
+kai-piso | ... floor (counter)
+ikkai | first floor;ground floor
+kaigi | meeting
+chikatetsu | subway
+kuruma | car
+takushii | taxi
+shinkansen | bullet train (Shinkansen)
+hikouki | airplane
+oosaka | Osaka
+genkin | cash
+omatsuri | festival
+natsuyasumi | summer vacation
+natsu | summer
+paatii | party
+shutchou | business trip
+nen | ... year (counter)
+gatsu | ... month (counter)
+nichi | ... day of the month (counter)
+youbi | day of the week
+nannen | what year?
+nangatsu | what month?
+nannichi | what day of the month?
+nanyoubi | what day of the week?
+hitotsu | one (general objects)
+futatsu | two (objects)
+mittsu | three (objects)
+yottsu | four (objects)
+itsutsu | five (objects)
+muttsu | six (objects)
+nanatsu | seven (objects)
+yattsu | eight (objects)
+kokonotsu | nine (objects)
+too | ten (objects)
+ikutsu | how many? (objects);how old?
+hitori | one person
+futari | two people
+nin | ... people (counter)
+nannin | how many people?
+michi | road;street
+hidari | left
+migi | right
+massugu | straight
+magaru | to turn
+kakaru | to take;to cost (time or money)
+sen-linea | line (train or subway)
+shibuya | Shibuya
+ginza | Ginza
+donogurai | how much?;how long? (approximate time, amount)
+douitashimashite | you're welcome
+arigatougozaimashita | thank you very much (for something already done)
+chuumon | order
+kareeraisu | curry rice
+okaikei | the check;the bill (at a restaurant)
+issho | together;all together
+betsubetsu | separately
+oazukari | received (lit. "I'll keep it"; said when receiving money)
+okaeshi | change
+otsuri | change
+fun | ... minutes
+aruku | to walk
+tsukuru | to make;to prepare
+iru-necesitar | to need
+sumu | to live;to reside
+hajimeru | to begin;to start (something)
+tomeru | to stop (a car)
+atatameru | to heat up;to warm up
+miseru | to show
+owaru | to end;to finish
+erabu | to choose
+kasu | to lend
+arau | to wash
+fuku-limpiar | to wipe;to dry (with a cloth)
+fuku-soplar | to blow
+nugu | to take off (clothes)
+utau | to sing
+okuru | to send
+yameru | to quit;to stop (doing something)
+ageru | to give (to another person)
+dasu | to take out;to hand in;to submit
+naru | to become
+ireru | to put in;to insert
+kawaku | to dry (out)
+okoru | to get angry
+narabu | to line up
+oboeru | to memorize;to remember
+yureru | to shake;to sway
+yaseru | to lose weight
+nureru | to get wet
+niru | to boil;to simmer
+depaato | department store
+takoyaki | takoyaki (octopus balls)
+e | drawing;painting
+ao | blue
+ai | love
+iu | to say
+akai | red
+kao | face
+koe | voice
+sushi | sushi
+shio | salt
+uso | lie
+tako | octopus
+onaka | stomach;belly
+hashi | chopsticks
+haha | my mother
+fune | boat;ship
+ame | rain
+mimi | ear
+uma | horse
+yuki | snow
+ringo | apple
+sakura | cherry tree;cherry blossom
+karada | body
+buta | pig
+sanpo | walk;stroll
+tenpura | tempura
+okyakusan | customer;guest
+gyuuniku | beef
+kuchi | mouth
+ashi | foot;leg
+kusuri | medicine
+hirune | nap
+furo | bath (bathtub)
+ichigatsu | January
+nigatsu | February
+sangatsu | March
+shigatsu | April
+gogatsu | May
+rokugatsu | June
+shichigatsu | July
+hachigatsu | August
+kugatsu | September
+juugatsu | October
+juuichigatsu | November
+juunigatsu | December
+tsuitachi | 1st day of the month
+futsuka | 2nd day of the month
+mikka | 3rd day of the month
+yokka | 4th day of the month
+itsuka | 5th day of the month
+muika | 6th day of the month
+nanoka | 7th day of the month
+youka | 8th day of the month
+kokonoka | 9th day of the month
+tooka | 10th day of the month
+juuyokka | 14th day of the month
+hatsuka | 20th day of the month
+nijuuyokka | 24th day of the month
+sanbyaku | three hundred
+hyakuen | one hundred yen
+sanzen | three thousand
+ichiman | ten thousand
+ichimanen | ten thousand yen
+hatachi | twenty years old
+hi | fire
+kaji | fire (a blaze)
+ki | tree;wood
+tsuchi | earth;soil
+jouzu | skillful;good at (something)
+heta | unskillful;poor at (something)
+yama | mountain
+yamada | Yamada (surname)
+kawa | river
+moto | origin;former
+shiritsu | private (institution)
+tanbo | rice field
+tanaka | Tanaka (surname)
+onna | woman
+otoko | man
+onnanoko | girl
+otokonoko | boy
+shokuji | meal;to have a meal
+nomikai | drinking party
+higashi | east
+toukyou | Tokyo
+nishi | west
+nishiguchi | west exit
+minami | south
+minamiguchi | south exit
+kita | north
+kitaguchi | north exit
+deguchi | exit
+iriguchi | entrance
+deru | to leave;to go out
+migite | right hand
+hidarite | left hand
+saki | before;ahead;tip
+soto | outside
+gaikoku | foreign country
+gaikokujin | foreigner
+gaikokugo | foreign language
+chuugokugo | Chinese (language)
+shougakkou | elementary school
+kaisha | company
+kaishain | company employee
+kaiin | member
+chichi | my father
+maiasa | every morning
+maitoshi | every year
+sakubun | essay;composition
+kaeri | return;way back
+sakka | writer;author
+shigotochuu | in the middle of work
+gengo | language (in general)
+dokusho | reading (books)
+omou | to think;to believe
+omoide | memory
+tsuginohi | the next day
+ushiro | behind;back
+namae | name
+shiro | white (color)
+shiroi | white
+ooame | heavy rain
+yuujin | friend (more formal)
+nanjikan | how many hours?
+hanashi | conversation;story
+kaiwa | conversation;dialogue
+sukoshi | a little
+sukunai | few;scarce
+chuuko | secondhand
+shiru | to know
+juusho | address
+tadashii | correct
+shougatsu | New Year
+kotoshi | this year
+uru | to sell
+machinaka | downtown;in the middle of town
+nagai | long
+shachou | company president;boss
+shodou | calligraphy
+ooyuki | heavy snowfall
+kokuritsu | national (institution)
+jibun | oneself;self
+konya | tonight
+kesa | this morning
+te | hand
+tegami | letter
+kami | paper
+chikaku | nearby;vicinity
+akarui | bright;cheerful
+byouki | illness;to be sick
+daigakuin | graduate school
+utsuru | to be reflected;to be projected
+gaka | painter
+uta | song
+kashu | singer
+shi-ciudad | city (municipality)
+shichou | mayor
+tokoro | place
+yuumei | famous
+tabi | trip;journey
+mukashi | long ago;in the past
+mukashibanashi | folktale;legend
+kami-dios | god;deity
+hayaku | early;quickly
+okosu | to wake (someone) up;to raise
+ushi | cow;ox
+hataraku | to work
+tsureru | to take along (someone)
+renkyuu | consecutive holidays
+wakareru | to part;to say goodbye
+betsu | another;separate;different
+ichido | once;one time
+kondo | this time;next time
+aka | red (color)
+aoi | blue
+iro | color
+iroiro | various;a variety of
+kawaguchi | Kawaguchi (city/surname)
+ogawa | stream;Ogawa (surname)
+kyouko | Kyoko (woman's name)
+bun | sentence
+chijin | acquaintance
+ureru | to sell (well)
+kaite | buyer
+jibunde | by oneself;on one's own
+yuumeijin | famous person;celebrity
+koushi | calf
+tsukaimichi | use;usefulness
+hatarakite | worker;breadwinner
+kokoa | cocoa;hot chocolate
+kiui | kiwi
+keeki | cake
+kisu | kiss
+keesu | case;box
+soosu | sauce
+suteeki | steak
+nekutai | necktie
+haato | heart
+hiitaa | heater
+masuku | face mask
+memo | memo;note
+meeru | email;message
+miruku | milk
+rajio | radio
+remon | lemon
+robotto | robot
+wain | wine
+naifu | knife
+kamera | camera
+sarada | salad
+raamen | ramen (noodles in broth)
+rimokon | remote control
+ruuru | rule
+hamu | ham
+banana | banana
+biiru | beer
+doa | door
+gorufu | golf
+gasu | gas
+dansu | dance
+doresu | dress
+dezaato | dessert
+booru | ball
+beruto | belt
+gaido | guide
+zubon | pants;trousers
+sakkaa | soccer
+beddo | bed
+kappu | cup
+rokkaa | locker
+baggu | bag
+puuru | swimming pool
+piano | piano
+pasuta | pasta
+posuto | mailbox
+poketto | pocket
+purin | pudding;flan
+piza | pizza
+supuun | spoon
+teepu | tape
+petto | pet
+shatsu | shirt
+juusu | juice
+nyuusu | news
+chansu | chance;opportunity
+kyanpu | camping
+shanpuu | shampoo
+chokoreeto | chocolate
+jamu | jam
+fairu | file;folder
+fooku | fork
+tisshu | tissue
+wisukii | whisky
+vaiorin | violin
+jetto | jet;jet plane
+chekku | check;checkered pattern
+firumu | film (photographic)
+disuku | disc
+aa-katakana | ah (interjection)
+ii-katakana | the letter E (in English)
+ee-katakana | um... (hesitation);the letter A
+oo-katakana | oh!
+ooi-katakana | hey! (calling someone)
+shefu | chef;head cook
+wiin | Vienna
+weitaa | waiter
+webu | web
+wootaa | water (in English)
+ferii | ferry
+fakkusu | fax
+fan | fan
+cheen | chain;chain of stores
+dinaa | dinner (formal)
+jettokoosutaa | roller coaster
+finrando | Finland
+dyuetto | duet
+famiriiresutoran | family restaurant
+koohii-wo-nomu | to drink coffee
+tenisu-wo-suru | to play tennis
+sakkaa-wo-suru | to play soccer
+geemu-wo-suru | to play video games

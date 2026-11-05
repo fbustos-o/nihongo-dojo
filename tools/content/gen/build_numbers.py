@@ -121,6 +121,35 @@ out['counters']=dict(
 # samples (test vectors)
 samples=[9,23,416,7890,72341,618905,100,300,600,800,1000,3000,8000,10000,15000,100000,260,280,1400,1500,2800,25000,450,2500,8000]
 out['samples']=[dict(value=n,reading=read(n)) for n in sorted(set(samples))]
+# ---- English layer (additive: sibling `en` / `*En` keys next to every Spanish text; the engine ignores them) ----
+out['rulesEn']=[
+ '11 to 19: じゅう + digit (じゅういち … じゅうきゅう). Tens: 20 にじゅう … 90 きゅうじゅう; 10 = じゅう (no いち).',
+ 'Hundreds: 100 ひゃく (no いち), 300 さんびゃく, 600 ろっぴゃく, 800 はっぴゃく, the rest: digit + ひゃく (4 = よん, 7 = なな, 9 = きゅう).',
+ 'Thousands: 1000 せん (no いち), 3000 さんぜん, 8000 はっせん, the rest: digit + せん.',
+ 'Ten-thousands: a group of up to 4 digits + まん (いちまん is required). 72,341 = ななまん にせん さんびゃく よんじゅういち.',
+ 'Prices: number + えん. 4 yen = よえん; 14 yen = じゅうよえん; 40 yen = よんじゅうえん.',
+ 'Years: number + ねん (にせんにじゅうろくねん = 2026). Year 4 = よねん; 7 = ななねん/しちねん; 9 = きゅうねん/くねん.']
+out['powers']['tenThousand']['noteEn']='1万 is read いちまん (the いち is NOT dropped, unlike 100 = ひゃく and 1000 = せん). 10,000 = いちまん, 100,000 = じゅうまん, 1,000,000 = ひゃくまん.'
+for _a,_e in zip(out['hours']['ampm'],['a.m.','p.m.']): _a['en']=_e
+out['hours']['ask']['en']='what time?'
+out['hours']['noteEn']='Irregular: よじ (4), しちじ (7), くじ (9). 4:30 = よじはん. Question: いま なんじ ですか.'
+out['minutes']['rulesEn']='ふん/ぷん: 1 いっぷん, 2 にふん, 3 さんぷん, 4 よんぷん, 5 ごふん, 6 ろっぷん, 7 ななふん, 8 はっぷん, 9 きゅうふん, 10 じゅっぷん (also じっぷん). 15 = じゅうごふん, 30 = さんじゅっぷん / はん.'
+out['days']['ask']['en']='what day of the month?'
+out['days']['noteEn']='1–10 and 14, 20, 24 are irregular (ついたち … とおか, じゅうよっか, はつか, にじゅうよっか). The rest: number + にち; 17 and 27 = しちにち, 19 and 29 = くにち.'
+out['months']['ask']['en']='what month?'
+out['months']['noteEn']='Irregular: しがつ (4), しちがつ (7), くがつ (9).'
+for _w,(_en,_el) in zip(out['weekdays']['items'],[('Sunday','sun'),('Monday','moon'),('Tuesday','fire'),('Wednesday','water'),('Thursday','wood'),('Friday','gold/metal'),('Saturday','earth')]):
+    _w['en']=_en; _w['elementEn']=_el
+out['weekdays']['ask']['en']='what day of the week?'
+out['weekdays']['noteEn']="index 0 = Sunday (as on the teacher's sheet). The word ようび can be left out in abbreviated writing: 日, 月, 火…"
+out['years']['noteEn']="Year = the full number + ねん. The teacher's sheet reads 1998 as せん きゅうひゃく きゅうじゅう はち ねん."
+for _k,_u,_n in [
+ ('tsu','objects in general (up to 10; from 11 on the normal numbers are used)','There is no つ form for 11 or more: じゅういち, じゅうに… (no counter).'),
+ ('nin','people','1 = ひとり and 2 = ふたり are irregular; 4 = よにん (NOT よんにん). From 3 on: number + にん.'),
+ ('kai','floors of a building','3 = さんがい (kai→gai), 6 = ろっかい, 8 = はっかい (also はちかい), 10 = じゅっかい (also じっかい). Basement: ちか いっかい (B1).'),
+ ('sai','age','1 = いっさい, 8 = はっさい, 10 = じゅっさい (also じっさい). Above 10: tens + unit + さい (じゅういっさい, じゅうにさい, にじゅういっさい…). 20 = はたち.')]:
+    out['counters'][_k]['useEn']=_u; out['counters'][_k]['noteEn']=_n
+out['counters']['sai']['special'][0]['noteEn']='Twenty years old is はたち (also にじゅっさい)'
 # prices spot
 dump('numbers.json',out)
 for n in [9,23,416,7890,72341,618905]: print(n,read(n))

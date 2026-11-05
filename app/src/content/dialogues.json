@@ -2,1442 +2,1677 @@
  {
   "id": "saludos-manana",
   "title": "Saludos de la mañana y la noche",
+  "titleEn": "Morning and evening greetings",
   "lesson": "G0",
   "lines": [
    {
     "speaker": "A",
     "ja": "おはよう ございます。",
     "romaji": "ohayou gozaimasu.",
-    "es": "Buenos días."
+    "es": "Buenos días.",
+    "en": "Good morning."
    },
    {
     "speaker": "B",
     "ja": "おはよう ございます。 げんき ですか？",
     "romaji": "ohayou gozaimasu. genki desuka?",
-    "es": "Buenos días. ¿Cómo está?"
+    "es": "Buenos días. ¿Cómo está?",
+    "en": "Good morning. How are you?"
    },
    {
     "speaker": "A",
     "ja": "はい、げんき です。 ありがとう ございます。",
     "romaji": "hai, genki desu. arigatou gozaimasu.",
-    "es": "Sí, estoy bien. Gracias."
+    "es": "Sí, estoy bien. Gracias.",
+    "en": "I'm fine, thank you."
    },
    {
     "speaker": "B",
     "ja": "そう ですか。",
     "romaji": "sou desuka.",
-    "es": "Ya veo."
+    "es": "Ya veo.",
+    "en": "I see."
    },
    {
     "speaker": "A",
     "ja": "じゃあ、さようなら。",
     "romaji": "jaa, sayounara.",
-    "es": "Bueno, adiós."
+    "es": "Bueno, adiós.",
+    "en": "Well then, goodbye."
    },
    {
     "speaker": "B",
     "ja": "さようなら。",
     "romaji": "sayounara.",
-    "es": "Adiós."
+    "es": "Adiós.",
+    "en": "Goodbye."
    }
   ]
  },
  {
   "id": "llegar-a-casa",
   "title": "Llegar a casa y comer",
+  "titleEn": "Coming home and eating",
   "lesson": "G0",
   "lines": [
    {
     "speaker": "A",
     "ja": "ただいま。",
     "romaji": "tadaima.",
-    "es": "Ya llegué."
+    "es": "Ya llegué.",
+    "en": "I'm home."
    },
    {
     "speaker": "B",
     "ja": "おかえりなさい。 ごはん です よ。",
     "romaji": "okaerinasai. gohan desu yo.",
-    "es": "Bienvenido. ¡Está lista la comida!"
+    "es": "Bienvenido. ¡Está lista la comida!",
+    "en": "Welcome home. Dinner is ready!"
    },
    {
     "speaker": "A",
     "ja": "なん ですか？",
     "romaji": "nan desuka?",
-    "es": "¿Qué es?"
+    "es": "¿Qué es?",
+    "en": "What is it?"
    },
    {
     "speaker": "B",
     "ja": "とんかつ です。",
     "romaji": "tonkatsu desu.",
-    "es": "Es tonkatsu."
+    "es": "Es tonkatsu.",
+    "en": "It's tonkatsu."
    },
    {
     "speaker": "A",
     "ja": "いただきます。",
     "romaji": "itadakimasu.",
-    "es": "Gracias por la comida."
+    "es": "Gracias por la comida.",
+    "en": "Thanks for the food. (before eating)"
    },
    {
     "speaker": "A",
     "ja": "ごちそうさまでした。",
     "romaji": "gochisousamadeshita.",
-    "es": "Gracias por la comida."
+    "es": "Gracias por la comida.",
+    "en": "Thank you for the meal. (after eating)"
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    }
   ]
  },
  {
   "id": "presentacion",
   "title": "Presentarse por primera vez",
+  "titleEn": "Introducing yourself for the first time",
   "lesson": "G1",
   "lines": [
    {
     "speaker": "A",
     "ja": "はじめまして。 わたし は ロペス です。",
     "romaji": "hajimemashite. watashi wa ropesu desu.",
-    "es": "Mucho gusto. Soy López."
+    "es": "Mucho gusto. Soy López.",
+    "en": "Nice to meet you. I am López."
    },
    {
     "speaker": "B",
     "ja": "はじめまして。 たなか です。",
     "romaji": "hajimemashite. tanaka desu.",
-    "es": "Mucho gusto. Soy Tanaka."
+    "es": "Mucho gusto. Soy Tanaka.",
+    "en": "Nice to meet you. I am Tanaka."
    },
    {
     "speaker": "A",
     "ja": "たなか さん は がくせい ですか？",
     "romaji": "tanaka san wa gakusei desuka?",
-    "es": "Señor Tanaka, ¿es estudiante?"
+    "es": "Señor Tanaka, ¿es estudiante?",
+    "en": "Mr. Tanaka, are you a student?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、がくせい じゃ ないです。 かいしゃいん です。 ロペス さん は？",
     "romaji": "iie, gakusei ja naidesu. kaishain desu. ropesu san wa?",
-    "es": "No, no soy estudiante. Soy empleado de una empresa. ¿Y usted, señor López?"
+    "es": "No, no soy estudiante. Soy empleado de una empresa. ¿Y usted, señor López?",
+    "en": "No, I'm not a student. I'm a company employee. And you, Mr. López?"
    },
    {
     "speaker": "A",
     "ja": "わたし は だいがくせい です。 チリじん です。",
     "romaji": "watashi wa daigakusei desu. chirijin desu.",
-    "es": "Yo soy estudiante universitario. Soy chileno."
+    "es": "Yo soy estudiante universitario. Soy chileno.",
+    "en": "I'm a university student. I'm Chilean."
    },
    {
     "speaker": "B",
     "ja": "そう ですか。 よろしく おねがいします。",
     "romaji": "sou desuka. yoroshiku onegaishimasu.",
-    "es": "Ya veo. Encantado de conocerlo."
+    "es": "Ya veo. Encantado de conocerlo.",
+    "en": "I see. Pleased to meet you."
    },
    {
     "speaker": "A",
     "ja": "こちら こそ、よろしく おねがいします。",
     "romaji": "kochira koso, yoroshiku onegaishimasu.",
-    "es": "El gusto es mío, encantado."
+    "es": "El gusto es mío, encantado.",
+    "en": "The pleasure is mine. Pleased to meet you."
    }
   ]
  },
  {
   "id": "preguntar-la-hora",
   "title": "Preguntar la hora",
+  "titleEn": "Asking the time",
   "lesson": "G1",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません。 いま なんじ ですか？",
     "romaji": "sumimasen. ima nanji desuka?",
-    "es": "Disculpe. ¿Qué hora es?"
+    "es": "Disculpe. ¿Qué hora es?",
+    "en": "Excuse me. What time is it?"
    },
    {
     "speaker": "B",
     "ja": "ごじはん です。",
     "romaji": "gojihan desu.",
-    "es": "Son las cinco y media."
+    "es": "Son las cinco y media.",
+    "en": "It's half past five."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    },
    {
     "speaker": "A",
     "ja": "かいぎ は なんじ から ですか？",
     "romaji": "kaigi wa nanji kara desuka?",
-    "es": "¿A qué hora empieza la reunión?"
+    "es": "¿A qué hora empieza la reunión?",
+    "en": "What time does the meeting start?"
    },
    {
     "speaker": "B",
     "ja": "ごご さんじ から です。",
     "romaji": "gogo sanji kara desu.",
-    "es": "Desde las tres de la tarde."
+    "es": "Desde las tres de la tarde.",
+    "en": "From three in the afternoon."
    },
    {
     "speaker": "A",
     "ja": "なんじ まで ですか？",
     "romaji": "nanji made desuka?",
-    "es": "¿Hasta qué hora?"
+    "es": "¿Hasta qué hora?",
+    "en": "Until what time?"
    },
    {
     "speaker": "B",
     "ja": "ごじ まで です。",
     "romaji": "goji made desu.",
-    "es": "Hasta las cinco."
+    "es": "Hasta las cinco.",
+    "en": "Until five."
    }
   ]
  },
  {
   "id": "comprar-bolso",
   "title": "En la tienda: preguntar el precio",
+  "titleEn": "At the shop: asking the price",
   "lesson": "G2",
   "lines": [
    {
     "speaker": "A",
     "ja": "いらっしゃいませ。",
     "romaji": "irasshaimase.",
-    "es": "Bienvenido."
+    "es": "Bienvenido.",
+    "en": "Welcome."
    },
    {
     "speaker": "B",
     "ja": "すみません、この かばん は いくら ですか？",
     "romaji": "sumimasen, kono kaban wa ikura desuka?",
-    "es": "Disculpe, ¿cuánto cuesta este bolso?"
+    "es": "Disculpe, ¿cuánto cuesta este bolso?",
+    "en": "Excuse me, how much is this bag?"
    },
    {
     "speaker": "A",
     "ja": "それ は にまんえん です。",
     "romaji": "sore wa niman'en desu.",
-    "es": "Ese cuesta veinte mil yenes."
+    "es": "Ese cuesta veinte mil yenes.",
+    "en": "That one is twenty thousand yen."
    },
    {
     "speaker": "B",
     "ja": "ちょっと たかい です ね。 あの かばん は いくら ですか？",
     "romaji": "chotto takai desu ne. ano kaban wa ikura desuka?",
-    "es": "Es un poco caro. ¿Y aquel bolso, cuánto cuesta?"
+    "es": "Es un poco caro. ¿Y aquel bolso, cuánto cuesta?",
+    "en": "It's a little expensive. And that bag over there, how much is it?"
    },
    {
     "speaker": "A",
     "ja": "あれ は いちまんごせんえん です。",
     "romaji": "are wa ichimangosen'en desu.",
-    "es": "Aquel cuesta quince mil yenes."
+    "es": "Aquel cuesta quince mil yenes.",
+    "en": "That one is fifteen thousand yen."
    },
    {
     "speaker": "B",
     "ja": "じゃあ、あれ を ください。",
     "romaji": "jaa, are o kudasai.",
-    "es": "Entonces, deme aquel."
+    "es": "Entonces, deme aquel.",
+    "en": "Then I'll take that one."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    }
   ]
  },
  {
   "id": "papeleria",
   "title": "Comprar útiles",
+  "titleEn": "Buying school supplies",
   "lesson": "G2",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、この ノート は いくら ですか？",
     "romaji": "sumimasen, kono nooto wa ikura desuka?",
-    "es": "Disculpe, ¿cuánto cuesta este cuaderno?"
+    "es": "Disculpe, ¿cuánto cuesta este cuaderno?",
+    "en": "Excuse me, how much is this notebook?"
    },
    {
     "speaker": "B",
     "ja": "ひゃくごじゅうえん です。",
     "romaji": "hyakugojuuen desu.",
-    "es": "Ciento cincuenta yenes."
+    "es": "Ciento cincuenta yenes.",
+    "en": "One hundred fifty yen."
    },
    {
     "speaker": "A",
     "ja": "その えんぴつ は いくら ですか？",
     "romaji": "sono enpitsu wa ikura desuka?",
-    "es": "¿Y ese lápiz, cuánto cuesta?"
+    "es": "¿Y ese lápiz, cuánto cuesta?",
+    "en": "And how much is that pencil?"
    },
    {
     "speaker": "B",
     "ja": "これ は ごじゅうえん です。",
     "romaji": "kore wa gojuuen desu.",
-    "es": "Este cuesta cincuenta yenes."
+    "es": "Este cuesta cincuenta yenes.",
+    "en": "This one is fifty yen."
    },
    {
     "speaker": "A",
     "ja": "じゃあ、ノート と えんぴつ を ください。",
     "romaji": "jaa, nooto to enpitsu o kudasai.",
-    "es": "Entonces, deme el cuaderno y el lápiz."
+    "es": "Entonces, deme el cuaderno y el lápiz.",
+    "en": "Then I'll take the notebook and the pencil."
    },
    {
     "speaker": "B",
     "ja": "ぜんぶ で にひゃくえん です。",
     "romaji": "zenbu de nihyakuen desu.",
-    "es": "En total son doscientos yenes."
+    "es": "En total son doscientos yenes.",
+    "en": "That comes to two hundred yen in total."
    }
   ]
  },
  {
   "id": "rutina-diaria",
   "title": "Mi rutina diaria",
+  "titleEn": "My daily routine",
   "lesson": "G3",
   "lines": [
    {
     "speaker": "A",
     "ja": "まいあさ なんじ に おきますか？",
     "romaji": "maiasa nanji ni okimasuka?",
-    "es": "¿A qué hora te levantas cada mañana?"
+    "es": "¿A qué hora te levantas cada mañana?",
+    "en": "What time do you get up every morning?"
    },
    {
     "speaker": "B",
     "ja": "しちじ に おきます。",
     "romaji": "shichiji ni okimasu.",
-    "es": "Me levanto a las siete."
+    "es": "Me levanto a las siete.",
+    "en": "I get up at seven."
    },
    {
     "speaker": "A",
     "ja": "あさごはん を たべますか？",
     "romaji": "asagohan o tabemasuka?",
-    "es": "¿Desayunas?"
+    "es": "¿Desayunas?",
+    "en": "Do you have breakfast?"
    },
    {
     "speaker": "B",
     "ja": "ええ、パン と コーヒー です。",
     "romaji": "ee, pan to koohii desu.",
-    "es": "Sí, pan y café."
+    "es": "Sí, pan y café.",
+    "en": "Yes, bread and coffee."
    },
    {
     "speaker": "A",
     "ja": "がっこう まで なん で いきますか？",
     "romaji": "gakkou made nan de ikimasuka?",
-    "es": "¿En qué vas a la escuela?"
+    "es": "¿En qué vas a la escuela?",
+    "en": "How do you go to school?"
    },
    {
     "speaker": "B",
     "ja": "でんしゃ で いきます。",
     "romaji": "densha de ikimasu.",
-    "es": "Voy en tren."
+    "es": "Voy en tren.",
+    "en": "I go by train."
    },
    {
     "speaker": "A",
     "ja": "なんじ に かえりますか？",
     "romaji": "nanji ni kaerimasuka?",
-    "es": "¿A qué hora vuelves?"
+    "es": "¿A qué hora vuelves?",
+    "en": "What time do you get back?"
    },
    {
     "speaker": "B",
     "ja": "ろくじ ごろ かえります。",
     "romaji": "rokuji goro kaerimasu.",
-    "es": "Vuelvo alrededor de las seis."
+    "es": "Vuelvo alrededor de las seis.",
+    "en": "I get back around six."
    }
   ]
  },
  {
   "id": "planes-cine",
   "title": "Hacer planes: invitar al cine",
+  "titleEn": "Making plans: inviting someone to the movies",
   "lesson": "G3",
   "lines": [
    {
     "speaker": "A",
     "ja": "どようび に えいが を みませんか？",
     "romaji": "doyoubi ni eiga o mimasenka?",
-    "es": "¿No quieres ver una película el sábado?"
+    "es": "¿No quieres ver una película el sábado?",
+    "en": "Would you like to see a movie on Saturday?"
    },
    {
     "speaker": "B",
     "ja": "いい です ね。 なんじ に あいましょうか？",
     "romaji": "ii desu ne. nanji ni aimashouka?",
-    "es": "Buena idea. ¿A qué hora nos encontramos?"
+    "es": "Buena idea. ¿A qué hora nos encontramos?",
+    "en": "Good idea. What time shall we meet?"
    },
    {
     "speaker": "A",
     "ja": "ごご さんじ は どう ですか？",
     "romaji": "gogo sanji wa dou desuka?",
-    "es": "¿Qué tal a las tres de la tarde?"
+    "es": "¿Qué tal a las tres de la tarde?",
+    "en": "How about three in the afternoon?"
    },
    {
     "speaker": "B",
     "ja": "ええ、さんじ に あいましょう。 どこ で あいましょうか？",
     "romaji": "ee, sanji ni aimashou. doko de aimashouka?",
-    "es": "Sí, a las tres. ¿Dónde nos encontramos?"
+    "es": "Sí, a las tres. ¿Dónde nos encontramos?",
+    "en": "Yes, at three. Where shall we meet?"
    },
    {
     "speaker": "A",
     "ja": "えき の まえ で あいましょう。",
     "romaji": "eki no mae de aimashou.",
-    "es": "Encontrémonos delante de la estación."
+    "es": "Encontrémonos delante de la estación.",
+    "en": "Let's meet in front of the station."
    },
    {
     "speaker": "B",
     "ja": "はい、たのしみ です。",
     "romaji": "hai, tanoshimi desu.",
-    "es": "Sí, tengo ganas."
+    "es": "Sí, tengo ganas.",
+    "en": "Yes, I'm looking forward to it."
    }
   ]
  },
  {
   "id": "planes-almuerzo",
   "title": "Hacer planes: almorzar juntos",
+  "titleEn": "Making plans: having lunch together",
   "lesson": "G5",
   "lines": [
    {
     "speaker": "A",
     "ja": "あした は いそがしい ですか？",
     "romaji": "ashita wa isogashii desuka?",
-    "es": "¿Mañana estás ocupado?"
+    "es": "¿Mañana estás ocupado?",
+    "en": "Are you busy tomorrow?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、いそがしく ないです。 ひま です。",
     "romaji": "iie, isogashiku naidesu. hima desu.",
-    "es": "No, no estoy ocupado. Estoy libre."
+    "es": "No, no estoy ocupado. Estoy libre.",
+    "en": "No, I'm not busy. I'm free."
    },
    {
     "speaker": "A",
     "ja": "じゃあ、いっしょに ひるごはん を たべませんか？",
     "romaji": "jaa, isshoni hirugohan o tabemasenka?",
-    "es": "Entonces, ¿no quieres almorzar juntos?"
+    "es": "Entonces, ¿no quieres almorzar juntos?",
+    "en": "Then, would you like to have lunch together?"
    },
    {
     "speaker": "B",
     "ja": "いい です ね。 なに を たべましょうか？",
     "romaji": "ii desu ne. nani o tabemashouka?",
-    "es": "Buena idea. ¿Qué comemos?"
+    "es": "Buena idea. ¿Qué comemos?",
+    "en": "Good idea. What shall we eat?"
    },
    {
     "speaker": "A",
     "ja": "すし を たべましょう。",
     "romaji": "sushi o tabemashou.",
-    "es": "Comamos sushi."
+    "es": "Comamos sushi.",
+    "en": "Let's eat sushi."
    },
    {
     "speaker": "B",
     "ja": "はい、そう しましょう。",
     "romaji": "hai, sou shimashou.",
-    "es": "Sí, hagámoslo."
+    "es": "Sí, hagámoslo.",
+    "en": "Yes, let's do that."
    }
   ]
  },
  {
   "id": "hay-un-banco",
   "title": "¿Hay un banco por aquí?",
+  "titleEn": "Is there a bank around here?",
   "lesson": "G4",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、この ちかく に ぎんこう が ありますか？",
     "romaji": "sumimasen, kono chikaku ni ginkou ga arimasuka?",
-    "es": "Disculpe, ¿hay un banco cerca de aquí?"
+    "es": "Disculpe, ¿hay un banco cerca de aquí?",
+    "en": "Excuse me, is there a bank near here?"
    },
    {
     "speaker": "B",
     "ja": "ええ、あります。 えき の まえ に あります。",
     "romaji": "ee, arimasu. eki no mae ni arimasu.",
-    "es": "Sí, hay uno. Está delante de la estación."
+    "es": "Sí, hay uno. Está delante de la estación.",
+    "en": "Yes, there is one. It's in front of the station."
    },
    {
     "speaker": "A",
     "ja": "コンビニ も ありますか？",
     "romaji": "konbini mo arimasuka?",
-    "es": "¿Hay también una tienda de conveniencia?"
+    "es": "¿Hay también una tienda de conveniencia?",
+    "en": "Is there also a convenience store?"
    },
    {
     "speaker": "B",
     "ja": "ええ、ぎんこう の うしろ に あります。",
     "romaji": "ee, ginkou no ushiro ni arimasu.",
-    "es": "Sí, está detrás del banco."
+    "es": "Sí, está detrás del banco.",
+    "en": "Yes, it's behind the bank."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    }
   ]
  },
  {
   "id": "fecha-cumpleanos",
   "title": "Fechas y cumpleaños",
+  "titleEn": "Dates and birthdays",
   "lesson": "P6",
   "lines": [
    {
     "speaker": "A",
     "ja": "たんじょうび は いつ ですか？",
     "romaji": "tanjoubi wa itsu desuka?",
-    "es": "¿Cuándo es tu cumpleaños?"
+    "es": "¿Cuándo es tu cumpleaños?",
+    "en": "When is your birthday?"
    },
    {
     "speaker": "B",
     "ja": "しちがつ はつか です。",
     "romaji": "shichigatsu hatsuka desu.",
-    "es": "El 20 de julio."
+    "es": "El 20 de julio.",
+    "en": "July 20th."
    },
    {
     "speaker": "A",
     "ja": "きょう は なんにち ですか？",
     "romaji": "kyou wa nannichi desuka?",
-    "es": "¿Qué día es hoy?"
+    "es": "¿Qué día es hoy?",
+    "en": "What is the date today?"
    },
    {
     "speaker": "B",
     "ja": "ごがつ じゅうごにち です。",
     "romaji": "gogatsu juugonichi desu.",
-    "es": "Hoy es 15 de mayo."
+    "es": "Hoy es 15 de mayo.",
+    "en": "Today is May 15th."
    },
    {
     "speaker": "A",
     "ja": "そう ですか。 きょう は なんようび ですか？",
     "romaji": "sou desuka. kyou wa nan'youbi desuka?",
-    "es": "Ya veo. ¿Qué día de la semana es hoy?"
+    "es": "Ya veo. ¿Qué día de la semana es hoy?",
+    "en": "I see. What day of the week is it today?"
    },
    {
     "speaker": "B",
     "ja": "もくようび です。",
     "romaji": "mokuyoubi desu.",
-    "es": "Es jueves."
+    "es": "Es jueves.",
+    "en": "It's Thursday."
    }
   ]
  },
  {
   "id": "restaurante-pedir",
   "title": "En el restaurante: pedir",
+  "titleEn": "At the restaurant: ordering",
   "lesson": "P7",
   "lines": [
    {
     "speaker": "A",
     "ja": "いらっしゃいませ。 なんにん ですか？",
     "romaji": "irasshaimase. nannin desuka?",
-    "es": "Bienvenidos. ¿Cuántos son?"
+    "es": "Bienvenidos. ¿Cuántos son?",
+    "en": "Welcome. How many people?"
    },
    {
     "speaker": "B",
     "ja": "ふたり です。",
     "romaji": "futari desu.",
-    "es": "Somos dos."
+    "es": "Somos dos.",
+    "en": "Two."
    },
    {
     "speaker": "A",
     "ja": "どうぞ。 メニュー です。",
     "romaji": "douzo. menyuu desu.",
-    "es": "Pasen. Aquí está el menú."
+    "es": "Pasen. Aquí está el menú.",
+    "en": "This way, please. Here is the menu."
    },
    {
     "speaker": "B",
     "ja": "ありがとう ございます。 すみません。",
     "romaji": "arigatou gozaimasu. sumimasen.",
-    "es": "Gracias. Disculpe."
+    "es": "Gracias. Disculpe.",
+    "en": "Thank you. Excuse me."
    },
    {
     "speaker": "A",
     "ja": "はい。 なに を ちゅうもん しますか？",
     "romaji": "hai. nani o chuumon shimasuka?",
-    "es": "Sí. ¿Qué van a pedir?"
+    "es": "Sí. ¿Qué van a pedir?",
+    "en": "Yes. What would you like to order?"
    },
    {
     "speaker": "B",
     "ja": "カレーライス を ひとつ と、とんかつ を ひとつ、おねがいします。",
     "romaji": "kareeraisu o hitotsu to, tonkatsu o hitotsu, onegaishimasu.",
-    "es": "Un arroz con curry y un tonkatsu, por favor."
+    "es": "Un arroz con curry y un tonkatsu, por favor.",
+    "en": "One curry rice and one tonkatsu, please."
    },
    {
     "speaker": "A",
     "ja": "はい、わかりました。",
     "romaji": "hai, wakarimashita.",
-    "es": "Sí, entendido."
+    "es": "Sí, entendido.",
+    "en": "Certainly."
    }
   ]
  },
  {
   "id": "restaurante-cuenta",
   "title": "En el restaurante: pagar la cuenta",
+  "titleEn": "At the restaurant: paying the bill",
   "lesson": "P7",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、おかいけい を おねがいします。",
     "romaji": "sumimasen, okaikei o onegaishimasu.",
-    "es": "Disculpe, la cuenta, por favor."
+    "es": "Disculpe, la cuenta, por favor.",
+    "en": "Excuse me, the check, please."
    },
    {
     "speaker": "B",
     "ja": "はい。 さんぜんろっぴゃくえん です。 いっしょ ですか？ べつべつ ですか？",
     "romaji": "hai. sanzenroppyakuen desu. issho desuka? betsubetsu desuka?",
-    "es": "Sí. Son tres mil seiscientos yenes. ¿Juntos o por separado?"
+    "es": "Sí. Son tres mil seiscientos yenes. ¿Juntos o por separado?",
+    "en": "Certainly. That's three thousand six hundred yen. Together or separately?"
    },
    {
     "speaker": "A",
     "ja": "いっしょ です。 よんせんえん、どうぞ。",
     "romaji": "issho desu. yonsen'en, douzo.",
-    "es": "Juntos. Aquí tiene cuatro mil yenes."
+    "es": "Juntos. Aquí tiene cuatro mil yenes.",
+    "en": "Together. Here is four thousand yen."
    },
    {
     "speaker": "B",
     "ja": "よんせんえん おあずかり します。 よんひゃくえん の おかえし です。",
     "romaji": "yonsen'en oazukari shimasu. yonhyakuen no okaeshi desu.",
-    "es": "Recibo cuatro mil yenes. Le devuelvo cuatrocientos yenes de cambio."
+    "es": "Recibo cuatro mil yenes. Le devuelvo cuatrocientos yenes de cambio.",
+    "en": "Received four thousand yen. Here is four hundred yen in change."
    },
    {
     "speaker": "A",
     "ja": "ごちそうさまでした。 おいしかった です。",
     "romaji": "gochisousamadeshita. oishikatta desu.",
-    "es": "Gracias por la comida. Estuvo rica."
+    "es": "Gracias por la comida. Estuvo rica.",
+    "en": "Thank you for the meal. It was delicious."
    },
    {
     "speaker": "B",
     "ja": "ありがとう ございました。",
     "romaji": "arigatou gozaimashita.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    }
   ]
  },
  {
   "id": "como-llegar",
   "title": "Preguntar cómo llegar a la estación",
+  "titleEn": "Asking how to get to the station",
   "lesson": "P7",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、とうきょう えき は どこ ですか？",
     "romaji": "sumimasen, toukyou eki wa doko desuka?",
-    "es": "Disculpe, ¿dónde está la estación de Tokio?"
+    "es": "Disculpe, ¿dónde está la estación de Tokio?",
+    "en": "Excuse me, where is Tokyo Station?"
    },
    {
     "speaker": "B",
     "ja": "まっすぐ です。 ひだり に まがります。",
     "romaji": "massugu desu. hidari ni magarimasu.",
-    "es": "Siga recto. Luego se gira a la izquierda."
+    "es": "Siga recto. Luego se gira a la izquierda.",
+    "en": "Go straight. Then turn left."
    },
    {
     "speaker": "A",
     "ja": "えき まで どのぐらい かかりますか？",
     "romaji": "eki made donogurai kakarimasuka?",
-    "es": "¿Cuánto se tarda hasta la estación?"
+    "es": "¿Cuánto se tarda hasta la estación?",
+    "en": "How long does it take to get to the station?"
    },
    {
     "speaker": "B",
     "ja": "あるいて じゅっぷん ぐらい です。",
     "romaji": "aruite juppun gurai desu.",
-    "es": "Unos diez minutos a pie."
+    "es": "Unos diez minutos a pie.",
+    "en": "About ten minutes on foot."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    }
   ]
  },
  {
   "id": "comprar-boleto",
   "title": "En la estación: comprar un boleto",
+  "titleEn": "At the station: buying a ticket",
   "lesson": "P7",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、ぎんざ まで ひとり、おねがいします。",
     "romaji": "sumimasen, ginza made hitori, onegaishimasu.",
-    "es": "Disculpe, un boleto a Ginza, por favor."
+    "es": "Disculpe, un boleto a Ginza, por favor.",
+    "en": "Excuse me, one ticket to Ginza, please."
    },
    {
     "speaker": "B",
     "ja": "ひゃくろくじゅうえん です。",
     "romaji": "hyakurokujuuen desu.",
-    "es": "Son ciento sesenta yenes."
+    "es": "Son ciento sesenta yenes.",
+    "en": "That's one hundred sixty yen."
    },
    {
     "speaker": "A",
     "ja": "でんしゃ は なんじ に でますか？",
     "romaji": "densha wa nanji ni demasuka?",
-    "es": "¿A qué hora sale el tren?"
+    "es": "¿A qué hora sale el tren?",
+    "en": "What time does the train leave?"
    },
    {
     "speaker": "B",
     "ja": "じゅうじ ごふん に でます。",
     "romaji": "juuji gofun ni demasu.",
-    "es": "Sale a las diez y cinco."
+    "es": "Sale a las diez y cinco.",
+    "en": "It leaves at 10:05."
    },
    {
     "speaker": "A",
     "ja": "なんぷん かかりますか？",
     "romaji": "nanpun kakarimasuka?",
-    "es": "¿Cuántos minutos tarda?"
+    "es": "¿Cuántos minutos tarda?",
+    "en": "How many minutes does it take?"
    },
    {
     "speaker": "B",
     "ja": "じゅうごふん ぐらい かかります。",
     "romaji": "juugofun gurai kakarimasu.",
-    "es": "Tarda unos quince minutos."
+    "es": "Tarda unos quince minutos.",
+    "en": "It takes about fifteen minutes."
    }
   ]
  },
  {
   "id": "en-el-autobus",
   "title": "En el autobús",
+  "titleEn": "On the bus",
   "lesson": "G6",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、この バス は ホテル に いきますか？",
     "romaji": "sumimasen, kono basu wa hoteru ni ikimasuka?",
-    "es": "Disculpe, ¿este autobús va al hotel?"
+    "es": "Disculpe, ¿este autobús va al hotel?",
+    "en": "Excuse me, does this bus go to the hotel?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、いきません。 あの バス です。",
     "romaji": "iie, ikimasen. ano basu desu.",
-    "es": "No, no va. Es aquel autobús."
+    "es": "No, no va. Es aquel autobús.",
+    "en": "No, it doesn't. It's that bus."
    },
    {
     "speaker": "A",
     "ja": "どの バス ですか？",
     "romaji": "dono basu desuka?",
-    "es": "¿Cuál autobús?"
+    "es": "¿Cuál autobús?",
+    "en": "Which bus?"
    },
    {
     "speaker": "B",
     "ja": "あそこ の あおい バス です。",
     "romaji": "asoko no aoi basu desu.",
-    "es": "Aquel autobús azul de allá."
+    "es": "Aquel autobús azul de allá.",
+    "en": "That blue bus over there."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    }
   ]
  },
  {
   "id": "en-clase",
   "title": "En la clase de japonés",
+  "titleEn": "In Japanese class",
   "lesson": "G6",
   "lines": [
    {
     "speaker": "A",
     "ja": "みなさん、ほん を あけて ください。",
     "romaji": "minasan, hon o akete kudasai.",
-    "es": "Todos, abran el libro, por favor."
+    "es": "Todos, abran el libro, por favor.",
+    "en": "Everyone, please open your books."
    },
    {
     "speaker": "B",
     "ja": "せんせい、なん ページ ですか？",
     "romaji": "sensei, nan peeji desuka?",
-    "es": "Profesor, ¿qué página?"
+    "es": "Profesor, ¿qué página?",
+    "en": "Teacher, which page?"
    },
    {
     "speaker": "A",
     "ja": "じゅうご ページ です。 よんで ください。",
     "romaji": "juugo peeji desu. yonde kudasai.",
-    "es": "Página quince. Léanla, por favor."
+    "es": "Página quince. Léanla, por favor.",
+    "en": "Page fifteen. Please read it."
    },
    {
     "speaker": "B",
     "ja": "はい。 あの、しゃしん を とっても いい ですか？",
     "romaji": "hai. ano, shashin o tottemo ii desuka?",
-    "es": "Sí. Perdone, ¿puedo sacar una foto?"
+    "es": "Sí. Perdone, ¿puedo sacar una foto?",
+    "en": "Yes. Excuse me, may I take a photo?"
    },
    {
     "speaker": "A",
     "ja": "すみません、ここ で しゃしん を とっては いけません。",
     "romaji": "sumimasen, koko de shashin o tottewa ikemasen.",
-    "es": "Lo siento, aquí no se pueden sacar fotos."
+    "es": "Lo siento, aquí no se pueden sacar fotos.",
+    "en": "I'm sorry, you can't take photos here."
    },
    {
     "speaker": "B",
     "ja": "わかりました。",
     "romaji": "wakarimashita.",
-    "es": "Entendido."
+    "es": "Entendido.",
+    "en": "Understood."
    }
   ]
  },
  {
   "id": "viaje-pasado",
   "title": "Hablar de un viaje",
+  "titleEn": "Talking about a trip",
   "lesson": "G5",
   "lines": [
    {
     "speaker": "A",
     "ja": "りょこう は どう でしたか？",
     "romaji": "ryokou wa dou deshitaka?",
-    "es": "¿Cómo estuvo el viaje?"
+    "es": "¿Cómo estuvo el viaje?",
+    "en": "How was the trip?"
    },
    {
     "speaker": "B",
     "ja": "とても たのしかった です。",
     "romaji": "totemo tanoshikatta desu.",
-    "es": "Fue muy divertido."
+    "es": "Fue muy divertido.",
+    "en": "It was a lot of fun."
    },
    {
     "speaker": "A",
     "ja": "てんき は どう でしたか？",
     "romaji": "tenki wa dou deshitaka?",
-    "es": "¿Y el clima?"
+    "es": "¿Y el clima?",
+    "en": "And the weather?"
    },
    {
     "speaker": "B",
     "ja": "あつかった です。 でも、うみ は きれい でした。",
     "romaji": "atsukatta desu. demo, umi wa kirei deshita.",
-    "es": "Hizo calor. Pero el mar estaba precioso."
+    "es": "Hizo calor. Pero el mar estaba precioso.",
+    "en": "It was hot. But the sea was beautiful."
    },
    {
     "speaker": "A",
     "ja": "いい ですね。",
     "romaji": "ii desune.",
-    "es": "Qué bien."
+    "es": "Qué bien.",
+    "en": "That's nice."
    }
   ]
  },
  {
   "id": "quiero-ir",
   "title": "¿Qué quieres hacer en las vacaciones?",
+  "titleEn": "What do you want to do on vacation?",
   "lesson": "P9",
   "lines": [
    {
     "speaker": "A",
     "ja": "なつやすみ に なに を したい ですか？",
     "romaji": "natsuyasumi ni nani o shitai desuka?",
-    "es": "¿Qué quieres hacer en las vacaciones de verano?"
+    "es": "¿Qué quieres hacer en las vacaciones de verano?",
+    "en": "What do you want to do during summer vacation?"
    },
    {
     "speaker": "B",
     "ja": "りょこう に いきたい です。",
     "romaji": "ryokou ni ikitai desu.",
-    "es": "Quiero ir de viaje."
+    "es": "Quiero ir de viaje.",
+    "en": "I want to go on a trip."
    },
    {
     "speaker": "A",
     "ja": "どこ に いきたい ですか？",
     "romaji": "doko ni ikitai desuka?",
-    "es": "¿Adónde quieres ir?"
+    "es": "¿Adónde quieres ir?",
+    "en": "Where do you want to go?"
    },
    {
     "speaker": "B",
     "ja": "きょうと に いきたい です。 おてら を みたい です。",
     "romaji": "kyouto ni ikitai desu. otera o mitai desu.",
-    "es": "Quiero ir a Kioto. Quiero ver los templos."
+    "es": "Quiero ir a Kioto. Quiero ver los templos.",
+    "en": "I want to go to Kyoto. I want to see the temples."
    },
    {
     "speaker": "A",
     "ja": "いい ですね。 わたし も いきたい です。",
     "romaji": "ii desune. watashi mo ikitai desu.",
-    "es": "Qué bien. Yo también quiero ir."
+    "es": "Qué bien. Yo también quiero ir.",
+    "en": "That's nice. I want to go too."
    }
   ]
  },
  {
   "id": "conocer-profesor",
   "title": "Conocer a un profesor",
+  "titleEn": "Meeting a teacher",
   "lesson": "G1",
   "lines": [
    {
     "speaker": "A",
     "ja": "こんにちは。 わたし は ロペス です。",
     "romaji": "konnichiha. watashi wa ropesu desu.",
-    "es": "Hola. Soy López."
+    "es": "Hola. Soy López.",
+    "en": "Hello. I'm López."
    },
    {
     "speaker": "B",
     "ja": "こんにちは。 やまだ です。 ロペス さん は がくせい ですか？",
     "romaji": "konnichiha. yamada desu. ropesu san wa gakusei desuka?",
-    "es": "Hola. Soy Yamada. ¿Es usted estudiante, señor López?"
+    "es": "Hola. Soy Yamada. ¿Es usted estudiante, señor López?",
+    "en": "Hello. I'm Yamada. Are you a student, Mr. López?"
    },
    {
     "speaker": "A",
     "ja": "はい、だいがくせい です。 やまだ さん は？",
     "romaji": "hai, daigakusei desu. yamada san wa?",
-    "es": "Sí, soy estudiante universitario. ¿Y usted, señor Yamada?"
+    "es": "Sí, soy estudiante universitario. ¿Y usted, señor Yamada?",
+    "en": "Yes, I'm a university student. And you, Mr. Yamada?"
    },
    {
     "speaker": "B",
     "ja": "わたし は せんせい です。 にほんじん です。",
     "romaji": "watashi wa sensei desu. nihonjin desu.",
-    "es": "Yo soy profesor. Soy japonés."
+    "es": "Yo soy profesor. Soy japonés.",
+    "en": "I'm a teacher. I'm Japanese."
    },
    {
     "speaker": "A",
     "ja": "にほんご の せんせい ですか？",
     "romaji": "nihongo no sensei desuka?",
-    "es": "¿Es profesor de japonés?"
+    "es": "¿Es profesor de japonés?",
+    "en": "Are you a Japanese teacher?"
    },
    {
     "speaker": "B",
     "ja": "はい、にほんご の せんせい です。",
     "romaji": "hai, nihongo no sensei desu.",
-    "es": "Sí, soy profesor de japonés."
+    "es": "Sí, soy profesor de japonés.",
+    "en": "Yes, I'm a Japanese teacher."
    }
   ]
  },
  {
   "id": "presentar-amigos",
   "title": "Presentar a un amigo",
+  "titleEn": "Introducing a friend",
   "lesson": "G1",
   "lines": [
    {
     "speaker": "A",
     "ja": "はじめまして。 たなか です。",
     "romaji": "hajimemashite. tanaka desu.",
-    "es": "Mucho gusto. Soy Tanaka."
+    "es": "Mucho gusto. Soy Tanaka.",
+    "en": "Nice to meet you. I'm Tanaka."
    },
    {
     "speaker": "B",
     "ja": "はじめまして。 ロペス です。 チリじん です。",
     "romaji": "hajimemashite. ropesu desu. chirijin desu.",
-    "es": "Mucho gusto. Soy López. Soy chileno."
+    "es": "Mucho gusto. Soy López. Soy chileno.",
+    "en": "Nice to meet you. I'm López. I'm Chilean."
    },
    {
     "speaker": "A",
     "ja": "ロペス さん は だいがくせい ですか？",
     "romaji": "ropesu san wa daigakusei desuka?",
-    "es": "¿Es usted estudiante universitario, señor López?"
+    "es": "¿Es usted estudiante universitario, señor López?",
+    "en": "Are you a university student, Mr. López?"
    },
    {
     "speaker": "B",
     "ja": "はい、そう です。 たなか さん も だいがくせい ですか？",
     "romaji": "hai, sou desu. tanaka san mo daigakusei desuka?",
-    "es": "Sí, así es. ¿Usted también es estudiante, señor Tanaka?"
+    "es": "Sí, así es. ¿Usted también es estudiante, señor Tanaka?",
+    "en": "Yes, I am. Are you a student too, Mr. Tanaka?"
    },
    {
     "speaker": "A",
     "ja": "はい、わたし も だいがくせい です。",
     "romaji": "hai, watashi mo daigakusei desu.",
-    "es": "Sí, yo también soy estudiante universitario."
+    "es": "Sí, yo también soy estudiante universitario.",
+    "en": "Yes, I'm a university student too."
    },
    {
     "speaker": "B",
     "ja": "よろしく おねがいします。",
     "romaji": "yoroshiku onegaishimasu.",
-    "es": "Encantado."
+    "es": "Encantado.",
+    "en": "Pleased to meet you."
    },
    {
     "speaker": "A",
     "ja": "こちら こそ、よろしく おねがいします。",
     "romaji": "kochira koso, yoroshiku onegaishimasu.",
-    "es": "El gusto es mío."
+    "es": "El gusto es mío.",
+    "en": "The pleasure is mine."
    }
   ]
  },
  {
   "id": "invitar-sabado",
   "title": "Invitar a un amigo el sábado",
+  "titleEn": "Inviting a friend for Saturday",
   "lesson": "G3",
   "lines": [
    {
     "speaker": "A",
     "ja": "どようび に なに を しますか？",
     "romaji": "doyoubi ni nani o shimasuka?",
-    "es": "¿Qué haces el sábado?"
+    "es": "¿Qué haces el sábado?",
+    "en": "What are you doing on Saturday?"
    },
    {
     "speaker": "B",
     "ja": "うち で べんきょう します。",
     "romaji": "uchi de benkyou shimasu.",
-    "es": "Estudio en casa."
+    "es": "Estudio en casa.",
+    "en": "I'm studying at home."
    },
    {
     "speaker": "A",
     "ja": "いっしょに テニス を しませんか？",
     "romaji": "isshoni tenisu o shimasenka?",
-    "es": "¿No quieres jugar tenis conmigo?"
+    "es": "¿No quieres jugar tenis conmigo?",
+    "en": "Would you like to play tennis with me?"
    },
    {
     "speaker": "B",
     "ja": "いい ですね。 どこ で しましょうか？",
     "romaji": "ii desune. doko de shimashouka?",
-    "es": "Buena idea. ¿Dónde jugamos?"
+    "es": "Buena idea. ¿Dónde jugamos?",
+    "en": "Good idea. Where shall we play?"
    },
    {
     "speaker": "A",
     "ja": "こうえん で しましょう。",
     "romaji": "kouen de shimashou.",
-    "es": "Juguemos en el parque."
+    "es": "Juguemos en el parque.",
+    "en": "Let's play at the park."
    },
    {
     "speaker": "B",
     "ja": "なんじ に あいましょうか？",
     "romaji": "nanji ni aimashouka?",
-    "es": "¿A qué hora nos encontramos?"
+    "es": "¿A qué hora nos encontramos?",
+    "en": "What time shall we meet?"
    },
    {
     "speaker": "A",
     "ja": "じゅうじ に あいましょう。",
     "romaji": "juuji ni aimashou.",
-    "es": "Encontrémonos a las diez."
+    "es": "Encontrémonos a las diez.",
+    "en": "Let's meet at ten."
    },
    {
     "speaker": "B",
     "ja": "ええ、たのしみ です。",
     "romaji": "ee, tanoshimi desu.",
-    "es": "Sí, tengo ganas."
+    "es": "Sí, tengo ganas.",
+    "en": "Yes, I'm looking forward to it."
    }
   ]
  },
  {
   "id": "invitar-cafe",
   "title": "Invitar a tomar café",
+  "titleEn": "Inviting someone for coffee",
   "lesson": "G3",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、いっしょに コーヒー を のみませんか？",
     "romaji": "sumimasen, isshoni koohii o nomimasenka?",
-    "es": "Disculpa, ¿no quieres tomar un café conmigo?"
+    "es": "Disculpa, ¿no quieres tomar un café conmigo?",
+    "en": "Excuse me, would you like to have coffee with me?"
    },
    {
     "speaker": "B",
     "ja": "すみません、きょう は ちょっと…。",
     "romaji": "sumimasen, kyou wa chotto….",
-    "es": "Lo siento, hoy es que un poco..."
+    "es": "Lo siento, hoy es que un poco...",
+    "en": "I'm sorry, today is a bit..."
    },
    {
     "speaker": "A",
     "ja": "じゃあ、あした は どう ですか？",
     "romaji": "jaa, ashita wa dou desuka?",
-    "es": "Entonces, ¿qué tal mañana?"
+    "es": "Entonces, ¿qué tal mañana?",
+    "en": "Then how about tomorrow?"
    },
    {
     "speaker": "B",
     "ja": "あした は いい ですよ。 なんじ に のみましょうか？",
     "romaji": "ashita wa ii desuyo. nanji ni nomimashouka?",
-    "es": "Mañana está bien. ¿A qué hora tomamos?"
+    "es": "Mañana está bien. ¿A qué hora tomamos?",
+    "en": "Tomorrow is fine. What time shall we have it?"
    },
    {
     "speaker": "A",
     "ja": "さんじ に のみましょう。",
     "romaji": "sanji ni nomimashou.",
-    "es": "Tomemos a las tres."
+    "es": "Tomemos a las tres.",
+    "en": "Let's have it at three."
    },
    {
     "speaker": "B",
     "ja": "はい、そう しましょう。",
     "romaji": "hai, sou shimashou.",
-    "es": "Sí, hagámoslo así."
+    "es": "Sí, hagámoslo así.",
+    "en": "Yes, let's do that."
    }
   ]
  },
  {
   "id": "mi-cuarto",
   "title": "Mi cuarto",
+  "titleEn": "My room",
   "lesson": "G4",
   "lines": [
    {
     "speaker": "A",
     "ja": "へや に なに が ありますか？",
     "romaji": "heya ni nani ga arimasuka?",
-    "es": "¿Qué hay en tu cuarto?"
+    "es": "¿Qué hay en tu cuarto?",
+    "en": "What is there in your room?"
    },
    {
     "speaker": "B",
     "ja": "つくえ と ベッド が あります。",
     "romaji": "tsukue to beddo ga arimasu.",
-    "es": "Hay un escritorio y una cama."
+    "es": "Hay un escritorio y una cama.",
+    "en": "There is a desk and a bed."
    },
    {
     "speaker": "A",
     "ja": "テレビ も ありますか？",
     "romaji": "terebi mo arimasuka?",
-    "es": "¿También hay televisor?"
+    "es": "¿También hay televisor?",
+    "en": "Is there a TV too?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、テレビ は ありません。",
     "romaji": "iie, terebi wa arimasen.",
-    "es": "No, no hay televisor."
+    "es": "No, no hay televisor.",
+    "en": "No, there is no TV."
    },
    {
     "speaker": "A",
     "ja": "ねこ は いますか？",
     "romaji": "neko wa imasuka?",
-    "es": "¿Hay un gato?"
+    "es": "¿Hay un gato?",
+    "en": "Is there a cat?"
    },
    {
     "speaker": "B",
     "ja": "ええ、ベッド の うえ に ねこ が います。",
     "romaji": "ee, beddo no ue ni neko ga imasu.",
-    "es": "Sí, hay un gato sobre la cama."
+    "es": "Sí, hay un gato sobre la cama.",
+    "en": "Yes, there is a cat on the bed."
    }
   ]
  },
  {
   "id": "en-el-parque",
   "title": "Preguntar qué hay en el parque",
+  "titleEn": "Asking what is in the park",
   "lesson": "G4",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、この ちかく に トイレ が ありますか？",
     "romaji": "sumimasen, kono chikaku ni toire ga arimasuka?",
-    "es": "Disculpe, ¿hay un baño cerca de aquí?"
+    "es": "Disculpe, ¿hay un baño cerca de aquí?",
+    "en": "Excuse me, is there a restroom near here?"
    },
    {
     "speaker": "B",
     "ja": "ええ、こうえん の なか に あります。",
     "romaji": "ee, kouen no naka ni arimasu.",
-    "es": "Sí, hay uno dentro del parque."
+    "es": "Sí, hay uno dentro del parque.",
+    "en": "Yes, there is one inside the park."
    },
    {
     "speaker": "A",
     "ja": "こうえん に ひと が いますか？",
     "romaji": "kouen ni hito ga imasuka?",
-    "es": "¿Hay gente en el parque?"
+    "es": "¿Hay gente en el parque?",
+    "en": "Are there people in the park?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、だれも いません。",
     "romaji": "iie, daremo imasen.",
-    "es": "No, no hay nadie."
+    "es": "No, no hay nadie.",
+    "en": "No, there is no one."
    },
    {
     "speaker": "A",
     "ja": "ありがとう ございます。",
     "romaji": "arigatou gozaimasu.",
-    "es": "Muchas gracias."
+    "es": "Muchas gracias.",
+    "en": "Thank you very much."
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    }
   ]
  },
  {
   "id": "fiesta-fecha",
   "title": "Preguntar la fecha de una fiesta",
+  "titleEn": "Asking the date of a party",
   "lesson": "P6",
   "lines": [
    {
     "speaker": "A",
     "ja": "パーティー は いつ ですか？",
     "romaji": "paatii wa itsu desuka?",
-    "es": "¿Cuándo es la fiesta?"
+    "es": "¿Cuándo es la fiesta?",
+    "en": "When is the party?"
    },
    {
     "speaker": "B",
     "ja": "じゅうにがつ にじゅうよっか です。",
     "romaji": "juunigatsu nijuuyokka desu.",
-    "es": "El 24 de diciembre."
+    "es": "El 24 de diciembre.",
+    "en": "December 24th."
    },
    {
     "speaker": "A",
     "ja": "なんようび ですか？",
     "romaji": "nan'youbi desuka?",
-    "es": "¿Qué día de la semana es?"
+    "es": "¿Qué día de la semana es?",
+    "en": "What day of the week is it?"
    },
    {
     "speaker": "B",
     "ja": "すいようび です。",
     "romaji": "suiyoubi desu.",
-    "es": "Es miércoles."
+    "es": "Es miércoles.",
+    "en": "It's Wednesday."
    },
    {
     "speaker": "A",
     "ja": "なんじ から ですか？",
     "romaji": "nanji kara desuka?",
-    "es": "¿Desde qué hora?"
+    "es": "¿Desde qué hora?",
+    "en": "From what time?"
    },
    {
     "speaker": "B",
     "ja": "ごご ろくじ から です。 くじ まで です。",
     "romaji": "gogo rokuji kara desu. kuji made desu.",
-    "es": "Desde las seis de la tarde. Hasta las nueve."
+    "es": "Desde las seis de la tarde. Hasta las nueve.",
+    "en": "From six in the evening. Until nine."
    }
   ]
  },
  {
   "id": "vacaciones-fechas",
   "title": "Fechas de las vacaciones",
+  "titleEn": "Vacation dates",
   "lesson": "P6",
   "lines": [
    {
     "speaker": "A",
     "ja": "なつやすみ は いつ から ですか？",
     "romaji": "natsuyasumi wa itsu kara desuka?",
-    "es": "¿Desde cuándo son las vacaciones de verano?"
+    "es": "¿Desde cuándo son las vacaciones de verano?",
+    "en": "From when is the summer vacation?"
    },
    {
     "speaker": "B",
     "ja": "しちがつ はつか から です。",
     "romaji": "shichigatsu hatsuka kara desu.",
-    "es": "Desde el 20 de julio."
+    "es": "Desde el 20 de julio.",
+    "en": "From July 20th."
    },
    {
     "speaker": "A",
     "ja": "いつ まで ですか？",
     "romaji": "itsu made desuka?",
-    "es": "¿Hasta cuándo?"
+    "es": "¿Hasta cuándo?",
+    "en": "Until when?"
    },
    {
     "speaker": "B",
     "ja": "はちがつ ついたち まで です。",
     "romaji": "hachigatsu tsuitachi made desu.",
-    "es": "Hasta el 1 de agosto."
+    "es": "Hasta el 1 de agosto.",
+    "en": "Until August 1st."
    },
    {
     "speaker": "A",
     "ja": "そう ですか。 ありがとう ございます。",
     "romaji": "sou desuka. arigatou gozaimasu.",
-    "es": "Ya veo. Muchas gracias."
+    "es": "Ya veo. Muchas gracias.",
+    "en": "I see. Thank you very much."
    },
    {
     "speaker": "B",
     "ja": "どういたしまして。",
     "romaji": "douitashimashite.",
-    "es": "De nada."
+    "es": "De nada.",
+    "en": "You're welcome."
    }
   ]
  },
  {
   "id": "en-la-biblioteca",
   "title": "Reglas en la biblioteca",
+  "titleEn": "Rules in the library",
   "lesson": "G6",
   "lines": [
    {
     "speaker": "A",
     "ja": "すみません、ここ で ごはん を たべても いい ですか？",
     "romaji": "sumimasen, koko de gohan o tabetemo ii desuka?",
-    "es": "Disculpe, ¿puedo comer aquí?"
+    "es": "Disculpe, ¿puedo comer aquí?",
+    "en": "Excuse me, may I eat here?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、たべては いけません。",
     "romaji": "iie, tabetewa ikemasen.",
-    "es": "No, no se puede comer."
+    "es": "No, no se puede comer.",
+    "en": "No, you may not eat."
    },
    {
     "speaker": "A",
     "ja": "じゃあ、みず を のんでも いい ですか？",
     "romaji": "jaa, mizu o nondemo ii desuka?",
-    "es": "Entonces, ¿puedo beber agua?"
+    "es": "Entonces, ¿puedo beber agua?",
+    "en": "Then may I drink water?"
    },
    {
     "speaker": "B",
     "ja": "はい、みず は のんでも いい です。",
     "romaji": "hai, mizu wa nondemo ii desu.",
-    "es": "Sí, el agua sí se puede beber."
+    "es": "Sí, el agua sí se puede beber.",
+    "en": "Yes, water is fine."
    },
    {
     "speaker": "A",
     "ja": "ここ で でんわ を つかっても いい ですか？",
     "romaji": "koko de denwa o tsukattemo ii desuka?",
-    "es": "¿Puedo usar el teléfono aquí?"
+    "es": "¿Puedo usar el teléfono aquí?",
+    "en": "May I use the phone here?"
    },
    {
     "speaker": "B",
     "ja": "いいえ、つかっては いけません。 そと で つかって ください。",
     "romaji": "iie, tsukattewa ikemasen. soto de tsukatte kudasai.",
-    "es": "No, no se puede usar. Úselo afuera, por favor."
+    "es": "No, no se puede usar. Úselo afuera, por favor.",
+    "en": "No, you may not. Please use it outside."
    },
    {
     "speaker": "A",
     "ja": "わかりました。 ありがとう ございます。",
     "romaji": "wakarimashita. arigatou gozaimasu.",
-    "es": "Entendido. Muchas gracias."
+    "es": "Entendido. Muchas gracias.",
+    "en": "Understood. Thank you very much."
    }
   ]
  },
  {
   "id": "vacaciones-kioto",
   "title": "Hablar de las vacaciones",
+  "titleEn": "Talking about vacation",
   "lesson": "G5",
   "lines": [
    {
     "speaker": "A",
     "ja": "なつやすみ に どこ に いきましたか？",
     "romaji": "natsuyasumi ni doko ni ikimashitaka?",
-    "es": "¿Adónde fuiste en las vacaciones de verano?"
+    "es": "¿Adónde fuiste en las vacaciones de verano?",
+    "en": "Where did you go during summer vacation?"
    },
    {
     "speaker": "B",
     "ja": "きょうと に いきました。",
     "romaji": "kyouto ni ikimashita.",
-    "es": "Fui a Kioto."
+    "es": "Fui a Kioto.",
+    "en": "I went to Kyoto."
    },
    {
     "speaker": "A",
     "ja": "どう でしたか？",
     "romaji": "dou deshitaka?",
-    "es": "¿Cómo estuvo?"
+    "es": "¿Cómo estuvo?",
+    "en": "How was it?"
    },
    {
     "speaker": "B",
     "ja": "うみ は きれい でした。 ホテル も よかった です。",
     "romaji": "umi wa kirei deshita. hoteru mo yokatta desu.",
-    "es": "El mar era precioso. El hotel también estuvo bien."
+    "es": "El mar era precioso. El hotel también estuvo bien.",
+    "en": "The sea was beautiful. The hotel was good too."
    },
    {
     "speaker": "A",
     "ja": "たべもの は おいしかった ですか？",
     "romaji": "tabemono wa oishikatta desuka?",
-    "es": "¿La comida estuvo rica?"
+    "es": "¿La comida estuvo rica?",
+    "en": "Was the food delicious?"
    },
    {
     "speaker": "B",
     "ja": "ええ、とても おいしかった です。",
     "romaji": "ee, totemo oishikatta desu.",
-    "es": "Sí, estuvo muy rica."
+    "es": "Sí, estuvo muy rica.",
+    "en": "Yes, it was very delicious."
    },
    {
     "speaker": "A",
     "ja": "いい ですね。",
     "romaji": "ii desune.",
-    "es": "Qué bien."
+    "es": "Qué bien.",
+    "en": "That's nice."
    }
   ]
  },
  {
   "id": "sabado-pasado",
   "title": "El sábado pasado",
+  "titleEn": "Last Saturday",
   "lesson": "G5",
   "lines": [
    {
     "speaker": "A",
     "ja": "せんしゅう の どようび は なに を しましたか？",
     "romaji": "senshuu no doyoubi wa nani o shimashitaka?",
-    "es": "¿Qué hiciste el sábado pasado?"
+    "es": "¿Qué hiciste el sábado pasado?",
+    "en": "What did you do last Saturday?"
    },
    {
     "speaker": "B",
     "ja": "ともだち と えいが を みました。",
     "romaji": "tomodachi to eiga o mimashita.",
-    "es": "Vi una película con un amigo."
+    "es": "Vi una película con un amigo.",
+    "en": "I watched a movie with a friend."
    },
    {
     "speaker": "A",
     "ja": "どう でしたか？",
     "romaji": "dou deshitaka?",
-    "es": "¿Cómo estuvo?"
+    "es": "¿Cómo estuvo?",
+    "en": "How was it?"
    },
    {
     "speaker": "B",
     "ja": "おもしろかった です。 でも、ちょっと ながかった です。",
     "romaji": "omoshirokatta desu. demo, chotto nagakatta desu.",
-    "es": "Fue interesante. Pero un poco larga."
+    "es": "Fue interesante. Pero un poco larga.",
+    "en": "It was interesting. But a little long."
    },
    {
     "speaker": "A",
     "ja": "そう ですか。",
     "romaji": "sou desuka.",
-    "es": "Ya veo."
+    "es": "Ya veo.",
+    "en": "I see."
    },
    {
     "speaker": "B",
     "ja": "ロペス さん は？",
     "romaji": "ropesu san wa?",
-    "es": "¿Y usted, señor López?"
+    "es": "¿Y usted, señor López?",
+    "en": "And you, Mr. López?"
    },
    {
     "speaker": "A",
     "ja": "わたし は うち で べんきょう しました。",
     "romaji": "watashi wa uchi de benkyou shimashita.",
-    "es": "Yo estudié en casa."
+    "es": "Yo estudié en casa.",
+    "en": "I studied at home."
    }
   ]
  },
  {
   "id": "que-estas-haciendo",
   "title": "¿Qué estás haciendo?",
+  "titleEn": "What are you doing?",
   "lesson": "G7",
   "lines": [
    {
     "speaker": "A",
     "ja": "もしもし。 いま なに を して いますか？",
     "romaji": "moshimoshi. ima nani o shite imasuka?",
-    "es": "Aló. ¿Qué estás haciendo ahora?"
+    "es": "Aló. ¿Qué estás haciendo ahora?",
+    "en": "Hello? What are you doing now?"
    },
    {
     "speaker": "B",
     "ja": "テレビ を みて います。",
     "romaji": "terebi o mite imasu.",
-    "es": "Estoy viendo televisión."
+    "es": "Estoy viendo televisión.",
+    "en": "I'm watching TV."
    },
    {
     "speaker": "A",
     "ja": "あした いっしょに ごはん を たべませんか？",
     "romaji": "ashita isshoni gohan o tabemasenka?",
-    "es": "¿No quieres comer juntos mañana?"
+    "es": "¿No quieres comer juntos mañana?",
+    "en": "Would you like to eat together tomorrow?"
    },
    {
     "speaker": "B",
     "ja": "いい ですね。 なに を たべたい ですか？",
     "romaji": "ii desune. nani o tabetai desuka?",
-    "es": "Buena idea. ¿Qué quieres comer?"
+    "es": "Buena idea. ¿Qué quieres comer?",
+    "en": "Good idea. What do you want to eat?"
    },
    {
     "speaker": "A",
     "ja": "すし を たべたい です。",
     "romaji": "sushi o tabetai desu.",
-    "es": "Quiero comer sushi."
+    "es": "Quiero comer sushi.",
+    "en": "I want to eat sushi."
    },
    {
     "speaker": "B",
     "ja": "じゃあ、すし を たべましょう。",
     "romaji": "jaa, sushi o tabemashou.",
-    "es": "Entonces, comamos sushi."
+    "es": "Entonces, comamos sushi.",
+    "en": "Then let's eat sushi."
    }
   ]
  },
  {
   "id": "trabajo-y-estudio",
   "title": "Dónde vive y qué hace",
+  "titleEn": "Where you live and what you do",
   "lesson": "G7",
   "lines": [
    {
     "speaker": "A",
     "ja": "いま どこ に すんで いますか？",
     "romaji": "ima doko ni sunde imasuka?",
-    "es": "¿Dónde vives ahora?"
+    "es": "¿Dónde vives ahora?",
+    "en": "Where do you live now?"
    },
    {
     "speaker": "B",
     "ja": "とうきょう に すんで います。",
     "romaji": "toukyou ni sunde imasu.",
-    "es": "Vivo en Tokio."
+    "es": "Vivo en Tokio.",
+    "en": "I live in Tokyo."
    },
    {
     "speaker": "A",
     "ja": "しごと は？",
     "romaji": "shigoto wa?",
-    "es": "¿Y el trabajo?"
+    "es": "¿Y el trabajo?",
+    "en": "And your job?"
    },
    {
     "speaker": "B",
     "ja": "ぎんこう で はたらいて います。 ロペス さん は？",
     "romaji": "ginkou de hataraite imasu. ropesu san wa?",
-    "es": "Trabajo en un banco. ¿Y usted, señor López?"
+    "es": "Trabajo en un banco. ¿Y usted, señor López?",
+    "en": "I work at a bank. And you, Mr. López?"
    },
    {
     "speaker": "A",
     "ja": "わたし は だいがく で にほんご を べんきょう して います。",
     "romaji": "watashi wa daigaku de nihongo o benkyou shite imasu.",
-    "es": "Yo estudio japonés en la universidad."
+    "es": "Yo estudio japonés en la universidad.",
+    "en": "I study Japanese at the university."
    },
    {
     "speaker": "B",
     "ja": "そう ですか。 いい ですね。",
     "romaji": "sou desuka. ii desune.",
-    "es": "Ya veo. Qué bien."
+    "es": "Ya veo. Qué bien.",
+    "en": "I see. That's nice."
    }
   ]
  }
