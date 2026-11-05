@@ -32,6 +32,8 @@ import styles from './conjugation.module.css';
 
 type Mode = 'quiz' | 'table';
 
+const FALLBACK_VOCAB = content.vocab.filter((w) => w.source !== 'core1000');
+
 const TABLE_ROWS = 4;
 
 /**
@@ -50,7 +52,9 @@ export function Conjugation({ words, rounds, sequential, lessonId, patterns, onl
     const out = {} as Record<Category, Word[]>;
     for (const c of CATEGORIES) {
       const own = conjugableWords(words, c);
-      out[c] = own.length > 0 ? own : conjugableWords(content.vocab, c);
+      // fallback without own words: the Genki / teacher vocabulary, never the 575 Core 1000 words the learner may not have
+      // met yet (QA-120; QA-052 is the wider issue of free practice drawing on untaught material)
+      out[c] = own.length > 0 ? own : conjugableWords(FALLBACK_VOCAB, c);
     }
     return out;
   }, [words]);
