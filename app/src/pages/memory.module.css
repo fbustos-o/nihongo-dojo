@@ -22,7 +22,7 @@
   height: 2.75rem;
   flex: none;
   border-radius: 50%;
-  border: 1px solid var(--border);
+  border: 1px solid var(--field-border);
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
@@ -30,6 +30,11 @@
 
 .helpBtn:hover {
   border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+
+.helpBtn:active {
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
 }
 
 .backdrop {
@@ -49,9 +54,10 @@
   max-height: 90vh;
   overflow-y: auto;
   padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
+  box-shadow: var(--shadow);
   color: var(--text);
 }
 
@@ -105,7 +111,7 @@
   min-height: 2.75rem;
   padding: 0.3rem 0.5rem;
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text);
 }
@@ -166,7 +172,7 @@
   min-width: 2.75rem;
   padding: 0.2rem 0.6rem;
   border: 1px dashed var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--text);
   cursor: pointer;

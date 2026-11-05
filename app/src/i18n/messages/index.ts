@@ -1,11 +1,12 @@
 import { common } from './common';
+import { layout } from './layout';
 import { vocab } from './vocab';
 
 /**
  * Register every message area here. Each area is `{ es: Record<key, string>, en: Record<key, string> }` with
  * identical keys. Areas are merged into one flat dictionary per language; keys must be unique across areas.
  */
-export const AREAS = { common, vocab } as const;
+export const AREAS = { common, layout, vocab } as const;
 
 type AreaKeys<A> = A extends { es: infer M } ? keyof M : never;
 export type MessageKey = { [K in keyof typeof AREAS]: AreaKeys<(typeof AREAS)[K]> }[keyof typeof AREAS];

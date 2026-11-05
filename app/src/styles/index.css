@@ -12,6 +12,25 @@
   --accent-contrast: #ffffff;
   --danger: #b00020;
   --ok: #2e7d32;
+  --radius-sm: 0.5rem;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --stage: var(--accent);
+  --stage-soft: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  --stage-1: #b3202a;
+  --stage-1-soft: #fbe9e8;
+  --stage-2: #2f4a8a;
+  --stage-2-soft: #e8edf9;
+  --stage-3: #3d6b1f;
+  --stage-3-soft: #ecf3e1;
+  --stage-4: #8a5a00;
+  --stage-4-soft: #f8efd9;
+  --stage-5: #0b6577;
+  --stage-5-soft: #e0f1f4;
+  --on-stage: #ffffff;
+  --focus: #1a56c4;
+  --shadow-sm: 0 1px 2px rgb(31 27 22 / 0.08);
+  --shadow: 0 2px 8px rgb(31 27 22 / 0.1);
   color-scheme: light dark;
 }
 
@@ -27,6 +46,20 @@
     --accent-contrast: #14110f;
     --danger: #ff6b81;
     --ok: #6fcf74;
+    --stage-1: #e5535c;
+    --stage-1-soft: #2e1719;
+    --stage-2: #8da6f0;
+    --stage-2-soft: #1f2640;
+    --stage-3: #9bc86a;
+    --stage-3-soft: #232e17;
+    --stage-4: #e2b248;
+    --stage-4-soft: #35290f;
+    --stage-5: #4fc3d6;
+    --stage-5-soft: #12303a;
+    --on-stage: #14110f;
+    --focus: #8ab4ff;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+    --shadow: 0 2px 8px rgb(0 0 0 / 0.5);
   }
 }
 
@@ -41,10 +74,38 @@
   --accent-contrast: #14110f;
   --danger: #ff6b81;
   --ok: #6fcf74;
+  --stage-1: #e5535c;
+  --stage-1-soft: #2e1719;
+  --stage-2: #8da6f0;
+  --stage-2-soft: #1f2640;
+  --stage-3: #9bc86a;
+  --stage-3-soft: #232e17;
+  --stage-4: #e2b248;
+  --stage-4-soft: #35290f;
+  --stage-5: #4fc3d6;
+  --stage-5-soft: #12303a;
+  --on-stage: #14110f;
+  --focus: #8ab4ff;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow: 0 2px 8px rgb(0 0 0 / 0.5);
 }
 
 :root[data-theme='light'] {
   color-scheme: light;
+  --stage-1: #b3202a;
+  --stage-1-soft: #fbe9e8;
+  --stage-2: #2f4a8a;
+  --stage-2-soft: #e8edf9;
+  --stage-3: #3d6b1f;
+  --stage-3-soft: #ecf3e1;
+  --stage-4: #8a5a00;
+  --stage-4-soft: #f8efd9;
+  --stage-5: #0b6577;
+  --stage-5-soft: #e0f1f4;
+  --on-stage: #ffffff;
+  --focus: #1a56c4;
+  --shadow-sm: 0 1px 2px rgb(31 27 22 / 0.08);
+  --shadow: 0 2px 8px rgb(31 27 22 / 0.1);
 }
 
 :root[data-theme='dark'] {
@@ -104,14 +165,55 @@ input[type='checkbox'] {
   }
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  letter-spacing: -0.025em;
   margin: 0 0 1rem;
 }
 
 h2 {
   font-size: 1.15rem;
   margin: 0 0 0.5rem;
+}
+
+/* A stage's colour: any element with data-stage="N" exposes --stage / --stage-soft to its subtree. */
+[data-stage='1'] {
+  --stage: var(--stage-1);
+  --stage-soft: var(--stage-1-soft);
+}
+
+[data-stage='2'] {
+  --stage: var(--stage-2);
+  --stage-soft: var(--stage-2-soft);
+}
+
+[data-stage='3'] {
+  --stage: var(--stage-3);
+  --stage-soft: var(--stage-3-soft);
+}
+
+[data-stage='4'] {
+  --stage: var(--stage-4);
+  --stage-soft: var(--stage-4-soft);
+}
+
+[data-stage='5'] {
+  --stage: var(--stage-5);
+  --stage-soft: var(--stage-5-soft);
+}
+
+/* Inline SVG icons (components/Icon.tsx). */
+.ico {
+  flex: none;
+  vertical-align: -0.15em;
 }
 
 a {
@@ -125,9 +227,26 @@ rt {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   padding: 1rem;
   margin-bottom: 1rem;
+}
+
+a.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.card:hover {
+  border-color: var(--stage, var(--accent));
+  box-shadow: var(--shadow);
+}
+
+a.card:active {
+  box-shadow: var(--shadow-sm);
 }
 
 .btn {
@@ -137,16 +256,25 @@ rt {
   justify-content: center;
   min-height: 2.75rem;
   text-decoration: none;
-  padding: 0.5rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text);
+  font-weight: 600;
   cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
-.btn:hover:not(:disabled) {
+.btn:hover:not(:disabled):not([aria-disabled='true']) {
   border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+
+.btn:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
 }
 
 .btn[aria-disabled='true'] {
@@ -158,13 +286,28 @@ rt {
   cursor: not-allowed;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:hover:not(:disabled):not([aria-disabled='true']),
+.btn-primary:active:not(:disabled):not([aria-disabled='true']) {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-contrast);
 }
 
-.btn-danger {
+.btn-primary {
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover:not(:disabled):not([aria-disabled='true']) {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active:not(:disabled):not([aria-disabled='true']) {
+  filter: brightness(0.94);
+}
+
+.btn-danger,
+.btn-danger:hover:not(:disabled):not([aria-disabled='true']) {
   border-color: var(--danger);
   color: var(--danger);
 }
@@ -186,13 +329,18 @@ select {
   font: inherit;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--field-border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text);
 }
 
+input[type='text']:hover,
+select:hover {
+  border-color: var(--text-muted);
+}
+
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
 

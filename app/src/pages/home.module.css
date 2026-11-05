@@ -77,7 +77,8 @@
 
 .big {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0 0 0.5rem;
 }
@@ -107,8 +108,9 @@
 }
 
 .lessonTitle {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
   margin: 0;
 }
 
@@ -127,8 +129,9 @@
 
 .stats dd {
   margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .srs {
@@ -145,7 +148,7 @@
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0.1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   border-top-width: 4px;
   font-size: 0.72rem;
@@ -171,7 +174,7 @@
 
 .srsLink:hover,
 .srsLink:focus-visible {
-  background: var(--bg);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
   border-radius: 0.4rem;
 }
 
