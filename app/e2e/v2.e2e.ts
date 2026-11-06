@@ -3,7 +3,7 @@
 import { test, expect } from './support/fixtures';
 import { stubSpeech } from './support/mobile';
 import { readProgress } from './support/state';
-import { coreLessonJourney, deepLinkRestore, englishJourney, learnJourney, stage5Leaks, vocabJourney } from './support/v2';
+import { coreLessonJourney, deepLinkRestore, englishJourney, flagSwitch, learnJourney, stage5Leaks, vocabJourney } from './support/v2';
 
 test.beforeEach(async ({ page }) => {
   await stubSpeech(page, true);
@@ -42,4 +42,9 @@ test('etapa 5 (c-01 tras な, c-13 tras や・ら, c-29 tras が・ざ): ningún
   void consoleLog;
   test.setTimeout(300_000);
   for (const id of ['c-01', 'c-13', 'c-29']) expect(await stage5Leaks(page, id), id).toEqual([]);
+});
+
+test('banderas en la cabecera: un clic pone interfaz y significados en inglés y vuelve a español', async ({ page, consoleLog }) => {
+  void consoleLog;
+  await flagSwitch(page);
 });

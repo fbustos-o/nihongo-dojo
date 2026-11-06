@@ -1,0 +1,59 @@
+.group {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 2.1rem;
+  padding: 0.15rem 0.55rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font: 700 0.72rem/1 var(--font-ui);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.option:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.current,
+.current:hover {
+  color: var(--accent-contrast);
+  background: var(--accent);
+}
+
+.flag {
+  width: 1.35rem;
+  height: 0.9rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.15);
+  flex-shrink: 0;
+}
+
+/* Narrow phones: flags only, the ES/EN code would push the brand out. */
+@media (max-width: 419px) {
+  .code {
+    display: none;
+  }
+
+  .option {
+    padding-inline: 0.4rem;
+  }
+}

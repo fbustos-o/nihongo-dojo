@@ -6,6 +6,7 @@ import { Celebrations } from './Celebrations';
 import { ErrorBoundary } from './ErrorBoundary';
 import { useT } from '../i18n';
 import { Icon, type IconName } from './Icon';
+import { LangSwitch } from './LangSwitch';
 import { Loading } from './Loading';
 import { useKeyboardOpen } from './useKeyboardOpen';
 import styles from './Layout.module.css';
@@ -39,10 +40,13 @@ export function Layout() {
             {import.meta.env.VITE_CHANNEL && <span className={styles.channel}>{import.meta.env.VITE_CHANNEL} beta</span>}
           </span>
         </span>
-        <NavLink to="/acerca-de" className={styles.about}>
-          <Icon name="info" size={16} />
-          {t('nav.about')}
-        </NavLink>
+        <div className={styles.tools}>
+          <LangSwitch />
+          <NavLink to="/acerca-de" className={styles.about}>
+            <Icon name="info" size={16} />
+            {t('nav.about')}
+          </NavLink>
+        </div>
       </header>
       <nav className={styles.nav} hidden={keyboardOpen} aria-label={t('nav.main')}>
         {LINKS.map((link) => (

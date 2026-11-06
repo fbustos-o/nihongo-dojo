@@ -185,3 +185,22 @@ export async function deepLinkRestore(page: Page): Promise<void> {
   await page.goto('/?r=vocabulario');
   await expect(page.getByRole('heading', { level: 1, name: 'Vocabulario' })).toBeVisible();
 }
+
+/** The flag switcher in the shell: one click sets interface + meanings; the html lang and the nav follow. */
+export async function flagSwitch(page: Page): Promise<void> {
+  await seed(page, buildProgress({ completed: lessonsUpTo('c-01') }), '/');
+  const sw = page.getByTestId('lang-switch');
+  await expect(sw.getByRole('button', { name: 'Español' })).toHaveAttribute('aria-pressed', 'true');
+  await sw.getByRole('button', { name: 'English' }).click();
+  await expect(sw.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.getByRole('heading', { name: "Today's activity" })).toBeVisible();
+  await page.goto('/vocabulario');
+  expect(await page.locator('main').innerText()).not.toMatch(SPANISH_CHARS);
+  const saved = await readProgress(page);
+  expect(saved!.settings.uiLang).toBe('en');
+  expect(saved!.settings.meaningLang).toBe('en');
+  await sw.getByRole('button', { name: 'Español' }).click();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+  await expect(page.getByRole('heading', { level: 1, name: 'Vocabulario' })).toBeVisible();
+}

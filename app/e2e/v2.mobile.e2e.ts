@@ -4,7 +4,7 @@ import { test, expect } from './support/fixtures';
 import { lessonsUpTo } from './support/content';
 import { stubSpeech } from './support/mobile';
 import { buildProgress, seed } from './support/state';
-import { coreLessonJourney, deepLinkRestore, englishJourney, learnJourney, vocabJourney } from './support/v2';
+import { coreLessonJourney, deepLinkRestore, englishJourney, flagSwitch, learnJourney, vocabJourney } from './support/v2';
 
 test.beforeEach(async ({ page }) => {
   await stubSpeech(page, true);
@@ -65,4 +65,9 @@ test('páginas v2 sin scroll horizontal (también a 360 px); barra inferior con 
   const current = page.locator('main a[aria-current="step"]');
   await expect(current).toBeFocused();
   await expect(current).toBeInViewport();
+});
+
+test('banderas en la cabecera (móvil): cambia el idioma sin pasar por Ajustes', async ({ page, consoleLog }) => {
+  void consoleLog;
+  await flagSwitch(page);
 });

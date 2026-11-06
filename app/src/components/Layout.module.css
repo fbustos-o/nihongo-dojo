@@ -227,6 +227,12 @@
     font-size: 0.85rem;
   }
 
+  .tools {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
   .nav {
     grid-column: 1;
     grid-row: 2;
@@ -269,6 +275,13 @@
     max-width: 52rem;
     padding: 1.5rem 2rem 3rem;
   }
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .about {
