@@ -596,3 +596,132 @@ Capturas y logs en el scratchpad de la sesión:
 
 **Estado final de las suites:** `npm test` 1244 ✓ · `test:qa` 287 ✓ · `test:e2e` 47 ✓ · `test:e2e:mobile` 63 ✓ (1 omitida) ·
 `test:e2e:pages` 3 ✓ · `tsc` y `lint` limpios.
+
+
+---
+
+# Parte 4 — Rama v2 (Core 1000, inglés, estética)
+
+Agente QA de la rama `v2` (worktree propio, base `8917fbf` «cabecera «Actividad de hoy»»). Sin Docker: e2e contra
+`vite preview` en :4190 y el proyecto `pages` con su propio servidor. Todo el contenido se corrigió en los generadores y
+datos (`core1000_pos.txt`, `vocab_en.txt`, `patterns_en.py`) y se regeneró; `validate.py` y `verify_kanji.py`: 0 errores.
+
+## 0. Veredicto
+
+**Apta para publicar en `/nihongo-dojo/v2/` tras esta ronda.** Se encontraron 3 hallazgos **Altos** (todos corregidos):
+la forma «おなじな» en Conjugación, el dictado que nunca se jugaba en las 40 lecciones Core y la cabecera de la build `/v2/`
+que ensanchaba la página en móviles de 360 px. Ningún Crítico. Quedan pendientes solo Bajos/Medios de diseño o pedagogía
+(§1, «pendiente»).
+
+## 1. Hallazgos
+
+| Id | Sev. | Área | Descripción | Estado | Archivo |
+|---|---|---|---|---|---|
+| QA-101 | Alto | Core 1000 / pos | おなじ (同じ, rango 94) estaba como `na-adj`: la Conjugación pedía «おなじな» (antes de sustantivo) y «おなじに», que no existen (同じ人). Ahora es `noun` con tag `adjetivo` (solo です/じゃないです, todas correctas). Los 137 verbos nuevos tienen el grupo correcto (revisados uno a uno, incluidos きる 着る/切る, かえる 変える, へる, にる, あびる, できる, くれる, きにいる); los 32 い y los otros 26 な son correctos. | Corregido + test | `tools/content/gen/core1000_pos.txt`, `app/src/lesson/core1000Content.test.ts` |
+| QA-102 | Alto | Lecciones etapa 5 | El 4.º juego de c-01…c-40 (Escribir kana / dictado) **nunca se jugaba**: `LessonRunner` lo descartaba porque la lección no trae kana propios («Juego 1 de 3»). Ahora recibe las palabras de la lección escritas solo con kana conocidos (escribirlas no muestra kana bloqueados) y se salta si no hay ninguna. | Corregido + unit + e2e | `app/src/lesson/LessonRunner.tsx`, `lessonLogic.ts` (`wordsForGame`) |
+| QA-112 | Alto | Móvil / publicación | Con `VITE_CHANNEL=v2` (build de `/v2/` del workflow) la cabecera «道 Nihongo Dojo 日本語道場 V2 BETA · Acerca de» medía 420 px en un viewport de 360: Chrome móvil reduce el zoom de toda la app (mismo efecto que QA-051). La marca ahora cede espacio (`min-width: 0`), «Acerca de» no se encoge y < 420 px se oculta «日本語道場». Medido a 320/360/390 en es y en: `innerWidth` = ancho del dispositivo. | Corregido + e2e (viewport 360) | `app/src/components/Layout.module.css` |
+| QA-103 | Medio | Juegos / distractores | Regresión de QA-014 por Core: con あつい (暑い) aparecía «grueso» (de ふとい) como distractor, y «grueso» también es あつい (厚い, Core 483). `meaningChoices` ahora descarta los significados de cualquier homófono. `test:qa` QA-014 volvía a fallar. | Corregido + test | `app/src/games/wordUtils.ts` |
+| QA-104 | Medio | i18n | En inglés, el «requires: …» de las lecciones bloqueadas del Camino listaba los títulos en español. `shortTitle` usa `lessonTitle(lesson, lang)`. | Corregido + test | `app/src/lesson/lessonLogic.ts`, `pages/PathPage.tsx` |
+| QA-105 | Medio | Glosas Core | Sentidos erróneos o confusos para principiantes: そら «vacío; cielo; desocupado; hueco» → «cielo»; め «…; propósito; orden» → «ojo; vista»; けっこう «…; no; gracias» (partido por la coma) → «no, gracias (al rechazar algo)»; おれ «yo; me» (inglés) → «yo (masculino, informal y brusco)»; あげる 上げる incluía «dar» (es el あげる de dar, rango 168); しめる 締める incluía «cerrar» (choca con 閉める); みせ «posada»; あびる «recibir una lluvia de». Nueva 5.ª columna opcional en `core1000_pos.txt` para sustituir las glosas `es` de Core. | Corregido | `tools/content/gen/build_vocab.py`, `core1000_pos.txt`, `vocab_en.txt` |
+| QA-106 | Medio | Glosas Core | 理解 «comprender (con する)» y 用意 «preparar (con する)» tenían kana en la glosa (`test:qa` QA-031 fallaba): la する podía estar bloqueada. | Corregido | `core1000_pos.txt`, `vocab_en.txt` |
+| QA-110 | Medio | Camino (106 lecciones) | La lección actual podía quedar a varias pantallas (etapas 1, 2 y 5 abiertas a la vez). Botón «Ir a la lección actual» arriba del Camino: despliega su etapa si estaba plegada, la centra y le da el foco (respeta «reducir movimiento»). No se pliegan por defecto las etapas no actuales: la etapa 5 avanza en paralelo a la 1–2. | Corregido + unit + e2e | `app/src/pages/PathPage.tsx`, `i18n/messages/layout.ts` |
+| QA-120 | Medio | Práctica / pedagogía | La Conjugación sin palabras propias (práctica libre) recurría a `content.vocab`, que ahora incluye 137 verbos y 58 adjetivos Core no vistos. El respaldo excluye `source: core1000`. (QA-052, más amplio, sigue abierto.) | Corregido (mitigado) | `app/src/games/conjugation/Conjugation.tsx` |
+| QA-107 | Bajo | Inglés Core | Verbos sin «to» (のぼる, へる, はなしあう, のこる, うけとる, やむ) y «Long time no see» con mayúscula. Test: todo verbo Core empieza por «to …». | Corregido + test | `vocab_en.txt` |
+| QA-108 | Bajo | Inglés patrones | «I hardly ever drink alcohol» para あまり〜ません (→ «I don't drink much alcohol»); «Excuse me, I will take this» (→ «Excuse me, this one, please»); la explicación de て citaba «おきて、あびて、いきます». | Corregido | `tools/content/gen/patterns_en.py` |
+| QA-109 | Bajo | Pruebas | `test:qa` no estaba al día con v2 (esperaba 66 lecciones; el test de grupos verbales confundía 着る/変える con 切る/帰る). | Corregido | `tools/qa/invariants.qa.test.ts`, `linguistic.qa.test.ts` |
+| QA-111 | Bajo | Barra inferior | Con 6 entradas, a 360 px se leía «Vocabul…». Etiqueta corta «Palabras» / «Words» solo en la barra inferior; el nombre accesible sigue siendo «Vocabulario»; ninguna etiqueta recortada (e2e). | Corregido + e2e | `components/Layout.tsx`, `Layout.module.css`, `i18n/messages/common.ts` |
+| QA-113 | Bajo | Accesibilidad | «Palabras nuevas por día» (`input[type=number]`) medía 21 px de alto y los `number`/`search` no tenían el estilo global de campo. Ahora ≥ 44 px y mismo borde/foco que el resto. | Corregido | `styles/index.css` |
+| QA-114 | Bajo | Estética | La tarjeta de Tarjetas usaba el rojo de acento (borde, hover, foco, insignia Core) dentro de un marco con el color de etapa 5. Usa `--stage`. | Corregido | `games/flashcards/flashcards.module.css` |
+| QA-115 | Bajo | Rendimiento | `/vocabulario` (1343 palabras) con CPU ×4 en Pixel 7: carga 0,5 s, 80–200 ms por tecla al buscar, «Mostrar más» ~250 ms por página de 50. Filtro con `useDeferredValue` para que el campo no se bloquee. | Corregido (mitigado) | `pages/VocabPage.tsx` |
+| QA-116 | Bajo | Repo | `app/test-results-mobile/` (con un `trace.zip` de 1,6 MB) y `test-results-mobile2/` estaban versionados. Quitados y añadidos a `.gitignore`. | Corregido | `.gitignore` |
+| QA-117 | Bajo | Inglés / Sintaxis | La fila «Estructura en inglés» de Sintaxis reutiliza el orden de los huecos del español: en `adj-modifying` muestra «Sustantivo · Adjetivo» (en inglés es ADJ N, igual que en japonés) y en `no-possession` «N de N». `SLOTS_EN` sigue ese orden y no se muestra. Arreglo: un orden de huecos propio para el inglés en `patterns_en.py` + `syntaxLogic.buildTable`. | Pendiente | `games/syntax/syntaxLogic.ts`, `tools/content/gen/patterns_en.py` |
+| QA-118 | Bajo | Inicio | La tarjeta «Hoy» repite lo de las tarjetas «Repasos pendientes» y «Siguiente lección» que siguen debajo (en es y en). | Pendiente (diseño) | `pages/HomePage.tsx` |
+| QA-119 | Bajo | Rendimiento | El chunk inicial sigue en 367,7 kB (117 kB gz; total precargado ≈ 554 kB / 174 kB gz con `schemas`, `jsx-runtime` y `esm`), y `vocab.json` solo está en `contentLoader` (475 kB / 110 kB gz, perezoso). Pero la tarjeta Hoy importa `contentLoader` en cada visita al Inicio, así que en la práctica se descarga siempre tras el primer pintado. | Pendiente (aceptable) | `pages/home/TodayCard.tsx` |
+| QA-121 | Bajo | Móvil | A 320 px la insignia «V2 BETA» queda recortada («V2 BE») junto a «Acerca de» (sin scroll). | Pendiente | `components/Layout.module.css` |
+| QA-122 | Bajo | Inglés kanji | Algunas glosas de KANJIDIC son técnicas o raras para un principiante: 画 «brush-stroke», 院 «temple», 神 «mind; soul», 分 «minute of time». | Pendiente | `tools/content/gen/kanji_en.py` |
+| QA-123 | Bajo | Pedagogía etapa 5 | Las lecciones Core se abren con un hito de hiragana (c-01 tras な, c-02 tras ま, c-13 tras や・ら, c-18 tras わ・ん, c-29 tras が・ざ) y nunca exigen katakana: las palabras con kana aún no vistos salen con el kana y su romaji en ruby (decisión QA-036), y los préstamos Core en katakana se muestran en romaji hasta la etapa 3. Es coherente con la regla de la app (umbral del 50–55 % de kana conocidos), pero en c-01 se conoce el 63 % de los kana y 19 de las 25 palabras tienen alguno sin ver (はい, わたし, ありがとう…), y c-02…c-12 abren con ま (54–75 %). | Pendiente (decisión) | `tools/content/gen/build_curriculum.py` |
+
+Verificado sin hallazgo: los 16 emparejamientos manuales de `core1000_matches.txt` son correctos. De los 425 automáticos,
+ninguno empareja una lectura igual con otro sentido (lista revisada entera, ver §2). Ninguna palabra `core1000` tiene en
+`kanji` un carácter fuera de `kanji.json` (55 con `kanji`, 454 solo con `written`). `written` solo se muestra como
+información, en el reverso de las Tarjetas y en Vocabulario. `/?r=camino` termina en `/camino` (también `leccion/…` y
+`vocabulario`).
+
+## 2. Palabras Core dudosas (no cambiadas)
+
+**pos / conjugación**
+
+| Rango | Palabra | Duda |
+|---|---|---|
+| 280 | さいこう 最高 (na-adj) | Lo habitual es 最高の / 最高だ. 「さいこうな」 se oye coloquialmente: se acepta. |
+| 611 | ふつう 普通 (na-adj) | Más frecuente 普通の, aunque 普通な también existe. |
+| 298, 547, 702, 706, 923, 966 | ひつよう, きけん, しあわせ, あんぜん, じゆう, じゃま (na-adj) | Son también sustantivos (las glosas mezclan «peligro / peligroso»…). Los cuatro tiempos con です son correctos en ambos casos. |
+| 236, 323, 660 | できる, みえる, きこえる (ru) | Grupo correcto, pero son potenciales/espontáneos: «みえたい», «できてください» salen en Conjugación aunque son raros. |
+| 276 | くれる (ru) | Imperativo irregular (くれ). La app no pide imperativo, así que no afecta. |
+| 812, 930 | ねんかん, しゅうかん (counter) | Son sufijos de duración (〜年間, 〜週間) más que contadores. Los juegos de números no los usan. |
+
+**Glosas**
+
+| Rango | Palabra | Duda |
+|---|---|---|
+| 300 / 477 | やさしい (Genki «fácil; amable») / やさしい 易しい («fácil; sencillo») | «fácil» está en las dos. No hay ambigüedad en los juegos (se excluyen los homófonos), pero en Vocabulario aparecen dos entradas con «fácil». |
+| 63 | とし 年 «edad; año» | Correcto, pero coincide con ねん / さい en las opciones (las excluye `overlapsMeaning` solo si la primera palabra coincide). |
+| 153 | さけ 酒 «alcohol; licor; vino; sake» | «vino» es una traducción literal de Kanjikana, rara para un hispanohablante. |
+| 326 | もの «cosa; objeto; persona» | «persona» es 者. |
+| 354 | いっぱい «lleno; mucho; una taza» | «una taza» es 一杯 como contador. Es correcto, pero son tres sentidos distintos. |
+| 589 / 5 | いや 嫌 (na-adj) / いや «no (coloquial)» | Homófonos con sentidos distintos: bien separados. |
+
+## 3. Qué se probó
+
+- **Contenido:** los 137 verbos, 32 い, 27 な, 15 expresiones, 14 pronombres, 6 contadores y 40 adverbios nuevos, y los 303
+  sustantivos nuevos, revisados uno a uno (pos, grupo, glosas es/en). Además los 425 emparejamientos (rango, id, glosas
+  de los dos lados), `patterns_en.py` y `dialogues_en.py` completos, 200 líneas de `vocab_en.txt` y los 144 kanji de
+  `kanji_en.py`. Barrido de tildes, kana en glosas, mezcla de idiomas y verbos sin «to».
+- **i18n (Playwright, interfaz en):** Inicio, Camino, Repaso, Memoria, Práctica (los 9 juegos de gramática y Kanji, con 4
+  respuestas cada uno), Vocabulario, Aprender, Ajustes, Acerca de y la primera pantalla de una lección por etapa. Único
+  resto de español: QA-104. Con interfaz es + significados en, se jugaron h-ka, l-saludos, l-hora, l-fechas, l-verbos-1,
+  l-adjetivos-i, kanji-3, kanji-6, c-01 y c-05: las opciones salen siempre en inglés, sin mezcla. Racha en inglés
+  «F S S M T W T», calendario «Sun…Sat» y fechas con `Intl`.
+- **Invariantes (e2e):** c-01, c-13 y c-29 completas sin kana ni kanji bloqueados (fuera del ruby de QA-036 y del
+  `written`). En `/aprender`, 10 tarjetas en orden de rango, solo legibles con los kana conocidos y sin katakana. «Ya la
+  sé» en Vocabulario → Guru, sale de `/aprender`, `nextDue` futuro. 25 palabras nuevas tras c-01 (una vez cada una).
+  Cambiar «Palabras nuevas por día» a 15 → «10 de 15» y «Aprender 5…». Importar un respaldo anterior a v2 aplica los
+  valores por defecto, y exportar/importar conserva `uiLang`, `meaningLang`, `newWordsPerDay` y `daily.newWords` (unit).
+- **Visual / a11y:** capturas a 360×640, 390×844 y 1280×860, claro y oscuro (Inicio, Camino, Vocabulario, Ajustes,
+  Aprender, tarjeta c-01, Diálogos, Reloj, Calendario). Contraste de los colores de etapa ≥ 5,5:1 en claro y ≥ 4,6:1 en
+  oscuro sobre fondo, superficie y `-soft`. Tarjetas a 360×640: «Ya la sé» y «Todavía no» terminan en 577 px, por
+  encima de la barra (586). Barra lateral en escritorio correcta.
+- **Rendimiento:** ver QA-115 y QA-119.
+
+**No probado:** WebKit / iOS Safari reales (sigue QA-047), lectores de pantalla reales, la build publicada en GitHub Pages
+(solo la emulación `pages`).
+
+## 4. Pruebas nuevas
+
+- `app/e2e/v2.e2e.ts` (escritorio): c-01 completa (25 tarjetas → leer → escuchar → dictado), `/vocabulario` (buscar,
+  filtrar, «Ya la sé» → `/aprender`), `/aprender` + tarjeta Hoy + meta diaria, inglés en Ajustes → Inicio, Camino y
+  Tarjetas, `?r=`, e invariante de kana/kanji en c-01, c-13 y c-29.
+- `app/e2e/v2.mobile.e2e.ts` (Pixel 7, iPhone 14): los mismos recorridos con el teclado kana, más páginas v2 sin scroll a
+  360 px (también `innerWidth`), barra de 6 entradas ≥ 44 px sin etiquetas recortadas, e «Ir a la lección actual».
+- `e2e/support/v2.ts` (recorridos compartidos) y `solver.ts`, que ahora resuelve `Tarjetas`.
+- Unit: `lesson/core1000Content.test.ts`, `stage5.test.ts` (dictado), `PathPage.test.tsx` (inglés y salto),
+  `progressStore.test.ts` (importación antigua y exportación v2) y `wordUtils.test.ts` (homófonos).
+
+## 5. Checklist antes de fusionar `v2` en `main`
+
+1. Probar `/nihongo-dojo/v2/` en un Android y un iPhone reales: cabecera con «V2 BETA» sin zoom, barra inferior, teclado
+   kana en el dictado de c-01, y descarga e importación del respaldo.
+2. Jugar c-01 y una sesión de `/aprender` con voz japonesa real (Escuchar y dictado) y sin voz (el dictado pasa a lectura).
+3. Decidir QA-123 (hitos de hiragana de la etapa 5, katakana en Core) y QA-118 (tarjetas repetidas del Inicio).
+4. Repasar las listas de §2 (pos y glosas dudosas) y, si se decide algo, corregirlo en `core1000_pos.txt` (5.ª
+   columna) / `vocab_en.txt` y regenerar.
+5. Comprobar que un progreso real de `main` (exportado) se importa en v2 sin perder nada, y al revés: v2 → `main`
+   (los campos nuevos se ignoran por el esquema de `main`).
+6. Revisar la atribución CC BY 4.0 de Kanjikana (Acerca de y README) y la licencia en `tools/content/gen/core1000/`.
+7. Correr todo: `npm test`, `npm run test:qa`, `npm run lint`, `npm run build`, e2e `chromium`, `pixel7`, `iphone14` y
+   `pages`, más `python3 tools/content/validate.py` y `verify_kanji.py`.
+8. Tras fusionar: quitar `VITE_CHANNEL` / el doble build de `pages.yml` si `/v2/` deja de hacer falta.
+
+**Estado final de las suites (rama QA v2):** `tsc` y `lint` limpios · `npm test` 1324 ✓ · `test:qa` 287 ✓ ·
+e2e `chromium` 53 ✓ · `pixel7` + `iphone14` 75 ✓ (1 omitida, la de siempre) · `pages` 3 ✓ · `validate.py` y `verify_kanji.py`
+sin errores. QA-037 (calendario en iPhone) pasó a la primera esta vez.
